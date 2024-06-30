@@ -1,0 +1,36 @@
+---
+title: "Sharing Data Reports with Liaisons"
+#author: "yourname"
+#date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: yes
+    number_sections: yes
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+R.utils::sourceDirectory(here::here("r", "functions"))
+SSPAN <- readRDS(here::here("data", "symmspan", "sspan_long_clean.Rds"))
+```
+
+
+**A simple way to share data sets with your liaison that will not require them to use R at all is to create an R Markdown report that contains a call to `view_html()`. In order to suppress any message associated with the function that might be distracting, you can also wrap the piped code with `suppressMessages()`.**
+
+**Knitting your file as HTML will allow them to open it in a browser, which will be possible on virtually any device, though a phone would be a terrible device for viewing. Nevertheless, they can see, sort, and filter all within a single file that you send.**
+ 
+```{r}
+suppressMessages(
+SSPAN |>
+  drop_na(symmetryproblemcount) |>
+  view_html()
+)
+```
+

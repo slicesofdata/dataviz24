@@ -1,0 +1,189 @@
+---
+title: "tables"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+include_answers = FALSE
+eval_answers = FALSE
+```
+
+[pixiedust](https://cran.r-project.org/web/packages/pixiedust/vignettes/pixiedust.html)
+
+[Robinson, David. “broom: An R Package for Converting Statistical Analysis Objects Into Tidy Data Frames,” Cornell University Library](https://arxiv.org/pdf/1412.3565v2.pdf).
+
+
+
+```{r, eval=eval_answers, include=include_answers}
+fit <- lm(mpg ~ qsec + factor(am) + wt + factor(gear), 
+          data = mtcars
+          )
+```
+
+```{r}
+broom::tidy(fit)
+```
+
+```{r}
+library(pixiedust)
+dust(fit)
+```
+
+1 Formatting Cell Values
+
+```{r}
+dust(fit) |>
+  sprinkle(cols = c("estimate", "std.error", "statistic"), round = 2)
+```
+
+
+```{r}
+dust(fit) |> 
+  sprinkle(cols = c("estimate", "std.error", "statistic"),
+           round = 3) |>
+  sprinkle(cols = "p.value", fn = quote(pvalString(value))) 
+```
+
+
+2 Columns Names
+
+```{r}
+dust(fit) |> 
+  sprinkle(cols = c("estimate", "std.error", "statistic"),
+           round = 3) |> 
+  sprinkle(cols = "p.value", fn = quote(pvalString(value))) |>
+  sprinkle_colnames(term = "Term", p.value = "P-value")
+
+```
+
+```{r}
+dust(fit) |> 
+  sprinkle(cols = c("estimate", "std.error", "statistic"),
+           round = 3) |>
+  sprinkle(cols = "p.value", fn = quote(pval_string(value))) |> 
+  sprinkle_colnames(term = "Term", p.value = "P-value", 
+                    std.error = "SE", statistic = "T-statistic",
+                    estimate = "Coefficient")
+```
+
+
+```{r}
+dust(fit) |>
+  sprinkle(cols = c("estimate", "std.error", "statistic"),
+           round = 3) |> 
+  sprinkle(cols = "p.value", fn = quote(pvalString(value))) |>
+  sprinkle_colnames("Term", "Coefficient", "SE", "T-statistic", "P-value")
+```
+
+
+3 Replacing Values in the Table
+
+```{r}
+dust(fit) |> 
+  sprinkle(cols = "term", 
+           replace = c("Intercept", "Quarter Mile Time", "Automatic vs. Manual",
+                       "Weight", "Gears: 4 vs. 3", "Gears: 5 vs 3")) |>
+  sprinkle(cols = c("estimate", "std.error", "statistic"),
+           round = 3) |> 
+  sprinkle(cols = "p.value", fn = quote(pvalString(value))) |> 
+  sprinkle_colnames("Term", "Coefficient", "SE", "T-statistic", "P-value")
+
+```
+
+```{r}
+dust(fit) |>
+  sprinkle(rows = 2:3, cols = 3:4, 
+           replace = c(100, 300, 200, 400),
+           italic = TRUE) |>
+  sprinkle(cols = c("estimate", "std.error", "statistic"),
+           round = 3) |> 
+  sprinkle(cols = "p.value", fn = quote(pvalString(value))) |> 
+  sprinkle_colnames("Term", "Coefficient", "SE", "T-statistic", "P-value")
+```
+
+
+4 Borders and Padding
+
+```{r}
+basetable <- dust(fit) |> 
+  sprinkle(cols = c("estimate", "std.error", "statistic"),
+           round = 3) |> 
+  sprinkle(cols = "p.value", fn = quote(pvalString(value))) |> 
+  sprinkle_colnames(term = "Term", estimate = "Coefficient", 
+                    std.error = "SE", statistic = "T-statistic", 
+                    p.value = "P-value") |> 
+  sprinkle_print_method("html")
+
+```
+
+```{r}
+basetable |> 
+  sprinkle(rows = c(2, 4), border_color = "orchid")
+```
+
+
+5 Bold and Italic Text
+
+```{r}
+basetable |> 
+  sprinkle(rows = c(2, 4), bold = TRUE)
+
+basetable |> 
+  sprinkle(rows = c(2, 4), bold = TRUE, italic=TRUE)
+```
+
+6 Backgrounds
+
+```{r}
+basetable |> 
+  sprinkle(rows = c(2, 4), bg = "rgba(218,112,214,.5)")
+
+basetable |>
+  sprinkle(bg_pattern = c("orchid", "plum"))
+```
+
+
+7 Font Sizes and Colors
+
+```{r}
+basetable |>
+  sprinkle(rows = c(2, 4), 
+           font_color = "orchid",
+           font_size = 24,
+           font_size_units = "pt")
+```
+
+8 Dimensions and Alignment
+
+```{r}
+basetable |> 
+  sprinkle(rows = 1, cols = 2, halign = "left", valign = "top", height = 50, width = 50) |>
+  sprinkle(rows = 1, cols = 3, halign = "center", valign = "top", height = 50, width = 50) |> 
+  sprinkle(rows = 1, cols = 4, halign = "right", valign = "top", height = 50, width = 50) |>
+  sprinkle(rows = 2, cols = 2, halign = "left", valign = "middle", height = 50, width = 50) |> 
+  sprinkle(rows = 2, cols = 3, halign = "center", valign = "middle", height = 50, width = 50) |> 
+  sprinkle(rows = 2, cols = 4, halign = "right", valign = "middle", height = 50, width = 50) |> 
+  sprinkle(rows = 3, cols = 2, halign = "left", valign = "bottom", height = 50, width = 50) |> 
+  sprinkle(rows = 3, cols = 3, halign = "center", valign = "bottom", height = 50, width = 50) |>
+  sprinkle(rows = 3, cols = 4, halign = "right", valign = "bottom", height = 50, width = 50)
+```
+
+
+9 Rotating Text
+
+```{r}
+dust(Formaldehyde) |>
+  sprinkle(cols = c("mpg", "disp", "drat", "qsec"),
+           round = 2) |>
+  sprinkle(rows = 1,
+           rotate_degree = -90,
+           height = 60,
+           part = "head") |>
+  sprinkle_print_method("html")
+```
+
+
+
+

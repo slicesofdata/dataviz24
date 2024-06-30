@@ -1,0 +1,2823 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gabriel I. Cook">
+<meta name="dcterms.date" content="2024-03-29">
+
+<title>PSYC166 - Examining Relationships in Variables of Cognition</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/78ddb093ea.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title"><strong>PSYC166</strong></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text"><strong>Home</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus/syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><strong>Syllabus</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../modules/index.html" rel="" target="">
+ <span class="menu-text"><strong>Modules</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../project/index.html" rel="" target="">
+ <span class="menu-text"><strong>Project</strong></span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Slides</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../slides/01_intro_rstudio_rmarkdown_slides.html" rel="" target="">
+ <span class="dropdown-text">R, RStudio, &amp; R Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/02_git_slides.html" rel="" target="">
+ <span class="dropdown-text">Git and GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/03_functions_slides.html" rel="" target="">
+ <span class="dropdown-text">Functions, Parameters, and Arguments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/04_vectors_and_data_frames_slides.html" rel="" target="">
+ <span class="dropdown-text">Vectors and Data Frames</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/05_importing_and_exporting_slides.html" rel="" target="">
+ <span class="dropdown-text">Importing and Exporting Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/06_variables_cognition_slides.html" rel="" target="">
+ <span class="dropdown-text">Variables, Measures of Cognition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/07_manipulating_data_selecting_filtering_mutating_slides.html" rel="" target="">
+ <span class="dropdown-text">Manipulating Data: Selecting, Filtering, &amp; Mutating</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/08_cognitive_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Cognitive Task Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/09_summarizing_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Grouping and Summarizing Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/09_summarizing_data_advanced_slides.html" rel="" target="">
+ <span class="dropdown-text">Grouping and Summarizing Data (Advanced)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/10_cognitive_data_summary_slides.html" rel="" target="">
+ <span class="dropdown-text">Summarizing Task Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/07_manipulating_data_pivoting_slides.html" rel="" target="">
+ <span class="dropdown-text">Transforming Data: Pivoting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/13_joining_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Joining Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/11_visualizing_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Visualizing Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/12_examining_relationships_slides.html" rel="" target="">
+ <span class="dropdown-text">Examining Relationships</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/14_strings_and_factors_slides.html" rel="" target="">
+ <span class="dropdown-text">Strings, Factors, and Regular Expressions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/16_models_project_slides.html" rel="" target="">
+ <span class="dropdown-text">Discussing Models for Cognitive Tasks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/17_linear_models_slides.html" rel="" target="">
+ <span class="dropdown-text">Linear Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/18_eda_slides.html" rel="" target="">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hw" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>HW</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW01.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW02.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW03.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW04.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW05.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW06.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW07.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW08.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW09.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 09</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW10.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 10</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Exercises</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li>
+    <a class="dropdown-item" href="../exercises/using_git_with_projects_exercise.Rmd" rel="" target="">
+ <span class="dropdown-text">using_git_with_projects_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/functions_exercise.docx" rel="" target="">
+ <span class="dropdown-text">functions_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/vectors_and_dataframes_exercise.docx" rel="" target="">
+ <span class="dropdown-text">vectors_and_dataframes_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/imorting_and_exporting_exercise.docx" rel="" target="">
+ <span class="dropdown-text">importing_and_exporting_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/transforming_exercise.docx" rel="" target="">
+ <span class="dropdown-text">transforming_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/summarizing_exercise.docx" rel="" target="">
+ <span class="dropdown-text">summarizing_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/pivoting_exercise.docx" rel="" target="">
+ <span class="dropdown-text">pivoting_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/visualization_exercise.docx" rel="" target="">
+ <span class="dropdown-text">visualizing_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/joining_exercise.docx" rel="" target="">
+ <span class="dropdown-text">joining_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/strings_and_factors_exercise.docx" rel="" target="">
+ <span class="dropdown-text">strings_and_factors_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/linear_models_exercise.Rmd" rel="" target="">
+ <span class="dropdown-text">linear_models_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/eda_exercise.docx" rel="" target="">
+ <span class="dropdown-text">eda_exercise.docx</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Data</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/slicesofdata/dataviz23/raw/main/data/cms-top-all-time-2023-swim.zip" rel="" target="">
+ <span class="dropdown-text">cms-top-all-time-2023-swim.xlsx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/rfordatascience/tidytuesday" rel="" target="">
+ <span class="dropdown-text">Fun Tidy Tuesday Data Sets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
+ <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cheatsheets" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Cheatsheets</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cheatsheets">    
+        <li>
+    <a class="dropdown-item" href="../cheatsheets_and_tips/symbols.html" rel="" target="">
+ <span class="dropdown-text">Symbols</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/rmarkdown-2.0.pdf" rel="" target="">
+ <span class="dropdown-text">RMarkdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" rel="" target="">
+ <span class="dropdown-text">Data Wrangling with {dplyr} and {tidyr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/quarto.html" rel="" target="">
+ <span class="dropdown-text">Quarto (Publish and Share)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/strings.html" rel="" target="">
+ <span class="dropdown-text">String Manipulation with {stringr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/data-import.html" rel="" target="">
+ <span class="dropdown-text">Reading and Writing Data with {readr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/Data_Science_With_R_Workflow.pdf" rel="" target="">
+ <span class="dropdown-text">Data Science with RWorkflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/" rel="" target="">
+ <span class="dropdown-text">More Cheatsheets From RStudio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://images.datacamp.com/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf" rel="" target="">
+ <span class="dropdown-text">Quarto Cheat Sheet (what Quarto Files Look Like)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../resources/tools.html" rel="" target="">
+ <span class="menu-text"><strong>Other Tools</strong></span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/slicesofdata" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gabrielcook.xyz" rel="" target="">
+ <span class="menu-text">Me</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/16_examining_relationships_in_variables_of_cognition.html"><strong>Examining Relationships in Variables of Cognition</strong></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Syllabus</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Installing R &amp; RStudio</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/01_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Introduction to RStudio and R Markdown</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Management 01: Installing and Setting Up Git and GitHub for R</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_using_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Management 02: R Projects, Git, and GitHub</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/04_functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Functions, Arguments, and R scripts</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/05_vectors_and_data_frame_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Vectors and Data Frame Basics</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/06_importing_and_exporting_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Importing and Exporting Data Frames</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/07_variables_and_measures_of_cognition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Variables and Measures of Cognition</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/08_manipulating_data_selecting_filtering_mutating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Selecting, Filtering, &amp; Mutating</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/09_working_with_cognitive_task_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Working with Cognitive Task Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/10_summarizing_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/11_summarizing_cognitive_task_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Cognitive Task Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/12_manipulating_data_pivoting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Transforming Data Frames: Pivoting</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/13_visualizing_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Visualizing Data: {ggplot} and the grammar of graphics</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/14_joining_relational_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Joining Relational Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/15_joining_project_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Joining Project Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/16_examining_relationships_in_variables_of_cognition.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><strong>Examining Relationships in Variables of Cognition</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/17_strings_and_factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">secret functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/18_linear_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Linear Models</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/19_exploratory_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Exploratory Data Analysis</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/summarizing_data_advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Data: Using <code>across()</code> and Lists</strong></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../project/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Team membership and roles</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/02_project_midterm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Midterm presentation</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/03_project_final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Final Presentation</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/04_project_report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Final Report</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/05_project_tasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Tasks</strong></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
+  <ul class="collapse">
+  <li><a href="#readings-and-preparation" id="toc-readings-and-preparation" class="nav-link" data-scroll-target="#readings-and-preparation"><strong>Readings and Preparation</strong></a></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
+  </ul></li>
+  <li><a href="#correlations" id="toc-correlations" class="nav-link" data-scroll-target="#correlations"><strong>Correlations</strong></a>
+  <ul class="collapse">
+  <li><a href="#getting-a-data-frame" id="toc-getting-a-data-frame" class="nav-link" data-scroll-target="#getting-a-data-frame"><strong>Getting a Data Frame</strong></a></li>
+  <li><a href="#arranging-variables-as-columns" id="toc-arranging-variables-as-columns" class="nav-link" data-scroll-target="#arranging-variables-as-columns"><strong>Arranging Variables as Columns</strong></a></li>
+  <li><a href="#pivot-wide" id="toc-pivot-wide" class="nav-link" data-scroll-target="#pivot-wide"><strong>Pivot Wide</strong></a></li>
+  </ul></li>
+  <li><a href="#correlate" id="toc-correlate" class="nav-link" data-scroll-target="#correlate"><strong>Correlate</strong></a>
+  <ul class="collapse">
+  <li><a href="#correlating-variables-using-cor" id="toc-correlating-variables-using-cor" class="nav-link" data-scroll-target="#correlating-variables-using-cor"><strong>Correlating Variables using <code>cor()</code></strong></a></li>
+  <li><a href="#dealing-with-nas-missing-observations" id="toc-dealing-with-nas-missing-observations" class="nav-link" data-scroll-target="#dealing-with-nas-missing-observations"><strong>Dealing with <code>NA</code>s (Missing Observations)</strong></a></li>
+  <li><a href="#correlating-matrices" id="toc-correlating-matrices" class="nav-link" data-scroll-target="#correlating-matrices"><strong>Correlating Matrices</strong></a></li>
+  </ul></li>
+  <li><a href="#correlating-across-sub-groups" id="toc-correlating-across-sub-groups" class="nav-link" data-scroll-target="#correlating-across-sub-groups"><strong>Correlating Across Sub-Groups</strong></a></li>
+  <li><a href="#an-alternative-to-cor-correlation" id="toc-an-alternative-to-cor-correlation" class="nav-link" data-scroll-target="#an-alternative-to-cor-correlation"><strong>An Alternative to <code>cor()</code>: {correlation}</strong></a>
+  <ul class="collapse">
+  <li><a href="#correlating-with-correlation" id="toc-correlating-with-correlation" class="nav-link" data-scroll-target="#correlating-with-correlation"><strong>Correlating with <code>correlation()</code></strong></a></li>
+  <li><a href="#correlating-complete-cases" id="toc-correlating-complete-cases" class="nav-link" data-scroll-target="#correlating-complete-cases"><strong>Correlating Complete Cases</strong></a></li>
+  </ul></li>
+  <li><a href="#zero-order-part-and-partial-correlations" id="toc-zero-order-part-and-partial-correlations" class="nav-link" data-scroll-target="#zero-order-part-and-partial-correlations"><strong>Zero-Order, Part and Partial Correlations</strong></a>
+  <ul class="collapse">
+  <li><a href="#calculating-partial-correlations" id="toc-calculating-partial-correlations" class="nav-link" data-scroll-target="#calculating-partial-correlations"><strong>Calculating Partial Correlations`</strong></a></li>
+  </ul></li>
+  <li><a href="#visualizing-relationships" id="toc-visualizing-relationships" class="nav-link" data-scroll-target="#visualizing-relationships"><strong>Visualizing Relationships</strong></a>
+  <ul class="collapse">
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"><strong>Tables</strong></a></li>
+  <li><a href="#scatterplots-using-geom_point-and-geom_smooth" id="toc-scatterplots-using-geom_point-and-geom_smooth" class="nav-link" data-scroll-target="#scatterplots-using-geom_point-and-geom_smooth"><strong>Scatterplots using <code>geom_point()</code> and <code>geom_smooth()</code></strong></a></li>
+  <li><a href="#generalized-pairs-plot-using-ggallyggpairs" id="toc-generalized-pairs-plot-using-ggallyggpairs" class="nav-link" data-scroll-target="#generalized-pairs-plot-using-ggallyggpairs"><strong>Generalized Pairs Plot using <code>GGally::ggpairs()</code></strong></a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
+  <li><a href="#session-information" id="toc-session-information" class="nav-link" data-scroll-target="#session-information"><strong>Session Information</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>Examining Relationships in Variables of Cognition</strong></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gabriel I. Cook </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 29, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="overview" class="level1">
+<h1><strong>Overview</strong></h1>
+<p>We will explore some ways to examine relationships among variables. The focus will be on using Pearson’s <em>r</em> correlation to examine linear relationships and presenting a correlation matrix as a table. We will also visualize variable relationships in the form of scatterplots, faceted scatterplots, and generalized pairs plots.</p>
+<section id="readings-and-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="readings-and-preparation"><strong>Readings and Preparation</strong></h2>
+<p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time. Work through some examples so that you have a good idea of your level of understanding and confidence.</p>
+<p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing code through exercises.</p>
+</section>
+<section id="libraries" class="level2">
+<h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
+<ul>
+<li><strong>{here}</strong> 1.0.1: for file path management</li>
+<li><strong>{dplyr}</strong> 1.1.4: for data frame manipulation</li>
+<li><strong>{tidyr}</strong> 1.3.0: for data frame transformation</li>
+<li><strong>{correlation}</strong> 0.8.4: for correlations; from <strong>{easystats}</strong> ecosystem</li>
+<li><strong>{ggplot2}</strong> 3.4.4: for data visualization</li>
+<li><strong>{GGally}</strong> 1.3.0: for generalized pairs plots</li>
+</ul>
+<p>Other: - <strong>{insight}</strong> 0.19.7: for model post processing</p>
+</section>
+</section>
+<section id="correlations" class="level1">
+<h1><strong>Correlations</strong></h1>
+<p>Correlation refers to a statistical measure that describes the extent to which two variables change together. Correlation measures quantify the relationship between two variables. A positive correlation indicates that the variables tend to move in the same direction, whereas a negative correlation suggests that they move in opposite directions. When variables are uncorrelated, the variability in one variable cannot be explained by the other variable. Some common correlation coefficients include Pearson’s product-moment correlation coefficient, Spearman’s rank correlation coefficient, and Kendall tau correlation coefficient.</p>
+<section id="getting-a-data-frame" class="level2">
+<h2 class="anchored" data-anchor-id="getting-a-data-frame"><strong>Getting a Data Frame</strong></h2>
+<p>We will use a long-format data file that contains repeated measures of a variable.</p>
+</section>
+<section id="arranging-variables-as-columns" class="level2">
+<h2 class="anchored" data-anchor-id="arranging-variables-as-columns"><strong>Arranging Variables as Columns</strong></h2>
+<p>When you want to correlate variables, you will need to have them as vectors of the same length. If those vectors are in data frames, you will want to arrange the variables you wish to correlate as column variables in in the data frame. If, for example, you want to correlate variables that are</p>
+<p>You see that <code>var1</code> and <code>var2</code> are measured repeatedly at each <code>time</code>. Some individuals have data for one, two, or three time points. In order to correlate the <code>var1</code> or <code>var2</code> performance across the different time points, the data need to be arranged as columns in the data frame.</p>
+</section>
+<section id="pivot-wide" class="level2">
+<h2 class="anchored" data-anchor-id="pivot-wide"><strong>Pivot Wide</strong></h2>
+<p>Pivot the data frame to take the levels of <code>time</code> to create new column variables by taking the values from the <code>var1</code> and <code>var2</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(WIDE <span class="ot">&lt;-</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  LONG <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>( </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from  =</span> time,            <span class="co"># the measurement time variable</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="fu">c</span>(var1, var2)    <span class="co"># two types of variables measured</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 576 × 8
+   id    group var1_1 var1_2 var1_3 var2_1 var2_2 var2_3
+   &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1 AQAFS A         32     NA     NA      0     NA     NA
+ 2 AQAMF A         16     NA     NA      4     NA     NA
+ 3 AQAMS A         27     33     19      5      4     11
+ 4 AQAQQ A         37     NA     22      6     NA      6
+ 5 AQAQP A         41     40     39      1      3      2
+ 6 AQAYR A         34     42     36      6      1     11
+ 7 AQASY A         29     24     NA      5      5     NA
+ 8 AQARM A          0     NA      8     23     NA      7
+ 9 AQFAF A         20     16     NA      4      6     NA
+10 AQFJA A         31     19     21     26     24      3
+# ℹ 566 more rows</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="correlate" class="level1">
+<h1><strong>Correlate</strong></h1>
+<p>Using the correlation function, <code>cor()</code>, you can correlate data from two vectors. Looking at the function, you see that there are parameters for the correlation <code>method</code> and the values to <code>use</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="cn">NULL</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span> <span class="st">"everything"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="fu">c</span>(<span class="st">"pearson"</span>, <span class="st">"kendall"</span>, <span class="st">"spearman"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Key Parameters/Arguments</strong></p>
+<ul>
+<li><code>x</code>: a numeric vector, matrix or data frame</li>
+<li><code>y</code>: NULL (default) or a vector, matrix or data frame with compatible dimensions to x. The default is equivalent to y = x (but more efficient).</li>
+<li><code>na.rm</code>: logical. Should missing values be removed?</li>
+<li><code>use</code>: an optional character string giving a method for computing covariances in the presence of missing values. This must be (an abbreviation of) one of the strings “everything”, “all.obs”, “complete.obs”, “na.or.complete”, or “pairwise.complete.obs”.</li>
+<li><code>method</code>: a character string indicating which correlation coefficient (or covariance) is to be computed. One of “pearson” (default), “kendall”, or “spearman”: can be abbreviated.</li>
+</ul>
+<section id="correlating-variables-using-cor" class="level2">
+<h2 class="anchored" data-anchor-id="correlating-variables-using-cor"><strong>Correlating Variables using <code>cor()</code></strong></h2>
+<p>Out of the box, however, <code>cor()</code> will require some modifications. If you specify an <code>x</code> and a <code>y</code> variable to correlate, the default <code>method = "person</code> which means that Pearson’s <em>r</em> will be correlated.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">x =</span> WIDE<span class="sc">$</span>var1_1, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> WIDE<span class="sc">$</span>var1_2</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+</section>
+<section id="dealing-with-nas-missing-observations" class="level2">
+<h2 class="anchored" data-anchor-id="dealing-with-nas-missing-observations"><strong>Dealing with <code>NA</code>s (Missing Observations)</strong></h2>
+<p>But if there are <code>NA</code>s, you will see that the correlation is returned as <code>NA</code>. This is because <code>use = "everything"</code>, which means that <em>all</em> values will be included in the correlation computation. However, just like other functions (e.g., <code>mean()</code>, etc.), when there are <code>NA</code>s, the correlation will be <code>NA</code>.</p>
+<p>In order to correlate only the complete cases, for which individuals have data for both <code>x</code> and <code>y</code> variables, pass <code>use = "complete.obs"</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="at">x =</span> WIDE<span class="sc">$</span>var1_1, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> WIDE<span class="sc">$</span>var1_2,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span> <span class="st">"complete.obs"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.577295</code></pre>
+</div>
+</div>
+</section>
+<section id="correlating-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="correlating-matrices"><strong>Correlating Matrices</strong></h2>
+<p>Correlating more than two variables, however, is quite common. The <code>x</code> parameter in <code>cor()</code> will also take a matrix, so you can pass a data frame that contains the <em>numeric</em> variables you wish to correlate.</p>
+<p>Selecting specific variables is easy using <code>:</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(var1_1<span class="sc">:</span>var2_3) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(<span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           var1_1     var1_2     var1_3     var2_1     var2_2     var2_3
+var1_1  1.0000000  0.5369649  0.4126811 -0.4877476 -0.3259415 -0.2694527
+var1_2  0.5369649  1.0000000  0.6122694 -0.3838897 -0.6045711 -0.4540006
+var1_3  0.4126811  0.6122694  1.0000000 -0.3138597 -0.3748611 -0.4750568
+var2_1 -0.4877476 -0.3838897 -0.3138597  1.0000000  0.5824039  0.5119893
+var2_2 -0.3259415 -0.6045711 -0.3748611  0.5824039  1.0000000  0.6204512
+var2_3 -0.2694527 -0.4540006 -0.4750568  0.5119893  0.6204512  1.0000000</code></pre>
+</div>
+</div>
+<p>But if you wanted to correlate all numeric variables, you can select columns that are numeric by using <code>where()</code>. All you need to do is pass an argument for a function, for example, <code>fn = is.numeric</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(<span class="at">fn =</span> is.numeric)) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  var1_1 var1_2 var1_3 var2_1 var2_2 var2_3
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1     32     NA     NA      0     NA     NA
+2     16     NA     NA      4     NA     NA
+3     27     33     19      5      4     11
+4     37     NA     22      6     NA      6
+5     41     40     39      1      3      2
+6     34     42     36      6      1     11</code></pre>
+</div>
+</div>
+<p>You see that all other variables are no longer in the data frame. With only numeric variables, if the entire data frame is passed as the argument to <code>x</code> in <code>cor()</code>, all variables will be correlated with each other.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(<span class="at">fn =</span> is.numeric)) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       var1_1 var1_2 var1_3 var2_1 var2_2 var2_3
+var1_1      1     NA     NA     NA     NA     NA
+var1_2     NA      1     NA     NA     NA     NA
+var1_3     NA     NA      1     NA     NA     NA
+var2_1     NA     NA     NA      1     NA     NA
+var2_2     NA     NA     NA     NA      1     NA
+var2_3     NA     NA     NA     NA     NA      1</code></pre>
+</div>
+</div>
+<p>But if there are <code>NA</code>s, you will need to deal with them. There are two options for this. First, you can correlate variables at the pair levels by dropping out the <code>NA</code> for each pair for pairwise correlations (e.g., <code>use = "pairwise.complete.obs"</code> or you can drop out all the <code>NA</code>s to include complete cases <code>use = "complete.obs"</code>. The latter option will correlate data by including only those who have no missing data across all of the variables. Let’s try both options.</p>
+<p>Correlate at the pair level. Drop out those who have not contributed for each x,y pair.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(<span class="at">fn =</span> is.numeric)) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(<span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           var1_1     var1_2     var1_3     var2_1     var2_2     var2_3
+var1_1  1.0000000  0.5772950  0.4325422 -0.4724163 -0.3796002 -0.3368073
+var1_2  0.5772950  1.0000000  0.6067406 -0.4172432 -0.5526024 -0.4589754
+var1_3  0.4325422  0.6067406  1.0000000 -0.3323334 -0.3704202 -0.5220840
+var2_1 -0.4724163 -0.4172432 -0.3323334  1.0000000  0.5747723  0.4700286
+var2_2 -0.3796002 -0.5526024 -0.3704202  0.5747723  1.0000000  0.6242233
+var2_3 -0.3368073 -0.4589754 -0.5220840  0.4700286  0.6242233  1.0000000</code></pre>
+</div>
+</div>
+<p>Use only those who have data for all measurements.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(<span class="at">fn =</span> is.numeric)) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>(<span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           var1_1     var1_2     var1_3     var2_1     var2_2     var2_3
+var1_1  1.0000000  0.5369649  0.4126811 -0.4877476 -0.3259415 -0.2694527
+var1_2  0.5369649  1.0000000  0.6122694 -0.3838897 -0.6045711 -0.4540006
+var1_3  0.4126811  0.6122694  1.0000000 -0.3138597 -0.3748611 -0.4750568
+var2_1 -0.4877476 -0.3838897 -0.3138597  1.0000000  0.5824039  0.5119893
+var2_2 -0.3259415 -0.6045711 -0.3748611  0.5824039  1.0000000  0.6204512
+var2_3 -0.2694527 -0.4540006 -0.4750568  0.5119893  0.6204512  1.0000000</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="correlating-across-sub-groups" class="level1">
+<h1><strong>Correlating Across Sub-Groups</strong></h1>
+<p>If you want to correlate data for subgroups or subsets of your data frame, you will want to create a data-frame summary.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">var1_var2_r =</span> <span class="fu">cor</span>(var1_1, </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                              var2_1,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">use =</span> <span class="st">"complete.obs"</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                              ) </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  group var1_var2_r
+  &lt;chr&gt;       &lt;dbl&gt;
+1 A          -0.457
+2 B          -0.490</code></pre>
+</div>
+</div>
+<p>Add the other correlations:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">var1_var2_r =</span> <span class="fu">cor</span>(var1_1, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                              var1_2,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                              ),</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">var1_var3_r =</span> <span class="fu">cor</span>(var1_1, </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>                              var1_3,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>                              <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>                              ),</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">var2_var2_r =</span> <span class="fu">cor</span>(var1_2, </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>                              var1_3,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>                              <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>                              )</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  group var1_var2_r var1_var3_r var2_var2_r
+  &lt;chr&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+1 A           0.572       0.487       0.618
+2 B           0.576       0.378       0.556</code></pre>
+</div>
+</div>
+</section>
+<section id="an-alternative-to-cor-correlation" class="level1">
+<h1><strong>An Alternative to <code>cor()</code>: {correlation}</strong></h1>
+<p>Base R has useful functions but developers have created better alternatives that are build off of that base functionality. A better approach to correlations, however, is to use <code>correlation()</code> from the <strong>{correlation}</strong> library. The <code>correlation()</code> function from <strong>{correlation}</strong> is a wrapper function for <code>cor()</code>, which means that it uses <code>cor()</code> to perform operations. Thus, understanding the use of <code>cor()</code> in the preceding section is important to understand how <code>correlation()</code> works.</p>
+<p><code>correlation()</code>, however, has several advantages over <code>cor()</code>. The <strong>{correlation}</strong> library is also part of the <strong>{easystats}</strong> ecosystem of libraries. You can load either <strong>{correlation}</strong> or <strong>{easystats}</strong>, though the latter will be more helpful for modeling. You can read more about all of the methods for correlating variables at the <a href="https://easystats.github.io/correlation/articles/types.html"><strong>{correlation}</strong> github page</a>.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">correlation</span>(</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  data,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data2 =</span> <span class="cn">NULL</span>,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">select =</span> <span class="cn">NULL</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">select2 =</span> <span class="cn">NULL</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">rename =</span> <span class="cn">NULL</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"pearson"</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">p_adjust =</span> <span class="st">"holm"</span>,</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">ci =</span> <span class="fl">0.95</span>,</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">bayesian =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">bayesian_prior =</span> <span class="st">"medium"</span>,</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">bayesian_ci_method =</span> <span class="st">"hdi"</span>,</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">bayesian_test =</span> <span class="fu">c</span>(<span class="st">"pd"</span>, <span class="st">"rope"</span>, <span class="st">"bf"</span>),</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">redundant =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">include_factors =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">partial =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">partial_bayesian =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">multilevel =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">ranktransform =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">winsorize =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">standardize_names =</span> <span class="fu">getOption</span>(<span class="st">"easystats.standardize_names"</span>, <span class="cn">FALSE</span>),</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Key Parameters/Arguments</strong></p>
+<ul>
+<li><code>data</code>: a data frame</li>
+<li><code>data2</code>: an optional data frame for pair-wise correlations (e.g., correlate <code>data</code> with <code>data2</code>)</li>
+<li><code>p_adjust</code>: for correcting frequentist correlations</li>
+<li><code>ci</code>: for creating confidence intervals around the correlations</li>
+<li><code>partial</code>: for calculating partial correlations</li>
+<li><code>standardize_names</code>:</li>
+<li><code>winsorize</code>: for trimming data</li>
+</ul>
+<p>Let’s use it to correlate some data.</p>
+<section id="correlating-with-correlation" class="level2">
+<h2 class="anchored" data-anchor-id="correlating-with-correlation"><strong>Correlating with <code>correlation()</code></strong></h2>
+<p>Select the the <code>var1</code> variables, <code>var1_1:var1_3</code> as well as the <code>group</code> variable, group by <code>group</code>, and correlate the pairwise combinations for each group. By default, the correlation will be Pearson’s <em>r</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(var1_1 <span class="sc">:</span> var1_3), group) <span class="sc">|&gt;</span>     <span class="co"># select var1 variables</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Correlation Matrix (pearson-method)
+
+Group | Parameter1 | Parameter2 |    r |       95% CI |    t |  df |         p
+------------------------------------------------------------------------------
+A     |     var1_1 |     var1_2 | 0.57 | [0.45, 0.67] | 8.22 | 139 | &lt; .001***
+A     |     var1_1 |     var1_3 | 0.49 | [0.33, 0.62] | 5.90 | 112 | &lt; .001***
+A     |     var1_2 |     var1_3 | 0.62 | [0.46, 0.74] | 6.90 |  77 | &lt; .001***
+B     |     var1_1 |     var1_2 | 0.58 | [0.43, 0.69] | 7.05 | 100 | &lt; .001***
+B     |     var1_1 |     var1_3 | 0.38 | [0.21, 0.53] | 4.31 | 111 | &lt; .001***
+B     |     var1_2 |     var1_3 | 0.56 | [0.37, 0.70] | 5.56 |  69 | &lt; .001***
+
+p-value adjustment method: Holm (1979)
+Observations: 71-141</code></pre>
+</div>
+</div>
+<p>The correlation table print out from <code>correlation()</code> is organized by group, followed by the pairwise correlations for the variable pairs (e.g., parameters 1 and 2). In addition to <em>r</em>, a 95% confidence interval (CI), <em>t</em>-test, degrees of freedom (<em>df</em>), and <em>p</em> value, are also provided. Because these metrics are important for reporting, all of these are advantages of using <code>correlation()</code>.</p>
+<p>You will also notice that the degrees of freedom are not the same for all variable pairs, thus indicating that the default operation is to use complete observations in a pairwise fashion; rows with <code>NA</code>s for any of the variables are not dropped. The smallest sample sizes correspond to correlation between <code>var1_2</code> and <code>var1_3</code> as attrition rates affected data collected at time 3. Also, the <em>p</em>-values are adjusted by default using Holm’s methods.</p>
+</section>
+<section id="correlating-complete-cases" class="level2">
+<h2 class="anchored" data-anchor-id="correlating-complete-cases"><strong>Correlating Complete Cases</strong></h2>
+<p>If you want to obtain the correlation for cases that contributed to all variables, reduce the data frame by dropping any rows with <code>NA</code>s using <code>drop_na()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(var1_1 <span class="sc">:</span> var1_3), group) <span class="sc">|&gt;</span>     <span class="co"># select var1 variables</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Correlation Matrix (pearson-method)
+
+Group | Parameter1 | Parameter2 |    r |       95% CI |    t | df |         p
+-----------------------------------------------------------------------------
+A     |     var1_1 |     var1_2 | 0.47 | [0.27, 0.63] | 4.60 | 75 | &lt; .001***
+A     |     var1_1 |     var1_3 | 0.40 | [0.19, 0.57] | 3.73 | 75 | &lt; .001***
+A     |     var1_2 |     var1_3 | 0.63 | [0.47, 0.75] | 6.95 | 75 | &lt; .001***
+B     |     var1_1 |     var1_2 | 0.62 | [0.45, 0.75] | 6.41 | 66 | &lt; .001***
+B     |     var1_1 |     var1_3 | 0.42 | [0.20, 0.60] | 3.74 | 66 | &lt; .001***
+B     |     var1_2 |     var1_3 | 0.56 | [0.37, 0.71] | 5.53 | 66 | &lt; .001***
+
+p-value adjustment method: Holm (1979)
+Observations: 68-77</code></pre>
+</div>
+</div>
+<p>You will see that the data are now reduced to those who contributed to all measures.</p>
+</section>
+</section>
+<section id="zero-order-part-and-partial-correlations" class="level1">
+<h1><strong>Zero-Order, Part and Partial Correlations</strong></h1>
+<p>When you calculate the correlation between two variables (bivariate correlation), <code>hours studied</code> (predictor) and <code>grade performance</code> (outcome), the value represents the association between the two variables without regard to other variables. This is referred to as a <strong>zero-order correlation</strong>. A zero-order correlation provided a basic idea of how two variables are related but it does not take into account any other factors that might also influence the two variables.</p>
+<p>A <strong>partial correlation</strong> represents the correlation between the two variables after <em>statistically controlling for</em> the influence of other variables on <strong>both</strong> variables. For instance, the correlation between the <code>hours studied</code> and <code>grade performance</code> while controlling for one or more potentially confounding variables (e.g., <code>study quality</code>, etc.). Thus, the partial correlation between , the predictor, <code>hours studied</code>, and the outcome variable, <code>grade performance</code> takes into account the relationship between the predictor and <code>study quality</code> and the outcome variables and <code>study quality</code>. In other words, the partial correlation is the unique measure of correlation between two variables that statically removes overlapping relationships with other variables.</p>
+<p>The <strong>part correlation</strong> (aka semi-partial) also controls for outside influence. Unlike the partial correlation, however, the part correlation takes into account the correlation between the other variable(s) (e.g., <code>study quality</code>) and the predictor variable, <code>hours studied</code>. In this example, the part correlation does not take into account <code>study quality</code> and <code>grade performance</code>. Because the latter relationship is not accounted for, some refer to this correlation as <strong>semi-partial</strong>.</p>
+<section id="calculating-partial-correlations" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-partial-correlations"><strong>Calculating Partial Correlations`</strong></h2>
+<p>To calculate partial correlations, pass <code>partial = TRUE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(var1_1 <span class="sc">:</span> var1_3), group) <span class="sc">|&gt;</span>     <span class="co"># select var1 variables</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>(<span class="at">partial =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Correlation Matrix (pearson-method)
+
+Group | Parameter1 | Parameter2 |    r |        95% CI |    t | df |         p
+------------------------------------------------------------------------------
+A     |     var1_1 |     var1_2 | 0.31 | [ 0.09, 0.50] | 2.81 | 75 | 0.013*   
+A     |     var1_1 |     var1_3 | 0.14 | [-0.08, 0.36] | 1.27 | 75 | 0.209    
+A     |     var1_2 |     var1_3 | 0.55 | [ 0.37, 0.69] | 5.71 | 75 | &lt; .001***
+B     |     var1_1 |     var1_2 | 0.51 | [ 0.31, 0.67] | 4.82 | 66 | &lt; .001***
+B     |     var1_1 |     var1_3 | 0.11 | [-0.13, 0.34] | 0.88 | 66 | 0.382    
+B     |     var1_2 |     var1_3 | 0.43 | [ 0.21, 0.60] | 3.82 | 66 | &lt; .001***
+
+p-value adjustment method: Holm (1979)
+Observations: 68-77</code></pre>
+</div>
+</div>
+<p>You see that the sample size again is reduced to include rows with data for all variables. This is because the partial correlation represents the relationship between each variable pair by removing the relationship between each of those two variables and the third variable. In order to remove the relationship between <code>var1_1</code> and <code>var1_2</code> while controlling for the relationship between <code>var1_1</code> and <code>var1_3</code> and <code>var1_2</code> and <code>var1_3</code>. In order for these relationships to be accounted for, only those contributing to all measures will be included in the <strong>partial correlation</strong>.</p>
+<p>As a result, dropping <code>NA</code>s using <code>drop_na()</code> does not change the sample sizes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(var1_1 <span class="sc">:</span> var1_3), group) <span class="sc">|&gt;</span>   </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>(<span class="at">partial =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Correlation Matrix (pearson-method)
+
+Group | Parameter1 | Parameter2 |    r |        95% CI |    t | df |         p
+------------------------------------------------------------------------------
+A     |     var1_1 |     var1_2 | 0.31 | [ 0.09, 0.50] | 2.81 | 75 | 0.012*   
+A     |     var1_1 |     var1_3 | 0.15 | [-0.08, 0.36] | 1.29 | 75 | 0.200    
+A     |     var1_2 |     var1_3 | 0.54 | [ 0.36, 0.68] | 5.60 | 75 | &lt; .001***
+B     |     var1_1 |     var1_2 | 0.51 | [ 0.31, 0.67] | 4.83 | 66 | &lt; .001***
+B     |     var1_1 |     var1_3 | 0.11 | [-0.13, 0.34] | 0.88 | 66 | 0.380    
+B     |     var1_2 |     var1_3 | 0.43 | [ 0.21, 0.60] | 3.82 | 66 | &lt; .001***
+
+p-value adjustment method: Holm (1979)
+Observations: 68-77</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-relationships" class="level1">
+<h1><strong>Visualizing Relationships</strong></h1>
+<section id="tables" class="level2">
+<h2 class="anchored" data-anchor-id="tables"><strong>Tables</strong></h2>
+<p>Presenting the data in tabular form is one of the easiest ways to communicate the relationships between the variables. Moreover, the data are already in a form that is ready for a table. The <strong>{gt}</strong> library provides a simple way to presents data in a table. You can find additional about using the library at the <a href="https://gt.rstudio.com/">{gt} website</a>.</p>
+<p><strong>{gt}</strong> will want to work with data frames, so we need to verify that the correlation matrix is actually a data frame by piping it to <code>is.data.frame()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(var1_1 <span class="sc">:</span> var1_3), group) <span class="sc">|&gt;</span>   </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>(<span class="at">partial =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">is.data.frame</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Great, we know it is. The next step is to simply pipe the data frame to <code>gt::gt()</code> to create a table.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(var1_1 <span class="sc">:</span> var1_3), group) <span class="sc">|&gt;</span>   </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>(<span class="at">partial =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div id="aqpxxptroh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#aqpxxptroh table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#aqpxxptroh thead, #aqpxxptroh tbody, #aqpxxptroh tfoot, #aqpxxptroh tr, #aqpxxptroh td, #aqpxxptroh th {
+  border-style: none;
+}
+
+#aqpxxptroh p {
+  margin: 0;
+  padding: 0;
+}
+
+#aqpxxptroh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#aqpxxptroh .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#aqpxxptroh .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#aqpxxptroh .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#aqpxxptroh .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#aqpxxptroh .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aqpxxptroh .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#aqpxxptroh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#aqpxxptroh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#aqpxxptroh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#aqpxxptroh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#aqpxxptroh .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#aqpxxptroh .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#aqpxxptroh .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#aqpxxptroh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#aqpxxptroh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#aqpxxptroh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#aqpxxptroh .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#aqpxxptroh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aqpxxptroh .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#aqpxxptroh .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#aqpxxptroh .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#aqpxxptroh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aqpxxptroh .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#aqpxxptroh .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#aqpxxptroh .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aqpxxptroh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aqpxxptroh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#aqpxxptroh .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aqpxxptroh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#aqpxxptroh .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#aqpxxptroh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#aqpxxptroh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aqpxxptroh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#aqpxxptroh .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#aqpxxptroh .gt_left {
+  text-align: left;
+}
+
+#aqpxxptroh .gt_center {
+  text-align: center;
+}
+
+#aqpxxptroh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#aqpxxptroh .gt_font_normal {
+  font-weight: normal;
+}
+
+#aqpxxptroh .gt_font_bold {
+  font-weight: bold;
+}
+
+#aqpxxptroh .gt_font_italic {
+  font-style: italic;
+}
+
+#aqpxxptroh .gt_super {
+  font-size: 65%;
+}
+
+#aqpxxptroh .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#aqpxxptroh .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#aqpxxptroh .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#aqpxxptroh .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#aqpxxptroh .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#aqpxxptroh .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#aqpxxptroh .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Group">Group</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Parameter1">Parameter1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Parameter2">Parameter2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="r">r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CI">CI</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CI_low">CI_low</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CI_high">CI_high</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="t">t</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="df_error">df_error</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="p">p</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Method">Method</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n_Obs">n_Obs</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Group" class="gt_row gt_left">A</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_1</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_2</td>
+<td headers="r" class="gt_row gt_right">0.3091192</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">0.09147369</td>
+<td headers="CI_high" class="gt_row gt_right">0.4985784</td>
+<td headers="t" class="gt_row gt_right">2.8149164</td>
+<td headers="df_error" class="gt_row gt_right">75</td>
+<td headers="p" class="gt_row gt_right">1.245767e-02</td>
+<td headers="Method" class="gt_row gt_left">Pearson correlation</td>
+<td headers="n_Obs" class="gt_row gt_right">77</td></tr>
+    <tr><td headers="Group" class="gt_row gt_left">A</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_1</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_3</td>
+<td headers="r" class="gt_row gt_right">0.1476916</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">-0.07889718</td>
+<td headers="CI_high" class="gt_row gt_right">0.3597693</td>
+<td headers="t" class="gt_row gt_right">1.2932286</td>
+<td headers="df_error" class="gt_row gt_right">75</td>
+<td headers="p" class="gt_row gt_right">1.999012e-01</td>
+<td headers="Method" class="gt_row gt_left">Pearson correlation</td>
+<td headers="n_Obs" class="gt_row gt_right">77</td></tr>
+    <tr><td headers="Group" class="gt_row gt_left">A</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_2</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_3</td>
+<td headers="r" class="gt_row gt_right">0.5430397</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">0.36324172</td>
+<td headers="CI_high" class="gt_row gt_right">0.6838431</td>
+<td headers="t" class="gt_row gt_right">5.6005980</td>
+<td headers="df_error" class="gt_row gt_right">75</td>
+<td headers="p" class="gt_row gt_right">1.005176e-06</td>
+<td headers="Method" class="gt_row gt_left">Pearson correlation</td>
+<td headers="n_Obs" class="gt_row gt_right">77</td></tr>
+    <tr><td headers="Group" class="gt_row gt_left">B</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_1</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_2</td>
+<td headers="r" class="gt_row gt_right">0.5111804</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">0.31061211</td>
+<td headers="CI_high" class="gt_row gt_right">0.6681701</td>
+<td headers="t" class="gt_row gt_right">4.8318522</td>
+<td headers="df_error" class="gt_row gt_right">66</td>
+<td headers="p" class="gt_row gt_right">2.522863e-05</td>
+<td headers="Method" class="gt_row gt_left">Pearson correlation</td>
+<td headers="n_Obs" class="gt_row gt_right">68</td></tr>
+    <tr><td headers="Group" class="gt_row gt_left">B</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_1</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_3</td>
+<td headers="r" class="gt_row gt_right">0.1080723</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">-0.13380040</td>
+<td headers="CI_high" class="gt_row gt_right">0.3377935</td>
+<td headers="t" class="gt_row gt_right">0.8831565</td>
+<td headers="df_error" class="gt_row gt_right">66</td>
+<td headers="p" class="gt_row gt_right">3.803573e-01</td>
+<td headers="Method" class="gt_row gt_left">Pearson correlation</td>
+<td headers="n_Obs" class="gt_row gt_right">68</td></tr>
+    <tr><td headers="Group" class="gt_row gt_left">B</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_2</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_3</td>
+<td headers="r" class="gt_row gt_right">0.4253243</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">0.20799113</td>
+<td headers="CI_high" class="gt_row gt_right">0.6026371</td>
+<td headers="t" class="gt_row gt_right">3.8178939</td>
+<td headers="df_error" class="gt_row gt_right">66</td>
+<td headers="p" class="gt_row gt_right">5.993056e-04</td>
+<td headers="Method" class="gt_row gt_left">Pearson correlation</td>
+<td headers="n_Obs" class="gt_row gt_right">68</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+<p>The table is somewhat busy, so we should clean it up a bit. We don’t need the <code>Method</code> variable and we can also round all of the values that are numeric in the data frame in order to improve appearance. We need to pass arguments to <code>.cols</code> and <code>.fns</code>. Using <strong>{dplyr}</strong>, we can <code>mutate()</code> <code>across()</code> columns <code>where()</code> the data are numeric and then pass a function that will iterate across all of those columns. Let’s just round by 3 digits. If you desire more rounding granularity, you can round specific columns if you don’t want the same rounding rule applied to all values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(var1_1 <span class="sc">:</span> var1_3), group) <span class="sc">|&gt;</span>   </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlation</span>(<span class="at">partial =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Method) <span class="sc">|&gt;</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">where</span>(is.numeric),  <span class="co"># where the columns are numeric </span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">.fns =</span> <span class="sc">~</span><span class="fu">round</span>(.x, <span class="dv">3</span>))       <span class="co"># apply the rounding function</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div id="xdqeacvxbq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xdqeacvxbq table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xdqeacvxbq thead, #xdqeacvxbq tbody, #xdqeacvxbq tfoot, #xdqeacvxbq tr, #xdqeacvxbq td, #xdqeacvxbq th {
+  border-style: none;
+}
+
+#xdqeacvxbq p {
+  margin: 0;
+  padding: 0;
+}
+
+#xdqeacvxbq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xdqeacvxbq .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xdqeacvxbq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xdqeacvxbq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xdqeacvxbq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xdqeacvxbq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xdqeacvxbq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xdqeacvxbq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xdqeacvxbq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xdqeacvxbq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xdqeacvxbq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xdqeacvxbq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xdqeacvxbq .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xdqeacvxbq .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xdqeacvxbq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xdqeacvxbq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xdqeacvxbq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xdqeacvxbq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xdqeacvxbq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xdqeacvxbq .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xdqeacvxbq .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xdqeacvxbq .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xdqeacvxbq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xdqeacvxbq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xdqeacvxbq .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xdqeacvxbq .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xdqeacvxbq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xdqeacvxbq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xdqeacvxbq .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xdqeacvxbq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xdqeacvxbq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xdqeacvxbq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xdqeacvxbq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xdqeacvxbq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xdqeacvxbq .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xdqeacvxbq .gt_left {
+  text-align: left;
+}
+
+#xdqeacvxbq .gt_center {
+  text-align: center;
+}
+
+#xdqeacvxbq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xdqeacvxbq .gt_font_normal {
+  font-weight: normal;
+}
+
+#xdqeacvxbq .gt_font_bold {
+  font-weight: bold;
+}
+
+#xdqeacvxbq .gt_font_italic {
+  font-style: italic;
+}
+
+#xdqeacvxbq .gt_super {
+  font-size: 65%;
+}
+
+#xdqeacvxbq .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xdqeacvxbq .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xdqeacvxbq .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xdqeacvxbq .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xdqeacvxbq .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xdqeacvxbq .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xdqeacvxbq .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Group">Group</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Parameter1">Parameter1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Parameter2">Parameter2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="r">r</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CI">CI</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CI_low">CI_low</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="CI_high">CI_high</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="t">t</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="df_error">df_error</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="p">p</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n_Obs">n_Obs</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Group" class="gt_row gt_left">A</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_1</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_2</td>
+<td headers="r" class="gt_row gt_right">0.309</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">0.091</td>
+<td headers="CI_high" class="gt_row gt_right">0.499</td>
+<td headers="t" class="gt_row gt_right">2.815</td>
+<td headers="df_error" class="gt_row gt_right">75</td>
+<td headers="p" class="gt_row gt_right">0.012</td>
+<td headers="n_Obs" class="gt_row gt_right">77</td></tr>
+    <tr><td headers="Group" class="gt_row gt_left">A</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_1</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_3</td>
+<td headers="r" class="gt_row gt_right">0.148</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">-0.079</td>
+<td headers="CI_high" class="gt_row gt_right">0.360</td>
+<td headers="t" class="gt_row gt_right">1.293</td>
+<td headers="df_error" class="gt_row gt_right">75</td>
+<td headers="p" class="gt_row gt_right">0.200</td>
+<td headers="n_Obs" class="gt_row gt_right">77</td></tr>
+    <tr><td headers="Group" class="gt_row gt_left">A</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_2</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_3</td>
+<td headers="r" class="gt_row gt_right">0.543</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">0.363</td>
+<td headers="CI_high" class="gt_row gt_right">0.684</td>
+<td headers="t" class="gt_row gt_right">5.601</td>
+<td headers="df_error" class="gt_row gt_right">75</td>
+<td headers="p" class="gt_row gt_right">0.000</td>
+<td headers="n_Obs" class="gt_row gt_right">77</td></tr>
+    <tr><td headers="Group" class="gt_row gt_left">B</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_1</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_2</td>
+<td headers="r" class="gt_row gt_right">0.511</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">0.311</td>
+<td headers="CI_high" class="gt_row gt_right">0.668</td>
+<td headers="t" class="gt_row gt_right">4.832</td>
+<td headers="df_error" class="gt_row gt_right">66</td>
+<td headers="p" class="gt_row gt_right">0.000</td>
+<td headers="n_Obs" class="gt_row gt_right">68</td></tr>
+    <tr><td headers="Group" class="gt_row gt_left">B</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_1</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_3</td>
+<td headers="r" class="gt_row gt_right">0.108</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">-0.134</td>
+<td headers="CI_high" class="gt_row gt_right">0.338</td>
+<td headers="t" class="gt_row gt_right">0.883</td>
+<td headers="df_error" class="gt_row gt_right">66</td>
+<td headers="p" class="gt_row gt_right">0.380</td>
+<td headers="n_Obs" class="gt_row gt_right">68</td></tr>
+    <tr><td headers="Group" class="gt_row gt_left">B</td>
+<td headers="Parameter1" class="gt_row gt_left">var1_2</td>
+<td headers="Parameter2" class="gt_row gt_left">var1_3</td>
+<td headers="r" class="gt_row gt_right">0.425</td>
+<td headers="CI" class="gt_row gt_right">0.95</td>
+<td headers="CI_low" class="gt_row gt_right">0.208</td>
+<td headers="CI_high" class="gt_row gt_right">0.603</td>
+<td headers="t" class="gt_row gt_right">3.818</td>
+<td headers="df_error" class="gt_row gt_right">66</td>
+<td headers="p" class="gt_row gt_right">0.001</td>
+<td headers="n_Obs" class="gt_row gt_right">68</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="scatterplots-using-geom_point-and-geom_smooth" class="level2">
+<h2 class="anchored" data-anchor-id="scatterplots-using-geom_point-and-geom_smooth"><strong>Scatterplots using <code>geom_point()</code> and <code>geom_smooth()</code></strong></h2>
+<p>Using <strong>{ggplot}</strong>, a point plot can be used to visualize the relationship between two variables.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#select(c(var1_1 : var1_3), group) |&gt;</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> var1_1, </span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> var1_2</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>To plot points from subgroups in different colors, <em>map</em> a variable to the color aesthetic.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> var1_1, </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> var1_2</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">col =</span> group)) <span class="sc">+</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>If you wanted to add a fit line to the plot, add a <code>geom_smooth()</code> layer. Depending on how many rows of data there are, the formual for the function may differ so we will pass <code>formula = y ~ x</code> to <code>geom_smoth()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> var1_1, </span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> var1_2</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>To add a <strong>linear fit</strong> line, use <code>method = "lm"</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> var1_1, </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> var1_2</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">"lm"</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>              ) <span class="sc">+</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>To plot separate fits lines for subgroups map a variable to the color aesthetic.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> var1_1, </span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> var1_2</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">col =</span> group)) <span class="sc">+</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">col =</span> group)</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>              ) <span class="sc">+</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>To extend fits lines, use <code>fullrange = TRUE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> var1_1, </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> var1_2</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">col =</span> group)) <span class="sc">+</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">col =</span> group),</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">fullrange =</span> <span class="cn">TRUE</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>              ) <span class="sc">+</span></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Rather than use different colors, to create a facet plot by subgroups, use <code>facet_wrap()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> var1_1, </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> var1_2</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">fullrange =</span> <span class="cn">TRUE</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>              ) <span class="sc">+</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="fu">vars</span>(group))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="generalized-pairs-plot-using-ggallyggpairs" class="level2">
+<h2 class="anchored" data-anchor-id="generalized-pairs-plot-using-ggallyggpairs"><strong>Generalized Pairs Plot using <code>GGally::ggpairs()</code></strong></h2>
+<p><strong>Generalized pairs plots</strong> are data visualizations used to exploratory data for individual variables and for relationships across multiple variable pairs. They are often used in <em>exploratory data analysis</em> (EDA) to examine the relationships between multiple variables using point plots, bar plots, boxplots, density plots, histograms, etc. They are an extension of traditional pairwise scatter plots created above using <code>geom_point()</code> but they also allow for the visualization of relationships between more than two variables simultaneously.</p>
+<p><code>GGally::ggpairs()</code> makes creating generalized pairs plots easy.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggpairs</span>(</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  data,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="cn">NULL</span>,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">columns =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(data),</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="cn">NULL</span>,</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="st">"cor"</span>, <span class="at">combo =</span> <span class="st">"box_no_facet"</span>, <span class="at">discrete =</span> <span class="st">"count"</span>, <span class="at">na =</span> <span class="st">"na"</span>),</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="st">"points"</span>, <span class="at">combo =</span> <span class="st">"facethist"</span>, <span class="at">discrete =</span> <span class="st">"facetbar"</span>, <span class="at">na =</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"na"</span>),</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">diag =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="st">"densityDiag"</span>, <span class="at">discrete =</span> <span class="st">"barDiag"</span>, <span class="at">na =</span> <span class="st">"naDiag"</span>),</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">params =</span> <span class="cn">NULL</span>,</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Key Parameters/Arguments</strong></p>
+<ul>
+<li><code>data</code>: a data frame</li>
+<li><code>mapping</code>: for mapping aesthetics in ggplot objects</li>
+</ul>
+<p>There are other parameters but not needed for this brief introduction.</p>
+<p>The simplest usage is to pipe your data frame containing your columns of interest to <code>ggpairs()</code> without passing any arguments to the function. Let’s assume first that you have only numeric data and no grouping variable. The pairs plot will provide xy point plots for all variables pairs, density plots for each variable, and Pearson’s <em>r</em> correlations for each variable pair.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(var1_1<span class="sc">:</span>var1_3) <span class="sc">|&gt;</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>When you have a grouping variable, you see a bar plot for sample sizes across groups, side-by-side histograms of data for each sub group across all variables, boxplots for the distributions of data for each sub group, density plots without grouping, scatter plots, and correlations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group, var1_1<span class="sc">:</span>var1_3) <span class="sc">|&gt;</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The <strong>{GGally}</strong> library is built on the backs of <strong>{ggplot2}</strong>, so the aesthetics can be mapped as you would with ggplot objects.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span> </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group, var1_1<span class="sc">:</span>var1_3) <span class="sc">|&gt;</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">col =</span> group,    <span class="co"># set color by group</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">alpha =</span> .<span class="dv">3</span>      <span class="co"># adjust transparency</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>                                )</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>                  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>If you do not like the default palette, you can modify the colors manually. One easy way is to create a vector of colors (e.g., <code>c("cornflowerblue", "firebrick")</code> and pass that to the values parameter of <code>scale_fill_manual()</code>. This tells <code>ggplot()</code> to manually change the colors for the <code>fill</code> aesthetic.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>new_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"cornflowerblue"</span>, <span class="st">"firebrick"</span>) </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span> </span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group, var1_1<span class="sc">:</span>var1_3) <span class="sc">|&gt;</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">col =</span> group, </span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>                                <span class="at">alpha =</span> .<span class="dv">3</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>                                )</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>                  ) <span class="sc">+</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> new_colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Whereas the <code>fill</code> color changes for bars, boxplots, and density plots, the point color did not change. We need to change the <code>color</code> aesthetic using <code>scale_color_manual()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span> </span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group, var1_1<span class="sc">:</span>var1_3) <span class="sc">|&gt;</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">col =</span> group, </span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>                                <span class="at">alpha =</span> .<span class="dv">3</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>                                )</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>                  ) <span class="sc">+</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> new_colors) <span class="sc">+</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> new_colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+Removed 333 rows containing missing values</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+Removed 349 rows containing missing values</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in ggally_statistic(data = data, mapping = mapping, na.rm = na.rm, :
+Removed 426 rows containing missing values</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 54 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 287 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 336 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 54 rows containing non-finite values (`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 54 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 287 rows containing non-finite values (`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 333 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 287 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 336 rows containing non-finite values (`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 349 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 426 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 336 rows containing non-finite values (`stat_density()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Voilà! The colors for both the <code>fill</code> and <code>color</code> aesthetics have changed.</p>
+<p>Finally, if you desired to add fit lines to the plot, you can modify the <code>lower</code> parameter. The argument <code>lower = list(continuous = wrap("smooth"))</code> to produce the fit lines is beyond the scope of this course so there is not a lengthy discussion. If you are curious, you can review the <code>lower</code> parameter and the <code>wrap()</code> function. If you want to remove the standard error range from the plot, passing <code>se = FALSE</code> will remove it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>WIDE <span class="sc">|&gt;</span> </span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group, var1_1<span class="sc">:</span>var1_3) <span class="sc">|&gt;</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">col =</span> group, </span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>                                <span class="at">alpha =</span> .<span class="dv">3</span></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>                                ),</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">lower =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(<span class="st">"smooth"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>                  ) <span class="sc">+</span></span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> new_colors) <span class="sc">+</span></span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> new_colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="16_examining_relationships_in_variables_of_cognition_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="summary" class="level1">
+<h1><strong>Summary</strong></h1>
+<p>Examining variable relationships can be both exploratory and targeted. The module introduces some ways to examine relationships among variable numerically and graphically. Both approaches focused on examining a linear relationship, which represents only one type of relationship (and model) of interest. More complicated relationships are necessary when relationships take on different forms. Generalized pairs plots both extend and facilitate the investigation of variables, both in isolation and in relation to other variables. They offer a way to communicate a data visually in a variety of ways without requiring either extensive coding or multiple plots. Graphical depictions of relationships, however, do not distill data summaries to key metrics. In such a case, a table is your friend.</p>
+</section>
+<section id="session-information" class="level1">
+<h1><strong>Session Information</strong></h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.3.2 (2023-10-31 ucrt)
+ os       Windows 11 x64 (build 22621)
+ system   x86_64, mingw32
+ ui       RTerm
+ language (EN)
+ collate  English_United States.utf8
+ ctype    English_United States.utf8
+ tz       America/Los_Angeles
+ date     2024-03-29
+ pandoc   3.1.5 @ C:/PROGRA~1/Pandoc/ (via rmarkdown)
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ ! package      * version date (UTC) lib source
+   bayestestR   * 0.13.1  2023-04-07 [1] RSPM (R 4.3.0)
+   BiocManager    1.30.22 2023-08-08 [1] RSPM (R 4.3.0)
+ P bit            4.0.5   2022-11-15 [?] CRAN (R 4.3.1)
+ P bit64          4.0.5   2020-08-30 [?] CRAN (R 4.3.1)
+ P cli            3.6.1   2023-03-23 [?] CRAN (R 4.3.1)
+   coda           0.19-4  2020-09-30 [1] RSPM (R 4.3.0)
+ P codetools      0.2-19  2023-02-01 [?] CRAN (R 4.3.1)
+ P colorspace     2.1-0   2023-01-23 [?] CRAN (R 4.3.1)
+   correlation  * 0.8.4   2023-04-06 [1] RSPM (R 4.3.0)
+ P crayon         1.5.2   2022-09-29 [?] CRAN (R 4.3.1)
+   datawizard   * 0.9.1   2023-12-21 [1] RSPM (R 4.3.0)
+ P digest         0.6.33  2023-07-07 [?] CRAN (R 4.3.1)
+   dplyr        * 1.1.4   2023-11-17 [1] RSPM (R 4.3.0)
+   easystats    * 0.7.0   2023-11-05 [1] RSPM (R 4.3.0)
+   effectsize   * 0.8.6   2023-09-14 [1] RSPM (R 4.3.0)
+   emmeans        1.9.0   2023-12-18 [1] RSPM (R 4.3.0)
+   estimability   1.4.1   2022-08-05 [1] RSPM (R 4.3.0)
+ P evaluate       0.21    2023-05-05 [?] CRAN (R 4.3.1)
+ P fansi          1.0.4   2023-01-22 [?] CRAN (R 4.3.1)
+ P farver         2.1.1   2022-07-06 [?] CRAN (R 4.3.1)
+ P fastmap        1.1.1   2023-02-24 [?] CRAN (R 4.3.1)
+ P forcats      * 1.0.0   2023-01-29 [?] CRAN (R 4.3.1)
+ P generics       0.1.3   2022-07-05 [?] CRAN (R 4.3.1)
+   GGally       * 2.2.0   2023-11-22 [1] RSPM (R 4.3.0)
+   ggplot2      * 3.4.4   2023-10-12 [1] RSPM (R 4.3.0)
+   ggstats        0.5.1   2023-11-21 [1] RSPM (R 4.3.0)
+   glue           1.6.2   2022-02-24 [1] RSPM (R 4.3.0)
+   gt             0.10.0  2023-10-07 [1] RSPM (R 4.3.0)
+ P gtable         0.3.4   2023-08-21 [?] CRAN (R 4.3.1)
+   here           1.0.1   2020-12-13 [1] RSPM (R 4.3.0)
+ P hms            1.1.3   2023-03-21 [?] CRAN (R 4.3.1)
+   htmltools      0.5.7   2023-11-03 [1] RSPM (R 4.3.0)
+   htmlwidgets    1.6.4   2023-12-06 [1] RSPM (R 4.3.0)
+   insight      * 0.19.7  2023-11-26 [1] RSPM (R 4.3.0)
+ P jsonlite       1.8.7   2023-06-29 [?] CRAN (R 4.3.1)
+   knitr          1.45    2023-10-30 [1] RSPM (R 4.3.0)
+ P labeling       0.4.2   2020-10-20 [?] CRAN (R 4.3.0)
+ P lattice        0.21-8  2023-04-05 [?] CRAN (R 4.3.1)
+ P lifecycle      1.0.3   2022-10-07 [?] CRAN (R 4.3.1)
+   lubridate    * 1.9.3   2023-09-27 [1] RSPM (R 4.3.0)
+   magrittr       2.0.3   2022-03-30 [1] RSPM (R 4.3.0)
+ P MASS           7.3-60  2023-05-04 [?] CRAN (R 4.3.1)
+ P Matrix         1.6-1   2023-08-14 [?] CRAN (R 4.3.1)
+ P mgcv           1.8-42  2023-03-02 [?] CRAN (R 4.3.1)
+   modelbased   * 0.8.6   2023-01-13 [1] RSPM (R 4.3.0)
+   multcomp       1.4-25  2023-06-20 [1] RSPM (R 4.3.0)
+ P munsell        0.5.0   2018-06-12 [?] CRAN (R 4.3.1)
+ P mvtnorm        1.2-2   2023-06-08 [?] CRAN (R 4.3.1)
+ P nlme           3.1-162 2023-01-31 [?] CRAN (R 4.3.1)
+   parameters   * 0.21.3  2023-11-02 [1] RSPM (R 4.3.0)
+   performance  * 0.10.8  2023-10-30 [1] RSPM (R 4.3.0)
+ P pillar         1.9.0   2023-03-22 [?] CRAN (R 4.3.1)
+ P pkgconfig      2.0.3   2019-09-22 [?] CRAN (R 4.3.1)
+   plyr           1.8.9   2023-10-02 [1] RSPM (R 4.3.0)
+ P purrr        * 1.0.2   2023-08-10 [?] CRAN (R 4.3.1)
+ P R.methodsS3    1.8.2   2022-06-13 [?] CRAN (R 4.3.0)
+ P R.oo           1.25.0  2022-06-12 [?] CRAN (R 4.3.0)
+ P R.utils        2.12.2  2022-11-11 [?] CRAN (R 4.3.1)
+ P R6             2.5.1   2021-08-19 [?] CRAN (R 4.3.1)
+ P RColorBrewer   1.1-3   2022-04-03 [?] CRAN (R 4.3.0)
+ P Rcpp           1.0.11  2023-07-06 [?] CRAN (R 4.3.1)
+   readr        * 2.1.4   2023-02-10 [1] RSPM (R 4.3.0)
+   renv           1.0.3   2023-09-19 [1] RSPM (R 4.3.0)
+   report       * 0.5.8   2023-12-07 [1] RSPM (R 4.3.0)
+ P rlang          1.1.1   2023-04-28 [?] CRAN (R 4.3.1)
+   rmarkdown      2.25    2023-09-18 [1] RSPM (R 4.3.0)
+ P rprojroot      2.0.3   2022-04-02 [?] CRAN (R 4.3.1)
+   rstudioapi     0.15.0  2023-07-07 [1] RSPM (R 4.3.0)
+   sandwich       3.1-0   2023-12-11 [1] RSPM (R 4.3.0)
+ P sass           0.4.7   2023-07-15 [?] CRAN (R 4.3.1)
+   scales         1.3.0   2023-11-28 [1] RSPM (R 4.3.0)
+   see          * 0.8.1   2023-11-03 [1] RSPM (R 4.3.0)
+   sessioninfo    1.2.2   2021-12-06 [1] RSPM (R 4.3.0)
+ P stringi        1.7.12  2023-01-11 [?] CRAN (R 4.3.0)
+   stringr      * 1.5.1   2023-11-14 [1] RSPM (R 4.3.0)
+ P survival       3.5-7   2023-08-14 [?] CRAN (R 4.3.2)
+   TH.data        1.1-2   2023-04-17 [1] RSPM (R 4.3.0)
+ P tibble       * 3.2.1   2023-03-20 [?] CRAN (R 4.3.1)
+ P tidyr        * 1.3.0   2023-01-24 [?] CRAN (R 4.3.1)
+ P tidyselect     1.2.0   2022-10-10 [?] CRAN (R 4.3.1)
+   tidyverse    * 2.0.0   2023-02-22 [1] RSPM (R 4.3.0)
+ P timechange     0.2.0   2023-01-11 [?] CRAN (R 4.3.1)
+ P tzdb           0.4.0   2023-05-12 [?] CRAN (R 4.3.1)
+   utf8           1.2.4   2023-10-22 [1] RSPM (R 4.3.0)
+   vctrs          0.6.5   2023-12-01 [1] RSPM (R 4.3.0)
+   vroom        * 1.6.5   2023-12-05 [1] RSPM (R 4.3.0)
+ P withr          2.5.0   2022-03-03 [?] CRAN (R 4.3.1)
+ P xfun           0.40    2023-08-09 [?] CRAN (R 4.3.1)
+ P xml2           1.3.5   2023-07-06 [?] CRAN (R 4.3.1)
+   xtable         1.8-4   2019-04-21 [1] RSPM (R 4.3.0)
+ P yaml           2.3.7   2023-01-23 [?] CRAN (R 4.3.0)
+   zoo            1.8-12  2023-04-13 [1] RSPM (R 4.3.0)
+
+ [1] C:/Users/gcook/Sync/git/fods24/renv/library/R-4.3/x86_64-w64-mingw32
+ [2] C:/Users/gcook/AppData/Local/R/cache/R/renv/sandbox/R-4.3/x86_64-w64-mingw32/5b568fc0
+
+ P ── Loaded and on-disk path mismatch.
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

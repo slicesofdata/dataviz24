@@ -1,0 +1,499 @@
+---
+title: "Data Visualization"
+format: 
+  revealjs:
+    theme: dark
+    preview-links: auto
+    embed-resources: true # needed to allow for showing slides on a website (otherwise link is blank)
+    # slide-tone: true # play sound on change - blind users
+    
+slide-number: c/t #h/v
+#  width: 1600
+#  height: 900
+#logo: "images/??.jpg"
+#logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
+#footer: "[](https://rstudio-conf-2022.github.io/get-started-quarto/)"
+#css: ["css/styles.css"]
+#theme: simple
+echo: true  # for code echo
+
+#editor: visual
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+# **R Libraries**
+
+::: {.incremental}
+- **`{dplyr}`** for arranging data frames
+- The **G**rammar of **G**raphics: **`{ggplot}`**
+- Libraries leveraging **`{ggplot2}`**; + others
+:::
+
+```{r include=FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+# **The Grammar of Graphics Library: `{ggplot2}`**
+
+## **5 components of `{ggplot2}`**
+
+::: {.incremental}
+1. `Layer` containing geometric elements and data 
+2. `Scales` that map values in the data space to values in aesthetic space
+3. `Coordinate System` for mapping coordinates to the graphic plane 
+4. `Facet` for arranging the data into a grid
+5. `Theme` (e.g., like font, background, grids, axes, etc.)
+:::
+
+# **Layers Contain**
+
+::: {.incremental}
+1. `Data` (e.g., vector or data frame)
+2. `Mapping` (e.g., aesthetics corresponding to data)
+3. `Statistical Transformation` (e.g., sums, means, model fits, etc.) 
+4. `Geometric object` (geom) controlling the type of visualization
+5. `Position Adjustment` (e.g., location of visual elements)
+:::
+
+## **Data**
+
+```{r}
+DATA <- data.frame(
+ var1 = c(1, 2, 3, 4), 
+ var2 = c(2, 5, 3, 8), 
+ var3 = c(10, 15, 32, 28), 
+ group = c("A", "A", "B", "B")
+)
+```
+
+## **Data**
+
+```{r}
+DATA
+```
+
+
+## **Initialize the Plot Object**
+
+```{r}
+DATA |>
+  ggplot()
+```
+
+
+# **Aesthetics**
+
+::: {.incremental}
+- the visual elements of the data in the visualization
+- color, fill, size, fill, shape, linetype, linewidth, transparency, etc.
+- different geoms have/allow different aesthetics (e.g., lines have color but not fill)
+- can be `constants` (e.g., blue) or mapped to data as `variables` (e.g., blue or red)
+:::
+
+
+# **Mapping Data and Aesthetics**
+
+## **Mapping**
+
+::: {.incremental}
+- specified by arguments to `aes()`
+- at least an `x` or `y` (e.g., `geom_histogram()`)
+- some geoms need both (e.g., `geom_point()`, `geom_col()`, etc.)
+:::
+
+
+## **Setting vs. Mapping**
+
+::: {.incremental}
+- `mapping`: specified by arguments to `aes()`
+- `setting`: specified by arguments in the `geom_*()`; outside of `aes()`
+:::
+
+
+## **Mapping Data and Aesthetics (Cont.)**
+
+```{r}
+DATA |>
+  ggplot(mapping = aes(x = var1))
+```
+
+
+# **Plot Geometries**
+
+::: {.incremental}
+- `x` or `y`: `geom_histogram()`, `geom_density()`, `geom_bar()`, etc.
+- `x` & `y`:`geom_point()`, `geom_col()`, `geom_line()`, etc. 
+:::
+
+
+## **Adding Plot Geometries**
+
+::: {.incremental}
+- add to object using `+` (don't `|>`)
+:::
+
+
+## **Adding a Geometry: `geom_histogram()`**
+
+```{.r}
+geom_histogram(
+  mapping = NULL,
+  data = NULL,
+  stat = "bin",
+  position = "identity",
+  ...
+  )
+```
+
+## **Adding a Geometry: `geom_histogram()`**
+
+```{r}
+DATA |>
+  ggplot(mapping = aes(x = var1)) +
+  geom_histogram()
+```
+
+## **Adding a Geometry: `geom_point()`**
+
+```{.r}
+geom_point(
+  mapping = NULL,
+  data = NULL,
+  stat = "identity",
+  position = "identity",
+  ...
+  )
+```
+
+## **Adding a Geometry: `geom_point()`**
+
+```{r}
+DATA |>
+  ggplot(mapping = aes(x = var1,
+                       y = var2
+                       )
+         ) +
+  geom_point()
+```
+
+## **Setting an Aesthetic: `Color`**
+
+```{r}
+DATA |>
+  ggplot(mapping = aes(x = var1,
+                       y = var2
+                       )
+         ) +
+  geom_point(color = "red")
+```
+
+## **Mapping an Aesthetic: `Color`**
+
+```{r}
+DATA |>
+  ggplot(mapping = aes(x = var1, 
+                       y = var2
+                       )
+         ) +
+  geom_point(mapping = aes(color = group))
+```
+
+## **Errors with Mapping and Setting**
+
+```{r}
+DATA |>
+  ggplot(mapping = aes(x = var1, 
+                       y = var2
+                       )
+         ) +
+  geom_point(mapping = aes(color = "green"))
+```
+
+
+
+## **Adding a Geometry: `geom_col()`**
+
+```{.r}
+geom_col(
+  mapping = NULL,
+  data = NULL,
+  position = "stack",
+  ...
+  )
+```
+
+## **Adding a Geometry: `geom_col()`**
+
+```{r}
+DATA |>
+  ggplot(mapping = aes(x = var1, 
+                       y = var2
+                       )
+         ) +
+  geom_col()
+```
+
+
+## **Adding a Geometry: `geom_col()` (Cont.)**
+
+```{r}
+DATA |>
+  ggplot(mapping = aes(x = group, 
+                       y = var2
+                       )
+         ) +
+  geom_col()
+```
+
+Notice anything odd?
+
+## **Adding a Geometry: `geom_col()` (Cont.)**
+
+Set aesthetics to make more apparent. 
+
+```{r}
+DATA |>
+  ggplot(mapping = aes(x = group, 
+                       y = var2
+                       )
+         ) +
+  geom_col(fill = "yellow", color = "blue")
+```
+
+
+## **Remember the Data?**
+
+```{r}
+DATA
+```
+
+::: {.incremental}
+- all plots have some statistical transformation
+- could be `"identity"` (what you see is what you get)
+- could be based on a statistic (e.g., count, sum, mean, etc.)
+:::
+
+
+## **Change the Data Frame (e.g., summarize)**
+
+```{r}
+DATA |>
+  # aggregate across the groups, then summarize
+  group_by(group) |>
+  summarize(var2 = mean(var2, na.rm = TRUE)) 
+```
+
+## **Plot that New Data Frame**
+
+```{r}
+DATA |>
+  # aggregate across the groups, then summarize
+  group_by(group) |>
+  summarize(var2 = mean(var2, na.rm = TRUE)) |>
+  
+  # then plot
+  ggplot(mapping = aes(x = group, 
+                       y = var2)
+         ) +
+  geom_col()
+```
+
+
+## **Adding a Geometry: `geom_boxplot()`**
+
+```{.r}
+geom_boxplot(
+  mapping = NULL,
+  data = NULL,
+  stat = "boxplot",
+  position = "dodge2",
+  ...
+  )
+```
+
+## **Adding a Geometry: `geom_boxplot()`**
+
+```{r}
+DATA |>
+  ggplot(mapping = aes(x = group, 
+                       y = var2
+                       )
+         ) +
+  geom_boxplot(mapping = aes(fill = group),
+               show.legend = FALSE
+               )
+```
+
+
+# **Adding Multiple Geometries**
+
+## **Adding Geometries as Plot Layers**
+
+::: {.incremental}
+- *add* a layer using `+`
+- specify the data
+- map the aesthetics
+:::
+
+## **Make Some New Data**
+
+```{r}
+DATA2 <- 
+  data.frame(
+    var1 = rnorm(n = 100, mean = 20, sd = 2),
+    var2 = rnorm(n = 100, mean = 55, sd = 3),
+    group1 = rep(c("A", "B"), 50),
+    group2 = rep(c("A", "A", "B", "B"), 25)
+  )
+```
+
+## **Adding Geometry Layers: `geom_boxplot()` + `geom_point()` **
+
+```{.r}
+DATA |>
+  ggplot(mapping = aes(x = group, 
+                       y = var2
+                       )
+         ) +
+  # add a boxplot layer; remove legend
+  geom_boxplot(color = "black",
+               fill = "white",
+               show.legend = FALSE,
+               notch = TRUE
+               ) +
+  # add a point layer with jittered points
+  geom_point(position = position_jitter(width = .2),
+             alpha = .7
+             )
+```
+
+## **Adding Geometry Layers: `geom_boxplot()` + `geom_point()`**
+
+```{r echo=FALSE}
+DATA2 |>
+  ggplot(mapping = aes(x = group1, 
+                       y = var2
+                       )
+         ) +
+  # add a boxplot layer; remove legend
+  geom_boxplot(color = "black",
+               fill = "white",
+               show.legend = FALSE
+               ) +
+  # add a point layer with jittered points
+  geom_point(position = position_jitter(width = .2),
+             alpha = .7
+             )
+```
+
+
+# **Small Multiples**
+
+## **Small Multiples: Replicating Plots for Subgroups**
+
+::: {.incremental}
+- Sometimes you need create multiple plots by another variable
+- Bar plots for each month; scatter plot for each city; etc. 
+:::
+
+
+## **Adding a Facet**
+
+::: {.incremental}
+- a plot is in a facet by default 
+- to change the facet, *add* a facet layer
+- `facet_wrap()` or `facet_grid()`
+:::
+
+
+## **Adding a Facet Based on One Variable**
+
+```{.r}
+DATA2 |>
+  ggplot(mapping = aes(x = var1, 
+                       y = var2)
+         ) +
+  geom_point() +
+  # facet by one variable
+  facet_wrap(facets = vars(group1))
+```
+
+## **Adding a Facet Based on One Variable**
+
+```{r echo=FALSE}
+DATA2 |>
+  ggplot(mapping = aes(x = var1, 
+                       y = var2)
+         ) +
+  geom_point() +
+  # facet by one variable
+  facet_wrap(facets = vars(group1))
+```
+
+## **Adding a Facet Based on Two Variables**
+
+```{r echo=FALSE}
+DATA2 |>
+  ggplot(mapping = aes(x = var1, 
+                       y = var2
+                       )
+         ) +
+  geom_point(alpha = .7) +
+  # facet by rows and colums
+  facet_grid(rows = vars(group1),
+             cols = vars(group2) 
+             )
+```
+
+## **Adding a Facet Based on Two Variables**
+
+```{r echo=FALSE}
+DATA2 |>
+  ggplot(mapping = aes(x = var1, 
+                       y = var2
+                       )
+         ) +
+  geom_point(alpha = .7) +
+  # facet by rows and colums
+  facet_grid(rows = vars(group1),
+             cols = vars(group2) 
+             )
+```
+
+## **Adding a Theme**
+
+::: {.incremental}
+- a plot is in a theme by default 
+- to change a theme, *add* a theme layer
+:::
+
+
+## **Adding a Theme**
+
+```{.r}
+DATA2 |>
+  ggplot(mapping = aes(x = var1, 
+                       y = var2)
+         ) +
+  geom_point() +
+  facet_wrap(facets = vars(group1)) +
+  # change the theme
+  theme_minimal()
+```
+
+## **Adding a Theme**
+
+```{r}
+DATA2 |>
+  ggplot(mapping = aes(x = var1, 
+                       y = var2)
+         ) +
+  geom_point() +
+  facet_wrap(facets = vars(group1)) +
+  # change the theme
+  theme_minimal()
+```

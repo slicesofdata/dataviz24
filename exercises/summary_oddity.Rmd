@@ -1,0 +1,154 @@
+---
+#title: "Untitled"
+output: html_document
+#date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, eval=TRUE, include=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(tibble)
+R.utils::sourceDirectory(here::here("r", "functions"))
+source(here::here("r", "src", "color_format_text.R"))
+```
+
+
+```{r}
+DATA <- tribble(
+  ~id, ~group, ~x, ~y,
+  1, "a", 11, 30,
+  2, "a", 21, 20,
+  3, "a", 13, 33,
+  4, "b", 51, NA,
+  5, "b", 44, 20,
+  6, "b", NA, 19
+)
+```
+
+## **Vectors**
+
+```{r}
+mean(DATA$x, na.rm = T)
+mean(DATA$y, na.rm = T)
+median(DATA$x, na.rm = T)
+median(DATA$y, na.rm = T)
+```
+
+**NOTE:** `r colorize("The mean and median of x differ.", "red")`
+
+## **Data Frames**
+
+### **1 Variable, 2 Metrics**
+
+```{r}
+DATA |>
+  summarize(x = mean(x, na.rm = TRUE),
+            x_median = median(x, na.rm = TRUE)
+            )
+```
+
+**NOTE:** `r colorize("The mean and median of x are the same.", "red")`
+
+
+### **1 Variable, 2 Metrics**
+
+`r colorize("Change the order of the functions.", "blue")`
+
+```{r}
+DATA |>
+  summarize(x_median = median(x, na.rm = TRUE),
+            x = mean(x, na.rm = TRUE)
+            )
+```
+
+**NOTE:** `r colorize("The mean and median of x differ again.", "red")`
+
+
+### **1 Variable, 2 Metrics**
+
+`r colorize("Give it a new name that differs from the name in the data frame.", "blue")`
+
+```{r}
+DATA |>
+  summarize(x_mean = mean(x, na.rm = TRUE),
+            x_median = median(x, na.rm = TRUE)
+            )
+```
+
+**NOTE:** `r colorize("The mean and median of x differ again.", "red")`
+
+### **2 Variables, 1 Metric**
+
+```{r}
+DATA |>
+  summarize(x_mean = mean(x, na.rm = TRUE),
+            y_mean = mean(y, na.rm = TRUE),
+            )
+
+```
+
+
+### **2 Variables, 2 Metrics**
+
+```{r}
+DATA |>
+  summarize(x_mean = mean(x, na.rm = TRUE),
+            y_mean = mean(y, na.rm = TRUE),
+            x_median = median(x, na.rm = TRUE),
+            y_median = median(y, na.rm = TRUE)
+            )
+
+```
+
+### **2 Variables, 2 Metrics with Grouping**
+
+```{r}
+DATA |>
+  group_by(group) |>
+  summarize(x_mean = mean(x, na.rm = TRUE),
+            y_mean = mean(y, na.rm = TRUE),
+            x_median = median(x, na.rm = TRUE),
+            y_median = median(y, na.rm = TRUE)
+            )
+
+```
+
+# **Advanced Data-Summary Techniques**
+
+## **Adding Functions as List Elements**
+
+```{r}
+summary_funcs <- list(
+  mean = ~mean(na.omit(.x)),
+  median = ~median(na.omit(.x)),
+  sd = ~sd(na.omit(.x)),
+  n = ~length(na.omit(.x))
+  )
+```
+
+## **Passing the List Object to `.fns`**
+
+- `.fns = list(some_name = ~mean(x, na.rm = TRUE))`
+
+`r colorize("Passing a list object.", "blue")`
+
+```{r}
+DATA |>
+  summarize(across(.cols = c(x, y), 
+                   .fns = summary_funcs,
+                   .names = "{col}_{fn}"
+                   )
+            )
+```
+
+**NOTE:** `r colorize("The mean and median of x differ again.", "red")`
+
+# **Session Information**
+
+```{r}
+sessionInfo()
+```
+

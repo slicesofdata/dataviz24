@@ -1,0 +1,287 @@
+---
+title: "Random Forest"
+output: html_document
+---
+
+```{r}
+pacman::p_load(ranger, ggplot2, dplyr, ragg)
+
+R.utils::sourceDirectory(here::here("r", "functions"))
+```
+
+
+```{r Loading the Appropriate Packages}
+#library(randomForest)
+library(tidyverse)
+library(ModelMetrics)
+library(ranger)
+```
+
+```{r Cleaning Data}
+rawdata<- read_csv('batted_ball_data.csv')
+
+batted_ball <- rawdata %>% 
+  filter(exit_spin_rate != 0, plate_appearance_result != "error") %>% 
+  na.omit() %>% 
+  mutate(angular_exit_axis = exit_spin_axis * (pi/180))
+
+```
+
+```{r}
+
+features <- c('exit_speed', 'exit_vertical_angle', 'exit_horizontal_angle', 'exit_spin_rate', 'exit_spin_axis')
+
+set.seed(123)
+
+m2 <- randomForest::tuneRF(
+  x          = train[features],
+  y          = train$linear_weight,
+  ntreeTry   = 100,
+  mtryStart  = 5,
+  stepFactor = 1.5,
+  improve    = 0.01,
+  trace      = FALSE      # to not show real-time progress 
+)
+```
+
+```{r}
+set.seed(1)
+
+#Separating the dataset into the test and train dataset. The prob = '% of the train data set', '% of the test data set'
+
+sample <- sample(c(TRUE, FALSE), nrow(batted_ball), replace=TRUE, prob=c(0.8,0.2))
+train <- batted_ball[sample, ]
+test <- batted_ball[!sample, ]
+```
+
+```{r Random Forest Model}
+spinmodel <- randomForest(formula = linear_weight ~ exit_horizontal_angle + exit_vertical_angle + exit_speed + exit_spin_rate + exit_spin_axis, 
+                        ntree = 60,
+                        data = train)
+spinmodel
+
+# Calculating the RMSE to test accuracy
+predSpinValues <- predict(spinmodel, test)
+rmse(test$linear_weight, predSpinValues)
+```
+
+```{r Random Forest Model without Spin}
+nospinmodel <- randomForest(formula = linear_weight ~ exit_horizontal_angle + exit_vertical_angle + exit_speed, 
+                        ntree = 60,
+                        data = train)
+nospinmodel
+
+prednoSpinValues <- predict(nospinmodel, test)
+rmse(test$linear_weight, prednoSpinValues)
+```
+
+```{r Random Forest Model with Spin Rate}
+spinratemodel <- randomForest(formula = linear_weight ~ exit_horizontal_angle + exit_vertical_angle + exit_speed + exit_spin_rate, 
+                        ntree = 60,
+                        data = train)
+spinratemodel
+
+predSpinrateValues <- predict(spinmodel, test)
+rmse(test$linear_weight, predSpinrateValues)
+```
+
+```{r Random Forest Model with Spin Axis}
+spinaxismodel <- randomForest(formula = linear_weight ~ exit_horizontal_angle + exit_vertical_angle + exit_speed + exit_spin_axis, 
+                        ntree = 60,
+                        data = train)
+spinaxismodel
+
+predSpinaxisValues <- predict(spinaxismodel, test)
+rmse(test$linear_weight, predSpinaxisValues)
+```
+
+```{r Variable Importance Plot, Displaying the Importance of Each Variable}
+# The X axis reflects the Node Purity. Node purity is measured by Gini Index which is the the difference between RSS before and after the split on that variable.
+
+varImpPlot(spinmodel, main = "Variable Importance")
+```
+
+```{r Using the Ranger Package to Run a Random Forest Model}
+# Allows us to use the entire data set for training, and use more trees
+# Importance = 'Permutation' allows the model to calculate the importance of each variable for a plot
+
+rangerspinmodel <- ranger::ranger(
+  formula = linear_weight ~ exit_speed + exit_vertical_angle + exit_spin_rate + exit_horizontal_angle + exit_spin_axis, 
+  data = train, 
+  importance = "permutation"
+  )
+rangerspinmodel
+
+# Deforest function trims trees, producing a slimmer model without sacrificing much accuracy
+dfspin <- ranger::deforest(rangerspinmodel, which.trees = c(1, 3, 5))
+```
+
+
+
+
+
+
+```{r Spin Random Forest Model}
+#Calculating Predictions for both Models
+preds.rfspin <- predict(rangerspinmodel, data = test, predict.all = TRUE)$predictions
+
+preds.dfspin <- predict(dfspin, data = test, predict.all = TRUE)$predictions
+
+#Making Sure the Deforested Model has the Same Predictions
+identical(preds.rfspin[, -c(1, 3, 5)], y = preds.dfspin)
+```
+
+
+```{r Spin Random Forest Model}
+
+#Calculating RMS
+rmse(batted_ball$linear_weight, preds.rfspin)
+rmse(batted_ball$linear_weight, preds.dfspin)
+```
+
+```{r Spin Random Forest}
+
+# Looking at the importance of each variable
+importance(rangerspinmodel)
+```
+
+```{r Spin Random Forest Model}
+# Building a leaderboard for players based on Quality of Contact
+
+predbatter_batty <- batted_ball %>% 
+  # Adding another variable that is Quality of Contact
+  mutate(PredQC = predict(rangerspinmodel, data = batted_ball, predict.all = TRUE)$predictions) %>% 
+  
+  # Grouped by Batter_id, and summarized to show the avg QC, LW, and RMSE
+  group_by(name_use, name_last) %>% 
+  summarize(Avg_QC = mean(PredQC),
+            Avg_LW = mean(linear_weight),
+            Error = rmse(Avg_LW, Avg_QC),
+            n = n()) %>%
+  arrange(desc(Avg_QC)) %>%
+  
+  # Only Looking at Batters with At Least 300 Batted Balls
+  filter(n > 300)
+
+predbatter_batty
+batted_ball %>% arrange(desc(linear_weight))
+```
+
+```{r No Spin Random Forest Model}
+rangernospinmodel <- ranger(linear_weight ~ exit_speed + exit_vertical_angle + exit_horizontal_angle, data = train)
+rangernospinmodel
+
+# Deforesting the Random Forest Model
+dfnospin <- deforest(rangernospinmodel, which.trees = c(1, 3, 5, 7, 9, 11))
+dfnospin
+```
+
+```{r No Spin Random Forest Model}
+# Generating Predictions for Both Functions
+preds.rfnospin <- predict(rangernospinmodel, data = test, predict.all = TRUE)$predictions
+
+preds.dfnospin <- predict(dfnospin, data =test, predict.all = TRUE)$predictions
+
+# Determining if the Predictions are still the same
+identical(preds.rfnospin[, -c(1, 3, 5)], y = preds.dfnospin)
+```
+
+```{r No Spin Random Forest Model}
+#RMSE of Both Random Forest and Deforest Models
+rmse(batted_ball$linear_weight, preds.rfnospin)
+rmse(batted_ball$linear_weight, preds.dfnospin)
+```
+
+```{r Spin Rate Random Forest Model}
+
+# Ranger Model with Only Spin Rate Accounted for
+rangersrmodel <- ranger(linear_weight ~ exit_speed + exit_vertical_angle + exit_horizontal_angle + exit_spin_rate, data = train)
+rangersrmodel
+
+# Deforesting the Spin Rate Model
+dfsr <- deforest(rangersrmodel, which.trees = c(1, 3, 5))
+```
+
+```{r Spin Rate Random Forest Model}
+# Generating Predictions and Testing if the Deforest Model is equal to the Random Forest Model
+preds.rfsr <- predict(rangersrmodel, data = test, predict.all = TRUE)$predictions
+
+preds.dfsr <- predict(dfsr, data = test, predict.all = TRUE)$predictions
+
+identical(preds.rfsr[, -c(1, 3, 5)], y = preds.dfsr)
+```
+
+
+```{r Spin Rate Random Forest Model}
+# Calculating RMSE for Deforest and Random Forest Models
+rmse(batted_ball$linear_weight, preds.rfsr)
+rmse(batted_ball$linear_weight, preds.dfsr)
+```
+
+```{r Spin Axis Random Forest Model}
+rangersamodel <- ranger(linear_weight ~ exit_speed + exit_vertical_angle + exit_horizontal_angle + exit_spin_axis, data = train)
+rangersamodel
+
+dfsa <- deforest(rangersamodel, which.trees = c(1, 3, 5))
+```
+
+```{r Spin Axis Random Forest}
+# Generating Predictions and Testing if the Deforest Model is equal to the Random Forest Model
+
+preds.rfsa <- predict(rangersamodel, data = test, predict.all = TRUE)$predictions
+
+preds.dfsa <- predict(dfsa, data = test, predict.all = TRUE)$predictions
+
+identical(preds.rfsa[, -c(1, 3, 5)], y = preds.dfsa)
+```
+
+
+```{r Spin Axis Random Forest Model}
+# Calculating the RMSE of the Deforest and Random Forest Models
+rmse(batted_ball$linear_weight, preds.rfsa)
+rmse(batted_ball$linear_weight, preds.dfsa)
+```
+
+```{r Spin Random Forest Model}
+# Collecting the Predictions from the Three Models with Spin
+rfspinpred <- predict(spinmodel, batted_ball)
+#nospinpred <- predict(nospinmodel, batted_ball)
+
+#Predictions from the Spin Ranger Model
+rangerspinpred <- predict(rangerspinmodel, data = batted_ball)$predictions
+dfpred <- predict(dfspin, data = batted_ball)$predictions
+
+#Predictions from the No Spin Ranger Model
+#rangernospinpred <- predict(rangernospinmodel, data = batted_ball)$predictions
+#dfnospinpred <- predict(dfnospin, data = batted_ball)$predictions
+```
+
+```{r Spin Random Forest Model}
+# Graphing the Predicted and Actual Values 
+
+#  Simple Random Forest
+plot(batted_ball$linear_weight, rfspinpred)
+abline(0,1)
+
+# Ranger Random Forest
+plot(batted_ball$linear_weight, rangerspinpred)
+abline(0,1)
+
+# Deforest Model
+plot(batted_ball$linear_weight, dfpred)
+abline(0,1)
+```
+```{r}
+#  Simple No Spin Random Forest
+plot(batted_ball$linear_weight, nospinpred)
+abline(0,1)
+
+# Ranger No Spin Random Forest
+plot(batted_ball$linear_weight, rangernospinpred)
+abline(0,1)
+
+#  Deforest No Spin Random Forest
+plot(batted_ball$linear_weight, dfnospinpred)
+abline(0,1)
+```
+

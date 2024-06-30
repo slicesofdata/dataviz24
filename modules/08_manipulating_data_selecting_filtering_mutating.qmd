@@ -1,0 +1,1428 @@
+---
+title: "**Selecting, Filtering, & Mutating**"
+author: "Gabriel I. Cook"
+#date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# secret functions
+source(here::here("r", "src", "color_format_text.R"))
+source(here::here("r", "_common.R"))
+```
+
+
+::: callout-important
+## Under construction. 
+
+This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.
+:::
+
+
+```{r}
+#| label: load-packages
+#| include: false
+
+#library()
+# source(here::here("r", "my_functions.R"))
+R.utils::sourceDirectory(here::here("r", "functions"))
+source("https://raw.githubusercontent.com/slicesofdata/fods24/main/r/functions/view_html.R")
+```
+
+# **Overview**
+
+In this module, we will start manipulating data frames. Data frames are composed of column variables and row observations/cases and we will address how to perform operations on both. We will learn how to use **{dplyr}**, rather than `base R` to select, remove, add, and modify vectors in data frames. In addition, we will address how to filter and arrange rows in various ways. The focus will be on cleaning or wrangling data. Helper functions from libraries like **{tidyr}**, **{stringr}**, and **{tidyselect}** are also used in conjunction with **{dplyr}**.
+
+
+## **Readings and Preparation**
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time. Work through some examples so that you have a good idea of your level of understanding and confidence. 
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing code through exercises. 
+
+
+## **Supplementary Readings (Optional)**
+
+- [Data Transformation](https://r4ds.hadley.nz/data-transform)
+- [Huber: Transforming Data](`r huber_transformation_ch`)
+
+
+## **Libraries** 
+
+- **{here}**: `r packageVersion("here")`: for path management
+- **{dplyr}** `r packageVersion("dplyr")`: for selecting, filtering, and mutating
+- **{stringr}**: `r packageVersion("stringr")`: for working with strings
+- **{tidyselect}**: `r packageVersion("tidyselect")`: for selecting sets from strings
+- **{magrittr}**: `r packageVersion("magrittr")`: for piping with `%>%` (plus other piping operators)
+
+
+## **External Functions**
+
+`view_html()`: for viewing data frames in `HTML` format. You can source this from your `/r/functions` directory.
+
+```{r}
+R.utils::sourceDirectory(here::here("r", "functions"))
+```
+
+If for some reason, you do not have the function saved, you can get it from the remote source.
+
+```{r}
+source("https://raw.githubusercontent.com/slicesofdata/fods24/main/r/functions/view_html.R")
+```
+
+
+# **Loading Libraries**
+
+We will work with a few different libraries for data manipulation. Let's load them into our work space using `library()`.
+
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+library(stringr)
+library(tidyselect)
+library(magrittr)
+```
+
+Make note of any warnings that appear when loading libraries. There are some libraries that contain functions with the same names. Be aware that the most recently loaded library function will take precedence. You can avoid confusion using `::` to call a function from a particular library (e.g., `libraryname::functionname()`).
+
+
+# **A Grammar for Data Wrangling** 
+
+The [**{dplyr}**](https://dplyr.tidyverse.org/) package presents a type of grammar for wrangling data ([Wickham *and* Francois 2014](https://www.researchgate.net/publication/275646200_dplyr_A_Grammar_of_Data_Manipulation)). **{dplyr}** is part of the [**{tidyverse}**](https://www.tidyverse.org/) ecosystem which loads using `library(tidyverse)`, or specifically using `library(dplyr)`. **{dplyr}** also imports functions from **{tidyselect}**, which is also part of the **{tidyverse}** ecosystem.
+
+The functions from any `R` package can be called after loading the package library. One does not need to reference the package explicitly when calling a function but to avoid confusion, we will often reference the package/library and the function together (e.g., `package::function()`).
+
+Working with data involves creating new column variables, removing or renaming column variables, removing or deleting row observations, sorting, and summarizing data (often by groups/factors). etc. Consequently, there are five main function verbs for working with data in a data frame: `select`, `filter`, `mutate`, `arange`, and `summarize`. Their corresponding functions are:
+
+- `select(dataframe, variables_to_select)`: select columns to retain 
+- `mutate(dataframe, variables_to_create)` and `dplyr::rename()`: add or modify existing columns
+- `filter(dataframe, rows_to_select)`: subset by rows
+- `arrange(dataframe, variable_to_sort_by)`: sort rows
+- `summarize(dataframe, procedures_for_summarizing)` in conjunction with `dplyr::group_by()`: aggregate the data in some way
+
+
+# **Some Common Ways for Selecting Variables Using `{dplyr}`**
+
+You may often wish to subset data frames containing multiple variables to make them more lean and manageable for carrying out a specific goal. For such tasks, `select()` will be used.
+
+## **Selecting Variables using `dplyr::select()`**
+
+You can reference variables by their names or by their column position in a data frame (e.g., 1, 25, etc.). 
+
+Using `select()`, you can select columns/variables from a data frame. The variables you select are retained and variables omitted that you don't select are omitted in the returned data frame. 
+
+Before using a function you have never used before, you would always review the documentation for what the function is designed to accomplish.
+
+```{.r}
+help(dplyr::select)
+```
+
+Or:
+
+```{.r}
+?dplyr::select
+```
+
+You can see that `select()` is used for ***selecting variables*** from a data frame and there are many selection features for accomplishing such tasks.
+
+**Parameters/Arguments:**
+
+- `.data`: a data frame
+- `...`: one ore more expressions separated by commas 
+
+We will definitely need a data frame and we will need variables to select. 
+
+Let's start with a data frame. The `USAressts` data is built into `R` so let's just use that for now. Let's use `select()` to subset a data frame in two ways, first without piping and then with piping (preferred method).
+
+1. Without piping
+
+At a bare minimum, we will need to pass a data frame to `select()` at very least. But what happens if we don't pass variables to select?
+
+```{r}
+select(.data = USArrests)
+```
+
+You will see the that the returned data frame has 0 columns and 50 rows. 
+
+2. Piping using `|>`
+
+If you pipe the data frame into the function, `.data = USArrests` is inherited and you do not need to declare it within `select()`. 
+
+```{r}
+USArrests |>
+  select()
+```
+
+Again, the returned data frame has 0 columns and 50 rows. If you use `select()` without specifying any variables for the function to select, as seen in both examples, you will have data frame that contains no columns. Let's address some methods for selecting variables.
+
+
+### **Selecting Variables by Column Position**
+
+Variables are columns in a data frame, so they can be selected by their element position ([previously covered here](https://gabrielcook.xyz/fods24/modules/05_vectors_and_data_frame_basics.html#vectors-contain-ordered-componentselements)). If you wanted to select the first and third column, one way is to specify each position separated by a comma. 
+
+```{r}
+USArrests |>        # take the data frame
+  select(1, 3)      # select columns 1 and 3
+```
+
+Let's remind ourselves of how piping works. Remember that piping will modify the data frame in steps, with each pipe passing the current form of the data frame to the next function. Not that you ever want to write two lines of code and perform this extra step to select only column 1 but you could pipe the data frame to another `select()`.
+
+```{r}
+USArrests |>        # take the data frame
+  select(1, 3) |>   # select columns 1 and 3
+  select(1)         # then select column 1 only
+```
+
+The better approach is just to select column 1 in a single line.
+
+```{r}
+USArrests |>
+  select(1)
+```
+
+
+### **Selecting Variables by Column Name**
+
+Rather than position, you will likely wish to select by variable name. We will address several approaches for doing so. Each approach are benefical in different contexts. 
+
+#### **Selecting Variables as Unquoted Expressions**
+
+Variables can be passed separately without quotes. We can pass two arguments, one with `Murder` and the other with `Assault`, separating each with a comma. Because of some special characteristics of the **{dplyr}**, we can use variable names **without** quotes. Let's also reduce the returned data frame using `head()` in order to save space. 
+
+```{r}
+USArrests |> 
+  select(Murder, Assault) |> 
+  head()
+```
+
+
+#### **Selecting Variables as Characters/Strings**
+
+You are most likely familiar with variable names as quoted strings. We can pass two arguments here using the variable names in quotes. This approach is more similar to a procedures use with in `base R` functions as you cannot pass unquoted expressions in `base R`.
+
+```{r}
+USArrests |> 
+  select("Murder", "Assault") |> 
+  head()
+```
+
+
+#### **Selecting Variables as a Character Vector**
+
+What if your variables were in a vector, `c("Murder", "Assault"))`?
+
+```{r}
+USArrests |>
+  select(c("Murder", "Assault")) |> 
+  head()
+```
+
+The same will work if you passed a numeric vector `c(1, 3)`.
+
+
+#### **Selecting Using an External Vector Object**
+
+In many use cases, you will will have a vector of variable names that would will want to pass rather than type individually. This approach also reduces confusion when you have key variables that you want to work with. Create a vector once and then use again and again. If you make any changes, you will only have to make them once, rather than in multiple places.  
+
+First, create the vector object:
+
+```{r}
+keep_vars <- c("Murder", "Assault")
+```
+
+Second, Then pass the vector into the function:
+
+```{r}
+USArrests |>
+  select(keep_vars) 
+```
+
+Hmm. Warning message. 
+
+**Note:** `select(keep_vars)` is deprecated as a solution, so if you see this approach someplace, it won't work properly at this time or in the future. The warning message states that cannot do this without some modifications. What is suggested is `all_of()`. When your variables are in an external variable, `all_of(keep_vars)` will tell `select()` that your variables are *all of the variables in the vector*. Yes, this is an extra step but worth the flexibility.
+
+```{r}
+USArrests |>
+  select(all_of(keep_vars)) |> 
+  head()
+```
+
+But this could be problematic if a variable in your vector does not exists. Let's add some variables that are not in the data frame and then pass that vector.
+
+```{r include=FALSE}
+keep_vars_more <- c("Murder", "Assault", "Var_x", "Var_y", "Var_z")
+```
+
+```{.r}
+keep_vars_more <- c("Murder", "Assault", "Var_x", "Var_y", "Var_z")
+
+USArrests |>
+  select(all_of(keep_vars_more)) |> 
+  head()
+```
+
+You will see the following error message:
+
+```
+Error in `all_of()`:
+! Can't subset columns that don't exist.
+✖ Columns `Var_x`, `Var_y`, and `Var_z` don't exist.
+```
+
+**Tip:** Rather than using `all_of()`, use `any_of()`. In this instance, *any of* the variables that exist in the data frame will be selection. Those variables that are not in the data frame will be ignored. With this approach, your code will not break if there something changes.
+
+```{r}
+USArrests |>
+  select(any_of(keep_vars_more)) |> 
+  head()
+```
+
+
+#### **Selecting Variables Starting with or Ending with Certain Characters**
+
+One thing about **{dplyr}**, when you load the library, there are functions from other libraries that are imported along with **{dplyr}**'s own functions. These important functions are designed to work with each other, so the people who maintain the libraries have packaged them up nicely so you don't have to load separate libraries. 
+
+Many of the functions are imported from the **{tidyselect}** library and these functions are what give you additional manipulation ability. Some imported functions are:  `all_of()`, `any_of()`, `contains()`, `ends_with()`, `everything()`, `last_col()`, `matches()`, and `starts_with()`.
+
+With functions like `starts_with()`, `contains()`, and `ends_with()`, you can select variables containing character patterns in their names. For example, rather than code out all variables for a memory span task, you might want to grab variables that contain the characters `"span"`.
+
+Rather than hard coding variable names (e.g., `"span_time1"`, `"span_time2"`, `c("Murder", "Assault")`) to pass as an argument to `select()`, you would use another function to perform the heaving lifting for you (e.g.,`starts_with()`). In this case, the variable names that `starts_with()` specific character patterns get passed to `select()`. This process represents a good example of whe what is referred to as [**functional programming**](https://en.wikipedia.org/wiki/Functional_programming). This is also a good example of *working smarter, not harder*. Rather than coding specifically what to pass as an argument to another function, you utilize another function to pass its returned object as an argument to another function.
+
+#### **Selecting Variables Using `starts_with()`**
+
+##### **Understanding `starts_with()`**
+
+But first, we need to understand what `starts_with()`, actually does. The function name should provide you some insight but for more information, use `?starts_with`.
+
+```{.r}
+starts_with(match, 
+            ignore.case = TRUE, 
+            vars = NULL
+            )
+```
+
+**Parameters/Arguments:**
+
+- `match`: a character vector
+- `ignore.case`: if `TRUE`, the default, ignores case when matching names. This is most flexible.
+- `vars`: a character vector of variable names. If not supplied, the variables are taken from the current selection context (as established by functions like `select()` or `pivot_longer()`).
+
+The best way to understand the function is to use it (after reading the documentation). Let's try out `starts_with()`. Let's set a required pattern `match = some character` and because `vars = NULL` by default, let's just set `vars = some character vector`. If you reviewed the documentation or looked at the arguments above, `vars` is not the second parameter, so you will want to name it in the function call if it takes that second position as seen below. We will first test this function without using it on a data frame.
+
+We set `match = "a"` and `vars = c("Hello", "Hi", "Bye")`. This will look for character `"a"` to match the elements of a character vector `c("Hello", "Hi", "Bye")`.
+
+```{r}
+starts_with(match = "a", 
+            vars = c("Hello", "Hi", "Bye")
+            )
+```
+
+What is returned is `integer(0)`, which is actually speak for "there is no match". Not very intuitive. Hmm, OK. Let's try another character.
+
+```{r}
+starts_with(match = "b", 
+            vars = c("Hello", "Hi", "Bye")
+            )
+```
+
+OK, so now an integer is returned (yes, try `is.integer()` if you don't believe me). 
+
+```{r}
+is.integer(
+  starts_with("b", 
+              vars = c("Hello", "Hi", "Bye")
+              ))
+```
+
+And even though you only see one value, this object is still a vector. We can check using `is.vector()`.
+
+```{r}
+is.vector(
+  starts_with("b", 
+              vars = c("Hello", "Hi", "Bye")
+              ))
+```
+
+Importantly, `starts_with()` **returns a vector of values**. What do the values correspond to? The values in the vector refer to the element index/position of a match and the number of the elements in the vector tells refers to the number of matches found. Because the *third* string element `"Bye"` starts with `"b"`, that's what is returned. 
+
+Try something else:
+
+```{r}
+starts_with("h", 
+            vars = c("Hello", "Hi", "Bye")
+            )
+```
+
+Now the function returns a vector containing `1` and a `2`, giving length = 2, representing both the first and the second elements start with "h". 
+
+Importantly, letter casing is ignored because `ignore.case = TRUE` by default. Set to `FALSE` if you want your match to be case sensitive.
+
+```{r}
+starts_with("h", 
+            vars = c("Hello", "Hi", "Bye"), 
+            ignore.case = F
+            )
+```
+
+And now there are no matches.
+
+
+##### **Selecting Variables from a Data Frame using `starts_with()`**
+
+You will typically use `starts_with()` when working with a data frame and in conjunction with other functions, like `select()` in order to select variables that start with certain characters. When using `starts_with()` in the context of `select()`, the `vars` argument is essentially passing `vars = the names of the columns of the data frame passed to select()`.
+
+Example:
+
+```{.r}
+select(mydataframe,
+       starts_with(match = "my pattern",
+                   vars = "var names of mydataframe")
+      )
+```
+
+Let's provide two use cases:
+
+1. Without Piping
+
+You can pass the `data frame` as the first argument to `select()`.
+
+```{r}
+select(USArrests, 
+       starts_with("m")
+       ) |> 
+  head()
+```
+
+Notice that the only column variable that is returned is `r names(select(USArrests, starts_with("m")))`.
+
+2. With Piping
+
+You can also pipe the `data frame` into `select()`, which assumes the first argument is a data frame. This is a process you will see used often by others.
+
+```{r}
+USArrests |>
+  select(starts_with("m")) |> 
+  head()
+```
+
+
+##### **Selecting Variables using `ends_with()`**
+
+You can use `ends_with()` to find matches at the end of strings. This function is useful if you have variables that end based on their measurement type (e.g., "_rt" or "_acc" for reaction times and accuracy, respectively). Having the foresight to create variables is such a way to make accessing them easily later is a good example of *working smarter, not harder*.
+
+```{r}
+USArrests |>
+  select(ends_with("t")) |> 
+  head()
+```
+
+
+### **Selecting and Selecting Out Variables By/Between Index**
+
+So far, we have address selecting variables. There are, however, many approaches for *selecting* but also *selecting out* or omitting column variables. In other words, rather than including 14 out of 15 variables, you could simply exclude 1 of the 15 variables to achieve the same result. 
+
+You can pass multiple arguments for each specification or you can pass a single vector that contains all specifications. 
+
+- `select(1, 2)`: select first and second columns
+- `select(c(1, 2))`: select first and second columns
+- `select(-c(1, 2))`: select out first and second columns
+
+- `select(1:2)`: select first through second columns
+- `select(c(1:2))`: select first through second columns
+- `select(-c(1:2))`: select out first through second columns
+
+**Potential Recommendation**: use options utilizing `c()` to pass a vector because this habit will be more versatile with `base R` functionality. However, online solutions will likely not take this approach.
+
+
+Let's make a data frame to work with first. We will name the data frame `DAT` even though this is a terrible name because it lacks diagnosticity. 
+
+```{r}
+DAT <- 
+  data.frame(
+    Id  = c(100, 101, 102, 103, 104, 100, 105),
+    Sex = c('male', 'female', 'Male', NA, 'man', "male", "neither"),
+    Age = c(25, 33, 27, 40, 44, 25, 40),
+    Renting = c("yes", NA, "yes", NA, "no", "yes", "yes")
+)
+```
+
+Select columns 1 and 2: 
+
+```{r}
+DAT |>
+  select(1, 2) 
+```
+
+Select columns 1 and 2 as a vector containing values 1 and 2:
+
+```{r}
+DAT |>
+  select(c(1, 2)) 
+```
+
+
+Select out columns 1 and 2 as a vector containing values 1 and 2:
+
+```{r}
+DAT |>
+  select(-c(1,2)) 
+```
+
+
+Select from columns 1 to 2 using the `:` operator:
+
+```{r}
+DAT |>
+  select(1:2) 
+```
+
+Select from columns 1 through 3 using a vector containing the `:` operator:
+
+```{r}
+DAT |>
+  select(c(1:3)) 
+```
+
+Select out columns 1 through 3 using a vector containing the `:` operator:
+
+```{r}
+DAT |>
+  select(-c(1:3))   # select out from here to there
+```
+
+
+### **Selecting and Selecting Out Variables By or Between Character Name**
+
+These approaches are similar to those offered earlier except that some involve passing variables by their name (e.g., character names). Whereas the order of the variables in a data frame may move around, the names may be more stable or permanent, at least after you have cleaned up the names. Consequently, passing variables by name may be more foolproof. 
+
+You don't have to be familiar with all approaches and you may settle on using one that makes the most sense to you.
+
+- `select("var1", "var2")`
+- `select(c("var1", "var2"))`
+- `select(-c("var1", "var2"))`
+
+- `select(var1:var2))`
+- `select(c("var1":"var2))`
+- `select(-c("var1":"var2))`
+
+**Recommendation:** use options utilizing `c()` as this will be more versatile with `base R` functionality.
+
+
+These function approaches also work but they may lead to some confusion regarding usage of quotes:
+
+- `select(var1, var2)`
+- `select(c(var1, var2))`
+- `select(-c(var1, var2))` 
+
+
+Select variables `Id` though `Age` using the `:` operator:
+
+```{r}
+DAT |>
+  select(Id:Age)                            # select from here to there
+```
+
+Select variables `Id` though `Age` passed as strings using the `:` operator:
+
+```{r}
+DAT |>
+  select("Id":"Age")                        # select from here to there
+```
+
+Select variables `Id` though `Age` as a vector containing the variable names passed as strings and using the `:` operator:
+
+```{r}
+DAT |>
+  select(c("Id":"Age"))                     # select from here to there
+```
+
+Select out variables `Id` though `Age` as a vector containing the variable names passed as strings and using the `:` operator:
+
+```{r}
+DAT |>
+  select(-c("Id":"Age"))                    # select out from here to there
+```
+
+You can also use the `!` operator to select *NOT* these variables (therefore, all others)
+
+```{r}
+DAT |>
+  select(!c("Id":"Age"))                    # select out from here to there
+```
+
+
+### **Selecting and Selecting Out Variables Characters in Their Names**
+
+- `select(starts_with("characters"))`
+- `select(ends_with("characters"))`
+- `select(contains('e'))`
+
+
+#### **Selecting using `starts_with()`**
+
+Select variables which start with character "i":
+
+```{r}
+DAT |> 
+  select(starts_with('i'))
+```
+
+Select variables which DO NOT start with character "s":
+
+```{r}
+DAT |> 
+  select(-starts_with('s'))
+```
+
+
+#### **Selecting using `ends_with()`**
+
+Select variables which end with character "e":
+
+```{r}
+DAT |> 
+  select(ends_with('e'))
+```
+
+Select variables which end with character "e":
+
+```{r}
+DAT |> 
+  select(-ends_with('e'))
+```
+
+
+#### **Selecting using `contains()`**
+
+Select variables which contain character "g":
+
+```{r}
+DAT |> 
+  select(contains('g'))
+```
+
+Select variables which DO NOT contain character "g":
+
+```{r}
+DAT |> 
+  select(-contains('g'))
+```
+
+
+#### **Selecting using regular expressions**
+
+Sometimes you do not want to search for specific character strings. Instead, you might want to look for strings that contain particular character patterns. For example, typing out `var1`, `var2`, `var3` could be annoying. You might prefer just grabbing variables that match the pattern `"var"`.
+
+We will use some [regular expressions](https://www.regular-expressions.info/), or regex, to help us. For the regex, you we will need to specify some code for finding patterns. For example, `\\d{4}` will search for patterns with 4 digits, whereas the dot star `.*` will help with all patterns. In particular, `.` refers to any character (e.g,. digit, alpha character, or any other special character) and `*` means zero or more times, so this pattern will search for all files that start with 4 digits followed by anything in the name. A  pattern will restrict the search to files containing that exact character string. Some example will be helpful.
+
+
+##### **Selecting variables of all patterns using `".*"`**
+
+Select variables containing a **regular expression**, use `matches()`:
+
+`.*` will grab all names because it means any character and any number of times
+
+```{r}
+DAT |> 
+  select(matches(".*"))
+```
+
+
+##### **Selecting variables with digits using `"\\d"`**
+
+`\\d` will grab all variables containing a digit:
+
+```{r}
+DAT |> 
+  mutate(var_1    = 1,
+         var_11   = 1,
+         var_3    = 1,
+         var1_var = 1
+         ) |>
+  select(matches("\\d"))
+```
+
+
+##### **Selecting variables that start and contain characters `"v.*\\d"`**
+
+`v.*\\d` will grab all variables that start with v and then contain any characters which are followed by a digit:
+
+```{r}
+DAT |>
+    mutate(var_1    = 1,
+           var_11   = 1,
+           var_3    = 1,
+           var1_var = 1
+         ) |>
+  select(matches("v.*\\d"))
+```
+
+
+##### **Selecting variables that end with a digit using `"\\d$"`**
+
+
+`\\d$` will grab all variables ending in a digit (`$` means end):
+
+```{r}
+DAT |> 
+    mutate(var_1    = 1,
+           var_11   = 1,
+           var_3    = 1,
+           var1_var = 1
+           ) |>
+  select(matches("\\d$"))
+
+```
+
+#### **Selecting variables by negation**
+
+You can also negate all regular expression matches if you want to exclude:
+
+```{r}
+DAT |>
+      mutate(var_1    = 1,
+             var_11   = 1,
+             var_3    = 1,
+             var1_var = 1
+             ) |>
+  select(-matches("\\d$"))
+```
+
+
+**Note:** The functions will return lowercase and uppercase variable name matches because the default behavior is `ignore.case = TRUE`. Set to `FALSE` if you want to perform precise surgery on the variables.  
+
+
+
+### **Selecting and Selecting Out Variables by Type**
+
+Select variables that are numeric:
+
+```{r}
+DAT |>
+  select(where(is.numeric))
+```
+
+
+Select variables that are NOT numeric:
+
+```{r}
+DAT |> 
+  select(-where(is.numeric))
+```
+
+Select variables that are character:
+
+```{r}
+DAT |> 
+  select(where(is.character))
+```
+
+Select variables that are NOT character:
+
+```{r}
+DAT |>
+  select(-where(is.character))
+```
+
+Select variables that are logical (`TRUE` to `FALSE`):
+
+```{r}
+DAT |> 
+  select(where(is.logical))
+```
+
+Select variables that are NOT logical (`TRUE` to `FALSE`):
+
+```{r}
+DAT |> 
+  select(-where(is.logical))
+```
+
+
+# **Creating/Mutating Variables**
+
+When we want to add new variables or modify existing ones, we will use `mutate()`. Before using the function, review what it does using `?mutate`.
+
+```{,r}
+mutate(
+  .data,
+  ...,
+  .by = NULL,
+  .keep = c("all", "used", "unused", "none"),
+  .before = NULL,
+  .after = NULL
+)
+```
+
+**Parameters/Arguments:**
+
+- `.data`: a data frame
+- `...`: name-value pairs; name is the name of the column and the value would be the value or function used 
+
+
+Let's start with a constant and move up from there. 
+
+## **Creating/Mutating A Constant Value**
+
+Let's create a new variable, `new_var` and set it equal to `1`.
+
+```{r}
+USArrests |>
+  mutate(new_var1 = 1)
+```
+
+To mutate more than one variable, you can add a new name-value pair as a new argument:
+
+```{r}
+USArrests |>
+  mutate(new_var1 = 1,
+         new_var2 = 9999
+         )
+```
+
+Or you can add a new `mutate()` by piping:
+
+```{r}
+USArrests |>
+  mutate(new_var1 = 1) |>  # add the variable 
+  mutate(new_var1 = 9999)  # then add another variable 
+```
+
+Whatever your approach, keep the variable creation on separate lines. Don't do this:
+
+```{r}
+USArrests |>
+  mutate(new_var1 = 1, new_var1 = 9999)   
+```
+
+Although there is nothing technically incorrect with doing so, (1) this is harder to read, (2) the `R` community won't like it, and importantly (3) it is less flexible when you want to temporarily comment out a line of your code as seen here.
+
+```{r}
+USArrests |>
+#  mutate(new_var1 = 1) |>  # add the variable 
+  mutate(new_var1 = 9999)  # then add another variable 
+```
+
+
+## **Creating/Mutating A Constant Character**
+
+```{r}
+USArrests |>
+  mutate(new_var1 = "Below Average",
+         )
+```
+
+
+## **Creating/Mutating A Logical Object**
+
+Logical objects are `TRUE` or `FALSE`. We can perform the logical test by asking whether `Assault > Murder`. If the `Assault` value for a row is greater than the `Murder` value, `TRUE` will be returned, otherwise `FALSE`.
+
+```{r}
+USArrests |>
+  mutate(new_var = Assault > Murder)
+```
+
+We see that all states (rows) have more assults than murders. No surprise.
+
+
+## **Creating/Mutating Based on Function**
+
+Here, the name value pair will contain a function. For example, let's create a variable based on the `mean()` of a variable.
+
+```{r}
+USArrests |>
+  mutate(Mean_Assault = mean(Assault))
+```
+
+Notice that the new column contains the mean for all rows.
+
+We may also wish to categorize rows based on their relative `Assault` data. How about assault lower than the mean assault?
+
+```{r}
+USArrests |>
+  mutate(Lower_than_Mean_Assault = Assault < mean(Assault))
+```
+
+`TRUE` and `False` make terrible variable levels, however. Using `ifelse()`, we will specify conditions for categorization. For example, make rows that are below the mean take on a value, *else/otherwise*, make the rows a different value.
+
+Example:
+
+`ifelse(Assault < Mean_Assault, "Below", "Equal or Above"))`
+
+If the `Assault` value is `<` Mean_Assault, assign the row a value of `"Below"`, else, assign `"Equal or Above"`. Let's use `ifelse()` to create a name-value pair
+
+`Relative_Assult = ifelse(Assault < Mean_Assault, "Below", "Equal or Above"))` 
+
+```{r}
+USArrests |>
+  mutate(Mean_Assault = mean(Assault), 
+         Relative_Assult = ifelse(Assault < Mean_Assault, "Below", "Equal or Above")
+         )
+```
+
+Bu you could also combine the steps together:
+
+```{r}
+USArrests |>
+  mutate(Relative_Assult = ifelse(Assault < mean(Assault), "Below", "Equal or Above"))
+```
+
+
+# **Filtering Rows**
+
+Data files are messy and as a result require cleaning. You will have missing rows, incorrect variable names, files with columns named the same, `NA`s, strings for numbers, duplicate rows of data, people who completed a survey twice, and all sorts of unimaginable and unbelievable data problems. So cleaning is important.
+
+Whereas **selecting** is the processes of retaining variable columns, **filtering** is the process of retaining rows from a data set. For example, if you want your data frame to contain only individuals who are 20 or more years old, you would filter to retain them and remove others. If you want to explore data for only individuals from Kansas, you would filter rows to retain only them and remove all others.  
+
+Data frame manipulation may involve keeping only certain rows for data, for example, male or female respondents, male respondents, those who do not contain missing values (e.g., `NA`s) for a specific column variable, who are of a certain age (or born in in certain year), who are above (or below) some acceptable criterion, etc. 
+
+When a column variable has more than one value (e.g., check using `unique()` to determine the unique elements contained), you may wish to filter on some but not others. 
+
+You may even need to filter rows in a data frame that are distinct (e.g., not duplicate responses). This is often a good first step in order to determine the size of the usable data set. `dplyr::distinct()` makes de-duplicating easy as this function will return only distinct rows.
+
+## **Understanding Filtering Operators**
+
+We will filter data using `filter()` from **{dplyr}** 
+
+```{.r}
+filter(.data, 
+       ...
+       )
+```
+
+**Parameters/Arguments:**
+
+- `.data`: a data frame
+- `...`: expressions that return a logical value (`TRUE` or `FALSE`)
+
+**NOTE::**  Filtering cases using the `dplyr::filter()` verbs works by **removing rows that do not match a specific criterion** and then by returning the data frame that omits the mismatched condition. It keeps only rows that are `TRUE` (match) your specification. 
+
+Some useful filtering operators and functions include: `==`, `>`, `>=`, `&`, `|`, `!`, `xor()`, `c()`, `is.na()`, `between()`, `near()`. 
+
+
+## **Filtering Using `filter()`**
+
+We will work with different data frames because the the nature of their contents.
+
+What does the data frame look like again?
+
+```{r}
+DAT
+```
+
+Row/Observations/Cases can be filtered to "include" only certain matched conditions or can be filtered to "exclude" by negating those matched conditions. If the column variable `Sex` is in the data frame and cases are `'male'`, `'men'`, `'female'`, `'women'`, `'neither'`, `NA`, etc., you can specify the column `Sex` variable and then the row matching condition(s). 
+
+
+### **Filtering Matches to a Specific Character Value**
+
+The first argument in `dplyr::filter()` is a data frame, and the function all `dplyr::filter(DAT, Sex == 'female')` will filter the data frame named `DAT` to include rows for which the `sex` column equals `'female'`. In other words, `TRUE` rows.
+
+```{r}
+dplyr::filter(DAT, 
+              Sex == 'female'
+              )
+```
+
+Similarly, the function call `dplyr::filter(., Sex == 'male')` can be read "filter the data frame to include rows for which the value of `Sex == 'male'` is `TRUE`". 
+
+More flexibly, however, you could specify a vector containing acceptable strings using `c()`. `dplyr::filter(., Sex %in% c('male'))` filters the rows to include only those for which the value for `sex` is in the string vector which includes a single string,`'male'` whereas `dplyr::filter(., Sex %in% c('male', 'Man'))` filters the rows to include only those for which the value for `Sex` is in the string vector which includes `'male'` and `'Man'`. Cases containing `'Male'`, `'Men'` (R is a case-sensitive language), or `'female'`, for example, will not be included in the returned data frame because they do not match values in the string vector.
+
+
+### **Filtering by a Relative Value**
+
+```{r}
+USArrests |>
+  filter(Murder > 10)
+```
+
+Those rows with `Murder` above 10 will be retained, others removed.
+
+### **Filtering by a Specific Value**
+
+```{r}
+USArrests |>
+  filter(Murder == 12.1)
+```
+
+Those rows with `Murder == 12.1` will be retained.
+
+
+Using a previous example with this data set, we can filter based on a character variable if we had one. Let's add one.
+
+```{r}
+USArrests |>
+  mutate(Relative_Murder = ifelse(Murder < mean(Murder), "Below", "Equal or Above")) |>
+  filter(Relative_Murder == "Below")
+```
+
+
+### **Filtering Using on a Function**
+
+```{r}
+USArrests |>
+  filter(Murder > mean(Murder))
+```
+
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+# **Filtering Missing Data (`NAs`)**
+
+`is.na()` will return a logical vector for which `TRUE` represents there are missing values.
+
+Try on the entire data frame...
+
+```{r}
+is.na(DAT)
+```
+
+You can see that some columns contain cases/rows with `TRUE` indicating the cell contains `NA`.
+
+The negation operator, `!`, will be used to illustrate some filtering approaches. Because `filter()` will filter out `FALSE` cases and retain `TRUE` ones, so you may sometimes need to negate a function so that you keep the rows you want to keep.  
+
+- `na.omit()`: removes rows with NAs
+- `filter(is.na(column_name))`: keep rows with NA in specific variable
+- `filter(!is.na(column_name))`: remove rows with NA in specific variable
+- `filter(complete.cases(.))`: remove rows with NAs
+
+
+## **Filter using `na.omit()`**
+
+```{r}
+DAT |>
+  na.omit()           # omit any rows with NAs 
+```
+
+
+## **Filter using `is.na()` and `!is.na()`**
+
+```{r}
+DAT |>
+  filter(is.na(Sex))       # keep NAs by variable
+```
+
+But your goal may likely be to keep everything that is not `NA`:
+
+```{r}
+DAT |>
+  filter(!is.na(Sex))      # remove NAs by variable
+```
+
+And filter step-by-step for each variable using `|>` and separate function calls: 
+
+```{r}
+DAT |>
+  filter(!is.na(Sex)) |>
+  filter(!is.na(Renting))
+```
+
+So why use separate lines of code if you can use `&` all in one line? One reason is that separate function calls written as separate lines of code make code inclusion/exclusion extremely easy.
+
+Comment out what you don't want using `#`:
+
+```{r}
+DAT |>
+  #filter(., !is.na(Sex)) |>
+  filter(!is.na(Renting))
+```
+
+
+## **Filter using `complete.cases()`**
+
+The `complete.cases()` function returns a logical vector for which `TRUE` reflects the row has complete information and no missing cases. Using `complete.cases()` along with `filter()`, you would retain all rows `TRUE` rows.
+
+```{r}
+DAT %>%
+  dplyr::filter(complete.cases(.))
+```
+
+
+## **Removing duplicate rows using `distinct()`**
+
+We will examine some other filtering methods that do not use `filter()` specifically but that which perform filtering operations.
+
+- `dplyr::distinct()`: remove duplicate rows
+- `dplyr::distinct(., column)`: remove duplicate rows by specific column
+- `na.omit()`: remove any row with `NA`’s (missing values)
+
+Let's use the simple `DAT` data frame.
+
+```{r}
+DAT
+```
+
+Remember that data frames are composed of rows and columns. As [discussed previously](https://gabrielcook.xyz/fods24/modules/05_vectors_and_data_frame_basics.html) we can subset in `base R` to illustrate a point.
+
+Row row 1, all columns:
+
+```{r}
+DAT[1,]
+```
+
+Row row 6, all columns:
+
+```{r}
+DAT[6,]
+```
+
+Notice that rows 1 and 6 are the same person (e.g., `Id`) and have exactly the same data for all variables. If we compare the two logically, we will confirm that all is `TRUE`.
+
+```{r}
+DAT[1,] == DAT[6,]
+```
+
+You clearly **do not** want duplicates of data. So let's just remove any rows that are identical using `distinct()`
+
+
+### **Removing Duplicates Across All Variables**
+
+```{r}
+DAT |>
+  distinct()       # Remove exact duplicates across all columns
+```
+
+If you know each row is unique based on a variable in the data frame, you can also use `distinct()` to remove duplicates for a specific variable. Make sure that this variable specification is actually one that you would not want duplicates of.
+
+### **Removing Duplicates Based on a Variable**
+
+```{r}
+DAT |>           
+  distinct(Id)     #  Remove duplicates by variable; passes unique values for data frame
+```
+
+But this function simply returns the unique values in `Id`. To retain the variables, set `.keep_all = T`. If you want to remove duplicates and assign the cleaned data frame to an object, you would likely want to keep all of your variables.
+
+```{r}
+DAT |>             
+  distinct(Id, 
+           .keep_all = T
+           ) #
+```
+
+Notice, however, this only removed the last instance or `Id == 100`. Which row to include is a judgment call. The first, the last, neither, the average? Is there a correct answer?
+
+
+
+# **The Data Manipulation Workflow: Putting It All Together**
+
+Of course, all of these functions can be paired with `select()`, `mutate()`, `filter()`, etc. Here is the data manipulation workflow. 
+
+```{.r}
+dataframe |>
+    select(...) |>     # select variables of interest
+    mutate(...) |>     # then create new variables
+    filter(...) |>     # then filter by rows
+    group_by(...) |>   # then group for subsetting
+    summarize(...)     # then summarize
+```
+
+
+# **Many More Use-Case Examples (Optional)**
+
+## *Filter Cases using `==`*
+
+Filter rows for which the `Sex` variable is equal to the string `'female'`:
+
+```{r}
+DAT |>
+  dplyr::filter(Sex == 'female')
+```
+
+Filter rows for which the `Sex` variable is not equal to the string `'female'`:
+
+```{r}
+DAT |>
+  dplyr::filter(Sex != 'female')
+```
+
+
+Filter rows for which the `Sex` variable is equal to the string `'female'` **AND** `Age` is greater than the numeric 27:
+
+```{r}
+DAT |>
+  dplyr::filter(Sex == 'female' & Age > 27) # this "AND" that
+```
+
+Filter rows for which the `Sex` variable is equal to the string `'female'` **OR** `Age` is greater than the numeric 27:
+
+```{r}
+DAT |>
+  dplyr::filter(Sex == 'female' | Age > 27) # this "OR" that
+```
+
+A cleaner method involves separate lines of code. Although cleaner, this will not allow the "OR" option because the data frame that is returned from the first `filter()` is passed to the second `filter()` and all cases other than `"female"` have already been removed from the data frame.
+
+```{r}
+DAT |>
+  dplyr::filter(Sex == 'female') |>    # keep female (and add another pipe)
+  dplyr::filter(Age >= 27)             # keep only those equal to or older than 27
+```
+
+
+# **Filtering Cases by Value**
+
+## **Filter by `<` and `>` or `<=` or `>=`**
+
+
+Keep those less than:
+
+```{r}
+DAT |> 
+  dplyr::filter(Age < 40)   
+```
+
+
+Keep older than:
+
+```{r}
+DAT |> 
+  dplyr::filter(Age > 40)  
+```
+
+
+Keep equal to or older than:
+
+```{r}
+DAT |> 
+  dplyr::filter(Age >= 40)  
+```
+
+
+## **Filter Cases by Conditional X *or* Y Using `|` Operator...**
+
+Using the "OR" operator, `|`, cases can be included if "this" OR "that" condition.
+
+Filter numbers:
+
+```{r}
+DAT |>
+  dplyr::filter(Age == 25 | Age == 40)    # filter out numeric values IN a range
+```
+
+
+Filter characters:
+
+```{r}
+DAT |>
+  dplyr::filter(Sex == 'male' | Sex == 'female')
+```
+
+Although `dplyr::filter(sex %in% c('male', 'female'))` would be easier.
+
+
+Filter rows of variables of both types:
+
+```{r}
+DAT |>
+  dplyr::filter(Sex == 'male' | Age == 27)  
+```
+
+
+## **Filter Cases Between Values with `between()`**
+
+Between ages 25 and 33:
+
+```{r}
+DAT |>
+  dplyr::filter(between(Age, 27, 33))
+```
+
+
+## **Filter by range using the `%in%` operator (this is IN meaning in)**
+
+Though less flexible than using `between()`, `%in%` may be easier to remember:
+
+```{r}
+DAT |>
+  dplyr::filter(Age %in% 20:43)    # filter out numeric values IN a range
+```
+
+One's age is in the range from 20 through 43.
+
+
+If a vector object is already defined (e.g., `my_levels = c('male', 'female')`), you can use that for filtering also. Such approaches are useful when data manipulation involves reusing a reference as it simplifies coding and reduces errors because the specification is defined only once.
+
+```{r}
+my_levels = c('male', 'female')
+
+DAT |>
+  dplyr::filter(Sex %in% my_levels)
+```
+
+## **Filter by exclusion**
+
+When inclusion of variables is inappropriate, exclusion of them may be useful. The `!` operator means "NOT" in `R` so you can use that to accomplish the opposite of the statement. For example, `dplyr::filter(., !sex %in% c('male', NA))` will "filter the data frame to include rows in the `sex` column for which the value is NOT in the vector".
+
+Exclude rows in the `Sex` variable that are `NA` or `'male'`:
+
+```{r}
+DAT |>
+  dplyr::filter(!Sex %in% c('male', NA))  # keep only if NOT in vector
+```
+
+Exclude rows in the `Sex` variable that are `Men` or `'male'`:
+
+```{r}
+DAT |>
+  dplyr::filter(!Sex %in% c('male', 'Men'))  # keep only if NOT in vector
+```
+
+
+## *Filter by conditional X and Y using `&` operator...*
+
+By range:
+
+```{r}
+DAT |>
+  dplyr::filter(Id >= 102 & Age <= 43)    
+```
+
+```{r}
+DAT |>
+  dplyr::filter(Age >= 20 & Age <= 43)    
+```
+
+Note: Age 20:43 won't work. Can you figure out why?
+
+
+
+# **Filter Cases Containing Characters Using `stringr::str_detect()` and `%in%`:**
+
+If you want to filter cases that contain certain characters, unfortunately, you cannot use `contains()` as you would for variable names. For matching characters in levels of variables, you'll need something like `stringr::str_detect()` or `grepl()`. 
+
+- `stringr::str_detect()`: returns matching conditions
+
+The example below uses `str_detect()` to detect the presence of a character match and returns a logic vector with `TRUE`s for matching cases. When paired with `filter()`, the data frame is filtered by to contains cases that match the pattern for the variable.
+
+Example: `stringr::str_detect(my_variable, "pattern")`: 
+
+Let's look for levels of `Sex` for which `"ma"` is detected.
+
+```{r}
+DAT |> 
+  dplyr::filter(stringr::str_detect(Sex, "ma")) 
+```
+
+But the case for which `Sex = Male` is now missing. This is because `stringr::str_detect()` is a case-sensitive pattern match. 
+
+You can fix this is a couple ways:
+
+1) make the cases in `Sex` all lower case to `mutate()` the fix or
+2) to wrap `Sex` in `tolower()` to make cases lowercase. 
+
+The first option might be better if you want to fix the problem in the data frame. 
+
+Other casing functions are:
+
+- `tolower()`: returns lower case of string; see also `stringr::str_to_lower()`
+- `toupper()`: returns upper case of string; see also `stringr::str_to_upper()`
+- `tools::toTitleCase()`: returns Title Case (capitalize first letter of string) 
+
+
+```{r}
+DAT |>
+  filter(stringr::str_detect(tolower(Sex), "ma"))
+```
+
+For some, reading this code may be difficult. In order to understand the code, you need to read it inside out like slices of an onion. First understand the first function as the returned value is passed to the next function and so forth. 
+
+For example, elements of the `Sex` vector are converted to lower case and returned using `tolower()`. We can demonstrate this using only the vector from the data frame using the `$` operator, `DAT$Sex`.
+
+The initial vector:
+
+```{r}
+DAT$Sex
+```
+
+To lowercase:
+
+```{r}
+tolower(DAT$Sex)
+```
+
+Next, `stringr::str_detect()` will return a vector of `TRUE` or `FALSE` for all element positions of `DAT$Sex` for which the (now lowercase) string matches `"ma"`:
+
+```{r}
+stringr::str_detect(tolower(DAT$Sex), "ma")
+```
+
+Another approach would be to perform the steps in pieces by first mutating the data frame so that elements in the `Sex` vector are converted to lowercase and then pipe that mutated data from to `filter()`.  
+
+Briefly, we will introduce `dplyr::mutate()` to accomplish this goal. `mutate()` is used to add, update, etc. variables in a data frame or tibble.
+
+Mutate `Sex` using `mutate()`:
+
+```{r}
+DAT |>
+  mutate(Sex = tolower(Sex))
+```
+
+Now mutate and pipe that mutated data frame using `%>%` (from **{margittr}**) or `|>` (`base R` version 4.1+) to `filter()`:
+
+```{r}
+DAT |>
+  mutate(Sex = tolower(Sex)) |>
+  filter(stringr::str_detect(Sex, "ma"))
+```
+
+
+Pairing this piping approach with `toTitleCase()` may be better as only the first letter will be capitalized and you are looking for "Ma".
+
+```{r}
+DAT |>
+  mutate(Sex = tools::toTitleCase(Sex)) |>
+  filter(stringr::str_detect(Sex, "Ma"))
+```
+
+But notice the `male` and `man` issue is still a problem. 
+
+So what are the unique elements in `DAT$Sex`? Your friend here is `unique()`. And maybe you are too.
+
+```{r}
+unique(DAT$Sex)
+```
+
+You can hard code a fix using `%in%` and `case_when()`. `case_when()` is **{dplyr}**'s solution for multiple-case conditional.  
+
+```{r}
+DAT |>
+  mutate(Sex = tolower(Sex), # convert to lowercase first
+         Sex = case_when(    # then recode cases when matched
+           Sex %in% c("male", "man") ~ "Male",
+           Sex %in% c("female", "woman") ~ "Female"
+         ))
+```
+
+For a more flexible fix, you can use `str_detect()`:
+
+BUT beware that the order of operations matters with this approach. Because the string "female" contains characters "ma", you could accidentally recode all "female" cases to "male" if you perform the `case_when()` conversion on "male" first. 
+
+```{r}
+DAT |>
+  mutate(Sex = tolower(Sex),   # convert first
+         Sex = case_when(      # then recode
+           stringr::str_detect(Sex, "fe") ~ "Female",
+           stringr::str_detect(Sex, "ma") ~ "Male",
+         ))
+```
+
+Note that conditions in not declared in `case_when()` will be recoded as `NA`, which is what happens for `"neither"`. Make sure to include all ways you wish you recode cases.
+
+# **Session Information**
+
+```{r}
+sessionInfo()
+```

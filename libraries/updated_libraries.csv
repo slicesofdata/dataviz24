@@ -1,0 +1,1562 @@
+"Package","LibPath","Version","Priority","Depends","Imports","LinkingTo","Suggests","Enhances","License","License_is_FOSS","License_restricts_use","OS_type","MD5sum","NeedsCompilation","Built"
+"abind","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4-5",NA,"R (>= 1.5.0)","methods, utils",NA,NA,NA,"LGPL (>= 2)",NA,NA,NA,NA,"no","4.3.0"
+"AER","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2-10",NA,"R (>= 3.0.0), car (>= 2.0-19), lmtest, sandwich (>= 2.4-0),
+survival (>= 2.37-5), zoo","stats, Formula (>= 0.2-0)",NA,"boot, dynlm, effects, fGarch, forecast, foreign, ineq,
+KernSmooth, lattice, longmemo, MASS, mlogit, nlme, nnet, np,
+plm, pscl, quantreg, rgl, ROCR, rugarch, sampleSelection,
+scatterplot3d, strucchange, systemfit (>= 1.1-20), truncreg,
+tseries, urca, vars",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"alr4","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.6",NA,"R (>= 3.0), car, effects",NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"anytime","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.9",NA,"R (>= 3.2.0)","Rcpp (>= 0.12.9)","Rcpp (>= 0.12.9), BH","tinytest (>= 1.0.0), gettz",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"aod","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.2",NA,"R (>= 2.10), methods, stats",NA,NA,"MASS, boot, lme4",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"ape","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","5.7-1",NA,"R (>= 3.2.0)","nlme, lattice, graphics, methods, stats, utils, parallel, Rcpp
+(>= 0.12.0), digest","Rcpp","gee, expm, igraph, phangorn",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"aplot","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.1",NA,"R (>= 4.1.0)","ggfun (>= 0.1.3), ggplot2, ggplotify, patchwork, magrittr,
+methods, utils",NA,"ggtree",NA,"Artistic-2.0",NA,NA,NA,NA,"no","4.3.1"
+"archive","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.5",NA,"R (>= 3.1.0)","cli, glue, rlang, tibble","cli, cpp11","covr, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"AsioHeaders","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.22.1-2",NA,NA,NA,NA,NA,NA,"BSL-1.0",NA,NA,NA,NA,"no","4.3.0"
+"askpass","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1",NA,NA,"sys (>= 2.1)",NA,"testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"assertthat","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.1",NA,NA,"tools",NA,"testthat, covr",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"AUC","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.2",NA,NA,NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.0"
+"av","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8.4",NA,"R (>= 3.5)","graphics",NA,"testthat, ps, ggplot2, gapminder",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"backports","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.1",NA,"R (>= 3.0.0)",NA,NA,NA,NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.0"
+"base","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,NA,NA,"methods",NA,"Part of R 4.3.1",NA,NA,NA,NA,NA,"4.3.1"
+"base64enc","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1-3",NA,"R (>= 2.9.0)",NA,NA,NA,"png","GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.0"
+"base64url","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4",NA,NA,"backports (>= 1.1.0)",NA,"base64enc, checkmate, knitr, microbenchmark, openssl,
+rmarkdown, testthat",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"bayesplot","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.10.0",NA,"R (>= 3.1.0)","dplyr (>= 0.8.0), ggplot2 (>= 3.0.0), ggridges, glue,
+posterior, reshape2, rlang (>= 0.3.0), stats, tibble (>=
+2.0.0), tidyselect, utils",NA,"ggfortify, gridExtra (>= 2.2.1), hexbin, knitr (>= 1.16), loo
+(>= 2.0.0), RColorBrewer, rmarkdown (>= 1.0.0), rstan (>=
+2.17.1), rstanarm (>= 2.17.4), rstantools (>= 1.5.0), scales,
+shinystan (>= 2.3.0), survival, testthat (>= 2.0.0), vdiffr (>=
+1.0.2)",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"bayestestR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.13.1",NA,"R (>= 3.6)","insight (>= 0.19.1), datawizard (>= 0.7.0), graphics, methods,
+stats, utils",NA,"BayesFactor (>= 0.9.12-4.4), bayesQR, bayesplot, BH, blavaan,
+bridgesampling, brms, curl, effectsize, emmeans, gamm4, ggdist,
+ggplot2, glmmTMB, httr, KernSmooth, knitr, lavaan, lme4,
+logspline, MASS, mclust, mediation, modelbased, parameters,
+patchwork, performance, quadprog, posterior, RcppEigen,
+rmarkdown, rstan, rstanarm, see (>= 0.7.5), testthat, tweedie",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"bbmle","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.25",NA,"R (>= 3.0.0), stats4","stats, numDeriv, lattice, MASS, methods, bdsmatrix, Matrix,
+mvtnorm",NA,"emdbook, rms, ggplot2, RUnit, MuMIn, AICcmodavg, Hmisc,
+optimx (>= 2013.8.6), knitr, testthat",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"bdsmatrix","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3-6",NA,"methods, R (>= 2.0.0)",NA,NA,NA,NA,"LGPL-2",NA,NA,NA,NA,"yes","4.3.0"
+"bench","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.3",NA,"R (>= 3.5.0)","glue (>= 1.6.2), methods, pillar (>= 1.9.0), profmem (>=
+0.6.0), rlang (>= 0.2.0), stats, tibble (>= 3.2.1), utils",NA,"covr, dplyr, forcats, ggbeeswarm, ggplot2, ggridges,
+parallel, scales, testthat (>= 3.1.8), tidyr (>= 0.8.1), vctrs,
+withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"benchmarkme","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.8",NA,"R (>= 3.5.0)","benchmarkmeData (>= 1.0.4), compiler, doParallel, dplyr,
+foreach, graphics, httr, Matrix, methods, parallel, stringr,
+tibble, utils",NA,"covr, DT, ggplot2, knitr, RcppZiggurat, rmarkdown, testthat",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"benchmarkmeData","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.4",NA,"R (>= 3.5.0)","dplyr, graphics, tibble, utils",NA,"benchmarkme, covr, DT, testthat",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"betareg","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.1-4",NA,"R (>= 3.0.0)","graphics, grDevices, methods, stats, flexmix, Formula, lmtest,
+modeltools, sandwich",NA,"car, lattice, partykit, strucchange",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"BH","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.81.0-1",NA,NA,NA,NA,NA,NA,"BSL-1.0",NA,NA,NA,NA,"no","4.3.0"
+"BiasedUrn","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.11",NA,NA,NA,NA,NA,NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"bibtex","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.1",NA,"R (>= 3.0.2)","backports (>= 1.4.0), utils",NA,"testthat (>= 3.0.0)",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"bigD","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.0",NA,"R (>= 3.2.0)",NA,NA,"covr, testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"biglm","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9-2.1",NA,"DBI, methods",NA,NA,"RSQLite, RODBC","leaps","GPL",NA,NA,NA,NA,"yes","4.3.1"
+"binGroup","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.2-1",NA,NA,"graphics, partitions, Rdpack, stats, utils",NA,NA,NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"binman","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.3",NA,"R (>= 3.3)","rappdirs, yaml, httr, jsonlite, xml2, utils, stats,
+assertthat, semver",NA,"testthat, covr, knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"BiocManager","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.30.22",NA,NA,"utils",NA,"BiocVersion, remotes, rmarkdown, testthat, withr, curl, knitr",NA,"Artistic-2.0",NA,NA,NA,NA,"no","4.3.1"
+"bit","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.0.5",NA,"R (>= 2.9.2)",NA,NA,"testthat (>= 0.11.0), roxygen2, knitr, rmarkdown,
+microbenchmark, bit64 (>= 4.0.0), ff (>= 4.0.0)",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"bit64","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.0.5",NA,"R (>= 3.0.1), bit (>= 4.0.0), utils, methods, stats",NA,NA,NA,NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"bitops","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0-7",NA,NA,NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.0"
+"blob","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.4",NA,NA,"methods, rlang, vctrs (>= 0.2.1)",NA,"covr, crayon, pillar (>= 1.2.1), testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"bookdown","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.35",NA,"R (>= 3.5.0)","htmltools (>= 0.3.6), knitr (>= 1.38), rmarkdown (>= 2.14),
+jquerylib, xfun (>= 0.39), tinytex (>= 0.12), yaml (>= 2.1.19)",NA,"bslib (>= 0.2.4), downlit (>= 0.4.0), htmlwidgets, jsonlite,
+rstudioapi, miniUI, rsconnect (>= 0.4.3), servr (>= 0.13),
+shiny, tibble, testit (>= 0.9), tufte, xml2, webshot, testthat
+(>= 3.1.0), withr (>= 2.3.0)",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"boot","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3-28.1","recommended","R (>= 3.0.0), graphics, stats",NA,NA,"MASS, survival",NA,"Unlimited",NA,NA,NA,NA,"no","4.3.1"
+"brew","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0-8",NA,NA,NA,NA,"testthat (>= 3.0.0)",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"bridgesampling","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1-2",NA,"R (>= 3.0.0)","mvtnorm, Matrix, Brobdingnag, stringr, coda, parallel, scales,
+utils, methods",NA,"testthat, Rcpp, RcppEigen, R2jags, rjags, runjags, knitr,
+rmarkdown, R.rsp, BayesFactor, rstan, rstanarm, nimble,
+MCMCpack",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"brio","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.3",NA,NA,NA,NA,"covr, testthat (>= 2.1.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"brms","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.20.1",NA,"R (>= 3.6.0), Rcpp (>= 0.12.0), methods","rstan (>= 2.19.2), ggplot2 (>= 2.0.0), loo (>= 2.3.1),
+posterior (>= 1.0.0), Matrix (>= 1.1.1), mgcv (>= 1.8-13),
+rstantools (>= 2.1.1), bayesplot (>= 1.5.0), shinystan (>=
+2.4.0), bridgesampling (>= 0.3-0), glue (>= 1.3.0), rlang (>=
+1.0.0), future (>= 1.19.0), matrixStats, nleqslv, nlme, coda,
+abind, stats, utils, parallel, grDevices, backports",NA,"testthat (>= 0.9.1), emmeans (>= 1.4.2), cmdstanr (>= 0.5.0),
+projpred (>= 2.0.0), RWiener, rtdists, extraDistr, processx,
+mice, spdep, mnormt, lme4, MCMCglmm, splines2, ape, arm,
+statmod, digest, diffobj, R.rsp, gtable, shiny, knitr,
+rmarkdown",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"Brobdingnag","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2-9",NA,"R (>= 2.13.0), methods, Matrix (>= 1.5-0)",NA,NA,"cubature, testthat",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"broom","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.5",NA,"R (>= 3.5)","backports, dplyr (>= 1.0.0), ellipsis, generics (>= 0.0.2),
+glue, lifecycle, purrr, rlang, stringr, tibble (>= 3.0.0),
+tidyr (>= 1.0.0)",NA,"AER, AUC, bbmle, betareg, biglm, binGroup, boot, btergm (>=
+1.10.6), car, carData, caret, cluster, cmprsk, coda, covr, drc,
+e1071, emmeans, epiR, ergm (>= 3.10.4), fixest (>= 0.9.0), gam
+(>= 1.15), gee, geepack, ggplot2, glmnet, glmnetUtils, gmm,
+Hmisc, irlba, interp, joineRML, Kendall, knitr, ks, Lahman,
+lavaan, leaps, lfe, lm.beta, lme4, lmodel2, lmtest (>= 0.9.38),
+lsmeans, maps, margins, MASS, mclust, mediation, metafor, mfx,
+mgcv, mlogit, modeldata, modeltests, muhaz, multcomp, network,
+nnet, orcutt (>= 2.2), ordinal, plm, poLCA, psych, quantreg,
+rmarkdown, robust, robustbase, rsample, sandwich, sp, spdep (>=
+1.1), spatialreg, speedglm, spelling, survey, survival,
+systemfit, testthat (>= 2.1.0), tseries, vars, zoo",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"broom.helpers","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.14.0",NA,"R (>= 3.4)","broom (>= 0.8), cli, dplyr, labelled, lifecycle, purrr, rlang
+(>= 1.0.1), stats, stringr, tibble, tidyr",NA,"betareg, biglm, biglmm, brms (>= 2.13.0), broom.mixed,
+cmprsk, covr, datasets, effects, emmeans, fixest (>= 0.10.0),
+forcats, gam, gee, geepack, ggplot2, ggeffects, ggstats (>=
+0.2.1), glmmTMB, glue, gt, gtsummary (>= 1.6.3), knitr, lavaan,
+lfe, lme4 (>= 1.1.28), logitr (>= 0.8.0), marginaleffects (>=
+0.10.0), margins, MASS, mgcv, mice, multgee, nnet, ordinal,
+parameters, parsnip, patchwork, plm, pscl, rmarkdown, rstanarm,
+scales, spelling, survey, survival, testthat, tidycmprsk, VGAM",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"broom.mixed","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.9.4",NA,NA,"broom, coda, dplyr, forcats, methods, nlme, purrr, stringr,
+tibble, tidyr, furrr",NA,"brms, dotwhisker, knitr, testthat, gamlss, gamlss.data,
+ggplot2, GLMMadaptive, glmmADMB, glmmTMB, lmerTest, lme4,
+Matrix, MCMCglmm, mgcv, pander, pbkrtest, rstan, rstanarm,
+rstantools, R2jags, TMB, rmarkdown",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"bslib","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.1",NA,"R (>= 2.10)","base64enc, cachem, grDevices, htmltools (>= 0.5.4), jquerylib
+(>= 0.1.3), jsonlite, memoise (>= 2.0.1), mime, rlang, sass (>=
+0.4.0)",NA,"bsicons, curl, fontawesome, ggplot2, knitr, magrittr,
+rappdirs, rmarkdown (>= 2.7), shiny (>= 1.6.0), testthat,
+thematic, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"btergm","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.10.10",NA,"R (>= 3.5)","stats, utils, methods, graphics, network (>= 1.17.1), sna (>=
+2.3.2), ergm (>= 4.2.1), parallel, Matrix (>= 1.3.2), boot (>=
+1.3.17), coda (>= 0.18.1), ROCR (>= 1.0.7), igraph (>= 0.7.1),
+statnet.common (>= 4.5.0)",NA,"fastglm (>= 0.0.1), speedglm (>= 0.3.1), testthat, Bergm (>=
+5.0.2), RSiena (>= 1.0.12.232), ggplot2 (>= 2.0.0)",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"ca","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.71.1",NA,"R (>= 3.0.0)",NA,NA,"rgl (>= 0.64-10), vcd",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"cachem","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.8",NA,NA,"rlang, fastmap (>= 1.1.1)",NA,"testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"Cairo","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.6-1",NA,"R (>= 2.4.0)","grDevices, graphics",NA,"png","FastRWeb","GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"callr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.7.3",NA,"R (>= 3.4)","processx (>= 3.6.1), R6, utils",NA,"asciicast, cli (>= 1.1.0), covr, mockery, ps, rprojroot,
+spelling, testthat (>= 3.0.0), withr (>= 2.3.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"car","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.1-2",NA,"R (>= 3.5.0), carData (>= 3.0-0)","abind, MASS, mgcv, nnet, pbkrtest (>= 0.4-4), quantreg,
+grDevices, utils, stats, graphics, lme4 (>= 1.1-27.1), nlme,
+scales",NA,"alr4, boot, coxme, effects, knitr, leaps, lmtest, Matrix,
+MatrixModels, mvtnorm, rgl (>= 0.111.3), rio, sandwich,
+SparseM, survival, survey",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"carData","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.0-5",NA,"R (>= 3.5.0)",NA,NA,"car (>= 3.0-0)",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"caret","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","6.0-94",NA,"ggplot2, lattice (>= 0.20), R (>= 3.2.0)","e1071, foreach, grDevices, methods, ModelMetrics (>= 1.2.2.2),
+nlme, plyr, pROC, recipes (>= 0.1.10), reshape2, stats, stats4,
+utils, withr (>= 2.0.0)",NA,"BradleyTerry2, covr, Cubist, dplyr, earth (>= 2.2-3),
+ellipse, fastICA, gam (>= 1.15), ipred, kernlab, klaR, knitr,
+MASS, Matrix, mda, mgcv, mlbench, MLmetrics, nnet, pamr, party
+(>= 0.9-99992), pls, proxy, randomForest, RANN, rmarkdown,
+rpart, spls, subselect, superpc, testthat (>= 0.9.1), themis
+(>= 0.1.3)",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"caTools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.18.2",NA,"R (>= 3.6.0)","bitops",NA,"MASS, rpart",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"cellranger","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.0",NA,"R (>= 3.0.0)","rematch, tibble",NA,"covr, testthat (>= 1.0.0), knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"checkmate","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.2.0",NA,"R (>= 3.0.0)","backports (>= 1.1.0), utils",NA,"R6, fastmatch, data.table (>= 1.9.8), devtools, ggplot2,
+knitr, magrittr, microbenchmark, rmarkdown, testthat (>=
+3.0.4), tinytest (>= 1.1.0), tibble",NA,"BSD_3_clause + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"chemometrics","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.2",NA,"R (>= 2.10), rpart","class, e1071, MASS, nnet, pcaPP, robustbase, som, lars, pls,
+mclust",NA,"gclus",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"chromote","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.2",NA,NA,"curl, fastmap, jsonlite, later (>= 1.1.0), magrittr, processx,
+promises (>= 1.1.1), R6, rlang, websocket (>= 1.2.0)",NA,"showimage, testthat (>= 3.0.0)",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"chron","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3-61",NA,"R (>= 2.12.0)","graphics, stats",NA,"scales, ggplot2","zoo","GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"circlize","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.15",NA,"R (>= 3.0.0), graphics","GlobalOptions (>= 0.1.2), shape, grDevices, utils, stats,
+colorspace, methods, grid",NA,"knitr, dendextend (>= 1.0.1), ComplexHeatmap (>= 2.0.0),
+gridBase, png, markdown, bezier, covr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"class","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","7.3-22","recommended","R (>= 3.0.0), stats, utils","MASS",NA,NA,NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"classInt","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4-9",NA,"R (>= 2.2)","grDevices, stats, graphics, e1071, class, KernSmooth",NA,"spData (>= 0.2.6.2), units, knitr, rmarkdown, tinytest",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"cleanrmd","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.1",NA,"R (>= 2.10)","htmltools, jsonlite, rmarkdown, utils",NA,"testthat (>= 2.1.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"cli","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.6.1",NA,"R (>= 3.4)","utils",NA,"callr, covr, crayon, digest, glue (>= 1.6.0), grDevices,
+htmltools, htmlwidgets, knitr, methods, mockery, processx, ps
+(>= 1.3.4.9000), rlang (>= 1.0.2.9003), rmarkdown, rprojroot,
+rstudioapi, testthat, tibble, whoami, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"clipr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8.0",NA,NA,"utils",NA,"covr, knitr, rmarkdown, rstudioapi (>= 0.5), testthat (>=
+2.0.0)",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"clisymbols","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.0",NA,NA,NA,NA,"testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"clock","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.7.0",NA,"R (>= 3.5.0)","cli (>= 3.6.1), lifecycle (>= 1.0.3), rlang (>= 1.1.0), tzdb
+(>= 0.4.0), vctrs (>= 0.6.1)","cpp11 (>= 0.4.3), tzdb (>= 0.4.0)","covr, knitr, magrittr, pillar, rmarkdown, slider (>= 0.3.0),
+testthat (>= 3.0.0), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"cluster","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.4","recommended","R (>= 3.5.0)","graphics, grDevices, stats, utils",NA,"MASS, Matrix",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"cmprsk","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.2-11",NA,"R (>= 3.0.0), survival",NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"cobs","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3-5",NA,NA,"SparseM (>= 1.6), quantreg (>= 4.65), grDevices, graphics,
+splines, stats, methods",NA,"Matrix",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"coda","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.19-4",NA,"R (>= 2.14.0)","lattice",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"codetools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2-19","recommended","R (>= 2.1)",NA,NA,NA,NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"coin","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4-2",NA,"R (>= 3.6.0), survival","methods, parallel, stats, stats4, utils, libcoin (>= 1.0-9),
+matrixStats (>= 0.54.0), modeltools (>= 0.2-9), mvtnorm (>=
+1.0-5), multcomp","libcoin (>= 1.0-9)","xtable, e1071, vcd, TH.data (>= 1.0-7)",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"collapse","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.9.6",NA,"R (>= 3.3.0)","Rcpp (>= 1.0.1)","Rcpp","fastverse, data.table, magrittr, kit, xts, zoo, plm, fixest,
+vars, RcppArmadillo, RcppEigen, tibble, dplyr, ggplot2, scales,
+microbenchmark, testthat, covr, knitr, rmarkdown",NA,"GPL (>= 2) | file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"colorblindr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.0",NA,"R (>= 3.2), grDevices, colorspace (>= 1.4-0), ggplot2 (>= 2.1)","cowplot (> 0.8.0), shiny (>= 1.0.0), scales (>= 0.5.0),
+methods",NA,"covr, gtable, knitr, magick, rmarkdown, testthat, vdiffr,
+viridis",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"colorspace","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1-0",NA,"R (>= 3.0.0), methods","graphics, grDevices, stats",NA,"datasets, utils, KernSmooth, MASS, kernlab, mvtnorm, vcd,
+tcltk, shiny, shinyjs, ggplot2, dplyr, scales, grid, png, jpeg,
+knitr, rmarkdown, RColorBrewer, rcartocolor, scico, viridis,
+wesanderson",NA,"BSD_3_clause + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"colourpicker","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.0",NA,"R (>= 3.1.0)","ggplot2, htmltools, htmlwidgets (>= 0.7), jsonlite, miniUI (>=
+0.1.1), shiny (>= 0.11.1), shinyjs (>= 2.0.0), utils",NA,"knitr (>= 1.7), rmarkdown, rstudioapi (>= 0.5),
+shinydisconnect",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"commonmark","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.9.0",NA,NA,NA,NA,"curl, testthat, xml2",NA,"BSD_2_clause + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"compiler","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,NA,NA,NA,NA,"Part of R 4.3.1",NA,NA,NA,NA,NA,"4.3.1"
+"config","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.1",NA,NA,"yaml (>= 2.1.19)",NA,"testthat, knitr, rmarkdown, covr, spelling",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"conflicted","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.0",NA,"R (>= 3.2)","cli (>= 3.4.0), memoise, rlang (>= 1.0.0)",NA,"callr, covr, dplyr, Matrix, methods, pkgload, testthat (>=
+3.0.0), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"correlation","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8.4",NA,"R (>= 3.6)","bayestestR (>= 0.13.0), datasets, datawizard (>= 0.7.0),
+insight (>= 0.19.1), parameters (>= 0.20.2), stats",NA,"BayesFactor, energy, ggplot2, ggraph, gt, Hmisc, knitr, lme4,
+MASS, mbend, polycor, poorman, ppcor, psych, rmarkdown, rmcorr,
+rstanarm, see (>= 0.7.5), testthat (>= 3.1.7), tidygraph, wdm,
+WRS2",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"corrplot","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.92",NA,NA,NA,NA,"seriation, knitr, RColorBrewer, rmarkdown, magrittr,
+prettydoc, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"corrr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.4",NA,"R (>= 3.4)","dplyr (>= 1.0.0), ggplot2 (>= 2.2.0), ggrepel (>= 0.6.5), glue
+(>= 1.4.2), purrr (>= 0.2.2), rlang (>= 0.4.0), seriation (>=
+1.2-0), tibble (>= 2.0)",NA,"covr, DBI, dbplyr (>= 1.2.1), knitr (>= 1.13), rmarkdown (>=
+0.9.6), RSQLite, sparklyr (>= 0.9), testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"covr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.6.2",NA,"R (>= 3.1.0), methods","digest, stats, utils, jsonlite, rex, httr, crayon, withr (>=
+1.0.2), yaml",NA,"R6, curl, knitr, rmarkdown, htmltools, DT (>= 0.2), testthat,
+rlang, rstudioapi (>= 0.2), xml2 (>= 1.0.0), parallel, memoise,
+mockery, covr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"cowplot","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.1",NA,"R (>= 3.5.0)","ggplot2 (> 2.2.1), grid, gtable, grDevices, methods, rlang,
+scales",NA,"Cairo, covr, dplyr, forcats, gridGraphics (>= 0.4-0), knitr,
+lattice, magick, maps, PASWR, patchwork, rmarkdown, ragg,
+testthat (>= 1.0.0), tidyr, vdiffr (>= 0.3.0), VennDiagram",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"coxme","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.2-18.1","optional","survival (>= 2.36.14), methods, bdsmatrix(>= 1.3), R(>= 2.10)","nlme, Matrix (>= 1.0)","bdsmatrix","mvtnorm, kinship2",NA,"LGPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"cpp11","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.6",NA,"R (>= 3.5.0)",NA,NA,"bench, brio, callr, cli, covr, decor, desc, ggplot2, glue,
+knitr, lobstr, mockery, progress, rmarkdown, scales, Rcpp,
+testthat, tibble, utils, vctrs, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"crayon","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5.2",NA,NA,"grDevices, methods, utils",NA,"mockery, rstudioapi, testthat, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"credentials","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.2",NA,NA,"openssl (>= 1.3), sys (>= 2.1), curl, jsonlite, askpass",NA,"testthat, knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"crosstalk","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.0",NA,NA,"htmltools (>= 0.3.6), jsonlite, lazyeval, R6",NA,"shiny, ggplot2, testthat (>= 2.1.0), sass, bslib",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"crul","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.0",NA,NA,"curl (>= 3.3), R6 (>= 2.2.0), urltools (>= 1.6.0), httpcode
+(>= 0.2.0), jsonlite, mime",NA,"testthat, roxygen2 (>= 7.1.1), fauxpas (>= 0.1.0), webmockr
+(>= 0.1.0), knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"curl","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","5.0.2",NA,"R (>= 3.0.0)",NA,NA,"spelling, testthat (>= 1.0.0), knitr, jsonlite, rmarkdown,
+magrittr, httpuv (>= 1.4.4), webutils",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"cyclocomp","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.0",NA,NA,"callr, crayon, desc, remotes, withr",NA,"testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"data.table","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.14.8",NA,"R (>= 3.1.0)","methods",NA,"bit64 (>= 4.0.0), bit (>= 4.0.4), curl, R.utils, xts,
+nanotime, zoo (>= 1.8-1), yaml, knitr, rmarkdown",NA,"MPL-2.0 | file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"datasets","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,NA,NA,NA,NA,"Part of R 4.3.1",NA,NA,NA,NA,NA,"4.3.1"
+"datawizard","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8.0",NA,"R (>= 3.6)","insight (>= 0.19.1), stats, utils",NA,"bayestestR, boot, brms, data.table, dplyr (>= 1.0),
+effectsize, gamm4, ggplot2, gt, haven, htmltools, httr, knitr,
+lme4, mediation, parameters (>= 0.20.3), poorman (>= 0.2.6),
+psych, readxl, readr, rio, rmarkdown, rstanarm, see, testthat
+(>= 3.1.6), tibble, tidyr, withr",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"DBI","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.3",NA,"methods, R (>= 3.0.0)",NA,NA,"blob, covr, DBItest, dbplyr, downlit, dplyr, glue, hms,
+knitr, magrittr, RMariaDB, rmarkdown, rprojroot, RSQLite (>=
+1.1-2), testthat, xml2",NA,"LGPL (>= 2.1)",NA,NA,NA,NA,"no","4.3.1"
+"dbplyr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3.3",NA,"R (>= 3.1)","blob (>= 1.2.0), cli (>= 3.4.1), DBI (>= 1.0.0), dplyr (>=
+1.1.0), glue (>= 1.2.0), lifecycle (>= 1.0.3), magrittr,
+methods, pillar (>= 1.5.0), purrr (>= 1.0.1), R6 (>= 2.2.2),
+rlang (>= 1.0.6), tibble (>= 1.4.2), tidyr (>= 1.3.0),
+tidyselect (>= 1.2.0), utils, vctrs (>= 0.5.0), withr",NA,"bit64, covr, knitr, Lahman, nycflights13, odbc, RMariaDB (>=
+1.0.2), rmarkdown, RPostgres (>= 1.1.3), RPostgreSQL, RSQLite
+(>= 2.2.15), testthat (>= 3.0.2)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"debugme","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.0",NA,NA,"crayon, grDevices",NA,"covr, mockery, R6, testthat, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"deldir","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0-9",NA,"R (>= 3.5.0)","graphics, grDevices",NA,"polyclip",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.0"
+"dendextend","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.17.1",NA,"R (>= 3.0.0)","utils, stats, datasets, magrittr (>= 1.0.1), ggplot2, viridis",NA,"knitr, rmarkdown, testthat, seriation, colorspace, ape,
+microbenchmark, gplots, heatmaply, dynamicTreeCut, pvclust,
+corrplot, DendSer, MASS, cluster, fpc, circlize (>= 0.2.5),
+covr","ggdendro, dendroextras, Hmisc, data.table, rpart, WGCNA,
+moduleColor, distory, phangorn, zoo","GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"DendSer","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.2",NA,"gclus,seriation",NA,NA,NA,NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"DEoptimR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1-1",NA,NA,"stats",NA,NA,"robustbase","GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"desc","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.2",NA,"R (>= 3.4)","cli, R6, rprojroot, utils",NA,"callr, covr, gh, spelling, testthat, whoami, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"devtools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.4.5",NA,"R (>= 3.0.2), usethis (>= 2.1.6)","cli (>= 3.3.0), desc (>= 1.4.1), ellipsis (>= 0.3.2), fs (>=
+1.5.2), lifecycle (>= 1.0.1), memoise (>= 2.0.1), miniUI (>=
+0.1.1.1), pkgbuild (>= 1.3.1), pkgdown (>= 2.0.6), pkgload (>=
+1.3.0), profvis (>= 0.3.7), rcmdcheck (>= 1.4.0), remotes (>=
+2.4.2), rlang (>= 1.0.4), roxygen2 (>= 7.2.1), rversions (>=
+2.1.1), sessioninfo (>= 1.2.2), stats, testthat (>= 3.1.5),
+tools, urlchecker (>= 1.0.1), utils, withr (>= 2.5.0)",NA,"BiocManager (>= 1.30.18), callr (>= 3.7.1), covr (>= 3.5.1),
+curl (>= 4.3.2), digest (>= 0.6.29), DT (>= 0.23), foghorn (>=
+1.4.2), gh (>= 1.3.0), gmailr (>= 1.0.1), httr (>= 1.4.3),
+knitr (>= 1.39), lintr (>= 3.0.0), MASS, mockery (>= 0.4.3),
+pingr (>= 2.0.1), rhub (>= 1.1.1), rmarkdown (>= 2.14),
+rstudioapi (>= 0.13), spelling (>= 2.2)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"dfidx","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.0-5",NA,"R (>= 2.10)","dplyr, Formula",NA,"knitr, rmarkdown, AER, mlogit, plm",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"diagram","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.6.5",NA,"R (>= 2.01), shape","stats, graphics",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.0"
+"dichromat","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0-0.1",NA,"R (>= 2.10), stats",NA,NA,NA,NA,"GPL-2",NA,NA,NA,NA,"no","4.3.0"
+"diffobj","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.5",NA,"R (>= 3.1.0)","crayon (>= 1.3.2), tools, methods, utils, stats",NA,"knitr, rmarkdown",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"digest","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.33",NA,"R (>= 3.3.0)","utils",NA,"tinytest, simplermarkdown",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"diptest","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.76-0",NA,NA,"graphics, stats",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.0"
+"distill","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5",NA,NA,"base64enc, bookdown (>= 0.8), digest, downlit (>= 0.4.1),
+htmltools, jsonlite (>= 1.3), knitr (>= 1.15.6), lubridate (>=
+1.7.10), mime, openssl, png, rmarkdown (>= 2.11), rprojroot,
+rstudioapi, stats, stringr, tools, utils, whisker, xfun (>=
+0.18), xml2, yaml",NA,"covr, DiagrammeR, htmlwidgets, progress, r2d3, rsconnect,
+shiny, testthat (>= 3.0.0), withr",NA,"Apache License 2.0",NA,NA,NA,NA,"no","4.3.1"
+"distributional","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.2",NA,NA,"vctrs (>= 0.3.0), rlang (>= 0.4.5), generics, stats, numDeriv,
+ggplot2, scales, farver, digest, utils, lifecycle",NA,"testthat (>= 2.1.0), covr, mvtnorm, actuar (>= 2.0.0), ggdist",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"doParallel","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.17",NA,"R (>= 2.14.0), foreach (>= 1.2.0), iterators (>= 1.0.0),
+parallel, utils",NA,NA,"caret, mlbench, rpart, RUnit","compiler","GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"downlit","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.3",NA,"R (>= 3.4.0)","brio, desc, digest, evaluate, fansi, memoise, rlang, vctrs,
+withr, yaml",NA,"covr, htmltools, jsonlite, MASS, MassSpecWavelet, pkgload,
+rmarkdown, testthat (>= 3.0.0), xml2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"downloader","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4",NA,NA,"utils, digest",NA,"testthat",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"dplyr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.2",NA,"R (>= 3.5.0)","cli (>= 3.4.0), generics, glue (>= 1.3.2), lifecycle (>=
+1.0.3), magrittr (>= 1.5), methods, pillar (>= 1.9.0), R6,
+rlang (>= 1.1.0), tibble (>= 3.2.0), tidyselect (>= 1.2.0),
+utils, vctrs (>= 0.6.0)",NA,"bench, broom, callr, covr, DBI, dbplyr (>= 2.2.1), ggplot2,
+knitr, Lahman, lobstr, microbenchmark, nycflights13, purrr,
+rmarkdown, RMySQL, RPostgreSQL, RSQLite, stringi (>= 1.7.6),
+testthat (>= 3.1.5), tidyr (>= 1.3.0), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"drc","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.0-1",NA,"R (>= 2.0.0), MASS, stats","car, gtools, multcomp, plotrix, scales",NA,NA,NA,"GPL-2 | file LICENCE",NA,NA,NA,NA,"no","4.3.1"
+"dreamerr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.0",NA,NA,"Formula, utils",NA,"knitr, rmarkdown, stats, graphics",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"DT","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.28",NA,NA,"htmltools (>= 0.3.6), htmlwidgets (>= 1.3), jsonlite (>=
+0.9.16), magrittr, crosstalk, jquerylib, promises",NA,"knitr (>= 1.8), rmarkdown, shiny (>= 1.6), bslib, future,
+testit, tibble",NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"dtplyr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.1",NA,"R (>= 3.3)","cli (>= 3.4.0), data.table (>= 1.13.0), dplyr (>= 1.1.0),
+glue, lifecycle, rlang (>= 1.0.4), tibble, tidyselect (>=
+1.2.0), vctrs (>= 0.4.1)",NA,"bench, covr, knitr, rmarkdown, testthat (>= 3.1.2), tidyr (>=
+1.1.0), waldo (>= 0.3.1)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"dygraphs","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.1.6",NA,"R (>= 3.0)","magrittr, htmlwidgets (>= 0.6), htmltools (>= 0.3.5), zoo (>=
+1.7-10), xts (>= 0.9-7)",NA,"testthat","rmarkdown (>= 0.3.3), shiny (>= 0.10.2.1)","MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"dynamicTreeCut","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.63-1",NA,"R (>= 2.3.0), stats",NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.0"
+"e1071","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7-13",NA,NA,"graphics, grDevices, class, stats, methods, utils, proxy",NA,"cluster, mlbench, nnet, randomForest, rpart, SparseM, xtable,
+Matrix, MASS, slam",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"easystats","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.0",NA,"R (>= 3.6)","bayestestR (>= 0.13.0), correlation (>= 0.8.3), datawizard (>=
+0.6.4), effectsize (>= 0.8.2), insight (>= 0.18.8), modelbased
+(>= 0.8.5), parameters (>= 0.20.0), performance (>= 0.10.1),
+report (>= 0.5.1), see (>= 0.7.4), tools, utils",NA,"DT, flexdashboard (>= 0.6.0), jsonlite, knitr, rmarkdown,
+rvest, testthat (>= 3.1.0), withr, xml2",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"effects","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.2-2",NA,"R (>= 3.5.0), carData","lme4, nnet, lattice, grid, colorspace, graphics, grDevices,
+stats, survey, utils, estimability, insight",NA,"pbkrtest (>= 0.4-4), nlme, MASS, poLCA, heplots, splines,
+ordinal, car, knitr, betareg, alr4, robustlmm",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"effectsize","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8.5",NA,"R (>= 3.6)","bayestestR (>= 0.13.0), insight (>= 0.19.1), parameters (>=
+0.20.2), performance (>= 0.10.2), datawizard (>= 0.6.5), stats,
+utils",NA,"correlation (>= 0.8.3), see (>= 0.7.4), afex, BayesFactor,
+boot, brms, car, emmeans, gt, knitr, lavaan, lme4, lmerTest,
+mgcv, parsnip, pwr, rmarkdown, rms, rstanarm, rstantools,
+testthat (>= 3.1.0)",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"egg","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.5",NA,"gridExtra (>= 2.3), ggplot2","gtable, grid, grDevices, utils",NA,"knitr, png",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"ellipse","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.0",NA,"R (>= 2.0.0),graphics,stats",NA,NA,"MASS",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"ellipsis","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.2",NA,"R (>= 3.2)","rlang (>= 0.3.0)",NA,"covr, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"emmeans","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.8.8",NA,"R (>= 4.1.0)","estimability (>= 1.4.1), graphics, methods, numDeriv, stats,
+utils, mvtnorm",NA,"bayesplot, bayestestR, biglm, brms, car, coda (>= 0.17),
+ggplot2, lattice, logspline, mediation, mgcv, multcomp,
+multcompView, nlme, ordinal (>= 2014.11-12), pbkrtest (>=
+0.4-1), lme4, lmerTest (>= 2.0.32), MASS, MuMIn, rsm, knitr,
+rmarkdown, sandwich, scales, splines, testthat, xtable (>=
+1.8-2)","CARBayes, coxme, gee, geepack, MCMCglmm, MCMCpack, mice,
+nnet, pscl, rstanarm, sommer, survival","GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"epiR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.63",NA,"R (>= 3.0.0), survival","BiasedUrn, pander, methods, sf, lubridate, zoo, flextable,
+officer",NA,"MASS (>= 3.1-20), dplyr, foreign, ggplot2, knitr, mapproj,
+rmarkdown, plyr, RColorBrewer, rgeos, scales, sp, spatstat,
+spData, tidyr",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"ergm","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.5.0",NA,"R (>= 4.1), network (>= 1.18.0)","robustbase (>= 0.93.7), coda (>= 0.19.4), trust (>= 0.1.8),
+Matrix (>= 1.3.2), lpSolveAPI (>= 5.5.2.0.17.7), MASS (>=
+7.3.53.1), statnet.common (>= 4.9.0), rle (>= 0.9.2), purrr (>=
+0.3.4), rlang (>= 0.4.10), memoise (>= 2.0.0), tibble (>=
+3.1.0), magrittr (>= 2.0.1), Rdpack (>= 2.4), parallel,
+methods, knitr, stringr",NA,"lattice (>= 0.20.41), latticeExtra (>= 0.6.29), sna (>= 2.6),
+rmarkdown, testthat (>= 3.0.2), ergm.count (>= 4.0), withr,
+covr, Rglpk, slam, networkLite",NA,"GPL-3 + file LICENSE","yes","no",NA,NA,"yes","4.3.1"
+"estimability","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.1",NA,"stats",NA,NA,NA,NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.0"
+"evaluate","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.21",NA,"R (>= 3.0.2)","methods",NA,"covr, ggplot2, lattice, rlang, testthat (>= 3.0.0), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"expm","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.999-7",NA,"Matrix","methods",NA,"RColorBrewer, sfsmisc, Rmpfr",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"extrafont","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.19",NA,"R (>= 2.15)","extrafontdb, grDevices, utils, Rttf2pt1",NA,"fontcm",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.0"
+"extrafontdb","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0",NA,"R (>= 2.14)",NA,NA,NA,NA,"GPL-2",NA,NA,NA,NA,NA,"4.3.0"
+"factoextra","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.7",NA,"R (>= 3.1.2), ggplot2 (>= 2.2.0)","abind, cluster, dendextend, FactoMineR, ggpubr(>= 0.1.5),
+grid, stats, reshape2, ggrepel, tidyr",NA,"ade4, ca, igraph, MASS, knitr, mclust",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"FactoMineR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.8",NA,"R (>= 4.0)","car,cluster,DT,ellipse,emmeans,flashClust,graphics,grDevices,lattice,leaps,MASS,multcompView,scatterplot3d,stats,utils,ggplot2,ggrepel",NA,"missMDA,knitr,Factoshiny,markdown",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"fansi","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.4",NA,"R (>= 3.1.0)","grDevices, utils",NA,"unitizer, knitr, rmarkdown",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"farver","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.1",NA,NA,NA,NA,"covr, testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"fastmap","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.1",NA,NA,NA,NA,"testthat (>= 2.1.1)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"feather","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.5",NA,NA,"Rcpp, tibble (>= 2.0.0), hms","Rcpp","testthat",NA,"Apache License 2.0",NA,NA,NA,NA,"yes","4.3.1"
+"filehash","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.4-5",NA,"R (>= 3.0.0)","digest, methods",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"fit.models","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.64",NA,NA,"lattice, stats",NA,"MASS",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"fixest","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.11.1",NA,"R(>= 3.5.0)","stats, graphics, grDevices, tools, utils, methods, numDeriv,
+nlme, sandwich, Rcpp(>= 1.0.5), dreamerr(>= 1.2.3)","Rcpp","knitr, rmarkdown, data.table, plm, MASS, pander, ggplot2,
+lfe, tinytex, pdftools",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"flashClust","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.01-2",NA,"R (>= 2.3.0)",NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,NA,"4.3.0"
+"flexdashboard","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.2",NA,"R (>= 3.0.2)","bslib (>= 0.2.5), grDevices, htmltools (>= 0.5.1), htmlwidgets
+(>= 0.6), jsonlite, knitr (>= 1.30), rmarkdown (>= 2.8), sass,
+scales, shiny (>= 0.13), tools, utils",NA,"testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"flexmix","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3-19",NA,"R (>= 2.15.0), lattice","graphics, grid, grDevices, methods, modeltools (>= 0.2-16),
+nnet, stats, stats4, utils",NA,"actuar, codetools, diptest, Ecdat, ellipse, gclus, glmnet,
+lme4 (>= 1.1), MASS, mgcv (>= 1.8-0), mlbench, multcomp,
+mvtnorm, SuppDists, survival",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"flextable","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9.2",NA,NA,"stats, utils, grDevices, graphics, grid, rmarkdown, knitr,
+htmltools, rlang, ragg, officer (>= 0.6.2), gdtools (>= 0.3.3),
+xml2, data.table (>= 1.13.0), uuid (>= 0.1-4)",NA,"testthat (>= 2.1.0), magick, equatags, commonmark, ggplot2,
+scales, doconv (>= 0.3.0), xtable, tables (>= 0.9.17), broom,
+broom.mixed, mgcv, cluster, lme4, nlme, bookdown (>= 0.34),
+pdftools, officedown, pkgdown (>= 2.0.0), webshot2",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"FNN","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.3.2",NA,"R (>= 3.0.0)",NA,NA,"chemometrics, mvtnorm",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"foghorn","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5.1",NA,"R (>= 3.1.0)","clisymbols (>= 1.0.0), crayon (>= 1.3.2), curl (>= 2.2), httr2
+(>= 0.2.1), rlang (>= 0.4.3), rvest (>= 0.3.2), tibble (>=
+1.2), xml2 (>= 1.0.0)",NA,"covr, dplyr, knitr, progress, rmarkdown, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"fontawesome","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.2",NA,"R (>= 3.3.0)","rlang (>= 1.0.6), htmltools (>= 0.5.1.1)",NA,"covr, dplyr (>= 1.0.8), knitr (>= 1.31), testthat (>= 3.0.0),
+rsvg",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"fontBitstreamVera","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.1",NA,"R (>= 3.0.0)",NA,NA,NA,NA,"file LICENCE","yes",NA,NA,NA,"no","4.3.0"
+"fontcm","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1",NA,"R (>= 2.14)",NA,NA,"extrafont",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.0"
+"fontLiberation","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.0",NA,"R (>= 3.0)",NA,NA,NA,NA,"file LICENSE","yes",NA,NA,NA,"no","4.3.0"
+"fontquiver","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.1",NA,"R (>= 3.0.0)","fontBitstreamVera (>= 0.1.0), fontLiberation (>= 0.1.0)",NA,"testthat, htmltools",NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"forcats","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.0",NA,"R (>= 3.4)","cli (>= 3.4.0), glue, lifecycle, magrittr, rlang (>= 1.0.0),
+tibble",NA,"covr, dplyr, ggplot2, knitr, readr, rmarkdown, testthat (>=
+3.0.0), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"foreach","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5.2",NA,"R (>= 2.5.0)","codetools, utils, iterators",NA,"randomForest, doMC, doParallel, testthat, knitr, rmarkdown",NA,"Apache License (== 2.0)",NA,NA,NA,NA,"no","4.3.1"
+"forecast","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","8.21",NA,"R (>= 3.5.0),","colorspace, fracdiff, generics (>= 0.1.2), ggplot2 (>= 2.2.1),
+graphics, lmtest, magrittr, nnet, parallel, Rcpp (>= 0.11.0),
+stats, timeDate, tseries, urca, zoo","Rcpp (>= 0.11.0), RcppArmadillo (>= 0.2.35)","forecTheta, knitr, methods, rmarkdown, rticles, seasonal,
+testthat (>= 3.0.0), uroot",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"foreign","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8-84","recommended","R (>= 4.0.0)","methods, utils, stats",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.0"
+"formatR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.14",NA,"R (>= 3.2.3)",NA,NA,"rstudioapi, shiny, testit, rmarkdown, knitr",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"formattable","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.1",NA,"R (> 3.0.2)","methods, htmltools, htmlwidgets, knitr, rmarkdown",NA,"testthat, DT, shiny, covr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"Formula","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2-5",NA,"R (>= 2.0.0), stats",NA,NA,NA,NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.0"
+"fpc","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.2-10",NA,"R (>= 2.0)","MASS, cluster, mclust, flexmix, prabclus, class, diptest,
+robustbase, kernlab, grDevices, graphics, methods, stats,
+utils, parallel",NA,"tclust, pdfCluster, mvtnorm",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"fracdiff","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5-2",NA,NA,"stats",NA,"longmemo, forecast, urca",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"fresh","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.0",NA,NA,"sass, htmltools, shiny, rstudioapi",NA,"shinyWidgets, shinydashboard, bs4Dash, knitr, rmarkdown,
+testthat (>= 2.1.0), covr",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"fs","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.6.3",NA,"R (>= 3.4)","methods",NA,"covr, crayon, knitr, pillar (>= 1.0.0), rmarkdown, spelling,
+testthat (>= 3.0.0), tibble (>= 1.1.0), vctrs (>= 0.3.0), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"furrr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.1",NA,"future (>= 1.25.0), R (>= 3.4.0)","globals (>= 0.14.0), lifecycle (>= 1.0.1), purrr (>= 0.3.4),
+rlang (>= 1.0.2), vctrs (>= 0.4.1)",NA,"carrier, covr, dplyr (>= 0.7.4), knitr, listenv (>= 0.6.0),
+magrittr, rmarkdown, testthat (>= 3.0.0), tidyselect, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"futile.logger","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.3",NA,"R (>= 3.0.0)","utils, lambda.r (>= 1.1.0), futile.options",NA,"testthat, jsonlite",NA,"LGPL-3",NA,NA,NA,NA,"no","4.3.1"
+"futile.options","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.1",NA,"R (>= 2.8.0)",NA,NA,NA,NA,"LGPL-3",NA,NA,NA,NA,"no","4.3.0"
+"future","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.33.0",NA,NA,"digest, globals (>= 0.16.1), listenv (>= 0.8.0), parallel,
+parallelly (>= 1.34.0), utils",NA,"methods, RhpcBLASctl, R.rsp, markdown",NA,"LGPL (>= 2.1)",NA,NA,NA,NA,"no","4.3.1"
+"future.apply","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.11.0",NA,"R (>= 3.2.0), future (>= 1.28.0)","globals (>= 0.16.1), parallel, utils",NA,"datasets, stats, tools, listenv (>= 0.8.0), R.rsp, markdown",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"gam","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.22-2",NA,"R (>= 4.0), stats, splines, foreach","methods",NA,"interp, testthat",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"gapminder","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.0",NA,"R (>= 3.1.0)","tibble",NA,"dplyr, ggplot2, knitr, rmarkdown, testthat (>= 3.0.0)",NA,"CC0",NA,NA,NA,NA,"no","4.3.1"
+"gargle","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5.2",NA,"R (>= 3.6)","cli (>= 3.0.1), fs (>= 1.3.1), glue (>= 1.3.0), httr (>=
+1.4.5), jsonlite, lifecycle, openssl, rappdirs, rlang (>=
+1.1.0), stats, utils, withr",NA,"aws.ec2metadata, aws.signature, covr, httpuv, knitr,
+rmarkdown, sodium, spelling, testthat (>= 3.1.7)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"gclus","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.2",NA,"R (>= 2.10), cluster",NA,NA,"knitr, rmarkdown",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"gdtools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.3",NA,"R (>= 4.0.0)","Rcpp (>= 0.12.12), systemfonts (>= 0.1.1), htmltools, gfonts,
+tools, curl, fontquiver (>= 0.2.0)","Rcpp","testthat, methods",NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"gee","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.13-25",NA,"stats",NA,NA,"MASS",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"geepack","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.9",NA,"R (>= 3.5.0), methods","MASS, broom, magrittr",NA,NA,NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"generics","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.3",NA,"R (>= 3.2)","methods",NA,"covr, pkgload, testthat (>= 3.0.0), tibble, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"geojson","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.5",NA,NA,"methods, sp, jsonlite (>= 1.6), protolite (>= 1.8), jqr (>=
+1.1.0), magrittr, lazyeval",NA,"tibble, testthat, knitr, rmarkdown, sf, stringi, covr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"geojsonio","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.11.2",NA,"R (>= 3.5)","crul, geojson (>= 0.2.0), geojsonsf, jqr, jsonlite (>=
+0.9.21), lifecycle, magrittr, methods, readr (>= 0.2.2), sf (>=
+0.6), sp, V8",NA,"covr, DBI, gistr, leaflet, maps, RPostgres, testthat (>=
+3.0.0), withr","RColorBrewer","MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"geojsonsf","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.3",NA,"R (>= 3.3.0)","Rcpp","geometries, jsonify (>= 1.1.1), rapidjsonr (>= 1.2.0), Rcpp,
+sfheaders (>= 0.2.2)","covr, jsonify, knitr, rmarkdown, tinytest",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"geometries","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.3",NA,NA,"Rcpp (>= 1.0.10)","Rcpp","covr, knitr, rmarkdown, tinytest",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"geomtextpath","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.1",NA,"ggplot2, R (>= 3.6.0)","grid, scales, systemfonts, rlang, textshaping",NA,"testthat (>= 3.0.0), covr, knitr, rmarkdown, ragg, roxygen2,
+sf, xml2, markdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"geonames","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.999",NA,"R (>= 2.2.0)","rjson",NA,NA,NA,"GPL-3",NA,NA,NA,NA,"no","4.3.0"
+"geosphere","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5-18",NA,"R (>= 3.0.0)","Rcpp, sp","Rcpp","methods, raster",NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"gert","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.9.3",NA,NA,"askpass, credentials (>= 1.2.1), openssl (>= 2.0.3),
+rstudioapi (>= 0.11), sys, zip (>= 2.1.0)",NA,"spelling, knitr, rmarkdown, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"gfonts","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.0",NA,"R (>= 2.10)","utils, htmltools, shiny, crul, jsonlite, glue, crayon",NA,"knitr, rmarkdown, testthat (>= 2.1.0), vcr, covr",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"ggalignment","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.1",NA,"R (>= 3.4)","dplyr (>= 1.0.0), ggimage (>= 0.2.0), ggplot2 (>= 3.3.0),
+magrittr (>= 1.0.0), rlang (>= 0.1.2)",NA,"rmarkdown (>= 2.0.0), knitr (>= 1.0), testthat (>= 3.0.0),
+vdiffr (>= 1.0.0), roxygen2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"ggalluvial","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.12.5",NA,"R (>= 3.6), ggplot2 (>= 2.2)","stats, dplyr (>= 0.7), tidyr (>= 0.7), lazyeval, rlang,
+tidyselect",NA,"grid, alluvial, testthat, knitr, rmarkdown, babynames,
+sessioninfo, ggrepel, shiny (>= 1.4.0.2), htmltools, sp (>=
+1.4-0), ggfittext (>= 0.6), vdiffr (>= 0.2)",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"GGally","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.2",NA,"R (>= 3.1), ggplot2 (>= 3.3.4)","dplyr (>= 1.0.0), forcats, grDevices, grid, gtable (>= 0.2.0),
+lifecycle, plyr (>= 1.8.3), progress, RColorBrewer, reshape (>=
+0.8.5), rlang, scales (>= 1.1.0), tidyr, utils",NA,"broom (>= 0.7.0), broom.helpers (>= 1.1.0), chemometrics,
+geosphere (>= 1.5-1), ggforce, Hmisc, igraph (>= 1.0.1),
+intergraph (>= 2.0-2), labelled, maps (>= 3.1.0), mapproj,
+nnet, network (>= 1.17.1), scagnostics, sna (>= 2.3-2),
+survival, rmarkdown, roxygen2, testthat, crosstalk, knitr,
+spelling, emmeans",NA,"GPL (>= 2.0)",NA,NA,NA,NA,"no","4.3.1"
+"gganimate","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.8",NA,"ggplot2 (>= 3.0.0)","stringi, tweenr (>= 1.0.1), grid, rlang, glue, progress,
+scales, grDevices, utils",NA,"magick, svglite, knitr, rmarkdown, testthat, base64enc,
+htmltools, covr, transformr, av, gifski (>= 1.4.3), ragg",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"ggdendro","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.23",NA,NA,"MASS, ggplot2(>= 0.9.2)",NA,"rpart (>= 4.0-0), tree, testthat, knitr, cluster, scales,
+spelling, rmarkdown, covr",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"ggdist","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.3.0",NA,"R (>= 3.5.0)","tidyselect, dplyr (>= 1.0.0), ggplot2 (>= 3.4.0), rlang (>=
+0.3.0), cli, scales, grid, tibble, vctrs, withr, distributional
+(>= 0.3.2), numDeriv, glue, quadprog",NA,"knitr, testthat (>= 3.0.0), vdiffr (>= 1.0.0), svglite (>=
+2.1.0), broom (>= 0.5.6), modelr, cowplot, patchwork, covr,
+rmarkdown, png, fda, forcats, purrr (>= 0.2.3), tidyr (>=
+1.0.0), beeswarm (>= 0.4.0), posterior, pkgdown, mvtnorm,
+palmerpenguins, fontquiver, sysfonts, showtext",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"ggforce","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.1",NA,"ggplot2 (>= 3.3.6), R (>= 3.3.0)","Rcpp (>= 0.12.2), grid, scales, MASS, tweenr (>= 0.1.5),
+gtable, rlang, polyclip, stats, grDevices, tidyselect, withr,
+utils, lifecycle, cli, vctrs, systemfonts","Rcpp, RcppEigen","sessioninfo, concaveman, deldir, latex2exp, reshape2, units
+(>= 0.4-6), covr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"ggformula","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.10.4",NA,"R (>= 3.1), ggplot2 (>= 3.3), ggstance (>= 0.3.4), scales,
+ggridges","mosaicCore (>= 0.7.0), rlang, magrittr, tibble, stringr,
+ggforce, grid, labelled",NA,"tidyr, mosaicData, dplyr, lattice, mosaic, palmerpenguins,
+testthat, vdiffr, knitr, rmarkdown, lubridate, survival, broom,
+maps, maptools, rgeos, sf, purrr, ggthemes, covr,
+ggplot2movies, interp, quantreg",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"ggfun","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.3",NA,"R (>= 4.1.0)","cli, ggplot2, grid, rlang, utils",NA,"ggplotify, knitr, rmarkdown, prettydoc, tidyr, ggnewscale",NA,"Artistic-2.0",NA,NA,NA,NA,"no","4.3.1"
+"gghighlight","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.0",NA,"ggplot2 (>= 3.3.6), R (>= 3.4.0)","dplyr (>= 1.0.4), ggrepel, lifecycle, purrr, rlang, tibble",NA,"geomtextpath, knitr, rmarkdown, sf, testthat, vdiffr (>=
+0.3.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"ggimage","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.3",NA,"R (>= 3.4.0), ggplot2","ggfun, ggplotify, grid, jsonlite, magick, methods, scales,
+tibble, tools, utils, withr",NA,"ape, ggtree, gridGraphics, httr, rsvg",NA,"Artistic-2.0",NA,NA,NA,NA,"no","4.3.1"
+"ggiraph","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8.7",NA,NA,"grid, ggplot2 (>= 3.4.0), htmlwidgets (>= 1.5), stats,
+htmltools, Rcpp (>= 1.0), systemfonts, purrr, rlang, uuid,
+vctrs","Rcpp, systemfonts","knitr, tinytest, rmarkdown, maps, hexbin, shiny, sf (>= 1.0),
+ggrepel (>= 0.9.1), quantreg, xml2 (>= 1.0), dplyr, gdtools (>=
+0.3.0)",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"ggnewscale","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.9",NA,NA,"ggplot2 (>= 3.0.0)",NA,"testthat, vdiffr, covr",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"ggplot2","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.4.3",NA,"R (>= 3.3)","cli, glue, grDevices, grid, gtable (>= 0.1.1), isoband,
+lifecycle (> 1.0.1), MASS, mgcv, rlang (>= 1.1.0), scales (>=
+1.2.0), stats, tibble, vctrs (>= 0.5.0), withr (>= 2.5.0)",NA,"covr, dplyr, ggplot2movies, hexbin, Hmisc, knitr, lattice,
+mapproj, maps, maptools, multcomp, munsell, nlme, profvis,
+quantreg, ragg, RColorBrewer, rgeos, rmarkdown, rpart, sf (>=
+0.7-3), svglite (>= 1.2.0.9001), testthat (>= 3.1.2), vdiffr
+(>= 1.0.0), xml2","sp","MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"ggplot2movies","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.0.1",NA,"R (>= 2.10.0)",NA,NA,NA,NA,"GPL-3",NA,NA,NA,NA,"no","4.3.0"
+"ggplotify","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.2",NA,"R (>= 3.4.0)","ggplot2, graphics, grDevices, grid, gridGraphics, yulab.utils",NA,"aplot, colorspace, cowplot, ggimage, knitr, rmarkdown,
+lattice, prettydoc, vcd, utils",NA,"Artistic-2.0",NA,NA,NA,NA,"no","4.3.1"
+"ggpubr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.0",NA,"R (>= 3.1.0), ggplot2 (>= 3.4.0)","ggrepel (>= 0.9.2), grid, ggsci, stats, utils, tidyr (>=
+1.3.0), purrr, dplyr (>= 0.7.1), cowplot (>= 1.1.1), ggsignif,
+scales, gridExtra, glue, polynom, rlang (>= 0.4.6), rstatix (>=
+0.7.2), tibble, magrittr",NA,"grDevices, knitr, RColorBrewer, gtable, testthat",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"ggraph","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.0",NA,"R (>= 2.10), ggplot2 (>= 3.0.0)","Rcpp (>= 0.12.2), dplyr, ggforce (>= 0.3.1), grid, igraph (>=
+1.0.0), scales, MASS, digest, gtable, ggrepel, utils, stats,
+viridis, rlang, tidygraph, graphlayouts (>= 0.5.0), withr, cli,
+vctrs, lifecycle","Rcpp","network, knitr, rmarkdown, purrr, tibble, seriation, deldir,
+gganimate, covr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"ggrepel","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9.3",NA,"R (>= 3.0.0), ggplot2 (>= 2.2.0)","grid, Rcpp, rlang (>= 0.3.0), scales (>= 0.5.0), withr (>=
+2.5.0)","Rcpp","knitr, rmarkdown, testthat, svglite, vdiffr, gridExtra,
+devtools, prettydoc, ggbeeswarm, dplyr, magrittr, readr,
+stringr",NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"ggridges","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.4",NA,"R (>= 3.2)","ggplot2 (>= 3.0.0), grid (>= 3.0.0), scales (>= 0.4.1), withr
+(>= 2.1.1)",NA,"covr, dplyr, patchwork, ggplot2movies, forcats, knitr,
+rmarkdown, testthat, vdiffr",NA,"GPL-2 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"ggsci","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.0.0",NA,"R (>= 3.5.0)","ggplot2 (>= 2.0.0), grDevices, scales",NA,"gridExtra, knitr, ragg, reshape2, rmarkdown",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"ggside","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.2",NA,"ggplot2 (>= 3.4.0)","grid, gtable, rlang, scales, glue, stats, tibble, vctrs",NA,"tidyr, dplyr, testthat (>= 3.0.3), knitr, rmarkdown, vdiffr
+(>= 1.0.0), ggdendro, viridis",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"ggsignif","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.4",NA,NA,"ggplot2 (>= 3.3.5)",NA,"knitr, rmarkdown, testthat, vdiffr (>= 1.0.2)",NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"ggstance","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.6",NA,"R (>= 3.6.0)","cli (>= 3.4.1), ggplot2 (>= 3.4.0), plyr, rlang, withr (>=
+2.0.0)",NA,"covr, Hmisc, testthat, vdiffr (>= 1.0.4)",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"ggstats","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.0",NA,NA,"broom.helpers (>= 1.14.0), cli, dplyr, forcats, ggplot2 (>=
+3.4.0), lifecycle, magrittr, patchwork, purrr, rlang, scales,
+stats, stringr, tidyr",NA,"betareg, broom, emmeans, glue, knitr, labelled (>= 2.11.0),
+reshape, rmarkdown, nnet, parameters, pscl, testthat (>=
+3.0.0), spelling, survey, survival, vdiffr",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"ggtext","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.2",NA,"R (>= 3.5)","ggplot2 (>= 3.3.0), grid, gridtext, rlang, scales",NA,"cowplot, dplyr, glue, knitr, rmarkdown, testthat, vdiffr",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"ggThemeAssist","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.5",NA,"R (>= 3.0.0)","shiny (>= 0.13), miniUI (>= 0.1.1), rstudioapi (>= 0.5),
+ggplot2, formatR",NA,"extrafont",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"ggthemes","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.2.4",NA,"R (>= 3.3.0)","ggplot2 (>= 3.0.0), graphics, grid, methods, purrr, scales,
+stringr, tibble",NA,"dplyr, covr, extrafont, glue, knitr, lattice, lintr, maps,
+mapproj, pander, rlang, rmarkdown, spelling, testthat, tidyr,
+vdiffr, withr",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"ggvis","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.8",NA,"R (>= 3.0)","assertthat, jsonlite (>= 0.9.11), shiny (>= 0.11.1), magrittr,
+dplyr (>= 0.5.0), rlang, htmltools (>= 0.2.4), methods",NA,"MASS, mgcv, lubridate, testthat (>= 0.8.1), knitr (>= 1.6),
+rmarkdown",NA,"GPL-2 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"gh","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.0",NA,"R (>= 3.4)","cli (>= 3.0.1), gitcreds, httr2, ini, jsonlite, rlang (>=
+1.0.0)",NA,"covr, knitr, mockery, rmarkdown, rprojroot, spelling,
+testthat (>= 3.0.0), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"gifski","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.12.0-2",NA,NA,NA,NA,"ggplot2, gapminder",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"git2r","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.32.0",NA,"R (>= 3.4)","graphics, utils",NA,"getPass",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"gitcreds","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.2",NA,"R (>= 3.4)",NA,NA,"codetools, covr, knitr, mockery, oskeyring, rmarkdown,
+testthat (>= 3.0.0), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"gitr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.0.1",NA,"R (>= 4.1.0)",NA,NA,"knitr, rmarkdown, spelling, testthat (>= 3.0.0), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"glmmTMB","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.7",NA,"R (>= 3.2.0)","methods, TMB (>= 1.9.0), lme4 (>= 1.1-18.9000), Matrix, nlme,
+numDeriv","TMB, RcppEigen","knitr, rmarkdown, testthat, MASS, lattice, ggplot2 (>=
+2.2.1), mlmRev, bbmle (>= 1.0.19), pscl, coda, reshape2, car
+(>= 3.0.6), emmeans (>= 1.4), estimability, DHARMa, multcomp,
+MuMIn, effects (>= 4.0-1), dotwhisker, broom, broom.mixed,
+plyr, png, boot, texreg, xtable, huxtable, mvabund, parallel",NA,"AGPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"glmnet","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.1-8",NA,"R (>= 3.6.0), Matrix (>= 1.0-6)","methods, utils, foreach, shape, survival, Rcpp","RcppEigen, Rcpp","knitr, lars, testthat, xfun, rmarkdown",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"glmnetUtils","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.8",NA,NA,"stats, graphics, grDevices, glmnet, parallel, Matrix",NA,"knitr, rmarkdown, MASS, doParallel, testthat",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"GlobalOptions","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.2",NA,"R (>= 3.3.0), methods","utils",NA,"testthat (>= 1.0.0), knitr, markdown, GetoptLong",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"globals","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.16.2",NA,"R (>= 3.1.2)","codetools",NA,NA,NA,"LGPL (>= 2.1)",NA,NA,NA,NA,"no","4.3.0"
+"glue","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.6.2",NA,"R (>= 3.4)","methods",NA,"covr, crayon, DBI, dplyr, forcats, ggplot2, knitr, magrittr,
+microbenchmark, R.utils, rmarkdown, rprintf, RSQLite, stringr,
+testthat (>= 3.0.0), vctrs (>= 0.3.0), waldo (>= 0.3.0), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"gmailr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.0",NA,"R (>= 3.6)","base64enc, cli, crayon, gargle (>= 1.5.1), glue, httr,
+jsonlite, lifecycle, mime, rappdirs, rematch2, rlang (>= 1.1.0)",NA,"curl, knitr, methods, rmarkdown, testthat (>= 3.1.8), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"gmm","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.8",NA,"R (>= 2.10.0), sandwich","stats, methods, grDevices, graphics",NA,"knitr, mvtnorm, car, stabledist, MASS, timeDate, timeSeries",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"gmp","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.7-2",NA,"R (>= 3.5.0)","methods",NA,"Rmpfr, MASS, round",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"googledrive","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.1",NA,"R (>= 3.6)","cli (>= 3.0.0), gargle (>= 1.5.0), glue (>= 1.4.2), httr,
+jsonlite, lifecycle, magrittr, pillar (>= 1.9.0), purrr (>=
+1.0.1), rlang (>= 1.0.2), tibble (>= 2.0.0), utils, uuid, vctrs
+(>= 0.3.0), withr",NA,"curl, dplyr (>= 1.0.0), knitr, mockr, rmarkdown, spelling,
+testthat (>= 3.1.3)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"googlesheets4","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.1",NA,"R (>= 3.6)","cellranger, cli (>= 3.0.0), curl, gargle (>= 1.5.0), glue (>=
+1.3.0), googledrive (>= 2.1.0), httr, ids, lifecycle, magrittr,
+methods, purrr, rematch2, rlang (>= 1.0.2), tibble (>= 2.1.1),
+utils, vctrs (>= 0.2.3), withr",NA,"readr, rmarkdown, spelling, testthat (>= 3.1.7)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"gower","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.1",NA,NA,NA,NA,"tinytest (>= 0.9.3),",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.0"
+"gplots","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.1.3",NA,"R (>= 3.0)","gtools, stats, caTools, KernSmooth, methods",NA,"grid, MASS, knitr, r2d2",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"graphics","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,"grDevices",NA,NA,NA,"Part of R 4.3.1",NA,NA,NA,NA,"yes","4.3.1"
+"graphlayouts","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.0",NA,"R (>= 3.2.0)","igraph, Rcpp","Rcpp, RcppArmadillo","oaqc, testthat, ggraph, ggplot2, knitr, rmarkdown, uwot",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"grDevices","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,NA,NA,"KernSmooth",NA,"Part of R 4.3.1",NA,NA,NA,NA,"yes","4.3.1"
+"grid","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,"grDevices, utils",NA,NA,NA,"Part of R 4.3.1",NA,NA,NA,NA,"yes","4.3.1"
+"gridExtra","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3",NA,NA,"gtable, grid, grDevices, graphics, utils",NA,"ggplot2, egg, lattice, knitr, testthat",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"gridGraphics","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5-1",NA,"grid, graphics","grDevices",NA,"magick (>= 1.3), pdftools (>= 1.6)",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"gridSVG","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7-5",NA,NA,"grDevices, graphics, utils, methods, grid, jsonlite, XML",NA,"lattice",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"gridtext","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.5",NA,"R (>= 3.5)","curl, grid, grDevices, markdown, rlang, Rcpp, png, jpeg,
+stringr, xml2","Rcpp","covr, knitr, rmarkdown, testthat, vdiffr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"gt","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9.0",NA,"R (>= 3.2.0)","base64enc (>= 0.1-3), bigD (>= 0.2), bitops (>= 1.0-7), cli
+(>= 3.6.0), commonmark (>= 1.8.1), dplyr (>= 1.1.0), fs (>=
+1.6.1), glue (>= 1.6.2), htmltools (>= 0.5.4), htmlwidgets (>=
+1.6.1), juicyjuice (>= 0.1.0), magrittr (>= 2.0.2), markdown
+(>= 1.5), reactable (>= 0.4.3), rlang (>= 1.0.2), sass (>=
+0.4.5), scales (>= 1.2.1), tibble (>= 3.1.8), tidyselect (>=
+1.2.0), xml2 (>= 1.3.3)",NA,"covr, digest (>= 0.6.31), ggplot2, knitr, lubridate,
+paletteer, RColorBrewer, rmarkdown (>= 2.20), rvest, shiny (>=
+1.7.4), testthat (>= 3.1.6), tidyr, webshot2 (>= 0.1.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"gtable","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.4",NA,"R (>= 3.5)","cli, glue, grid, lifecycle, rlang (>= 1.1.0)",NA,"covr, ggplot2, knitr, profvis, rmarkdown, testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"gtools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.9.4",NA,"methods, stats, utils",NA,NA,"car, gplots, knitr, rstudioapi, SGP, taxize",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"gtsummary","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7.2",NA,"R (>= 3.4)","broom (>= 1.0.1), broom.helpers (>= 1.13.0), cli (>= 3.1.1),
+dplyr (>= 1.1.1), forcats (>= 1.0.0), glue (>= 1.6.2), gt (>=
+0.9.0), knitr (>= 1.37), lifecycle (>= 1.0.1), purrr (>=
+1.0.1), rlang (>= 1.0.3), stringr (>= 1.4.0), tibble (>=
+3.2.1), tidyr (>= 1.1.4), vctrs (>= 0.5.2)",NA,"aod (>= 1.3.1), broom.mixed (>= 0.2.9), car (>= 3.0-11),
+cmprsk, covr, effectsize (>= 0.6.0), emmeans (>= 1.7.3),
+flextable (>= 0.8.1), geepack, ggstats (>= 0.2.1), Hmisc,
+huxtable (>= 5.4.0), insight (>= 0.15.0), kableExtra (>=
+1.3.4), lme4, mgcv, mice (>= 3.10.0), nnet, officer, openxlsx,
+parameters (>= 0.20.2), parsnip (>= 0.1.7), rmarkdown, sandwich
+(>= 3.0.1), scales, smd (>= 0.6.6), spelling (>= 2.2), survey,
+survival (>= 3.2-11), testthat (>= 3.0.4), tidycmprsk (>=
+0.1.2), workflows (>= 0.2.4)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"hardhat","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.0",NA,"R (>= 3.5.0)","cli (>= 3.6.0), glue (>= 1.6.2), rlang (>= 1.1.0), tibble (>=
+3.2.1), vctrs (>= 0.6.0)",NA,"covr, crayon, devtools, knitr, Matrix, modeldata (>= 0.0.2),
+recipes (>= 1.0.5), rmarkdown (>= 2.3), roxygen2, testthat (>=
+3.0.0), usethis (>= 2.1.5)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"haven","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.5.3",NA,"R (>= 3.6)","cli (>= 3.0.0), forcats (>= 0.2.0), hms, lifecycle, methods,
+readr (>= 0.1.0), rlang (>= 0.4.0), tibble, tidyselect, vctrs
+(>= 0.3.0)","cpp11","covr, crayon, fs, knitr, pillar (>= 1.4.0), rmarkdown,
+testthat (>= 3.0.0), utf8",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"heatmaply","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.2",NA,"R (>= 3.0.0), plotly (>= 4.7.1), viridis","ggplot2 (>= 2.2.0), dendextend (>= 1.12.0), magrittr (>=
+1.0.1), reshape2, scales, seriation, utils, stats, grDevices,
+methods, colorspace, RColorBrewer, htmlwidgets, webshot,
+assertthat, egg",NA,"knitr, covr, gplots, tidyselect, rmarkdown, testthat",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"here","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.1",NA,NA,"rprojroot (>= 2.0.2)",NA,"conflicted, covr, fs, knitr, palmerpenguins, plyr, readr,
+rlang, rmarkdown, testthat, uuid, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"hexbin","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.28.3",NA,"R (>= 2.0.1), methods","lattice, grid, graphics, grDevices, stats, utils",NA,"marray, affy, Biobase, limma, knitr",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"highcharter","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9.4",NA,"R (>= 2.10)","htmlwidgets, magrittr, purrr, rlist, assertthat, zoo, dplyr
+(>= 1.0.0), tibble (>= 1.1), stringr (>= 1.3.0), broom, xts,
+quantmod, tidyr, htmltools, jsonlite, igraph, lubridate, yaml,
+rlang (>= 0.1.1), rjson",NA,"knitr, rmarkdown, survival, ggplot2, httr, viridisLite,
+shiny, MASS, gapminder, forecast, geojsonio, testthat, covr,
+spelling",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"highr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.10",NA,"R (>= 3.3.0)","xfun (>= 0.18)",NA,"knitr, markdown, testit",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"Hmisc","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","5.1-0",NA,NA,"methods, ggplot2, cluster, rpart, nnet, foreign, gtable, grid,
+gridExtra, data.table, htmlTable (>= 1.11.0), viridis,
+htmltools, base64enc, colorspace, rmarkdown, knitr, Formula",NA,"survival, qreport, acepack, chron, rms, mice, rstudioapi,
+tables, plotly (>= 4.5.6), rlang, plyr, VGAM, leaps, pcaPP,
+digest, parallel, polspline, abind, kableExtra, rio, lattice,
+latticeExtra, gt, sparkline, jsonlite, htmlwidgets",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"hms","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.3",NA,NA,"lifecycle, methods, pkgconfig, rlang (>= 1.0.2), vctrs (>=
+0.3.8)",NA,"crayon, lubridate, pillar (>= 1.1.0), testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"hoardr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.3",NA,NA,"R6, rappdirs, digest",NA,"testthat, knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"htmlTable","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.4.1",NA,NA,"stringr, knitr (>= 1.6), magrittr (>= 1.5), methods,
+checkmate, htmlwidgets, htmltools, rstudioapi (>= 0.6)",NA,"testthat, XML, xml2, Hmisc, reshape, rmarkdown, chron,
+lubridate, tibble, purrr, tidyselect, glue, rlang, tidyr (>=
+0.7.2), dplyr (>= 0.7.4)",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"htmltools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.6",NA,"R (>= 2.14.1)","utils, digest, grDevices, base64enc, rlang (>= 0.4.12),
+fastmap (>= 1.1.0), ellipsis",NA,"markdown, testthat, withr, Cairo, ragg, shiny","knitr","GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"htmlwidgets","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.6.2",NA,NA,"grDevices, htmltools (>= 0.5.4), jsonlite (>= 0.9.16), yaml,
+knitr (>= 1.8), rmarkdown",NA,"testthat","shiny (>= 1.1)","MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"httpcode","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.0",NA,NA,NA,NA,"testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"httpuv","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.6.11",NA,"R (>= 2.15.1)","Rcpp (>= 1.0.7), utils, R6, promises, later (>= 0.8.0)","Rcpp, later","testthat, callr, curl, websocket",NA,"GPL (>= 2) | file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"httr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.7",NA,"R (>= 3.5)","curl (>= 5.0.2), jsonlite, mime, openssl (>= 0.8), R6",NA,"covr, httpuv, jpeg, knitr, png, readr, rmarkdown, testthat
+(>= 0.8.0), xml2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"httr2","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.3",NA,"R (>= 3.4)","cli (>= 3.0.0), curl, glue, magrittr, openssl, R6, rappdirs,
+rlang (>= 1.0.0), withr",NA,"askpass, bench, clipr, covr, docopt, httpuv, jose, jsonlite,
+knitr, purrr, rmarkdown, testthat (>= 3.0.0), tibble, webfakes,
+xml2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"hunspell","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.0.2",NA,"R (>= 3.0.2)","Rcpp, digest","Rcpp (>= 0.12.12)","spelling, testthat, pdftools, janeaustenr, wordcloud2, knitr,
+stopwords, rmarkdown",NA,"GPL-2 | LGPL-2.1 | MPL-1.1",NA,NA,NA,NA,"yes","4.3.1"
+"huxtable","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","5.5.2",NA,"R (>= 2.10)","assertthat, commonmark, fansi, generics, glue, htmltools,
+memoise, R6, rlang, stats, stringi, stringr (>= 1.2.0),
+tidyselect, utils, xml2",NA,"AER, bookdown, broom (>= 0.5.1), broom.mixed, covr, crayon,
+devtools, dplyr (>= 0.7.0), flextable (>= 0.5.5), ftExtra (>=
+0.0.2), ggplot2, httr, knitr, lme4, lmtest, nlme, nnet,
+officer, openxlsx, psych, quarto, rmarkdown, sandwich, scales,
+testthat, tibble, tinytex",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"ids","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.1",NA,NA,"openssl, uuid",NA,"knitr, rcorpora, rmarkdown, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"igraph","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5.1",NA,"methods, R (>= 3.5.0)","cli, graphics, grDevices, lifecycle, magrittr, Matrix,
+pkgconfig (>= 2.0.0), rlang, stats, utils","cpp11 (>= 0.2.0)","ape (>= 5.7-0.1), callr, decor, digest, graph, igraphdata,
+knitr, rgl, rmarkdown, scales, stats4, tcltk, testthat, vdiffr,
+withr",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"ini","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.1",NA,NA,NA,NA,"testthat",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"inline","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.19",NA,NA,"methods",NA,"Rcpp (>= 0.11.0), tinytest",NA,"LGPL",NA,NA,NA,NA,"no","4.3.1"
+"insight","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.19.3",NA,"R (>= 3.6)","methods, stats, utils",NA,"AER, afex, aod, BayesFactor, bayestestR, bbmle, bdsmatrix,
+betareg, bife, biglm, blavaan, blme, boot, brms, broom, car,
+carData, censReg, cgam, clubSandwich, coxme, cplm, crch, curl,
+datawizard, effectsize, emmeans, epiR, estimatr, feisr, fixest,
+fungible, gam, gamlss, gamlss.data, gamm4, gbm, gee, geepack,
+geoR, GLMMadaptive, glmmTMB, gmnl, grDevices, gt, httr, interp,
+ivreg, JM, knitr, lavaan, lavaSearch2, lfe, lme4, lmerTest,
+lmtest, logistf, logitr, MASS, marginaleffects, Matrix,
+mclogit, mclust, MCMCglmm, merTools, metaBMA, metadat, metafor,
+metaplus, mgcv, mice, mlogit, mhurdle, mmrm, multgee,
+nestedLogit, nlme, nnet, nonnest2, ordinal, parameters,
+parsnip, pbkrtest, performance, plm, poorman, pscl, psych,
+quantreg, rmarkdown, rms, rpart, robustbase, robustlmm,
+rstanarm (>= 2.21.1), rstantools, rstudioapi, sandwich,
+speedglm, splines, statmod, survey, survival, testthat,
+truncreg, tweedie, TMB, VGAM",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"intergraph","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0-3",NA,"R (>= 2.10)","network (>= 1.4-2), igraph (>= 0.6-0), utils",NA,"rmarkdown, knitr, roxygen2, testthat, tibble",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"interp","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1-4",NA,"R (>= 3.5.0)","Rcpp (>= 0.12.9), deldir","Rcpp, RcppEigen","sp, Deriv, Ryacas, ggplot2, gridExtra, lattice, stringi,
+stringr, scatterplot3d, MASS","RcppEigen","GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"ipred","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9-14",NA,"R (>= 2.10)","rpart (>= 3.1-8), MASS, survival, nnet, class, prodlim",NA,"mvtnorm, mlbench, TH.data, randomForest, party",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"IRdisplay","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1",NA,"R (>= 3.0.1)","methods, repr",NA,"testthat, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"irlba","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3.5.1",NA,"R (>= 3.6.2), Matrix","stats, methods","Matrix",NA,NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"isdparser","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.0",NA,NA,"tibble (>= 1.2), data.table (>= 1.10.0), lubridate",NA,"testthat, rmarkdown, knitr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"isoband","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.7",NA,NA,"grid, utils",NA,"covr, ggplot2, knitr, magick, microbenchmark, rmarkdown, sf,
+testthat, xml2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"iterators","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.14",NA,"R (>= 2.5.0), utils",NA,NA,"RUnit, foreach",NA,"Apache License (== 2.0)",NA,NA,NA,NA,"no","4.3.1"
+"joineRML","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.6",NA,"R (>= 3.6.0), nlme, survival","cobs, doParallel, foreach, generics, ggplot2, graphics, lme4
+(>= 1.1-8), MASS, Matrix, mvtnorm, parallel, randtoolbox, Rcpp
+(>= 0.12.7), stats, tibble, utils","Rcpp, RcppArmadillo","bindrcpp, dplyr, JM, joineR, knitr, rmarkdown, testthat",NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"jomo","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.7-6",NA,NA,"stats, lme4, survival, MASS, ordinal, tibble",NA,"mitml",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"jpeg","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1-10",NA,"R (>= 2.9.0)",NA,NA,NA,NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.0"
+"jqr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.3",NA,"R (>= 3.1.2)","magrittr, lazyeval",NA,"jsonlite, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"jquerylib","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.4",NA,NA,"htmltools",NA,"testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"jsonify","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.2",NA,"R (>= 3.3.0)","Rcpp (>= 0.12.18)","rapidjsonr (>= 1.2.0), Rcpp","covr, testthat, knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"jsonlite","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.8.7",NA,"methods",NA,NA,"httr, vctrs, testthat, knitr, rmarkdown, R.rsp, sf",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"juicyjuice","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.0",NA,NA,"V8 (>= 4.2.0)",NA,"testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"JuliaCall","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.17.5",NA,"R (>= 3.4.0)","utils, Rcpp (>= 0.12.7), knitr (>= 1.28), rjson","Rcpp","testthat, rmarkdown, rappdirs, sass",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"kableExtra","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.4",NA,"R (>= 3.1.0)","knitr (>= 1.16), magrittr, stringr (>= 1.0), xml2 (>= 1.1.1),
+rvest, rmarkdown (>= 1.6.0), scales, viridisLite, stats,
+grDevices, htmltools, rstudioapi, glue, tools, webshot, digest,
+graphics, svglite",NA,"testthat, magick, formattable, sparkline",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"katex","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.1",NA,NA,"V8",NA,"knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"Kendall","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.2.1",NA,"R (>= 2.1.0)","boot",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"kernlab","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9-32",NA,"R (>= 2.10)","methods, stats, grDevices, graphics",NA,NA,NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.0"
+"KernSmooth","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.23-21","recommended","R (>= 2.5.0), stats",NA,NA,"MASS, carData",NA,"Unlimited",NA,NA,NA,NA,"yes","4.3.1"
+"khroma","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.11.0",NA,"R (>= 3.5.0)","graphics, grDevices, grid, stats, utils",NA,"crayon, ggplot2, ggraph, knitr, rmarkdown, rsvg, scales,
+spacesXYZ, svglite, tinysnapshot, tinytest",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"knitr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.43",NA,"R (>= 3.3.0)","evaluate (>= 0.15), highr, methods, tools, xfun (>= 0.39),
+yaml (>= 2.1.19)",NA,"bslib, codetools, DBI (>= 0.4-1), digest, formatR, gifski,
+gridSVG, htmlwidgets (>= 0.7), curl, jpeg, JuliaCall (>=
+0.11.1), magick, markdown (>= 1.3), png, ragg, reticulate (>=
+1.4), rgl (>= 0.95.1201), rlang, rmarkdown, sass, showtext,
+styler (>= 1.2.0), targets (>= 0.6.0), testit, tibble,
+tikzDevice (>= 0.10), tinytex, webshot, rstudioapi, xml2 (>=
+1.2.0)",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"ks","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.14.1",NA,"R (>= 2.10.0)","FNN (>= 1.1), kernlab, KernSmooth (>= 2.22), Matrix, mclust,
+mgcv, multicool, mvtnorm (>= 1.0-0), plot3D, pracma",NA,"geometry, MASS, misc3d (>= 0.4-0), oz, rgl (>= 0.66)",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"labeling","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.2",NA,NA,"stats, graphics",NA,NA,NA,"MIT + file LICENSE | Unlimited",NA,NA,NA,NA,"no","4.3.0"
+"labelled","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.12.0",NA,"R (>= 3.0)","haven (>= 2.4.1), dplyr (>= 1.0.0), lifecycle, rlang, vctrs,
+stringr, tidyr",NA,"testthat, knitr, rmarkdown, questionr, snakecase, utf8, covr,
+spelling","memisc","GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"Lahman","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","11.0-0",NA,"R (>= 3.5.0)","dplyr",NA,"lattice, ggplot2, googleVis, data.table, vcd, reshape2,
+tidyr, knitr, rmarkdown, car",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"lambda.r","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.4",NA,"R (>= 3.0.0)","formatR",NA,"testit",NA,"LGPL-3",NA,NA,NA,NA,"no","4.3.1"
+"lars","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3",NA,"R (>= 2.10)",NA,NA,NA,NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.0"
+"later","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.1",NA,NA,"Rcpp (>= 0.12.9), rlang","Rcpp","knitr, rmarkdown, testthat (>= 2.1.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"lattice","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.21-8","recommended","R (>= 4.0.0)","grid, grDevices, graphics, stats, utils",NA,"KernSmooth, MASS, latticeExtra, colorspace","chron","GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"lava","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7.2.1",NA,"R (>= 3.0)","future.apply, grDevices, graphics, methods, numDeriv,
+progressr, stats, survival, SQUAREM, utils",NA,"KernSmooth, Matrix, Rgraphviz, data.table, ellipse, fields,
+geepack, graph, knitr, bookdown, rmarkdown, igraph (>= 0.6),
+lavaSearch2, lme4, mets (>= 1.1), nlme, optimx, polycor,
+quantreg, rgl, R.rsp (>= 0.40), targeted (>= 0.2), testthat (>=
+0.11), visNetwork, zoo",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"lavaan","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6-16",NA,"R(>= 3.4)","methods, stats4, stats, utils, graphics, MASS, mnormt,
+pbivnorm, numDeriv, quadprog",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"lazyeval","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.2",NA,"R (>= 3.1.0)",NA,NA,"knitr, rmarkdown (>= 0.2.65), testthat, covr",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"leaps","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.1",NA,"",NA,NA,"biglm",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"LearnBayes","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.15.1",NA,NA,NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.0"
+"lfe","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.9-0",NA,"R (>= 2.15.2), Matrix (>= 1.1-2)","Formula, xtable, compiler, utils, methods, sandwich, parallel",NA,"knitr, digest, igraph, plm, cubature (>= 2.0.3), numDeriv,
+data.table, alpaca, testthat",NA,"Artistic-2.0",NA,NA,NA,NA,"yes","4.3.1"
+"libcoin","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0-9",NA,"R (>= 3.4.0)","stats, mvtnorm","mvtnorm","coin",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"lifecycle","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.3",NA,"R (>= 3.4)","cli (>= 3.4.0), glue, rlang (>= 1.0.6)",NA,"covr, crayon, knitr, lintr, rmarkdown, testthat (>= 3.0.1),
+tibble, tidyverse, tools, vctrs, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"lintr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.1.0",NA,"R (>= 3.5)","backports, codetools, cyclocomp, digest, glue, knitr, rex,
+stats, utils, xml2 (>= 1.0.0), xmlparsedata (>= 1.0.5)",NA,"bookdown, crayon, httr (>= 1.2.1), jsonlite, mockery,
+patrick, rlang, rmarkdown, rstudioapi (>= 0.2), testthat (>=
+3.1.5), tibble, tufte, withr (>= 2.5.0)","data.table","MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"listenv","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9.0",NA,"R (>= 3.1.2)",NA,NA,"R.utils, R.rsp, markdown",NA,"LGPL (>= 2.1)",NA,NA,NA,NA,"no","4.3.1"
+"listviewer","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.0.0",NA,NA,"htmltools, htmlwidgets, shiny",NA,"jsonlite, miniUI, rstudioapi","reactR","MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"lm.beta","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7-2",NA,NA,"xtable",NA,"knitr",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"lme4","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1-34",NA,"R (>= 3.5.0), Matrix (>= 1.2-1), methods, stats","graphics, grid, splines, utils, parallel, MASS, lattice, boot,
+nlme (>= 3.1-123), minqa (>= 1.1.15), nloptr (>= 1.0.4)","Rcpp (>= 0.10.5), RcppEigen","knitr, rmarkdown, MEMSS, testthat (>= 0.8.1), ggplot2,
+mlmRev, optimx (>= 2013.8.6), gamm4, pbkrtest, HSAUR3,
+numDeriv, car, dfoptim, mgcv, statmod, rr2, semEff, tibble,
+merDeriv",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"lmodel2","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7-3",NA,"R (>= 2.14.0)",NA,NA,NA,NA,"GPL-2",NA,NA,NA,NA,"no","4.3.0"
+"lmtest","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9-40",NA,"R (>= 3.0.0), stats, zoo","graphics",NA,"car, strucchange, sandwich, dynlm, stats4, survival, AER",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"lobstr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.2",NA,"R (>= 3.2)","crayon, methods, prettyunits, rlang (>= 1.0.0)","cpp11 (>= 0.4.2)","covr, pillar, pkgdown, testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"logspline","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.20",NA,NA,"stats, graphics",NA,NA,NA,"Apache License 2.0",NA,NA,NA,NA,"yes","4.3.1"
+"loo","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.6.0",NA,"R (>= 3.1.2)","checkmate, matrixStats (>= 0.52), parallel, stats",NA,"bayesplot (>= 1.7.0), brms (>= 2.10.0), ggplot2, graphics,
+knitr, posterior, rmarkdown, rstan, rstanarm (>= 2.19.0),
+rstantools, spdep, testthat (>= 2.1.0)",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"lpSolve","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","5.6.18",NA,NA,NA,NA,NA,NA,"LGPL-2",NA,NA,NA,NA,"yes","4.3.0"
+"lpSolveAPI","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","5.5.2.0-17.9",NA,NA,NA,NA,NA,NA,"LGPL-2",NA,NA,NA,NA,"yes","4.3.0"
+"lsmeans","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.30-0",NA,"emmeans (>= 1.3), methods, R (>= 3.2)",NA,NA,"",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"lubridate","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.9.2",NA,"methods, R (>= 3.2)","generics, timechange (>= 0.1.1)",NA,"covr, knitr, rmarkdown, testthat (>= 2.1.0), vctrs (>= 0.5.0)","chron, data.table, timeDate, tis, zoo","GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"magick","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.7.5",NA,NA,"Rcpp (>= 0.12.12), magrittr, curl","Rcpp","av (>= 0.3), spelling, jsonlite, methods, knitr, rmarkdown,
+rsvg, webp, pdftools, ggplot2, gapminder, IRdisplay, tesseract
+(>= 2.0), gifski",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"magrittr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.3",NA,"R (>= 3.4.0)",NA,NA,"covr, knitr, rlang, rmarkdown, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"mapproj","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.11",NA,"R (>= 3.0.0), maps (>= 2.3-0)","stats, graphics",NA,NA,NA,"Lucent Public License",NA,NA,NA,NA,"yes","4.3.1"
+"maps","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.4.1",NA,"R (>= 3.5.0)","graphics, utils",NA,"mapproj (>= 1.2-0), mapdata (>= 2.3.0), sp, rnaturalearth",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"maptools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1-8",NA,"R (>= 2.10), sp (>= 1.0-11)","foreign (>= 0.8), methods, grid, lattice, stats, utils,
+grDevices",NA,"rgeos (>= 0.1-8), spatstat.geom (>= 1.65-0), PBSmapping,
+maps, RColorBrewer, raster, polyclip, plotrix, spatstat.linnet
+(>= 1.65-3), spatstat.utils (>= 1.19.0), spatstat (>= 2.0-0)",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"margins","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.26",NA,NA,"utils, stats, prediction (>= 0.3.6), data.table, graphics,
+grDevices, MASS",NA,"methods, knitr, rmarkdown, testthat, ggplot2, gapminder,
+sandwich, stargazer, lme4","AER, betareg, nnet, ordinal, survey","MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"markdown","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.8",NA,"R (>= 2.11.1)","utils, commonmark (>= 1.9.0), xfun (>= 0.38)",NA,"knitr, rmarkdown (>= 2.18), yaml, RCurl",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"MASS","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","7.3-60","recommended","R (>= 4.0), grDevices, graphics, stats, utils","methods",NA,"lattice, nlme, nnet, survival",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"mathjaxr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.6-0",NA,NA,NA,NA,"js",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"Matrix","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.6-1","recommended","R (>= 3.5.0), methods","grDevices, graphics, grid, lattice, stats, utils",NA,"MASS, datasets, sfsmisc","SparseM, graph","GPL (>= 2) | file LICENCE",NA,NA,NA,NA,"yes","4.3.1"
+"MatrixModels","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5-2",NA,"R (>= 3.6.0)","stats, methods, Matrix (>= 1.6-0)",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"matrixStats","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.0",NA,"R (>= 2.12.0)",NA,NA,"base64enc, ggplot2, knitr, markdown, microbenchmark,
+R.devices, R.rsp",NA,"Artistic-2.0",NA,NA,NA,NA,"yes","4.3.1"
+"maxLik","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5-2",NA,"R (>= 2.4.0), miscTools (>= 0.6-8), methods","sandwich, generics",NA,"MASS, clue, dlm, plot3D, tibble, tinytest",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"mclust","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","6.0.0",NA,"R (>= 3.0)","stats, utils, graphics, grDevices",NA,"knitr (>= 1.12), rmarkdown (>= 0.9), mix (>= 1.0), geometry
+(>= 0.3-6), MASS",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"mediation","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.5.0",NA,"R (>= 2.15.1), MASS, Matrix, mvtnorm, sandwich","lpSolve, Hmisc, lme4 (>= 1.0), stats, graphics, grDevices,
+utils, boot",NA,"mgcv, quantreg, VGAM, SuppDists, survival, parallel,
+testthat, speedglm",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"memoise","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.1",NA,NA,"rlang (>= 0.4.10), cachem",NA,"digest, aws.s3, covr, googleAuthR, googleCloudStorageR, httr,
+testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"memuse","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.2-3",NA,"R (>= 3.0.0)","methods, utils",NA,NA,NA,"BSD 2-clause License + file LICENSE",NA,NA,NA,NA,"yes","4.3.0"
+"metadat","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2-0",NA,"R (>= 4.0.0)","utils, tools, mathjaxr",NA,"metafor, numDeriv, BiasedUrn, dfoptim, igraph, ape, testthat,
+digest, lme4, clubSandwich, meta, netmeta, mvtnorm, gridExtra,
+rms",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"metafor","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.2-0",NA,"R (>= 4.0.0), methods, Matrix, metadat, numDeriv","stats, utils, graphics, grDevices, nlme, mathjaxr, pbapply",NA,"lme4, pracma, minqa, nloptr, dfoptim, ucminf, lbfgsb3c,
+subplex, BB, Rsolnp, alabama, Rcgmin, Rvmmin, optimParallel,
+CompQuadForm, mvtnorm, BiasedUrn, Epi, survival, GLMMadaptive,
+glmmTMB, multcomp, gsl, sp, ape, boot, clubSandwich, crayon,
+R.rsp, testthat, rmarkdown, wildmeta, emmeans, estmeansd,
+metaBLUE",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"methods","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,"utils, stats",NA,"codetools",NA,"Part of R 4.3.1",NA,NA,NA,NA,"yes","4.3.1"
+"mfx","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2-2",NA,"stats, sandwich, lmtest, MASS, betareg",NA,NA,NA,NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"mgcv","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.8-42","recommended","R (>= 3.6.0), nlme (>= 3.1-64)","methods, stats, graphics, Matrix, splines, utils",NA,"parallel, survival, MASS",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"mice","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.16.0",NA,"R (>= 2.10.0)","broom, dplyr, generics, glmnet, graphics, grDevices, lattice,
+methods, mitml, nnet, Rcpp, rpart, rlang, stats, tidyr, utils","cpp11, Rcpp","broom.mixed, future, furrr, haven, knitr, lme4, MASS,
+miceadds, pan, parallelly, purrr, ranger, randomForest,
+rmarkdown, rstan, survival, testthat",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"microbenchmark","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.10",NA,NA,"graphics, stats",NA,"ggplot2, multcomp, RUnit",NA,"BSD_2_clause + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"mime","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.12",NA,NA,"tools",NA,NA,NA,"GPL",NA,NA,NA,NA,"yes","4.3.0"
+"miniUI","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.1.1",NA,NA,"shiny (>= 0.13), htmltools (>= 0.3), utils",NA,NA,NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"minqa","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.5",NA,NA,"Rcpp (>= 0.9.10)","Rcpp",NA,NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"misc3d","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9-1",NA,NA,"grDevices, graphics, stats, tcltk",NA,"rgl, tkrplot, MASS",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"miscTools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6-28",NA,"R (>= 2.14.0)","digest",NA,"Ecdat (>= 0.1-5)",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"mitml","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4-5",NA,NA,"pan, jomo, haven, grDevices, graphics, stats, methods, utils",NA,"mice, miceadds, Amelia, lme4, nlme, lavaan, geepack, glmmTMB,
+survival, knitr, rmarkdown",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"mitools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.4",NA,NA,"DBI, methods, stats",NA,"RODBC, foreign",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"mlogit","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1-1",NA,"R (>= 2.10), dfidx","Formula, zoo, lmtest, statmod, MASS, Rdpack",NA,"knitr, car, nnet, lattice, AER, ggplot2, texreg, rmarkdown",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"mnormt","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.1",NA,"R (>= 2.2.0)",NA,NA,NA,NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.0"
+"mockery","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.3",NA,NA,"testthat",NA,"knitr, R6, rmarkdown (>= 1.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"mockr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.1",NA,NA,"rlang, withr",NA,"covr, fs, knitr, pkgload, rmarkdown, testthat, usethis",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"modelbased","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8.6",NA,"R (>= 3.6)","bayestestR (>= 0.13.0), datawizard (>= 0.6.2), effectsize (>=
+0.8.1), insight (>= 0.18.5), parameters (>= 0.19.0),
+performance (>= 0.10.0), graphics, stats, utils",NA,"brms, correlation, emmeans (>= 1.8.3), gamm4, gganimate,
+ggplot2, glmmTMB, knitr, lme4, logspline, marginaleffects,
+mgcv, patchwork, poorman, report, rmarkdown, rstanarm, rtdists,
+see (>= 0.7.0), testthat",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"modeldata","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.0",NA,"R (>= 3.4)","dplyr, MASS, purrr, rlang, tibble",NA,"covr, testthat (>= 3.0.0), ggplot2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"modelenv","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.1",NA,NA,"glue, rlang, tibble, vctrs",NA,"covr, testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"ModelMetrics","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.2.2",NA,"R (>= 3.2.2)","Rcpp, data.table","Rcpp","testthat",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"modelr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.11",NA,"R (>= 3.2)","broom, magrittr, purrr (>= 0.2.2), rlang (>= 1.0.6), tibble,
+tidyr (>= 0.8.0), tidyselect, vctrs",NA,"compiler, covr, ggplot2, testthat (>= 3.0.0)",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"modeltests","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.4",NA,"R (>= 3.1)","dplyr (>= 0.7.6), generics, purrr (>= 0.2.5), testthat (>=
+2.0.0), tibble (>= 3.0.0)",NA,"covr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"modeltools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2-23",NA,"stats, stats4","methods",NA,NA,NA,"GPL-2",NA,NA,NA,NA,"no","4.3.0"
+"moments","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.14.1",NA,NA,NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.0"
+"mondate","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.10.02",NA,"utils, methods, R (>= 3.0.0)",NA,NA,"zoo",NA,"MPL-2.0 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"monochromeR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.4",NA,NA,"ggplot2, magrittr",NA,NA,NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"mosaic","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.8.4.2",NA,"R (>= 3.0.0),","dplyr, lattice (>= 0.20-21), ggformula, mosaicData, Matrix,
+mosaicCore (>= 0.7.0), ggplot2, rlang (>= 0.4.7), purrr, MASS,
+grid, tidyr, methods, utils",NA,"ggstance, ggridges, vdiffr, lubridate, magrittr, NHANES,
+RCurl, sp, maptools, vcd, testthat, knitr, tools, parallel,
+mapproj, rgl, rmarkdown, covr, formatR, palmerpenguins,
+ggrepel, readr, ggdendro, gridExtra, splines, latticeExtra,
+glue, broom, leaflet","manipulate","GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"mosaicCore","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9.2.1",NA,"R (>= 3.3.0)","stats, dplyr, rlang, tidyr, MASS",NA,"mosaicData, mosaic, ggformula, NHANES, testthat, mosaicCalc
+(>= 0.5.9)",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"mosaicData","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.20.3",NA,"R (>= 3.0.0)",NA,NA,"lattice, mosaic, reshape2, ggplot2, dplyr, tidyr, ggformula",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"muhaz","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.6.4",NA,"R(>= 2.3)","survival",NA,NA,NA,"GPL",NA,NA,NA,NA,"yes","4.3.1"
+"multcomp","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4-25",NA,"stats, graphics, mvtnorm (>= 1.0-10), survival (>= 2.39-4),
+TH.data (>= 1.0-2)","sandwich (>= 2.3-0), codetools",NA,"lme4 (>= 0.999375-16), nlme, robustbase, coin, MASS, foreign,
+xtable, lmtest, coxme (>= 2.2-1), SimComp, ISwR, tram (>=
+0.2-5), fixest (>= 0.10), glmmTMB",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"multcompView","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1-9",NA,NA,"grid",NA,"multcomp, pgirmess, MASS",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"multicool","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1-12",NA,"methods, Rcpp (>= 0.11.2)",NA,"Rcpp",NA,NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"munsell","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.0",NA,NA,"colorspace, methods",NA,"ggplot2, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"mvtnorm","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2-2",NA,"R(>= 3.5.0)","stats",NA,"qrng, numDeriv",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"nanotime","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.7",NA,NA,"methods, bit64, RcppCCTZ (>= 0.2.9), zoo","Rcpp, RcppCCTZ, RcppDate","tinytest, data.table, xts",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"NbClust","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.0.1",NA,"R (>= 3.1.0)",NA,NA,NA,NA,"GPL-2",NA,NA,NA,NA,"no","4.3.0"
+"neonUtilities","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3.0",NA,"R (>= 3.6)","httr, jsonlite, downloader, data.table, utils, R.utils, stats,
+tidyr, stringr, pbapply, parallel, curl",NA,"rhdf5, terra, testthat, fasttime",NA,"AGPL-3",NA,NA,NA,NA,"no","4.3.1"
+"network","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.18.1",NA,"R (>= 2.10), utils","tibble, magrittr, statnet.common (>= 4.5), stats",NA,"sna, testthat, covr",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"nFactors","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.4.1.1",NA,"R (>= 3.5.0), lattice","stats, MASS, psych",NA,"testthat",NA,"GPL (>= 3.5.0)",NA,NA,NA,NA,"no","4.3.1"
+"nleqslv","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.3.4",NA,NA,NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.0"
+"nlme","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.1-162","recommended","R (>= 3.5.0)","graphics, stats, utils, lattice",NA,"Hmisc, MASS, SASmixed",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"nloptr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.3",NA,NA,NA,"testthat","knitr, rmarkdown, xml2, testthat (>= 3.0.0), covr",NA,"LGPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"nnet","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","7.3-19","recommended","R (>= 3.0.0), stats, utils",NA,NA,"MASS",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"numDeriv","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2016.8-1.1",NA,"R (>= 2.11.1)",NA,NA,NA,NA,"GPL-2",NA,NA,NA,NA,"no","4.3.0"
+"nycflights13","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.2",NA,"R (>= 3.2)","tibble",NA,"dplyr",NA,"CC0",NA,NA,NA,NA,"no","4.3.1"
+"officer","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.2",NA,NA,"grDevices, stats, graphics, utils, zip (>= 2.1.0), xml2 (>=
+1.1.0), openssl, R6, uuid, ragg",NA,"testthat, devEMF, ggplot2, rmarkdown, doconv (>= 0.3.0),
+knitr, rsvg, magick",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"opdisDownsampling","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8.2",NA,"R (>= 3.5.0)","parallel, graphics, methods, stats, caTools, pracma,
+twosamples, utils, benchmarkme, memuse, doParallel, foreach",NA,"testthat",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"openssl","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.0",NA,NA,"askpass",NA,"curl, testthat (>= 2.1.0), digest, knitr, rmarkdown,
+jsonlite, jose, sodium",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"openxlsx","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.2.5.2",NA,"R (>= 3.3.0)","grDevices, methods, Rcpp, stats, stringi, utils, zip","Rcpp","knitr, rmarkdown, roxygen2, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"orcutt","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3",NA,"lmtest","stats",NA,NA,NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"ordinal","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2022.11-16",NA,"R (>= 2.13.0), stats, methods","ucminf, MASS, Matrix, numDeriv, nlme",NA,"lme4, nnet, xtable, testthat (>= 0.8), tools",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"packrat","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9.1",NA,"R (>= 3.0.0)","tools, utils",NA,"devtools, httr, knitr, mockery, rmarkdown, testthat (>=
+3.0.0)",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"pacman","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.1",NA,"R (>= 3.5.0)","remotes, methods, stats, utils",NA,"BiocManager, knitr, lattice, testthat (>= 0.9.0), XML",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"pak","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.1",NA,"R (>= 3.2)","tools, utils",NA,"callr (>= 3.7.0), cli (>= 3.2.0), covr, curl (>= 4.3.2), desc
+(>= 1.4.1), digest, distro, filelock (>= 1.0.2), gitcreds, glue
+(>= 1.6.2), mockery, pingr, jsonlite (>= 1.8.0), pkgcache (>=
+2.0.4), pkgdepends (>= 0.4.0), pkgsearch (>= 3.1.0),
+prettyunits, processx (>= 3.8.1), ps (>= 1.6.0), rprojroot (>=
+2.0.2), rstudioapi, testthat, withr",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"paletteer","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5.0",NA,"R (>= 2.10)","prismatic, rematch2, rlang, rstudioapi",NA,"covr, ggplot2 (>= 3.3.0), ggthemes (>= 4.0.0), harrypotter
+(>= 2.1.0), knitr, oompaBase, palr, pals, rmarkdown, scico,
+testthat (>= 2.1.0), vdiffr, viridisLite",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"palmerpenguins","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.1",NA,"R (>= 2.10)",NA,NA,"knitr, rmarkdown, tibble, ggplot2, dplyr, tidyr, recipes",NA,"CC0",NA,NA,NA,NA,"no","4.3.1"
+"pan","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.9",NA,NA,NA,NA,"mitools, lme4",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"pander","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.5",NA,"R (>= 2.15.0)","grDevices, graphics, methods, utils, stats, digest, tools,
+Rcpp","Rcpp","grid, lattice, ggplot2 (>= 0.9.2), sylly, sylly.en, logger,
+survival, microbenchmark, zoo, nlme, descr, MASS, knitr,
+rmarkdown, tables, reshape, memisc, Epi, randomForest, tseries,
+gtable, rms, forecast, data.table",NA,"AGPL-3 | file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"pandoc","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.0",NA,"R (>= 3.5.0)","fs, rappdirs, rlang (>= 1.0.1)",NA,"covr, gh, rmarkdown (>= 2.14), testthat (>= 3.0.0), tibble,
+withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"parallel","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,"tools, compiler",NA,"methods","snow, Rmpi","Part of R 4.3.1",NA,NA,NA,NA,"yes","4.3.1"
+"parallelly","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.36.0",NA,NA,"parallel, tools, utils",NA,NA,NA,"LGPL (>= 2.1)",NA,NA,NA,NA,"no","4.3.0"
+"parameters","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.21.1",NA,"R (>= 3.6)","bayestestR (>= 0.13.0), datawizard (>= 0.7.0), insight (>=
+0.19.2), graphics, methods, stats, utils",NA,"AER, afex, aod, BayesFactor, BayesFM, bbmle, betareg, BH,
+biglm, blme, boot, brglm2, brms, broom, cAIC4, car, carData,
+cgam, ClassDiscovery, clubSandwich, cluster, coda, cplm,
+dbscan, domir (>= 0.2.0), drc, DRR, effectsize (>= 0.8.2),
+EGAnet (>= 0.7), emmeans (>= 1.7.0), estimatr, factoextra,
+FactoMineR, fastICA, fixest, fpc, gam, gamlss, gee, geepack,
+ggeffects (>= 1.2.0), ggplot2, GLMMadaptive, glmmTMB,
+GPArotation, gt, haven, httr, Hmisc, ivprobit, ivreg, knitr,
+lavaan, lfe, lm.beta, lme4, lmerTest, lmtest, logspline, lqmm,
+M3C, marginaleffects (>= 0.10.0), MASS, Matrix, mclogit,
+mclust, MCMCglmm, mediation, merDeriv, metaBMA, metafor, mfx,
+mgcv, mice, mmrm, multcomp, MuMIn, NbClust, nFactors,
+nestedLogit, nlme, nnet, openxlsx, ordinal, panelr, pbkrtest,
+PCDimension, performance (>= 0.10.1), plm, PMCMRplus, poorman,
+posterior, PROreg, pscl, psych, pvclust, quantreg,
+randomForest, rmarkdown, rms, rstanarm, sandwich, see (>=
+0.7.5), sparsepca, survey, survival, testthat, tidyselect, TMB,
+truncreg, VGAM, withr, WRS2",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"parsedate","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.1",NA,NA,NA,NA,"covr, testthat, withr",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"parsnip","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.1",NA,"R (>= 3.5)","cli, dplyr (>= 1.1.0), generics (>= 0.1.2), ggplot2, globals,
+glue, hardhat (>= 1.1.0), lifecycle, magrittr, pillar,
+prettyunits, purrr (>= 1.0.0), rlang (>= 0.3.1), stats, tibble
+(>= 2.1.1), tidyr (>= 1.3.0), utils, vctrs (>= 0.6.0), withr",NA,"C50, covr, dials (>= 1.1.0), earth, ggrepel, keras, kernlab,
+kknn, knitr, LiblineaR, MASS, Matrix, mgcv, modeldata, nlme,
+prodlim, ranger (>= 0.12.0), remotes, rmarkdown, rpart,
+sparklyr (>= 1.0.0), survival, tensorflow, testthat (>= 3.0.0),
+xgboost (>= 1.5.0.1)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"partitions","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.10-7",NA,"R (>= 3.6.0)","gmp, polynom, sets, mathjaxr, Rdpack",NA,"testthat",NA,"GPL",NA,NA,NA,NA,"yes","4.3.1"
+"PASWR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3",NA,"lattice","MASS, e1071",NA,NA,NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"patchwork","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.3",NA,NA,"ggplot2 (>= 3.0.0), gtable, grid, stats, grDevices, utils,
+graphics, rlang, cli",NA,"knitr, rmarkdown, gridGraphics, gridExtra, ragg, testthat (>=
+2.1.0), vdiffr, covr, png",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"pbapply","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7-2",NA,"R (>= 3.2.0)","parallel",NA,"shiny, future, future.apply",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"pbivnorm","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.0",NA,NA,NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.0"
+"pbkrtest","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.2",NA,"R (>= 4.1.0), lme4 (>= 1.1.31)","broom, dplyr, MASS, Matrix (>= 1.2.3), methods, numDeriv,
+parallel",NA,"knitr",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"pcaPP","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0-3",NA,NA,"mvtnorm, methods",NA,"robustbase",NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"pdftools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.3.3",NA,NA,"Rcpp (>= 0.12.12), qpdf","Rcpp","png, webp, tesseract, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"performance","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.10.4",NA,"R (>= 3.6)","bayestestR (>= 0.13.0), insight (>= 0.19.1), datawizard (>=
+0.7.0), methods, stats, utils",NA,"AER, afex, BayesFactor, bayesplot, betareg, bigutilsr,
+blavaan, boot, brms, car, CompQuadForm, correlation, cplm,
+dbscan, estimatr, fixest, forecast, gamm4, ggplot2, glmmTMB,
+graphics, Hmisc, httr, ICS, ICSOutlier, ISLR, ivreg, lavaan,
+lme4, lmtest, loo, MASS, Matrix, mclogit, mclust, metadat,
+metafor, mgcv, mlogit, multimode, nlme, nonnest2, ordinal,
+parallel, parameters (>= 0.20.3), patchwork, pscl, psych,
+randomForest, rmarkdown, rstanarm, rstantools, sandwich, see
+(>= 0.7.5), survey, survival, testthat, tweedie, VGAM, withr",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"permute","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9-7",NA,"R (>= 2.14.0)","stats",NA,"vegan (>= 2.0-0), testthat (>= 0.5), parallel, knitr,
+rmarkdown, bookdown, sessioninfo",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"pillar","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.9.0",NA,NA,"cli (>= 2.3.0), fansi, glue, lifecycle, rlang (>= 1.0.2), utf8
+(>= 1.1.0), utils, vctrs (>= 0.5.0)",NA,"bit64, DBI, debugme, DiagrammeR, dplyr, formattable, ggplot2,
+knitr, lubridate, nanotime, nycflights13, palmerpenguins,
+rmarkdown, scales, stringi, survival, testthat (>= 3.1.1),
+tibble, units (>= 0.7.2), vdiffr, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"pingr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.2",NA,NA,"processx, utils",NA,"covr, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"pkgbuild","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.2",NA,"R (>= 3.4)","callr (>= 3.2.0), cli (>= 3.4.0), crayon, desc, prettyunits,
+processx, R6, rprojroot",NA,"covr, cpp11, knitr, mockery, Rcpp, rmarkdown, testthat (>=
+3.0.0), withr (>= 2.3.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"pkgconfig","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.3",NA,NA,"utils",NA,"covr, testthat, disposables (>= 1.0.3)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"pkgdown","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.7",NA,"R (>= 3.1.0)","bslib (>= 0.3.1), callr (>= 3.7.3), cli, desc, digest, downlit
+(>= 0.4.0), fs (>= 1.4.0), httr (>= 1.4.2), jsonlite, magrittr,
+memoise, purrr, ragg, rlang (>= 1.0.0), rmarkdown (>=
+1.1.9007), tibble, whisker, withr (>= 2.4.3), xml2 (>= 1.3.1),
+yaml",NA,"covr, diffviewer, evaluate, htmltools, htmlwidgets, knitr,
+lifecycle, methods, openssl, pkgload (>= 1.0.2), rsconnect,
+rstudioapi, rticles, sass, testthat (>= 3.1.3), tools",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"pkgload","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.2.1",NA,"R (>= 3.4.0)","cli (>= 3.3.0), crayon, desc, fs, glue, methods, rlang (>=
+1.0.3), rprojroot, utils, withr (>= 2.4.3)",NA,"bitops, covr, mathjaxr, mockr, pak, pkgbuild, Rcpp, remotes,
+rstudioapi, testthat (>= 3.1.0)",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"plm","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.6-3",NA,"R (>= 3.2.0)","MASS, bdsmatrix, collapse (>= 1.8.9), zoo, nlme, sandwich,
+lattice, lmtest, maxLik, Rdpack, Formula, stats",NA,"AER, car, statmod, urca, pder, texreg, knitr, rmarkdown,
+fixest, lfe",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"plogr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.0",NA,NA,NA,NA,"Rcpp",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"plot3D","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4",NA,"R (>= 2.15)","misc3d, stats, graphics, grDevices, methods",NA,NA,NA,"GPL (>= 3.0)",NA,NA,NA,NA,"no","4.3.1"
+"plotly","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.10.2",NA,"R (>= 3.2.0), ggplot2 (>= 3.0.0)","tools, scales, httr (>= 1.3.0), jsonlite (>= 1.6), magrittr,
+digest, viridisLite, base64enc, htmltools (>= 0.3.6),
+htmlwidgets (>= 1.5.2.9001), tidyr (>= 1.0.0), RColorBrewer,
+dplyr, vctrs, tibble, lazyeval (>= 0.2.0), rlang (>= 0.4.10),
+crosstalk, purrr, data.table, promises",NA,"MASS, maps, hexbin, ggthemes, GGally, ggalluvial, testthat,
+knitr, shiny (>= 1.1.0), shinytest (>= 1.3.0), curl, rmarkdown,
+Cairo, broom, webshot, listviewer, dendextend, maptools, rgeos,
+sf, png, IRdisplay, processx, plotlyGeoAssets, forcats,
+palmerpenguins, rversions, reticulate, rsvg",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"plotlyGeoAssets","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.0.2",NA,"R (>= 2.10)",NA,NA,"testthat, htmltools","plotly","MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"plotrix","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.8-2",NA,"R (>= 3.5.0)","grDevices, graphics, stats, utils",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.0"
+"pls","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.8-2",NA,"R (>= 3.5.0)","grDevices, graphics, methods, stats",NA,"MASS, parallel, Rmpi, testthat, RUnit",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"plyr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.8.8",NA,"R (>= 3.1.0)","Rcpp (>= 0.11.0)","Rcpp","abind, covr, doParallel, foreach, iterators, itertools,
+tcltk, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"png","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1-8",NA,"R (>= 2.9.0)",NA,NA,NA,NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.0"
+"poLCA","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.6.0.1",NA,"scatterplot3d, MASS",NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"polyclip","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.10-4",NA,"R (>= 3.0.0)",NA,NA,NA,NA,"BSL",NA,NA,NA,NA,"yes","4.3.0"
+"polynom","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4-1",NA,NA,"stats, graphics",NA,"knitr, rmarkdown",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"poorman","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.6",NA,"R (>= 3.3)",NA,NA,"knitr, pkgdown, markdown, rmarkdown, roxygen2, tinytest",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"posterior","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.1",NA,"R (>= 3.2.0)","methods, abind, checkmate, rlang (>= 1.0.6), stats, tibble (>=
+3.1.0), vctrs (>= 0.5.0), tensorA, pillar, distributional,
+parallel, matrixStats",NA,"testthat (>= 2.1.0), caret (>= 6.0.84), gbm (>= 2.1.8),
+randomForest (>= 4.6.14), e1071 (>= 1.7.3), dplyr, tidyr,
+knitr, ggplot2, rmarkdown",NA,"BSD_3_clause + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"prabclus","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3-2",NA,"R (>= 2.10), MASS, mclust",NA,NA,"spdep, spatialreg, bootstrap, maptools, foreign, mvtnorm",NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"pracma","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.4.2",NA,"R (>= 3.1.0)","graphics, grDevices, stats, utils",NA,"NlcOptim, quadprog",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"praise","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.0",NA,NA,NA,NA,"testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"prediction","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.14",NA,"R (>= 3.5.0)","utils, stats, data.table",NA,"datasets, methods, testthat","AER, aod, betareg, biglm, brglm, caret, crch, e1071, earth,
+ff, ffbase, gam (>= 1.15), gee, glmnet, glmx, kernlab, lme4,
+MASS, mclogit, mda, mlogit, MNP, nlme, nnet, ordinal, plm,
+pscl, quantreg, rpart, sampleSelection, speedglm, survey (>=
+3.31-5), survival, truncreg, VGAM","MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"prettydoc","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.1",NA,NA,"rmarkdown (>= 1.17)",NA,"knitr, KernSmooth",NA,"Apache License (>= 2.0)",NA,NA,NA,NA,"no","4.3.1"
+"prettyunits","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.1",NA,NA,NA,NA,"codetools, covr, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"prismatic","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.1",NA,"R (>= 3.2)","graphics, farver (>= 2.0.1), grDevices",NA,"covr, crayon, testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"pROC","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.18.4",NA,"R (>= 2.14)","methods, plyr, Rcpp (>= 0.11.1)","Rcpp","microbenchmark, tcltk, MASS, logcondens, doParallel,
+testthat, vdiffr, ggplot2, rlang",NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"processx","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.8.2",NA,"R (>= 3.4.0)","ps (>= 1.2.0), R6, utils",NA,"callr (>= 3.7.3), cli (>= 3.3.0), codetools, covr, curl,
+debugme, parallel, rlang (>= 1.0.2), testthat (>= 3.0.0),
+webfakes, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"prodlim","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2023.03.31",NA,"R (>= 2.9.0)","Rcpp (>= 0.11.5), stats, data.table, grDevices, graphics,
+diagram, survival, KernSmooth, lava","Rcpp",NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"profmem","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.0",NA,NA,"utils",NA,"R.rsp, markdown, microbenchmark",NA,"LGPL (>= 2.1)",NA,NA,NA,NA,"no","4.3.1"
+"profvis","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.8",NA,"R (>= 3.0)","htmlwidgets (>= 0.3.2), purrr, rlang (>= 0.4.9), stringr,
+vctrs",NA,"knitr, ggplot2, rmarkdown, testthat (>= 3.0.0), devtools,
+shiny, htmltools",NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"progress","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.2",NA,NA,"hms, prettyunits, R6, crayon",NA,"Rcpp, testthat, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"progressr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.14.0",NA,"R (>= 3.5.0)","digest, utils",NA,"graphics, tcltk, beepr, cli, crayon, pbmcapply, progress,
+purrr, foreach, plyr, doFuture, future, future.apply, furrr,
+RPushbullet, rstudioapi, shiny, commonmark, base64enc, tools",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"promises","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.1",NA,NA,"fastmap (>= 1.1.0), later, magrittr (>= 1.5), R6, Rcpp, rlang,
+stats","later, Rcpp","future (>= 1.21.0), knitr, purrr, rmarkdown, spelling,
+testthat, vembedr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"protolite","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.2.0",NA,NA,"Rcpp (>= 0.12.12), jsonlite","Rcpp","spelling, curl, testthat, sf",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"proxy","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4-27",NA,"R (>= 3.4.0)","stats, utils",NA,"cba",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"ps","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7.5",NA,"R (>= 3.4)","utils",NA,"callr, covr, curl, pillar, pingr, processx (>= 3.1.0), R6,
+rlang, testthat (>= 3.0.0), webfakes",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"psych","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3.6",NA,NA,"mnormt,parallel,stats,graphics,grDevices,methods,lattice,nlme",NA,"psychTools, GPArotation, lavaan, lme4, Rcsdp, graph, knitr,
+Rgraphviz",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"purrr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.2",NA,"R (>= 3.5.0)","cli (>= 3.6.1), lifecycle (>= 1.0.3), magrittr (>= 1.5.0),
+rlang (>= 1.1.1), vctrs (>= 0.6.3)","cli","covr, dplyr (>= 0.7.8), httr, knitr, lubridate, rmarkdown,
+testthat (>= 3.0.0), tibble, tidyselect",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"pvclust","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.2-0",NA,"R (>= 2.10.0)",NA,NA,"MASS, parallel",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"qap","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1-2",NA,NA,NA,NA,"testthat",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"qpdf","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.2",NA,NA,"Rcpp, askpass, curl","Rcpp","testthat",NA,"Apache License 2.0",NA,NA,NA,NA,"yes","4.3.1"
+"qqconf","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.2",NA,"R (>= 4.0.0)","MASS (>= 7.3-50), robustbase (>= 0.93-4), Rcpp","Rcpp","knitr, rmarkdown, distr (>= 2.8.0)",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"qqplotr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.0.6",NA,"R (>= 3.1), ggplot2 (>= 2.2)","dplyr, robustbase, MASS, opdisDownsampling, qqconf (>= 1.3.1)",NA,"shiny, devtools, lattice, shinyBS, knitr, rmarkdown",NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"quadprog","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5-8",NA,"R (>= 3.1.0)",NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.0"
+"quantmod","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.25",NA,"R (>= 3.2.0), xts(>= 0.9-0), zoo, TTR(>= 0.2), methods","curl, jsonlite(>= 1.1)",NA,"DBI,RMySQL,RSQLite,timeSeries,xml2,downloader",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"quantreg","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","5.97",NA,"R (>= 3.5), stats, SparseM","methods, graphics, Matrix, MatrixModels, survival, MASS",NA,"interp, rgl, logspline, nor1mix, Formula, zoo, R.rsp, conquer",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"quarto","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2",NA,NA,"utils,rmarkdown,jsonlite,yaml,processx,rstudioapi,later,rsconnect
+(>= 0.8.26)",NA,"knitr, testthat (>= 3.1.0)",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"R.cache","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.16.0",NA,"R (>= 2.14.0)","utils, R.methodsS3 (>= 1.8.1), R.oo (>= 1.24.0), R.utils (>=
+2.10.1), digest (>= 0.6.13)",NA,NA,NA,"LGPL (>= 2.1)",NA,NA,NA,NA,"no","4.3.1"
+"R.methodsS3","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.8.2",NA,"R (>= 2.13.0)","utils",NA,"codetools",NA,"LGPL (>= 2.1)",NA,NA,NA,NA,"no","4.3.0"
+"R.oo","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.25.0",NA,"R (>= 2.13.0), R.methodsS3 (>= 1.8.1)","methods, utils",NA,"tools",NA,"LGPL (>= 2.1)",NA,NA,NA,NA,"no","4.3.0"
+"R.utils","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.12.2",NA,"R (>= 2.14.0), R.oo","methods, utils, tools, R.methodsS3",NA,"datasets, digest (>= 0.6.10)",NA,"LGPL (>= 2.1)",NA,NA,NA,NA,"no","4.3.1"
+"R6","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.5.1",NA,"R (>= 3.0)",NA,NA,"testthat, pryr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"ragg","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.5",NA,NA,"systemfonts (>= 1.0.3), textshaping (>= 0.3.0)","systemfonts, textshaping","covr, graphics, grid, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"randomForest","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.7-1.1",NA,"R (>= 4.1.0), stats",NA,NA,"RColorBrewer, MASS",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"randtoolbox","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.4",NA,"rngWELL (>= 0.10-1)",NA,NA,NA,NA,"BSD_3_clause + file LICENSE",NA,NA,NA,NA,"yes","4.3.0"
+"rapidjsonr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.0",NA,NA,NA,NA,NA,NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.0"
+"rappdirs","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.3",NA,"R (>= 3.2)",NA,NA,"roxygen2, testthat (>= 3.0.0), covr, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"raster","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.6-23",NA,"sp (>= 1.4-5), R (>= 3.5.0)","Rcpp, methods, terra (>= 1.7-29)","Rcpp","ncdf4, igraph, tcltk, parallel, rasterVis, MASS, sf,
+tinytest, gstat, fields, exactextractr",NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"rbibutils","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.2.15",NA,"R (>= 2.10)","utils, tools",NA,"testthat",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"rcartocolor","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.1",NA,"R (>= 3.4)","ggplot2, scales",NA,"covr, MASS, testthat, vdiffr, sf, spData",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"rcmdcheck","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.0",NA,NA,"callr (>= 3.1.1.9000), cli (>= 3.0.0), curl, desc (>= 1.2.0),
+digest, pkgbuild, prettyunits, R6, rprojroot, sessioninfo (>=
+1.1.1), utils, withr, xopen",NA,"covr, knitr, mockery, processx, ps, rmarkdown, svglite,
+testthat, webfakes",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"RColorBrewer","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1-3",NA,"R (>= 2.0.0)",NA,NA,NA,NA,"Apache License 2.0",NA,NA,NA,NA,"no","4.3.0"
+"Rcpp","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.11",NA,NA,"methods, utils",NA,"tinytest, inline, rbenchmark, pkgKitten (>= 0.1.2)",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"RcppArmadillo","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.12.6.1.0",NA,"R (>= 3.3.0)","Rcpp (>= 0.11.0), stats, utils, methods","Rcpp","tinytest, Matrix (>= 1.3.0), pkgKitten, reticulate, slam",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"RcppCCTZ","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.12",NA,NA,"Rcpp (>= 0.11.0)","Rcpp","tinytest",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"RcppDate","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.0.3",NA,NA,NA,NA,"Rcpp",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"RcppEigen","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.3.9.3",NA,"R (>= 3.6.0)","Matrix (>= 1.1-0), Rcpp (>= 0.11.0), stats, utils","Rcpp","inline, tinytest, pkgKitten, microbenchmark",NA,"GPL (>= 2) | file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"RcppParallel","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","5.1.7",NA,"R (>= 3.0.2)",NA,NA,"Rcpp, RUnit, knitr, rmarkdown",NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"RcppTOML","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.2",NA,"R (>= 3.3.0)","Rcpp (>= 0.11.5)","Rcpp","tinytest",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"RCurl","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.98-1.12",NA,"R (>= 3.4.0), methods","bitops",NA,"XML",NA,"BSD_3_clause + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"Rdpack","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.5",NA,"R (>= 2.15.0), methods","tools, utils, rbibutils (>= 1.3)",NA,"grDevices, testthat, rstudioapi, rprojroot, gbRd",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"reactable","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.4",NA,"R (>= 3.1)","digest, htmltools (>= 0.5.2), htmlwidgets (>= 1.5.3),
+jsonlite, reactR",NA,"covr, crosstalk, dplyr, fontawesome, knitr, leaflet, MASS,
+rmarkdown, shiny, sparkline, testthat, tippy, V8",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"reactlog","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.1",NA,"R (>= 3.0.2)","jsonlite (>= 0.9.16),",NA,"shiny (>= 1.5.0), fontawesome (>= 0.3.0), knitr, rmarkdown,
+htmltools, testthat",NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"reactR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.4",NA,NA,"htmltools",NA,"htmlwidgets (>= 1.5.3), rmarkdown, shiny, V8, knitr, usethis,
+jsonlite",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"readr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.4",NA,"R (>= 3.5)","cli (>= 3.2.0), clipr, crayon, hms (>= 0.4.1), lifecycle (>=
+0.2.0), methods, R6, rlang, tibble, utils, vroom (>= 1.6.0)","cpp11, tzdb (>= 0.1.1)","covr, curl, datasets, knitr, rmarkdown, spelling, stringi,
+testthat (>= 3.1.2), tzdb (>= 0.1.1), waldo, withr, xml2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"readxl","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.3",NA,"R (>= 3.6)","cellranger, tibble (>= 2.0.1), utils","cpp11 (>= 0.4.0), progress","covr, knitr, rmarkdown, testthat (>= 3.1.6), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"recipes","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.7",NA,"dplyr (>= 1.1.0), R (>= 3.6)","cli, clock (>= 0.6.1), ellipsis, generics (>= 0.1.2), glue,
+gower, hardhat (>= 1.3.0), ipred (>= 0.9-12), lifecycle (>=
+1.0.3), lubridate (>= 1.8.0), magrittr, Matrix, purrr (>=
+1.0.0), rlang (>= 1.0.3), stats, tibble, tidyr (>= 1.0.0),
+tidyselect (>= 1.2.0), timeDate, utils, vctrs (>= 0.5.0), withr",NA,"covr, ddalpha, dials (>= 1.2.0), ggplot2, igraph, kernlab,
+knitr, modeldata (>= 0.1.1), parsnip (>= 0.1.7), RANN,
+RcppRoll, rmarkdown, rpart, rsample, RSpectra, splines2,
+testthat (>= 3.0.0), workflows, xml2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"registry","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5-1",NA,"R (>= 2.6.0)","utils",NA,NA,NA,"GPL-2",NA,NA,NA,NA,"no","4.3.0"
+"rematch","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.1",NA,NA,NA,NA,"covr, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"rematch2","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.2",NA,NA,"tibble",NA,"covr, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"remotes","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.4.2.1",NA,"R (>= 3.0.0)","methods, stats, tools, utils",NA,"brew, callr, codetools, curl, covr, git2r (>= 0.23.0), knitr,
+mockery, pkgbuild (>= 1.0.1), pingr, rmarkdown, rprojroot,
+testthat, webfakes, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"renv","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.2",NA,NA,"utils",NA,"BiocManager, cli, covr, cpp11, devtools, gitcreds, jsonlite,
+knitr, miniUI, packrat, pak, R6, remotes, reticulate,
+rmarkdown, rstudioapi, shiny, testthat, uuid, waldo, yaml,
+webfakes",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"report","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.7",NA,"R (>= 3.6)","bayestestR (>= 0.13.0), effectsize (> 0.8.2), insight (>=
+0.19.1), parameters (>= 0.20.0), performance (>= 0.9.2),
+datawizard (>= 0.6.5), stats, tools, utils",NA,"brms, ivreg, knitr, lavaan, lme4, dplyr, rmarkdown, rstanarm,
+survival, testthat",NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"repr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.6",NA,"R (>= 3.0.1)","utils, grDevices, htmltools, jsonlite, pillar (>= 1.4.0),
+base64enc",NA,"methods, highr, Cairo, stringr, testthat (>= 3.0.0), leaflet","data.table, tibble, htmlwidgets, vegalite, plotly, geojsonio","GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"reprex","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.2",NA,"R (>= 3.4)","callr (>= 3.6.0), cli (>= 3.2.0), clipr (>= 0.4.0), fs, glue,
+knitr (>= 1.23), lifecycle, rlang (>= 1.0.0), rmarkdown,
+rstudioapi, utils, withr (>= 2.3.0)",NA,"covr, fortunes, miniUI, mockr, rprojroot, sessioninfo, shiny,
+spelling, styler (>= 1.2.0), testthat (>= 3.0.2)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"reshape","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8.9",NA,"R (>= 2.6.1)","plyr",NA,NA,NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"reshape2","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.4",NA,"R (>= 3.1)","plyr (>= 1.8.1), Rcpp, stringr","Rcpp","covr, lattice, testthat (>= 0.8.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"reticulate","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.31",NA,"R (>= 3.5)","Matrix, Rcpp (>= 1.0.7), RcppTOML, graphics, here, jsonlite,
+methods, png, rappdirs, utils, rlang, withr","Rcpp","callr, knitr, glue, cli, rmarkdown, pillar, testthat",NA,"Apache License 2.0",NA,NA,NA,NA,"yes","4.3.1"
+"rex","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.1",NA,NA,"lazyeval",NA,"covr, dplyr, ggplot2, Hmisc, knitr, magrittr, rmarkdown,
+roxygen2, rvest, stringr, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"rgeos","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6-4",NA,"R (>= 3.3.0), methods, sp (>= 1.1-0)","utils, stats, graphics","sp","maptools (>= 0.8-5), testthat, XML, maps, rgdal",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"rgl","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.1",NA,"R (>= 3.3.0)","graphics, grDevices, stats, utils, htmlwidgets (>= 1.6.0),
+htmltools, knitr (>= 1.33), jsonlite (>= 0.9.20), magrittr, R6,
+base64enc, mime",NA,"MASS, rmarkdown (>= 2.16), deldir (>= 1.0-4), orientlib,
+lattice, misc3d, magick, plotrix (>= 3.7-3), tripack, interp,
+alphashape3d, tcltk, js (>= 1.2), webshot2 (>= 0.1.0), downlit
+(>= 0.4.0), pkgdown (>= 2.0.0), extrafont, shiny,
+manipulateWidget (>= 0.9.0), testthat, markdown, crosstalk, V8,
+chromote, jpeg, png","waldo","GPL",NA,NA,NA,NA,"yes","4.3.1"
+"rhub","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.2",NA,NA,"assertthat, callr, cli (>= 1.1.0), crayon, desc, digest, httr,
+jsonlite, parsedate, pillar, prettyunits, processx, R6,
+rappdirs, rcmdcheck (>= 1.2.1), rematch, tibble, utils, uuid,
+whoami, withr",NA,"covr, testthat, knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"rio","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.29",NA,"R (>= 2.15.0)","tools, stats, utils, foreign, haven (>= 1.1.2), curl (>= 0.6),
+data.table (>= 1.9.8), readxl (>= 0.1.1), openxlsx, tibble",NA,"datasets, bit64, testthat, knitr, magrittr, arrow, clipr,
+feather, fst, hexView, jsonlite, pzfx, readODS (>= 1.6.4),
+readr, rmarkdown, rmatio, xml2 (>= 1.2.0), yaml",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"rJava","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0-6",NA,"R (>= 3.6.0), methods",NA,NA,NA,NA,"LGPL-2.1",NA,NA,NA,NA,"yes","4.3.1"
+"rjson","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.21",NA,"R (>= 4.0.0)",NA,NA,NA,NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.0"
+"rlang","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.1",NA,"R (>= 3.5.0)","utils",NA,"cli (>= 3.1.0), covr, crayon, fs, glue, knitr, magrittr,
+methods, pillar, rmarkdown, stats, testthat (>= 3.0.0), tibble,
+usethis, vctrs (>= 0.2.3), withr","winch","MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"rle","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9.2",NA,"R (>= 3.5)","methods",NA,"covr",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"rlist","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.6.2",NA,"R (>= 2.15)","yaml, jsonlite, XML, data.table",NA,"testthat, stringdist",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"rmarkdown","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.24",NA,"R (>= 3.0)","bslib (>= 0.2.5.1), evaluate (>= 0.13), fontawesome (>=
+0.5.0), htmltools (>= 0.5.1), jquerylib, jsonlite, knitr (>=
+1.22), methods, stringr (>= 1.2.0), tinytex (>= 0.31), tools,
+utils, xfun (>= 0.36), yaml (>= 2.1.19)",NA,"digest, dygraphs, fs, rsconnect, downlit (>= 0.4.0), katex
+(>= 1.4.0), sass (>= 0.4.0), shiny (>= 1.6.0), testthat (>=
+3.0.3), tibble, vctrs, cleanrmd, withr (>= 2.4.2)",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"RMySQL","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.10.25",NA,"R (>= 2.8.0), DBI (>= 0.4)","methods",NA,"testthat, curl",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"rngWELL","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.10-9",NA,"R (>= 3.0.0)",NA,NA,NA,NA,"BSD_3_clause + file LICENSE",NA,NA,NA,NA,"yes","4.3.0"
+"rnoaa","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.0",NA,NA,"utils, crul (>= 0.7.0), lubridate, dplyr, tidyr, tidyselect,
+ggplot2, scales, XML, xml2, jsonlite, gridExtra, tibble,
+isdparser (>= 0.2.0), geonames, hoardr (>= 0.5.2), data.table",NA,"roxygen2 (>= 7.1.0), testthat, taxize, ncdf4, raster,
+leaflet, rgdal, purrr, vcr (>= 0.5.4), webmockr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"robust","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.7-2",NA,"fit.models","graphics, stats, utils, lattice, MASS, robustbase, rrcov",NA,NA,NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"robustbase","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.99-0",NA,"R (>= 3.5.0)","stats, graphics, utils, methods, DEoptimR",NA,"grid, MASS, lattice, boot, cluster, Matrix, robust,
+fit.models, MPV, xtable, ggplot2, GGally, RColorBrewer,
+reshape2, sfsmisc, catdata, doParallel, foreach, skewt","robustX, rrcov, matrixStats, quantreg, Hmisc","GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"ROCR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0-11",NA,"R (>= 3.6)","methods, graphics, grDevices, gplots, stats",NA,"testthat, knitr, rmarkdown",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"roxygen2","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","7.2.3",NA,"R (>= 3.3)","brew, cli (>= 3.3.0), commonmark, desc (>= 1.2.0), knitr,
+methods, pkgload (>= 1.0.2), purrr (>= 0.3.3), R6 (>= 2.1.2),
+rlang (>= 1.0.6), stringi, stringr (>= 1.0.0), utils, withr,
+xml2","cpp11","covr, R.methodsS3, R.oo, rmarkdown (>= 2.16), testthat (>=
+3.1.2), yaml",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"rpart","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.1.19","recommended","R (>= 2.15.0), graphics, stats, grDevices",NA,NA,"survival",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"RPostgreSQL","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.7-5",NA,"R (>= 2.9.0), methods, DBI (>= 0.3)",NA,NA,NA,NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"rprintf","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.1",NA,"R (>= 2.15)","stringi",NA,"testthat, knitr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"rprojroot","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.3",NA,"R (>= 3.0.0)",NA,NA,"covr, knitr, lifecycle, mockr, rmarkdown, testthat (>=
+3.0.0), withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"rrcov","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7-4",NA,"R (>= 2.10), robustbase (>= 0.92.1), methods","stats, stats4, mvtnorm, lattice, pcaPP",NA,"grid, MASS",NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"rsample","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.0",NA,"R (>= 3.6)","cli, dplyr (>= 1.1.1), furrr, generics, glue, lifecycle,
+methods, pillar, purrr (>= 1.0.0), rlang (>= 0.4.10), slider
+(>= 0.1.5), tibble, tidyr, tidyselect, vctrs (>= 0.5.0)",NA,"broom, covr, ggplot2, knitr, modeldata, recipes (>= 0.1.4),
+rmarkdown, stats, testthat (>= 3.0.0), utils, whisker, withr,
+xml2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"rsconnect","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.2",NA,"R (>= 3.5.0)","cli, curl, digest, jsonlite, lifecycle, openssl (>= 2.0.0),
+packrat (>= 0.6), renv (>= 1.0.0), rlang (>= 1.0.0), rstudioapi
+(>= 0.5), tools, yaml (>= 2.1.5)",NA,"Biobase, BiocManager, foreign, knitr, MASS, plumber (>=
+0.3.2), quarto, RCurl, reticulate, rmarkdown (>= 1.1), shiny,
+testthat (>= 3.1.9), webfakes, withr",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"RSelenium","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7.9",NA,"R (>= 3.0.0)","methods, caTools, utils, httr, wdman(>= 0.2.2)",NA,"binman, XML, testthat, knitr, covr, rmarkdown",NA,"AGPL-3",NA,NA,NA,NA,"no","4.3.1"
+"RSQLite","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3.1",NA,"R (>= 3.1.0)","bit64, blob (>= 1.2.0), DBI (>= 1.1.0), memoise, methods,
+pkgconfig","plogr (>= 0.2.0), cpp11 (>= 0.4.0)","callr, DBItest (>= 1.7.2.9001), gert, gh, hms, knitr,
+magrittr, rmarkdown, rvest, testthat (>= 3.0.0), withr, xml2",NA,"LGPL (>= 2.1)",NA,NA,NA,NA,"yes","4.3.1"
+"rstan","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.21.8",NA,"R (>= 3.4.0), StanHeaders (>= 2.21.0), ggplot2 (>= 3.0.0)","methods, stats4, inline, gridExtra (>= 2.0.0), Rcpp (>=
+0.12.0), RcppParallel (>= 5.0.1), loo (>= 2.3.0), pkgbuild","Rcpp (>= 0.12.0), RcppEigen (>= 0.3.3.3.0), BH (>=
+1.72.0-2), StanHeaders (>= 2.21.0), RcppParallel","RUnit, RcppEigen (>= 0.3.3.3.0), BH (>= 1.72.0-2), parallel,
+KernSmooth, shinystan (>= 2.3.0), bayesplot (>= 1.5.0),
+rmarkdown, rstantools, rstudioapi, Matrix, knitr (>= 1.15.1),
+V8",NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"rstanarm","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.21.4",NA,"R (>= 3.4.0), Rcpp (>= 0.12.0), methods","bayesplot (>= 1.7.0), ggplot2 (>= 2.2.1), lme4 (>= 1.1-8), loo
+(>= 2.1.0), Matrix (>= 1.2-13), nlme (>= 3.1-124), rstan (>=
+2.21.1), rstantools (>= 2.1.0), shinystan (>= 2.3.0), stats,
+survival (>= 2.40.1), RcppParallel (>= 5.0.1), utils","StanHeaders (>= 2.21.0), rstan (>= 2.21.1), BH (>=
+1.72.0-2), Rcpp (>= 0.12.0), RcppEigen (>= 0.3.3.3.0),
+RcppParallel (>= 5.0.1)","biglm, betareg, data.table (>= 1.10.0), digest, gridExtra,
+HSAUR3, knitr (>= 1.15.1), MASS, mgcv (>= 1.8-13), rmarkdown,
+roxygen2, StanHeaders (>= 2.21.0), testthat (>= 1.0.2), gamm4,
+shiny",NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"rstantools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3.1.1",NA,NA,"desc, stats, utils, Rcpp (>= 0.12.16), RcppParallel (>= 5.0.1)",NA,"rstan (>= 2.17.2), usethis (>= 1.5.1), testthat (>= 2.0.0),
+knitr, pkgbuild, pkgload, roxygen2 (>= 6.0.1), rmarkdown,
+rstudioapi",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"rstatix","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.7.2",NA,"R (>= 3.3.0)","stats, utils, tidyr (>= 1.0.0), purrr, broom (>= 0.7.4), rlang
+(>= 0.3.1), tibble (>= 2.1.3), dplyr (>= 0.7.1), magrittr,
+corrplot, tidyselect (>= 1.2.0), car, generics (>= 0.0.2)",NA,"knitr, rmarkdown, ggpubr, graphics, emmeans, coin, boot,
+testthat, spelling",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"rstudioapi","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.15.0",NA,NA,NA,NA,"testthat, knitr, rmarkdown, clipr, covr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"rsvg","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.4.0",NA,NA,NA,NA,"ggplot2, knitr, magick, rmarkdown, spelling, svglite, webp",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"rticles","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.25",NA,NA,"knitr (>= 1.30), lifecycle, rmarkdown (>= 2.14), tinytex (>=
+0.30), utils, xfun, yaml",NA,"bookdown, withr, covr, testit, testthat (>= 3.0.0), xtable",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"Rttf2pt1","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.12",NA,"R (>= 2.15)",NA,NA,NA,NA,"file LICENSE","yes",NA,NA,NA,"yes","4.3.0"
+"rversions","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.2",NA,NA,"curl, utils, xml2 (>= 1.0.0)",NA,"covr, mockery, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"rvest","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.3",NA,"R (>= 3.2)","glue, cli, httr (>= 0.5), lifecycle (>= 1.0.0), magrittr,
+rlang (>= 1.0.0), selectr, tibble, xml2 (>= 1.3), withr",NA,"covr, knitr, readr, repurrrsive, rmarkdown, spelling, stringi
+(>= 0.3.1), testthat (>= 3.0.2), webfakes",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"s2","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.4",NA,"R (>= 3.0.0)","Rcpp, wk (>= 0.6.0)","Rcpp, wk","bit64, testthat (>= 3.0.0), vctrs",NA,"Apache License (== 2.0)",NA,NA,NA,NA,"yes","4.3.1"
+"sandwich","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.0-2",NA,"R (>= 3.0.0)","stats, utils, zoo",NA,"AER, car, geepack, lattice, lme4, lmtest, MASS, multiwayvcov,
+parallel, pcse, plm, pscl, scatterplot3d, stats4, strucchange,
+survival",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"sass","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.7",NA,NA,"fs (>= 1.2.4), rlang (>= 0.4.10), htmltools (>= 0.5.1), R6,
+rappdirs",NA,"testthat, knitr, rmarkdown, withr, shiny, curl",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"scagnostics","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2-6",NA,"rJava",NA,NA,NA,NA,"BSD_2_clause + file LICENSE","yes",NA,NA,NA,"no","4.3.0"
+"scales","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.1",NA,"R (>= 3.2)","farver (>= 2.0.3), labeling, lifecycle, munsell (>= 0.5), R6,
+RColorBrewer, rlang (>= 1.0.0), viridisLite",NA,"bit64, covr, dichromat, ggplot2, hms (>= 0.5.0), stringi,
+testthat (>= 3.0.0), waldo (>= 0.4.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"scatterplot3d","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3-44",NA,"R (>= 2.7.0)","grDevices, graphics, stats",NA,NA,NA,"GPL-2",NA,NA,NA,NA,"no","4.3.0"
+"scico","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5.0",NA,"R (>= 2.10)","scales, grDevices",NA,"ggplot2, testthat, dplyr, covr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"see","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8.0",NA,"graphics, grDevices, R (>= 3.6), stats","bayestestR (>= 0.13.1), correlation (>= 0.8.4), datawizard (>=
+0.7.1), effectsize (>= 0.8.3), ggplot2 (>= 3.4.2), insight (>=
+0.19.2), modelbased (>= 0.8.6), parameters (>= 0.21.1),
+performance (>= 0.10.4)",NA,"brms, curl, emmeans, factoextra, ggdist, ggraph, ggrepel,
+ggridges, ggside, glmmTMB, grid, httr, lavaan, lme4, logspline,
+MASS, mclust, mgcv, metafor, NbClust, nFactors, patchwork,
+poorman, psych, qqplotr, randomForest, rlang, rmarkdown,
+rstanarm, scales (>= 1.2.1), splines, testthat (>= 3.1.7),
+tidygraph, vdiffr (>= 1.0.5)",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"selectr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4-2",NA,"R (>= 3.0)","methods, stringr, R6",NA,"testthat, XML, xml2",NA,"BSD_3_clause + file LICENCE",NA,NA,NA,NA,"no","4.3.1"
+"semver","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.0",NA,NA,"Rcpp (>= 0.12.8), assertthat, utils","Rcpp","testthat, covr, knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"seriation","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5.1",NA,"R (>= 2.14.0)","ca, cluster, colorspace, foreach, gclus, grDevices, grid,
+MASS, qap, registry, stats, TSP, vegan",NA,"dbscan, DendSer, dendextend, doParallel, GA, ggplot2, keras,
+Rtsne, scales, smacof, tensorflow, testthat, umap",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"sessioninfo","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.2",NA,"R (>= 2.10)","cli (>= 3.1.0), tools, utils",NA,"callr, covr, mockery, reticulate, rmarkdown, testthat, withr",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"sets","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0-24",NA,"R (>= 2.7.0)","graphics,grDevices,stats,utils",NA,"proxy",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"sf","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0-14",NA,"methods, R (>= 3.3.0)","classInt (>= 0.4-1), DBI (>= 0.8), graphics, grDevices, grid,
+magrittr, Rcpp (>= 0.12.18), s2 (>= 1.1.0), stats, tools, units
+(>= 0.7-0), utils","Rcpp","blob, covr, dplyr (>= 0.8-3), ggplot2, knitr, lwgeom (>=
+0.2-1), maps, mapview, Matrix, microbenchmark, odbc, pbapply,
+pillar, pool, raster, rlang, rmarkdown, RPostgres (>= 1.1.0),
+RPostgreSQL, RSQLite, sp (>= 1.2-4), spatstat (>= 2.0-1),
+spatstat.geom, spatstat.random, spatstat.linnet,
+spatstat.utils, stars (>= 0.2-0), terra, testthat (>= 3.0.0),
+tibble (>= 1.4.1), tidyr (>= 1.2.0), tidyselect (>= 1.0.0),
+tmap (>= 2.0), vctrs, wk",NA,"GPL-2 | MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"sfheaders","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.3",NA,"R (>= 3.0.2)","Rcpp (>= 1.0.10)","geometries (>= 0.2.2), Rcpp","covr, knitr, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"shape","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.6",NA,"R (>= 2.01)","stats, graphics, grDevices",NA,NA,NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.0"
+"shiny","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7.5",NA,"R (>= 3.0.2), methods","utils, grDevices, httpuv (>= 1.5.2), mime (>= 0.3), jsonlite
+(>= 0.9.16), xtable, fontawesome (>= 0.4.0), htmltools (>=
+0.5.4), R6 (>= 2.0), sourcetools, later (>= 1.0.0), promises
+(>= 1.1.0), tools, crayon, rlang (>= 0.4.10), fastmap (>=
+1.1.1), withr, commonmark (>= 1.7), glue (>= 1.3.2), bslib (>=
+0.3.0), cachem, ellipsis, lifecycle (>= 0.2.0)",NA,"datasets, Cairo (>= 1.5-5), testthat (>= 3.0.0), knitr (>=
+1.6), markdown, rmarkdown, ggplot2, reactlog (>= 1.0.0),
+magrittr, yaml, future, dygraphs, ragg, showtext, sass",NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"shinyAce","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.2",NA,"R (>= 3.3.0)","shiny (>= 1.0.5), jsonlite, utils, tools",NA,"testthat (>= 2.0.0), dplyr (>= 0.8.3)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"shinydashboard","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.7.2",NA,"R (>= 3.0)","utils, shiny (>= 1.0.0), htmltools (>= 0.2.6), promises",NA,NA,NA,"GPL (>= 2) | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"shinydashboardPlus","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.3",NA,NA,"shiny, htmltools, shinydashboard, fresh, waiter (>= 0.2.3),
+lifecycle",NA,"styler (>= 1.2.0), shinyAce, shinyWidgets, shinyEffects,
+shinyjqui, knitr, rmarkdown, jsonlite",NA,"GPL (>= 2) | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"shinydisconnect","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.1",NA,"R (>= 3.0.0)","checkmate, glue, htmltools, shiny (>= 1.0)",NA,"colourpicker",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"shinyEffects","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.0",NA,NA,"htmltools, shiny",NA,"shinydashboard, shinydashboardPlus, bs4Dash, rmarkdown, knitr",NA,"GPL (>= 2) | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"shinyjqui","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.1",NA,"R (>= 3.2.0)","shiny (>= 1.5.0), htmltools, htmlwidgets, jsonlite, rlang",NA,"ggplot2, highcharter, knitr, markdown, rmarkdown, plotly",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"shinyjs","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.0",NA,"R (>= 3.1.0)","digest (>= 0.6.8), jsonlite, shiny (>= 1.0.0)",NA,"htmltools (>= 0.2.9), knitr (>= 1.7), rmarkdown, shinyAce,
+shinydisconnect, testthat (>= 0.9.1)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"shinystan","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.6.0",NA,"R (>= 3.1.0), shiny (>= 1.0.3)","bayesplot (>= 1.5.0), colourpicker, DT (>= 0.2), dygraphs (>=
+1.1.1.2), ggplot2 (>= 2.1.1), gridExtra, gtools, markdown (>=
+0.7.4), methods, reshape2, rstan (>= 2.17.1), stats, shinyjs
+(>= 0.6.0), shinythemes (>= 1.0.1), threejs (>= 0.2.1), utils,
+xtable, xts (>= 0.9-7)",NA,"cmdstanr (>= 0.4.0), coda, knitr (>= 1.9), posterior (>=
+1.0.0), rmarkdown (>= 0.8.1), rsconnect (>= 0.4.2), rstanarm
+(>= 2.17.4), testthat",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"shinytest","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5.3",NA,NA,"assertthat, callr (>= 2.0.3), crayon, debugme, digest,
+htmlwidgets, httpuv, httr, jsonlite, parsedate, pingr, R6,
+rematch, rlang, rstudioapi (>= 0.8.0.9002), shiny (>= 1.3.2),
+testthat (>= 1.0.0), utils, webdriver (>= 1.0.6), withr",NA,"flexdashboard, globals, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"shinythemes","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.0",NA,"R (>= 3.0.0)","shiny (>= 0.11)",NA,NA,NA,"GPL-3 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"shinyWidgets","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.7.6",NA,"R (>= 3.1.0)","anytime, bslib, sass, shiny (>= 1.6.0), htmltools (>= 0.5.1),
+jsonlite, grDevices, rlang",NA,"shinydashboard, testthat, covr, shinydashboardPlus (>=
+2.0.0), bs4Dash, argonR, argonDash, tablerDash, ggplot2, DT,
+scales",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"showimage","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.0",NA,NA,"png, tools",NA,"covr, testthat",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"showtext","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.9-6",NA,"sysfonts (>= 0.7.1), showtextdb (>= 2.0)","grDevices",NA,"knitr, rmarkdown, prettydoc, curl, jsonlite",NA,"Apache License (>= 2.0)",NA,NA,NA,NA,"yes","4.3.1"
+"showtextdb","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.0",NA,NA,"sysfonts (>= 0.7), utils",NA,"curl",NA,"Apache License (>= 2.0)",NA,NA,NA,NA,"no","4.3.1"
+"slider","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.0",NA,"R (>= 3.4.0)","cli (>= 3.4.1), rlang (>= 1.0.6), vctrs (>= 0.5.0), warp","vctrs (>= 0.5.0)","covr, dplyr (>= 1.0.0), knitr, lubridate, rmarkdown, testthat
+(>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"smd","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.6",NA,NA,"MASS (>= 7.3-50), methods (>= 3.5.1)",NA,"testthat, stddiff, tableone, knitr, dplyr, purrr, markdown,
+rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"sna","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.7-1",NA,"R (>= 2.0.0), utils, statnet.common, network",NA,NA,"rgl, numDeriv, SparseM",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"som","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3-5.1",NA,"R (>= 2.10)",NA,NA,NA,NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.0"
+"sourcetools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.7-1",NA,"R (>= 3.0.2)",NA,NA,"testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"sp","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0-0",NA,"R (>= 3.2.0), methods","utils, stats, graphics, grDevices, lattice, grid",NA,"RColorBrewer, rgdal (>= 1.2-3), rgeos (>= 0.3-13), gstat,
+maptools, deldir, knitr, rmarkdown, sf, terra, raster",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"sparkline","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0",NA,NA,"htmltools, htmlwidgets (>= 0.8)",NA,"formattable, knitr, rmarkdown, shiny",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"sparklyr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.8.2",NA,"R (>= 3.2)","base64enc, config (>= 0.2), DBI (>= 1.0.0), dbplyr (>= 2.2.1),
+digest, dplyr (>= 1.0.9), ellipsis (>= 0.1.0), generics,
+globals, glue, httr (>= 1.2.1), jsonlite (>= 1.4), methods,
+openssl (>= 0.8), purrr, rappdirs, rlang (>= 0.1.4), rstudioapi
+(>= 0.10), tibble, tidyr (>= 1.2.0), tidyselect, uuid, vctrs,
+withr, xml2",NA,"arrow (>= 0.17.0), broom, diffobj, foreach, ggplot2,
+iterators, janeaustenr, Lahman, mlbench, nnet, nycflights13,
+R6, r2d3, RCurl, reshape2, shiny (>= 1.0.1), parsnip, testthat,
+rprojroot",NA,"Apache License 2.0 | file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"SparseM","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.81",NA,"R (>= 2.15), methods","graphics, stats, utils",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.0"
+"spatial","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","7.3-16","recommended","R (>= 3.0.0), graphics, stats, utils",NA,NA,"MASS",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"spatialreg","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2-9",NA,"R (>= 3.3.0), spData, Matrix, sf","spdep, expm, coda, methods, MASS, boot, splines, LearnBayes,
+nlme, multcomp",NA,"parallel, RSpectra, tmap, foreign, spam, knitr, lmtest,
+sandwich, rmarkdown, igraph, tinytest",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"spData","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3.0",NA,"R (>= 3.3.0)","sp",NA,"foreign, sf (>= 0.9-1), spDataLarge (>= 0.4.0), spdep,
+spatialreg,",NA,"CC0",NA,NA,NA,NA,"no","4.3.1"
+"spdep","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2-8",NA,"R (>= 3.3.0), methods, spData (>= 0.2.6.0), sf","stats, deldir, boot (>= 1.3-1), graphics, utils, grDevices,
+units, s2, e1071, sp (>= 1.0)",NA,"spatialreg (>= 1.2-1), Matrix, parallel, dbscan,
+RColorBrewer, lattice, xtable, foreign, igraph, RSpectra,
+knitr, classInt, tmap, spam, ggplot2, rmarkdown, tinytest,
+rgeoda",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"speedglm","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3-5",NA,"Matrix, MASS, biglm","methods, stats",NA,NA,NA,"GPL",NA,NA,NA,NA,"no","4.3.1"
+"spelling","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.2.1",NA,NA,"commonmark, xml2, hunspell (>= 3.0), knitr",NA,"pdftools",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"splines","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,"graphics, stats",NA,"Matrix, methods",NA,"Part of R 4.3.1",NA,NA,NA,NA,"yes","4.3.1"
+"SQUAREM","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2021.1",NA,"R (>= 3.0)",NA,NA,"setRNG",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.0"
+"StanHeaders","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.26.27",NA,"R (>= 3.4.0)","RcppParallel (>= 5.1.4)","RcppEigen, RcppParallel (>= 5.1.4)","Rcpp, BH (>= 1.75.0-0), knitr (>= 1.36), rmarkdown, Matrix,
+methods, rstan, withr",NA,"BSD_3_clause + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"statmod","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5.0",NA,"R (>= 3.0.0)","stats, graphics",NA,"MASS, tweedie",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"statnet.common","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.9.0",NA,"R (>= 3.5)","utils, methods, coda, parallel, tools",NA,"covr, rlang (>= 1.1.1), MASS, Matrix",NA,"GPL-3 + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"stats","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,"utils, grDevices, graphics",NA,"MASS, Matrix, SuppDists, methods, stats4",NA,"Part of R 4.3.1",NA,NA,NA,NA,"yes","4.3.1"
+"stats4","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,"graphics, methods, stats",NA,NA,NA,"Part of R 4.3.1",NA,NA,NA,NA,NA,"4.3.1"
+"stinepack","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4",NA,NA,"stats",NA,NA,NA,"GPL-2",NA,NA,NA,NA,"no","4.3.0"
+"stringi","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7.12",NA,"R (>= 3.1)","tools, utils, stats",NA,NA,NA,"file LICENSE","yes",NA,NA,NA,"yes","4.3.0"
+"stringr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5.0",NA,"R (>= 3.3)","cli, glue (>= 1.6.1), lifecycle (>= 1.0.3), magrittr, rlang
+(>= 1.0.0), stringi (>= 1.5.3), vctrs",NA,"covr, htmltools, htmlwidgets, knitr, rmarkdown, testthat (>=
+3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"strucchange","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5-3",NA,"R (>= 2.10.0), zoo, sandwich","graphics, stats, utils",NA,"stats4, car, dynlm, e1071, foreach, lmtest, mvtnorm, tseries",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"styler","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.10.1",NA,"R (>= 3.6.0)","cli (>= 3.1.1), magrittr (>= 2.0.0), purrr (>= 0.2.3), R.cache
+(>= 0.15.0), rlang (>= 1.0.0), rprojroot (>= 1.1), tools, vctrs
+(>= 0.4.1), withr (>= 2.3.0),",NA,"data.tree (>= 0.1.6), digest, dplyr, here, knitr, prettycode,
+rmarkdown, roxygen2, rstudioapi (>= 0.7), tibble (>= 1.4.2),
+testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"survey","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.2-1",NA,"R (>= 3.5.0), grid, methods, Matrix, survival","stats, graphics, splines, lattice, minqa, numDeriv, mitools
+(>= 2.4)",NA,"foreign, MASS, KernSmooth, hexbin, RSQLite, quantreg,
+parallel, CompQuadForm, DBI, AER",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"survival","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.5-5","recommended","R (>= 3.5.0)","graphics, Matrix, methods, splines, stats, utils",NA,NA,NA,"LGPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"svglite","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.1.1",NA,"R (>= 3.0.0)","systemfonts (>= 1.0.0)","cpp11, systemfonts","covr, fontquiver (>= 0.2.0), htmltools, knitr, rmarkdown,
+testthat, xml2 (>= 1.0.0)",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"SwimmeR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.14.2",NA,"R (>= 3.5.0)","purrr, dplyr, stringr, utils, rvest, pdftools, magrittr, xml2,
+readr",NA,"testthat (>= 2.1.0), knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"sys","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.4.2",NA,NA,NA,NA,"unix (>= 1.4), spelling, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"sysfonts","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8.8",NA,NA,NA,NA,"curl, jsonlite",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"systemfit","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1-30",NA,"R (>= 3.2.0), Matrix, car (>= 2.0-0), lmtest","stats (>= 2.14.0), sandwich (>= 2.2-9), MASS, methods",NA,"knitr, plm (>= 1.0-1), sem (>= 2.0-0)",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"systemfonts","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.4",NA,"R (>= 3.2.0)",NA,"cpp11 (>= 0.2.1)","testthat (>= 2.1.0), covr, knitr, rmarkdown, tools",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"targets","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.2",NA,"R (>= 3.5.0)","base64url (>= 1.4), callr (>= 3.7.0), cli (>= 2.0.2),
+codetools (>= 0.2.16), data.table (>= 1.12.8), digest (>=
+0.6.25), igraph (>= 1.2.5), knitr (>= 1.34), R6 (>= 2.4.1),
+rlang (>= 1.0.0), stats, tibble (>= 3.0.1), tidyselect (>=
+1.1.0), tools, utils, vctrs (>= 0.2.4), yaml (>= 2.2.1)",NA,"arrow (>= 3.0.0), bs4Dash (>= 2.0.0), clustermq (>=
+0.8.95.1), crew (>= 0.3.0), curl (>= 4.3), DT (>= 0.14), dplyr
+(>= 1.0.0), fst (>= 0.9.2), future (>= 1.19.1),
+future.batchtools (>= 0.9.0), future.callr (>= 0.6.0), gargle
+(>= 1.2.0), googleCloudStorageR (>= 0.7.0), gt (>= 0.2.2),
+keras (>= 2.2.5.0), markdown (>= 1.1), nanonext (>= 0.9.0),
+rmarkdown (>= 2.4), parallelly (>= 1.35.0), paws.storage (>=
+0.2.0), pingr (>= 2.0.1), pkgload (>= 1.1.0), processx (>=
+3.4.3), qs (>= 0.24.1), reprex (>= 2.0.0), rstudioapi (>=
+0.11), R.utils (>= 2.6.0), shiny (>= 1.5.0), shinybusy (>=
+0.2.2), shinyWidgets (>= 0.5.4), testthat (>= 3.0.0), torch (>=
+0.1.0), usethis (>= 1.6.3), visNetwork (>= 2.0.9)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"tcltk","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,"utils",NA,NA,NA,"Part of R 4.3.1",NA,NA,NA,NA,"yes","4.3.1"
+"tensorA","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.36.2",NA,"R (>= 2.2.0), stats",NA,NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.0"
+"terra","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7-39",NA,"R (>= 3.5.0)","methods, Rcpp (>= 1.0-10)","Rcpp","parallel, tinytest, ncdf4, sf (>= 0.9-8), deldir, XML,
+leaflet, htmlwidgets",NA,"GPL (>= 3)",NA,NA,NA,NA,"yes","4.3.1"
+"tesseract","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","5.1.0",NA,NA,"Rcpp (>= 0.12.12), pdftools (>= 1.5), curl, rappdirs, digest","Rcpp","magick (>= 1.7), spelling, knitr, tibble, rmarkdown",NA,"Apache License 2.0",NA,NA,NA,NA,"yes","4.3.1"
+"testit","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.13",NA,NA,NA,NA,"rstudioapi, covr",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"testthat","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.1.10",NA,"R (>= 3.1)","brio, callr (>= 3.5.1), cli (>= 3.4.0), desc, digest, ellipsis
+(>= 0.2.0), evaluate, jsonlite, lifecycle, magrittr, methods,
+pkgload (>= 1.3.0), praise, processx (>= 3.8.2), ps (>= 1.3.4),
+R6 (>= 2.2.0), rlang (>= 1.1.0), utils, waldo (>= 0.5.0), withr
+(>= 2.4.3)",NA,"covr, curl (>= 0.9.5), diffviewer (>= 0.1.0), knitr,
+rmarkdown, rstudioapi, shiny, usethis, vctrs (>= 0.1.0), xml2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"textshaping","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.6",NA,"R (>= 3.2.0)","systemfonts (>= 1.0.0)","cpp11 (>= 0.2.1), systemfonts (>= 1.0.0)","covr, knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"TH.data","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1-2",NA,"R (>= 3.5.0), survival, MASS",NA,NA,"trtf, tram, rms, coin, ATR, multcomp, gridExtra, vcd,
+colorspace, lattice, knitr",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"this.path","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.0",NA,NA,NA,NA,"utils, microbenchmark","compiler, box, IRkernel, jsonlite, knitr, rprojroot,
+rstudioapi, testthat","MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"threejs","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.3",NA,"R (>= 3.0.0), igraph (>= 1.0.0)","htmlwidgets (>= 0.3.2), base64enc, crosstalk, methods, stats",NA,"maps","knitr, shiny","MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"tibble","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.2.1",NA,"R (>= 3.4.0)","fansi (>= 0.4.0), lifecycle (>= 1.0.0), magrittr, methods,
+pillar (>= 1.8.1), pkgconfig, rlang (>= 1.0.2), utils, vctrs
+(>= 0.4.2)",NA,"bench, bit64, blob, brio, callr, cli, covr, crayon (>=
+1.3.4), DiagrammeR, dplyr, evaluate, formattable, ggplot2,
+here, hms, htmltools, knitr, lubridate, mockr, nycflights13,
+pkgbuild, pkgload, purrr, rmarkdown, stringi, testthat (>=
+3.0.2), tidyr, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"tidycensus","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.4",NA,"R (>= 3.3.0)","httr, sf, dplyr (>= 1.0.0), tigris, stringr, jsonlite (>=
+1.5.0), purrr, rvest, tidyr (>= 1.0.0), rappdirs, readr, xml2,
+units, utils, rlang, crayon, tidyselect",NA,"ggplot2, survey, srvyr, terra",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"tidycmprsk","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.0",NA,"R (>= 3.4)","broom (>= 1.0.1), cli (>= 3.1.0), cmprsk (>= 2.2.10), dplyr
+(>= 1.0.7), ggplot2 (>= 3.3.5), gtsummary (>= 1.6.2), hardhat
+(>= 0.2.0), purrr (>= 0.3.4), rlang (>= 1.0.0), stringr (>=
+1.4.0), survival, tibble (>= 3.1.6), tidyr (>= 1.1.4)",NA,"covr (>= 3.5.1), ggsurvfit, knitr (>= 1.36), spelling,
+testthat (>= 3.1.0)",NA,"AGPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"
+"tidygraph","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.3",NA,NA,"tibble, dplyr (>= 0.8.5), igraph (>= 1.3.0), magrittr, utils,
+rlang, R6, tools, stats, tidyr, pillar, cli","cpp11","network, data.tree, ape, graph, methods, testthat, covr,
+seriation, netrankr, influenceR, NetSwan",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"tidyr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.0",NA,"R (>= 3.4.0)","cli (>= 3.4.1), dplyr (>= 1.0.10), glue, lifecycle (>= 1.0.3),
+magrittr, purrr (>= 1.0.1), rlang (>= 1.0.4), stringr (>=
+1.5.0), tibble (>= 2.1.1), tidyselect (>= 1.2.0), utils, vctrs
+(>= 0.5.2)","cpp11 (>= 0.4.0)","covr, data.table, knitr, readr, repurrrsive (>= 1.1.0),
+rmarkdown, testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"tidyselect","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.0",NA,"R (>= 3.4)","cli (>= 3.3.0), glue (>= 1.3.0), lifecycle (>= 1.0.3), rlang
+(>= 1.0.4), vctrs (>= 0.4.1), withr",NA,"covr, crayon, dplyr, knitr, magrittr, rmarkdown, stringr,
+testthat (>= 3.1.1), tibble (>= 2.1.3)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"tidyverse","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.0",NA,"R (>= 3.3)","broom (>= 1.0.3), conflicted (>= 1.2.0), cli (>= 3.6.0),
+dbplyr (>= 2.3.0), dplyr (>= 1.1.0), dtplyr (>= 1.2.2), forcats
+(>= 1.0.0), ggplot2 (>= 3.4.1), googledrive (>= 2.0.0),
+googlesheets4 (>= 1.0.1), haven (>= 2.5.1), hms (>= 1.1.2),
+httr (>= 1.4.4), jsonlite (>= 1.8.4), lubridate (>= 1.9.2),
+magrittr (>= 2.0.3), modelr (>= 0.1.10), pillar (>= 1.8.1),
+purrr (>= 1.0.1), ragg (>= 1.2.5), readr (>= 2.1.4), readxl (>=
+1.4.2), reprex (>= 2.0.2), rlang (>= 1.0.6), rstudioapi (>=
+0.14), rvest (>= 1.0.3), stringr (>= 1.5.0), tibble (>= 3.1.8),
+tidyr (>= 1.3.0), xml2 (>= 1.3.3)",NA,"covr (>= 3.6.1), feather (>= 0.3.5), glue (>= 1.6.2), mockr
+(>= 0.2.0), knitr (>= 1.41), rmarkdown (>= 2.20), testthat (>=
+3.1.6)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"tigris","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.3",NA,"R (>= 3.3.0)","stringr, magrittr, utils, rappdirs, httr, uuid, sf, dplyr,
+methods",NA,"testthat, ggplot2, ggthemes, leaflet, knitr, tidycensus, sp",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"tikzDevice","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.12.5",NA,"R (>= 2.14.0)","filehash (>= 2.3), png",NA,"evaluate, formatR, ggplot2, knitr, lattice, maps, scales,
+stringr, testthat (>= 0.8.1), withr, covr",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"timechange","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.0",NA,"R (>= 3.3)",NA,"cpp11 (>= 0.2.7)","testthat (>= 0.7.1.99), knitr",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"timeDate","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4022.108",NA,"R (>= 3.6.0)","graphics, utils, stats, methods",NA,"RUnit",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.0"
+"timeSeries","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4030.106",NA,"R (>= 2.10), timeDate (>= 2150.95)","graphics, grDevices, stats, utils, methods",NA,"RUnit, robustbase, xts, PerformanceAnalytics, fTrading",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"tinytest","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.1",NA,"R (>= 3.0.0)","parallel, utils",NA,NA,NA,"GPL-3",NA,NA,NA,NA,"no","4.3.0"
+"tinytex","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.46",NA,NA,"xfun (>= 0.29)",NA,"testit, rstudioapi",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"tis","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.39",NA,"R (>= 2.3)",NA,NA,"reshape, scales","zoo, ggplot2, graphics","Unlimited",NA,NA,NA,NA,"yes","4.3.1"
+"TMB","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.9.6",NA,"R (>= 3.0.0)","graphics, methods, stats, utils, Matrix (>= 1.0-12)","Matrix, RcppEigen","numDeriv, parallel",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"tools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,NA,NA,"codetools, methods, xml2, curl, commonmark, knitr, xfun,
+mathjaxr, V8",NA,"Part of R 4.3.1",NA,NA,NA,NA,"yes","4.3.1"
+"transformr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.4",NA,NA,"tweenr, rlang, sf, lpSolve, vctrs","cpp11","covr, magrittr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"translations","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1",NA,NA,NA,NA,NA,NA,"Part of R 4.3.1",NA,NA,NA,NA,NA,"4.3.1"
+"tree","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0-43",NA,"R (>= 3.6.0), grDevices, graphics, stats",NA,NA,"MASS",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"triebeard","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.1",NA,NA,"Rcpp","Rcpp","knitr, rmarkdown, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"trust","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1-8",NA,"R (>= 2.10.0)","stats",NA,NA,NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.0"
+"tseries","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.10-54",NA,"R (>= 2.10.0)","graphics, stats, utils, quadprog, zoo, quantmod (>= 0.4-9),
+jsonlite",NA,NA,NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"TSP","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2-4",NA,"R (>= 3.5.0)","graphics, foreach, utils, stats, grDevices",NA,"maps, doParallel, testthat",NA,"GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"TTR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.24.3",NA,NA,"xts (>= 0.10-0), zoo, curl","xts","RUnit","quantmod","GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"tweenr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.2",NA,"R (>= 3.2.0)","farver, magrittr, rlang, vctrs","cpp11 (>= 0.4.2)","testthat, covr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"twosamples","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.1",NA,NA,NA,"cpp11","testthat (>= 3.0.0)",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"tzdb","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.0",NA,"R (>= 3.5.0)",NA,"cpp11 (>= 0.4.2)","covr, testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"ucminf","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.0",NA,"R (>= 3.5.0)",NA,NA,"numDeriv",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.0"
+"units","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.8-3",NA,"R (>= 3.0.2)","Rcpp","Rcpp (>= 0.12.10)","NISTunits, measurements, xml2, magrittr, pillar (>= 1.3.0),
+dplyr (>= 1.0.0), vctrs (>= 0.3.1), ggplot2 (> 3.2.1), testthat
+(>= 3.0.0), vdiffr, knitr, rmarkdown",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"urca","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3-3",NA,"R (>= 2.0.0), methods","nlme, graphics, stats",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"urlchecker","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.1",NA,"R (>= 3.3)","cli, curl, tools, xml2",NA,"covr",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"urltools","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7.3",NA,"R (>= 2.10)","Rcpp, methods, triebeard","Rcpp","testthat, knitr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"usethis","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.2.2",NA,"R (>= 3.6)","cli (>= 3.0.1), clipr (>= 0.3.0), crayon, curl (>= 2.7), desc
+(>= 1.4.2), fs (>= 1.3.0), gert (>= 1.4.1), gh (>= 1.2.1), glue
+(>= 1.3.0), jsonlite, lifecycle (>= 1.0.0), purrr, rappdirs,
+rlang (>= 1.1.0), rprojroot (>= 1.2), rstudioapi, stats, utils,
+whisker, withr (>= 2.3.0), yaml",NA,"covr, knitr, magick, pkgload, rmarkdown, roxygen2 (>= 7.1.2),
+spelling (>= 1.2), styler (>= 1.2.0), testthat (>= 3.1.8)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"utf8","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.3",NA,"R (>= 2.10)",NA,NA,"cli, covr, knitr, rlang, rmarkdown, testthat (>= 3.0.0),
+withr",NA,"Apache License (== 2.0) | file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"utils","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.1","base",NA,NA,NA,"methods, xml2, commonmark, knitr",NA,"Part of R 4.3.1",NA,NA,NA,NA,"yes","4.3.1"
+"uuid","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1-1",NA,"R (>= 2.9.0)",NA,NA,NA,NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"V8","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","4.3.3",NA,NA,"Rcpp (>= 0.12.12), jsonlite (>= 1.0), curl (>= 1.0), utils","Rcpp","testthat, knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"vars","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.5-9",NA,"R (>= 2.0.0), MASS, strucchange, urca (>= 1.1-6), lmtest (>=
+0.9-26), sandwich (>= 2.2-4)","methods",NA,NA,NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"vcd","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4-11",NA,"R (>= 2.10), grid","stats, utils, MASS, grDevices, colorspace, lmtest",NA,"KernSmooth, mvtnorm, kernlab, HSAUR3, coin",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"vctrs","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.3",NA,"R (>= 3.5.0)","cli (>= 3.4.0), glue, lifecycle (>= 1.0.3), rlang (>= 1.1.0)",NA,"bit64, covr, crayon, dplyr (>= 0.8.5), generics, knitr,
+pillar (>= 1.4.4), pkgdown (>= 2.0.1), rmarkdown, testthat (>=
+3.0.0), tibble (>= 3.1.3), waldo (>= 0.2.0), withr, xml2,
+zeallot",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"vdiffr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.5",NA,"R (>= 3.2.0)","diffobj, glue, grDevices, htmltools, lifecycle, rlang,
+testthat (>= 3.0.3), xml2 (>= 1.0.0)","cpp11","covr, ggplot2 (>= 3.2.0), roxygen2, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"vegan","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.6-4",NA,"permute (>= 0.9-0), lattice, R (>= 3.4.0)","MASS, cluster, mgcv",NA,"parallel, tcltk, knitr, markdown",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"VennDiagram","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.7.3",NA,"R (>= 3.5.0), grid (>= 2.14.1), futile.logger","methods",NA,"testthat",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"viridis","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.4",NA,"R (>= 2.10), viridisLite (>= 0.4.0)","ggplot2 (>= 1.0.1), gridExtra",NA,"hexbin (>= 1.27.0), scales, MASS, knitr, dichromat,
+colorspace, httr, mapproj, vdiffr, svglite (>= 1.2.0),
+testthat, covr, rmarkdown, maps, terra",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"viridisLite","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.2",NA,"R (>= 2.10)",NA,NA,"hexbin (>= 1.27.0), ggplot2 (>= 1.0.1), testthat, covr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"vroom","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.6.3",NA,"R (>= 3.4)","bit64, cli (>= 3.2.0), crayon, glue, hms, lifecycle (>=
+1.0.3), methods, rlang (>= 0.4.2), stats, tibble (>= 2.0.0),
+tidyselect, tzdb (>= 0.1.1), vctrs (>= 0.2.0), withr","cpp11 (>= 0.2.0), progress (>= 1.2.1), tzdb (>= 0.1.1)","archive, bench (>= 1.1.0), covr, curl, dplyr, forcats, fs,
+ggplot2, knitr, patchwork, prettyunits, purrr, rmarkdown,
+rstudioapi, scales, spelling, testthat (>= 2.1.0), tidyr,
+utils, waldo, xml2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"waiter","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.5",NA,NA,"R6, shiny, htmltools",NA,"httr, knitr, packer, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"waldo","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.1",NA,NA,"cli, diffobj (>= 0.3.4), fansi, glue, methods, rematch2, rlang
+(>= 1.0.0), tibble",NA,"covr, R6, testthat (>= 3.0.0), withr, xml2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"warp","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.0",NA,"R (>= 3.2)",NA,NA,"covr, testthat (>= 2.1.0), knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"wdman","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.2.6",NA,"R (>= 3.2)","binman, assertthat, processx, yaml, semver(>= 0.2.0), utils",NA,"testthat, covr, knitr, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"webdriver","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.6",NA,NA,"callr (>= 3.4.0), base64enc, curl (>= 2.0), debugme, httr,
+jsonlite, R6, showimage, utils, withr",NA,"covr, pingr, rprojroot, servr, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"webfakes","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.2.0",NA,"R (>= 3.5.0)","stats, tools, utils",NA,"brotli, callr, covr, curl, digest, glue, httpuv, httr,
+jsonlite, testthat (>= 3.0.0), withr, xml2, zip (>= 2.3.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"webp","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.0",NA,NA,NA,NA,"jpeg, png",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.0"
+"webshot","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.5.5",NA,"R (>= 3.0)","magrittr, jsonlite, callr",NA,"httpuv, knitr, rmarkdown, shiny, testthat (>= 3.0.0)",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"webshot2","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.1",NA,"R (>= 3.2)","callr, chromote (>= 0.1.0), later, magrittr, promises",NA,"httpuv, rmarkdown, shiny",NA,"GPL-2",NA,NA,NA,NA,"no","4.3.1"
+"websocket","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.4.1",NA,NA,"R6, later (>= 1.2.0)","cpp11, AsioHeaders, later","httpuv, testthat, knitr, rmarkdown",NA,"GPL-2",NA,NA,NA,NA,"yes","4.3.1"
+"whisker","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.4.1",NA,NA,NA,NA,"markdown",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"whoami","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.0",NA,NA,"httr, jsonlite, utils",NA,"covr, mockery, testthat, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"withr","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.5.0",NA,"R (>= 3.2.0)","graphics, grDevices, stats",NA,"callr, covr, DBI, knitr, lattice, methods, rlang, rmarkdown
+(>= 2.12), RSQLite, testthat (>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"wk","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.7.3",NA,"R (>= 2.10)",NA,NA,"testthat (>= 3.0.0), vctrs (>= 0.3.0), sf, tibble, readr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"workflows","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.1.3",NA,"R (>= 3.4)","cli (>= 3.3.0), generics (>= 0.1.2), glue (>= 1.6.2), hardhat
+(>= 1.2.0), lifecycle (>= 1.0.3), modelenv (>= 0.1.0), parsnip
+(>= 1.0.3), rlang (>= 1.0.3), tidyselect (>= 1.2.0), vctrs (>=
+0.4.1)",NA,"butcher (>= 0.2.0), covr, dials (>= 1.0.0), knitr, magrittr,
+modeldata (>= 1.0.0), recipes (>= 1.0.0), rmarkdown, testthat
+(>= 3.0.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"xfun","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.40",NA,NA,"stats, tools",NA,"testit, parallel, codetools, rstudioapi, tinytex (>= 0.30),
+mime, markdown (>= 1.5), knitr (>= 1.42), htmltools, remotes,
+pak, rhub, renv, curl, jsonlite, magick, yaml, rmarkdown",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"xlsx","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.5",NA,NA,"rJava, xlsxjars, grDevices, utils",NA,"rprojroot, testthat, covr, tibble, knitr, rmarkdown",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"xlsxjars","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.6.1",NA,"rJava",NA,NA,NA,NA,"GPL-3",NA,NA,NA,NA,"no","4.3.0"
+"XML","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","3.99-0.14",NA,"R (>= 4.0.0), methods, utils",NA,NA,"bitops, RCurl",NA,"BSD_3_clause + file LICENSE",NA,NA,NA,NA,"yes","4.3.0"
+"xml2","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.3.5",NA,"R (>= 3.1.0)","methods",NA,"covr, curl, httr, knitr, magrittr, mockery, rmarkdown,
+testthat (>= 2.1.0)",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"xmlparsedata","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.5",NA,"R (>= 3.0.0)",NA,NA,"covr, testthat, xml2",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"xopen","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.0.0",NA,"R (>= 3.1)","processx",NA,"ps, testthat",NA,"MIT + file LICENSE",NA,NA,NA,NA,"no","4.3.1"
+"xtable","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.8-4",NA,"R (>= 2.10.0)","stats, utils",NA,"knitr, plm, zoo, survival",NA,"GPL (>= 2)",NA,NA,NA,NA,"no","4.3.1"
+"xts","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.13.1",NA,"R (>= 3.6.0), zoo (>= 1.7-12)","methods","zoo","timeSeries, timeDate, tseries, chron, tinytest",NA,"GPL (>= 2)",NA,NA,NA,NA,"yes","4.3.1"
+"yaml","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3.7",NA,NA,NA,NA,"RUnit",NA,"BSD_3_clause + file LICENSE",NA,NA,NA,NA,"yes","4.3.0"
+"yulab.utils","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.0",NA,NA,"cli, digest, fs, memoise, rlang, stats, tools, utils",NA,NA,NA,"Artistic-2.0",NA,NA,NA,NA,"no","4.3.1"
+"Z10","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.1.0",NA,NA,"rjson, stringr, magrittr, lubridate, dplyr",NA,"RNRCS, metScanR, rnoaa, neonUtilities",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"zip","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.3.0",NA,NA,NA,NA,"covr, processx, R6, testthat, withr",NA,"MIT + file LICENSE",NA,NA,NA,NA,"yes","4.3.1"
+"zipcodeR","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","0.3.5",NA,"R (>= 3.5.0)","rlang, stringr, raster, tidycensus, tidyr, dplyr, jsonlite,
+httr, curl, RSQLite, DBI",NA,"knitr, rmarkdown, markdown, readr, testthat (>= 3.0.0), covr,
+tibble",NA,"GPL-3",NA,NA,NA,NA,"no","4.3.1"
+"zoo","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","1.8-12",NA,"R (>= 3.1.0), stats","utils, graphics, grDevices, lattice (>= 0.20-27)",NA,"AER, coda, chron, ggplot2 (>= 3.0.0), mondate, scales,
+stinepack, strucchange, timeDate, timeSeries, tis, tseries, xts",NA,"GPL-2 | GPL-3",NA,NA,NA,NA,"yes","4.3.1"
+"zoom","C:/Users/gcook/_portable_apps/R/R-4.3.1/library","2.0.6",NA,"R (>= 2.10.0)",NA,NA,"testthat",NA,"GPL (>= 3)",NA,NA,NA,NA,"no","4.3.1"

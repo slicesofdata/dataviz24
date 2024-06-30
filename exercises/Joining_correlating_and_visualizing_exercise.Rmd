@@ -1,0 +1,362 @@
+---
+title: "Exercise: Joining, Correlating, and Visualizing"
+#author: "yourname"
+#date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: yes
+    number_sections: yes
+    code_folding: show #hide
+  word_document:
+    toc: yes
+    number_sections: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+eval_answers    <- TRUE
+include_answers <- TRUE
+```
+
+```{r, include=FALSE}
+R.utils::sourceDirectory(here::here("r", "functions"))
+```
+
+# **Class Practice**
+
+Your project involves joining, summarizing, modeling, and visualizing data. You will need to join components created by team members in order to create data summaries and visualizations. The exercise provides practice doing just that and moving your toward those goals.
+
+
+# **Loading Libraries**
+
+```{r eval=eval_answers, message=FALSE, warning=FALSE, include=include_answers}
+library(easystats)
+library(tidyverse)
+library(ggplot2)
+library(gt)
+library(gtsummary)
+library(GGally)
+```
+
+# **Reading Data**
+
+1. Read some of your project task data that has been cleaned as well as the demographic data that has been created by your teammate. 
+
+2. Verify that the files contain a unique identifier for joining the data frames.
+
+```{r, eval=eval_answers, include=include_answers}
+SPAN_cleaned <- readRDS(here::here("data", "symmspan", "sspan_long_clean.Rds")) |>
+  select(id_subject, id_school, wave, totalerrors, 
+         totalcorrectsquares, totalrecalledsets, sspan)
+
+DEMOG <- readRDS(here::here("data", "demog", "demog_subset_wide.rds")) |>
+  mutate(wave = as.numeric(id_wave),
+         age = as.numeric(age),
+         ethnicity = ifelse(self_eth == "N/A" | is.na(self_eth), 
+                            "NA", self_eth
+                            ),
+         #sex = ifelse(sex == "N/A" | is.na(sex), "Not Answered", sex)
+         ) |>
+  relocate(c(id_subject, id_school, wave, age, ethnicity, sex), .before = 1)
+```
+
+```{r, eval=eval_answers, include=include_answers}
+#DEMOG |> view_html()
+
+#SPAN_cleaned |> view_html()
+```
+
+
+
+
+# **Joining Data Frames**
+ 
+1. Join the two data frames into a single data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+JOINED_LONG <- 
+  dplyr::left_join(x = DEMOG,
+                   y = SPAN_cleaned, 
+                   by = c("id_subject", "wave"),
+                   suffix = c("", ""),
+                   relationship = "many-to-many"
+                   ) 
+
+#JOINED_LONG |> view_html()
+```
+
+2. Review your joined data frame to see that it looks like you expect it to look. 
+
+3. Examine your data frame for column variables with a `.x` or `.y`. Review such variable for errors. If you have them, consider adding `suffix = c("", ""))` to your join function. This will ensure that no *suffixes* should be added to the variable names in the returned data frame.
+
+4. If you have multiple rows in one data frame (e.g., long format) but not the other data frame, you may receive a warning message like:
+
+```
+ Detected an unexpected many-to-many relationship between `x` and `y`.
+ℹ Row 10 of `x` matches multiple rows in `y`.
+ℹ Row 1 of `y` matches multiple rows in `x`.
+ℹ If a many-to-many relationship is expected, set `relationship = "many-to-many"` to silence this warning.
+```
+
+If, and only if, your data frame looks appropriate for your goal, silence the warning by adding the recommended (in the warning message) parameter and argument to your join function. You won't want to see this message when you build your files. 
+
+5. Once you are certain that your new data frame represents a combined data frame, assign it to an object name like `JOINED` or something else meaningful. If you are matching data with a long format (in any data frame),  consider modifying the name to `JOINED_LONG` so you can understand the file contents by the file name.
+
+
+6. Options and Team Choices. 
+
+- *Script files*. There will be several tasks that involve using combined data frames (e.g., data summaries, models, visualizations) so your team should consider how best to address related issues. One recommendation is to create something like a `"join_data.R"` or `"merge_data.R"` script file performs  all of your data frame joining operations needed for your project after the sub-components of the project are cleaned appropriately. Because certain project tasks like summarizing data, modeling data, and visualizing data will utilize the joined data, you could source this new script in the summarizing, modeling, and visualizing scripts before performing other operations. Moreover, depending on your goals, you may need to pivot data after joining or join data that have been pivoted to either long or wide. For example, in order to correlate data, the variables that you wish to correlate would need to be represented as **columns** (e.g., a single task data from different waves will need to be in separate columns). In such an instance, you could pivot your sub-task data by `wave` so that all participants are on one row and then join that data frame with others. Similarly, a regression model that uses data at time 1 to predict time 2 data will require a similar *wide* file structure. Visualizing data, however, will best be structured in a *long* format.   
+
+- *Data files*. Similarly, to facilitate access to the joined data, you may also wish to save the joined data file(s). In such instances, you might wish to save the joined data in a sub-directory of your `/data` directory, for example, `/data/joined` or `/data/merged`. If you decide to do this, you should also read in the joined data files after sourcing the code that produced them. In some instances you might want to create different joined files but the main goal would likely be to combine data across components of the project. 
+
+- Your team should decide how best to handle joined data so that everyone knows whether there are data files and if so, where they would be located. You would also want to make decisions that would be clear to the project liaison.  
+
+
+# **(Optional): Pivoting to Wide based on Wave**
+
+1. In order to correlate measures, you will need to have all variables you wish to correlate represented as columns. Use `pivot_wider()` to pivot your data frame by wave.
+
+```{r, eval=eval_answers, include=include_answers}
+SPAN_cleaned_wide <- 
+  SPAN_cleaned |>
+  tidyr::pivot_wider(
+    id_cols = id_subject,
+    names_from  = wave,
+    values_from = c(sspan, totalcorrectsquares)
+  ) 
+
+SPAN_cleaned_wide |> view_html()
+
+JOINED_WIDE <- full_join(
+  x = DEMOG,
+  y = SPAN_cleaned_wide,
+  by = "id_subject"
+)
+
+#JOINED_WIDE |> view_html()
+
+JOINED_WIDE <-
+  JOINED_WIDE |> 
+  mutate(across(.cols = contains("_yn"),
+                .fns = ~as.numeric(ifelse(.x == "N/A", NA, .x))
+                ))
+
+#JOINED_WIDE |> view_html()
+
+# may need if alternating NAs %>% group_by(., ) %>% dplyr::summarise_all(purrr::discard, is.na) %>% distinct()
+```
+
+2. Join this *wide* version of your file with a team members data frame.
+
+
+# **Summarizing a Variable (or Variables) by Group**
+
+1. Using wave 1 data, create a data summary using `summarize()` to present the means, standard errors, upper and lower limit 95% confidence-interval thresholds, and sample size associate with a measurement/outcome variable of your choice. To assist with the standard error, confidence intervals, *n*, use the list provided below. Include a grouping variable in your summary. 
+
+```{.r}
+summarize_across_list <- list(
+  mean = ~mean(na.omit(.x)),
+  se   = ~sd(na.omit(.x)) / sqrt(length(na.omit(.x))),
+  ci.95l = ~ifelse(length(na.omit(.x)) > 1, 
+                   t.test(na.omit(.x), conf.level = .95)$conf.int[1], NA),
+  ci.95u = ~ifelse(length(na.omit(.x)), 
+                   t.test(na.omit(.x), conf.level = .95)$conf.int[2], NA),
+  n    = ~length(na.omit(.x))
+  )
+```
+
+```{r, eval=eval_answers, include=include_answers}
+summarize_across_list <- list(
+  mean = ~mean(na.omit(.x)),
+  se   = ~sd(na.omit(.x)) / sqrt(length(na.omit(.x))),
+  ci.95l = ~ifelse(length(na.omit(.x)) > 1, 
+                   t.test(na.omit(.x), conf.level = .95)$conf.int[1], NA),
+  ci.95u = ~ifelse(length(na.omit(.x)), 
+                   t.test(na.omit(.x), conf.level = .95)$conf.int[2], NA),
+  n    = ~length(na.omit(.x))
+  )
+
+JOINED_LONG |>
+  mutate(wave = as.factor(wave)) |>
+  group_by(ethnicity, wave) |>
+  filter(wave == 1) |>
+  summarize(across(.cols = c(contains("sspan")),
+                   .fns = summarize_across_list,
+                   .names = "{.col}_{.fn}"
+                   ),
+            .groups = "drop"
+            ) |> 
+  arrange(wave, desc(sspan_mean)) |>
+  rename_with(~tolower(gsub("sspan_", "", .x, fixed = T))) |>
+  gt::gt() |>
+  tab_header(title = "Wave 1: Absolute Span Score by Ethnicity")
+
+JOINED_LONG |>
+  mutate(wave = as.factor(wave)) |>
+  filter(wave == 1 | wave == "1") |>
+  group_by(ethnicity) |>
+  summarize(across(.cols = c(contains("sspan")),
+                   .fns = summarize_across_list,
+                   .names = "{.col}_{.fn}"
+                   ),
+            .groups = "drop"
+            ) |> 
+  arrange(ethnicity, desc(sspan_mean)) |>
+  rename_with(~tolower(gsub("sspan_", "", .x, fixed = T))) |>
+  gt::gt() |>
+  tab_header(title = "Wave 1: Absolute Span Score by Ethnicity")
+
+JOINED_LONG |>
+  mutate(wave = as.factor(wave)) |>
+  group_by(ethnicity) |>
+  filter(wave == 1) |>
+  summarize(across(.cols = contains("totalcorrectsquares"),
+                   .fns = summarize_across_list,
+                   .names = "{.col}_{.fn}"
+                   ),
+            .groups = "drop"
+            ) |>
+  arrange(ethnicity, desc(totalcorrectsquares_mean)) |>
+  mutate(across(where(is.numeric), round, digits = 2)) |>
+  rename_with(~tolower(gsub("totalcorrectsquares_", "", .x, fixed = T))) |>
+  gt() |>
+  tab_header(title = "Wave 1: Partial Span Score by Ethnicity")
+```
+
+2. After you are sure that your summary table looks correct, pipe the data frame to `gt()` from the **{gt}** library  (used in modules) to present the summary in a simple table. 
+
+3. To add a title to the table, pipe your data frame to `tab_header()` from the **{gt}** library.
+
+- Example: `tab_header(title = "My Clear Title")`
+
+4. In preparation for your liaison meeting, you can repeat the process for another variable that you would want to present. 
+
+
+
+# **Correlating Variables**
+
+1. Create a Pearson's *r* correlation table of numeric variables that are also grouped by some grouping variable. Use the `gt()` function from module to present the correlations in a simple table. 
+
+2. Extend the correlation table by adding a grouping variable that is relevant to the liaison's proposal. Use the `gt()` function from module to present the correlations in a simple table.
+
+```{r, eval=eval_answers, include=include_answers}
+JOINED_WIDE |>
+  filter(wave == 1 | wave == "1") |>
+  #select(where(fn = is.numeric)) |>
+  select(c(self_eth, contains("span_1"), contains("squares_1"), age)) |>
+  group_by(self_eth) |>
+  correlation() |>
+  mutate(across(where(is.numeric), round, digits = 3)) |>
+  #cor(use = "pairwise.complete.obs") |>
+  gt::gt() |>
+  tab_header(title = "Wave 1: Absolute and Partial Span Score Correlations by Ethnicity")
+
+
+JOINED_WIDE |>
+  filter(sex != "N/A") |>
+  filter(wave == 1 |  wave == "1") |>
+  #select(where(fn = is.numeric)) |>
+  select(c(sex, self_eth, contains("span_1"), contains("squares_1"), age)) |>
+  group_by(sex) |>
+  correlation() |>
+  #cor(use = "pairwise.complete.obs") |>
+  mutate(across(where(is.numeric), round, digits = 3)) |>
+  gt::gt() |>
+  tab_header(title = "Wave 1: Absolute and Partial Span Score Correlations by Sex")
+```
+
+
+```{r, eval=eval_answers, include=include_answers}
+JOINED_WIDE |>
+  filter(wave == 1 | wave == "1") |>
+  select(ethnicity) |>
+  table() |>  
+  as.data.frame() |>
+  pivot_wider(
+      names_from = ethnicity,
+      values_from = Freq
+    ) |>
+  relocate("NA", .after = last_col()) |>
+  gt::gt() |>
+  tab_header(title = "Wave 1: Ethnicity (n)")
+  
+JOINED_WIDE |>
+  filter(wave == 1 | wave == "1") |>
+  select(sex, ethnicity) |>
+  table() |> 
+  as.data.frame() |>
+  pivot_wider(
+      names_from = ethnicity,
+      values_from = Freq
+    ) |> 
+  relocate("NA", .after = last_col()) |>
+  gt() |>
+  tab_header(title = "Wave 1: Sex and Ethnicity (n)")
+```
+
+
+
+# **Exploring Variables**
+
+1. Create a generalized pairs plot to explore the data and bivariate relationships among a set of numeric variables. Consider variable relationships that would be relevant for your liaison's proposal. 
+
+```{r, eval=eval_answers, include=include_answers}
+JOINED_WIDE |>
+  filter(wave == 1 | wave == "1") |>
+  filter(!is.na(sspan_1)) |>
+  select(c(contains("span_1"), contains("squares_1"), age)) |>
+  #view_html()
+  GGally::ggpairs()
+```
+
+2. Extend the generalized pairs plot by adding a grouping variable that is relevant to the liaison's proposal. 
+
+```{r eval=eval_answers, include=include_answers, message=FALSE, warning=FALSE}
+suppressMessages(
+suppressWarnings(
+JOINED_WIDE |>
+  filter(wave == 1 | wave == "1") |>
+  filter(sex != "N/A") |>
+  filter(ethnicity %in% c("White", "Black", "Other", "NA")) |>
+  filter(!is.na(sspan_1)) |>
+  select(c(self_eth, contains("span_1"), contains("squares_1"), age)) |>
+  #view_html()
+  GGally::ggpairs()
+))
+```
+
+```{r eval=eval_answers, message=FALSE, warning=FALSE, include=include_answers}
+suppressMessages(
+suppressWarnings(
+JOINED_WIDE |>
+  filter(wave == 1 | wave == "1") |>
+  filter(sex != "N/A") |>
+  filter(ethnicity %in% c("White", "Black", "Other", "NA")) |>
+  filter(!is.na(sspan_1)) |>
+  select(c(ethnicity, contains("span_1"), contains("squares_1"), age)) |>
+  GGally::ggpairs(mapping = aes(col = ethnicity, alpha = .3),
+                  lower = list(continuous = wrap("smooth", se = FALSE))
+                  )
+)
+)
+
+new_colors <- c("cornflowerblue", "firebrick") 
+
+suppressMessages(
+suppressWarnings(
+JOINED_WIDE |>
+  filter(wave == 1 | wave == "1") |>
+  filter(sex != "N/A") |>
+  filter(ethnicity %in% c("White", "Black", "Other", "NA")) |>
+  filter(!is.na(sspan_1)) |>
+  select(c(sex, contains("span_1"), contains("squares_1"), age)) |>
+  #view_html()
+  GGally::ggpairs(mapping = aes(col = sex, alpha = .3),
+                  lower = list(continuous = wrap("smooth", se = FALSE))
+                  ) +
+  scale_color_manual(values = new_colors) +
+  scale_fill_manual(values = new_colors)
+))
+```
+
+

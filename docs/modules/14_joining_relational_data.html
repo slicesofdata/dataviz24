@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gabriel I. Cook">
+
+<title>PSYC166 - Joining Relational Data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/78ddb093ea.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title"><strong>PSYC166</strong></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text"><strong>Home</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus/syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><strong>Syllabus</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../modules/index.html" rel="" target="">
+ <span class="menu-text"><strong>Modules</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../project/index.html" rel="" target="">
+ <span class="menu-text"><strong>Project</strong></span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Slides</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../slides/01_intro_rstudio_rmarkdown_slides.html" rel="" target="">
+ <span class="dropdown-text">R, RStudio, &amp; R Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/02_git_slides.html" rel="" target="">
+ <span class="dropdown-text">Git and GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/03_functions_slides.html" rel="" target="">
+ <span class="dropdown-text">Functions, Parameters, and Arguments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/04_vectors_and_data_frames_slides.html" rel="" target="">
+ <span class="dropdown-text">Vectors and Data Frames</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/05_importing_and_exporting_slides.html" rel="" target="">
+ <span class="dropdown-text">Importing and Exporting Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/06_variables_cognition_slides.html" rel="" target="">
+ <span class="dropdown-text">Variables, Measures of Cognition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/07_manipulating_data_selecting_filtering_mutating_slides.html" rel="" target="">
+ <span class="dropdown-text">Manipulating Data: Selecting, Filtering, &amp; Mutating</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/08_cognitive_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Cognitive Task Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/09_summarizing_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Grouping and Summarizing Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/09_summarizing_data_advanced_slides.html" rel="" target="">
+ <span class="dropdown-text">Grouping and Summarizing Data (Advanced)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/10_cognitive_data_summary_slides.html" rel="" target="">
+ <span class="dropdown-text">Summarizing Task Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/07_manipulating_data_pivoting_slides.html" rel="" target="">
+ <span class="dropdown-text">Transforming Data: Pivoting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/13_joining_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Joining Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/11_visualizing_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Visualizing Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/12_examining_relationships_slides.html" rel="" target="">
+ <span class="dropdown-text">Examining Relationships</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/14_strings_and_factors_slides.html" rel="" target="">
+ <span class="dropdown-text">Strings, Factors, and Regular Expressions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/16_models_project_slides.html" rel="" target="">
+ <span class="dropdown-text">Discussing Models for Cognitive Tasks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/17_linear_models_slides.html" rel="" target="">
+ <span class="dropdown-text">Linear Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/18_eda_slides.html" rel="" target="">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hw" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>HW</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW01.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW02.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW03.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW04.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW05.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW06.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW07.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW08.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW09.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 09</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW10.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 10</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Exercises</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li>
+    <a class="dropdown-item" href="../exercises/using_git_with_projects_exercise.Rmd" rel="" target="">
+ <span class="dropdown-text">using_git_with_projects_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/functions_exercise.docx" rel="" target="">
+ <span class="dropdown-text">functions_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/vectors_and_dataframes_exercise.docx" rel="" target="">
+ <span class="dropdown-text">vectors_and_dataframes_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/imorting_and_exporting_exercise.docx" rel="" target="">
+ <span class="dropdown-text">importing_and_exporting_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/transforming_exercise.docx" rel="" target="">
+ <span class="dropdown-text">transforming_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/summarizing_exercise.docx" rel="" target="">
+ <span class="dropdown-text">summarizing_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/visualizing_exercise.docx" rel="" target="">
+ <span class="dropdown-text">visualizing_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/pivoting_exercise.docx" rel="" target="">
+ <span class="dropdown-text">pivoting_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/strings_and_factors_exercise.docx" rel="" target="">
+ <span class="dropdown-text">strings_and_factors_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/joining_exercise.docx" rel="" target="">
+ <span class="dropdown-text">joining_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/linear_models_exercise.Rmd" rel="" target="">
+ <span class="dropdown-text">linear_models_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/eda_exercise.docx" rel="" target="">
+ <span class="dropdown-text">eda_exercise.docx</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Data</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/slicesofdata/dataviz23/raw/main/data/cms-top-all-time-2023-swim.zip" rel="" target="">
+ <span class="dropdown-text">cms-top-all-time-2023-swim.xlsx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/rfordatascience/tidytuesday" rel="" target="">
+ <span class="dropdown-text">Fun Tidy Tuesday Data Sets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
+ <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cheatsheets" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Cheatsheets</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cheatsheets">    
+        <li>
+    <a class="dropdown-item" href="../cheatsheets_and_tips/symbols.html" rel="" target="">
+ <span class="dropdown-text">Symbols</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/rmarkdown-2.0.pdf" rel="" target="">
+ <span class="dropdown-text">RMarkdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" rel="" target="">
+ <span class="dropdown-text">Data Wrangling with {dplyr} and {tidyr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/quarto.html" rel="" target="">
+ <span class="dropdown-text">Quarto (Publish and Share)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/strings.html" rel="" target="">
+ <span class="dropdown-text">String Manipulation with {stringr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/data-import.html" rel="" target="">
+ <span class="dropdown-text">Reading and Writing Data with {readr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/Data_Science_With_R_Workflow.pdf" rel="" target="">
+ <span class="dropdown-text">Data Science with RWorkflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/" rel="" target="">
+ <span class="dropdown-text">More Cheatsheets From RStudio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://images.datacamp.com/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf" rel="" target="">
+ <span class="dropdown-text">Quarto Cheat Sheet (what Quarto Files Look Like)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../resources/tools.html" rel="" target="">
+ <span class="menu-text"><strong>Other Tools</strong></span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/slicesofdata" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gabrielcook.xyz" rel="" target="">
+ <span class="menu-text">Me</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/14_joining_relational_data.html"><strong>Joining Relational Data</strong></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Syllabus</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Installing R &amp; RStudio</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/01_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Introduction to RStudio and R Markdown</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Management 01: Installing and Setting Up Git and GitHub for R</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_using_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Management 02: R Projects, Git, and GitHub</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/04_functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Functions, Arguments, and R scripts</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/05_vectors_and_data_frame_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Vectors and Data Frame Basics</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/06_importing_and_exporting_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Importing and Exporting Data Frames</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/07_variables_and_measures_of_cognition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Variables and Measures of Cognition</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/08_manipulating_data_selecting_filtering_mutating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Selecting, Filtering, &amp; Mutating</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/09_working_with_cognitive_task_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Working with Cognitive Task Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/10_summarizing_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/11_summarizing_cognitive_task_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Cognitive Task Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/12_manipulating_data_pivoting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Transforming Data Frames: Pivoting</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/13_visualizing_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Visualizing Data: {ggplot} and the grammar of graphics</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/14_joining_relational_data.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><strong>Joining Relational Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/15_joining_project_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Joining Project Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/16_examining_relationships_in_variables_of_cognition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Examining Relationships in Variables of Cognition</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/17_strings_and_factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Strings, Factors, and Regular Expressions</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/18_linear_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Linear Models</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/19_exploratory_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Exploratory Data Analysis</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/summarizing_data_advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Data: Using <code>across()</code> and Lists</strong></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../project/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Team membership and roles</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/02_project_midterm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Midterm presentation</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/03_project_final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Final Presentation</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/04_project_report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Final Report</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/05_project_tasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Tasks</strong></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
+  <ul class="collapse">
+  <li><a href="#readings-and-preparation" id="toc-readings-and-preparation" class="nav-link" data-scroll-target="#readings-and-preparation"><strong>Readings and Preparation</strong></a></li>
+  <li><a href="#supplementary-readings-optional" id="toc-supplementary-readings-optional" class="nav-link" data-scroll-target="#supplementary-readings-optional"><strong>Supplementary Readings (Optional)</strong></a></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
+  </ul></li>
+  <li><a href="#creating-data-frames-to-join" id="toc-creating-data-frames-to-join" class="nav-link" data-scroll-target="#creating-data-frames-to-join"><strong>Creating Data Frames to Join</strong></a></li>
+  <li><a href="#mergejoin-using-base-rs-merge" id="toc-mergejoin-using-base-rs-merge" class="nav-link" data-scroll-target="#mergejoin-using-base-rs-merge"><strong>Merge/Join using base R’s <code>merge()</code></strong></a></li>
+  <li><a href="#full-join-using-dplyrfull_join" id="toc-full-join-using-dplyrfull_join" class="nav-link" data-scroll-target="#full-join-using-dplyrfull_join"><strong>Full Join using <code>dplyr::full_join()</code></strong></a></li>
+  <li><a href="#left-join-using-dplyrleft_join" id="toc-left-join-using-dplyrleft_join" class="nav-link" data-scroll-target="#left-join-using-dplyrleft_join"><strong>Left Join using <code>dplyr::left_join()</code></strong></a></li>
+  <li><a href="#joining-more-than-2-data-frames" id="toc-joining-more-than-2-data-frames" class="nav-link" data-scroll-target="#joining-more-than-2-data-frames"><strong>Joining More than 2 Data Frames</strong></a>
+  <ul class="collapse">
+  <li><a href="#writing-a-function" id="toc-writing-a-function" class="nav-link" data-scroll-target="#writing-a-function"><strong>Writing a Function</strong></a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>Joining Relational Data</strong></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gabriel I. Cook </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="overview" class="level1">
+<h1><strong>Overview</strong></h1>
+<p>In this module, we will cover how to join data frames that are related in some way. For example, perhaps you have multiple data frames containing data from the same participants and you need to combine them all so that you can summarize, visualize, or model the data. Students familiar with <code>SQL</code> (Structured Query Language) should have some experience with joining relational data. The joining or merging process is often a large component of data science projects, especially those that involve collaborators cleaning separate components that need to be merged together.</p>
+<p>You can run <code>SQL</code> code within an R Markdown code block but there are other libraries like <strong>{sqldf}</strong> that allow you to include <code>SQL</code> to perform data queries.</p>
+<p>For those who wish to dig deeper into learning <code>SQL</code>, there are <a href="https://www.w3resource.com/sql/tutorials.php">tutorials here</a>.</p>
+<section id="readings-and-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="readings-and-preparation"><strong>Readings and Preparation</strong></h2>
+<p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time. Work through some examples so that you have a good idea of your level of understanding and confidence.</p>
+<p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing code through exercises.</p>
+</section>
+<section id="supplementary-readings-optional" class="level2">
+<h2 class="anchored" data-anchor-id="supplementary-readings-optional"><strong>Supplementary Readings (Optional)</strong></h2>
+<ul>
+<li><a href="https://r4ds.hadley.nz/joins">Joining Data</a></li>
+</ul>
+</section>
+<section id="libraries" class="level2">
+<h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
+<ul>
+<li><strong>{here}</strong> 1.0.1: for file path management</li>
+<li><strong>{dplyr}</strong> 1.1.4: for joining data frames</li>
+</ul>
+<p>More generally:</p>
+<ul>
+<li><strong>{tidyverse}</strong> 2.0.0: the tidyverse ecosystem</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="creating-data-frames-to-join" class="level1">
+<h1><strong>Creating Data Frames to Join</strong></h1>
+<p>Let’s say that you have three data frames assigned to <code>A</code>, <code>B</code>, and <code>C</code>. Each contains different variables and/or participants.</p>
+<p>Data frame <code>A</code> contains heights and weights for different individuals, who appear to be uniquely identify by some numeric code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(A <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>id, <span class="sc">~</span>height, <span class="sc">~</span>weight,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1111</span>, <span class="dv">60</span>, <span class="dv">128</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2211</span>, <span class="cn">NA</span>, <span class="dv">120</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">9811</span>, <span class="dv">60</span>, <span class="dv">149</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3000</span>, <span class="dv">65</span>, <span class="dv">140</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+     id height weight
+  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1  1111     60    128
+2  2211     NA    120
+3  9811     60    149
+4  3000     65    140</code></pre>
+</div>
+</div>
+<p>Data frame <code>B</code> contains data on cities and ages for different individuals, who also appear to be uniquely identify by some numeric code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(B <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>id, <span class="sc">~</span>city, <span class="sc">~</span>age,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1111</span>, <span class="st">"Claremont"</span>, <span class="dv">22</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2211</span>, <span class="st">"Dallas"</span>, <span class="dv">25</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">9811</span>, <span class="st">"Akron"</span>, <span class="dv">38</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3050</span>, <span class="cn">NA</span>, <span class="dv">50</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+     id city        age
+  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+1  1111 Claremont    22
+2  2211 Dallas       25
+3  9811 Akron        38
+4  3050 &lt;NA&gt;         50</code></pre>
+</div>
+</div>
+<p>Data frame <code>C</code> contains names, who appear to be uniquely identify by some numeric code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(C <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>id, <span class="sc">~</span>name,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1111</span>, <span class="st">"Sally"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2211</span>, <span class="st">"Jane"</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">9811</span>, <span class="cn">NA</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="cn">NA</span>, <span class="st">"Kelly"</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+     id name 
+  &lt;dbl&gt; &lt;chr&gt;
+1  1111 Sally
+2  2211 Jane 
+3  9811 &lt;NA&gt; 
+4    NA Kelly</code></pre>
+</div>
+</div>
+<p>All three data frames appear to have at least one common variable, <code>id</code> even thought the data frames don’t contain all of the same ids (e.g., 3050). If you know that <code>id</code> is a unique identifier, this could be a way to merge the data from these folks with other data associated with them. The question is how to join the data frames.</p>
+</section>
+<section id="mergejoin-using-base-rs-merge" class="level1">
+<h1><strong>Merge/Join using base R’s <code>merge()</code></strong></h1>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Key Parameters/Arguments</strong></p>
+<ul>
+<li><code>x</code>, <code>y</code>: data frames, or objects to be coerced to one</li>
+<li><code>by</code>, <code>by.x</code>, <code>by.y</code>: specifications for the matching column</li>
+</ul>
+<p>Joining <code>A</code> and <code>B</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> A, </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> B, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>      )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    id height weight      city age
+1 1111     60    128 Claremont  22
+2 2211     NA    120    Dallas  25
+3 9811     60    149     Akron  38</code></pre>
+</div>
+</div>
+<p>We see that the returned data frame contains 3 rows and 5 columns. Although there are <code>NA</code> values for some variables, the merged data frame contains the column variables from both data frames. However, the <code>id</code>s that are <code>NA</code> will be dropped. Similarly, <code>id == 3050</code> is also dropped because the other data frames don’t contain that individual.</p>
+<p>Joining <code>A</code> and <code>C</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> A, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> C, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>      )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    id height weight  name
+1 1111     60    128 Sally
+2 2211     NA    120  Jane
+3 9811     60    149  &lt;NA&gt;</code></pre>
+</div>
+</div>
+<p>We see that the returned data frame contains 3 rows and 4 columns. Although there are <code>NA</code> values for some variables, the merged data frame contains the column variables from both data frames. However, you see that when <code>id</code> has value of <code>NA</code> for that row, that row is dropped from the merge. This resulted in a data frame with only 3 rows/individuals.</p>
+<p>Joining <code>B</code> and <code>C</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> B, </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> C, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>      )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    id      city age  name
+1 1111 Claremont  22 Sally
+2 2211    Dallas  25  Jane
+3 9811     Akron  38  &lt;NA&gt;</code></pre>
+</div>
+</div>
+<p>This merge performs similarly to merging <code>A</code> and <code>C</code> because there are <code>id</code> value of <code>NA</code> and the omission of <code>id == 3050</code>.</p>
+</section>
+<section id="full-join-using-dplyrfull_join" class="level1">
+<h1><strong>Full Join using <code>dplyr::full_join()</code></strong></h1>
+<p>A <em>full join</em> is used when you want to **join all rows from two data frames. When you combine the data frames using some matching value and including NA where there are no matches.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  x,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  y</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="cn">NULL</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">copy =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">".x"</span>, <span class="st">".y"</span>),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  ...,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">keep =</span> <span class="cn">NULL</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Key Parameters/Arguments</strong></p>
+<ul>
+<li><code>x</code>, <code>y</code>: data frames, or objects to be coerced to one</li>
+<li><code>by</code>: specifications for the matching column</li>
+</ul>
+<p>Joining <code>A</code> and <code>B</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(<span class="at">x =</span> A, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> B, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+     id height weight city        age
+  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+1  1111     60    128 Claremont    22
+2  2211     NA    120 Dallas       25
+3  9811     60    149 Akron        38
+4  3000     65    140 &lt;NA&gt;         NA
+5  3050     NA     NA &lt;NA&gt;         50</code></pre>
+</div>
+</div>
+<p>For the most part, this <code>full_join()</code> works the same a <code>merge()</code> but with some differences. Whereas <code>merge()</code> sorts the returned data frame by the <code>by</code> argument, <code>full_join()</code> does not. Also, <code>full_join()</code> includes a row of data for <code>id == 3050</code>.</p>
+<p>Joining <code>A</code> and <code>C</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(<span class="at">x =</span> A, </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> C, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+     id height weight name 
+  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;
+1  1111     60    128 Sally
+2  2211     NA    120 Jane 
+3  9811     60    149 &lt;NA&gt; 
+4  3000     65    140 &lt;NA&gt; 
+5    NA     NA     NA Kelly</code></pre>
+</div>
+</div>
+<p>Joining <code>B</code> and <code>C</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(<span class="at">x =</span> B, </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> C, </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+     id city        age name 
+  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;
+1  1111 Claremont    22 Sally
+2  2211 Dallas       25 Jane 
+3  9811 Akron        38 &lt;NA&gt; 
+4  3050 &lt;NA&gt;         50 &lt;NA&gt; 
+5    NA &lt;NA&gt;         NA Kelly</code></pre>
+</div>
+</div>
+<p>Similarly, you see that <code>full_join()</code> maintains data from both data frames even if there are <code>NA</code> values anywhere.</p>
+</section>
+<section id="left-join-using-dplyrleft_join" class="level1">
+<h1><strong>Left Join using <code>dplyr::left_join()</code></strong></h1>
+<p>A <em>left join</em> will return all rows from the <em>left</em> data frame (e.g., the argument passed to <code>x</code>) and the matched rows from the right data frame (e.g., the argument passed to <code>y</code>). If there’s no match in the right data frame, it returns <code>NA</code> for the columns from the right data frame, <code>y</code>.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  x,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  y,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="cn">NULL</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">copy =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">suffix =</span> <span class="fu">c</span>(<span class="st">".x"</span>, <span class="st">".y"</span>),</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  ...,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">keep =</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Key Parameters/Arguments</strong></p>
+<ul>
+<li><code>x</code>, <code>y</code>: data frames, or objects to be coerced to one.</li>
+<li><code>by</code>: specifications for the matching column</li>
+</ul>
+<p>Joining <code>B</code> left and <code>A</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(<span class="at">x =</span> A, </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> B, </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 5
+     id height weight city        age
+  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+1  1111     60    128 Claremont    22
+2  2211     NA    120 Dallas       25
+3  9811     60    149 Akron        38
+4  3000     65    140 &lt;NA&gt;         NA</code></pre>
+</div>
+</div>
+<p>Here, <code>left_join()</code> takes <code>B</code> and joins it <em>left</em>, into <code>A</code>. What is returned is <code>A</code> along with any data in <code>B</code> that can be matched to the <code>id</code> in <code>A</code>. If there is an <code>id</code> in <code>B</code> that is not in <code>A</code>, it won’t be included.</p>
+<p>Joining <code>C</code> left into <code>A</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(<span class="at">x =</span> A, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> C, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+     id height weight name 
+  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;
+1  1111     60    128 Sally
+2  2211     NA    120 Jane 
+3  9811     60    149 &lt;NA&gt; 
+4  3000     65    140 &lt;NA&gt; </code></pre>
+</div>
+</div>
+<p>With these data frames, <code>left_join()</code> takes <code>C</code> and joins it <em>left</em>, into <code>C</code>. What is returned is <code>B</code> along with any data in <code>C</code> that can be matched to the <code>id</code> in <code>B</code>.</p>
+<p>Joining <code>C</code> left into <code>B</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(<span class="at">x =</span> B, </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> C, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+     id city        age name 
+  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;
+1  1111 Claremont    22 Sally
+2  2211 Dallas       25 Jane 
+3  9811 Akron        38 &lt;NA&gt; 
+4  3050 &lt;NA&gt;         50 &lt;NA&gt; </code></pre>
+</div>
+</div>
+<p>Joining <code>B</code> left into <code>C</code>:</p>
+<p>Remember that <code>C</code> contains an <code>NA</code> in <code>id</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(<span class="at">x =</span> C, </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> B, </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+     id name  city        age
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;
+1  1111 Sally Claremont    22
+2  2211 Jane  Dallas       25
+3  9811 &lt;NA&gt;  Akron        38
+4    NA Kelly &lt;NA&gt;         NA</code></pre>
+</div>
+</div>
+<p>When we <code>left_join()</code> takes <code>B</code> and joins it <em>left</em>, into <code>C</code>, the data frame includes the <code>NA</code> row for <code>id</code>.</p>
+</section>
+<section id="joining-more-than-2-data-frames" class="level1">
+<h1><strong>Joining More than 2 Data Frames</strong></h1>
+<p>When you have multiple data frames, you have to think about how you will join two first, and then join another to that joined data frame, and so on.</p>
+<p>We will join <code>A</code> and <code>B</code> and assign the joined data frame to <code>AB</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>AB <span class="ot">&lt;-</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> A, </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> B, </span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>AB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+     id height weight city        age
+  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+1  1111     60    128 Claremont    22
+2  2211     NA    120 Dallas       25
+3  9811     60    149 Akron        38
+4  3000     65    140 &lt;NA&gt;         NA
+5  3050     NA     NA &lt;NA&gt;         50</code></pre>
+</div>
+</div>
+<p>Now, we will join <code>C</code> with <code>AB</code> and assign it to <code>ABC</code> to represent all three data frames.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>ABC <span class="ot">&lt;-</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> AB, </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> C, </span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>ABC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+     id height weight city        age name 
+  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;
+1  1111     60    128 Claremont    22 Sally
+2  2211     NA    120 Dallas       25 Jane 
+3  9811     60    149 Akron        38 &lt;NA&gt; 
+4  3000     65    140 &lt;NA&gt;         NA &lt;NA&gt; 
+5  3050     NA     NA &lt;NA&gt;         50 &lt;NA&gt; 
+6    NA     NA     NA &lt;NA&gt;         NA Kelly</code></pre>
+</div>
+</div>
+<section id="writing-a-function" class="level2">
+<h2 class="anchored" data-anchor-id="writing-a-function"><strong>Writing a Function</strong></h2>
+<p>You can also write a function to help you. Here, we can make a function to take a list of data frames and cycles through them to return a data frame based on <code>full_join()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>full_join_data_frames_in_list <span class="ot">&lt;-</span> <span class="cf">function</span>(list, by) {</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">missing</span>(by)) {</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">message</span>(<span class="st">"Please specify the 'by' parameter for merging."</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NULL</span>)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    joined <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(<span class="cf">function</span>(x, y) dplyr<span class="sc">::</span><span class="fu">full_join</span>(x, y, <span class="at">by =</span> by), list)</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(joined)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Put the data frames in a list:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>ABC_list <span class="ot">&lt;-</span> <span class="fu">list</span>(A, B, C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Pass the list to the <code>list</code> parameter and supply the <code>by</code> argument as a string.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join_data_frames_in_list</span>(<span class="at">list =</span> ABC_list,</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">by =</span> <span class="st">"id"</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>                              )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+     id height weight city        age name 
+  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;
+1  1111     60    128 Claremont    22 Sally
+2  2211     NA    120 Dallas       25 Jane 
+3  9811     60    149 Akron        38 &lt;NA&gt; 
+4  3000     65    140 &lt;NA&gt;         NA &lt;NA&gt; 
+5  3050     NA     NA &lt;NA&gt;         50 &lt;NA&gt; 
+6    NA     NA     NA &lt;NA&gt;         NA Kelly</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="summary" class="level1">
+<h1><strong>Summary</strong></h1>
+<p>When you are working with data obtained from different sources or when you split a large data set into pieces that need to joined later, joining or merging data frames will be required. There are several ways to join data frames as described here but also others like <code>inner_join()</code> not addressed here. Moreover, join functions have additional parameters not addressed in this brief module. Each join function serves a special purpose which may best suit your use case.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

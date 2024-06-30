@@ -1,0 +1,74 @@
+---
+title: "**Project Tasks**"
+author: "Gabriel I. Cook"
+#date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+# **Overview**
+
+In order to complete the project, there are different components that can be easily broken up and delegated among team members. During weekly team meetings, team members can discuss accomplishments and progress, and check off tasks. Provided many of you have never taken on such tasks and thought about how to break tasks into smaller bite-sized pieces, a general framework maybe be helpful for you.
+
+# **Large-Scale Tasks**
+
+Some tasks have to be performed in a sequential order but others can be integrated throughout other tasks. For example, describing the motivation of the project, explaining the data and variables used, describing how you prepared the data, presenting findings, etc. are all part of the *Report Drafting* process. Components can be, and should be, worked on in piecemeal so that they are all not delayed until the end.
+
+1. Review the project proposal details in `/docs` 
+
+2. Review the CHAMP documents in `/docs` to understand the structure of the data and identify relevant variables
+
+3. Schedule to meet with liaison to discuss project in order to formulate a game plan; ask about variables of interest
+
+4. Outline the project plan and develop a timeline (consider how timeline maps onto course topics)
+
+5. Read data, clean and prepare data for summaries, visualizations, and models
+
+6. Merge data parts from team members
+
+7. Integrate team member sub-goal code files
+
+8. Finalize report
+
+*Report drafting*. This tasks can get integrated within the other tasks. For example, delegating tasks, setting deadlines for rough drafts, etc.). Relevant references in `/refs` can be disseminated, read, and used to prepare the theoretical and conceptual motivation for the project. 
+
+
+# **Smaller-Scale Tasks: A Suggested Process for working with Cognitive Tasks/Survey Questions**
+
+Teams will be working with the symmetry span task, the go/no-go task, and other demographic and response variables. Some variables (viz., tasks or survey) will need to be parceled out and transformed (pivoted) in order to work with in a manageable way. Other response variables may contain only a single question and may require recoding (e.g., response options to numbers) but would not require transformation in the form of pivoting. When there are multiple response options (data columns) as there are with the cognitive tasks, a recommendation is the break the task into pieces. 
+
+A recommended sub-goal process is described below
+
+**A. Break full data into task/survey data**
+
+  1. Import master data file
+  2. Select variables of interest for that Task/Survey 
+  3. Write out wide `<task>_wide.Rds` data file containing ids and variables for that task
+
+**B. Clean the task/survey data**    
+
+   1. Transform Data: Pivot wide to long
+   2. Write out long `<task>_long.Rds` data file
+   3. Clean, create, etc. relevant variables (not aggregated)
+
+**C. Aggregate/Summarize task/survey data**    
+
+   1. Write out  long `task_long_clean.Rds` data file
+   2. Aggregate/Summarize Data: Create participant level relevant data (e.g., average accuracy, average response time, etc.) 
+   3. Write out  long `<task>_long_agg.Rds` data file
+
+**D. Prepare aggregated task/survey data for statistical description**
+
+   1. If doing correlation with other variables, sometimes need to transform the data frame. If so:
+   2. Pivot long to wide 
+   3. Write out long `<task>_wide_agg.Rds` data file
+
+**E. Produce Data Summaries: Descriptive Statistics**
+
+**F. Generate any relevant visualizations**
+   * using either data that are aggregated or are not aggregated 
+
+**G. Modeling: Test relevant prediction(s)**
+

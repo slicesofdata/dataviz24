@@ -1,0 +1,24 @@
+---
+output:  pdf_document
+---
+
+## A section
+
+blah blah
+
+## A second section with a custom identifier {#custom}
+
+blah blah
+
+Jump to [Section X]
+
+## Links
+
+You can use implicit references to refer to sections
+you have not explicitly named, like this: 
+see [Section X]. 
+
+You can use links to refere to sections with explicit
+references, like this: see [the third section](#custom).
+
+## Section X

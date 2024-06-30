@@ -1,0 +1,270 @@
+---
+title: "**Syllabus**"
+editor: visual
+format:
+  html:
+    theme: cosmo
+    css: css/styles.scss
+    #fontcolor: white
+    toc: true
+
+# always rebuild the syllabus because it reads schedule.txt
+#execute:
+  #enabled: false
+ # freeze: auto
+---
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
+library(magrittr)
+#library(kableExtra)
+#library(knitr)
+
+source(here::here("r", "_common.R"))
+
+knitr::kable(
+  data.frame(
+    Semester     = the_semester,
+    Section      = the_section,
+    Day_Time     = the_day_time,
+    Location     = the_location,
+    Office_Hours = the_office_hours,
+    Instructor   = the_instructor,
+    Contact      = the_contact,
+    Credit       = the_credit
+  ) %>%
+    dplyr::rename_with(~ gsub("_", " ", .x), tidyselect::contains("_")) %>% 
+    t() 
+) #%>% kable_styling(bootstrap_options = c("condensed")  )
+#%>% formatStyle("Topic", backgroundColor = styleEqual("Fall Break (no class)", "red"))
+#column_spec(1,background = "yellow")
+
+#kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) 
+# this is a test
+#knitr::kable(
+#    data.frame(
+#      Semester = c("Fall 2023"),
+#      Section = c("PSYC 167, Sect-01"),
+#      Day_Time = c("Tuesday 2:45 - 05:30PM (Pacific)"),
+#      Location = c("Location: Roberts South, 104"),
+#      Office_Hours = c("(zoom link posted on ...)"),
+#      Instructor = c("Gabriel I. Cook"),
+#      Contact = c("Email: gcook@cmc.edu (*please put ''PSYC 167' in subject line)*"),
+#      Credit = c("3 hours; 3 credits")
+#    ) %>%
+#      dplyr::rename_with(~ gsub("_", " ", .x), contains("_")) %>% 
+#      t() 
+#  )
+
+# Instructor: [Gabriel I. Cook](https://www.cmc.edu/academic/faculty/profile/gabriel-i-cook)
+# Email: gcook\@cmc.edu (*please put ''PSYC 167' in subject line)*
+```
+
+## **Course Description**
+
+This course introduces students to R, a programming language for statistical computing and graphics. Students will learn how to clean, manipulate, transform, join, and tidy data sets to prepare for statistical modeling. Supervised (e.g., regression) and unsupervised (e.g., clustering) approaches will be applied to understand simple and complex relationships between cognitive and non-cognitive variables (e.g., biology, aging, education, socioeconomic, health, etc.). Students will apply their skills to wrangle, explore, and model relevant data sets for a hands-on project for local scholars, offices, organizations, or industry participants. Data sets and relevant readings will change depending on semester.
+
+**Prerequisite**: PSYC109 CM or equivalent; recommended a course in Cognitive Psychology or Cognitive Science; or permission of instructor; not open to students who have completed CSCI 36 or any other introductory course in foundation of data science.
+
+### **Course Specific Learning Goals**
+
+-   Understand various forms of cognitive functioning, how they are measured, and how those abilities relate with other variables
+
+-   Learn how to use R and RStudio to answer real‐word questions with data
+
+-   Use the **{dplyr}** and **{tidyr}** libraries to clean data prior to statistical analysis
+
+-   Learn how to import, clean, manipulate, tidy, and summarize data
+
+-   Examine relationships among cognitive and non-cognitive variables by applying statistical methods and models to data
+
+-   Practice using statistical probability and inference
+
+-   Learn how to examine relationships among variables and apply statistical methods and models to data (e.g., supervised or unsupervised machine‐learning methods)
+
+-   Visualize data and/or model parameters
+
+-   Learn how to manage local and remote projects and collaborate with others
+
+-   Practice scientific writing integrating data with theory
+
+-   Create dynamic and reproducible reports with R Markdown
+
+The following **departmental learning goals** will also be met: 1. Knowledge of major concepts in cognitive psychology; 2. Understanding of research methods in psychology, including research design, data analysis and interpretation; 3. Development of critical-thinking skills and use of the scientific approach to solve problems related to behavior and mental processes; 4. Oral and written communication skills.
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
+
+#-   point
+
+#    -   subpoint 
+```
+
+## **Courses at CMC**
+
+#### **Faculty Handbook 5.4.2 Work Load in Classes**
+
+*"Courses should involve approximately equal workloads. Generally, students should expect to spend from 6 to 8 hours per week, over and above the time spent in classroom, on each course."* -- CMC Faculty Handbook
+
+If you do the math, including class time of 2½ hours, you should expect to allocate 8 ½ to 10 ½ hours per week for courses at CMC. "Per week" is a key phrase; courses are not designed for nondistributed cramming.
+
+## Course Materials and Textbook
+
+All of the course materials will be available on this course website .
+
+Link to the course website: <https://gabrielcook.xyz/fods24/>
+
+#### **Required Equipment**:
+
+Computer: current Mac (macOS) or PC (Windows or Linux) with high-speed internet connection, capable of running `R` and `RStudio`
+
+#### **Required Software**:
+
+**R** and **RStudio**: Students will be required to use R and RStudio software. Note: Install Version will be provided. Before installing RStudio, you must also download and install the base R software at <https://www.r-project.org/> that is appropriate for your computer's operating system. RStudio can be downloaded for free at <https://www.rstudio.com>. You are expected to install R and RStudio on your personal computer by downloading the software from the links above. You will also have to install appropriate libraries throughout the course. Further instructions will be provided.
+
+### **Reading Materials/Textbook(s)**
+
+Readings will be taken from different sources and will appear in each topic module.
+
+-   \[[**R4DS**](http://r4ds.had.co.nz)\] Grolemund and Wickham (2016): *R for Data Science*. Electronic version.
+
+-   \[[**FODS**](https://s3-us-west-1.amazonaws.com/markhuber-datascience-resources.org/Books/Foundations_of_Data_Science.pdf)\] Huber (2020): Foundations of Data Science.
+
+-   Nordmann, E. & DeBruine, L. (2023). **Applied Data Skills**: Processing & Presenting Data (2023) . <https://psyteachr.github.io/ads-v2>
+
+-   \[**DSRR**\] Data Skills for Reproducible Research: Electronic version.
+
+-   \[[**Data Skills**](https://psyteachr.github.io/data-skills-v2/index.html)\](<https://psyteachr.github.io/data-skills-v2/>
+
+-   Cognition readings for project topics will be available on Canvas/Sakai
+
+These textbooks are free and open-source.
+
+## **Overview**
+
+Students will read materials covering data-set relevant cognitive functions or abilities and tasks or tools used to measure those abilities. They will also will learn about coding in R, data validation and wrangling, and support their current knowledge of statistical probability and inference.
+
+**Coding for Data Science**: Students will be introduced to functional programming using R, application of models, and use of popular data-science libraries, (e.g., dplyr, ggplot, stringr, etc.). Students would learn elements of programming (e.g., assignment, functions, function arguments, operators, objects, passing objects, control flow, etc.).
+
+**Data Validation and Wrangling**: Students will learn how to wrangle raw data, clean, and manipulate data. The course would involve both data wrangling and data cleaning. Students would learn main concepts of data sanitation of messy data, for example, how to clean, recode, de-dup, fix structural errors and typos, standardize data, etc. in service of applying machine-learning models.
+
+**Statistical Probability & Inference:** Students may not have much experience with formal statistics so they would learn about probability, error, confidence intervals, and frequentist inference in order to interpret data. They would also have to specify models for machine learning, for example, multiple regression.
+
+**Machine Learning:** The goal is to introduce students to supervised and unsupervised machine learning applications in order to understand relationships among variables and for classifying and segmenting. For example, supervised learning (e.g., correlation, regression, multiple regression, and if time support-vector machines for nonlinear classification) would be used for understanding relationships among cognitive variables, non-cognitive variables, and to identify groups. Unsupervised learning (e.g., hierarchical clustering, dimension reduction) would be used to understand to data segmentation.
+
+**Project Management:** Projects for academics and industry involve collaboration as well as organization of code and materials. Students will learn about and maintain a project with an organized directory structure both locally and remotely with collaborators using Git and [GitHub](github.com).
+
+***Academic Integrity.*** Although you may find yourself working on assignments with a partner or discussing them with classmates, all assignments should be your one original work. You are not to share materials with other students if that material has the potential of being copied, even if your intention is not to allow a classmate to copy your work. Any signs of academic dishonesty will be submitted to the Academic Standards Committee for review. Although I do not anticipate any events of academic dishonesty, any form of dishonestly of any form will *not* be tolerated.
+
+Many students are unclear of the definition of plagiarism and for that reason I have posted some CMC links to information that I believe will clarify the issue. In addition, any work completed for another course, past or present, may not be submitted for a grade for this course. <http://registrar.academic.claremontmckenna.edu/acpolicy/default.asp>
+
+***Course Modules.*** This course will be split into modules, allocating various weeks depending on the scope of the module.
+
+## **Course Structure**
+
+The assumption is that students possess varying levels of skills related to programming. Nevertheless, students are expected to attend class prepared to engage with and practice concepts related to readings and lectures. Prior to class, students should have completed readings (e.g., modules or readings referenced therein) and watched any associated lectures on the material. Class time will involve answering questions raised by students, a mining lecture, and coding activities that will inform the final project (note, concepts build). Homework assignments will also involved engagement with the project data. Class time will be spent engaging in a variety of tasks and activities, including lectures, group-work, applied coding activities, presentations, and discussions.
+
+## **Course Schedule**
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
+#SCHEDULE <- rio::import(here::here("syllabus/tables/2schedule.csv"))
+SCHEDULE <- read.table(here::here("syllabus/tables/schedule.txt"), 
+                       header = T,
+                       sep = ";"
+                       )
+knitr::kable(SCHEDULE)
+```
+
+```{r eval=FALSE, include=FALSE}
+#For more information on see [notes on privacy and sharing in the compendium](compendium/privacy.qmd).
+```
+
+## **Assignments and Grading**
+
+This is an engagement and skills-acquisition based course. At the beginning of the course and throughout, students will be given instruction on building and maintaining a website using quarto and github pages. Each week students will contribute blog posts and other content to their websites in response to module assignments. Students will be expected to submit URL links to their blogs using Blackboard. Students are expected to attend and participate in each class. The final project includes conducting, communicating, and preserving a reproducible data analysis project.
+
+### Evaluation and Grading
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
+GRADE_ITEMS <- rio::import(here::here("syllabus/tables/grade_items.csv"))
+knitr::kable(GRADE_ITEMS)
+```
+
+Percentage grades are converted to letter grades according to the following rubric.
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
+GRADE_TABLE <- rio::import(here::here("syllabus/tables/grade_table.csv"))
+knitr::kable(GRADE_TABLE)
+```
+
+## **Attendance**
+
+Students are expected to attend and participate in each class.
+
+## **Course Policies**
+
+### **Due dates**
+
+Due dates are suggestions for completing coursework on a weekly basis. You may be able to work ahead, but you are not encouraged to fall behind.
+
+You should email me if you have an exceptional circumstance preventing you from taking an assessment during an assessment week.
+
+### **Changes to the syllabus**
+
+The syllabus may be updated for clarity or to make adjustments for pedagogical purposes. The most current version of the syllabus is always available from the course website.
+
+### Accessibility
+
+In order to receive disability-related academic accommodations students must first be registered with the Center for Student Disability Services. Students who have a documented disability or suspect they may have a disability are invited to set up an appointment with the Director of the Center for Student Disability Services, at 718-951-5538. If you have already registered with the Center for Student Disability Services, please provide your professor with the course accommodation form and discuss your specific accommodation with him/her.
+
+------------------------------------------------------------------------
+
+### **Email Correspondence**
+
+I will regularly use e-mail but you should contact me on the Discord channel, which is where I will post announcements, changes in the syllabus, reminders, etc. You are responsible for monitoring Discord and e-mail regularly.
+
+If you have questions, please message me on **Discord**. If you need to e-mail me:
+
+1.  Always add 'PSYC 166" to the subject line
+2.  email me at: gcook\@cmc.edu
+
+## **University's policy on Academic Integrity**
+
+The faculty and administration of Claremont McKenna College support an environment free from cheating and plagiarism. Each student is responsible for being aware of what constitutes cheating and plagiarism and for avoiding both.
+
+#### **Violations of Academic integrity**
+
+Each student is responsible for understanding and acting in accordance with the College's policy on Academic Integrity, described below.
+
+### **Academic Integrity**
+
+Although you may find yourself working on assignments with a partner or discussing them with classmates, all assignments should be your one original work. You are not to share materials with other students if that material has the potential of being copied, even if your intention is not to allow a classmate to copy your work. Any signs of academic dishonesty, even those raised by concerned peers, will be submitted to the Academic Standards Committee for review. Although I do not anticipate any events of academic dishonesty, any form of dishonestly of any form will not be tolerated. Many students are unclear of the definition of plagiarism so I have posted some CMC links to information that I believe will clarify the issue. In addition, any work completed for another course, past or present, may not be submitted for a grade for this course and would be a violation of integrity. <http://registrar.academic.claremontmckenna.edu/acpolicy/default.asp>
+
+#### **Statement of Reasonable Accommodations**
+
+Your experience in this class is important to me. If you have already established accommodations with Disability & Accessibility Services at CMC, please communicate your approved accommodations to me during the first week of the semester so we can discuss your needs in this course ASAP. You can start this conversation by forwarding me your accommodation letter. If you have not yet established accommodations through Accessibility Services but have a temporary health condition or permanent disability (conditions include but are not limited to: mental health, attention-related, learning, vision, hearing, physical or health), you are encouraged to contact Assistant Dean for Disability Services & Academic Success, Kari Rood, at **AccessibilityServices\@cmc.edu** to ask questions and/or begin the process. General information and accommodations request information be found at the CMC DOS Accessibility Service's website. Please note that arrangements must be made with advance notice in order to access the reasonable accommodations. You are able to request accommodations from CMC Accessibility Services at any point in the semester. Be mindful that this process may take some time to complete and accommodations are not retroactive. I would err on the side of caution and make sure your accommodations are sent to me even if you do not believe you need them as some students only learn they may need time after completing assessment. The Americans With Disabilities Act (ADA) and Section 504 of the Rehabilitation Act do not make accommodations retroactive. If you are approved for extra testing time for example, you must do so before an electronic assessment is posted in order for it to be integrated into the assessment. Claremont McKenna College values creating inclusive and accessible learning environments consistent with federal and state law. If you are not a CMC student, please connect with the Disability & Accessibility Services Coordinator on your campus regarding a similar process.
+
+### **FYI on cheating etc.**
+
+Remember, you are responsible for not cheating or violating CMC's [Academic Integrity Policy](http://registrar.academic.claremontmckenna.edu/acpolicy/default.asp). You are responsible for understanding that policy, and for conducting yourself in a manner such that you do not violate the policy.
+
+The above link lists many examples of cheating and plagiarism that are not allowed. There are many more specific acts that you should NOT do. Here is an additional list of activities that will be sufficient cause for immediate failure in the course.
+
+-   Do not take pictures of exam or quiz questions and share them with other students
+-   Do not give other students answers during an exam or quiz, or any other assignment that is an individual assignment
+-   Do not copy work from another source and submit it as your own
+-   Do not copy and paste text from the internet and submit it as your own words
+-   Do not copy and paste text and slightly alter wording to pass the work off as your own
+-   Do not hire someone else to do the coursework for you
+-   Do not copy and paste text into a paraphrasing app, and then submit the output of the paraphrasing app as your own work
+-   Do not copy random words from the internet that have nothing to do with the assignment and submit them as your own work.
+-   Do not work on individual assignments with other students, share answers or other material, and then all hand in versions of the same thing that are slightly different.
+-   Do not plagiarize yourself by submitting work that you have previously completed in another class.
+
+### **Mandate to report violations**
+
+If a faculty member suspects a violation of academic integrity and, upon investigation, confirms that violation, or if the student admits the violation, the faculty member MUST report the violation. Students should be aware that faculty may use plagiarism detection software.
+
+There is no excuse for cheating. Students who are caught cheating may receive a failing grade for the entire course. All students found to have violated the academic integrity will be sanctioned by the Academic Standards Committee.
+
+## **FAQ**
+
+If you have questions about the syllabus, let's talk about it in class, and/or please create a thread to discuss the question on Discord.

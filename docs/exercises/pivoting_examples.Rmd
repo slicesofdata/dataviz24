@@ -1,0 +1,321 @@
+---
+title: "Pivoting Examples"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+eval_answers <- TRUE
+include_answers <- TRUE
+```
+
+**Pivoting Exercises**
+
+**Exercise 1**
+
+```{r}
+data <- data.frame(
+  ID = 1:3,
+  Jan = c(10, 20, 30),
+  Feb = c(15, 25, 35),
+  Mar = c(18, 28, 38)
+)
+```
+
+1. Is the data long or wide?
+
+2. Transform so that months and numeric values are represented as column variables for each `ID`.  
+
+```{r, eval=eval_answers, include=include_answers}
+data |> 
+  tidyr::pivot_longer(
+    cols = -ID, 
+    names_to = "Month", 
+    values_to = "Value"
+    )
+```
+
+
+**Exercise 1**
+
+```{r}
+data <- data.frame(
+  ID = 1:3,
+  math_1 = c(10, 20, 30),
+  math_2 = c(15, 25, 35),
+  verbal_1 = c(12, 22, 32),
+  verbal_2 = c(17, 27, 37)
+)
+```
+
+1. Is the data long or wide?
+
+2. Assume that individuals completed a math and a verbal tests on two different occasions. Transform the data so that there is a `time`m `math` and a `verbal` column tests are represented as tasks the is a `Group` column variable  `ID`.  
+
+```{r, eval=eval_answers, include=include_answers}
+data |> 
+  tidyr::pivot_longer(cols = -ID, 
+                      names_to = c(".value", "time"), 
+                      names_sep = "_"
+                      )
+```
+
+
+data
+
+long_data
+Example 2: Converting Multiple Variables to Long Format
+Suppose you have data with multiple variable columns:
+
+R
+Copy code
+# Sample data with multiple variable columns
+
+
+# Convert multiple variable columns to long format
+long_data_multiple_vars <- tidyr::pivot_longer(data_multiple_vars, cols = -ID, names_to = c(".value", "Group"), names_sep = "_")
+
+# Display the long format data
+long_data_multiple_vars
+Example 3: Specifying Names for Resulting Columns
+Sometimes you might want to specify custom names for the resulting columns:
+
+R
+Copy code
+# Sample data with custom names for resulting columns
+data_custom_names <- data.frame(
+  ID = 1:3,
+  apple_2020 = c(10, 20, 30),
+  banana_2020 = c(15, 25, 35),
+  apple_2021 = c(18, 28, 38),
+  banana_2021 = c(20, 30, 40)
+)
+
+# Convert to long format with custom names
+long_data_custom_names <- tidyr::pivot_longer(data_custom_names, 
+                                               cols = -ID, 
+                                               names_to = c(".value", "Year"), 
+                                               names_sep = "_")
+
+# Display the long format data with custom column names
+long_data_custom_names
+Example 4: Handling Missing Values
+Dealing with missing values while transforming data:
+
+R
+Copy code
+# Sample data with missing values
+data_missing <- data.frame(
+  ID = 1:3,
+  A = c(10, NA, 30),
+  B = c(NA, 25, 35),
+  C = c(18, 28, NA)
+)
+
+# Convert to long format, handling missing values
+long_data_missing <- tidyr::pivot_longer(data_missing, cols = -ID, names_to = "Variable", values_to = "Value", values_drop_na = TRUE)
+
+# Display the long format data with missing values handled
+long_data_missing
+Example 5: Specifying Columns to Pivot
+Pivoting specific columns:
+
+R
+Copy code
+# Sample data with specific columns to pivot
+data_specific_columns <- data.frame(
+  ID = 1:3,
+  Name = c("Alice", "Bob", "Charlie"),
+  Math_1 = c(85, 90, 75),
+  Math_2 = c(90, 85, 80),
+  Science_1 = c(80, 85, 90),
+  Science_2 = c(85, 90, 95)
+)
+
+# Pivot specific columns
+long_data_specific_columns <- tidyr::pivot_longer(data_specific_columns, 
+                                                  cols = starts_with(c("Math", "Science")), 
+                                                  names_to = c(".value", "Test"), 
+                                                  names_sep = "_")
+
+# Display the long format data with specific columns pivoted
+long_data_specific_columns
+These examples should provide a good starting point for understanding and using tidyr::pivot_longer() to transform your data effectively in R.
+
+
+
+User
+Can you do the same with pivot_wider()?
+ChatGPT
+Certainly! Here are five examples demonstrating the usage of tidyr::pivot_wider() to transform data:
+
+Example 1: Converting Long to Wide Format
+Suppose you have data in long format like this:
+
+R
+Copy code
+# Sample data in long format
+long_data <- data.frame(
+  ID = c(1, 1, 2, 2),
+  Month = c("Jan", "Feb", "Jan", "Feb"),
+  Value = c(10, 15, 20, 25)
+)
+
+# Convert long to wide format
+wide_data <- tidyr::pivot_wider(long_data, names_from = Month, values_from = Value)
+
+# Display the wide format data
+wide_data
+Example 2: Specifying Names for Resulting Columns
+You might want to specify custom names for the resulting columns:
+
+R
+Copy code
+# Sample data with custom names for resulting columns
+data_custom_names <- data.frame(
+  ID = c(1, 2),
+  Jan = c(10, 20),
+  Feb = c(15, 25)
+)
+
+# Convert to wide format with custom names
+wide_data_custom_names <- tidyr::pivot_wider(data_custom_names, 
+                                             names_from = ID, 
+                                             values_from = c(Jan, Feb),
+                                             names_prefix = "Value_")
+
+# Display the wide format data with custom column names
+wide_data_custom_names
+Example 3: Handling Missing Values
+Dealing with missing values while transforming data:
+
+R
+Copy code
+# Sample data with missing values
+data_missing <- data.frame(
+  ID = c(1, 2),
+  Jan = c(10, NA),
+  Feb = c(NA, 25)
+)
+
+# Convert to wide format, handling missing values
+wide_data_missing <- tidyr::pivot_wider(data_missing, 
+                                         names_from = ID, 
+                                         values_from = c(Jan, Feb),
+                                         values_fill = list(Jan = 0, Feb = 0))
+
+# Display the wide format data with missing values handled
+wide_data_missing
+Example 4: Aggregating Duplicate Entries
+Aggregating duplicate entries during the transformation:
+
+R
+Copy code
+# Sample data with duplicate entries
+data_duplicates <- data.frame(
+  ID = c(1, 1, 2, 2),
+  Month = c("Jan", "Jan", "Feb", "Feb"),
+  Value = c(10, 15, 20, 25)
+)
+
+# Aggregate duplicate entries while pivoting
+wide_data_duplicates <- tidyr::pivot_wider(data_duplicates, 
+                                           names_from = Month, 
+                                           values_from = Value, 
+                                           values_fn = list(Value = sum))
+
+# Display the wide format data with aggregated duplicate entries
+wide_data_duplicates
+Example 5: Specifying Columns to Pivot
+Pivoting specific columns:
+
+R
+Copy code
+# Sample data with specific columns to pivot
+data_specific_columns <- data.frame(
+  ID = c(1, 2),
+  Test1_Math = c(85, 90),
+  Test1_Science = c(80, 85),
+  Test2_Math = c(90, 85),
+  Test2_Science = c(85, 90)
+)
+
+# Pivot specific columns
+wide_data_specific_columns <- tidyr::pivot_wider(data_specific_columns, 
+                                                 names_from = c(Test1_Math, Test1_Science, Test2_Math, Test2_Science), 
+                                                 names_prefix = "Value_")
+
+# Display the wide format data with specific columns pivoted
+wide_data_specific_columns
+These examples illustrate how to use tidyr::pivot_wider() effectively to transform your data from long to wide format in R.
+
+User
+Can you make some examples to transform the wide data frames you just created in those 5 example and transform them into long for another 5 examples?
+ChatGPT
+Certainly! Here are five examples demonstrating how to transform the wide data frames created in the previous examples into long format:
+
+Example 1: Converting Wide to Long Format
+Using the wide data frame from Example 1:
+
+R
+Copy code
+# Convert wide to long format
+long_data <- tidyr::pivot_longer(wide_data, cols = -ID, names_to = "Month", values_to = "Value")
+
+# Display the long format data
+long_data
+Example 2: Converting Wide with Custom Names to Long Format
+Using the wide data frame with custom names from Example 2:
+
+R
+Copy code
+# Convert wide with custom names to long format
+long_data_custom_names <- tidyr::pivot_longer(wide_data_custom_names, 
+                                              cols = starts_with("Value"), 
+                                              names_to = "ID", 
+                                              names_prefix = "Value_")
+
+# Display the long format data with custom column names
+long_data_custom_names
+Example 3: Converting Wide with Missing Values to Long Format
+Using the wide data frame with missing values from Example 3:
+
+R
+Copy code
+# Convert wide with missing values to long format
+long_data_missing <- tidyr::pivot_longer(wide_data_missing, 
+                                         cols = -ID, 
+                                         names_to = "Month", 
+                                         values_to = "Value",
+                                         values_drop_na = TRUE)
+
+# Display the long format data with missing values handled
+long_data_missing
+Example 4: Converting Wide with Aggregated Entries to Long Format
+Using the wide data frame with aggregated entries from Example 4:
+
+R
+Copy code
+# Convert wide with aggregated entries to long format
+long_data_duplicates <- tidyr::pivot_longer(wide_data_duplicates, 
+                                            cols = -ID, 
+                                            names_to = "Month", 
+                                            values_to = "Value")
+
+# Display the long format data with aggregated duplicate entries
+long_data_duplicates
+Example 5: Converting Wide with Specific Columns to Long Format
+Using the wide data frame with specific columns to pivot from Example 5:
+
+R
+Copy code
+# Convert wide with specific columns to long format
+long_data_specific_columns <- tidyr::pivot_longer(wide_data_specific_columns, 
+                                                  cols = -ID, 
+                                                  names_to = "Test", 
+                                                  values_to = "Value")
+
+# Display the long format data with specific columns pivoted
+long_data_specific_columns
+These examples illustrate how to use tidyr::pivot_longer() to transform wide data frames into long format in R.

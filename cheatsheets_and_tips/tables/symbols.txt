@@ -1,0 +1,32 @@
+Symbol	Term
+<-	assignment operator
+()	(round) brackets / parentheses
+[]	square brackets
+{}	curly brackets
+<>	chevrons/angled brackets
+<	less than
+>	greater than
+#	hash/pound
+/	forward slash
+\	backslash
+-	dash/hyphen/minus
+_	underscore
+*	asterisk/star
+^	caret/power symbol
+~	tilde/twiddle
+=	equal sign
+==	double equal sign (logical equivalence)
+.	full stop/period/point
+|>	pipe (see also %>% for {magrittr}) 
+&	ampersand/and ("and" operator)
+|	vertical bar/pipe ("or" operator) 
+!	exclamation mark/bang ("not" operator)
+?	question mark
+'	single quote/apostrophe
+"	double quote
+,	comma 
+;	semi-colon 
+:	colon 
+@	"at" symbol 
+`	backtick/tick (escape character)
+...	glossary("ellipsis")/dots

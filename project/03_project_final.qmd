@@ -1,0 +1,49 @@
+---
+title: "**Final Presentation**"
+author: "Gabriel I. Cook"
+
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+# **Overview**
+
+The final written report for the project will be delivered to me and to your liaison. I can provide a color-printed copy for you to distribute to the liaison. If the liaison is remote a color version of the pdf is appropriate.
+
+
+# **Elements to Focus On**
+
+For the final presentation, you should focus on presenting a description of the problem, the data set used, data summaries, model interpretation, and visualization to help tell a story about your findings. You should make sure to address the key elements outlined in the project proposal and discussed with your liaison. 
+
+
+# **Presentation Medium**
+
+You can use any slide-presentation tool you wish. You will just need to provide me with:
+
+* a printed version of the slide deck for class time and
+* an electronic pdf of the slide deck before or after the presentation.
+
+
+# **Stakeholders**
+
+Identify the stakeholders for your project. For example, include you liaison, liaison's institution, course professor, your college, etc. for whom the final work will be submitted.  
+
+
+
+# **Evaluation and Generalized Rubric**
+
+More detail will be added here similar to the **Midterm Presentation**.
+
+-   Quality of project deliverable documents (e.g., organization, coherence, story, coding clarity/organization, models, plots, etc.)
+-   Professionalism (e.g., liaison meeting etiquette and responsibility, timely discord communication, non-tardy attendance at weekly team meeting, weekly worklogs, feedback from liaison, etc.)
+-   Peer evaluation (e.g., contributions, team player, etc.)
+
+**Note:** Liaison's will also participate in evaluating all teams. The team with the most impressive project (e.g., most clear, most useful and actionable, most interesting, most thought provoking, etc.) will receive bonus points.
+
+
+# **Presentation Tips**
+
+See tips for Midterm Presentation.

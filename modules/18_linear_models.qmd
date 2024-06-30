@@ -1,0 +1,729 @@
+---
+title: "**Linear Models**"
+author: "Gabriel I. Cook"
+#date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# secret functions
+# source(here::here("r", "src", "color_format_text.R"))
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# huber text
+huber_pdf <- "https://www.markhuberdatascience.org/_files/ugd/c2b9b6_543ea42a1ea64e32b4440b34ffd71635.pdf"
+front_matter <- 10
+huber_intro_ch <- glue::glue(huber_pdf,"#page=",front_matter + 3)
+huber_rmarkdown_ch <- glue::glue(huber_pdf,"#page=",front_matter + 10)
+huber_graphing_ch <- glue::glue(huber_pdf,"#page=",front_matter + 17)
+huber_transformation_ch <- glue::glue(huber_pdf,"#page=",front_matter + 59) # 5
+huber_summaries_ch <- glue::glue(huber_pdf,"#page=",front_matter + 71)
+huber_eda_var_ch <- glue::glue(huber_pdf,"#page=",front_matter + 81)
+huber_eda_covar_ch <- glue::glue(huber_pdf,"#page=",front_matter + 93)
+huber_import_ch <- glue::glue(huber_pdf,"#page=",front_matter + 103)
+huber_tidy_data_ch <- glue::glue(huber_pdf,"#page=",front_matter + 123)
+huber_relational_ch <- glue::glue(huber_pdf,"#page=",front_matter + 141)
+huber_filtering_joins_ch <- glue::glue(huber_pdf,"#page=",front_matter + 150)
+huber_strings_ch <- glue::glue(huber_pdf,"#page=",front_matter + 155)
+huber_regex_ch <- glue::glue(huber_pdf,"#page=",front_matter + 162)
+huber_using_regex_ch <- glue::glue(huber_pdf,"#page=",front_matter + 170)
+huber_func_patterns_ch <- glue::glue(huber_pdf,"#page=",front_matter + 182)
+huber_factors_ch <- glue::glue(huber_pdf,"#page=",front_matter + 186)
+huber_sql_ch <- glue::glue(huber_pdf,"#page=",front_matter + 199)
+huber_writing_functions_ch <- glue::glue(huber_pdf,"#page=",front_matter + 232)
+huber_modeling_ch <- glue::glue(huber_pdf,"#page=",front_matter + 241)
+```
+
+```{r}
+#| label: load-packages
+#| include: false
+
+R.utils::sourceDirectory(here::here("r", "functions"))
+```
+
+# **Overview**
+
+In this module, we will introduce using `R` to model data using familiar linear models (e.g., OLS linear regression). The module will not formally address what a linear model is and why one would use one as such topics have been covered in prerequisite statistics courses. Tests of model diagnostics are also no addressed as the focus is on model fit and predictor influence on the outcome variable.
+
+
+## **Readings and Preparation**
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time. Work through some examples so that you have a good idea of your level of understanding and confidence. 
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing code through exercises. 
+
+
+```{r eval=FALSE, warning=FALSE, include=FALSE}
+# **To Do**
+#- [R Workflow Basics](https://r4ds.hadley.nz/data-transform)
+```
+
+## **Supplementary Readings**
+
+
+## **Libraries** 
+
+- **{here}** `r packageVersion("here")`: for file path management
+- **{dplyr}** `r packageVersion("dplyr")`: for manipulating data frames
+- **{ggplot2}** `r packageVersion("ggplot2")`: for data visualization
+- **{GGally}** `r packageVersion("GGally")`: for generalized pairs plots
+- or **{tidyverse}** `r packageVersion("tidyverse")`: the full **{tidyverse}** ecosystem
+- **{parameters}** `r packageVersion("parameters")`: for details on model parameters
+- **{performance}** `r packageVersion("performance")`: for evaluating model fit
+- or **{easystats}** `r packageVersion("easystats")`: the full **{easystats}** ecosystem
+
+Others:
+
+- **{gt}** `r packageVersion("gt")`: for model tables
+- **{gtsummary}** `r packageVersion("gtsummary")`: for model tables
+
+# **Libraries**
+
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+library(parameters)
+library(performance)
+library(GGally)
+library(gt)
+library(gtsummary)
+#library(ggstatsplot)
+```
+
+# **Data**
+
+We will work with the `mtcars` data set built into R. Examine the variables for variable types. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+head(mtcars) |> gt::gt() |> gt::tab_header("Data: mtcars")
+```
+
+Using `GGally::ggpairs`, explore the variable distributions and relationships. Let's reduce this data frame down to some variables that are numeric and convert those that represent categories (e.g., am = automatic vs. manual; vs = v vs. straight line). So as not to get distracted by mathematical measures of linear association, remove the correlations in the upper quadrants by setting them to be black using `upper = list(continuous = wrap("blank")))`. This plot is provided for exploring the data and thinking about the relationships before running any models.
+
+```{r message=FALSE, warning=FALSE}
+mtcars |>
+  mutate(vs = factor(vs), 
+         am = factor(am)
+         ) |>
+  relocate(c(vs, am), .after = last_col()) |>        # relocate to group at end in plot
+  select(-c(cyl, gear)) |>                           # remove some variables
+  ggpairs(upper = list(continuous = wrap("blank")))  # make correlations blank
+```
+
+By simple visual inspection, some variable relationships appear as they could be linear and some do not. Examine some variables more closely and also replace the empty squares with scatter plots with smoothed lines that will highlight the relationship. Note that the scatter plots above and below the diagonal will **not** be identical because they invert what variable is plotted along the axes. 
+
+```{r message=FALSE, warning=FALSE}
+mtcars |>
+  mutate(vs = factor(vs), 
+         am = factor(am)
+         ) |>
+  relocate(c(vs, am), .after = last_col()) |>        # relocate to group at end in plot
+  select(-c(cyl, gear, qsec, am, vs)) |>             # remove some variables
+  ggpairs(upper = list(continuous = wrap("smooth",   # add a loess fit
+                                         method = "loess", 
+                                         se = FALSE, 
+                                         col = "cornflowerblue" 
+                                         )
+                       )
+          ) 
+```
+
+Let's pull out some variables of interest to predict `mpg`, for example `disp` (displacement), `hp` (horsepower), and `wt` (weight) mpg.
+
+```{r message=FALSE, warning=FALSE}
+mtcars |>
+  select(mpg, disp, hp, wt) |>                           
+  ggpairs(upper = list(continuous = wrap("smooth", 
+                                         method = "loess", 
+                                         se = FALSE, 
+                                         col = "cornflowerblue"
+                                         )
+                       )
+  )
+```
+
+You could try to fit a simple linear model to the data by predicting `mpg` from `disp`, `hp`, or `wt` individually. But before doing so, let's look at whether the transforming data will visually improve a linear fit. These steps will help you understand what the model is doing as well as understand how `lm()` if used to fit the data. 
+
+
+# **Transforming Data**
+
+Raw values can be transformed into other values. Some transformations can be linear, for example, standardizing data (e.g., `z = x - mean(x)/sd(x)`).  Other transformations will not be linear, for example, exponential transformations (e.g., `x^2` or `X^3`). Transforming data in different ways will allow for inspecting different relationships.
+
+```{r}
+hp_dat <- 
+  mtcars |>
+  mutate(
+    hp_z    = (hp - mean(na.omit(hp)))/sd(na.omit(hp)),
+    hp_z2   = scale(hp),              # standardize 
+    hp_sq   = hp^2,                   # square
+    hp_exp2 = exp(2 * log(hp)),       # exponent 2
+    hp_sqrt = sqrt(hp),               # square root
+    hp_log  = log(hp)                 # natural log
+  ) |>
+  select(c(mpg, contains("hp_")))
+```
+
+Looking at the data frame, `hp_z` and `hp_z2` look the same. 
+
+```{r}
+hp_dat |> head() |> gt()
+```
+
+However, be careful when scaling variables using scale. The function can produce some errors as it returns a matrix, which you can spot with `glimpse()`. 
+
+```{r}
+glimpse(hp_dat)
+```
+
+The solution is to standardize by formula or to coerce the object into a numeric vector using `as.numeric()`.
+
+```{r}
+hp_dat <- 
+  mtcars |>
+  mutate(
+    hp_z    = (hp - mean(na.omit(hp)))/sd(na.omit(hp)),
+    hp_z2   = as.numeric(scale(hp)),  # standardize 
+    hp_sq   = hp^2,                   # square
+    hp_exp2 = exp(2 * log(hp)),       # exponent 2
+    hp_sqrt = sqrt(hp),               # square root
+    hp_log  = log(hp)                # natural log
+  ) |>
+  select(c(mpg, hp, contains("hp_")))
+```
+
+Now examine the exploratory visualizations. The key row is the first row for which `mpg` is paired with all of the other variables.
+
+```{r}
+hp_dat |>
+  select(c("mpg", contains("hp"))) |>
+  ggpairs(upper = list(continuous = wrap("smooth", 
+                                         method = "lm", 
+                                         se = FALSE, 
+                                         col = "cornflowerblue")
+                       )
+          )  
+```
+
+Notice that `mpg` paired with `hp`, `hp_z`, or `hp_z2` all appear the same. This is because of the linear transformation. Linear transformations of a predictor will not affect the model because each value is transformed equally (all divided by the standard deviation). Looking at the other scatter plots, `hp_sqrt` and `hp_log` appear to be related more linearly with `mpg`. They may be better transformations used to understand the relationship between the variables.  
+
+Adding the Pearson's *r* to the visualizations (to the lower panels), provides numeric clarification to this visual claim. The log transformation seems to be the best fit. 
+
+```{r}
+hp_dat |>
+  select(c("mpg", contains("hp"))) |>
+  ggpairs(
+    lower = list(continuous = wrap("cor")),
+    upper = list(continuous = wrap("smooth", 
+                                   method = "lm", 
+                                   se = FALSE, 
+                                   col = "cornflowerblue")
+                       ))
+```
+
+
+# **Linear Models**
+
+By fitting a linear model to your data, you are performing the process of estimating the parameters of a linear relationship between one or more predictor variables and an outcome/response variable. This linear relationship is seen visually as a straight line, represented by the equation for the line.
+
+## **Linear Model Equation**
+
+The linear model equation: 
+$$
+Y = \beta_0 + \beta_1 X + \epsilon
+$$
+
+- *beta_0*: is the intercept (the value of Y when X = 0) 
+- *beta_1*: is the slope (the change in Y for each one-unit change in X)
+- *epsilon*: model error (the difference between the observed value of Y and value predicted by the model)
+
+## **Building a Linear Model Using `lm()`**
+
+Using `lm()` we will specify the formula and the data arguments. 
+
+```{r}
+model <- lm(formula = mpg ~ hp, 
+            data = hp_dat      
+            )
+```
+
+A summary of the models reveals the formula, the residuals, coefficients, error, *p*-values, *R*^2 values, and an *F* value.
+
+```{r}
+summary(model)
+```
+
+## **Visualizing Model Errors (Residuals)**
+
+## **Residuals**
+
+Running the model will try to fit a line through the points by minimizing the squared distance of the each point from the line (aka *method of least squares*). The model equation will allow for predicting the value of Y, which can be performed on each points. These errors are referred to as residuals. 
+
+We can visualized the linear fit and also show the residuals, or errors in prediction. Some `mpg` values are over-predicted (below the line) by `hp` model and some are under-predicted (above the line). 
+
+```{r echo=FALSE}
+hp_dat <-
+  hp_dat |>
+  mutate(fitted = model$fitted.values)
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+hp_dat |>
+  ggplot(mapping = aes(x = hp, y = mpg)) +
+  geom_point() +  
+  geom_line(mapping = aes(y = fitted), color = "blue") +  
+  geom_segment(mapping = aes(xend = hp, yend = fitted), 
+               color = "red", alpha = 0.5) +
+  labs(title = "",
+       x = "Horsepower (hp)",
+       y = "Miles per Gallon (mpg)") +
+  theme_minimal()
+```
+
+## **Predicting Using the `log(hp)`**
+
+We can build a model by transforming `hp` directly in the formula. 
+
+```{r}
+model_log <- lm(formula = mpg ~ log(hp), 
+                data = hp_dat      
+                )
+```
+
+**The Model Summary**
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+summary(model_log)
+```
+
+```{r echo=FALSE}
+hp_dat <-
+  hp_dat |>
+  mutate(fitted_log = model_log$fitted.values)
+```
+
+**Visualizing Model Errors (Residuals)**
+
+You can now see that the model fit is non-linear but the residuals are still determined as distance from the predicted values.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+hp_dat |>
+  ggplot(mapping = aes(x = hp, y = mpg)) +
+  geom_point() +  
+  geom_line(mapping = aes(y = fitted_log), color = "blue") +  
+  geom_segment(mapping = aes(xend = hp, yend = fitted_log), 
+               color = "red", alpha = 0.5
+               ) +  
+  labs(title = "",
+       x = "Horsepower (log(hp))",
+       y = "Miles per Gallon (mpg)") +
+  theme_minimal()
+```
+
+## **Predicting Using the `hp_log = log(hp)`**
+
+Because we have have transformed `hp` wee can use `hp_log` to predict `mpg`.
+
+```{r}
+model_log2 <- lm(formula = mpg ~ hp_log, 
+                 data = hp_dat      
+                 )
+```
+
+**The Model Summary**
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+summary(model_log2)
+```
+
+```{r echo=FALSE}
+hp_dat <-
+  hp_dat |>
+  mutate(fitted_log2 = model_log2$fitted.values)
+```
+
+**Visualizing Model Errors (Residuals)**
+
+As we visualized in the `ggpairs` plot, the relationship between `mpg` and `hp_log` was rather linear and the Pearson's *r* value was rather high. Because `hp_log` was already transformed and because `formula = mpg ~ hp_log`, the model will fit a line through the data. Here, the residuals represent error in the predicting `mpg` based on `log(hp)` but in terms of a linear fit. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+hp_dat |>
+  ggplot(mapping = aes(x = hp_log, y = mpg)) +
+  geom_point() +  
+  geom_line(mapping = aes(y = fitted_log2), color = "blue") +  
+  geom_segment(mapping = aes(xend = hp_log, yend = fitted_log2), 
+               color = "red", alpha = 0.5) +  
+  labs(title = "",
+       x = "Horsepower (hp_log)",
+       y = "Miles per Gallon (mpg)") +
+  theme_minimal()
+```
+
+
+**Comparing the Models**
+
+We can examine the model summaries. Importantly, we can see that they are identical.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+summary(model_log) |> broom::tidy() |> gt() |> gt::tab_header("Model 1: mpg ~ log(hp)")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+summary(model_log2) |> broom::tidy() |> gt() |> gt::tab_header("Model 2: mpg ~ hp_log")
+```
+
+
+# **Interpreting Model Output**
+
+So far, we have considered the model equation and basic components (coefficients) used to fit the line. We addressed the concept of fitting a model to data and reviewed visually that *residuals* represent model error, or difference between actual values and those predicted from a model. We will now address the components of a model output and how to interpret those components. The components will change with simple models and complex models involving multiple predictors, so we will address both bivariate and multiple-regression models.
+
+**NOTE**: As a word of warning, you cannot interpret *y-intercept* of regression models when values of the predictor cannot be zero. The y-intercept represents the value of Y when X = 0. If a zero value of your predictor is not possible, you want to standardize your predictor. This process of *centering* the data will ensure that 0 is possible because the mean a variable that has been standardized is zero. For this reason, the model used for this section on interpretation of the model will use a standardized variable as a predictor.
+
+## **Simple/Bivariate Linear Regression (Single-Predictor Models)**
+
+Predicting y from x1 (continuous) predictor:
+
+```{r}
+model <- lm(formula = mpg ~ hp_z, 
+            data = hp_dat
+            )
+```
+
+
+### **Interpreting the Overall Model Fit**
+
+For model details, pass model to `summary()`
+
+```{r}
+summary(model)
+```
+
+
+#### **R-squared Values**
+
+Multiple R-squared represents the proportion of variance in the outcome variable that is *explained by*, or *accounted for* by the predictor(s). The *square root** of this values is Pearson’s *r* correlation coefficient. Because there is only one predictor in this model, this multiple R-squared is really just *r* squared. Because the model estimates are based on samples, they are not perfect for making inferences about the populations you really care about. The adjusted R-squared is adjusted for *shrinkage*, or loss of predictive power that occurs when using sample data to predict population data; the more error in the regression model (e.g., residuals), the more the adjusted R-squared will differ from the *unadjusted R-squared*.
+
+
+#### **The F-statistic**
+
+Understanding this statistic involves understanding variability, or error, in the data. By understanding what error exists in an outcome variable, you you can then understand whether another variable can help account for or *explain* (R-squared) those differences in the outcome variable. 
+
+Without knowing anything about the `hp` of a vehicle, the best guess about the vehicle's `mpg` would be the average `mpg` of all vehicles. The deviation of each vehicle's `mpg` from the mean `mpg` provides an estimate of the total variability, or error, in the data. The sum of all of those deviation `hp - mean(hp)` in squared units is sometimes referred to as *Total Sums of Squares*. 
+
+The value in using a regression model is to improve prediction of the outcome variable, thereby reducing prediction error. A way to think about the regression model is to consider whether knowing a vehicle's `hp` will reduce the error in predicting it's `mpg`, of course in conjunction with all cars in the sample. If knowing vehicle `hp` improves the prediction of `mpg`, then the prediction error associated with the regression model would be less than the error in the outcome variable alone.
+
+The *F*-statistic represents the ANOVA test value (F value) for the ratio test of the model. A statistically significant result indicates that the regression model accounts for more variability in the outcome variable better than does a mean-based model that would predict all `mpg` values to be the mean `mpg`.
+
+Another way to understand the *F*-statistic is to view an anova table of the regression model.
+
+```{r}
+anova(model) |> broom::tidy() |> gt()
+```
+
+```{r include=FALSE}
+model_anova <- anova(model) |> broom::tidy() 
+```
+
+The *F* statistic is the mean squared error for the model `r as.numeric(model_anova[1, 4])` / mean square of the residuals `r as.numeric(model_anova[1, 4])` =  `r as.numeric(model_anova[1, 4])/as.numeric(model_anova[2, 4])`
+
+```{r include=FALSE}
+#- **Total Error**: Total Sums of Squares (e.g., y - y-mean) squared errors (`r model_anova$sumsq[1]`)
+#- **Model/Residual Error**: Residual Error (y - predicted) squared errors (`r model_anova$sumsq[2]`)
+```
+
+
+```{r include=FALSE}
+#- **Model Accuracy**: total error – residual error
+#- **R-squared**: total error – residual error/total error (the ration of what the model accounts for relative to the total error)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+model_anova |> select(c(1, 4, 5)) |> gt()
+```
+
+People often compare the *p*-value to an alpha value (e.g., .05 or .01) to decide if the regression model fits the data better than the mean-based model. This ANOVA test only tells you whether the overall model fits the data; it does not examine the components of the model (e.g., beta 0, beta 1, etc.).
+
+#### **Model Parameters/Coefficients**
+
+Beyond an overall model fit, interpreting specific model parameters (the coefficients part of the output table) is important to understanding any regression model. 
+
+The coefficients report is displayed in 2 rows and 4 columns from `summary(model)`. 
+
+```{r include=FALSE}
+summary(model)
+```
+
+If you wanted a cleaned-up tabular version of coefficients tidy with `broom::tidy()`, then `round()` `across()` some columns, and pass to `gt()`.
+
+```{r}
+summary(model) |> 
+  broom::tidy() |> 
+  mutate(across(.cols = 2:4,
+                .fns = ~round(.x, 5)
+                )
+         ) |> gt()
+```
+
+The `Estimate` column displays the two estimated coefficient values y-intercept (beta 0) and the regression coefficient (beta 1). 
+
+```{r echo=FALSE}
+model |> broom::tidy() |> select(c(1,2)) |> gt()
+```
+
+- y-intercept (*beta 0*): `r model$coefficients[1]`
+- slope (*beta 1*): `r model$coefficients[2]`
+
+- The `Std. Error` column displays the error in estimating the coefficients. This error indicates the amount of error in coefficients; small error is good and would indicate that the intercept and slope would not vary as much from sample to sample. 
+
+```{r echo=FALSE}
+model |> broom::tidy() |> select(c(1,3)) |> gt()
+```
+
+- The `t-value` column displays the value of the t-statistic, which simply tests whether the coefficient differs from 0 (H0: t = 0), which can be inferred also from examining the `Pr(>|t|)` column which provides the *p*-value for the *t*-test.
+
+```{r echo=FALSE}
+model |> broom::tidy() |> select(c(1,4,5)) |> gt()
+```
+
+In this case, we can see that the *t*-values are quite far from 0 and have correspondingly low *p*-values. Thus, the y-intercept and slope are non-zero.  
+
+##### **Intercept**
+
+- y-intercept (beta 0): `r model$coefficients[1]`
+
+The *first row* corresponds to the *intercept* (beta 0). This y-intercept predicts the value of `y` when `X = 0` (e.g., X = 0). A *p*-value less than or equal to alpha may indicate that the y-intercept differs from 0. Mathematically, beta 0 can be less than 0. 
+
+The intercept represents the `mpg` when `hp = `. Of course, you cannot have 0 horsepower. Because the mean of a standardized distribution equals zero, for this model, the y-intercept would represent `mpg` for the mean `hp` (the average vehicle).  
+
+```{r include=FALSE}
+model_scale <- lm(mpg ~ hp_z, hp_dat)
+hp_dat$fitted_scale <- model_scale$fitted.values
+
+hp_dat |>
+  ggplot(mapping = aes(x = hp_z, y = mpg)) +
+  geom_point() +  # Scatter plot of data points
+  geom_line(mapping = aes(y = fitted_scale), color = "blue") +  # Fitted line
+  geom_segment(mapping = aes(xend = hp_z, yend = fitted_scale), color = "red", alpha = 0.5) +  # Lines from points to fitted line
+  labs(title = "",
+       x = "Horsepower (hp_z)",
+       y = "Miles per Gallon (mpg)") +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = model$coefficients[1]) +
+  theme_minimal()
+```
+
+##### **Slope**
+
+The *second row* corresponds to the **regression coefficient/slope** (beta 1). This represents the increase or decrease (depending on whether the correlation is positive or negative) in `mpg` for each unit change in `hp_z`. Because horsepower is standardized, the unit change is 1 single standard deviation. A *p*-value equal to or less than alpha means the slope differs from 0. When there are multiple predictor variables, there will be slopes corresponding the each predictor and the outcome variable.
+
+
+##### **Intercept and Slope**
+
+Model parameters can also be checked using the `parameters::model_parameters()` function, which will provide them in a cleaner table and adjust for scientific notation as well as provide *confidence intervals* bounded around the estimates, which `summary()` does not provide.
+
+```{r}
+parameters::model_parameters(model) |> 
+  mutate(across(.cols = 2:7,
+                .fns = ~round(.x, 3)
+                )
+         ) |>
+  gt()
+```
+
+##### **Additional Metrics**
+
+Using `performance::r2()` and `performance::model_performance()`, you can see the model performance metrics, including AIC and BIC metrics.
+
+*AIC (Akaike’s Information Criterion)* is a metric for model accuracy. The lower the AIC values, the better the model (useful when comparing models). AICc is a version of AIC correcting for small sample sizes. 
+
+*BIC (Bayesian Information Criterion)* is a variant of AIC with a stronger penalty for including additional variables to the model.
+
+*Root Mean Squared Error (RMSE)* represents the average error performed by the model in predicting the outcome for an observation. RMSE is the square root of the mean squared error (MSE). The lower the RMSE, the better the model.
+
+```{r}
+performance::r2(model)
+
+performance::model_performance(model)
+```
+
+
+#### **Examining Model Assumptions**
+
+You should generally examine model assumptions prior to interpreting the model because if the assumptions are violated, the model is invalid. In other words, you don't want to use a model to predict data when the model is not working in the ways it was designed.
+
+The predictor(s) must be either quantitative or categorical (2 categories); the outcome variable must be quantitative and continuous. It should also be unbounded or unconstrained; for example if a scale that ranges from 1 to 9 is used to measure the criterion and if responses only fall between say 3 and 7, the data are constrained (bounded). An obvious solution is to check the range for the criterion using the built-in `range()` function.
+
+Variance Concerns. Predictors should not be restricted and not have variances that are near 0. Range restriction in general is often problematic with regression (leading to attenuated correlations and reduce predictive ability). If you have a much smaller range, you should investigate reasons why. 
+
+# **Model Performance**
+
+Functions from **{performance}** library will be helpful for understanding the model. `performance::check_model()` will produce plot set without using additional code. This function will also adjust the plots to include depending on your model so that you don't always need to specify them. However, to check the assumptions individually, you will specify them with their unique functions. 
+
+- `check_heteroscedasticity()`
+- `check_normality()`
+- `check_outliers()`
+- `check_collinearity()`
+
+```{r eval=FALSE, include=FALSE}
+performance::check_model(model)
+
+performance::check_normality(model)
+performance::check_heteroscedasticity(model)
+performance::check_outliers(model)
+#performance::check_collinearity(model;)
+```
+
+
+
+# **Multiple Regression (Multiple-Predictor Models)**
+
+Although variability in an outcome variable can be explained by a single predictor, this does not preclude other variables from explaining variability in the outcome variables. 
+
+Looking at some other variables in the data set, `wt` and `disp` are also related to `mpg`. All are negatively correlate with `mpg` and negatively correlated with each other.
+
+```{r message=FALSE, warning=FALSE}
+dat <-
+  mtcars |>
+  mutate(
+    hp_log = log(hp),
+    wt_log = log(wt)
+  )
+
+dat |>
+  select(mpg, disp, hp, hp_log, wt, wt_log) |>                           
+  ggpairs(lower = list(continuous = wrap("cor")), 
+          upper = list(continuous = wrap("smooth", 
+                                         method = "loess", 
+                                         se = FALSE, 
+                                         col = "cornflowerblue"
+                                         )
+                       )
+  )
+```
+
+A **multiple-predictor model** can be built to answer some concerns including:
+
+1. Whether `mpg` can be predicted more accurately with more than one predictor;
+2. Whether the model is a significant fit to the data;
+3. Whether the predictors account for the unique variance in the outcome variable that is not accounted for by the other predictor;
+4. Whether one predictor accounts for more variability than the other
+
+## **Linear Model Equation**
+
+The linear model equation: 
+
+$$
+Y = \beta_0 + \beta_1 X + \beta_2 + X + \epsilon
+$$
+
+- `beta_0`: is the intercept (the value of Y when X = 0) 
+- `beta_1`: is the slope (the change in Y for each one-unit change in X1)
+- `beta_2`: is the slope (the change in Y for each one-unit change in X2)
+- `epsilon`: model error 
+
+Because we know the `log(hp)` is a better fit to `mpg` and we can see that `wt_log` is slightly more correlated with `mpg` than is `wt`, we can build some additional models to test. 
+
+Model 2: 
+
+$$
+Y = \beta_0 + log(hp) X + wt X + \epsilon
+$$
+Model 3: 
+
+$$
+Y = \beta_0 + log(hp) X + \log(wt) X + \epsilon
+$$
+
+
+## **Building Multiple-Predictor Models Using `lm()`**
+
+Adding predictors simply involves adding them to the formula. Both predictors will be centered to have a mean of 0 in order to interpret the intercept.  
+
+```{r}
+model_2 <- lm(formula = mpg ~ scale(hp_log) + scale(wt),
+              data = dat
+              )
+```
+
+
+```{r}
+model_3 <- lm(formula = mpg ~ scale(hp_log) + scale(wt_log), 
+              data = dat
+              )
+```
+
+**Comparing the Models**
+
+We can examine the two model summaries.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+summary(model_2) |> 
+  broom::tidy() |> 
+  gt() |> 
+  gt::tab_header("Model 3: mpg ~ hp_log + wt")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+summary(model_3) |> 
+  broom::tidy() |> 
+  gt() |> 
+  gt::tab_header("Model 3: mpg ~ hp_log + wt_log")
+```
+
+## **Interpreting the Model**
+
+- **Intercept**: The intercept term represents the expected value of the response variable when all predictor variables are zero. Because they are centered, the intercept now represents the predicted value of the outcome when all predictors are their mean values.
+
+- **Coefficients:** for predictor variables (β₁, β₂, ..., βₚ): Each coefficient for a predictor variable represents the change in the expected value of the response variable for a one-unit change in that predictor variable, which holding constant all other predictors. Because the predictors are centered, the unit change is a standard deviation. As with Pearson's *r* values, coefficients can be positive or negative, reflecting the nature of the relationship. 
+
+- **R-Squared**: The overall model fit can be measured with R-squared. When your goal is to understand how much variance is accounted for by predictors, use this measure. Only 100% of the variance can be accounted for by predictors.
+
+- **Interaction terms**: If interaction terms are included in the model, the interpretation of coefficients becomes more complex. Interaction terms represent the combined effect of two or more predictor variables on the response variable, and their coefficients indicate how the effect of one predictor variable changes depending on the level of another predictor variable.
+
+- **Root Mean Squared Error (RMSE)**: Another measure of model fit. Use RMSE when you want to assess the model's predictive accuracy and understand the magnitude of prediction errors. The closer the value is to 0, the less squared error exists. When comparing models, lower RMSE is typically better. 
+
+## **Comparing Models**
+
+```{r}
+performance::compare_performance(model_2, model_3, rank = TRUE)
+```
+
+Using RMSE to compare, we see that the model using the log of both predictors is a better fit. Similarly, R-squared is also higher.  
+
+
+
+## **Interpreting Model Coefficients**
+
+Inspecting the better fitting model, the coefficients for both predictors have associated *t*-values that are non-zero. Thus, both `log(hp)` and `log(wt)` account for variability in `mpg` that is unique from other predictors in the model. This *t*-values provides information about the predictors explaining variance in the response variable, holding all other predictors constant.
+
+```{r}
+parameters::parameters(model_3) |> 
+  mutate(across(.cols = 2:6,
+                .fns = ~round(.x, 3)
+                )
+         ) |>
+  gt() |>
+  tab_header(title = "Model 3: mpg ~ log(hp) + log(wt)")
+```
+
+If you don't need to add the *t*-values, `gtsummary::tbl_regression()` makes a more concise table.
+
+```{r}
+model_3 |>
+  tbl_regression()
+```
+
+# **Summary**
+
+Linear models are useful for understanding underlying variable relationships. When raw values are non-linear, values can be transformed in order to fit a linear model. The fit of a model can be evaluated with R-squared and RMSE values. Although outcome variables may be predicted by a single variable, more than one predictor (numeric or categorical) can be used for more complex models to understand how all predictors aid in the overall model fit as well as how each individual predictor does while other predictors are held constant. 
+
+# **Session Information**
+
+```{r}
+sessioninfo::session_info()
+```

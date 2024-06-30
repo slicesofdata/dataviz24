@@ -1,0 +1,248 @@
+---
+title: "long to wide"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+LONG <- 
+  readRDS(here::here("data", "symmspan", "sspan_long_clean.Rds")) |>
+  #filter(id_wave == 1) |>
+  filter(!is.na(correct))
+
+WIDE_partial <-
+  LONG |>
+  select(id_subject, id_school, id_wave, totalcorrectsquares) |>
+  pivot_wider(id_cols = id_subject,   # not this var
+              names_from = id_wave,
+              values_from = totalcorrectsquares,
+              names_prefix = "wave_"
+              ) |>
+  #rename_with(~paste0(.x, "_partial_span"), -id_subject, -id_school) |>
+  # or the easy way
+  rename(wave_1_partial_span = wave_1,
+         wave_2_partial_span = wave_2,
+         wave_3_partial_span = wave_3,
+         )
+
+WIDE_absolute <-
+  LONG |>
+  select(id_subject, id_school, id_wave, sspan) |>
+  pivot_wider(id_cols = id_subject,   # not this var
+              names_from = id_wave,
+              values_from = sspan,
+              names_prefix = "wave_"
+              ) |>
+  #rename_with(~paste0(.x, "_partial_span"), -id_subject, -id_school) |>
+  # or the easy way
+  rename(wave_1_abs_span = wave_1,
+         wave_2_abs_span = wave_2,
+         wave_3_abs_span = wave_3,
+         )
+
+merge(WIDE_absolute, WIDE_partial, by = "id_subject")
+```
+
+
+
+
+
+
+
+
+```{r}
+library(gt)
+library(gtable)
+LONG |>
+  slice(1:5) |>
+  select(1:4) |>
+  gt::gt() |>
+  tab_header(
+    title = "My Title",
+    subtitle = "Subtitle"
+#    subtitle = glue::glue("{start_date} to {end_date}")
+  )
+
+################################################################################
+# read wide data
+WIDE <- readRDS(here::here("data", "gng", "gng_subset_wide.Rds"))
+
+#view_html(WIDE)
+
+WIDE |>
+  mutate(task = case_when(
+    is.na(gng_ntarget1) ~ "Symmetry Span",
+    !is.na(gng_ntarget1) ~ "Go/No-Go",
+  )) |> view_html()
+```
+
+
+```{r}
+ARR <- USArrests
+ARR
+ARR 
+WIDE
+G
+
+################################################################################
+# convert to long
+LONG <-
+  WIDE |>
+  # tidyr::pivot_longer(cols = starts_with(c(task_vars_for_long)),
+  tidyr::pivot_longer(
+    cols = starts_with("gng_"),
+    names_to = c(".value", "trial"),
+    names_pattern = "([A-Za-z]+)(\\d+)",
+    values_drop_na = TRUE,
+  ) |>
+  filter(!is.na(ntarget))
+
+```
+
+`cols = starts_with("gng_")`: Here, it specifies that we are interested in the columns that start with "gng_". These columns will be converted from wide to long format.
+
+names_to = c(".value", "trial"): This argument specifies how the new column names should be formed. The .value placeholder indicates that the actual values of the columns will be stored in a new column named based on the pattern specified in names_pattern, while the "trial" part indicates that the part of the column names matched by the second set of parentheses in names_pattern will be stored in a column named "trial".
+
+names_pattern = "([A-Za-z]+)(\\d+)": This argument specifies the pattern in the column names that should be used to generate the new column names.
+
+([A-Za-z]+): This captures alphabetic characters (upper and lower case) that precede the numeric part of the column name. It will be stored as the .value part of the new column name.
+(\\d+): This captures the numeric part of the column name. It will be stored in the "trial" column.
+In summary, the function converts the wide format data to long format, taking columns starting with "gng_", and separates the variable names into two parts: the variable value (stored in a column named based on the actual variable name) and the trial number (stored in a column named "trial").
+
+
+
+
+
+```{r}
+indiv_level_groups <- c("id_subject", "wave", "target")
+group_level_groups <- c("wave", "target")
+
+readRDS(here::here("data", "gng", "gng_long_clean.Rds")) |>
+  filter(id_subject == "FAQAAW") |>
+  mutate(wave = id_wave) |>  
+  filter(wave == 1) |>
+#  select(-wave) |>
+  #drop_na(rt) |>
+  #group_by(id_subject, id_wave, target) |>
+  group_by(across(any_of(indiv_level_groups))) |>
+  summarize(across(.cols = c(accuracy, rt),
+                   .fns = list(
+                     mean = ~mean(na.omit(.x)),
+                     median = ~median(na.omit(.x)),
+                     #sd = ~sd(na.omit(.x)),
+                     #se = ~sd(na.omit(.x))/sqrt(length(na.omit(.x))),
+                     n  = ~length(na.omit(.x)))
+                   )
+            ) |>
+  group_by(across(any_of(group_level_groups))) |>
+  summarize(across(.cols = c(accuracy_mean, rt_mean),
+                   .fns = list(
+                     mean = ~mean(na.omit(.x)),
+                     median = ~median(na.omit(.x)),
+                     #sd = ~sd(na.omit(.x)),
+                     se = ~sd(na.omit(.x))/sqrt(length(na.omit(.x))),
+                     n  = ~length(na.omit(.x)))
+                   )
+            )
+                   
+                     
+                      = mean(accuracy, na.rm = TRUE),
+            accuracy_mdn = median(accuracy, na.rm = TRUE),
+            
+            #n = n()
+            ) |>
+  # then at the group level
+  group_by(across(any_of(group_level_groups))) |>
+  summarize(accuracy = mean(accuracy, na.rm = TRUE),
+            accuracy_mdn = median(accuracy_mdn, na.rm = TRUE),
+            n = n()
+            ) 
+  
+DAT <- readRDS(here::here("data", "gng", "gng_long_clean.Rds")) |> 
+  filter(id_subject == "FAQAAW") |> 
+  filter(id_wave == "1")
+
+DAT |> view_html()
+mean(DAT$rt, na.rm = T)
+median(DAT$rt, na.rm = T)
+
+DATA <- data.frame(id = letters[1:5],
+                   x = c(1, 2, 3, 5, NA))
+DATA |>
+  summarize(
+    rt = mean(x, na.rm = TRUE),
+    rt_mdn = median(x, na.rm = TRUE)
+    )
+str(DAT)
+DAT |>
+  filter(id_subject == "FAQAAW") |>
+  slice(1:20) |>
+#  mutate(wave = id_wave) |>  
+#  filter(wave == 1) |>
+#  select(-wave) |>
+  #drop_na(rt) |>
+  #group_by(id_subject, id_wave, target) |>
+  #group_by(across(all_of(indiv_level_groups))) |>
+  mutate(rt = as.integer(rt)) |>
+  summarize(
+    rt = mean(rt, na.rm = TRUE),
+    rt_mdn = median(rt, na.rm = TRUE),
+    rt_mean2 = mean(rt, na.rm = TRUE),
+    #n = n()
+    )
+  
+# then at the group level
+  group_by(across(all_of(group_level_groups))) |>
+  summarize(rt = mean(rt, na.rm = TRUE),
+            rt_mdn = median(rt, na.rm = TRUE),
+            n = n()
+            )
+?n
+dplyr::n
+sum_across_list <- list(
+  mean = ~mean(na.omit(.x)),
+  sd = ~sd(na.omit(.x)),
+  n = ~length(na.omit(.x))
+  )
+
+Advanced Data Summaries
+
+
+DAT |>
+  group_by(wave, target) |>
+  summarize(across(.cols = c(rt, accuracy), 
+                   .fns = sum_across_list,
+                   .names = "{col}_{fn}"
+                   )
+            )
+
+  summarise(across(.cols = c(rt, accuracy),
+                   .fns = list(mean = mean, median = median, n = length),
+                   .names = "{col}_{fn}")
+            )
+
+
+
+
+readRDS(here::here("data", "gng", "gng_long_clean.Rds")) |>
+  drop_na(rt) |>
+  group_by(id_subject, id_wave, target, accuracy) |>
+  summarize(rt = mean(rt, na.rm = TRUE),
+            rt_mdn = median(rt, na.rm = TRUE),
+#            acc = mean(accuracy, na.rm = TRUE),
+            n = n()
+            ) 
+  group_by(id_wave, cue, target) |>
+
+    sum_across_list <- list(
+      mean = ~mean(na.omit(.x)),
+      sd = ~sd(na.omit(.x)),
+      n = ~length(na.omit(.x)))
+```
+
+
+

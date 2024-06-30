@@ -1,0 +1,226 @@
+---
+title: "**Introduction to RStudio and R Markdown**"
+author: "Gabriel I. Cook"
+#date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# secret functions
+# source(here::here("r", "src", "color_format_text.R"))
+source(here::here("r", "_common.R"))
+```
+
+::: callout-important
+## Under construction. 
+
+This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.
+:::
+
+
+```{r}
+#| label: load-packages
+#| include: false
+
+
+R.utils::sourceDirectory(here::here("r", "functions"))
+```
+
+# **Overview**
+
+In this module, we familiarize ourselves with using `R` in `RStudio` as well as create files that contain both text and `R` using  [**R Markdown**](https://gabrielcook.xyz/fods24/cheatsheets/rmarkdown-2.0.pdf). 
+
+
+## **Readings and Preparation**
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.  
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing code through exercises. 
+
+## **Supplementary Readings**
+
+```{r eval=FALSE, warning=FALSE, include=FALSE}
+# **To Do**
+# 
+#- [R4DS: YAML Header](https://r4ds.hadley.nz/quarto.html#yaml-header)
+```
+
+- [Huber: RMarkdown](`r huber_rmarkdown_ch`)
+
+
+## **Libraries** 
+
+- **{here}** `r packageVersion("here")`: for file path management
+- **{rmarkdown}** `r packageVersion("rmarkdown")`: for creating markdown files 
+
+
+# **Some things about the R Language**
+
+## **`R` is an Interpreted Language**
+
+`R` is an interpreted language. This means that code or programs you write may be executed by the `R` interpreter in real time. The code you write does not need to be compiled prior to being executed. Rather, the `R` interpreter translates your code in real time if it understands your code. If the `R` interpreter doesn't understand your code, it will be unable to translate and you will receive some error.
+
+
+## **Functions**
+
+The code you write for the interpreter will involve referencing functions. You have used a function already when installing libraries (e.g., `install.packages()`. A `function` is nothing more than a set of statements organized together to perform some desired operation. In `R`, a function is an object. This means the `R` interpreter passes control to the function, along with any arguments that are necessary for the function to perform that operation and return the result of that operation. 
+
+
+## **A Function Example**
+
+For example, reading a file into `R` involves using a function that performs that operation. For these functions to read a file containing data, you will need to specify the required and/or optional `arguments` for given `parameters` of the function. Functions and coding basics will be covered more extensively in a later topic. For now, one such function is `read.table()` with is used to read tabular data files. Another function is `read.csv()`, which is a special case of the former function. For this function to read a file, you would need to specify the `file` argument (and file path if the file is not in your working directory) argument at very least so that `R` knows what file to read. Another function you may use is `data.frame()` which is used to create data frames. Using `R` depends on using functions that are designed to handle various tasks. Unlike some langauges, we will not have to create many of our own functions but instead will leverage the work of `R` developers. 
+
+
+# **Getting Help**
+
+## **Internal Help**
+
+You will certainly run into problems coding. When you don't speak the language perfectly, `R` will let you know there are errors. So, how do you find help in `R`? 
+
+To ask `R` about what a function does, you can use `?` paired with the function. In the **Help** window, you will see information about the package the function is from, how it is used, how to use it by specifying *arguments* (more on this later), and usually some examples of how it is used.  
+
+`?install.packages`
+
+```{.r}
+?install.packages
+```
+
+Alternatively, you can use the `help()` function:
+
+- `help("install.packages")`
+- `help("install.packages", package = "utils")`
+
+
+These methods are all equivalent ways of getting help:
+
+```{.r}
+help("summarize")
+?summarize
+?summarize::summarize
+```
+
+You can also simply type a query into the search bar in the `RStudio` Help menu tab (likely to the right). 
+
+
+## **External Help**
+
+Sometimes you need to find help outside of the `R` environment. In this case, just use Google. Type in your query by including the letter R to narrow the search results and you will see a lot that pops up. [https://stackoverflow.com](https://stackoverflow.com) will likely be returned in your search results with questions that people have posted to the website for help from others. This is a community of coders helping coders. You can create an account if you wish, but reading questions and answers to those questions is free. Perhaps in years from now, you can answer questions for others.
+
+For example, if you know you are using the **{dplyr}** library and you are using a function called `starts_with()`, you can search Google for "dplyr starts_with r"
+[and this is what you will see](https://www.google.com/search?q=dplyr+starts_with+r)
+
+
+# **R Coding Style Guide**
+
+Hadley Wickham, the developer of many `R` libraries, including the main graphics package, **{ggplot}** and its current form, **{ggplot2}** and the main data manipulation package, **{dplyr}**, has provided recommendations for `R` coding styles. Having a common coding style generally makes reading code easier across individuals. You can find the style guide available at [https://style.tidyverse.org/](https://style.tidyverse.org/). In particular, check the section on [syntax](https://style.tidyverse.org/syntax.html) as that will be your focus. 
+
+
+
+# **Setting Up RStudio**
+
+You will use `RStudio` for most coding for this course. In order to simplify troubleshooting and errors, we will customize some settings together. 
+
+- Getting on the same `RStudio` page
+- Global Options
+- Other Settings
+
+Please refer to the module on setting up `RStudio` for specific setup details.
+
+
+# **Understanding R Markdown**
+
+For this class, we will create `R` scripts, which end with file extension `.R` and `R Markdown` files which end with file extension `.Rmd`. We will use `R Markdown` for creating HTML outputs to show work. `R Markdown` is also useful in order to create reports that involve italics, bolding font, inserting tables, etc. 
+
+
+## **R Markdown: Code Execution**
+
+This exercise is created with `R Markdown` code. `R Markdown` is a version of Markdown, which is a markup language for creating formatted text output using a plain-text. You are likely familiar with the most famous markup language, HTML (Hypertext Markup Language), which makes websites readable for us all.
+
+Within this `R Markdown` file, the code is written between particular tick marks ``` and curly braces and {r}. These special character combinations simply allow RStudio to know what is R code (e.g., the lowercase r) and what is written text. 
+
+In `RStudio`, you can modify the code block/chunk by clicking the gear to make changes. You can specify whether the code shows the output only, shows the code and the output, whether the code is executed but not shown, or whether the code is not run at all. You can also toggle one and off options to display warnings, message, and other details. You can also review other options if you wish. You'll notice that `warnings` and `messages` will make your output ugly so hiding them is often ideal.  
+
+This exercise serves as a tutorial with the goal of familiarizing you with using `R` and `R Markdown`. The output will be a nice HTML file containing your results. Within the code blocks, to execute code you would put your cursor on the line and press the RUN button (see top right) or press `CONTROL+ENTER` for PC or `COMMAND+ENTER` for Mac.
+
+
+## **R Markdown: Cheat Sheet**
+
+There are many ways to customize an `R Markdown` file. You will need to insert `R` code, write text descriptions, create plots and tables, etc. In some instances you would want to include your `R` code or hide it from the output in their certain ways for doing that in the `R Markdown` language. Some of these ways are created automatically for you in `RStudio` when you initiate new `R Markdown` file.  others can be be found in this 
+[R Markdown cheat sheet](https://www.dataquest.io/blog/r-markdown-guide-cheatsheet/). 
+`RStudio` also has various cheat sheets which you can find [here](https://www.rstudio.com/resources/cheatsheets/).
+You can also read more in [Huber: CH 2](https://www.markhuberdatascience.org/_files/ugd/c2b9b6_543ea42a1ea64e32b4440b34ffd71635.pdf)
+
+On the [course site](the_course_site), there are additional cheat sheet files located on the **Cheat sheet** tab.  
+
+
+## **R Markdown: The Definitive Guide**
+
+Xie, Allaire, and Grolemund have an advanced guide for all the things you can do with `R Markdown`. It's called [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/output-formats.html)
+
+
+## **Some things you can do with RMarkdown**
+
+Wrap text in * to make text italics 
+
+Italicize *this*
+
+Wrap text in ** to make text bold 
+
+Bold **this**
+
+Embed `R` code inside text using ``r `` 
+
+For example, the average mpg for cars in the mtcars data set is `r mean(mtcars$mpg)` thought that should be rounded  `r round(mean(mtcars$mpg), 1)` to be more clear.
+
+Embed `R` code blocks using ````{r}`
+
+Automatically enumerate text sections flagged using # 
+
+Example:
+
+*# Main Section*
+
+*## 2nd Level*
+
+*### 3rd Level*
+
+
+# **R Function Libraries/Packages**
+
+Libraries, or packages, represent a collection of functions used to perform different operations in `R`. Some of the libraries are built into the base version of `R` whereas others are external and must be accessed or downloaded. These libraries are created and built by users of `R` in order to make their lives easier. The benefit for the rest of us is to utilize those resources that are shared by their creators. For example, in order to use `R Markdown` in our `RStudio`, we will need to install the `rmarkdown` library.
+
+There are different ways of installing these libraries. One of those ways is to install them directly from `RStudio` by accessing the *Tools* menu option, clicking on *Install Packages*, and by typing the name of the desired library. The library will then be installed for you to access within `R`. Another way to install packages is by using a procedure that someone code that executes the procedure. Of course, this means you have to type the code but coding is not a bad thing. In fact, type code is what makes what you do reproducible in many ways. When your memory fails for doing x, y, and z in order y, z, x, code won't be confused. 
+
+In `R` and many languages, these coded procedures are called functions. The function for installing packages is aptly named `install.packages()`. For this function will specify the name of the library/package within the parentheses. 
+
+`install.packages("rmarkdown")`
+
+You can also install multiple libraries using `install.packages()` by combining them into a vector or a list using `c()`; the c stands for *combine*. For example, 
+
+`install.packages(c("rmarkdown", "rstudioapi"))`
+
+Try it out:
+
+```{r}
+#This code is commented out so it doesn't run. You may have difficulty with knitting the file if you include it.
+
+#install.packages("rmarkdown")
+
+#install.packages(c("rmarkdown", "rstudioapi"),
+#                 repos = "https://cloud.r-project.org")
+```
+
+Once libraries have been installed, you can access their various functions but that step will come later. Although the order of installation for libraries does not matter, the order in which you access libraries can matter. Keep an eye to for warnings in the `R console`.
+
+
+
+# **Session Information**
+
+```{r}
+sessionInfo()
+```

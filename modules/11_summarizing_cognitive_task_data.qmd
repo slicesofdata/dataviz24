@@ -1,0 +1,28 @@
+---
+title: "**Summarizing Cognitive Task Data**"
+author: "Gabriel I. Cook"
+#date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# secret functions
+# source(here::here("r", "src", "color_format_text.R"))
+```
+
+```{r}
+#| label: load-packages
+#| include: false
+
+#library()
+source(here::here("r", "my_functions.R"))
+```
+
+
+# **Overview**
+
+There is nothing special in this module. We will work on using `group_by()` and `summarize()` in a class exercise to summarize data. Come prepared to utilize this knowledge. Also, come prepared for an assessment on content covered in previous modules. 

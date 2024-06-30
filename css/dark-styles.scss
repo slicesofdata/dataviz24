@@ -1,0 +1,47 @@
+/*-- scss:defaults --*/
+.quarto-title-block .quarto-title-banner {
+  background-image: url(images/hex_main.png);
+  background-size: 300px;
+  background-position: left;
+  background-repeat: no-repeat;
+  padding-left: 10px;
+  background-origin: content-box;
+}
+
+// Colors
+$purewhite: #ffffff;
+$off_white: #FDFBF7;
+$green_yellow: #cbff30;
+$teal: #096980;         // ~ atoll
+$cerise: #d91fb5;       // ~ Cerise
+$gray: #64605f;
+$light-gray: #949799;
+$black: #000000;
+$dark: #373338;
+//$blue2:  #27b2ef;
+
+//$navbar_bg: $teal;
+//$navbar_fg: $off_white;
+//$navbar_hl: $green_yellow;
+//$body_bg: $off_white;
+//$body_color: $light-gray;
+//$footer_bg: $cerise;
+//$link_color: $teal;
+//$code_bg: $off_white;
+//$code_block_bg: $off_white;
+
+// Base document colors
+$navbar-bg: $teal;         // navbar
+$navbar-fg: $off_white;     // navbar font color/fg elements
+$navbar-hl: $green_yellow; // highlight color when hovering over navbar links;
+$body-bg: $off_white;      // page background
+$body-color: $dark; //light-gray;  // page text
+$footer-bg: $cerise;       // footer
+$link-color: $teal;        // hyperlinks
+
+// Inline code
+$code-bg: $off_white;   // inline code background color
+$code-color: $teal;     // inline code text color
+
+// Code blocks
+$code-block-bg: $off_white; // code block background color

@@ -1,0 +1,168 @@
+---
+title: "**Midterm presentation**"
+author: "Gabriel I. Cook"
+#date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+
+```{r}
+#| label: load-packages
+#| include: false
+
+
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# **Overview**
+
+After having several weeks to clean and manipulate project data, brainstorm potential key items to address, identify potential story lines, and create some data summaries, the next step is to present the progress to the class. You goal for the midterm presentation will be to present a clear representation of the research problem to the class (and later liaison) and demonstrate your ability to use `R` code to a achieve your goals. Compared with the final presentation, the mid-term presentation is designed to showcase your code rather than test models and draw inferences from data. 
+
+You should describe the problem, outline relevant cognitive tasks, summarize key references and theory, describe the data that will be used to address the problem, and describe your plans to satisfy the question for your liaison. As with all data-science projects, your plan will involve data cleaning. Some that cleaning will have been completed so you can describe what you needed to do in order to get the data in order to tackle subsequent tasks. 
+
+You will be evaluated on you and your team's ability to convey the project purpose and goals, your intended plan to meet those goals, and the steps taken to select and prepare data necessary to meet those goals. If you have prepared data in some way, you should share your code and describe the functions used and approach taken to achieve those goals. If you have not prepared all data, you should outline what you need to do in order to prepare and clean it, again my sharing the functions needed and approach. If you have examined some data and prepared any visualizations that could be used to fulfill the project goals, you should share them as well.
+
+Teams will have slightly different projects guided by the interests of the liaisons, so coding approaches may differ, data preparation may differ, visualizations may differ, and the story told about data will differ. Include code where appropriate to communicate how you achieved your goals. 
+
+At this stage in the project, the important point is that all team members have been working to understand the problem and its goals. You should have distributed and read the papers outlined by the project liaison in order to and understood some basic findings in the literature, the major theories/explanations for those findings, and have formulated a clear idea about your intended plan to meet the very minimum expectations of the liaison. Regarding data and code, all team members have been challenging themselves to think about data and practice using **{dplyr}** and other libraries to wrangle and prepare data. In other words, all team members must discuss their role in helping prepare data for the project in some way, whether that be preparing a different task, recoding a different set of variables, or preparing data visualization. In rare events, if the project does not require cleaning and preparation of enough tasks or variables to distribute, team members can work independently to solve the same problem and share the steps taken to achieve the goal. 
+
+
+# **Elements Not to Worry about**
+
+At this point in the semester, you are familiar with manipulating data frames, summarizing data, examining relationships among data, and creating some out-of-the box staple data visualizations. You are not prepared to manage complex joining of relational data, testing models in `R` (though you should understand linear models from your statistics course), comparing models, or exploring data in ways not taught in your statistics course.
+
+You should focus on modules we have covered and not worry about those that we have not covered. Focusing on these elements will result in a trade off with addressing other important elements related to the project.
+
+
+# **Elements to Focus On**
+
+## **The Project Description and Relevance**
+
+You should communicate the project question clearly, making sure to address background research and findings, theory, and theoretical or practical importance of the project. Without a clear representation of the research problem, variable selection, variable cleaning, and modeling will be unclear. In the end, you should aim to tell a story with data. The story of data will have key characters (e.g., theories, variables, etc.) and supporting characters (e.g., other variables, relationships, etc.). There will be protagonists (e.g., prominent variables and theories) and antagonists (e.g., competing theories and variables) etc. All of these characters have back stories as well (e.g., past research, references, etc.). When you introduce the project, its relevance, you should ensure that you address the key elements so that the liaison has confidence that you have conceptualized and understand the problem accurately. This includes summarizing the research in the readings and clarifying the theories that motivate the question. At the same time, all good stories of science building tension in the audience. Nothing is preordained and if it were, there would be no reason to clean up and examine the data. For example, there may be clear reasons for discovering relationships among variables yet there may be reasons why those relationships may not exist, why they may be accounted for a different variable or set of variables. 
+
+
+## **Data Preparation**
+
+You should communicate steps taken to select and clean data. I recommend sharing your code where appropriate. The audience should understand the code and may have the capacity to identify errors.
+
+### *Tasks and Variable Selection*
+
+* Communicate the variables needed 
+* Communicate relevant cognitive tasks (what they are, what they measure)
+
+### *General Data Cleaning*
+
+* Communicate steps taken to clean data to fulfill sub-goals
+* Communicate how you modified variables and/or computed variables of interest 
+* Communicate any usage of **{dplyr}** functions like `group_by()`, `mutate()`, `filter()`, `ungroup()`, or other functions from **{stringr}**, **{tidyr}** or otherwise for merging/joining, adding new variables, etc.
+
+### *Data Summaries*
+
+* Communicate how you calculated and/or obtained summary metrics
+* Communicate any usage of functions like `group_by()`, `summarize()`, `filter()`, or `ungroup()` to ensure your data are computed correctly
+
+### *Data Visualization*
+
+* Communicate the variables used in the visualization
+* Communicate any usage of functions to create the visualization 
+
+
+
+# **Presentation Medium**
+
+You can use any slide-presentation tool you wish. You will just need to provide me with:
+
+* a printed version of the slide deck for class time and
+* an electronic pdf of the slide deck before or after the presentation.
+
+# **Stakeholders**
+
+Identify the stakeholders for your project. For example, include you liaison, liaison's institution or business, your professor, your college, etc. for whom the final work will be submitted.  
+
+
+
+# **Evaluation and Generalized Rubric**
+
+## *Project Description (30 pts)*
+
+* Communicate the proposed problem
+* Communicate the relevant background research, theories, etc.
+* Communicate the relevant cognitive tasks and variables
+* Communicate the project goals and timeline to address those goals
+
+
+## *Data Preparation and Variable Creation (30 pts)*
+
+* Communicate steps taken to clean data to fulfill sub-goals
+* Communicate how you modified variables and/or computed variables of interest 
+* Communicate any usage of functions to ensure your data are computed correctly
+* Communicate any aggregation methods and summary data frames per plot
+
+
+## *Presentation Characteristics (20 pts)*
+
+* *Clarity (5pts)*: well-explained; easy to follow/understand; ability to communicate points effectively
+* *Organization (5pts)*: structured logically; ability to walk audience through some story line or the a story about the problem and decision processes
+* *Thoroughness (5pts)*: all relevant issues discussed thoroughly
+* *Presentation Style (5pts)*: degree of preparedness and polish in presentation; smooth and rehearsed; minimum of reading; well-paced; slide quality
+
+
+## *Team and Team Member Evaluation (5 pts)*
+
+* Evaluation of personal contributions toward the project as evaluated by other team members (claims partially validated using on-time weekly report submissions). 
+* The audience (your client) will also provide an overall review for the team and individual team members.  
+
+
+## *Self Evaluation (5 pts)*
+
+Evaluation of your personal contributions toward the project as evaluated by yourself (claims partially validated using on-time weekly report submissions).
+
+
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+## *Weekly Progress Report Logs*
+
+#Demonstration of weekly goals and progress. Timeliness and submission of weekly report logs.
+
+```
+
+# **Presentation Tips**
+
+* *Dress*: You should dress appropriately for a talk. You do not need to dress up but you also should not wear clothing with words, logos, etc. that the audience would read or be distracted seeing.
+
+* *Team members and order*. You you should create your presentation so that team members have duties or goals. Consider strengths, accomplished tasks, etc. If two team members are presenting plots on metric X, have consider grouping them together rather than in some other arbitrary order. 
+
+* *Communication* You should practice your presentation as a team to understand the timing, passing off of the microphone (the same holds if there is not physical mic), etc. Team members should be introduced on first instance of the mic pass off (include 3 things: their name, team role, and what they will talk about, and then pass the mic). Practice will ensure you know who is speaking, in what order, and about what. Lining up in order of speaking also reduces confusion and facilities mic passing. Practice also ensures that you know what you are presenting. You don't have to read what your slide says. When you don't practice, you end up reading, so practice. Lack of practice is typically apparent. 
+
+   + Speak to your audience. Look them in the eyes, tell them about the journey. In other words, don’t just
+read from your slides.
+
+   + Do not overwhelm your audience with too much information, especially verbal information. Doing so
+causes people to read your slides or look at slide content you are not talking about at the moment. You
+are the presenter and your slides are your visual aides used to support what you communicate.
+
+     a. Present slides topically; do not mix unrelated content; use relevant headers, etc.
+
+     b. Present summary points rather than full sentence content. Communicate in sentences but don’t present
+complete sentences on slides unless imperative for communicating a specific point.
+
+     c. Present each point separately. Do no present all slide content (e.g., points a, b, c) communicating
+specific points (e.g., a). Doing so prevents your audience from paying attention to you; causes cognitive
+interference.
+
+     d. Use a tool (e.g., pointer, finger, etc.) to direct attention to necessary elements of slides, especially when
+a slide contains multiple pieces of information. Doing so will reduce unnecessary confusion from some audience members because they will not be looking at the incorrect content.
+
+     e. Introduce team members, their role, etc. when passing the the mic. Your audience/client should be reminded of who the team member is and what their role was.
+
+     f. Do not include a "Thank you" slide. Instead, make a summary slide for your audience to order to remind them of questions they had or to serve as a basis for formulating questions. 
+
+ 
+

@@ -1,0 +1,177 @@
+---
+title: "Exercise: Selecting, Filtering, & Summarizing Data Frames"
+#author: "yourname"
+#date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  word_document:
+    toc: yes
+    number_sections: yes
+  html_document:
+    toc: no
+    number_sections: yes
+    code_folding: show #hide
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+include_answers <- TRUE
+eval_answers <- TRUE
+```
+
+# **Overview**
+
+In a future exercise, you will work on pivoting the wide data produced by your subsetting script from a previous exercise into long format. Once you have that long file, you will need to verify it's content, clean it up by cleaning rows or by computing or selecting relevant variables. You will also then need to filter data in some way and produce descriptive statistic summaries at very least. 
+
+For this exercise, you will read data, select variables to subset the data, filter cases/observations, group, and and summarize the data. 
+
+??/You will also have to create a seamless workflow that incorporates previous steps already completed so that the data subset is reproducible from beginning to end. Thus, this exercise should support your mental model of breaking tasks into pieces and organizing your code programmatically. These steps will also move you further along on the team project. The steps not completed will become part of the team to-do list.   
+
+
+# **Step 1: Creating A Script File for Cleaning Long Data**
+
+This exercise assumes that you have a long data file created from a wide-format version.
+
+Team members could collaborate to address a single task or delegate the subcomponents below to separate team members. For the team project, you will need to create at least these three data subsets by writing the code and by writing out the data file. Whatever is not completed in class will become part of the team project to-do list.
+
+1. Create a `.R` script to cleaned the long file for a sub-task. If you want to delegate work among team members, choose one and inform your team your plans and add your goal to the weekly work log. The file should be named based on your choice.
+
+Choose one:
+
+- "sspan_long_clean.R"  ????
+- "gng_long_clean.R"   ????
+- "demog_long_clean.R"  ????
+
+2. Save your script file in `/r/<appropriate-sub-task-directory>`. 
+
+
+
+# **Step 2: Editing the File**
+
+That script should Read the data subset and assign it to `LONG`.
+
+# **Step x: Reading Data**
+
+That script should Read the data subset and assign it to `LONG`.
+
+- "gng_long.Rds"
+- "symmspan_long.Rds" ???????? or csv
+
+```{r, include=include_answers}
+
+LONG <- readRDS(here::here("data", "gng", "gng_long.Rds"))
+LONG <- readr::read_csv(here::here("data", "symmspan", "symmspan_long.csv"))
+
+
+```
+
+# **Step x: Selecting and Filtering**
+
+You will now select variables from the data frame.
+
+## **Go/No-Go**
+
+
+
+## **Symmetry Span**
+
+```{r, include=include_answers}
+
+sspan_long_clean
+
+```
+
+
+
+# **Step x: Grouping and Summarizing**
+
+
+
+# **Step 2: Basic Editing of the Sub-setting Script File**
+
+1. Inside your script file, add starter code sections for comments and R code as you did for your first raw-data cleaning file. You can find starter helpful code comment [here](https://raw.githubusercontent.com/slicesofdata/fods24/main/r/script_template_block.txt). Realize, however, that your description and relevant sections will differ from file to file but the structure would be the same. You might also consider creating a file as a template script so that content is pre-populated for you every time you need a file.
+
+2. Add a description of the goal of the script. 
+
+3. Determine the libraries you will need and in the appropriate section, load those as well as other custom functions. 
+
+
+# **Step 3: Workflow Editing the Sub-setting Script File**
+
+You will now need to ensure that this script is able to perform all of the necessary steps that allow you to subset the data in the event that data are added or changes are made to the data. Rather than pasting the code that reads the raw data, cleans it, and writes out a new data file, will will just want to source the code that performs these steps. In other words, you will need to ensure that this task sub-setting script inherits all of your manipulations with the raw data thus far. 
+
+1. Source your "champ_all_waves_initial_clean.R" script. Remember that this file produces your "champ_all_waves_initial_clean.Rds" data file. 
+
+2. Read the "champ_all_waves_initial_clean.Rds" data file and assign it to CHAMP. 
+
+
+# **Step 4: Sub-setting the Data Frame**
+
+You will now need to subset the data frame to contain the sub-tasks variables relevant for your task and variables necessary for identifying unique participant data (e.g., their unique id, their school, their wave data) and later merging/joining separate data frames into a combined one using functions like `dplyr::full_join()` or `dplyr::left_join()`. 
+
+1. Determine the variable names for unique participant identification.
+
+2. Determine which variables you will need to select for your chosen sub-task.
+
+3. Create a subset data frame with your relevant variables. Make sure not to overwrite your data frame during the testing process.
+
+3. Once you have taken inventory of your variables and you are sure that this subset contains only the variables you need, you can assign the contents to a new object if you like. This assignment step is not necessary if you chain your sub-setting code with the code to export your data (next step) using a piping operator (encouraged).
+
+
+# **Step 5: Writing out the Subset**
+
+1. Depending on your chosen sub-task export the subset data frame to the respective data directory in `/data/<sub-task>` and name it one of the following: 
+
+- "sspan_subset_wide.Rds"
+- "gng_subset_wide.Rds"
+- "demog_subset_wide.Rds"
+
+2. Ensure that you can read in the data file.
+
+
+
+
+
+**For Symmetry Span**
+
+
+```{r}
+# LONG <- readRDS(here::here("data", "symmspan", "symmspan_long.Rds"))
+LONG <- readr::read_csv(here::here("data", "symmspan", "symmspan_long.csv"))
+
+# LONG |> view_html()
+```
+
+1. Filter the data so that you only have rows on trial 12. Participants who completed the task multiple times, will have multiple rows.
+
+2. Make a quoted character vector containing the id variables you want to include, totalerrors, totalcorrecsquares, totalrecalledsets, sspan, symmetryaccuracy, symmetryaccerrors, and symmetryspeederrors. 
+
+```{r include=FALSE}
+keep_vars <- c("id_subject", "id_school", "id_wave", "totalerrors", "totalcorrecsquares", 
+               "totalrecalledsets", "sspan", "symmetryaccuracy", "symmetryaccerrors", 
+               "symmetryspeederrors"
+               )
+```
+
+3. Use the vector to subset your data frame to include the variable names in that vector. In the event that your data frame does not contain all of the variables, consider using `any_of()` as described in the module on [selecting, filtering, and  mutating](`r get_url_for_module(file_name = "manipulating_data_selecting_filtering_mutating")`).
+
+3. Chain the row filtering and variable sub-setting using a piping operator.
+
+4. Finally, assign the new data frame to `LONG`.
+
+```{r}
+LONG <-
+  LONG |> 
+  filter(trial == 12) |>
+  select(any_of(keep_vars))
+```
+
+
+```{r include=FALSE}
+LONG |>
+  view_html()
+#https://gabrielcook.xyz/fods24/modules/08_manipulating_data_selecting_filtering_mutating.html
+
+
+
+

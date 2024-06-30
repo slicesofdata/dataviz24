@@ -1,0 +1,14 @@
+# remove.packages("")
+
+packageurl <- "https://cran.r-project.org/src/contrib/Archive/knitr/knitr_1.27.tar.gz"
+
+install_package_version <- function(pkgs_version = list(c("knitr", "1.27")) {
+
+  archive = "https://cran.r-project.org/src/contrib/Archive"
+  
+  pkg_v = unlist(lapply(pkg, function(x) paste0(x[1], "/", x[1], "_", x[2], ".tar.gz")))
+ 
+  install_path = paste(archive, pkg_v, sep = "/")
+
+  lapply(install_path, function(x) install.packages(x, repos = NULL, type = "source"))
+}

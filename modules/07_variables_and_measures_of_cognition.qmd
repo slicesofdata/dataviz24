@@ -1,0 +1,45 @@
+---
+title: "**Variables and Measures of Cognition**"
+author: "Gabriel I. Cook"
+#date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# secret functions
+# source(here::here("r", "src", "color_format_text.R"))
+```
+
+
+```{r}
+#| label: load-packages
+#| include: false
+
+#library()
+#source(here::here("r", "my_functions.R"))
+source(here::here("r", "_common.R"))
+R.utils::sourceDirectory(here::here("r", "functions"))
+```
+
+# **Overview**
+
+In this module, we will consider different cognitive tasks, understand how those are measured, and understand the variables associated with them.   
+
+## **Readings and Preparation**
+
+There are no formal readings assigned for this topic. We will use class time to discuss the symmetry span and the go/no-go tasks, how they are performed by participants, what variables are measured, and how those tasks are correlated with other variables. 
+
+Because you will read papers related to cognitive tasks in order to inform your team project, paper that introduce either complex-working memory span tasks (e.g., symmetry span) or the go/no-go task would benefit you during class time. Reading through a relevant paper would help you answer questions and conceptualize the task and its relation to the larger project.  
+
+
+```{r eval=FALSE, warning=FALSE, include=FALSE}
+# **To Do**
+# 
+## **Supplementary Readings**
+
+#- [R Workflow Basics](https://r4ds.hadley.nz/data-transform)
+```

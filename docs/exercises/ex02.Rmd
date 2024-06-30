@@ -1,0 +1,43 @@
+---
+title: 'PSYC166 Exercise:\n Functions and Scripts'
+#author: ''
+#date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  word_document:
+    toc: false
+  html_document:
+    toc: false
+    number_sections: true
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+source(here::here("r", ""))
+```
+
+
+
+R.utils::sourceDirectory(here::here("r", "functions"))
+
+# adding dates
+birthdates <- c("2000-01-09", "1946-10-28",  "1992-05-03",  "2021-08-23",  "1957-03-05")
+
+
+# adding names
+names <- c("Bill", "Jill", "Mill", "Till", "Lill")
+
+
+# create ages
+ages <- get_years_since_birth(birthdates)
+
+ages
+
+mean_ages <- mean(ages)
+
+mean_ages
+

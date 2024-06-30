@@ -1,0 +1,318 @@
+---
+title: "Exercise: Grouping and Summarizing Data Frames"
+#author: "yourname"
+#date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  word_document:
+    toc: yes
+    number_sections: yes
+  html_document:
+    toc: yes
+    number_sections: yes
+    code_folding: show #hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+include_answers <- FALSE
+eval_answers <- FALSE
+```
+
+
+\newpage
+
+# **Overview**
+
+In a future exercise, you will work on pivoting the wide data produced by your sub-setting script from a previous exercise into long format. Once you have that long file, you will need to verify it's content, clean it up by cleaning rows or by computing or selecting relevant variables. You will also then need to filter data in some way and produce descriptive statistic summaries at very least. 
+
+For this exercise, you will read data, select variables to subset the data, filter cases/observations, group, and and summarize the data of a long file. 
+
+Data files:
+
+- "gng_long_clean.Rds"
+- "sspan_long_clean.Rds"
+
+
+# **Practice with the Symmetry Span Task**
+
+## **Reading Data**
+
+Read "sspan_long_clean.Rds" and assign to an object.
+
+```{r, eval=eval_answers, include=include_answers}
+SSPAN <- readRDS(here::here("data", "symmspan", "sspan_long_clean.Rds"))
+
+#SSPAN <- 
+#  SSPAN |>
+#  select(-c(correct, latency, symmetrytimeout))
+```
+
+
+## **Taking Inventory of Variables**
+
+Examine the structure of your data frame using **{dplyr}** so that you know variables that you might summarize and the variables you might group by. Load your necessary libraries.
+
+```{r, eval=eval_answers, include=include_answers}
+library(dplyr)
+glimpse(SSPAN)
+```
+
+```{r, eval=eval_answers, include=include_answers}
+SSPAN |>
+  view_html()
+```
+
+Make a note of the "grouping structure". Also examine for any oddities that you might need to address.
+
+## **Grouping Data Frames**
+
+Take the data frame and pipe it to a grouping variable (e.g., `id_wave`) and then pipe to examine the structure. Make note of how the tibble's grouping structure has changed.
+
+```{r, eval=eval_answers, include=include_answers}
+SSPAN |>
+  group_by(id_wave) |>
+  glimpse()
+```
+
+## **Mutating Variables without Grouping**
+
+Add a new variable to the existing data frame that represents the mean of `sspan`. Code your function to exclude `NA` values when computing the mean. Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+SSPAN |>
+  mutate(mean_sspan = mean(sspan, na.rm = TRUE)) |>
+  relocate(mean_sspan, .after = id_wave)
+```
+
+*Describe what the mean represents:*
+
+
+## **Grouping and Mutating Data Frames**
+
+Using that same grouping structure used earlier (e.g., `id_wave`), group the data and then pipe the data frame and add a new variable to the data frame that represents the mean of `sspan`. Code your function to exclude `NA` values. Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+SSPAN |>
+  group_by(id_wave) |>
+  mutate(mean_sspan = mean(sspan, na.rm = TRUE)) |>
+  relocate(mean_sspan, .after = id_wave)
+```
+
+*Describe what the mean represents:*
+
+
+*Compare the values of the mean variable added to the data frame with and without the grouping. Is the calculated variable in one of the data frames more similar to what you expected when you mutated the variable? If so, which one?*
+
+
+## **Grouping and Summarizing Data Frames**
+
+Using that same grouping structure that you just used, rather than add a new variable to the data frame that represents the mean of `sspan`, summarize the data frame. Code your function to exclude `NA` values. Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+SSPAN |>
+  group_by(id_wave) |>
+  summarize(mean_sspan = mean(sspan, na.rm = TRUE)) |>
+  relocate(mean_sspan, .after = id_wave)
+```
+
+## **Grouping, Mutating, and Summarizing**
+
+Using that same (a) grouping structure that you just used, (b) add a new variable to the data frame that represents the mean of `sspan`, (c) then summarize the data frame by that *same* variable. Code your function to exclude `NA` values. Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+SSPAN |>
+  group_by(id_wave) |>
+  mutate(mean_sspan = mean(sspan, na.rm = TRUE)) |>
+  summarize(mean_sspan = mean(mean_sspan, na.rm = TRUE)) |>
+  relocate(mean_sspan, .after = id_wave)
+```
+
+## **Grouping, Summarizing, Grouping, and Summarizing**
+
+In many cases, you may need to group data frames in one way in order to obtain data summaries which will you will further summarize at a more general level. For example, you may need to aggregate your data in order to obtain average performance at a participant level so that you can further aggregate individuals within a group in service of obtaining group-level summaries.
+
+In order to understand the difference in aggregation techniques, we will group the data two ways. 
+
+1. Take your data frame and (a) group by `id_school`, and then (b) summarize the data frame so that your new data frame contains the mean of `sspan` at the school level. Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+SSPAN |>
+  group_by(id_school) |>
+  summarize(mean_sspan = mean(sspan, na.rm = TRUE))
+```
+
+2. Next, take your data frame and (a) group by `id_school` and `id_subject`, (b) summarize the data frame so that your new data frame contains the mean of `sspan` for each participant in each school, (c) group again but only by the school, (d) summarize the data frame so that your new data frame contains the mean of `sspan` at the school level. Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+SSPAN |>
+  group_by(id_subject, id_school) |>
+  summarize(mean_sspan = mean(sspan, na.rm = TRUE)) |>
+  group_by(id_school) |>
+  summarize(mean_sspan = mean(mean_sspan, na.rm = TRUE))
+```
+
+*Describe what the differences in the summaries and why they exist.*
+
+
+
+
+# **Bonus**
+
+1. Practice summarizing the data using different metrics (e.g., standard deviation, standard error of the mean, median, etc.). 
+2. Practice summarizing the data using different variables errors, speed errors, etc. 
+3. Practice summarizing the data by grouping the data different ways (e.g., cue, target, soa, etc.).
+4. All of the above approaches will be appropriate for working with your data frame. Your liaison may want the data summarized in different ways, so you should certainly want to verify from them how they want their data grouped and summarized. Additionally, only some aggregation approaches are relevant for certain statistical models which will later run. You should certainly start to consider obtaining clarification about ways they want the data summarized so that you are able to summarize the data appropriately when the time arises.
+5. Consider whether your data make sense. Do you need to create any variables or filter your data frame in order to take care of any problems? 
+
+\newpage
+
+# **Practice with the Go/No-Go Task**
+
+## **Reading Data**
+
+Read "gng_long_clean.Rds" and assign to an object.
+
+```{r, eval=eval_answers, include=include_answers}
+GNG <- readRDS(here::here("data", "gng", "gng_long_clean.Rds"))
+
+# create a task variable
+GNG <- 
+  GNG |>
+  mutate(task = case_when(
+    #is.na(ntarget) ~ "Symmetry Span",
+    !is.na(ntarget) ~ "Go/No-Go",
+    TRUE ~ NA
+  )) |>
+  relocate(task, .after = wave)
+
+#GNG |> view_html()
+
+#GNG |>
+#  filter(task == "Go/No-Go") |>
+#  select(id_subject, target, cue) |>
+#  table()
+
+#GNG <- 
+#  GNG |>
+#  select(-c(ntarget, ptarget, correct))
+#GNG |> view_html()
+```
+
+
+## **Taking Inventory of Variables**
+
+Examine the structure of your data frame using **{dplyr}** so that you know variables that you might summarize and the variables you might group by. Load your necessary libraries.
+
+```{r, eval=eval_answers, include=include_answers}
+library(dplyr)
+glimpse(GNG)
+```
+
+Make a note of the "grouping structure". Also examine for any oddities that you might need to address.
+
+
+## **Grouping Data Frames**
+
+Take the data frame and pipe it to a grouping variable (e.g., `id_wave`) and then pipe to examine the structure. Make note of how the tibble's grouping structure has changed.
+
+```{r, eval=eval_answers, include=include_answers}
+GNG |>
+  group_by(id_school, id_subject, wave, soa) |>
+  glimpse()
+
+#GNG |>  group_by(id_school, id_subject, wave, soa) |>  count()
+```
+
+## **Mutating Variables without Grouping**
+
+Add a new variable to the existing data frame that represents the mean of `accuracy`. Code your function to exclude `NA` values when computing the mean. Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+GNG |>
+  mutate(mean_acc = mean(accuracy, na.rm = TRUE)) |>
+  view_html()
+```
+
+*Describe what the mean represents:*
+
+
+## **Grouping and Mutating Data Frames**
+
+Using that same grouping structure used earlier (e.g., `id_wave`), group the data and then pipe the data frame and add a new variable to the data frame that represents the mean of `sspan` or `accuracy`. Code your function to exclude `NA` values. Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+GNG |>
+  group_by(id_wave) |>
+  mutate(mean_acc = mean(accuracy, na.rm = TRUE))
+
+GNG |>
+  group_by(task, id_wave) |>
+  mutate(mean_acc = mean(accuracy, na.rm = TRUE))
+```
+
+*Describe what the mean represents:*
+
+
+*Compare the values of the mean variable added to the data frame with and without the grouping. Is the calculated variable in one of the data frames more similar to what you expected when you mutated the variable? If so, which one?*
+
+
+## **Grouping and Summarizing Data Frames**
+
+Using that same grouping structure that you just used, rather than add a new variable to the data frame that represents the mean of `accuracy`, summarize the data frame. Code your function to exclude `NA` values. Do not overwrite the data frame. Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+GNG |>
+  group_by(id_wave) |>
+  summarize(mean_acc = mean(accuracy, na.rm = TRUE))
+```
+
+
+## **Grouping, Mutating, and Summarizing**
+
+Using that same (a) grouping structure that you just used, (b) add a new variable to the data frame that represents the mean of `accuracy`, (c) then summarize the data frame by that *same* variable. Code your function to exclude `NA` values.  Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+GNG |>
+  group_by(id_wave) |>
+  mutate(mean_acc = mean(accuracy, na.rm = TRUE)) |>
+  summarize(mean_acc = mean(mean_acc, na.rm = TRUE))
+```
+
+
+## **Grouping, Summarizing, Grouping, and Summarizing**
+
+In many cases, you may need to group data frames in one way in order to obtain data summaries which will you will further summarize at a more general level. For example, you may need to aggregate your data in order to obtain average performance at a participant level so that you can further aggregate individuals within a group in service of obtaining group-level summaries.
+
+In order to understand the difference in aggregation techniques, we will group the data two ways. 
+
+1. Take your data frame and (a) group by `id_school`, and then (b) summarize the data frame so that your new data frame contains the mean of `accuracy` at the school level. Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+GNG |>
+  group_by(id_school) |>
+  summarize(mean_acc = mean(accuracy, na.rm = TRUE))
+```
+
+2. Next, take your data frame and (a) group by `id_school` and `id_subject`, (b) summarize the data frame so that your new data frame contains the mean of `accuracy` for each participant in each school, (c) group again but only by the school, (d) summarize the data frame so that your new data frame contains the mean of `sspan` at the school level. Do not overwrite the data frame.
+
+```{r, eval=eval_answers, include=include_answers}
+GNG |>
+  group_by(id_subject, id_school) |>
+  summarize(mean_acc = mean(accuracy, na.rm = TRUE)) |>
+  group_by(id_school) |>
+  summarize(mean_acc = mean(mean_acc, na.rm = TRUE))
+```
+
+*Describe what the differences in the summaries and why they exist.*
+
+
+
+
+# **Bonus**
+
+1. Practice summarizing the data using different metrics (e.g., standard deviation, sample size, standard error of the mean, median, etc.). 
+2. Practice summarizing the data using different variables (e.g., rt).
+3. Practice grouping the data different ways (e.g., cue, target, soa, etc.).
+4. All of the above approaches will be appropriate for working with your data frame. Your liaison may want the data summarized in different ways, so you should certainly want to verify from them how they want their data grouped and summarized. Additionally, only some aggregation approaches are relevant for certain statistical models which will later run. You should certainly start to consider obtaining clarification about ways they want the data summarized so that you are able to summarize the data appropriately when the time arises.
+5. Consider whether your data make sense. Do you need to create any variables or filter your data frame in order to take care of any problems? 
+

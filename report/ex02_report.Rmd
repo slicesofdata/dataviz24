@@ -1,0 +1,25 @@
+---
+title: 'PSYC166 Report: \n  Functions and Scripts Markdown'
+#author: ''
+#date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  word_document:
+    toc: false
+  html_document:
+    toc: false
+    number_sections: true
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, include=FALSE}
+# load my script file
+source(here::here("r", "ex02.R"), local = knitr::knit_global())
+```
+
+The mean age of the individuals is `r mean_age`.
+

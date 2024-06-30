@@ -1,0 +1,260 @@
+---
+title: '**Exercise: Renaming and Recoding Variables**'
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+include_answers <- FALSE
+eval_answers <- TRUE
+```
+
+```{r include=FALSE}
+library(dplyr)
+library(magrittr)
+R.utils::sourceDirectory(here::here("r", "functions"))
+source(here::here("r", "src", "color_format_text.R"))
+```
+
+```{r, eval=eval_answers, include=include_answers}
+f <- "C:/Users/gcook/Sync/git/champ/data/Rds/champ_all_waves.Rds"
+
+#C <- readRDS(f, here::here("data", "raw", #"champ_all_waves_practice_subset.Rds")) |>
+#  rename_with(tolower)
+
+C <- readRDS(f) |> rename_with(tolower) 
+
+starts_with_w1 <- C |> select(starts_with("w1")) |> names()
+
+keep_vars <- c("id_subject", "id_wave", "wave", 
+               "abq1", "abq3",
+               starts_with_w1
+               )
+#C |> select(any_of(keep_vars)) |> view_html()
+
+#C |> select(any_of(c(
+#  keep_vars,
+#  starts_with("w1"),
+#  starts_with("w2"),
+#  starts_with("w3")
+#  ))) |> 
+#  saveRDS(here::here("data", "demog", "demog_recode_example_a.Rds"))
+
+#readRDS(here::here("data", "demog", "demog_recode_example_a.Rds")) |>
+#  slice(1:100) |>
+#  recode_wide_options_to_single_var(base_varname = "w1aaq5option",
+#                                    to = "w1aaq5"
+#                                    ) |>
+#  view_html()
+
+
+#"w1aaq5", "w1biq1",
+#C |> view_html()
+
+#C |> select(id_subject, id_wave, w1aaq5, w1biq1, abq1:abq3)
+```
+
+```{r include=FALSE}
+C |>
+  slice(1:100) |>
+  #mutate(wave = id_wave) |>
+#  recode_wide_options_to_single_var(base_varname = "w1aaq5option",
+  #                                  to = "w1aaq5"
+  #                                  ) |>
+ # recode_wide_options_to_single_var(base_varname = "w1biq1option",
+   #                                 to = "w1biq1"
+  #                                  ) |>
+  #recode_wide_options_to_single_var(base_varname = "abq3option1",
+  #                                  to = "abq3"
+  #                                  ) |>
+  #relocate(w1biq1, .before = 1) |>
+  
+  select(id_subject, id_wave, #wave, 
+         w1biq1option1:w1biq2option10, 
+         abq1, abq2) |>
+  saveRDS(here::here("data", "demog", "demog_recode_example.Rds"))
+```
+
+```{r include=FALSE, eval=TRUE}
+DEMOG <- readRDS(here::here("data", "demog", "demog_recode_example.Rds"))
+```
+
+# **Create a Tutorial**
+
+Create a tutorial for renaming and recoding variables using the data file and the example questions below.
+
+
+# **The Data File**
+
+Given "demog_recode_example.Rds", there are several variables for recoding. The variables have descriptions below.
+
+```{r, include=FALSE}
+glimpse(DEMOG)
+```
+
+# **Survey Variables Overview**
+
+Variable descriptions are taken from the **Wave One Codebook**.
+
+**Variable Names:** All variables were labeled with a five-character prefix. The first two characters denoted the wave. For example, W1 indicated that the variable was from the first wave. The next two characters denoted the measure the item was associated with. In the first wave these variables were labeled in sequence, i.e. the first measure was labeled AA, the second measure was labeled AB, and the final measure was labeled BY. These variable names were then retained in all waves regardless of their placement within the survey. Measures added to the second wave were assigned the character C, e.g. CA, CB, etc. Measures added to the third wave were assigned the character D, e.g. DA, DB, etc. The last character in the five-character prefix was Q. It was followed by the question number. This number was sequential in the first wave and then remained constant in all subsequent waves. Thus, the variable W1AAQ15 in the first wave was labeled W2AAQ15 in the second wave even though it was the fifteenth question presented in the first wave and the third question presented in the second wave.
+
+**Negative Values:** In the data generated from the online survey, negative values denote unique forms of data. The definition of each value is provided below:
+
+-	(Blank) = Participant chose not to answer the question or selected a response in a prior question that caused the question to be skipped.
+-	-7 = Participant selected ‘Don’t Know’, ‘Not Sure’, etc.
+-	-5 = Participant selected a fictional product brand or program.
+
+
+**Skip Patterns** Questions and responses that triggered a skip pattern in the survey are depicted below in red.  Questions that could be skipped as a result of a skip pattern are depicted below in blue.
+
+# **Survey Variables/Response Description**
+
+**Family and Peer Smoking**
+Source: Items 1-3 are optional questions from: 
+
+Centers for Disease Control and Prevention (CDC). (2014a). 2012 National youth tobacco survey (NYTS). Retrieved from: [http://www.cdc.gov/TOBACCO/data_statistics/surveys/NYTS/index.htm](http://www.cdc.gov/TOBACCO/data_statistics/surveys/NYTS/index.htm)
+
+Centers for Disease Control and Prevention (CDC). (2014b). 2011 Youth tobacco survey (YTS). Retrieved from: [http://www.cdc.gov/tobacco/data_statistics/surveys/yts/index.htm](http://www.cdc.gov/tobacco/data_statistics/surveys/yts/index.htm) 
+
+Item 1 was expanded to assess tobacco use by older brothers, older sisters, younger brothers, and younger sisters.  Item 2 was added to assess the use of smokeless tobacco.  Item 3 was expanded to include electronic cigarettes, hookah/shisha, pipe tobacco, and cigarettes combined with marijuana.
+
+Items 4-7 are from the California Department of Public Health (CDPH). (2014). 2011-2012 California Student Tobacco Survey (CSTS). Retrieved from: [http://www.cdph.ca.gov/programs/tobacco/Pages/default.aspx](http://www.cdph.ca.gov/programs/tobacco/Pages/default.aspx).  
+
+Item 5 was added to assess the use of smokeless tobacco.  Item 6 was added to assess the use of electronic cigarettes.  Item 7 was expanded to include hookah/shisha, pipe tobacco, and cigarettes combined with marijuana.
+
+# **Variable Renaming with {dplyr}**
+
+Some variables require more meaningful *renaming* as the current variables are not that diagnostic. For example, the `w1biq1` option variable based on the suffix option value in blue (e.g., `r colorize("W1BIQ1option2", "blue")`) should be renamed to a variable that takes on the red name (e.g., `r colorize("W1FamSmokeOnlyMe1", "red")`), except removing the final number suffix when it's a constant (e.g., W1FamSmokeNoOne1 - each name ends in 1, so rename the variable to *W1FamSmokeOnlyMe*). See below.
+
+*Codebook example:*
+
+[Family]
+Please answer the following questions about your family.
+
+1.	Who in your home smokes? (*check all that apply*) 
+ `r colorize("W1BIQ1", "blue")` `r colorize("W1FamSmoke1", "red")` 1, 0 When Not Selected, 1 When Selected
+
+No one smokes in my home `r colorize("W1BIQ1option1", "blue")` `r colorize("W1FamSmokeNoOne1", "red")`
+
+I am the only one who smokes in my home `r colorize("W1BIQ1option2", "blue")` `r colorize("W1FamSmokeOnlyMe1", "red")`
+
+Father (Male Guardian) `r colorize("W1BIQ1option3", "blue")` `r colorize("W1FamSmokeDad1", "red")`
+
+Mother (Female Guardian) `r colorize("W1BIQ1option4", "blue")` `r colorize("W1FamSmokeMom1", "red")`
+
+Older Brother `r colorize("W1BIQ1option5", "blue")` `r colorize("W1FamSmokeOldBro1", "red")`
+
+Older Sister `r colorize("W1BIQ1option6", "blue")` `r colorize("", "red")`
+
+Younger Brother `r colorize("W1BIQ1option7", "blue")` `r colorize("", "red")`
+
+Younger Sister `r colorize("W1BIQ1option8", "blue")` `r colorize("", "red")`
+
+Grandmother / Grandfather `r colorize("W1BIQ1option9", "blue")` `r colorize("", "red")`
+
+Other (please specify) ____________ `r colorize("W1BIQ1option10", "blue")` `r colorize("", "red")`
+
+`r colorize("W1BIQ1other", "blue")` `r colorize("W1FamSmokeOtherSpecify1", "red")`
+
+
+
+## **For Tutorial: [Rename these W1BIQ1option variables]**
+
+```{r, eval=eval_answers, include=include_answers}
+
+# Create a vector of the column names that you want to change
+col_names <- c("w1biq1option1", "w1biq1option2", "w1biq1option3",
+               "w1biq1option4", "w1biq1option5", "w1biq1option6")
+
+
+# Use the `recode` function to assign new names to the col_names vector
+DEMOG2 <- DEMOG
+
+old_names = c("w1biq1option1", "w1biq1option2", "w1biq1option3",
+              "w1biq1option4", "w1biq1option5", "w1biq1option6")
+new_names = c("W1FamSmokeNoOne", "W1FamSmokeOnlyMe", "W1FamSmokeDad",
+              "W1FamSmokeMom", "W1FamSmokeOldBro", "W1FamSmokeOldSis")
+#new_col_names <-                          
+#  recode(old_names, 
+#       w1biq1option1 = "W1FamSmokeNoOne", 
+#       w1biq1option2 = "W1FamSmokeOnlyMe",
+#       w1biq1option3 = "W1FamSmokeDad",
+#       w1biq1option4 = "W1FamSmokeMom",
+#       w1biq1option5 = "W1FamSmokeOldBro",
+#       w1biq1option6 = "W1FamSmokeOldSis"
+#       )
+DEMOG <-
+  DEMOG |>
+  mutate(across(
+    .cols = all_of(old_names),  # Select these columns
+    .names = "{.col}_new"       # Append "new" to names
+    )) |>
+  rename_with(
+    # set to the new names
+    .fn = ~new_names,             
+    # the columns that were just created (ending in "_new")
+    .cols = all_of(paste0(old_names, "_new"))  
+    ) 
+
+DEMOG |> view_html()
+```
+
+
+
+# **Variable Recoding using `car::Recode()`**
+
+Other variables need recoding from existing numeric responses to meaningful character strings.
+
+*Codebook Description:*
+
+1.	Where do you live now? `r colorize("W1ABQ1", "blue")` `r colorize("W1FamLivNow1", "red")`)
+
+Your parent’s home 1
+
+Another person’s home 2
+
+Your own place 3
+
+Group home 4
+
+Other (please specify) 5 			 **W1ABQ1other** *W1FamLivNowOther1*
+
+As with this example, some variables have the prefix removed (e.g., "w1" is missing). This `abq1` variable should be recoded so that the numeric value appearing after the response description is recoded to be a meaningful character string (e.g., 1 = "parent's home"). The new recoded variable should be named based on the `r colorize("W1FamLivNow1", "red")` name. Variable names should be lowercase.
+
+## **For Tutorial: [Recode abq1's numeric responses into character strings using `car::Recode()`.]**
+
+```{r, eval=eval_answers, include=include_answers}
+
+```
+
+
+
+
+
+2.	Do you live alone or with others? 
+`r colorize("W1ABQ2", "blue")` `r colorize("W1FamLivAlone2", "red")`)
+
+Alone 1
+
+With others 2
+
+## **For Tutorial: [Recode abq2's numeric responses into character strings using `car::Recode()`.]**
+
+```{r, eval=eval_answers, include=include_answers}
+
+
+```
+
+
+# **Recoding Negative Values**
+
+Incorporate into the `car::Recode()`ing, a way to handle any negative values as indicated in the description above.
+
+## **For Tutorial: [Ensure negative numbers are built into the recode.]**
+
+```{r, eval=eval_answers, include=include_answers}
+
+
+```

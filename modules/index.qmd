@@ -1,0 +1,16 @@
+---
+title: "Modules" # index to display header for the nested *.qmd files (even if in subdirectory); displays directory name otherwise
+description: "Overview of Modules for PSYC 166"
+#author: ""
+#date: ""
+#order: 0 
+---
+
+This course introduces students to R, a programming language for statistical computing and graphics. Students will learn how to clean, manipulate, transform, join, and tidy data sets to prepare for statistical modeling. Supervised (e.g., regression) and unsupervised (e.g., clustering) approaches will be applied to understand simple and complex relationships between cognitive and non-cognitive variables (e.g., biology, aging, education, socioeconomic, health, etc.). Students will apply their skills to wrangle, explore, and model relevant data sets for a hands-on project for local scholars, offices, organizations, or industry participants. Data sets and relevant readings will change depending on semester. 
+
+## Module structure
+
+In general, modules will contain readings, additional resources, and weekly assignments.
+
+The modules will be updated across the semester as needed. There are more modules on this course site because some modules provide other useful information. The names of the modules listed in the syllabus, however, do match the names in the module listing.  
+

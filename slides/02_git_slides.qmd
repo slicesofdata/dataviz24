@@ -1,0 +1,247 @@
+---
+title: "Git and GitHub"
+format: 
+  revealjs:
+    theme: dark
+    preview-links: auto
+    embed-resources: true # needed to allow for showing slides on a website (otherwise link is blank)
+    # slide-tone: true # play sound on change - blind users
+    
+slide-number: c/t #h/v
+#  width: 1600
+#  height: 900
+#logo: "images/??.jpg"
+#logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
+#footer: "[](https://rstudio-conf-2022.github.io/get-started-quarto/)"
+#css: ["css/styles.css"]
+#theme: simple
+echo: true  # for code echo
+
+#editor: visual
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+
+# **Version Control**
+
+## **What is version control for?**
+
+::: {.incremental}
+* Project backup
+* Git monitors/controls file versions (empty directories). 
+* See specific changes inside files
+* Undo changes (time machine)
+* [Version Control Summary Video](https://www.youtube.com/watch?v=M-O8ZNW9icQ)
+:::
+
+
+## **Version Control: Git Workflow Basics**
+
+There are 4 main parts to Git Workflow:
+
+::: {.incremental}
+1. Make local changes (in your working directory) 
+2. **Stage** changes (in your staging directory) 
+3. **Commit** changes (to apply them for pushing to your remote repository)
+4. **Push** for sending commits to remote repo (on GitHub) 
+* Other: **Merge** for merging branches (i.e., to incorporate your edits into main)
+* [Video of Version Control Workflow Basics](https://www.youtube.com/watch?v=e8PGuOyZ3YU)
+:::
+
+```{.r}
+
+## **Git: Image Version**
+
+@[understanding git through images](https://dev.to/nopenoshishi/understanding-git-through-images-4an1)
+```
+
+# **Setting up Git and GitHub**
+
+Already completed?
+
+## **Connecting Git to GitHub: The RStudio Terminal**
+
+::: {.incremental}
+- **Configure** Git and GitHub in RStudio Terminal
+- **Create** token
+- **Set** token
+- Can use the `RStudio` Gui (clunky though)
+:::
+
+
+## **Configuring Git and GitHub with {usethis}**
+
+```{r message=FALSE, warning=FALSE, eval=FALSE}
+usethis::use_git_config(user.name = "janegit", 
+                        user.email = "jane_git@gitrdone.com"
+                        )
+```
+
+
+## **Creating a Personal Access Token (PAT) for GitHub with {usethis}**
+
+::: {.incremental} 
+- `usethis::create_github_token()`
+- Create token and **copy to your clipboard**
+:::
+
+
+## **Setting your Git Credentials (using PAT) with {gitcreds}**
+
+::: {.incremental}
+- `gitcreds::gitcreds_set()`
+- Choose option to either *set* or *replace* 
+- At `? Enter new password or token`, **paste** PAT to set
+- `gh::gh_whoami()` to check if set
+:::
+
+
+# **Controlling Git: Commands**
+
+## **Some Basic Commands**
+
+::: {.incremental}
+`Fork`: to make a copy of a repo in your own GitHub account
+
+`Clone`: make a copy of the your GitHub repo on your local computer. 
+  * copies a remote repo to create a local repo with a remote called origin automatically set up.
+:::
+
+
+## **Some Basic Commands (Cont.)**
+
+::: {.incremental}
+`Pull`:	incorporates changes into your repo from remote
+
+`Add`:	adds snapshots of your changes to the "Staging" area.
+
+`Commit`:	takes the files as they are in your staging area and stores a snap shot of your files (changes) permanently in your Git directory
+
+`Push`:	uploads your files (changes) to the remote repo
+
+`Status`: checks the status of a repo changes, etc.
+:::
+
+
+## **Some Basic Commands (Cont.)**
+
+::: {.incremental}
+`Merge`: incorporates changes into the branch you are on.
+
+`Pull Request`: By "issuing a pull request" to the owner of the upstream repo, you are requesting that your changes be pulled into their repo (accept your changes/work).
+:::
+
+
+# **The Git Process**
+
+## **Making Local File Changes, Committing, and Pushing to GitHub**
+
+::: {.incremental}
+- Make a change to a file, save to local computer
+- Check ***status*** of project for changes
+- ***Add/Stage*** change
+- ***Commit*** change(s)
+- ***Push*** changes
+- ***Pull*** pulls changes down from repo (downloads and merges changes)
+:::
+
+
+## **Checking the Status of Local File Changes**
+
+At the **Terminal** in RStudio
+
+- `$ git status`
+
+
+## **Shared Repository Workflow**
+
+::: {.incremental}
+1. Pull recent changes from main: `git pull`
+2. Make changes to files
+3. Stage your changes: `git add`
+4. Commit changes locally: `git commit -m "description of changes"`
+5. Upload your new the changes to GitHub: `git push`
+:::
+
+
+# **Staging**
+
+## **Staging Changes (Adding Changes)**
+
+::: {.incremental}
+* [Staging and Committing](https://www.youtube.com/watch?v=7exFDGHgQcw)
+  * Untracked vs. tracked files 
+  * To have tracked by Git, you need to **add**
+:::
+
+
+## **Staging a *Specific* Change**
+
+::: {.incremental}
+* `$ git add <file>...` such that `<file>` refers to the file name
+
+* file might be in a directory, e.g., `r/`
+
+* `$ git add r/yourname.R`
+
+* Tab to auto-complete, e.g., `git add r/you{TAB}`
+:::
+
+
+## **Staging *All* Changes**
+
+* `$ git add .`
+
+
+# **Committing Changes with Messages**
+
+
+## **Committing the Change(s)** 
+
+::: {.incremental}
+-  `git commit` is used to commit the changes
+- add `-m` to tell git you want a message (e.g., `"my message here"`)  
+- `$ git commit -m "added my first .R file"`
+:::
+
+
+# **Pushing Changes to a Remote**
+
+
+## **Push (publish) the change(s) from your branch to the remote repository**
+
+::: {.incremental}
+- `$ git push`
+
+- [Pushing changes](https://www.youtube.com/watch?v=lqw7ipXmc-4)
+:::
+
+
+# **Pulling Changes from a Remote (collaborator's work)**
+
+
+## **Pulls change(s) from the remote repository**
+
+::: {.incremental}
+- `$ git pull`
+- If you make changes that other will need, let them know to pull
+:::
+
+
+
+# **Git Clients and Tutorials**
+
+## **Git Client Video Tutorials**
+
+::: {.incremental}
+- [GitKraken Git Client examples](https://www.gitkraken.com/learn/git)
+- for more, see: this [video](https://www.youtube.com/watch?v=A4rIs-6c98s)
+:::
+
+
+## **Videos of many things you can do**
+
+If interested, see [gittower YouTube](https://www.youtube.com/@gittower)

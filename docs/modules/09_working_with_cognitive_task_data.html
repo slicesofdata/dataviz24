@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gabriel I. Cook">
+<meta name="dcterms.date" content="2024-02-11">
+
+<title>PSYC166 - Working with Cognitive Task Data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/78ddb093ea.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title"><strong>PSYC166</strong></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text"><strong>Home</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus/syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><strong>Syllabus</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../modules/index.html" rel="" target="">
+ <span class="menu-text"><strong>Modules</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../project/index.html" rel="" target="">
+ <span class="menu-text"><strong>Project</strong></span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Slides</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../slides/01_intro_rstudio_rmarkdown_slides.html" rel="" target="">
+ <span class="dropdown-text">R, RStudio, &amp; R Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/02_git_slides.html" rel="" target="">
+ <span class="dropdown-text">Git and GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/03_functions_slides.html" rel="" target="">
+ <span class="dropdown-text">Functions, Parameters, and Arguments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/04_vectors_and_data_frames_slides.html" rel="" target="">
+ <span class="dropdown-text">Vectors and Data Frames</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/05_importing_and_exporting_slides.html" rel="" target="">
+ <span class="dropdown-text">Importing and Exporting Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/06_variables_cognition_slides.html" rel="" target="">
+ <span class="dropdown-text">Variables, Measures of Cognition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/07_manipulating_data_selecting_filtering_mutating_slides.html" rel="" target="">
+ <span class="dropdown-text">Manipulating Data: Selecting, Filtering, &amp; Mutating</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/08_cognitive_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Cognitive Task Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/09_summarizing_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Grouping and Summarizing Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/09_summarizing_data_advanced_slides.html" rel="" target="">
+ <span class="dropdown-text">Grouping and Summarizing Data (Advanced)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/10_cognitive_data_summary_slides.html" rel="" target="">
+ <span class="dropdown-text">Summarizing Task Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/07_manipulating_data_pivoting_slides.html" rel="" target="">
+ <span class="dropdown-text">Transforming Data: Pivoting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/13_joining_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Joining Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/11_visualizing_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Visualizing Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/12_examining_relationships_slides.html" rel="" target="">
+ <span class="dropdown-text">Examining Relationships</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/14_strings_and_factors_slides.html" rel="" target="">
+ <span class="dropdown-text">Strings, Factors, and Regular Expressions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/16_models_project_slides.html" rel="" target="">
+ <span class="dropdown-text">Discussing Models for Cognitive Tasks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/17_linear_models_slides.html" rel="" target="">
+ <span class="dropdown-text">Linear Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/18_eda_slides.html" rel="" target="">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hw" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>HW</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW01.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW02.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW03.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW04.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW05.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW06.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW07.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW08.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW09.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 09</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW10.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 10</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Exercises</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li>
+    <a class="dropdown-item" href="../exercises/using_git_with_projects_exercise.Rmd" rel="" target="">
+ <span class="dropdown-text">using_git_with_projects_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/functions_exercise.docx" rel="" target="">
+ <span class="dropdown-text">functions_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/vectors_and_dataframes_exercise.docx" rel="" target="">
+ <span class="dropdown-text">vectors_and_dataframes_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/imorting_and_exporting_exercise.docx" rel="" target="">
+ <span class="dropdown-text">importing_and_exporting_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/transforming_exercise.docx" rel="" target="">
+ <span class="dropdown-text">transforming_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/summarizing_exercise.docx" rel="" target="">
+ <span class="dropdown-text">summarizing_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/visualizing_exercise.docx" rel="" target="">
+ <span class="dropdown-text">visualizing_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/pivoting_exercise.docx" rel="" target="">
+ <span class="dropdown-text">pivoting_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/strings_and_factors_exercise.docx" rel="" target="">
+ <span class="dropdown-text">strings_and_factors_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/joining_exercise.docx" rel="" target="">
+ <span class="dropdown-text">joining_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/linear_models_exercise.Rmd" rel="" target="">
+ <span class="dropdown-text">linear_models_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/eda_exercise.docx" rel="" target="">
+ <span class="dropdown-text">eda_exercise.docx</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Data</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/slicesofdata/dataviz23/raw/main/data/cms-top-all-time-2023-swim.zip" rel="" target="">
+ <span class="dropdown-text">cms-top-all-time-2023-swim.xlsx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/rfordatascience/tidytuesday" rel="" target="">
+ <span class="dropdown-text">Fun Tidy Tuesday Data Sets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
+ <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cheatsheets" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Cheatsheets</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cheatsheets">    
+        <li>
+    <a class="dropdown-item" href="../cheatsheets_and_tips/symbols.html" rel="" target="">
+ <span class="dropdown-text">Symbols</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/rmarkdown-2.0.pdf" rel="" target="">
+ <span class="dropdown-text">RMarkdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" rel="" target="">
+ <span class="dropdown-text">Data Wrangling with {dplyr} and {tidyr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/quarto.html" rel="" target="">
+ <span class="dropdown-text">Quarto (Publish and Share)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/strings.html" rel="" target="">
+ <span class="dropdown-text">String Manipulation with {stringr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/data-import.html" rel="" target="">
+ <span class="dropdown-text">Reading and Writing Data with {readr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/Data_Science_With_R_Workflow.pdf" rel="" target="">
+ <span class="dropdown-text">Data Science with RWorkflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/" rel="" target="">
+ <span class="dropdown-text">More Cheatsheets From RStudio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://images.datacamp.com/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf" rel="" target="">
+ <span class="dropdown-text">Quarto Cheat Sheet (what Quarto Files Look Like)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../resources/tools.html" rel="" target="">
+ <span class="menu-text"><strong>Other Tools</strong></span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/slicesofdata" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gabrielcook.xyz" rel="" target="">
+ <span class="menu-text">Me</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/09_working_with_cognitive_task_data.html"><strong>Working with Cognitive Task Data</strong></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Syllabus</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Installing R &amp; RStudio</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/01_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Introduction to RStudio and R Markdown</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Management 01: Installing and Setting Up Git and GitHub for R</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_using_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Management 02: R Projects, Git, and GitHub</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/04_functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Functions, Arguments, and R scripts</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/05_vectors_and_data_frame_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Vectors and Data Frame Basics</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/06_importing_and_exporting_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Importing and Exporting Data Frames</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/07_variables_and_measures_of_cognition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Variables and Measures of Cognition</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/08_manipulating_data_selecting_filtering_mutating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Selecting, Filtering, &amp; Mutating</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/09_working_with_cognitive_task_data.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><strong>Working with Cognitive Task Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/10_summarizing_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/11_summarizing_cognitive_task_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Cognitive Task Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/12_manipulating_data_pivoting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Transforming Data Frames: Pivoting</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/13_visualizing_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Visualizing Data: {ggplot} and the grammar of graphics</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/14_joining_relational_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Joining Relational Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/15_joining_project_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Joining Project Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/16_examining_relationships_in_variables_of_cognition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Examining Relationships in Variables of Cognition</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/17_strings_and_factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Strings, Factors, and Regular Expressions</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/18_linear_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Linear Models</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/19_exploratory_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Exploratory Data Analysis</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/summarizing_data_advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Data: Using <code>across()</code> and Lists</strong></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../project/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Team membership and roles</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/02_project_midterm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Midterm presentation</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/03_project_final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Final Presentation</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/04_project_report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Final Report</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/05_project_tasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Tasks</strong></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
+  <ul class="collapse">
+  <li><a href="#upcoming-assessments-heads-up" id="toc-upcoming-assessments-heads-up" class="nav-link" data-scroll-target="#upcoming-assessments-heads-up"><strong>Upcoming Assessments: Heads-Up</strong></a></li>
+  <li><a href="#readings-and-preparation" id="toc-readings-and-preparation" class="nav-link" data-scroll-target="#readings-and-preparation"><strong>Readings and Preparation</strong></a></li>
+  </ul></li>
+  <li><a href="#task-documentation" id="toc-task-documentation" class="nav-link" data-scroll-target="#task-documentation"><strong>Task documentation</strong></a></li>
+  <li><a href="#preparing-for-working-with-cognitive-task-data" id="toc-preparing-for-working-with-cognitive-task-data" class="nav-link" data-scroll-target="#preparing-for-working-with-cognitive-task-data"><strong>Preparing for Working with Cognitive Task Data</strong></a>
+  <ul class="collapse">
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
+  <li><a href="#scripts-and-r-markdown" id="toc-scripts-and-r-markdown" class="nav-link" data-scroll-target="#scripts-and-r-markdown"><strong>Scripts and R Markdown</strong></a></li>
+  <li><a href="#importing-scripts-and-data-files" id="toc-importing-scripts-and-data-files" class="nav-link" data-scroll-target="#importing-scripts-and-data-files"><strong>Importing Scripts and Data Files</strong></a></li>
+  <li><a href="#exporting-data-frames" id="toc-exporting-data-frames" class="nav-link" data-scroll-target="#exporting-data-frames"><strong>Exporting Data Frames</strong></a></li>
+  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors"><strong>Vectors</strong></a></li>
+  <li><a href="#variable-names" id="toc-variable-names" class="nav-link" data-scroll-target="#variable-names"><strong>Variable Names</strong></a></li>
+  <li><a href="#data-wrangling-and-manipulation" id="toc-data-wrangling-and-manipulation" class="nav-link" data-scroll-target="#data-wrangling-and-manipulation"><strong>Data Wrangling and Manipulation</strong></a></li>
+  </ul></li>
+  <li><a href="#gono-go-task" id="toc-gono-go-task" class="nav-link" data-scroll-target="#gono-go-task"><strong>Go/No-Go Task</strong></a>
+  <ul class="collapse">
+  <li><a href="#key-components-of-the-gono-go-task" id="toc-key-components-of-the-gono-go-task" class="nav-link" data-scroll-target="#key-components-of-the-gono-go-task"><strong>Key Components of the Go/No-Go Task</strong></a></li>
+  <li><a href="#relationships-with-other-cognitive-behaviors" id="toc-relationships-with-other-cognitive-behaviors" class="nav-link" data-scroll-target="#relationships-with-other-cognitive-behaviors"><strong>Relationships with other Cognitive Behaviors</strong></a></li>
+  <li><a href="#the-gono-go-task-understanding-inhibitory-control-and-drug-use" id="toc-the-gono-go-task-understanding-inhibitory-control-and-drug-use" class="nav-link" data-scroll-target="#the-gono-go-task-understanding-inhibitory-control-and-drug-use"><strong>The Go/No-Go Task: Understanding Inhibitory Control and Drug Use</strong></a></li>
+  <li><a href="#gono-go-and-nicotine" id="toc-gono-go-and-nicotine" class="nav-link" data-scroll-target="#gono-go-and-nicotine"><strong>Go/No-Go and Nicotine</strong></a></li>
+  </ul></li>
+  <li><a href="#symmetry-span" id="toc-symmetry-span" class="nav-link" data-scroll-target="#symmetry-span"><strong>Symmetry Span</strong></a></li>
+  <li><a href="#relationships-with-other-cognitive-abilities" id="toc-relationships-with-other-cognitive-abilities" class="nav-link" data-scroll-target="#relationships-with-other-cognitive-abilities"><strong>Relationships with other Cognitive Abilities</strong></a>
+  <ul class="collapse">
+  <li><a href="#symmetry-span-and-inhibition" id="toc-symmetry-span-and-inhibition" class="nav-link" data-scroll-target="#symmetry-span-and-inhibition"><strong>Symmetry Span and Inhibition</strong></a></li>
+  <li><a href="#symmetry-span-and-gono-go" id="toc-symmetry-span-and-gono-go" class="nav-link" data-scroll-target="#symmetry-span-and-gono-go"><strong>Symmetry Span and Go/No-Go</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>Working with Cognitive Task Data</strong></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gabriel I. Cook </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 11, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="overview" class="level1">
+<h1><strong>Overview</strong></h1>
+<p>We will work with cognitive task data relevant for your team project. This module serves to remind you of libraries and functions presented in other modules so that you can utilize them efficiently during class time.</p>
+<section id="upcoming-assessments-heads-up" class="level2">
+<h2 class="anchored" data-anchor-id="upcoming-assessments-heads-up"><strong>Upcoming Assessments: Heads-Up</strong></h2>
+<p>At this point in the semester, you have some experience working with RStudio, R objects, and R Markdown. You are also familiar with using different libraries and functions in service of completing in-class exercises and homework assignments using functions.</p>
+<p><strong>There will also be a 10 minute in-class practice assessment</strong> to assess your knowledge of R up to this point. The assessment will familiarize you with the type of assessments you will experience in future weeks. The assessment will be paper-and-pencil format without the use of the computer. Questions will be assess your knowledge and familiarity with different libraries, functions, your ability to identify and fix errors in code, your ability to determine which functions produce a certain output, etc.</p>
+</section>
+<section id="readings-and-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="readings-and-preparation"><strong>Readings and Preparation</strong></h2>
+<p><em>Before Class</em>: Read the module content to familiarize yourself with concepts that you will use to work with task data. In addition, review the content on the tasks so that you gain more appreciation of the tasks participants have completed and their relevance to the project.</p>
+</section>
+</section>
+<section id="task-documentation" class="level1">
+<h1><strong>Task documentation</strong></h1>
+<p>The CHAMP documentation presents some visualizations for the tasks. Because the data were collected using millisecond.com, you could can find specific documentation of the variables in the manual on millisecond.com for the <a href="https://www.millisecond.com/download/library/v6/symmspan/automatedsymmspan.manual">symmetry span</a> and <a href="https://www.millisecond.com/download/library/v6/gonogo/cuedgonogo/cuedgonogo.manual">go/no-go</a> tasks.</p>
+</section>
+<section id="preparing-for-working-with-cognitive-task-data" class="level1">
+<h1><strong>Preparing for Working with Cognitive Task Data</strong></h1>
+<p>In order to work on the exercise in class, you should familiarize yourself with various objects and functions.</p>
+<section id="libraries" class="level2">
+<h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
+<p>Are you familiar with <strong>{here}</strong>, <strong>{dplyr}</strong>, and <strong>{readr}</strong> and key functions in those libraries?</p>
+</section>
+<section id="scripts-and-r-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="scripts-and-r-markdown"><strong>Scripts and R Markdown</strong></h2>
+<p>Are you familiar with creating R script files and R Markdown files? Do you know how to create code blocks in R Markdown as well as in-line R objects?</p>
+</section>
+<section id="importing-scripts-and-data-files" class="level2">
+<h2 class="anchored" data-anchor-id="importing-scripts-and-data-files"><strong>Importing Scripts and Data Files</strong></h2>
+<p>Are you familiar with importing different types of data files? Do you know how to read script files from a different script or R Markdown file so that you can execute code that is saved in a different file?</p>
+</section>
+<section id="exporting-data-frames" class="level2">
+<h2 class="anchored" data-anchor-id="exporting-data-frames"><strong>Exporting Data Frames</strong></h2>
+<p>Can you export data frame objects as files of different file formats?</p>
+</section>
+<section id="vectors" class="level2">
+<h2 class="anchored" data-anchor-id="vectors"><strong>Vectors</strong></h2>
+<p>Can you create vectors that are independent from/external to a data frame? Can you create vector variables inside a data frame? Are you familiar with element position in a vector?</p>
+</section>
+<section id="variable-names" class="level2">
+<h2 class="anchored" data-anchor-id="variable-names"><strong>Variable Names</strong></h2>
+<p>Do you know how to extract the variable names from a data frame and rename variables?</p>
+</section>
+<section id="data-wrangling-and-manipulation" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling-and-manipulation"><strong>Data Wrangling and Manipulation</strong></h2>
+<p>Are you familiar with creating new variables or modify existing variables in a data frame? Can you select subsets of variables from a data frame? Are you familiar with how filtering works in order to filter rows from a data frame? Can you reorder variable position in a data frame?</p>
+</section>
+</section>
+<section id="gono-go-task" class="level1">
+<h1><strong>Go/No-Go Task</strong></h1>
+<p>The Go/No-Go task is a cognitive task used in psychological research to assess response inhibition, which is the ability to inhibit or suppress a pre-potent or automatic response. In this task, participants are presented with a series of stimuli (usually visual or auditory) and are required to respond only to certain target stimuli (Go stimuli) while withholding responses to other non-target stimuli (No-Go stimuli).</p>
+<p>The task typically involves rapid presentation of stimuli, requiring participants to quickly differentiate between Go and No-Go stimuli and respond accordingly. The main measure of interest in the Go/No-Go task is the participant’s accuracy and reaction time in correctly inhibiting responses to No-Go stimuli while responding to Go stimuli.</p>
+<section id="key-components-of-the-gono-go-task" class="level2">
+<h2 class="anchored" data-anchor-id="key-components-of-the-gono-go-task"><strong>Key Components of the Go/No-Go Task</strong></h2>
+<ul>
+<li><strong>Response Inhibition</strong>: Ability to inhibit automatic responses to certain stimuli.</li>
+<li><strong>Impulse Control</strong>: Capacity to resist impulsive responses.</li>
+<li><strong>Executive Function</strong>: Cognitive processes like planning and decision-making.</li>
+<li><strong>Attentional Control</strong>: Ability to focus on relevant stimuli.</li>
+<li><strong>Error Monitoring</strong>: Detecting and correcting errors in real-time.</li>
+</ul>
+<p>The Go/No-Go task is correlated with various cognitive behaviors, including:</p>
+</section>
+<section id="relationships-with-other-cognitive-behaviors" class="level2">
+<h2 class="anchored" data-anchor-id="relationships-with-other-cognitive-behaviors"><strong>Relationships with other Cognitive Behaviors</strong></h2>
+<ul>
+<li><strong>Response inhibition:</strong> The ability to withhold a prepotent or automatic response in the presence of inhibitory cues (No-Go stimuli).</li>
+<li><strong>Impulse control:</strong> The capacity to resist impulsive responses and act in accordance with task instructions.</li>
+<li><strong>Executive function:</strong> The cognitive processes involved in planning, decision-making, and cognitive flexibility, which are necessary for effective performance on the task.</li>
+<li><strong>Attentional control:</strong> The ability to selectively attend to relevant stimuli while ignoring irrelevant or distracting stimuli.</li>
+<li><strong>Error monitoring:</strong> The capacity to detect and correct errors in real-time, which is crucial for adaptive behavior in changing environments.</li>
+</ul>
+<p>Overall, the Go/No-Go task provides valuable insights into the functioning of various cognitive processes related to inhibition and self-regulation, making it a widely used tool in cognitive neuroscience and clinical psychology research.</p>
+</section>
+<section id="the-gono-go-task-understanding-inhibitory-control-and-drug-use" class="level2">
+<h2 class="anchored" data-anchor-id="the-gono-go-task-understanding-inhibitory-control-and-drug-use"><strong>The Go/No-Go Task: Understanding Inhibitory Control and Drug Use</strong></h2>
+<p>The Go/No-Go task has been extensively used in research examining the relationship between cognitive functions, particularly inhibitory control, and drug use. Individuals with substance use disorders often exhibit deficits in inhibitory control, and the Go/No-Go task is one of the tools used to assess these deficits. Here are some key findings related to drug use and the Go/No-Go task:</p>
+<p><strong>Impaired Inhibitory Control in Substance Use Disorders:</strong> Individuals with substance use disorders, such as those involving alcohol, cocaine, cannabis, and stimulants, often show impaired inhibitory control as measured by the Go/No-Go task. This suggests that difficulties in suppressing automatic responses may contribute to the development and maintenance of addictive behaviors.</p>
+<p><strong>Predictive Value for Substance Use Outcomes:</strong> Deficits in inhibitory control, as assessed by the Go/No-Go task, have been found to be predictive of substance use outcomes. Individuals with poorer inhibitory control on the task may be at a higher risk of continued substance use, relapse, or difficulties in maintaining abstinence.</p>
+<p><strong>Neural Correlates:</strong> Neuroimaging studies have explored the neural correlates of inhibitory control deficits in substance use. Dysfunction in brain regions associated with inhibitory control, such as the prefrontal cortex, has been observed in individuals with substance use disorders during the performance of the Go/No-Go task.</p>
+<p><strong>Treatment Implications:</strong> The Go/No-Go task has also been used to evaluate the effects of interventions and treatments for substance use disorders. Improvements in inhibitory control, as measured by the task, have been associated with successful treatment outcomes.</p>
+<p><strong>Polydrug Use:</strong> Research has investigated inhibitory control in individuals with polydrug use, examining how the task performance may vary across different substances. Different substances may have distinct effects on inhibitory control, and the Go/No-Go task helps in understanding these nuances.</p>
+<p>Overall, the Go/No-Go task serves as a valuable tool in studying the cognitive aspects of substance use disorders, providing insights into the relationship between inhibitory control deficits and drug use behaviors. This research contributes to a better understanding of the underlying mechanisms of addiction and aids in the development of targeted interventions and treatments.</p>
+</section>
+<section id="gono-go-and-nicotine" class="level2">
+<h2 class="anchored" data-anchor-id="gono-go-and-nicotine"><strong>Go/No-Go and Nicotine</strong></h2>
+<p>There are relationships between the Go/No-Go task and nicotine use. Studies have shown that individuals who smoke cigarettes or use nicotine in other forms may exhibit differences in inhibitory control as measured by the Go/No-Go task.</p>
+<p><strong>Inhibitory Control Deficits:</strong> Individuals who smoke cigarettes or use nicotine products have been found to demonstrate deficits in inhibitory control. They may have difficulties inhibiting responses to No-Go stimuli compared to non-smokers or individuals who do not use nicotine.</p>
+<p><strong>Impact on Decision-Making:</strong> Nicotine use has been associated with alterations in decision-making processes, which are closely related to inhibitory control. The Go/No-Go task assesses the ability to make rapid decisions and inhibit inappropriate responses, and nicotine use may impact performance on this task.</p>
+<p><strong>Withdrawal Effects:</strong> Research suggests that acute nicotine withdrawal may further impair inhibitory control. Individuals undergoing nicotine withdrawal may exhibit greater difficulties in inhibiting responses to No-Go stimuli, potentially leading to increased impulsivity and risk-taking behaviors.</p>
+<p><strong>Cognitive Processing:</strong> Nicotine affects various cognitive processes, including attention, working memory, and inhibitory control. The Go/No-Go task provides insights into the specific cognitive domains affected by nicotine use and withdrawal, helping to elucidate the underlying mechanisms.</p>
+<p><strong>Treatment Response:</strong> Studies have investigated the effects of nicotine replacement therapy (NRT) and other smoking cessation interventions on inhibitory control. Improvements in inhibitory control following smoking cessation may contribute to successful quitting outcomes and relapse prevention.</p>
+</section>
+</section>
+<section id="symmetry-span" class="level1">
+<h1><strong>Symmetry Span</strong></h1>
+<p>The Symmetry Span Task, like other complex-span tasks (e.g., operation span, reading span, rotation span) is a cognitive assessment tool used in psychological research to measure working memory capacity. The task typically involves presenting participants with a series of stimuli, such as shapes or letters, arranged in a grid. Participants are asked to indicate whether each stimulus display is symmetrical or asymmetrical while also trying to remember a sequence of items presented between the displays. Complex-span tasks are designed to understand and estimate how well individuals can store information in the context of another processing or distracting task.</p>
+<p>In the task, participants see a series of displays containing symmetrical or asymmetrical patterns and must indicate whether each display is symmetrical or asymmetrical. Between the displays, participants are presented with a sequence of unrelated items (e.g., digits or letters) and are asked to recall these items in the correct order. After several displays and interference sequences, participants are asked to recall the items they saw during the interference phase in the correct order.</p>
+<p>The task’s primary focus is on measuring working memory capacity, specifically the ability to maintain and manipulate information in memory while performing concurrent tasks. The Symmetry Span Task has been correlated with various cognitive behaviors and abilities, including:</p>
+<p><strong>Working Memory Capacity:</strong> The task primarily assesses working memory capacity, which is crucial for various cognitive functions such as learning, problem-solving, and decision-making.</p>
+<p><strong>Executive Functioning:</strong> Working memory is closely tied to executive functioning, which involves skills like attention control, task switching, and inhibition of irrelevant information. The Symmetry Span Task taps into these executive functions by requiring participants to manage competing demands on their attention.</p>
+<p><strong>Fluid Intelligence:</strong> Fluid intelligence refers to the ability to think logically and solve problems in novel situations. Working memory capacity, as measured by tasks like the Symmetry Span Task, is positively correlated with fluid intelligence.</p>
+<p><strong>Attention Control:</strong> The task also requires participants to control their attention, as they must maintain focus on the primary task (assessing symmetry) while ignoring irrelevant distractions and remembering unrelated items.</p>
+<p>Overall, the Symmetry Span Task provides valuable insights into individuals’ working memory capacity and its relationship to other cognitive processes and behaviors.</p>
+</section>
+<section id="relationships-with-other-cognitive-abilities" class="level1">
+<h1><strong>Relationships with other Cognitive Abilities</strong></h1>
+<section id="symmetry-span-and-inhibition" class="level2">
+<h2 class="anchored" data-anchor-id="symmetry-span-and-inhibition"><strong>Symmetry Span and Inhibition</strong></h2>
+<p>Symmetry Span performance is correlated with inhibition, the ability to suppress or ignore irrelevant information or responses while focusing on relevant stimuli or tasks. This ability is closely related to executive functioning and is an essential component of cognitive control.</p>
+<p>In the Symmetry Span Task, participants need to inhibit the interference caused by the unrelated items presented between the displays while focusing on the primary task of assessing symmetry. Individuals must resist the temptation to let the interference items disrupt their performance on the symmetry judgment task or interfere with their ability to recall the items presented during the interference phase.</p>
+<p>Individuals with better inhibition skills are expected to perform better on the Symmetry Span Task because they can more effectively manage competing demands on their attention and resist interference from irrelevant information. Conversely, individuals with weaker inhibition skills may struggle more on the task, as they may have difficulty maintaining focus and effectively managing the interference. Therefore, the Symmetry Span Task serves as a measure of not only working memory capacity but also the ability to inhibit irrelevant information, making it correlated with inhibition as one aspect of executive functioning.</p>
+</section>
+<section id="symmetry-span-and-gono-go" class="level2">
+<h2 class="anchored" data-anchor-id="symmetry-span-and-gono-go"><strong>Symmetry Span and Go/No-Go</strong></h2>
+<p>The correlation between performance on the Symmetry Span Task and performance on a Go/No-Go task is complex and not direct. Although both tasks involve aspects of executive functioning and cognitive control, they assess somewhat different cognitive processes.</p>
+<p>The Symmetry Span Task primarily measures working memory capacity and the ability to maintain and manipulate information in memory while managing interference from unrelated items. It also taps into aspects of attention control and inhibition, as participants need to resist interference from irrelevant information during the task.</p>
+<p>The Go/No-Go task, however, typically measures response inhibition and impulse control. In a Go/No-Go task, participants respond (Go) to one type of stimulus while withholding their response (No-Go) to another type of stimulus. This task primarily assesses the ability to inhibit pre-potent responses and to control impulsivity.</p>
+<p>While both tasks involve aspects of inhibition and cognitive control, they assess different aspects of inhibition and may rely on somewhat different neural mechanisms. As a result, the correlation between performance on the Symmetry Span Task and performance on a Go/No-Go task may not be particularly strong or straightforward. However, individuals who perform well on tasks requiring inhibition and cognitive control may also perform well on both tasks due to shared underlying cognitive processes and executive functioning skills.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

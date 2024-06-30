@@ -1,0 +1,59 @@
+---
+title: "**Team membership and roles**"
+author: "Gabriel I. Cook"
+#date: "`r Sys.Date()`"
+#date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+
+## **Team Roles**
+
+Project roles help streamline events, assist delegation, allow for some accountability, and reduce workload overlap. Project roles are designed to help keep the project organized and reduce confusion about what project elements team members are taking on. Team roles should be decided upon in a way that maximizes member ability so that task demands are equal across team members. These roles provide some guidelines but do not obviate members from contributing to and participating in other tasks subsumed under specific roles. In other words, when the Project Manager falls ill, another team member should step up to facilitate any necessary communication between the liaison of me. Likewise, the Coding Lead would step in to help the Writing Lead revise writing when necessary. Similarly, the Writing Lead or Project Manager should help the Coding Lead with organizing code when appropriate. All team members have have the same goal, which is to develop, code, and communicate the project to the liaison. All members will code, organize, and write and may take lead on sections with which they are most familiar or most qualified in addressing.
+
+If the team decides to create roles different from those suggested below, please just let me know.
+
+**Suggested Roles:**
+
+### 1. *Project Manager (PM)*: The project manager helps with organization of the project and is the point person for communication.
+
+-   Communicating the team meeting time and location to me;
+-   Communicating with course faculty and liaison(s);
+-   Scheduling and reminding the team meetings and meetings with liaison;
+-   Assigning tasks to team members (with help from course professor is needed) and based on the project requirements;
+-   Monitoring and keeping track of each member's project progress;
+-   Motivating the team members on their task completion and future goals;
+-   Dealing with any conflicts within the team and updating any concerns with course professor;
+-   Coordinating team activities such as presentation dry runs;
+-   Helping maintain equity of tasks across all team members, inclusion the PM;
+-   The Project Manager is not responsible to reminding team members to complete their tasks or complete worklogs.
+
+### 2. *Reporting Lead (RL)*: The reporting lead(s) helps with organization of the reporting documents (e.g., slides, report) and revision of writing.
+
+-   1 or 2 members
+-   Planning, guiding, and leading report writing;
+-   Doing background/external research on topic as relevant;
+-   Assigning sections/chapters of documents to appropriate members;
+-   Keeping track of the written progress;
+-   Helping develop a data story line;
+-   Formatting, text, images, inline code (R code embedded in text if relevant), and tables on final document (`RMarkdown` for final report);
+-   Proofreading/editing deliverable documents like slide presentation, written report, etc.;
+-   The Reporting Team is not responsible to all writing.
+
+### 3. *Coding Lead (CL)*: The coding lead(s) helps with organization and management of the project code elements (e.g., project, code, associated files, GitHub repo (recommended)).
+
+-   1 or 2 members
+-   Creating and maintaining organization of the project code (e.g., directories, sourced scripts, etc.)
+-   Leading coding and code documenting;
+-   Assigning technical tasks to other team members;
+-   Keeping track of the progress of the technical tasks;
+-   Helping other team members troubleshoot code (see also TA and course professor);
+-   Communicating with PM, liaison (during liaison meetings), and course professor regarding any technical needs and concerns;
+-   Communicating with RL regarding messaging of coded results;
+-   Maintaining GitHub repo (making sure teammates are pushing work to remote repo);
+-   The Coding Team is not responsible for all coding.
+
+Based on abilities and interests of team members, the team should determine how many individuals to assign to a given role, or determine other appropriate roles given the abilities of the team members. There should be unanimity in these decisions. I will not assign you to roles.

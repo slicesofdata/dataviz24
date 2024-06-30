@@ -1,0 +1,884 @@
+---
+title: "**Functions, Arguments, and R scripts**"
+author: "Gabriel I. Cook"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+```{r}
+#| label: load-packages
+#| include: false
+# see other examples for reverting changes
+#https://jennybc.github.io/2014-05-12-ubc/ubc-r/session03_git.html
+```
+
+```{r include=FALSE}
+#install.packages("webshot")
+webshot::install_phantomjs()
+R.utils::sourceDirectory(here::here("r", "functions"))
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# huber text
+huber_pdf <- "https://www.markhuberdatascience.org/_files/ugd/c2b9b6_543ea42a1ea64e32b4440b34ffd71635.pdf"
+front_matter   <- 10
+huber_intro_ch <- glue::glue(huber_pdf,"#page=",front_matter + 3)
+huber_rmarkdown_ch <- glue::glue(huber_pdf,"#page=",front_matter + 10)
+huber_graphing_ch  <- glue::glue(huber_pdf,"#page=",front_matter + 17)
+huber_transformation_ch <- glue::glue(huber_pdf,"#page=",front_matter + 59) # 5
+huber_summaries_ch <- glue::glue(huber_pdf,"#page=",front_matter + 71)
+huber_eda_var_ch   <- glue::glue(huber_pdf,"#page=",front_matter + 81)
+huber_eda_covar_ch <- glue::glue(huber_pdf,"#page=",front_matter + 93)
+huber_import_ch    <- glue::glue(huber_pdf,"#page=",front_matter + 103)
+huber_tidy_data_ch <- glue::glue(huber_pdf,"#page=",front_matter + 123)
+huber_relational_ch <- glue::glue(huber_pdf,"#page=",front_matter + 141)
+huber_filtering_joins_ch <- glue::glue(huber_pdf,"#page=",front_matter + 150)
+huber_strings_ch  <- glue::glue(huber_pdf,"#page=",front_matter + 155)
+huber_regex_ch    <- glue::glue(huber_pdf,"#page=",front_matter + 162)
+huber_using_regex_ch <- glue::glue(huber_pdf,"#page=",front_matter + 170)
+huber_func_patterns_ch <- glue::glue(huber_pdf,"#page=",front_matter + 182)
+huber_factors_ch  <- glue::glue(huber_pdf,"#page=",front_matter + 186)
+huber_sql_ch      <- glue::glue(huber_pdf,"#page=",front_matter + 199)
+huber_writing_functions_ch <- glue::glue(huber_pdf,"#page=",front_matter + 232)
+huber_modeling_ch <- glue::glue(huber_pdf,"#page=",front_matter + 241)
+```
+
+::: callout-important
+## Under construction. 
+
+This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.
+:::
+
+# **Overview**
+
+A good friend of mine was once tried using R to summarize data. He couldn't figure out why he could not use a function called `mean()` to calculate the mean of variables in his data set. Yes, `mean()` does compute a mean but he did not understand the object for which he was trying to compute a mean. When I explained the issue to him, he told me that he would often try to *'brute force'* his way into obtaining results. He did not understand how the function worked and was not very concerned with learning. Without knowing how functions work, you limit yourself to troubleshoot answers and you spend a lot of time troubleshooting errors. You cannot just brute force yourself into data science or running models without getting yourself into trouble. 
+
+Although the R language differs from other languages like Python, JavaScript, or HTML, the concepts covered is this section may be redundant for student who have taken a computer-science class. For beginners, the concepts may initially be challenging or confusing. You may even question why we cannot just jump into data manipulation and why all of this matters. In order to code in `R` so that you can be comfortable using it and with communicating with other users, a very basic understanding of programming concepts is important. This way, when someone asks you about an object, function, or assignment, you will know what they are taking about. And, well, you cannot communicate with R without knowing how functions work at a basic level. 
+
+
+## **Readings and Preparation**
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.  
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing code through exercises. 
+
+
+## **Supplementary Readings**
+
+- [R Workflow Basics](https://r4ds.hadley.nz/workflow-basics)
+- [Huber: Functions](`r huber_writing_functions_ch`)
+
+
+### **To Do**
+
+Read through the module. You can use the `R` console or open up an `R Markdown` (e.g., `.Rmd`) file to follow along interactively. If you instead prefer to simply read through the content so that you can understand the concepts without coding, that is fine too. Concepts will be applied in class in order to complete activities, however. Reading the module will provide you with confidence working on those activities and prevent you from feeling lost while completing activities. Testing out some code may provide you more confidence.
+
+
+## **Libraries** 
+
+- **{here}** `r packageVersion("here")`: for file path management
+
+
+## **External Functions**
+
+`view_html()`: for viewing data frames in html format
+
+You can access remotely using this code, though you do not need to do so now.
+
+```{r}
+source("https://raw.githubusercontent.com/slicesofdata/fods24/main/r/functions/view_html.R")
+```
+
+
+# **Simple Overview of Objects**
+
+Let's talk about **objects**, object **names**, and **assignment** of names to objects. Quite likely, you have been *assigned* a name, whether at birth or shortly thereafter. Typically speaking, you cannot leave the hospital without being given a name to be part of the governments records. As part of this process, you are also assigned a SSN. Of course, you may have been born outside of a hospital and someone forgot to process paperwork on your behalf, in which case there may not be any record of a name assigned to you nor may there be a record of you existing. Unlikely is the case, however. 
+
+In the example above, you are the *object* and a *name* has been *assigned* to you. Names help distinguish you from another person. In programming languages, different names are used to distinguish one object from another object.  
+
+
+## **Examples of objects**
+
+You can also think of an *object* as a sort of container that holds something. Containers of different types hold different things and so is true in computer programming. A container for holding water may look different from a container for holding books. In computer speak, one type of container can hold numbers, another can hold characters, another can hold a data frame, etc. The container object is holding whatever you have assigned it to hold.
+
+We will deal with different types of objects in data science. Without providing too complicated or technical of descriptions, some are described below. 
+
+- **numeric** objects: representing numeric information (e.g., one's age)
+- **character** objects: representing character information (e.g., one's name or race)
+- **vector** objects: representing more than one numeric object (e.g., ages of participants)
+- **data frame** objects: containing vectors of data (e.g., column variables and row instances of data)
+- **function** objects: that accept one object and return an other object (e.g., the mean of numeric vector)
+
+There are other type of objects that you will learn about and encounter but for now, those are the most relevant.
+
+
+## **A character example**
+
+Let's start with an example of an object called `name`, which we would like to assign a set of characters, like *Jim Bob*. 
+
+In order to create such an object, we would need to place the characters within quotation marks (e.g., single or double, does not matter). The quotes let R know the contents of `name` are *characters* (aka *strings*). 
+
+`"Jim Bob"`
+
+When dealing with data, you will encounter many character objects as they often represent factor variables (e.g., race, ethnicity, favorite game, etc.) but you will also see lots of objects that are numeric in some form (e.g., age, rating, cognitive performance, etc.).
+
+
+# **Object Assignment using `<-`**
+
+Before we can create any objects, however, we need to understand a little about *assignment*. In computer programming, an assignment statement sets (or re-sets) an object denoted by a name. An assignment statement symbolically associates a specific piece of information (e.g., an object) with a name. For example, you can assign the numeric value `22` representing Caleb's age to the name `caleb_age`. The assignment statement is what allows you to call the object `caleb_age` and get the returned value of `22`. Because we assign objects to names, the objects can be single values as with `22` or be something more complex like a *vector* of values, a *data frame*, a *list*, a *list of data frames*, a *plot*, a *function*, or any other object. The name is simply the container to which the object is assigned. Because assignment is the association between an object and a name, I may sometimes refer to the process as *assigning a name to an object* or the reverse, *assigning a name to an object*.  
+
+Assignment requires using an *assignment operator*. The most common assignment operator used by computer programming is `=` (e.g., `caleb_age = 22` or less commonly `22 = caleb_age`). Programming languages can utilize more than one operator for assignment, however. 
+
+In fact, R has three: 
+
+- `=`
+- `<-` or less commonly `->`
+- `<<-` or less commonly `->>`
+
+These operators behave differently in different environments. The main difference is with `<<-`. A discussion about environments and scoping is beyond this class, however. 
+
+For historic reasons, `<-` is the assignment operator of choice. The R community has adopted this tradition. To assimilate with others, you should use `<-` rather than `=`. **If you routinely use `=` rather than `<-`, there may be penalties.** 
+
+**Keyboard Shortcut:** If you don't wish to type out the two characters and you like keyboard shortcuts, you can type `Alt + and -` on Windows and `Option + and -` on Mac, though perhaps not intuitive. Savvy coders can customize the setting at **Tools** -> **Modify Keyboard Shortcuts** and search for *assignment*.
+
+
+## **Assignment provides meaning or definition**
+
+*Assignment* is akin to creating a new word and assigning a meaning to it. You could also think of an assignment statement as a way to tell R to **"create this thing and set it equal to something"** so that the computer understand what association represents. 
+
+
+## **A character object: A silly example**
+
+If objects are like containers holding things, we can use name of the object (e.g., `container`) and then assign `"things"` to it using `<-`. In order to create a character object, we would need to place the characters within quotation marks (e.g., single or double, does not matter). The quotes let R know the contents of `container` are *characters* (aka *strings*). 
+
+`"things"`
+
+When dealing with data, you will encounter many character objects as they often represent factor variables (e.g., race, ethnicity, favorite game, etc.) but you will also see lots of objects that are numeric in some form (e.g., age, rating, cognitive performance, etc.).
+
+Silly Example: 
+
+- `"something"` `assigned` to `container`
+- `container <- "something"`
+
+```{r}
+container <- "things"
+```
+
+And to see its contents, use `print()` to return the objects content:
+
+```{r}
+print(container)
+```
+
+
+Or just type the name of the object and you will see the returned object is `"things"`.
+
+```{r}
+container
+```
+
+For another example, we could also create an object called `name`, which we could assign a set of characters, like *Jim Bob*, making the object a character object. 
+
+```{r}
+name <- "Jim Bob"
+```
+
+To see what is returned:
+
+```{r}
+name
+```
+
+
+Whether you name is or is not Jim Bob, you can see that `name` contains the characters that represent the name of someone named "Jim Bob". Although we assigned `"Jim Bob"` to `name`, we could have assigned it a given name. The assignment process simply stores the assigned information as an object using of whatever name you decided to call it (e.g., `name`, `Name`, `NAME`, `xyz`, etc.). We will discuss more on these letter casing differences later. 
+
+You could also assign the character to the object this way.
+
+```{r}
+"things" -> container
+```
+
+However, we won't use much of this approach for different reasons. One reason is that doing so does not follow the [R Style Guide](https://style.tidyverse.org/). The style guide defines a set of guidelines for coding in R. Rather than memorize all of the styling, pay careful attention to the way code appears in the examples provided and try your best to model your code after the examples. For example, don't do something this `container<-"things"` just so you save space as doing so makes the code more difficult for you and others to read and understand.
+
+OK, back to *Jim Bob*. Of course, there are different people other than Jim Bob who exist in the world but when coding, they do not exist unless you create them. So, let's create an object that holds the name of `"Jim Bob"`.
+
+`name <- "Jim Bob"`
+
+```{r}
+name <- "Jim Bob"     # assign string to object named name
+
+
+Name <- "Jim Bob"     # we could have assigned it a different name, say Name
+
+
+NAME <- "Jim Bob"     # or assigned it in all caps
+```
+
+Whenever you reference the object `name` (or `Name`), R will *return* the contents of the object to you, which in this case will be a character or string object containing a single person's name because that's how we assigned it. 
+
+```{r}
+name               # call object to return contents of "name"
+```
+
+And again, we can use `print()` to do the same thing:
+
+```{r}
+print(name)
+```
+
+
+### **Being mindful of case sensitivity**
+
+A word of warning is needed here. Although `name`, `Name`, and `NAME` all contain the same four characters, *n* *a* *m* and *e* all arranged it he same order, the objects are all different. They just happen to hold the same content. The reason for there being three different object is because R is a case-sensitive language, which means that the letter case matters. In some programming languages, the case is ignored. 
+
+To illustrate, consider an example for which you assign different names to the object.  
+
+```
+name <- "Jim Bob"     # create the object
+
+
+Name <- "Bob"         # then change it
+
+
+NAME <- "Jim"         # then change it again
+```
+
+In those languages, if you asked what the `name` object contained, the program would return `"Jim"` because these characters were assigned last, even though they were assigned to an uppercase version, `NAME`. With R, you will need to be mindful of the letter case. This is by design, perhaps an advantage rather than a disadvantage.
+
+
+## **A numeric object**
+
+What about numeric information? We can create an object called `year` and assign the current year to it; let's have this object contain the current year in numeric form, not as a string. Remember to use `<-` for assignment.
+
+```{r}
+year <- 2024    # assign a number to year ; notice no quotes
+```
+
+In order to know whether this `year` object now contains the year, we can check by typing the name of the object or use `print()` to print the returned value.   
+
+```{r}
+year
+
+
+print(year)
+```
+
+
+## **Inspecting vectors with some functions**
+
+`name` and `year` are very simple objects. `name` is a simple character/string object we created, which contains only the name of 1 person and `year` only holds the current year. There is something else important about how R treats them that you cannot see on the surface. Both of these objects are also **vectors**. Vectors are *one-dimensional arrays* containing *n* pieces of information. You might also think of a vector so a variable (e.g., IQs of people). Both the `name` and `year` vectors contain only one piece of information, however. If you don't believe me, we can use some functions that will answer this for us. 
+
+- `is.vector()` is a function that returns a logical (T or F) about whether the object is a vector
+- `length()` is a function that returns a non-negative numeric integer representing the number of elements contained 
+- `typeof()` is a function that returns the object's type 
+
+Let's try them by passing the object `name` inside the function. 
+
+```{r}
+is.vector(name)   # is it a vector?
+
+
+#?length
+length(name)      # how many elements?
+
+
+typeof(name)      # what is it's type?
+```
+
+If `name` contained more than one object, it would still be a vector having a different length. But in order to create such vectors, each **element** of the vector needs to be separated by a comma and each elements needs to be wrapped by quotes. 
+
+If you do not separate strings by a comma...
+
+```{r}
+name <- "Jim Bob Kendra"
+
+
+name                                # return object; also print(name)
+
+
+is.character(name)                  # is it a character?
+
+
+length(name)                        # what is its length?
+```
+
+
+If you do use quotes for each element and separate each by a comma, you need to use a function to combine them, which is `c()`.
+
+```{r}
+name <- c("Jim Bob", "Kendra")  # two names, combine with c()
+
+
+
+is.character(name)        
+
+
+
+length(name)                   # vector with length 2
+```
+
+The more you work with character vector, the more you way want to avoid some annoyances of creating them.
+
+The **{Hmisc}** library has a function called `Cs()` that obviates the inclusion of the quotes.
+
+```{r}
+Hmisc::Cs(Jim, Kendra, Bill, Sandy)
+```
+
+Beware of vectors containing elements with space like this:
+
+`Hmisc::Cs(Jim Bob, Kendra)`
+
+R will throw an error to inform you that something is wrong. For example: `Error: unexpected symbol in "Hmisc::Cs(Jim Bob"`.
+
+
+## **Elements of vectors**
+
+As a side note, the pieces/values of a vector are referred to as **elements**. You can reference elements by number representing their position in the vector. 
+
+```{r}
+name[1]   # first element
+
+
+name[2]   # second element
+
+
+name[3]   # a third element? No. It only has length 2
+```
+
+Objects in R, however, can take on many forms other than strings or numbers just illustrated. Objects can be strings/characters, numeric values, character strings, functions, data frames, vectors, lists, matrices, plots, etc. If you use `typeof()` on a data frame object, the function will return `"list"` because a data frame is also a list. More on this later. 
+
+
+# **Function Characteristics**
+
+We have used some functions like `is.vector()` and `length()` to inspect some objects above. Given our reliance on function in this course, there is some terminology to understand how to work with functions. 
+
+Here are 5 terms/concepts to know:
+
+- *name* (created by assignment operator `<-`)
+- *definition* (code statements or instructions for its usage)
+- *function arguments* (optional variables that specify the function's operation)
+- *function call* (e.g., execution of a function)
+- *returned object* (value returned from the executed function)
+
+
+# **Functions are Objects with Names and Definitions**
+
+In computer language, *functions* are also objects and like all objects are *assigned* names. These names help distinguish one function from another because each function will serve a different purpose. If you are thinking that some people can have the same name even though they are different objects, yes, some functions can have the same name even though they refer to different objects.
+
+The object examples above for `name` and `year` illustrated creation of a string object or a numeric value. These objects didn't perform any operation, mathematical or otherwise. Functions are special types of objects that carry out certain operations for you, like calculate a mean, a standard deviation, or run all the math for a linear model used for regression or ANOVA. These function objects are essentially containers that perform computations for you.
+
+Think of functions like words with definitions. The definition is what the function does/means/stands for and the word is what the function is named. For example, a function to calculate the *mean* of a numeric vector is called `mean` and its definition is the formula for calculating an arithmetic mean. 
+
+`R` has built-in functions, functions as part of external `libraries` (or packages), and functions that you define yourself. The term function means exactly what you might expect - code that executes some type of *function*.  In R, functions are easily *called* by placing parentheses, `()`, at the end of the function name (e.g., `mean()`). Within the parentheses are any arguments you will need to specify corresponding to the functions parameters. More on arguments later, so just hold on.  
+
+
+# **Objects and Function Objects**
+
+Now that you have a basic idea of objects and assignment, there are different types of objects. Unlike the example of assigning a value to an object, functions like `mean()`, `c()`, `data.frame()` and `mutate()` are objects that contain statements for carrying out operations. As you might imagine, calculating the mean of a set of values using the `mean()` function would involve statements to carry out operations like summation and division. 
+
+- `mean()`: to compute the mean of a numeric vector
+- `c()`: to combine elements into a vector
+- `data.frame()`: to create a data frame
+- `dplyr::mutate()`: for creating variables in data frames
+
+
+# **Understanding Functions by Writing Them** 
+
+The *function* function: `function()`
+
+One way to understand how functions work is to create some yourself. Because functions are objects, you would assign (e.g., using `<-`) code to the function object. Let's create some functions using the function named `function()`, which is required in order to create function. This function is aptly named for its purpose. When using `function()`, you are telling R that the statements that follow are part of a function. The statements you will put between `{` and `}`. 
+
+Let's create *2* functions by assigning their contents to objects named `func_a` and `func_b`. In order for functions to `return` the result of their operation(s), we will also need to use the `return()` function as part of the functions statements. Though not a requirement of all functions, if you ever have to write functions, including `return()` eliminates ambiguity of what the function call returns.
+
+
+*Define* function definition and *assign* to function *name*.
+
+```{r}
+func_a <- function() {
+  return(2022)         # This silly function contains a simple statement; to return a specific numeric value
+}
+
+
+func_b <- function() {
+  return("2022")       # This silly function simple returns a string representing the current year
+}
+```
+
+
+# **Function Versus the Function Object**
+
+Functions are called by appending `()` to their assigned name. Objects that are not functions don't operate the same way. If you wish to call a function, you need to append parentheses to the name. Without them, the R interpreter will provide you with the functions contents and details about the function itself.  
+
+```{r}
+func_a      # If you don't use the (), you'll just see the contents of the function object 
+
+
+func_b
+```
+
+
+Add `()` to call the function and see what R returns to you.
+
+```{r}
+func_a()    # Call the function and see it return something 
+
+
+func_b()
+```
+
+
+# **Performing Operations on Objects**
+
+Because `func_a()` returns a numeric object, you can perform mathematical operations on it just as you would any numeric object. You cannot perform mathematical operations on character or string objects.
+
+```{r message=FALSE, warning=FALSE}
+func_a() + 2    # the year plus 2
+
+
+
+func_a() * 2    # twice the year
+
+
+
+#func_b() + 2    # the interpreter does not understand this and reports an error.
+
+
+
+#func_b() * 2
+```
+
+
+# **Function Parameters and Arguments**
+
+Notice that you didn't need to include any of your own instructions for these functions to perform their operations. Although some functions in R operate this way, many will require some additional values or variables. Functions that have `parameters` as part of their code statements will require you to pass `arguments` to be used in those statements. 
+
+In many context, people will not differentiate between parameters and arguments. There is a difference, which I will point out briefly here.
+
+Parameters versus arguments
+
+- A function's parameters are the names listed in the function's definition.
+- A function's arguments are the actual values passed to the function.
+
+
+# **An example with `length()`**
+
+Example:
+
+- `length` is a function; see `help(length)`
+- `length` has one *parameter*, `x`, which needs to be a vector or factor
+
+In order for the function to return the number of elements in the vector, you will need to pass an argument of real or actual values to the `x` parameter. For example, your argument is the actual vector you assigned to `x` in the function. 
+
+Thus the *argument* is the value passed to the parameter as shown here:
+
+```{r}
+length(x = c("Bob", "Jim", "Sally"))
+```
+
+
+The **returned** value is the integer representing the number of elements.
+
+# **An example with `mean()`**
+
+For example, `mean()` will require you to pass a numeric vector in order to calculate the *mean* of those the elements in the vector If you do not pass an argument, R will not know know what to calculate the mean for and it will throw an error. If you check `?mean`, you will see that `x` is the parameter requiring some argument of values. 
+
+```{r}
+#mean()               # nothing passed to function; error
+
+
+mean(x = c(1,2,5) )   # vector passed as argument to parameter x; mean of vector returned 
+
+
+mean( c(1,2,5) )      # x is not needed because it's the first parameter
+```
+
+Back to parameters. Let's create another function to demonstrate the usage. We will add a single parameter within the parentheses. This parameter has no default value so in order for the function to work, you'd need to pass an argument.  
+
+`func_c <- function(parameter) {`
+    `code statements to do something`
+    
+    `return something`
+`}`
+
+
+Specify the parameter as `a` or whatever you wish.
+
+```{r}
+func_c <- function(a) {
+  return(a + 2)  # add 2 to what is passed to parameter a 
+}
+```
+
+
+Call the function and see what the function call returns...
+
+```{r}
+#func_c()       # call the function but forgot to give parameter a an argument value  
+```
+
+
+```{r}
+func_c(a = 1)    # call the function by setting parameter = 1 
+```
+
+
+Redefine a function. Note, this will overwrite the previous definition of `func_c()`.
+
+```{r}
+func_c <- function(a) {
+  b <- a + 2    # add 2 to what is passed to parameter a and assign to object b
+  
+  return(b)     # then return object b
+}
+```
+
+Call the function and see what the function call returns...
+
+```{r}
+func_c         # see what the function is doing
+
+
+
+func_c(a = 1)  # call func_c() setting the argument for parameter a = 1 
+```
+
+
+# **Name Functions in Useful Ways**
+
+Of course, naming the function `func_c` does not really help you understand what tasks the function is executing. Rather, you may wish to name the function **add2** or something useful and also change the name of the parameter to something meaningful, like `value`.
+
+
+```{r}
+add2 <- function(value) {
+  return(value + 2)  # add 2 to the value argument  
+}
+```
+
+Call the function, passing `value = 7`...
+
+```{r}
+add2(value = 7)
+```
+
+
+Unlike the other functions, because `add2()` contains a *parameter* for which you pass an *argument*. Whereas the parameter is part of the function definition, you will need to specify the information to pass to it so that the function knows how to carry out the instructions. 
+
+```{r}
+#add2()       # No argument passed, Hmm, error. Note: remove # to test.
+```
+
+
+# **Passing Objects as Function Arguments**
+
+Because you created an object named `year` earlier, R knows this exists. You could pass this object as an argument to a function assuming it is of the type the function needs. For example, if the function is performing addition, the object passed needs to take a numeric form. Also, because this silly function contains only one argument, we don't need to specify the argument by name. We can simply drop out the argument and pass the object.
+
+```{r}
+func_c(a = year)   # passing an argument that is an object
+
+
+func_c(year)       # dropping out of the argument by name 
+```
+
+You could also pass some other value as an argument or even a mathematical operation.
+
+```{r}
+func_c(4)      # pass a number as an argument
+
+
+func_c(10 * 1) # a mathematical operation, though odd perhaps
+
+
+#func_d("two")  # but not a string. Note: remove the # to test.
+```
+
+
+# **Functions with Default Arguments**
+
+Just for clarity, if a parameter has a default argument value, you don't need to set an argument but if you do, it will be used in lieu of the default.
+
+```{r}
+func_c <- function(x = 2021) {  # assign x to 2021 as default
+  return(x + 2)                 # add 2 to x
+}
+```
+
+
+Call the function...
+
+```{r}
+func_c()        # not specifying the argument will assume the default value (e.g., 2021)
+
+
+func_c(10)      # specifying a value will override the default
+```
+
+
+# **Functions with Multiple Parameters/Arguments**
+
+Many functions have multiple parameters and can thus take multiple arguments.
+
+```{r}
+sum_xy <- function(x = NULL, 
+                   y = NULL) {  # two arguments, each set to NULL as default
+  return(x + y)   
+}
+```
+
+
+Call the function:
+
+```{r}
+sum_xy()      # summing two NULL values (the default) is nothing
+
+
+
+sum_xy(2021, 2)
+
+
+
+sum_xy(year, 2)
+```
+
+
+# **Sourcing code with `source()`**
+
+`source()` is a function that will read and execute R code. One benefit of this function relates to having files of code. Although there are several parameters for this function, the one you will use to pass a file name is `file`. The other parameters you are unlikely to use, so I will not discuss them. 
+
+**Parameters/Arguments:**
+
+- `file`: a connection or a character string giving the pathname of the file or URL to read from 
+
+Let's say you create an R script file with extension `.R` and that file contains `R` code to read a data file, or clean up variables in a data frame, or create plot objects. All of the code in that `.R` file can be executed from the `R` console, from within another `.R` file, or from a `.Rmd` file. As result, `source()` can be used to compartmentalize code that is used to serve different purposes. Moreover, writing code in individual files focuses you (and the script) on a goal and prevents it from from becoming too busy or too complicated. Let's try. 
+
+## **Creating a `.R` script file to `source()`**
+
+There are a few ways to create files for your `R` project. You can do so easily from `RStudio` or you can do so more quickly using `Git`.
+
+
+### **Creating a `.R` script using `RStudio`**
+
+You can easily create an `.R` script file from `RStudio`. You are most likely familiar with this file creation process.
+
+First, go to **File > New File > R Script**
+
+Second, **File > Save As**, browse to the projects `/r` directory, name it `my_first_script.R` and click save. 
+
+In it, type `message("My first script file.")` and save it as `my_first_script` (the `.R` should be automatic) in your `"/r"` directory. 
+
+Your file will be written to the `r/` directory and will be opened in `RStudio`.
+
+Because the `.Rmd` file you are working with is already saved in `"/r"` (if you saved it there correctly), you can source the file by name.
+
+
+
+### **Creating a `.R` script file using the `Terminal`**
+
+**First**, go to your `Terminal` in `RStudio`. This is located by the `Console` tab and is the same place you type your `Git` commands.  
+
+**Second**, you can use the `touch` function to create the file. You will want to specify the directory to write the file and the name of the file to write. 
+
+**Third**, to create a file named `my_first_script.R`, type:
+
+`touch r/my_first_script.R` and your file will be written to the `r/` directory.
+
+
+To open the file in `RStudio`, the easiest way to go to the `Files` pane in `RStudio`, locate it and click it so that it appears as an open tab. 
+
+
+
+
+If you want to add it to `Git`, type:
+
+`git add r/my_first_script.R` and it will be staged.
+
+If you misspelled the file name and want to delete it, or just need to delete it for some reason, you can type: 
+
+`rm r/my_first_script.R`
+
+
+To delete it and remove from `Git`, type:
+
+`git rm r/my_first_script.R`
+
+
+## **Adding code to the script file**
+
+We will now add code to the file. To demonstrate how this works, let's just add a message to the file using `message()` which is a simple stand-in for a bunch of lines of code.
+
+In the script file, type:
+
+```
+message("My first script file.")
+```
+
+**Note:** Make sure you save the file.
+
+
+## **Sourcing the script file`**
+
+Now, to run the code saved in `my_first_script.R`, we will `source()` the file by specifying the path to it using **{here}**. 
+
+```{r}
+source(file = here::here("r", "my_first_script.R"))
+```
+
+But you can omit using `file` because you are only passing one argument and it's `file`.
+
+```{r}
+source(here::here("r", "my_first_script.R"))
+```
+
+
+## **Sourcing multiple script files**
+
+When you have multiple files to `source()`, you can source them individually, making sure that they are ordered in the order you wish to run them. They will execute line by line.
+
+```
+source(here::here("r", "read_data.R"))
+source(here::here("r", "clean_data.R"))
+source(here::here("r", "create_plots.R"))
+```
+
+You can also create a new `.R` script file that contains the above three lines of source code and add them to another file, named appropriately like `read_clean_plot_data.R`. and then source that file like this:
+
+```
+source(here::here("r", "read_clean_plot_data.R"))
+```
+
+
+## **Sourcing *all* files in a directory**
+
+If all those files to source are in a directory, you can use a special source function from **{R.utils}** `R.utils::sourceDirectory()`. For example, if you have all of personal or project-related functions nicely organized in a directory like `r/funcions/`, you can easily source it like this. The benefit here is that you don't have to specify all of the files individually. 
+
+```{r}
+R.utils::sourceDirectory(here::here("r", "functions"))
+```
+
+
+
+# **Using Functions from Libraries**
+
+Functions in base `R` are easy to operate on data right out of the box; they don't require special installation or loading. For example, `head()` will look a the first few rows (or cases) of data frame. A data frame contains *n* rows and *m* columns. In order to demonstrate this, we will use the `USArrests` data set that is part of base R. Then, we will use `mean()` to calculate the mean of a vector of data. A column of a data frame is a vector of some type (e.g., numbers or characters).  
+
+- `head()` returns the top of the data frame; compare to `tail()`
+- `View()` (uppercase V): returns a table of the data frame; built into `R`, looks crappy, steals focus
+
+## **An alternative to `View()`**
+
+As an alternative to `View()`, a function that I wrote using the **{DT}** library to display the data in an `HTML` table that allows you to sort the data.
+
+- `view_html()` (lowercase v): returns an filterable html table of the data frame; my alternative to `View()` 
+
+If you want to use this function, you can `source()` the raw code from the course site using the code below. Because I use this function often, you might wish to add it to your `/r/functions/` directory and simply source all of the files in that directory as describe above.
+
+```{r}
+source("https://raw.githubusercontent.com/slicesofdata/fods24/main/r/functions/view_html.R")
+```
+
+
+## **Getting the `head()` of a data frame`**
+
+If you query the function in the console by typing using `?head` or `help(head)`, you will see in there are two main parameters. 
+
+**Parameters/Arguments:**
+
+- `x`: a vector or data frame object 
+- `n`: a value of the indices to be selected (e.g., elements of vector, rows in data frame) 
+
+`head()` needs an object `x` in order to do anything. We can pass the `USArrests` data frame as the argument and if all goes well, we will only see the top or *head* of this data frame.   
+
+```{r message=FALSE, warning=FALSE}
+head(x = USArrests)   # 6 rows by default
+```
+
+And if you pass arguments to parameters in function according to their order (e.g., position), you do not need to reference the parameters by name when passing arguments. For example, we can remove the reference to `x`.   
+
+```{r message=FALSE, warning=FALSE}
+head(USArrests)   # 6 rows by default
+```
+
+The second parameter for `head()` is `n`, the number of rows for the function to return. The default number was 6. We can change the default operation by passing `3` as the argument to it.
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+head(USArrests, n = 3)   # 3 if you change it
+```
+
+But as long as we pass the arguments to `x` and then to `n`, then we do not need to reference either by name. Instead, we can just pass the arguments.
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+head(USArrests, 3)   # not changing order
+```
+
+But if you change order, you will need to reference the arguments. You cannot call `head(3, USArrests)` for example but you can call `head(n = 3, x = USArrests)`. You normally would not wish to change the order of arguments for `head()` but for more complicated functions, you might wish to for different reasons. 
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+#head(3, USArrests)          # will throw an error
+
+head(n = 3, x = USArrests)   # referencing arguments by name
+```
+
+Using the viewing options:
+
+```{r viewing}
+#View(USArrests)                            # the standard viewer
+
+#view_html(USArrests, rows = T, show = 5)   # but same as 
+
+#view_html(head(USArrests), rows = T)
+```
+
+
+## **Checking whether an object is a data frame using `is.data.frame()`**
+
+You can also check whether the `USArrests` data file is a data frame using `is.data.frame()`, which will return `TRUE` indicating that it is indeed a data frame. 
+
+- `is.data.frame()` returns logical ( T or F) about data frame as two-dimensional array
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+is.data.frame(USArrests)
+```
+
+## **Checking the structure of a data frame using `str()`**
+
+That seems tedious, however. You can learn a lot more about the data frame by examining its structure using `str()`. The `USArrests` object is a data frame, contains 50 observations (e.g., rows) and 4 variables (columns). All column variables appear to contains numbers, with two of them being numeric, abbreviated `num` and two are integers, abbreviated `int`. 
+
+- `str()` returns the structure of a data frame
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+str(USArrests)    # see the data frame is a two-dimensional array with 50 rows x 4 columns
+```
+
+## **Using other functions`**
+
+And you can check the names of the columns using `names()`. What is actually returned to you is a character vector, or a vector whose elements are of character type. You can test whether the column names is a vector by *wrapping* `names()` with the `is.vector()` function. Similarly, wrapping `names()` in `typeof()` will tell you the type is `character`. 
+
+- `names()`: returns names of data frame
+- `is.vector()`: returns logical if/if not a vector (see other `is.` functions)
+- `typeof()`: returns the type of the object
+
+
+```{r}
+names(USArrests)           # get the names of the columns?
+
+
+is.vector(names(USArrests))
+
+
+typeof(names(USArrests))   # get the type of structure are the names
+```
+
+
+# **Summary**
+
+You now understand what **functions** are and how to use them. You understand they they contain **parameters** to which you pass **arguments**, unless you accept default arguments. You have also used different functions to fulfill other goals, for example, to create a script to `source()` code and to examine some aspects of data frames. 
+
+
+# **Session Information**
+
+```{r}
+sessionInfo()
+```

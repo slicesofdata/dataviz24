@@ -1,0 +1,258 @@
+---
+title: "**Project Management 02: R Projects, Git, and GitHub**"
+author: "Gabriel I. Cook"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  enabled: true
+---
+
+```{r}
+#| label: load-packages
+#| include: false
+# see other examples for reverting changes
+#https://jennybc.github.io/2014-05-12-ubc/ubc-r/session03_git.html
+```
+
+::: callout-important
+## Under construction. 
+
+This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.
+:::
+
+
+## **Overview**
+
+In order to maintain organization, you will set up a class folder/directory on your computer. You will then create an RStudio project and connect it to GitHub. Finally, you will create directories within your new project directory so that you have an organized directory structure for storing your files. This process will also ensure that all student's computers are configured in the same manner.
+
+In class, we will use Git to interact with a remote repository connected to a Project in RStudio. Reading through these steps, however, will facilitate your ability to apply the concepts and run the associated functions in class.  in order to create project for class exercises (and homework) as well as your team project.
+
+
+### **Readings and Preparation**
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.  
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing code through exercises. 
+
+```{r eval=FALSE, include=FALSE}
+# ## **Supplemental Readings**
+```
+
+### **To Do: Steps of the Task**
+
+1. Set up your class space
+  * Create top-level `/fods24` directory
+2. Create Version Control Projects in RStudio 
+  * Exercises  
+  * Team Project (will do in class)
+3. Make file edits, stage the, and commit them
+4. Push commits to GitHub 
+
+*Class Activity:*
+
+When you collaborate with others, you have to be more mindful of the changes you make and those that others make, ensuring that the repository can incorporate the changes. Thus, we will interact with Git in class in a slightly different way. 
+
+Things we will do:
+
+1. Create a new project and connect to a remote repository
+2. Create a branch (connect to a branch)
+2. Make file edits, stage them, and commit them
+3. Push commits to GitHub
+4. Merge your branch with the main brain
+
+
+## **Libraries Used** 
+
+- **{usethis}**: `r packageVersion("usethis")`: for project workflow automation 
+- **{gitcreds}**: `r packageVersion("gitcreds")`: for querying git credentials
+
+
+## **Creating a Local Directory for Class**
+
+Create a folder (aka directory) named `"fods24"` on your computer. I recommend creating the directory someplace where you might not accidentally delete it.
+
+
+## **Connecting the Repository to an RStudio Project**
+
+1. In RStudio, **File > New Project > Version Control > Git**. 
+
+2. In the pop-up, you will see a request for the "repository URL". Paste the URL of the GitHub repository. This URL will be the same as what you see on your GitHub account. However, we need to add `.git` to the end of it.
+
+```
+    https://github.com/<your_github_username>/fods-exercises.git
+```
+
+3. When you create the project, a directory will be created as a sub-directory of `/fods24` and its name should auto populate (e.g., `'fods-exercises'`).  
+
+*WARNING:* Do not create the project inside of an existing project's directory.
+
+    * Note: I recommend that you also select *"Open in new session"* in order to compartmentalize projects. When you work on the team project, open the project. When you work on your homework or other class exercises, open your *homework* project.
+
+4. Click *"Create Project"* to create the new project directory, which will create:
+     * a project directory on your computer
+     * a project file with file extension `.Rproj`
+     * a Git repository or link to the remote GitHub repository for the project (also an RStudio Project)
+
+If the repository already exists on GitHub (and it does in this instance) you should see RStudio flash a connection to GitHub and likely *pull* the repo contents down to your newly-created project directory. In this case, however, your repository will contain few files.
+
+
+## **Creating Project Relevant Directories**
+
+Now, inside the `/fods24/fods-exercises` directory, create directories named:
+
+- data
+- docs
+- figs
+- r
+- refs
+- report
+
+You will now see the directory structure, though all your directories will be empty. Moving forward, save all data to `/data`, create all `.R` files in `/r`, and create all exercise or homework R Markdown files (e.g., `.Rmd`) in `/report`. Any readings or references can can saved in `/refs` and any other document files can be saved in `/docs`. Finally, reserve `/figs` for saving plots or figures.
+
+
+## **Understanding Git Workflow Basics**
+
+There are three main parts to Git Workflow:
+
+- Make local changes (in your working directory) 
+- Stage changes (in your staging directory) 
+- Commit changes (to apply them for pushing to your remote repository)
+
+
+## **Making Local File Changes, Committing, and Pushing to GitHub**
+
+1. **Making a local change**
+     * Create a `.R` script and name it something like `yourname.R`. Where should you save it? You guessed it: `/r`. 
+
+2. **Checking the status of local file changes**
+     * Check for the local changes you have made at the *Terminal* by typing `git status` and press return/enter
+        * `$ git status`
+     
+     *  If you made changes, Git will tell you what those changes are. For example, there will be a new file, a deleted file, a modified file, etc.
+
+3. **Staging Changes (Add Changes)**
+    a. *Stage a specific change*: If you made multiple changes and all you want to do is commit a single change and no others, you can specify the change you want to add. For example, if you want only to add a specific file, like `yourname.R`, you will use `git add <file>...` such that `<file>` refers to the file name.
+        * At the *Terminal* prompt, type `git add` followed by `<file>` to include in what will be committed)
+        * `$ git add r/yourname.R` 
+    b. *Stage all change(s)*: When you make numerous changes, you may wish not to specify each file individually as that could be tedious. In this case, you may wish to stage all of your changes. Assuming everything you are doing is relevant to the project, one of the easiest ways to add changes is to just add all of your file changes. Note, your changes should not be done inside data files (e.g., `.csv`, `.xlsx`). Changes should only be done using R code. If not, your project will not be reproducible. 
+        * At the *Terminal*, you can type `git add .` which tells Git that you are adding all of those changes to commit them.
+        * `$ git add .`
+
+4. **Committing the change(s)** 
+     * Now that you made a change, you will commit it and assign a useful message to remind your future self and collaborators what you just did. 
+        * At the *Terminal*, type `git commit` to commit the changes, add `-m` to tell git you want a message, and then type the message as a string, `"my message here"` and then press enter/return to commit the changes.
+        * `$ git commit -m "added my first .R file"`
+
+5. **Push the change to the remote repository**
+     * We need to push the changes to the remote GitHub repository for version control and for collaborators to access
+        * At the *Terminal*, you will push those changes using `git push` and press enter/return to push.
+        * `$ git push`
+     * If you navigate to your GitHub account in your web browser, you will see the changes there as soon as they arrive. Congrats!
+
+6. **Practice (Yes, seriously): Changing, Committing, and Pushing Again**
+     * You know that file with your name is not needed for the project. Delete it from the project as you normally would delete a file (no need to use the Terminal) and then *add* the change, *commit* the change with message "deleted my silly file", and *push* changes. 
+     * If for some reason, your push did not work, you may need to specify the project branch. Branching is beyond the scope of this course. If team members are working on separate tasks, their code will be compartmentalized so you can use the main branch.
+        * You can set the branch to the main branch at the *Terminal* using `git branch -M main`.
+        * `$ git branch -M main`
+
+7. **Pushing Specific File Changes**
+     * You should not push all of your edits. For example, if you edit a file and save it but it is incomplete (e.g., it contains errors) that will create problems for your team members, you do not want to push them to the repo. If you do, your team member's code will also break if they are sourcing (e.g., `source()`) your script file. Similarly, if the data file you write out contains errors, a teammate cannot read that file in successfully. So make sure that what you push is correct and accurate before pushing.
+
+8. **Pulling Changes from the Remote** 
+     * The opposite of push is pull. When your teammates push their changes (e.g., data cleaning, file creation, etc.) to the repo and your code depends on those files, you will want to make sure their edits are in your local project so that you can use them. 
+        * To pull the changes down to your project, at the *Terminal*, type `git pull`.
+        * `$ git pull`
+
+     * You should find the changes appear in your local project directory.
+
+
+
+## **Using the Git Tab in your RStudio Pane**
+
+If you do not use the Terminal to run Git commands (e.g., add, commit, and push), you can also use Git with RStudio, though I tend to find this process creates an annoying lag when there are many files. 
+
+When you edit files (e.g., made changes and saved the file), the file will be detected in the project if you have set up Git. The changes detected will be listed in the window for this tab. You can then stage, commit the changes, push the changes using this RStudio GUI.
+
+1. Click the Git tab
+
+2. Check the box under *Staged* next to the file
+     * Note: There may be a delay.
+
+3. Click the *Commit* icon on the toolbar directly above *Status*
+     * A window will pop up showing some of the edits to the file
+     * A window for *Commit message* will also appear for adding your message. This window is where you want to be.
+     
+4. Type your commit message in that window
+     * Your message should be clear and useful to remind your future self or colleagues of the edits but not be overly wordy. 
+
+5. Click Commit to commit the change
+
+```{r include=FALSE}
+colFmt <- function(x,color) {
+  
+  outputFormat <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+  
+  if(outputFormat == 'latex') {
+    ret <- paste("\\textcolor{",color,"}{",x,"}",sep="")
+  } else if(outputFormat == 'html') {
+    ret <- paste("<font color='",color,"'>",x,"</font>",sep="")
+  } else {
+    ret <- x
+  }
+  
+  return(ret)
+}
+```
+
+6. Click the `r colFmt("Green", 'lime')` Arrow to *Push* your committed change *up* to the remote repository.
+
+Note: You will click the `r colFmt("Blue", 'blue')` Arrow to *Pull* the changes *down* from the remote repository what were pushed there by your collaborators
+
+
+
+
+## **Creating a Version Control Project in RStudio for the Team Project**
+
+1. In RStudio, **File > New Project > Version Control > Git**. 
+
+2. In the pop-up, you will see a request for the "repository URL". Paste the URL of the GitHub repository based on your liaison name. This URL will be the same as what you see on your GitHub account. However, we need to add `.git` to the end.
+
+```
+    https://github.com/slicesofdata/fods24-<to_be_announced>.git
+```
+
+3. When you create the project, a directory will be created, a name will auto populate (e.g., 'fods24-liaison'). If you change the name, name it something that you will know as your team project. In order to keep the class organized, I might suggest you create the project in your FODS course directory. You should already have a R project for you homework called something like `homework.Rproj` in that course directory. *WARNING:* Do not create the project inside of an existing project's directory.
+
+    * Note: I recommend that you also select *"Open in new session"* in order to compartmentalize projects. When you work on the team project, open the project. When you work on your homework or other class exercises, open your *homework* project.
+
+4. Click *"Create Project"* to create the new project directory, which will create:
+     * a project directory on your computer
+     * a project file with file extension `.Rproj`
+     * a Git repository or link to the remote GitHub repository for the project (also an RStudio Project)
+ 
+If the repository already exists (and it does in this instance) you should see RStudio flash a connection to GitHub and likely *pull* the repo contents down to your newly-created project directory. You will see the directory structure and corresponding files. Your code files should be saved to `/r`, the data you read or save to `/data`, your RMarkdown report files to `/report`, etc. 
+
+These directories are there for project management purposes. Also, to maintain a clean project, create sub-directories within those directories as needed; create new directories *if and only if* its contents differ qualitatively from what is in the existing directories. Because the project report will need to be reproduced, don't complicate your code by creating RMarkdown files for code used to perform some task when only code is needed. In those cases, use `.R` code script files. Use `.Rmd` files only for a report containing text and minor code. You cannot easily `source()` `.Rmd` files and creating them will be a a hassle to deal with later. Project organization is an element of the project.
+
+
+## **Summary**
+
+You now understand how to create projects in R, how to connect projects to remote GitHub repositories, and how to use Git to track your work in your local repository and a remote one. These simple commands are basic but provide you some exposure to and confidence with using Git for version control. 
+
+
+## **Other Resources**
+
+1. Git Client: 
+
+Git clients work like the RStudio Gui option described above but likely much better. One client is [GitKraken](https://www.gitkraken.com/).
+     * If you find the *Terminal* command line daunting or limiting, I might recommend a Git Client to use as I am not a big fan of the RStudio interface.
+     * GitKraken is a good option and they have lots of tutorials on their website. GitKraken is seamless to set up. Install, connect your GitHub account, select your repo to add, and voilà. You can stage, commit, and push from there.  
+
+2. [happygitwithr](https://happygitwithr.com/)
+
+
+# **Session Information**
+
+```{r}
+sessionInfo()
+```

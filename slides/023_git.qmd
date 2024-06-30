@@ -1,0 +1,163 @@
+---
+title: "Git and GitHub"
+format: revealjs
+
+slide-number: c/t #h/v
+#  width: 1600
+#  height: 900
+#logo: "images/??.jpg"
+#logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
+#footer: "[](https://rstudio-conf-2022.github.io/get-started-quarto/)"
+#css: ["css/styles.css"]
+#theme: simple
+echo: true  # for code echo
+
+#editor: visual
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+
+## **Version Control**
+
+::: {.incremental}
+* What is version control? 
+  * Project backup
+  * See specific changes inside files
+  * Undo changes (time machine)
+  
+* [Version Control Summary Video](https://www.youtube.com/watch?v=M-O8ZNW9icQ)
+:::
+
+## **Version Control: Git Workflow Basics**
+
+There are three main parts to Git Workflow:
+
+::: {.incremental}
+- Version control for files (not empty directories)
+- Make local changes (in your working directory) 
+- **Stage** changes (in your staging directory) 
+- **Commit** changes (to apply them for pushing to your remote repository)
+- [Version Control Workflow Basics](https://www.youtube.com/watch?v=e8PGuOyZ3YU)
+:::
+
+## **Connecting Git to GitHub: The RStudio Terminal**
+
+::: {.incremental}
+- **Configure** Git and GitHub in RStudio Terminal
+- **Create** token
+- **Set** token
+- Can use the RStudio Gui (clunky though)
+:::
+
+
+## **Configuring Git and GitHub with {usethis}**
+
+```{r message=FALSE, warning=FALSE, eval=FALSE}
+usethis::use_git_config(user.name = "janegit", 
+                        user.email = "jane_git@gitrdone.com"
+                        )
+```
+
+
+## **Creating a Personal Access Token (PAT) for GitHub with {usethis}**
+
+::: {.incremental} 
+- `usethis::create_github_token()`
+- Create token and **copy to your clipboard**
+:::
+
+## **Setting your Git Credentials (using PAT) with {gitcreds}**
+
+::: {.incremental}
+- `gitcreds::gitcreds_set()`
+- Choose option to either *set* or *replace* 
+- At `? Enter new password or token`, **paste** PAT to set
+- `gh::gh_whoami()` to check if set
+:::
+
+## **Making Local File Changes, Committing, and Pushing to GitHub**
+
+::: {.incremental}
+- Make a change to a file
+- Check **status** of project for changes
+- **Stage** change
+- **Commit** all changes
+- **Push** changes
+- **Commit** a specific change
+- **Pull** changes down from repo (downloads and integrates changes)
+- **Fetch** downloads new data (does not change your working copy)
+:::
+
+
+## **Checking the status of local file changes**
+
+At the **Terminal** in RStudio
+
+- `$ git status`
+
+## **Staging Changes (Adding Changes)**
+
+::: {.incremental}
+* [Staging and Committing](https://www.youtube.com/watch?v=7exFDGHgQcw)
+  * Untracked vs. tracked files 
+  * To have tracked by Git, you need to **add**
+:::
+
+## **Staging a *Specific* Change**
+
+::: {.incremental}
+* `$ git add <file>...` such that `<file>` refers to the file name
+
+* file might be in a directory, e.g., `r/`
+
+* `$ git add r/yourname.R`
+
+* Tab to auto-complete, e.g., `git add r/you{TAB}`
+:::
+
+
+## **Staging *All* Changes**
+
+
+* `$ git add .`
+
+
+## **Committing the Change(s)** 
+
+::: {.incremental}
+-  `git commit` is used to commit the changes
+- add `-m` to tell git you want a message (e.g., `"my message here"`)  
+- `$ git commit -m "added my first .R file"`
+:::
+
+## **Push (publish) the change(s) from your branch to the remote repository**
+
+::: {.incremental}
+- `$ git push`
+
+- [Pushing changes](https://www.youtube.com/watch?v=lqw7ipXmc-4)
+:::
+
+## **Pulls change(s) from the remote repository**
+
+::: {.incremental}
+- `$ git pull`
+- If you make changes that other will need, let them know to pull
+:::
+
+## **Fetch changes**
+
+
+## **Video Tutorials**
+
+::: {.incremental}
+- [GitKraken Git Client examples](https://www.gitkraken.com/learn/git)
+- for more, see: this [video](https://www.youtube.com/watch?v=A4rIs-6c98s)
+:::
+
+## **Videos of many things you can do**
+
+If interested, see [gittower YouTube](https://www.youtube.com/@gittower)

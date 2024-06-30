@@ -1,0 +1,302 @@
+---
+title: 'Exercise: Pivoting Data Frames'
+output:
+  word_document:
+    toc: true
+    number_sections: true
+  pdf_document:
+    toc: false
+  html_document:
+    toc: true
+    number_sections: true
+    code_folding: show
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+include_answers = FALSE
+eval_answers = FALSE
+```
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(dplyr)
+library(tidyr)
+
+summaries_list <- list(
+  mean = ~mean(x, na.rm = TRUE),
+  median = ~median(x, na.rm = TRUE),
+  sd = ~sd(x, na.rm = TRUE),
+  n = ~length(na.omit(x))
+  )
+```
+
+# **Overview**
+
+For this exercise, you will work with your project data to prepare your pivoting script for transforming your data from wide format to long format.
+
+
+# **Step 1: Evaluating your Script File for Task Sub-setting**
+
+You should have a `"champ_all_waves_create_<subtask>_subset.R"` script that reads the original raw CHAMP data file for the purpose of sub-setting it for a specific task. 
+
+Evaluate the file to ensure that your script:
+
+1. Sources the `"champ_all_waves_initial_clean.R"` script (which reads and cleans the `"champ_all_waves.Rds"` data file, and saves the data frame as `"champ_all_waves_initial_clean.Rds"`); and 
+2. Reads in that created `"champ_all_waves_initial_clean.Rds"` data file; and
+3. Contains code to subset the data based on the variables relevant to the sub-task; and 
+4. Writes the subset as a data file to `"<subtask>_wide.Rds"`; and also 
+5. Contains (a) details on authorship, (b) a description of purpose, (c) annotation about sub-components of the code, and also loads libraries and functions to carry out the above tasks.
+
+
+# **Step 2: Evaluating your Script File for Pivoting/Transforming**
+
+You should also have a `"<subtask>_wide_to_long.R"` script that reads the data subset for the purpose of transforming the data frame from wide format to long format.
+
+Evaluate the file to ensure that your script:
+
+1. Sources the `"champ_all_waves_create_<subtask>_subset.R"` script (which reads and subsets `"champ_all_waves_initial_clean.Rds"`, and saves the sub-setted wide data frame as `"<subtask>_wide.Rds"`).  
+2. Reads in that created `"<subtask>_wide.Rds"` data file; and
+3. Contains code to pivots the data frame from wide to long; and
+4. Writes the data file as `"<subtask>_long.Rds"`; and also
+5. Contains (a) details on authorship, (b) a description of purpose, (c) annotation about sub-components of the code, and also loads libraries and functions to carry out the above tasks.
+
+
+# **Step 3: Adding the Pivoting/Transforming Code**
+
+You should edit your `"<subtask>_wide_to_long.R"` script so that you can transform the data frame from wide format to long format. In the code section for performing the pivoting, you will want to pivot to long and assign to an object. Then you will want to write the long data file so that you can clean it with your cleaning script.
+
+Here is some code to help you:
+
+```{.r}
+# the prefix of the columns you want to pivot (look at your data to discover this)
+task_prefix <- ""  
+
+DATA_FRAME |>
+  tidyr::pivot_longer(
+    cols = starts_with(task_prefix),
+    names_to = c(".value", "trial"),
+    names_pattern = "([A-Za-z]+)(\\d+)"
+  )
+```
+
+```{r include=FALSE}
+WIDE <- readRDS(here::here("data", "gng", "gng_subset_wide.Rds"))
+
+task_prefix <- "gng_"
+
+WIDE |>
+  tidyr::pivot_longer(
+    cols = starts_with(task_prefix),
+    names_to = c(".value", "trial"),
+    names_pattern = "([A-Za-z]+)(\\d+)"
+  )
+```
+
+To help you understand how this function works, see the supplemental subsection [**Understanding the Pivot Function**].
+
+
+# **Step 4: Cleaning your Long File**
+
+After you have written the long file, the next step would involve cleaning the data (e.g., filtering, mutating, etc.) and saving your `"<subtask>_long_cleaned.Rds"` data file. You have a script named 
+`"<subtask>_long_cleaned.R"` that performs some of this cleaning and save that data file, although some details may be added based on your liaison's instructions or requests of you. You can always make changes to this script as necessary and the   
+
+
+# **Step 5: Summarizing Data**
+
+After you have written the long file, you are prepared to summarize the data. You should verify how you should summarize the data for your liaison. For example, find out how you would need to group the data in order to obtain the summaries they would like to see.
+
+You may need to create different data summaries using different numeric variables to include in a summary and by what metrics. Similarly, you may need to determine what variables, if any, you would need to group by for performing a summary.  
+
+## **General Summarizing Approaches:**
+
+## **Symmetry Span**
+
+1. Group by id and wave in order to obtain participant-level mean and median complete and partial span scores for each person for an (e.g., *participant-level aggregation*). Then, you would grouped by wave in order to obtain a group-level mean, median, standard-error of the mean, and sample size for complete and partial span scores for all people in a group (e.g., *group-level aggregation*).
+
+2. Group-level aggregation, however, may be for all people but also for other grouping approaches (e.g., drug use, attitudes/belief, family structure, etc.). A grouping variable of interest may also exist in a different data frame (e.g., demographic questions), which will require you to join/merge the two data frames. You will need to ask your liaison specifically how they want you to aggregate, group, and summarize the data using descriptive statistics.
+
+3. You may need to mutate new variables in order to summarize.
+
+
+## **Go/No-Go**
+
+1. Group by id, wave, and go/no-go trials in order to obtain participant-level mean and median accuracy and response time data for each person for an (e.g., *participant-level aggregation*). Then, you would grouped by wave and go/no-go trials in order to obtain a group-level mean, median, standard-error of the mean, and sample size for accuracy and response time data for all people in a group (e.g., *group-level aggregation*).  
+
+2. Group-level aggregation, however, may be for all people but also for other grouping approaches (e.g., drug use, attitudes/belief, family structure, etc.). A grouping variable of interest may also exist in a different data frame (e.g., demographic questions), which will require you to join/merge the two data frames. You will need to ask your liaison specifically how they want you to aggregate, group, and summarize the data using descriptive statistics.
+
+3. You may need to mutate new variables in order to summarize.
+
+4. For each data summary, you may even need to/want to write them out as `.Rds` files so that you can access them for your R Markdown report. 
+
+
+
+# **Understanding the Pivot Function**
+
+```{r}
+(WIDE <- 
+  tibble::tribble(
+  ~id_subject, ~task_correct1, ~task_correct2,
+  1, 500, 555,
+  2, 545, 489,
+))
+```
+
+You might wish to pivot the tasks from wide to long. At very least, you need to specify the columns, `cols`.
+
+```{r}
+WIDE |>
+  tidyr::pivot_longer(
+    cols = starts_with("task_")
+  )
+```  
+
+The data frame pivots and by default `name` is used to represent the column variable containing the column information from `cols`.
+
+You can change the name of the variable by passing a character string to `names_to`, which will represent the new column name. If those columns were *trials*, you could specify `"trials"`.
+
+```{r}
+WIDE |>
+  tidyr::pivot_longer(
+    cols = starts_with("task_"),
+    names_to = "trials",
+    names_prefix = "task_correct"
+  )
+```  
+
+And clean up the prefix by removing the pattern passed to `names_prefix`. We can remove the prefix `"task_correct"`.
+
+```{r}
+WIDE |>
+  tidyr::pivot_longer(
+    cols = starts_with("task_"),
+    names_to = "trials",
+    names_prefix = "task_correct"
+  )
+``` 
+
+This process will fail, however, when you have more than a single type of column. Let’s add additional variables to the data frame to illustrate.
+
+```{r}
+(WIDE <- tibble::tribble(
+  ~id_subject, ~task_correct1, ~task_correct2, ~task_stim1, ~task_stim2,
+  1, 500, 555, "word", "picture",
+  2, 545, 489, "picture", "word"
+))
+```
+
+Because there are two different subsets of columns to pivot (e.g., `"correct"` and `"stim"`), both cannot have the same name; both columns cannot be named `"trials"`. For example, you can try:
+
+```{.r}
+WIDE |>
+  tidyr::pivot_longer(
+    cols = starts_with("task_"),
+    names_to = "trials"
+  )
+```
+
+But there will be an error.
+
+```
+Error in `tidyr::pivot_longer()`:
+! Can't combine `task_correct1` <double> and `task_stim1` <character>.
+```
+
+We can, however, change the argument passed to `names_to` from a single character string (e.g., `"trials"`) to a vector that contains two character strings `c("correct", "stimulus")`. 
+
+```{.r}
+WIDE |>
+  tidyr::pivot_longer(
+    cols = starts_with("task_"),
+    names_to = c("correct", "stimulus")
+  )
+```
+
+But there will be an error.
+
+```
+Error in `tidyr::pivot_longer()`:
+! If you supply multiple names in `names_to` you must also supply one of
+  `names_sep` or `names_pattern`.
+```
+
+We will need to use `names_pattern` to extract the two components by looking for one pattern to match the names and another pattern to match the numbers. If the column variables were composed of the word "correct" plus some number, we could search for the specific character pattern, "correct". If we select only the first three columns, we can demonstrate matching that specific pattern along with numbers.   
+
+- `"(correct)"`: match the pattern with the literal characters "correct"
+- `"(\\d+)"`: match one or more digits following the letters in the column names
+
+Putting them together:
+
+- `"(correct)(\\d+)"`: match "correct" followed by one or more digits
+
+**Note:** The parentheses are used to enclose each pattern separately, otherwise the match would be for the full pattern. We want to separate the letters from the numbers in order to obtain a column variable with a name that matches the character pattern (viz., `"correct"`) and a column variable that matching the digits (viz., `"trial"`), respectively.    
+
+```{r}
+WIDE |>
+  select(1:3) |>
+  tidyr::pivot_longer(
+    cols = starts_with("task_"),
+    names_to = c(".value", "trial"),
+    names_pattern = "(correct)(\\d+)"
+  )
+```
+
+Because the variable names are `"task_correct1"`, `"task_correct2"`, `"task_stim1"`, `"task_stim2"`, we need a pattern that is flexible enough to match both `"correct"` and `"stim"`. 
+
+Sure, we could find all of the variable names for our task:
+
+```{r}
+WIDE |>
+  select(starts_with("task_")) |>
+  names()
+```  
+
+And then specify them directly for the pattern match `"(correct|stim)(\\d+)"`:
+
+```{r}
+WIDE |>
+  tidyr::pivot_longer(
+    cols = starts_with("task_"),
+    names_to = c(".value", "trial"),
+    names_pattern = "(correct|stim)(\\d+)"
+  )
+```
+
+But more flexible solution is to match any letter in the alphabet.
+
+- `"([A-Za-z]+)"`: match one or more alphabetical characters that are either uppercase or lowercase
+- `"(\\d+)"`: match one or more digits following the letters in the column names.
+
+Putting them together:
+
+- `"([A-Za-z]+)(\\d+)"`: match any alphabetical characters followed by any digits
+
+```{.r}
+WIDE |>
+  tidyr::pivot_longer(
+    cols = starts_with("task_"),
+    names_to = c(".value", "trial"),
+    names_pattern = "([A-Za-z]+)(\\d+)"
+  )
+```
+
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+
+#- `cols = starts_with(task_prefix)`: specifies the columns to pivot into longer format
+#- `names_to = c(".value", "trial")`: specifies the names of the *new* columns resulting from the pivot. The `.value` placeholder indicates that the *values* in the selected columns will be placed into a new column named `"trial"`, which contains only the the identifiers of the original columns. The `trial` column in the long data will represent th  
+
+#`".value"` indicates that the corresponding component of the column name defines the name of the output column containing the cell values, overriding values_to entirely.
+
+
+#names_pattern = "([A-Za-z]+)(\\d+)": This argument specifies a regular expression pattern used to extract information from the column names. In this pattern:
+
+#([A-Za-z]+): This part captures one or more letters (uppercase or lowercase) at the beginning of the column names.
+#(\\d+): This part captures one or more digits following the letters in the column names.
+
+#- `names_to:` a character vector specifying the new column or columns to create from the information stored in the column names of data specified by cols
+#values_to: a string specifying the name of the column to create from the data stored in cell values
+
+```
+

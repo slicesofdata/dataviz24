@@ -1,0 +1,75 @@
+---
+title: "Test Report"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+#.rs.restartR()
+knitr::opts_chunk$set(echo = TRUE)
+
+#run_merge = TRUE
+```
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+R.utils::sourceDirectory(here::here("r", "functions"))
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# up to cleaning point
+
+#source(here::here("r", "gng", "gng_long_clean.R"), local = knitr::knit_global())
+source(here::here("r", "symmspan", "sspan_long_clean.R"), local = knitr::knit_global())
+source(here::here("r", "demog", "demog_clean.R"), local = knitr::knit_global())
+```
+
+ 
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# up to merge point
+#JOINED_LONG
+
+#source(here::here("r", "merge", "merge_all.R"), local = knitr::knit_global())
+```
+
+```{r}
+###############################################################################
+# read in required data files
+############################################################################### 
+
+###############################################################################
+# trial level data files
+############################################################################### 
+
+# long file, all trial
+# gng
+# symmpan
+
+###############################################################################
+# individual level data files
+# gng
+# symmpan
+# demog
+
+# joined long (for modeling)
+
+# joined wide (for correlation)
+
+############################################################################### 
+
+
+
+
+
+###############################################################################
+# group level data files
+############################################################################### 
+
+# summaries for 
+# gng
+# symmpan
+# demog
+
+```
+
+

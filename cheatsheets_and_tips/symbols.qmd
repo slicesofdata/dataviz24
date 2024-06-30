@@ -1,0 +1,23 @@
+---
+title: "**Symbols**"
+editor: visual
+format:
+  html:
+    theme: cosmo
+    css: css/styles.scss
+    #fontcolor: white
+    toc: true
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
+source(here::here("r", "_common.R"))
+```
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
+readr::read_tsv(here::here("cheatsheets_and_tips/tables/symbols2.txt")) |>
+  knitr::kable()
+```

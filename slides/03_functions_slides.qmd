@@ -1,0 +1,150 @@
+---
+title: "Functions, Parameters, and Arguments"
+format: 
+  revealjs:
+    theme: dark
+    preview-links: auto
+    embed-resources: true # needed to allow for showing slides on a website (otherwise link is blank)
+    # slide-tone: true # play sound on change - blind users
+    
+slide-number: c/t #h/v
+#  width: 1600
+#  height: 900
+#logo: "images/??.jpg"
+#logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
+#footer: "[](https://rstudio-conf-2022.github.io/get-started-quarto/)"
+#css: ["css/styles.css"]
+#theme: simple
+echo: true  # for code echo
+
+#editor: visual
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+
+
+# **Objects**
+
+::: {.incremental}
+* An *object* as a sort of container 
+* Containers hold different things 
+:::
+
+
+## **Some Object Types**
+
+::: {.incremental}
+* **numeric** objects: representing numeric information (e.g., one's age)
+* **character** objects: representing character information (e.g., one's name or race)
+* **vector** objects: representing more than one numeric object (e.g., ages of participants)
+* **data frame** objects: containing vectors of data (e.g., column variables and row instances of data)
+* **function** objects: that accept one object and return an other object (e.g., the mean of numeric vector)
+:::
+
+
+## **Object Assignment**
+
+::: {.incremental}
+* Objects need names 
+* Obtained through assignment 
+  * `name` is assigned an `object`; or
+  * `object` is set to `name`
+* Assignment operator `<-`  
+  * ex: `age <- 22`
+  * ex: `age <- as.numeric(c("22", "25", "19"))`
+:::
+
+
+## **Function Objects**
+
+::: {.incremental}
+Functions are special objects which contain statements for carrying out operations
+
+* `c()` or `Hmisc::Cs()`: to combine elements into a vector
+* `mean()`: to compute the mean of a numeric vector
+* `source()`: for reading/executing `R` code
+* `dplyr::mutate()`: for creating variables in data frames
+* `rio::import()` or `readr::read_csv()`: for reading data files
+* `readRDS()`: for reading compressed data files 
+:::
+
+## **Function Characteristics**
+
+5 terms concepts to know:
+
+::: {.incremental}
+* `name` (created by assignment operator `<-`)
+* `definition` (code statements or instructions for its usage)
+* `arguments` (optional variables that specify the function’s operation)
+* `function call` (e.g., execution of a function)
+* `returned object` (value returned from the executed function)
+:::
+
+
+## **Function Statements without Parameter/Argument**
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+cat("my_function <- function() {\n
+    statements/instructions to do something\n\n
+    
+    return(result of instructions)\n
+}")
+```
+
+
+## **Function Example with Parameter/Argument**
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+cat('
+get_years_since_birth <- function(dob) {
+  if (!hasArg(dob)) {
+      message("Error: dob missing/no argument provided")
+    } 
+  else {
+    # make string a data
+    dob = lubridate::as_date(dob) 
+    # obtain the difference in time in days
+    diff = difftime(time1 = Sys.Date(), time2 = dob, units = "days")
+    # create age based on days in year
+    age = as.numeric(diff / 365.25)
+    # return the age in years, truncated 
+    return(trunc(age))
+  }
+}
+')
+```
+
+## **Functions in Libraries**
+
+::: {.incremental}
+* **{dplyr}**: for wrangling data frames
+* **{ggplot2}**: for plotting data
+* **{tidyverse}**: for loading all libraries in the **tidyverse** ecosystem
+* **{easystats}**: for loading all libraries in the **easystats** ecosystem
+:::
+
+
+## **Loading/Importing Functions from Libraries**
+
+::: {.incremental}
+* Loading all functions:
+  * `library(dplyr)`
+  
+* Loading order matters: Function of the same name will overwrite others
+:::
+
+## **Calling Functions from Libraries**
+
+::: {.incremental}
+* If loaded:
+  * `mutate()` (from **{dplyr}**)
+* If not loaded:  
+  * `eeptools::age_calc()`: for calculating age based on a date
+  * `::` calls ensures choice (duplicate function names in different libraries)
+:::
+
+
+

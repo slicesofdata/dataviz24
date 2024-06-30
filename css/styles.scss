@@ -1,0 +1,69 @@
+/*-- scss:defaults --*/
+.quarto-title-block .quarto-title-banner {
+  background-image: url(images/hex_main.png);
+  background-size: 300px;
+  background-position: left;
+  background-repeat: no-repeat;
+  padding-left: 10px;
+  background-origin: content-box;
+}
+
+//https://stackoverflow.com/questions/74401855/change-slide-background-using-css-with-quarto-reveal-js
+
+
+// Colors
+$orange: #ffa500;
+$purewhite: #ffffff;
+$off_white: #FDFBF7;
+$green_yellow: #cbff30;
+$teal: #096980;         // ~ atoll
+$magenta: #FF00FF;
+$cerise: #d91fb5;       // ~ Cerise
+$gray: #64605f;
+$light_gray: #949799;
+$black: #000000;
+$black90: #1a1a1a;
+$black95: #0d0d0d;
+$dark: #373338;
+
+// merbivore similar
+$magenta_merb: #AD2EA4;
+$orange_merb: #FC6F09;
+$teal_merb: #1EDAFB;
+$lime_merb: #8DFF0A;
+$orange_faded_merb: #FDC251;
+$dark_merb: #161616;
+$green_merb: #58C554;
+$red_merb: #990000;
+
+
+
+
+//$blue2:  #27b2ef;
+
+//$navbar_bg: $teal;
+//$navbar_fg: $off_white;
+//$navbar_hl: $green_yellow;
+//$body_bg: $off_white;
+//$body_color: $light-gray;
+//$footer_bg: $cerise;
+//$link_color: $teal;
+//$code_bg: $off_white;
+//$code_block_bg: $off_white;
+
+// Base document colors
+$navbar-bg: $teal;         // navbar
+$navbar-fg: $off_white;     // navbar font color/fg elements
+$navbar-hl: $lime_merb; // highlight color when hovering over navbar links;
+$body-bg: $black95;      // page background
+$body-color: $off_white; //light-gray;  // page text
+$footer-bg: $magenta;       // footer
+$link-color: $lime_merb; //green_yellow;//$green_yellow;        // hyperlinks
+
+// Inline code
+$code-bg: $black;   // inline code background color
+$code-color: $teal_merb; // #ff66d9; //$orange; //  #$magenta;     // inline code text color
+
+// Code blocks
+$code-block-bg: $black90; // code block background color
+

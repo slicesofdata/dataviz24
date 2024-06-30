@@ -1,0 +1,21 @@
+---
+title: "Tools for Foundations of Data Science"
+editor: visual
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+::: {#hero-heading}
+:::
+
+## **Websites**
+
+### *Practice Coding in R on Posit Cloud*
+
+-   <https://posit.cloud/learn/primers/>
+
+## **Books**
+
+-   Lots of alternative books <https://www.bigbookofr.com/data-visualization.html>

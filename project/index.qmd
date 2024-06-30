@@ -1,0 +1,78 @@
+---
+title: "Project" # index to display header for the nested *.qmd files (even if in subdirectory); displays directory name otherwise
+description: "Overview of Project for PSYC 166"
+#author: ""
+#date: ""
+#order: 0 
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+## **Project Description**
+
+For the project, your team will write code in order to prepare, model, and visualize data in order to communicate a story that would address the question(s) proposed by the participating body (viz., liaison) about cognitive functioning. Given the constraints of data to inform this specific question, the project may involve data exploration to tell a story about relationships between variables. 
+
+Any exploratory component allows for a healthy dose of flexibility in team creativity. This open element will also allow teams to develop ideas independently, thereby producing stories that will likely diverge wildly from each other, making the project an exciting foray into data storytelling for many students.
+
+
+## **Team Membership and Roles**
+
+A team of students will work with a project liaison to develop the project and work together to produce the midterm and final deliverables. Rather than having all students in charge of all duties, team members should consider delegating tasks and various types of workloads to students who are best equipped to handle them either because of ability or because of interest and desire. Teams are to meet weekly and members are to complete individual worklog reports, which are used for final grading.
+
+## **Team Meetings**
+
+Team meetings will be weekly and in-person. The team will determine when all members can meet at the same time each week to discuss their weekly accomplishments, upcoming goals, setbacks, etc. The PM will share with me the time and the location of the meeting.
+
+
+## **Deliverables**
+
+* Midterm Presentation
+* Final Presentation
+* Final `R Markdown` Report and pdf
+* Worklogs/GitHub commits
+
+
+## **Project Evaluation**
+
+The project has different components representing it at various stages (e.g., midterm presentation, final presentation and report). See those sections specifically but the following general items will be important to consider.
+
+-   Quality of project deliverable documents (e.g., organization, coherence, story, coding clarity/organization, plots, etc.)
+-   Professionalism (e.g., liaison meeting etiquette and responsibility, timely discord communication, non-tardy attendance at weekly team meeting, weekly worklogs, feedback from liaison, etc.)
+-   Peer evaluation (e.g., contributions, team player, etc.)
+
+Note: Liaison's will also participate in evaluating all teams. The team with the most impressive project (e.g., most clear, most useful and actionable, most interesting, most thought provoking, etc.) will receive bonus points.
+
+
+### **Presentation Characteristics**
+
+See the midterm and final presentation guidelines for more detail and rubric but in general, the following characteristics will be evaluated.
+
+1.  *Clarity*: well-explained; easy to follow/understand; ability to communicate points effectively
+
+2.  *Organization*: structured logically; ability to walk audience through the data journey and communicate a story interpretation about data
+
+3.  *Thoroughness*: all relevant issues discussed thoroughly
+
+4.  *Presentation Style*: degree of preparedness and polish in presentation; smooth and rehearsed; minimum of reading; well-paced; slide quality
+
+
+## **Weekly Worklog/Report**
+
+Tracking individual and team goals weekly ensures progress toward the goal, commitment to the project, accountability for oneself, and a record of accomplishments.
+
+The Project Manager should inquire with the team about the best way to submit worklogs or transparency and review. This could be a Google Doc File, a spreadsheet, or even a Google From that contains questions to answer, which then get dumped into a Google Spreadsheet for all to review.
+
+
+### **Frequency of Worklog**
+
+Worklogs are to be completed by *end-of-day following the team meeting*, after communicating future goals (distributed equally) to other team members. Please make public for me to review. Meetings should be physical to facilitate team cohesion and conversation, and limit silly technical issues that just waste meeting time.
+
+
+### **Contents of Worklog**
+
+Worklogs should contain information about the reporting date, the team member reporting, that member's previous week accomplishments, and that member's future week goals
+
+The recommended worklog is accessible [here](https://docs.google.com/spreadsheets/d/1NV5ZIJJoWvN8ueuzaMqe6e1VUvWcvlX78SaRe-5COng/edit?usp=sharing). There is a worksheet for each team. This is a worklog file distributed to DS180 Capstone Faculty to share with their teams. 
+

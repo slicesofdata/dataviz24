@@ -1,0 +1,26 @@
+---
+title: "Exercise: Using Git and R Projects"
+author: "yourname"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  #word_document:
+  #  toc: yes
+  #  number_sections: yes
+  html_document:
+    toc: no
+    number_sections: yes
+    code_folding: show #hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+# source(here::here("r", "my_functions.R"))                # if your functions are in a file
+# R.utils::sourceDirectory(here::here("r", "functions"))   # if your functions are in files inside of a directory
+```
+
+# **Class Practice**
+

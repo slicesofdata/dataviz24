@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gabriel I. Cook">
+<meta name="dcterms.date" content="2024-02-24">
+
+<title>PSYC166 - Final Report</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/78ddb093ea.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title"><strong>PSYC166</strong></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text"><strong>Home</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../syllabus/syllabus.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><strong>Syllabus</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../modules/index.html" rel="" target="">
+ <span class="menu-text"><strong>Modules</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../project/index.html" rel="" target="">
+ <span class="menu-text"><strong>Project</strong></span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Slides</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../slides/01_intro_rstudio_rmarkdown_slides.html" rel="" target="">
+ <span class="dropdown-text">R, RStudio, &amp; R Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/02_git_slides.html" rel="" target="">
+ <span class="dropdown-text">Git and GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/03_functions_slides.html" rel="" target="">
+ <span class="dropdown-text">Functions, Parameters, and Arguments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/04_vectors_and_data_frames_slides.html" rel="" target="">
+ <span class="dropdown-text">Vectors and Data Frames</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/05_importing_and_exporting_slides.html" rel="" target="">
+ <span class="dropdown-text">Importing and Exporting Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/06_variables_cognition_slides.html" rel="" target="">
+ <span class="dropdown-text">Variables, Measures of Cognition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/07_manipulating_data_selecting_filtering_mutating_slides.html" rel="" target="">
+ <span class="dropdown-text">Manipulating Data: Selecting, Filtering, &amp; Mutating</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/08_cognitive_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Cognitive Task Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/09_summarizing_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Grouping and Summarizing Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/09_summarizing_data_advanced_slides.html" rel="" target="">
+ <span class="dropdown-text">Grouping and Summarizing Data (Advanced)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/10_cognitive_data_summary_slides.html" rel="" target="">
+ <span class="dropdown-text">Summarizing Task Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/07_manipulating_data_pivoting_slides.html" rel="" target="">
+ <span class="dropdown-text">Transforming Data: Pivoting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/13_joining_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Joining Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/11_visualizing_data_slides.html" rel="" target="">
+ <span class="dropdown-text">Visualizing Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/12_examining_relationships_slides.html" rel="" target="">
+ <span class="dropdown-text">Examining Relationships</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/14_strings_and_factors_slides.html" rel="" target="">
+ <span class="dropdown-text">Strings, Factors, and Regular Expressions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/16_models_project_slides.html" rel="" target="">
+ <span class="dropdown-text">Discussing Models for Cognitive Tasks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/17_linear_models_slides.html" rel="" target="">
+ <span class="dropdown-text">Linear Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/18_eda_slides.html" rel="" target="">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hw" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>HW</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW01.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW02.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW03.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW04.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW05.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW06.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW07.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW08.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW09.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 09</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW10.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 10</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Exercises</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li>
+    <a class="dropdown-item" href="../exercises/using_git_with_projects_exercise.Rmd" rel="" target="">
+ <span class="dropdown-text">using_git_with_projects_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/functions_exercise.docx" rel="" target="">
+ <span class="dropdown-text">functions_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/vectors_and_dataframes_exercise.docx" rel="" target="">
+ <span class="dropdown-text">vectors_and_dataframes_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/imorting_and_exporting_exercise.docx" rel="" target="">
+ <span class="dropdown-text">importing_and_exporting_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/transforming_exercise.docx" rel="" target="">
+ <span class="dropdown-text">transforming_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/summarizing_exercise.docx" rel="" target="">
+ <span class="dropdown-text">summarizing_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/pivoting_exercise.docx" rel="" target="">
+ <span class="dropdown-text">pivoting_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/visualization_exercise.docx" rel="" target="">
+ <span class="dropdown-text">visualizing_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/joining_exercise.docx" rel="" target="">
+ <span class="dropdown-text">joining_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/strings_and_factors_exercise.docx" rel="" target="">
+ <span class="dropdown-text">strings_and_factors_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/linear_models_exercise.Rmd" rel="" target="">
+ <span class="dropdown-text">linear_models_exercise.docx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/eda_exercise.docx" rel="" target="">
+ <span class="dropdown-text">eda_exercise.docx</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Data</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/slicesofdata/dataviz23/raw/main/data/cms-top-all-time-2023-swim.zip" rel="" target="">
+ <span class="dropdown-text">cms-top-all-time-2023-swim.xlsx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/rfordatascience/tidytuesday" rel="" target="">
+ <span class="dropdown-text">Fun Tidy Tuesday Data Sets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
+ <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cheatsheets" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Cheatsheets</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cheatsheets">    
+        <li>
+    <a class="dropdown-item" href="../cheatsheets_and_tips/symbols.html" rel="" target="">
+ <span class="dropdown-text">Symbols</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/rmarkdown-2.0.pdf" rel="" target="">
+ <span class="dropdown-text">RMarkdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" rel="" target="">
+ <span class="dropdown-text">Data Wrangling with {dplyr} and {tidyr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/quarto.html" rel="" target="">
+ <span class="dropdown-text">Quarto (Publish and Share)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/strings.html" rel="" target="">
+ <span class="dropdown-text">String Manipulation with {stringr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/data-import.html" rel="" target="">
+ <span class="dropdown-text">Reading and Writing Data with {readr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/Data_Science_With_R_Workflow.pdf" rel="" target="">
+ <span class="dropdown-text">Data Science with RWorkflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/" rel="" target="">
+ <span class="dropdown-text">More Cheatsheets From RStudio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://images.datacamp.com/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf" rel="" target="">
+ <span class="dropdown-text">Quarto Cheat Sheet (what Quarto Files Look Like)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../resources/tools.html" rel="" target="">
+ <span class="menu-text"><strong>Other Tools</strong></span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/slicesofdata" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gabrielcook.xyz" rel="" target="">
+ <span class="menu-text">Me</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/index.html">Project</a></li><li class="breadcrumb-item"><a href="../project/04_project_report.html"><strong>Final Report</strong></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Syllabus</strong></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Installing R &amp; RStudio</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/01_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Introduction to RStudio and R Markdown</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Management 01: Installing and Setting Up Git and GitHub for R</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_using_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Management 02: R Projects, Git, and GitHub</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/04_functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Functions, Arguments, and R scripts</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/05_vectors_and_data_frame_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Vectors and Data Frame Basics</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/06_importing_and_exporting_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Importing and Exporting Data Frames</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/07_variables_and_measures_of_cognition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Variables and Measures of Cognition</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/08_manipulating_data_selecting_filtering_mutating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Selecting, Filtering, &amp; Mutating</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/09_working_with_cognitive_task_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Working with Cognitive Task Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/10_summarizing_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/11_summarizing_cognitive_task_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Cognitive Task Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/12_manipulating_data_pivoting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Transforming Data Frames: Pivoting</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/13_visualizing_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Visualizing Data: {ggplot} and the grammar of graphics</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/14_joining_relational_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Joining Relational Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/15_joining_project_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Joining Project Data</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/16_examining_relationships_in_variables_of_cognition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Examining Relationships in Variables of Cognition</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/17_strings_and_factors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Strings, Factors, and Regular Expressions</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/18_linear_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Linear Models</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/18_validating_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Validating Models</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/19_exploratory_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Exploratory Data Analysis</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/summarizing_data_advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Summarizing Data: Using <code>across()</code> and Lists</strong></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../project/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Team membership and roles</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/02_project_midterm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Midterm presentation</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/03_project_final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Final Presentation</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/04_project_report.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><strong>Final Report</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/05_project_tasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Project Tasks</strong></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
+  <li><a href="#keeping-the-repository-up-to-date" id="toc-keeping-the-repository-up-to-date" class="nav-link" data-scroll-target="#keeping-the-repository-up-to-date"><strong>Keeping the Repository up to Date</strong></a></li>
+  <li><a href="#sections-of-final-report" id="toc-sections-of-final-report" class="nav-link" data-scroll-target="#sections-of-final-report"><strong>Sections of Final Report</strong></a>
+  <ul class="collapse">
+  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract"><strong>Abstract</strong></a></li>
+  </ul></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments"><strong>Acknowledgments</strong></a>
+  <ul class="collapse">
+  <li><a href="#contents" id="toc-contents" class="nav-link" data-scroll-target="#contents"><strong>Contents</strong></a></li>
+  </ul></li>
+  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents"><strong>Table of Contents</strong></a></li>
+  <li><a href="#chapter-1-introduction" id="toc-chapter-1-introduction" class="nav-link" data-scroll-target="#chapter-1-introduction"><strong>Chapter 1: Introduction</strong></a></li>
+  <li><a href="#chapter-2-data" id="toc-chapter-2-data" class="nav-link" data-scroll-target="#chapter-2-data"><strong>Chapter 2: Data</strong></a>
+  <ul class="collapse">
+  <li><a href="#sources-of-data" id="toc-sources-of-data" class="nav-link" data-scroll-target="#sources-of-data"><strong>Sources of Data</strong></a></li>
+  <li><a href="#data-characteristics" id="toc-data-characteristics" class="nav-link" data-scroll-target="#data-characteristics"><strong>Data Characteristics</strong></a></li>
+  <li><a href="#data-quality-and-data-preprocessing" id="toc-data-quality-and-data-preprocessing" class="nav-link" data-scroll-target="#data-quality-and-data-preprocessing"><strong>Data Quality and Data Preprocessing</strong></a></li>
+  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations"><strong>Data Limitations</strong></a></li>
+  </ul></li>
+  <li><a href="#chapter-3-resultsfindings" id="toc-chapter-3-resultsfindings" class="nav-link" data-scroll-target="#chapter-3-resultsfindings"><strong>Chapter 3: Results/Findings</strong></a></li>
+  <li><a href="#chapter-4-discussion" id="toc-chapter-4-discussion" class="nav-link" data-scroll-target="#chapter-4-discussion"><strong>Chapter 4: Discussion</strong></a></li>
+  <li><a href="#chapter-5-conclusion" id="toc-chapter-5-conclusion" class="nav-link" data-scroll-target="#chapter-5-conclusion"><strong>Chapter 5: Conclusion</strong></a></li>
+  <li><a href="#chapter-5-challenges-and-limitations" id="toc-chapter-5-challenges-and-limitations" class="nav-link" data-scroll-target="#chapter-5-challenges-and-limitations"><strong>Chapter 5: Challenges and Limitations</strong></a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><strong>Appendix</strong></a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><strong>References</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>Final Report</strong></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gabriel I. Cook </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 24, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="overview" class="level1">
+<h1><strong>Overview</strong></h1>
+<p>The final written report for the project will be delivered to me and to your liaison. I can provide a color-printed copy for you to distribute to the liaison and for their offices. The final report is to be created in <code>R Markdown</code> and knit as a Pdf or Word document. An example starter file can be found <a href="https://raw.githubusercontent.com/slicesofdata/fods24/main/project/psyc166_final_project_report_to_word.Rmd">here</a>. <strong>You are not to write the document in GoogleDocs</strong>, or other sharing platforms. <strong>The course is designed for you to acquire new skills and build confidence in those skills rather than support other skills.</strong> Investing in yourself is what will get you internships, jobs, and leadership roles in labs and lab manager roles in graduate school. Thus, the report is to be put in <code>R Markdown</code> and maintained in the remote repository. Because <code>RStudio</code> does not have grammar check capability, you are free to create your own personal content in a Word Processing software like <strong>MS Word</strong> before you add the content to <code>R Markdown</code>. However, I advise you change the font in that working file to sans serif font because <code>R Markdown</code> may get confused with certain characters (e.g., serif font apostrophes, etc.) and you may need to fix these issues later. After running your grammar and spelling check, then add the content to the <code>.Rmd</code> file. If you do work in a separate file, you will need to make sure to save this file to the project <code>/report</code> directory and ensure you push that file to the remote repository. Also, make sure you use your initials in the file name so that team members don’t all have the same file names.</p>
+<p>A <strong>code lead</strong> should take on the responsibility to save the file to <code>/report</code> the team project, <code>add</code>, <code>commit</code>, and <code>push</code> the file to the remote repo on GitHub. When the team works on this report file shared with others on GitHub, I recommend two different approaches:</p>
+<ol type="1">
+<li><p>The <strong>team agrees to request adding changes to the document on a case-by-case basis</strong>. The PM oversees the process and controls delegation. A member requests permission from the PM to edit the file through the team Discord channel. The PM approves the request and broadcasts to the team on Discord that Member A will issue a <code>pull</code> request to update the local file with the remote file. After <code>pull</code>ing the changes, Member A will (1) update the file locally by adding their content, (2) save the file on their local system, (3) knit an <code>HTML</code> version to ensure there are no errors in knitting and so that others can review your edits without actually opening the <code>.Rmd</code> file, (4) and then <em>exit</em> the file so that it is not active in <code>RStudio</code>. Then, they will (5) <code>add</code>, <code>commit</code> (with a description), and <code>push</code> the changed file to the remote repo on GitHub. Once complete, Member A broadcasts to the team on Discord that they have pushed their changes. The PM asks to verify (just to double check) that Member A has actually exited the file. Once verified, the PM broadcasts that other team members can request from the PM permission to edit the file. Do not edit without permission from the PM.</p></li>
+<li><p>The <strong>team agrees upon a contribution schedule (dates, hours)</strong> and the PM creates and controls delegation of who will be working on which section and at what time. The PM broadcasts to the team on Discord that Member A will issue a <code>pull</code> request to update the local file with remote file. After <code>pull</code>ing the changes, Member A will (1) update the file locally by adding their content, (2) save the file on their local system, (3) knit an <code>HTML</code> version to ensure there are no errors in knitting and so that others can review your edits without actually opening the <code>.Rmd</code> file, (4) and then <em>exit</em> the file so that it is not active in <code>RStudio</code>. Then, they will (5) <code>add</code>, <code>commit</code> (with a description), and <code>push</code> the changed file to the remote repo on GitHub. Once complete, Member A broadcasts to the team on Discord that they have pushed their changes. The PM asks to verify (just to double check) that Member A has closed the file. Then the PM broadcasts that the file can be edited by the next team member according to the schedule agreed upon. Do not edit without permission from the PM.</p></li>
+<li><p>The <strong>team decides to work in separate files</strong> and create copies of the main <code>.Rmd</code> document that include team member’s initials as a suffix to the filename. The team delegates the sections to be written by specific team members. Each member edits their file, saves it, and ensures they can knit an <code>HTML</code> version of the file. If successful without error, then, they and <code>add</code>, <code>commit</code>, and <code>push</code> changes to the remote so. Team members can view the <code>HTML</code> version without actually opening your file. Although this approach may appear easiest, it presents other problems which is a reason why I recommend it as a third option. A major limitation of this approach is with integrating work. Arranging, rearranging, revising work is more difficult when you are dealing with multiple files. Weaving pieces into one another can be difficult. Team members who need to integrate sections will need to identify where content will be inserted (e.g., between what sentences, etc.). This is a common problem with working with separate files whether by yourself or with others. Also, pieces that are in one file may be overlooked and not incorporated. Problems mentioned here as well as others does not make this approach the most convenient in the long long. Moreover, this approach does not involve as much communication between team members, which all of you know is always essential to successful teamwork. Options #1 and #2 ensure this communication.</p></li>
+</ol>
+<p><strong>Note:</strong> Remember that with a version control system like Git, you always have access to all versions of the files pushed to GitHub. You can always revert to a prior version. I can help you with this if you get to this point. Good messages in your <code>commit</code>s will be helpful here.</p>
+</section>
+<section id="keeping-the-repository-up-to-date" class="level1">
+<h1><strong>Keeping the Repository up to Date</strong></h1>
+<p>Whatever your approach to managing versions of the report, you will need to update the repo weekly with your contributions. Updates should be done as part of you weekly team meeting to ensure it’s completed.</p>
+</section>
+<section id="sections-of-final-report" class="level1">
+<h1><strong>Sections of Final Report</strong></h1>
+<ul>
+<li>Title Page (page1)</li>
+<li>Abstract (page 2)</li>
+<li>Table of Contents (page 3)</li>
+<li>Acknowledgments (page 4)</li>
+<li>Introduction (approximately 1-2 pages)</li>
+<li>Data (approximately 1-2 pages)</li>
+<li>Results/Findings (approximately 8-10 pages including visualizations)</li>
+<li>Discussion (approximately 1/2 to 1 pages)</li>
+<li>Conclusion (approximately 1/2 of page)</li>
+<li>References (last page)</li>
+</ul>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract"><strong>Abstract</strong></h2>
+<p>The abstract provides a main summary of data, problem, methods, and key findings.</p>
+</section>
+</section>
+<section id="acknowledgments" class="level1">
+<h1><strong>Acknowledgments</strong></h1>
+<p>People to acknowledge for the project. Certainly acknowledge the liaisons, the organization for whom the liaison represents, CMS Athletics, the college you represent for the opportunity, etc.</p>
+<section id="contents" class="level2">
+<h2 class="anchored" data-anchor-id="contents"><strong>Contents</strong></h2>
+<p>A contents pages, or table of contents, provides a listing of the document sections and subsections as we as a page for location.</p>
+<ul>
+<li>Title Page</li>
+<li>Abstract</li>
+<li>Table of Contents</li>
+<li>Acknowledgments</li>
+</ul>
+<p>Chapters:</p>
+<ul>
+<li>Introduction</li>
+<li>Data</li>
+<li>Results/Findings</li>
+<li>Discussion</li>
+<li>Conclusion</li>
+<li>References</li>
+</ul>
+</section>
+</section>
+<section id="table-of-contents" class="level1">
+<h1><strong>Table of Contents</strong></h1>
+<p>Insert a table of contents for the chapters and sections.</p>
+</section>
+<section id="chapter-1-introduction" class="level1">
+<h1><strong>Chapter 1: Introduction</strong></h1>
+<p>This chapter would be approximately 1 to 2 single-spaced pages. Here, you will describe both the organization and the project. Respectfully, start with the organization for whom you are completing the work and only after discuss the project.</p>
+<p>Some key details to address include:</p>
+<ul>
+<li><p><em>Client Context:</em> Provide an overview of the client’s business and emphasize how data visualization will assist in addressing their challenges or needs. Who are they? What do they do? What is their relevance/importance?</p></li>
+<li><p><em>Project Description</em>: Next, provide a description of the problem that you worked out with your liaison. Make sure that the problem is stated clearly and is detailed enough to be evaluated and replicated. Why is the problem important to address? Clearly define the project’s goals, emphasizing the utilization of data visualization techniques to extract insights and patterns from the data.</p></li>
+<li><p><em>Scope</em>: The project scope defines the boundaries, objectives, deliverables, and tasks that need to be accomplished to successfully complete a project. The scope helps define what content will and will not be included in the project. Detail the project’s boundaries, specifically highlighting the use of data visualization methods for analysis and understanding.</p></li>
+<li><p><em>Methodology and Approach</em>: After describing the nature of the problem, explain how you set out to address the problem. Explain the key sporting event of interest, time period of interest, athletes of interest, etc. Explain the variables of interest used to help answer problem. If the problem was broken down into smaller parts or sub-goals, describe them in the order you plan to discuss the data in the data chapter.What are the means by which you are solving the problem. For this project, you are not fitting mathematical models to data but focusing on visualizing data to communicate your findings in a descriptive sense so make sure you are clear about this detail.</p></li>
+<li><p><em>Tools and Techniques</em>: Highlight the specific visualization tools, software, or libraries used and explain their relevance in uncovering insights from the data.</p></li>
+</ul>
+</section>
+<section id="chapter-2-data" class="level1">
+<h1><strong>Chapter 2: Data</strong></h1>
+<p>This chapter would be approximately 1 or 2 single-spaced pages. In this section, you would provide a description of the data, its source, format, etc.</p>
+<section id="sources-of-data" class="level2">
+<h2 class="anchored" data-anchor-id="sources-of-data"><strong>Sources of Data</strong></h2>
+<p>What was the data source/where did you obtain it from? Include the source URL of the website from which you accessed the data. Include information about where and how the data were collected or obtained. Specify whether the data were obtained from internal databases, external sources, or gathered through specific methods (surveys, sensors, web scraping, etc.).</p>
+</section>
+<section id="data-characteristics" class="level2">
+<h2 class="anchored" data-anchor-id="data-characteristics"><strong>Data Characteristics</strong></h2>
+<p>Discuss the data in detail. In which format was the data stored? How many cases were there in total? How many variables were contained? What variables were contained? What were the key variables you used?</p>
+<p>Describe the types of variables present in the data set (numerical, categorical, text, etc.). When discussing variables of the visualization in the results chapter, make sure to provide clarity about the variable, its metric, and reason for using that variable (e.g., mean, max, median, mean of max values, median of max values, dispersion measures, etc.).</p>
+<p>List and briefly describe each attribute, feature, or variable in the data set, paying special attention to those used for the project.</p>
+</section>
+<section id="data-quality-and-data-preprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="data-quality-and-data-preprocessing"><strong>Data Quality and Data Preprocessing</strong></h2>
+<p>Describe the steps taken to clean and prepare the data for investigation. This description may include removing duplicates, standardizing formats, trimming, correcting inconsistencies, etc. Explain any criteria used to select variables or features for visualization, focusing on those with the greatest impact or insight for the organization’s understanding.</p>
+<p>Some key details to address include:</p>
+<ul>
+<li><p><em>Missing Values</em>: Explain the presence and treatment of any missing data. Explain how missing values were handled during analysis (removal, replacement, etc.).</p></li>
+<li><p><em>Outliers and Anomalies</em>: Mention any identified outliers or anomalies and how they were addressed (treatment or exclusion).</p></li>
+<li><p><em>Variables Created</em>: Describe the variables created, their units of measurement, etc. Explain if any normalization or scaling procedures applied to create the variables and to ensure data consistency and comparability across measures.</p></li>
+</ul>
+<p>Also, specify where the cleaned data may be obtained.</p>
+</section>
+<section id="data-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="data-limitations"><strong>Data Limitations</strong></h2>
+<p>Highlight any limitations or constraints of the data set that affected the team’s ability to address the initial problem. Similarly, describe how any limitations might affect the interpretation of the findings.</p>
+</section>
+</section>
+<section id="chapter-3-resultsfindings" class="level1">
+<h1><strong>Chapter 3: Results/Findings</strong></h1>
+<p>This chapter would be approximately 8 or 10 single-spaced pages, including data visualizations. In this section, you will tell your story about what you have discovered in the data, making sure that the findings are relevant to the project description/proposal. You will summarize the insights and patterns discovered through data visualization, emphasizing key visual representations that reveal significant information. Your goal is to communicate relevant patterns, trends, relationships or or anomalies within the data set.</p>
+<p>This section should be organized logically for telling your story about data. Consider the parts of the story and how to organize those sections appropriately. The organizational structure can be based on importance, hierarchy, impact, etc. To address this organization issue, first, outline your subsections. Second, outline the written and visual content relevant for each subsection. If some findings depend on other findings, unpack the subsections in an order that facilitates understanding. Similarly, do so within sections. Construct the message and then discuss ways to organize more effectively to: (1) state the facts; (2) build up a hierarchy of elements (e.g., athletes to teams; meets in a season, quarters in a season, season within career); (3) break down elements (e.g., teams to athletes; years, quarters or seasons, meets in season); (4) address from least controllable aspects to most controllable aspects (e.g., admission, coaching strategies, etc.); (5) create excitement with rising tension or significance. In other words, this section’s organization should serve a purpose but the organization is up to you. You should not just present the data in an order based on order of authorship. Related to authorship, consider a way to organize authors. You may even wish to explain why the order what chosen as some people may infer something from the order.</p>
+<p>Create subsections where relevant. For each section, introduce the topic or problem and then unpack it.</p>
+<p>Example:</p>
+<p>3.1 Topic/Question A</p>
+<p>Introduce the topic or question of interest. Describe the data used to answer this question. Be clear about the metrics used and why those metrics were chosen to answer the question. For example, why the mean? Why the max? Why the median? Why a z-score? If the story involves a comparison of metrics, explain why they are needed and then determine the order to present them. Although the data visualizations should be able to stand along, provide some description of it and direct your audience to particular comparisons or areas of importance within that description. Make reference to the figure (the data visualization) in this text. Insert data visualizations at appropriate locations (trying to ensure that a visualization is referenced and appears on the same page).</p>
+<p>When discussing the visualization, organize sentences such that the predictor precedes the outcome variable as the outcome is contingent on the other variables anyway; order in terms of cause and then effect. Interpret data in terms of the direction of comparisons. Do not state that there appears to be a “difference” when that difference is due to an ordering of data. Just describe the finding in terms of the direction of the data. Don’t make your reader work more than necessary. Write using the active voice. Avoid the passive voice and remove references to “it”, “this”, “these”, etc. that otherwise provide ambiguity to the reader trying to resolve the sentence. “It has been shown” lacks clarity. What does “it” refer to? Sure, the reader may be able to infer what you mean if there is only one noun in the previous sentence. Your writing, however, should not require them to work harder than you did when you wrote the sentence; just state the reference “the increase in variable x …”. Don’t make your audience guess what you mean and potentially infer erroneously. Such errors are a consequence of your lack of clarity, not the consequence of them interpreting incorrectly. To avoid these errors, read you work aloud after sufficient distraction or have peers who don’t understand the project read your writing aloud and see where they stumble or where they are unable to explain what you are talking about. Make sure that your figures have titles, captions, a reference to your social profile and the course PSYC167: Data Visualization. The data source may not necessary if you explain this in the report but if the image is placed elsewhere, like on the Internet, then having the source would also be relevant in the caption.</p>
+<p>3.2 Topic/Question B</p>
+<p>3.3 Topic/Question C</p>
+<p>3.4 Topic/Question D</p>
+<p>If you have exploratory findings that are worth sharing that are beyond the scope of the main project goal, you can add then in a sub-section.</p>
+</section>
+<section id="chapter-4-discussion" class="level1">
+<h1><strong>Chapter 4: Discussion</strong></h1>
+<p>This chapter would be approximately .5 or 1 single-spaced page. In this section, remind the audience of the problem that the project set out to address and the approach by which you addressed it. The previous section on research findings provided a description of the findings. In this section, you explain those findings more broadly and explain how they may relate to the entire problem.</p>
+</section>
+<section id="chapter-5-conclusion" class="level1">
+<h1><strong>Chapter 5: Conclusion</strong></h1>
+<p>This chapter would be approximately .5 to 2 single-spaced pages.</p>
+<p>Your project report should contain some messaging of a conclusion which summarizes the results you have discovered. Recap the main achievements and the value derived from the use of data visualization in understanding the data. Highlight the most significant visual findings or insights that hold relevance and importance for the client. Propose potential actions or strategies based on the insights obtained through data visualization for further exploration or implementation. The conclusion should provide some action for moving forward. What should your client, organization, or liaison consider moving forward? Should they focus on further development of their current trajectory or direction? Should they consider aspects that have been ignored or that that differ from current current trajectory or direction? Should the organization consider whether to triage or abort some program, direction, venture, or experiment? Consider discussing other methods, statistical perhaps, to further address the problem in the future. When doing so, however, make sure to explain why those statistical methods are relevant and what they might inform.</p>
+</section>
+<section id="chapter-5-challenges-and-limitations" class="level1">
+<h1><strong>Chapter 5: Challenges and Limitations</strong></h1>
+<p>Present any important challenges or limitation in this optional section. Discuss any limitations or challenges encountered during the project that may affect the interpretation or application of the findings. Propose potential ways to address or mitigate these limitations in the future.</p>
+</section>
+<section id="appendix" class="level1">
+<h1><strong>Appendix</strong></h1>
+<p>If necessary.</p>
+</section>
+<section id="references" class="level1">
+<h1><strong>References</strong></h1>
+<p>A list of references.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
