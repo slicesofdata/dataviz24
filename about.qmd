@@ -1,0 +1,9 @@
+---
+title: "About"
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+Nothing to see here

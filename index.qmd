@@ -1,0 +1,35 @@
+---
+title: " " # an empty string will cause:
+# [WARNING] This document format requires a nonempty <title> element.
+#  Defaulting to 'quarto-input4906d811' as the title.
+#  To specify a title, use 'title' in metadata or --metadata title="...".
+  
+format:
+  html: 
+    #theme: cosmo #quartz
+    #css: css/home.css
+    page-layout: full
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+```{r, echo=FALSE}
+#| image: images/???.jpg
+#| fig-width: 4
+#| figh-height: 5
+#| out-width: "20%"
+#| fig-align: "left"
+knitr::include_graphics('images/hex_main.png')
+```
+
+
+## **PSYC 166: Foundations of Data Science (Human Cognition)**
+
+This is the course website for PSYC 166: *Foundations of Data Science (Human Cognition)*, taught by [Prof. Gabriel I. Cook](https://gabrielcook.xyz); 1 credit
+
+**Description**
+
+This course introduces students to R, a programming language for statistical computing and graphics. Students will learn how to clean, manipulate, transform, join, and tidy data sets to prepare for statistical modeling. Supervised (e.g., regression) and unsupervised (e.g., clustering) approaches will be applied to understand simple and complex relationships between cognitive and non-cognitive variables (e.g., biology, aging, education, socioeconomic, health, etc.). Students will apply their skills to wrangle, explore, and model relevant data sets for a hands-on project for local scholars, offices, organizations, or industry participants. Data sets and relevant readings will change depending on semester. 
+
