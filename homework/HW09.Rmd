@@ -1,0 +1,146 @@
+---
+title: "Homework 09"
+author: "yourname"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: false
+    number_sections: true
+    code_folding: show
+  pdf_document:
+    toc: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+eval_answers <- TRUE
+include_answers <- TRUE
+```
+
+# **Overview** 
+
+This homework will involving fitting a linear model to data. Because you should not fit models to data without examining variable relationships, this assignment will involve elements taken from modules on [visualizing relationships](https://gabrielcook.xyz/fods24/modules/18_linear_models.html), [linear models](https://gabrielcook.xyz/fods24/modules/18_linear_models.html), and potentially [{ggplot2}](https://gabrielcook.xyz/fods24/modules/13_visualizing_data.html) if you desire. 
+
+
+# **Libraries and Functions**
+
+```{r message=FALSE, warning=FALSE}
+R.utils::sourceDirectory(here::here("r", "functions"))
+library(tidyverse)
+library(GGally)
+library(easystats)
+```
+
+
+# **Data** 
+
+Read in data for your project so that you have numeric variables that you could use to build a linear regression model to examine the fit of a linear model. 
+
+```{r eval=eval_answers, message=FALSE, warning=FALSE, include=include_answers}
+
+```
+
+
+# **Specifying Variables** (1 pt) 
+
+Specify the predictor(s) and outcome variables of the model and explain why you are interested in examining these relationships for the project. Don't get too complicated. 
+
+
+
+
+
+
+
+
+# **Visualize Variable Relationships** (1 pt) 
+
+Visualize the relationships between the predictor(s) and outcome variable. 
+
+```{r eval=eval_answers, message=FALSE, warning=FALSE, include=include_answers}
+
+```
+
+
+
+# **Transforming Predictors** (2 pts) 
+
+Depending on the visual relationship the the predictor(s) and the outcome variable, consider whether a transformation (linear or otherwise) of your predictors would be appropriate. 
+
+If you have predictors that cannot have, or are unlikely to have values of 0, you should modify your data frame to ensure a value of 0 is possible so that you can interpret the y-intercept. There are variable ways to do this. For example, you could simply *center* a variable by subtracting each value from the mean. You could *standardize* the values (e.g., [x - mean] / sd ) so that the mean is 0 and unit change is in terms of a singe standard deviation. Some statisticians (e.g., Gelman and Hill (2006)) argue to scale the data by two standard deviations (e.g., [x - mean] / [2 * sd] ).
+
+```{r eval=eval_answers, message=FALSE, warning=FALSE, include=include_answers}
+
+```
+
+
+
+# **Fitting the Linear Model** (1 pt) 
+
+Use `lm()` to fit the model and assign the model to an object so you can inspect it to answer questions about it. For now, stick with an additive (aka main-effects) model rather than a model with an interaction. There is an interaction model option as a bonus.
+
+```{r eval=eval_answers, message=FALSE, warning=FALSE, include=include_answers}
+
+```
+
+
+# **Interpreting the Overall Model Fit** (2 pts) 
+
+Determine how well the linear model fits your data. Because your project will involve making some statements about the model fit, in a sentence or more, explain the how well the model fits the data making sure to include the information needed to make that assessment. 
+
+```{r eval=eval_answers, message=FALSE, warning=FALSE, include=include_answers}
+
+```
+
+**Interpret/Explain:**
+
+
+
+
+
+# **Interpreting Predictor Coefficients** (2 pts) 
+
+Determine how well the predictors themselves account for the outcome variable and provide an interpretation based on the necessary information.
+
+```{r eval=eval_answers, message=FALSE, warning=FALSE, include=include_answers}
+
+
+```
+
+
+**Interpret/Explain:**
+
+
+
+
+
+
+# **Examining the Model Performance** (1 pt)
+
+All model have assumptions. Interpreting models should be done within the context of those assumptions. At very least, get some practice checking some model diagnostics and assumptions using functions from the **{performance}** library (e.g., `check_residuals()`, `check_outliers()`, `check_normality()`, `check_collinearity()`).
+ 
+Based on your findings, provide an explanation about whether your assumptions were upheld or potentially violated. 
+
+```{r eval=eval_answers, message=FALSE, warning=FALSE, include=include_answers}
+
+```
+
+
+
+
+
+# **Bonus Option** (2 pts)
+
+**Interaction Model**
+
+If you wanted to try an interaction model use the `*` operator when building your function: `lm(outcome ~ x1 * x2)`. You could compare the fit of this model to the fit of the additive model to see which is a better fit to your data. 
+
+```{r eval=eval_answers, message=FALSE, warning=FALSE, include=include_answers}
+
+
+```
+
+**Interpret/Explain:**
+
+
+
+Finally, knit an `html` file and upload it to: https://claremontmckenna.app.box.com/f/026ed41483fb4a739f0ddfc7fbf8fd01

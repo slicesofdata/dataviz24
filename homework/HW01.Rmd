@@ -1,0 +1,108 @@
+---
+title: "Homework 01"
+author: "yourname"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  #word_document:
+  #  toc: yes
+  #  number_sections: yes
+  html_document:
+    toc: no
+    number_sections: yes
+    code_folding: show #hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**This homework is due by Thursday by 2:30pm.**
+
+For this homework, you will save the `R Markdown` (e.g., `.Rmd`) homework document and save it to your `/fods-exercises/report` project directory. Either rename or save a copy of this file so that its name has the prefix `2024_Lastname_FirstInitial`. Full name example: `2024_cookg_HW_01.Rmd`. Feel free to work with a partner but understand that the work submitted has to be your own.
+
+*Enter your name in the author YAML code above*   
+
+
+
+
+
+# **Overview**
+
+I will create homework assignments with the intention to facilitate progress toward the final project. Homework assignments, like other class activities, will involve working with project data to address bite-sized sub-goals of the project. Although readings will work with external data sets, homework assignments will generally not unless there is a call to do so. If teams are not meeting weekly, logging goals and accomplishments, and working together, I will adjust homework assignments to work with different data. 
+
+
+# **Team Unity: Meetings**
+
+Most of you have communicated in the class survey that you believe you often contribute to projects more than do other team members. On one hand, this suggests that many of you are committed to doing good work and as a team should be able to accomplish goals easily. On the other hand, egocentric biases in availability and attribution [(Ross & Sicoly, 1979)](http://web.mit.edu/curhan/www/docs/Articles/biases/37_J_Personality_Social_Psychology_322_%28Ross%29.pdf) often occur because strong, durable, and well-learned memories associated with our own experiences are retrieved more quickly and easily than weaker memories associated with what others have told us. As a result, we often perceive personal contributions to be greater than other even when they are equal simply as a function of retrieval bias.
+
+Although we cannot eliminate such retrieval biases, *clear* and *consistent* communication among team members will circumvent many related issues. Communicating weekly goals and accomplishments *clearly* will a) eliminate ambiguity about personal goals because you are intentional about your commitments, b) eliminate ambiguity about what others' goals, c) allow for equitable distribution of tasks, and d) highlight completion of or failure to complete goals. *Consistent* communication does much of the same but also a) builds team cohesion and unity, b) ensures personal accountability and c) allows for timely intervention when team members are contributing inequitably.   
+
+
+Determine time and location of a weekly in-person team meeting and enter below, even if for 30 minutes to discuss weekly accomplishments and goals for the next week. 
+
+Provide the time and location at the prompts below but use `R Markdown` code to make them italicized.
+
+Time:
+
+Location:
+
+
+
+# **Project Proposal: Identifying Questions**
+
+Review the project proposal. Provide a general summary of the goals and identify 2-3 questions that you would like to ask the liaison during the first meeting. Enter them as `R Markdown` bullet points.  
+
+
+
+
+
+
+# **Specifying Team Roles**
+
+Review the project team roles and determine who might be best suited for certain types of tasks. Provide the names corresponding to roles below and edit the roles to make bold in `R Markdown`. Understand that everyone will participate in all tasks but some members will handle more specific details, which reduces confusion. 
+
+Project Manager:
+
+Writing Lead:
+
+Coding Lead: 
+
+
+Once done with the above, please knit your `R Markdown` file as an `html` file.
+
+
+
+
+# **GitHub Practice**
+
+Ensure that this `.Rmd` file is named correctly and is saved in `/fods-exercises/report`. Once you have saved the file and knitted an `HTML` version of it, use your Terminal in `RStudio` to:
+
+1. `add` the files to your local Git repository (aka stage it). These files should be in `/report`. You can add all files using `git add .`. 
+
+
+2. `commit` the file changes along with a descriptive message, like "completed HW 1 files" 
+
+
+3. `push` the changed files to your remote repo on GitHub
+
+
+
+# **Optional Practice** 
+
+Note: Do only after completing the above. This step will require knitting again. 
+
+In your final project report, you will have to include some visualizations in your `R Markdown report`. One of the easiest ways to embed plot files in reports is to use the `knitr::include_graphics()` function. Let's practice using this function as well as `#` for commenting out code.
+
+First, take a screen shot of your GitHub (online) repository with the pushed changes. Name it `"HW01_gh.png"` and save it to the `/figs` directory. Although this image is not a figure, `/figs` is the directory of your project within which you would save image type files. If for some reason you cannot save `.png` files, save it as `"HW01_gh.jpg"`. 
+
+Next, because the `#` in code files refers to commenting out the code to prevent it from executing, the two lines of code in the code block are commented out. Based on whether your image file is `.png` or `.jpg`, remove the `#` for the line that you would like to execute.
+
+```{r, echo=FALSE, out.width="50%", fig.cap="GitHub Screenshot."}
+#knitr::include_graphics(here::here("figs", "HW01_gh.png"))
+
+#knitr::include_graphics(here::here("figs", "HW01_gh.jpg"))
+```
+
+Finally, knit an `html` file containing that image file and upload to: 
+https://claremontmckenna.app.box.com/f/026ed41483fb4a739f0ddfc7fbf8fd01
+

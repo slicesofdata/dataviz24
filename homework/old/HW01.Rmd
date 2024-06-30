@@ -1,0 +1,72 @@
+---
+title: "Exercise 01"
+author: "yourname"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  #word_document:
+  #  toc: yes
+  #  number_sections: yes
+  html_document:
+    toc: no
+    number_sections: yes
+    code_folding: show #hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For this homework, you will save the `R Markdown` (e.g., `.Rmd`) homework document and save it to your `homework` project directory on your computer. Save a new copy of this file so that its name has the prefix `2023_Lastname_FirstInitial`. Full name example: `2023_cookg_EX_09.Rmd`. Feel free to work with a partner but understand that the work submitted has to be your own.
+
+This homework utilizes examples from these modules:
+
+- ****
+
+
+**This homework is due on Tuesday by 2:30pm.**
+
+
+*Enter your name in the author YAML code above*   
+
+
+```{r}
+source(here::here("r", "my_functions.R"))
+```
+
+# (1pt) **Load only used libraries**
+
+```{r echo=TRUE}
+
+```
+
+**Load data**
+
+Some questions will utility the data below. 
+
+```{r}
+DAT <- readr::read_csv("https://github.com/slicesofdata/fods24/raw/main/data/?.csv", show_col_types = F)
+```
+
+# (1pt) ****
+
+# (1pt) ****
+
+# (1pt) ****
+
+# (1pt) ****
+
+# (1pt) ****
+
+# (1pt) ****
+
+# (1pt) ****
+
+# (1pt) ****
+
+# (1pt) ****
+
+# (1pt) ****
+
+
+**Please knit an `html` file and upload [here](https://claremontmckenna.app.box.com/f/140969a32dea44e9ab6c0c00146d66e3).** 
+

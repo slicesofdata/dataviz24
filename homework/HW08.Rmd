@@ -1,0 +1,58 @@
+---
+title: "Homework 08"
+author: "yourname"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  #word_document:
+  #  toc: yes
+  #  number_sections: yes
+  html_document:
+    toc: no
+    number_sections: yes
+    code_folding: show #hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# **Overview**
+
+There will be no formal homework for this week. You should use this time to continue making progress on the project so that you don't increase the amount of work for yourself in the last couple weeks of the semester, thereby compromising the deliverable quality or my ability to review a draft report.
+
+# **Suggestions**
+
+*Project Manager*: Determine the status of the project and whether it is on track; work with the liaison about final directions and deliverables; communicate with the coding lead about the status of the repository; help with the outlining and drafting project sections. Communicate with the coding lead to help them implement the liaison's requests.
+
+Consider also what visualizations will be key to include in the deliverable per your discussions with the liaison. Those visualizations will eventually need to be saved to `/figs` as png files. Consider practice saving a plot. We will do this in class but an example of saving is provided below in advance. 
+
+```{r}
+library(ggplot2)
+library(ragg)
+
+data <-
+  data.frame(
+    id = letters[1:10],
+    x = c(1:10),
+    y = c(1:10)
+    )
+
+participant_level_scatterplot_of_x_and_y <-
+  data |>
+  ggplot(mapping = aes(x = x, y = y)) +
+  geom_point()
+
+
+ggsave(filename = here::here("figs", "participant_level_scatterplot_of_x_and_y.png"),
+       # plot = last_plot() by default; not required if saving most recent plot
+       plot = participant_level_scatterplot_of_x_and_y, 
+       device = ragg::agg_png,
+       dpi = 320
+       )
+```
+
+
+**Writing Lead** Continue outlining new parts of the project. For example, consider: what visualizations would be elemental to include in the written report (the slide presentation will include key subsets of the final written report (see project)); what content will go in a model section; how the model section should be organized, how you might report and interpret the models, how those models might influence conclusions in the report, etc. Communicate with the coding lead to understand how to inform some of those decisions. Build out writing of sections that you are able to draft (e.g., elements not requiring code).
+
+
+**Coding Lead**: Continue assembling the pieces of code produced by teammates to address their part of the larger task into your own working project. These code pieces will need to be organized in the team's repository in order to create the report so you should start ensuring that the pieces work correctly. If some element is not working correctly, communicate with the teammate about fixing their code. The final report markdown file will need all of these elements to source correctly for the report to build. Once you are certain you have the piece together, you can commit and push to the repository and we can meet to review it.
