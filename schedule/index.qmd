@@ -1,0 +1,21 @@
+---
+title: "Schedule" # index to display header for the nested *.qmd files (even if in subdirectory); displays directory name otherwise
+description: ""
+#author: ""
+#date: ""
+#order: 0 
+---
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
+#SCHEDULE <- rio::import(here::here("syllabus/tables/2schedule.csv"))
+SCHEDULE <- read.table(here::here("syllabus/tables/schedule.txt"), 
+                       header = T,
+                       sep = ";"
+                       )
+names(SCHEDULE)  <- gsub("\\.", " ", names(SCHEDULE))
+knitr::kable(SCHEDULE)
+```
+
+```{r eval=FALSE, include=FALSE}
+#For more information on see [notes on privacy and sharing in the compendium](compendium/privacy.qmd).
+```
