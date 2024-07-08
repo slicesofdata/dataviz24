@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-07-01">
+<meta name="dcterms.date" content="2024-07-07">
 
-<title>PSYC167 - {ggplot} and the grammar of graphics</title>
+<title>{ggplot2}: The Grammar of Graphics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,17 +102,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>PSYC167</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -124,8 +119,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><strong>Home</strong></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../syllabus/syllabus.html" rel="" target="" aria-current="page">
- <span class="menu-text"><strong>Syllabus</strong></span></a>
+    <a class="nav-link active" href="../schedule/index.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><strong>Schedule</strong></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../modules/index.html" rel="" target="">
@@ -264,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/08_ggplot_and_the_grammar_of_graphics.html"><strong>{<code>ggplot</code>} and the grammar of graphics</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/08_ggplot_and_the_grammar_of_graphics.html"><em>{<code>ggplot2</code>}: The Grammar of Graphics</em></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -273,13 +268,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../syllabus/syllabus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Syllabus</strong></span></a>
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -294,127 +295,133 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Installing R &amp; RStudio</strong></span></a>
+ <span class="menu-text"><em>Installing R &amp; RStudio</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/01_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Introduction to RStudio and R Markdown</strong></span></a>
+ <span class="menu-text"><em>Introduction to RStudio and R Markdown</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Project Management 01: Installing and Setting Up Git and GitHub for R</strong></span></a>
+ <span class="menu-text"><em>Project Management 01: Installing and Setting Up Git and GitHub for R</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/02_using_git_and_github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Project Management 02: R Projects, Git, and GitHub</strong></span></a>
+ <span class="menu-text"><em>Project Management 02: R Projects, Git, and GitHub</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/04_functions_and_scripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Functions, Arguments, and R scripts</strong></span></a>
+ <span class="menu-text"><em>Functions, Arguments, and R scripts</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/05_vectors_and_data_frame_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Vectors and Data Frame Basics</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/06_importing_and_exporting_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Importing and Exporting Data Frames</strong></span></a>
+ <span class="menu-text"><em>Vectors and Data Frame Basics</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/07_variables_and_measures_of_cognition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Variables and Measures of Cognition</strong></span></a>
+ <span class="menu-text"><em>Variables and Measures of Cognition</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/08_ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><strong>{<code>ggplot</code>} and the grammar of graphics</strong></span></a>
+ <span class="menu-text"><em>{<code>ggplot2</code>}: The Grammar of Graphics</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/08_manipulating_data_selecting_filtering_mutating.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Selecting, Filtering, &amp; Mutating</strong></span></a>
+ <span class="menu-text"><em>Selecting, Filtering, &amp; Mutating</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/10_visualizing_associations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Visualizing associations</strong></span></a>
+ <span class="menu-text"><em>Visualizing associations</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/11_spatial_position_and_adjustment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Spatial position and adjustment</strong></span></a>
+ <span class="menu-text"><em>Spatial position and adjustment</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/12_considerations_in_data_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Considerations in data visualization</strong></span></a>
+ <span class="menu-text"><em>Considerations in data visualization</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/12_designing_perceptually_efficient_visualizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>12 Designing perceptually-efficient visualizations</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/13_color_scales_and_palettes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Color scales and palettes</strong></span></a>
+ <span class="menu-text"><em>Color scales and palettes</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/15_coordinates_axes_and_position_scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Coordinates, axes, and position scales</strong></span></a>
+ <span class="menu-text"><em>Coordinates, axes, and position scales</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/16_statistical_transformations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Statistical transformations</strong></span></a>
+ <span class="menu-text"><em>Statistical transformations</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/17_visualizing_more_distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Visualizing more distributions</strong></span></a>
+ <span class="menu-text"><em>Visualizing more distributions</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/19_visualizing_trends.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Visualizing trends</strong></span></a>
+ <span class="menu-text"><em>Visualizing trends</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/20_legends_and_arrangement.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Legends and arrangement</strong></span></a>
+ <span class="menu-text"><em>Legends and arrangement</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/21_designing_perceptually_efficient_visualizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Designing perceptually-efficient visualizations</strong></span></a>
+ <span class="menu-text"><em>Designing perceptually-efficient visualizations</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/23_multi_panel_plots_faceting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Multi-panel plots: Faceting</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/24_attentional_control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Attentional control</strong></span></a>
+ <span class="menu-text"><em>Attentional control</em></span></a>
   </div>
 </li>
       </ul>
@@ -423,39 +430,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Team membership and roles</strong></span></a>
+ <span class="menu-text"><em>Team membership and roles</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/02_project_midterm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Midterm presentation</strong></span></a>
+ <span class="menu-text"><em>Midterm presentation</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/03_project_final.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Final Presentation</strong></span></a>
+ <span class="menu-text"><em>Final Presentation</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/04_project_report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Final Report</strong></span></a>
+ <span class="menu-text"><em>Final Report</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/05_project_tasks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Project Tasks</strong></span></a>
+ <span class="menu-text"><em>Project Tasks</em></span></a>
   </div>
 </li>
       </ul>
@@ -515,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>{<code>ggplot</code>} and the grammar of graphics</strong></h1>
+<h1 class="title"><em>{<code>ggplot2</code>}: The Grammar of Graphics</em></h1>
 </div>
 
 
@@ -532,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 1, 2024</p>
+      <p class="date">July 7, 2024</p>
     </div>
   </div>
   
@@ -580,7 +587,7 @@ Under construction.
 <h1><strong>Libraries</strong></h1>
 <ul>
 <li><strong>{here}</strong>: 1.0.1: for path management</li>
-<li><strong>{dplyr}</strong> 1.1.2: for selecting, filtering, and mutating</li>
+<li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{magrittr}</strong> 2.0.3: for code clarity and piping data frame objects</li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
 </ul>
@@ -590,9 +597,6 @@ Under construction.
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.3.3</code></pre>
-</div>
 </div>
 </section>
 <section id="external-functions" class="level2">
@@ -601,7 +605,7 @@ Under construction.
 <p><code>view_html()</code>: for viewing data frames in html format, from <code>/r/my_functions.R</code></p>
 <p>You can use this in your own workspace but I am having a challenge rendering this of the website, so I’ll default to <code>print()</code> on occasion.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"r"</span>, <span class="st">"my_functions.R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"r"</span>, <span class="st">"my_functions.R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -650,7 +654,7 @@ Under construction.
 <h2 class="anchored" data-anchor-id="initializing-the-plot-object"><strong>Initializing the Plot Object</strong></h2>
 <p>What is a <code>?ggplot</code> object? Review the <a href="https://ggplot2.tidyverse.org/reference/ggplot.html">docs</a> first. Let’s apply the base layer using <code>ggplot()</code>. This function takes a data set and simply initializes the plot object so that you can build other components on top of it. By default, <code>data = NULL</code> so, you will need to pass some data argument. There is also a <code>mapping</code> parameter for mapping the aesthetics of the plot, by default, <code>mapping = aes()</code>. If you don’t pass a data frame to <code>data</code>, what happens?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -661,7 +665,7 @@ Under construction.
 <h2 class="anchored" data-anchor-id="passing-the-data-to-ggplot"><strong>Passing the Data to <code>ggplot()</code></strong></h2>
 <p>You cannot have a plot without data, so we need some data in a tidy format. We can read in a data set or create one.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"cleaned-cms-top-all-time-2023-swim.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"cleaned-cms-top-all-time-2023-swim.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 440 Columns: 5
 ── Column specification ────────────────────────────────────────────────────────
@@ -672,21 +676,21 @@ dbl (1): time
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> <span class="at">A =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> <span class="at">B =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">8</span>), </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a> <span class="at">C =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">32</span>, <span class="dv">28</span>), </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> <span class="at">D =</span> <span class="fu">c</span>(<span class="st">"Task A"</span>, <span class="st">"Task A"</span>, <span class="st">"Task B"</span>, <span class="st">"Task B"</span>),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a> <span class="at">E =</span> <span class="fu">c</span>(<span class="st">"circle"</span>, <span class="st">"circle"</span>, <span class="st">"square"</span>, <span class="st">"square"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> <span class="at">A =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a> <span class="at">B =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">8</span>), </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> <span class="at">C =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">32</span>, <span class="dv">28</span>), </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a> <span class="at">D =</span> <span class="fu">c</span>(<span class="st">"Task A"</span>, <span class="st">"Task A"</span>, <span class="st">"Task B"</span>, <span class="st">"Task B"</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a> <span class="at">E =</span> <span class="fu">c</span>(<span class="st">"circle"</span>, <span class="st">"circle"</span>, <span class="st">"square"</span>, <span class="st">"square"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s also quickly change the variable names to <code>titlecase()</code> so that the first letter is capitalize.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(SWIM) <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">toTitleCase</span>(<span class="fu">names</span>(SWIM))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(SWIM) <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">toTitleCase</span>(<span class="fu">names</span>(SWIM))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can pass this data frame to <code>data</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -697,7 +701,7 @@ dbl (1): time
 <section id="scalingscale-transformation" class="level2">
 <h2 class="anchored" data-anchor-id="scalingscale-transformation"><strong>Scaling/Scale Transformation</strong></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(SWIM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(SWIM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 440 × 5
     Time Name             Year  Event   Team  
@@ -727,7 +731,7 @@ dbl (1): time
 <p>If you wanted your plot geometry (the <code>geom()</code> you add later) to inherit properties of the initialized base layer, you could pass aesthetics to the mapping argument <code>mapping = aes()</code> in the <code>ggplot()</code> function. Notice that the argument that we pass to <code>mapping</code> is another function, <code>aes()</code>.</p>
 <p>For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="at">mapping =</span> <span class="fu">aes</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="at">mapping =</span> <span class="fu">aes</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -737,9 +741,9 @@ dbl (1): time
 <p>Because we passed <code>data = SWIM</code> in <code>ggplot()</code>, we can reference the variables by their column names without specifying the data frame.</p>
 <p>If <code>x = Year</code> and <code>y = Time</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -747,9 +751,9 @@ dbl (1): time
 <p>OK, now we can see something. Although this is progress, what is visible is rather empty and ugly. We can see that the aesthetic layer now applied to the plot scales the data to present <code>Year</code> along the x-axis with a range from lowest to highest value from that vector. Similarly, the mapping presents <code>Time</code> along the y-axis with a range from lowest to highest value in the vector. Also, the aesthetics include the variable name as a the label for the x and y axes. Of course, you can change these details later in a layer as well. More on that later.</p>
 <p>You might have been tempted to pass the variable names a quoted strings (e.g., “A” and “B) but if you do that, you’ll get something different.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Time"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Time"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -761,34 +765,34 @@ dbl (1): time
 <p>We do not yet have any geometries, or <em>geoms</em>, added. All geom functions will take the form <code>geom_*()</code>. As you will see, geoms can take many forms, including, points, lines, bars, text, etc. If we want the values in <code>Year</code> and <code>Time</code> to be plotted as x and y coordinates representing points on the plot, we can add a point geometry using <code>geom_point()</code>.</p>
 <p>By <em>adding</em> a layer, <strong>{ggplot2}</strong> really means add, as in <code>+</code>. We will take the initialize plot object that contains some <em>data</em> along with some <em>mapping</em> of variables to x an y <em>coordinates</em> and add to it a <em>geometry</em>. Combined, these functions will display data which adheres to some <em>statistical transformation</em> at some <em>position</em> along some <em>scale</em> an in some <em>theme</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>At some point, you will want to assign the plot to an object. When you do, the plot will not actually render for you to view.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>my_first_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>my_first_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>my_first_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>my_first_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><em>Pro Tip:</em> You would need to call the plot to render it as illustrated above … unless you wrap it in <code>()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>(my_first_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(my_first_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -801,15 +805,15 @@ dbl (1): time
 <p>Geometries also have aesthetics, or visual properties. For each geom layer, you can pass arguments to <code>aes()</code>. For example, the xy points have to take some shape, color, and size in order for them to be visible. By default, these have been determined or otherwise you wouldn’t see black circles of any size.</p>
 <p>Checking <code>?geom_point</code>, you will see at the bottom of the arguments section, that by default <code>inherit.aes = TRUE</code>, which means the aesthetic mappings in <code>geom_point()</code> will be inherited by default. Similarly, <code>data = NULL</code> so the data and the aesthetic mapping from <code>ggplot()</code> do not need to be specified as <code>data = SWIM</code> and <code>mapping = aes(x = Year, y = Time)</code>, unless of course we wanted to overwrite them. Although not inherited, other aesthetics have defaults for <code>geom_point()</code>. If we wanted to be verbose, we could include all of them and see how this plot compares with that above.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time),   </span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> <span class="cn">NULL</span>, </span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat =</span> <span class="st">"identity"</span>, </span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="st">"identity"</span>, </span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="fl">1.5</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>             )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time),   </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> <span class="cn">NULL</span>, </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat =</span> <span class="st">"identity"</span>, </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="st">"identity"</span>, </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="fl">1.5</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>             )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -828,37 +832,37 @@ dbl (1): time
 <p>We can map aesthetics in the initialized plot object by also assigning this to an object named <code>map</code> just so we can reference it as need.</p>
 <p>When we do this mapping:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">mapping =</span> <span class="fu">aes</span>(Year, Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">mapping =</span> <span class="fu">aes</span>(Year, Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The aesthetics are inherited by the geometries that follow, which then do not require any mapping of their own…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>map <span class="sc">+</span> </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>map <span class="sc">+</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>But when aesthetics are NOT mapped in initialized plot:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There are no aesthetics to be inherited by the plot geometry functions because they are not passed to the <code>ggplot()</code> object. In this case they must be mapped as arguments the geometries themselves.</p>
 <p>Plot points:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>map <span class="sc">+</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> SWIM, </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(Year, Time)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>map <span class="sc">+</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> SWIM, </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(Year, Time)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Plot a line:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>map <span class="sc">+</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> SWIM, </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>map <span class="sc">+</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> SWIM, </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -871,24 +875,24 @@ dbl (1): time
 <p>For completeness, there are also x and y <code>lab()</code>el layers, a <code>coord_*()</code>inate system, <code>stat_*()</code>istical transformation (also in the <code>geom_*()</code> along with position), a <code>scale_*()</code> for x and y, a <code>facet_()</code> method, and a <code>theme_*()</code> applied by default.</p>
 <p>Let’s add them to the plot by adding each as layers.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping  =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time),   </span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">data     =</span> <span class="cn">NULL</span>, </span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat     =</span> <span class="st">"identity"</span>, </span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="st">"identity"</span>, </span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">size     =</span> <span class="fl">1.5</span>,</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">color    =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>() <span class="sc">+</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_identity</span>() <span class="sc">+</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>() <span class="sc">+</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">""</span>) <span class="sc">+</span></span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Time"</span>) <span class="sc">+</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_null</span>() <span class="sc">+</span></span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping  =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time),   </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">data     =</span> <span class="cn">NULL</span>, </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat     =</span> <span class="st">"identity"</span>, </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="st">"identity"</span>, </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">size     =</span> <span class="fl">1.5</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">color    =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>() <span class="sc">+</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_identity</span>() <span class="sc">+</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>() <span class="sc">+</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Time"</span>) <span class="sc">+</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_null</span>() <span class="sc">+</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -898,8 +902,8 @@ dbl (1): time
 <p>You may notice one interesting thing about the scales in the code. In order for you to code the layer in a way for the plot to render the same as the defaults, <code>Year</code> along x defaulted to <code>scale_x_discrete()</code> and <code>Time</code> along y defaulted to <code>scale_y_continuous()</code>.</p>
 <p>Because those coded layers are plot defaults, we don’t need to code all of them. We can simply add a <code>geom_point()</code> layer. And because we passed <code>SWIM</code> as the first argument to <code>ggplot()</code> and mapping as the second, we could be even less wordy. And because <code>Year</code> is our x variable and <code>Time</code> is our y variable, we can strip it down to the bare essentials.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(SWIM, <span class="fu">aes</span>(Year, Time)) <span class="sc">+</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(SWIM, <span class="fu">aes</span>(Year, Time)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -909,21 +913,21 @@ dbl (1): time
 <h1><strong>Changing the coordinate system, color, and labels</strong></h1>
 <p>If we wanted to change the coordinate system, then the visualization would look much different. We can also change the color and label names. And because they are independent layers, we could add them in different orders.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time),   </span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> <span class="cn">NULL</span>, </span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat =</span> <span class="st">"identity"</span>, </span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="st">"identity"</span>, </span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="fl">1.5</span>,</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>() <span class="sc">+</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"A Variable"</span>) <span class="sc">+</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"B Variable"</span>) <span class="sc">+</span></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>() <span class="sc">+</span></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time),   </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> <span class="cn">NULL</span>, </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">stat =</span> <span class="st">"identity"</span>, </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="st">"identity"</span>, </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="fl">1.5</span>,</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>() <span class="sc">+</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"A Variable"</span>) <span class="sc">+</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"B Variable"</span>) <span class="sc">+</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>() <span class="sc">+</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -981,9 +985,9 @@ dbl (1): time
 <h1><strong>Adding Aesthetics That A Geometry Does not Understand</strong></h1>
 <p>If an aesthetic is not understood by a certain geometry, we cannot pass an argument for it. For example, you cannot add a <code>linetype</code> argument to <code>geom_point()</code>. If you want your points connected by lines, then you can add a new <code>geom_*()</code> layer to the plot that contains that aesthetic. Importantly, because <code>geom_*()</code>s will inherit the data and mapping from <code>ggplot()</code> by default, the line will connect the points in x along y to provide an odd visualization.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1001,24 +1005,24 @@ dbl (1): time
 <p>Because <code>geom_point()</code> understands a <code>size</code> aesthetic, points have to take some size. The default value for <code>size</code> is assumed and passed in the first code block (you just don’t see it) and <code>size = 4</code> in the second code block overrides that default.</p>
 <p>Let’s start a plot object and add <code>geom_point()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Let’s pass a numeric value to <code>size</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>By passing <code>size = 4</code>, we have <em>set</em> size to a <em>constant</em> value. Notice that a size was <em>not</em> passed inside an <code>aes()</code> function. It it were passed there, something completely different would happen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1026,8 +1030,8 @@ dbl (1): time
 <p>What do you notice?</p>
 <p>This error is illustrated even better with the <code>color</code> aesthetic.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1035,8 +1039,8 @@ dbl (1): time
 <p>In both examples, you notice that a legend now appears in the plot. In the color example, the color is not blue even though this was the intent. Without getting into the details of what ggplot is doing when this happens, it serves as a warning that you did something incorrectly.</p>
 <p>Importantly, you can only <em>set constant values</em> to aesthetics outside of <code>aes()</code>. Inside of <code>aes()</code>, you <em>map variables</em> to aesthetics. Where are the variables? Well, most likely in the data frame. By passing a different variable column form <code>SWIM</code>, we can <em>map</em> the aesthetic to that <em>variable</em> so that it changes relative to the changes in the variable. The plot will also change in a variety of ways simply by adding a new variable. Let’s begin with a baseline plot for comparison and then map variables.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1045,8 +1049,8 @@ dbl (1): time
 <h2 class="anchored" data-anchor-id="mapping-a-variable-as-is-from-the-data-frame"><strong>Mapping a variable as-is from the data frame`</strong></h2>
 <p><code>ggplot()</code> defines the <code>data</code> as well as variables in <code>aes()</code>. You can easily map the <code>x</code> or <code>y</code> variable to the <code>geom_*()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1056,8 +1060,8 @@ dbl (1): time
 <h2 class="anchored" data-anchor-id="mapping-a-variable-that-differs-from-whats-in-the-data-frame"><strong>Mapping a variable that differs from what’s in the data frame</strong></h2>
 <p>You can also change a variable type in the scope of the plot without modifying it in the data frame. Let’s change <code>Year</code> to numeric to see what happens:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">as.numeric</span>(Year)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">as.numeric</span>(Year)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in FUN(X[[i]], ...): NAs introduced by coercion</code></pre>
 </div>
@@ -1067,24 +1071,24 @@ dbl (1): time
 </div>
 <p>Similarly, if we had a numeric variable and wanted to make a <code>factor()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(., <span class="at">Year2 =</span> <span class="fu">as.numeric</span>(Year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(., <span class="at">Year2 =</span> <span class="fu">as.numeric</span>(Year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: There was 1 warning in `mutate()`.
 ℹ In argument: `Year2 = as.numeric(Year)`.
 Caused by warning:
 ! NAs introduced by coercion</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">as.factor</span>(Year2)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">as.factor</span>(Year2)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Or make a character:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">as.character</span>(Year2)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="fu">as.character</span>(Year2)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1095,8 +1099,8 @@ Caused by warning:
 <h2 class="anchored" data-anchor-id="mapping-a-variable-that-is-not-defined-in-the-aes-mapping-of-ggplot"><strong>Mapping a variable that is not defined in the <code>aes()</code> mapping of <code>ggplot()</code></strong></h2>
 <p>Sometimes you may wish to map a variable that is not defined in <code>ggplot()</code>. We can map a variable that is neither <code>x</code> nor <code>y</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Team))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Team))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1107,22 +1111,22 @@ Caused by warning:
 <h2 class="anchored" data-anchor-id="setting-and-mapping-combinations"><strong>Setting and Mapping Combinations</strong></h2>
 <p>We can also combine setting aesthetics and mapping them as long as the <em>mapping</em> takes place outside inside <code>aes()</code> and the <em>setting</em> takes place outside.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"maroon"</span>, <span class="fu">aes</span>(<span class="at">shape =</span> Team))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"maroon"</span>, <span class="fu">aes</span>(<span class="at">shape =</span> Team))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="fu">aes</span>(<span class="at">size =</span> Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="fu">aes</span>(<span class="at">size =</span> Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="fu">aes</span>(<span class="at">color =</span> Event))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="fu">aes</span>(<span class="at">color =</span> Event))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1135,11 +1139,11 @@ Caused by warning:
 Error: object 'Team' not found</code></pre>
 <p>In summary, when you want to set an aesthetic to a constant value, do so in the <code>geom_*()</code> function, otherwise pass an aesthetic to <code>aes()</code> inside the geometry function. Color options can be discovered using <code>colors()</code>. Linetype has fewer options. To make the color more or less transparent, adjust <code>alpha</code> transparency (from 0 = invisible to 1).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"red"</span>,</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> .<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(SWIM, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> .<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="08_ggplot_and_the_grammar_of_graphics_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1153,11 +1157,11 @@ Error: object 'Team' not found</code></pre>
 <section id="session-information" class="level1">
 <h1><strong>Session Information</strong></h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
- version  R version 4.3.1 (2023-06-16 ucrt)
+ version  R version 4.4.1 (2024-06-14 ucrt)
  os       Windows 11 x64 (build 22631)
  system   x86_64, mingw32
  ui       RTerm
@@ -1165,58 +1169,58 @@ Error: object 'Team' not found</code></pre>
  collate  English_United States.utf8
  ctype    English_United States.utf8
  tz       America/Los_Angeles
- date     2024-07-01
+ date     2024-07-07
  pandoc   3.1.5 @ C:/PROGRA~1/Pandoc/ (via rmarkdown)
 
 ─ Packages ───────────────────────────────────────────────────────────────────
  ! package     * version date (UTC) lib source
- D archive       1.1.5   2022-05-06 [1] CRAN (R 4.3.1)
-   bit           4.0.5   2022-11-15 [1] CRAN (R 4.3.1)
-   bit64         4.0.5   2020-08-30 [1] CRAN (R 4.3.1)
-   cli           3.6.1   2023-03-23 [1] CRAN (R 4.3.1)
-   colorspace    2.1-0   2023-01-23 [1] CRAN (R 4.3.1)
-   crayon        1.5.2   2022-09-29 [1] CRAN (R 4.3.1)
-   digest        0.6.33  2023-07-07 [1] CRAN (R 4.3.1)
-   dplyr       * 1.1.2   2023-04-20 [1] CRAN (R 4.3.1)
-   evaluate      0.21    2023-05-05 [1] CRAN (R 4.3.1)
-   fansi         1.0.4   2023-01-22 [1] CRAN (R 4.3.1)
-   farver        2.1.1   2022-07-06 [1] CRAN (R 4.3.1)
-   fastmap       1.1.1   2023-02-24 [1] CRAN (R 4.3.1)
-   generics      0.1.3   2022-07-05 [1] CRAN (R 4.3.1)
-   ggplot2     * 3.5.1   2024-04-23 [1] CRAN (R 4.3.3)
-   glue          1.6.2   2022-02-24 [1] CRAN (R 4.3.1)
-   gtable        0.3.4   2023-08-21 [1] CRAN (R 4.3.1)
-   here          1.0.1   2020-12-13 [1] CRAN (R 4.3.1)
-   hms           1.1.3   2023-03-21 [1] CRAN (R 4.3.1)
-   htmltools     0.5.6   2023-08-10 [1] CRAN (R 4.3.1)
-   htmlwidgets   1.6.2   2023-03-17 [1] CRAN (R 4.3.1)
-   jsonlite      1.8.7   2023-06-29 [1] CRAN (R 4.3.1)
-   knitr         1.47    2024-05-29 [1] CRAN (R 4.3.3)
-   labeling      0.4.2   2020-10-20 [1] CRAN (R 4.3.0)
-   lifecycle     1.0.3   2022-10-07 [1] CRAN (R 4.3.1)
-   magrittr    * 2.0.3   2022-03-30 [1] CRAN (R 4.3.1)
-   munsell       0.5.0   2018-06-12 [1] CRAN (R 4.3.1)
-   pillar        1.9.0   2023-03-22 [1] CRAN (R 4.3.1)
-   pkgconfig     2.0.3   2019-09-22 [1] CRAN (R 4.3.1)
-   R6            2.5.1   2021-08-19 [1] CRAN (R 4.3.1)
-   readr         2.1.4   2023-02-10 [1] CRAN (R 4.3.1)
-   rlang         1.1.1   2023-04-28 [1] CRAN (R 4.3.1)
-   rmarkdown     2.27    2024-05-17 [1] CRAN (R 4.3.3)
-   rprojroot     2.0.3   2022-04-02 [1] CRAN (R 4.3.1)
-   rstudioapi    0.15.0  2023-07-07 [1] CRAN (R 4.3.1)
-   scales        1.3.0   2023-11-28 [1] CRAN (R 4.3.3)
-   sessioninfo   1.2.2   2021-12-06 [1] CRAN (R 4.3.1)
-   tibble        3.2.1   2023-03-20 [1] CRAN (R 4.3.1)
-   tidyselect    1.2.0   2022-10-10 [1] CRAN (R 4.3.1)
-   tzdb          0.4.0   2023-05-12 [1] CRAN (R 4.3.1)
-   utf8          1.2.3   2023-01-31 [1] CRAN (R 4.3.1)
-   vctrs         0.6.3   2023-06-14 [1] CRAN (R 4.3.1)
-   vroom         1.6.3   2023-04-28 [1] CRAN (R 4.3.1)
-   withr         2.5.0   2022-03-03 [1] CRAN (R 4.3.1)
-   xfun          0.45    2024-06-16 [1] CRAN (R 4.3.3)
-   yaml          2.3.7   2023-01-23 [1] CRAN (R 4.3.0)
+ D archive       1.1.8   2024-04-28 [1] CRAN (R 4.4.1)
+   bit           4.0.5   2022-11-15 [1] CRAN (R 4.4.1)
+   bit64         4.0.5   2020-08-30 [1] CRAN (R 4.4.1)
+   cli           3.6.3   2024-06-21 [1] CRAN (R 4.4.1)
+   colorspace    2.1-0   2023-01-23 [1] CRAN (R 4.4.1)
+   crayon        1.5.3   2024-06-20 [1] CRAN (R 4.4.1)
+   digest        0.6.36  2024-06-23 [1] CRAN (R 4.4.1)
+   dplyr       * 1.1.4   2023-11-17 [1] CRAN (R 4.4.1)
+   evaluate      0.24.0  2024-06-10 [1] CRAN (R 4.4.1)
+   fansi         1.0.6   2023-12-08 [1] CRAN (R 4.4.1)
+   farver        2.1.2   2024-05-13 [1] CRAN (R 4.4.1)
+   fastmap       1.2.0   2024-05-15 [1] CRAN (R 4.4.1)
+   generics      0.1.3   2022-07-05 [1] CRAN (R 4.4.1)
+   ggplot2     * 3.5.1   2024-04-23 [1] CRAN (R 4.4.1)
+   glue          1.7.0   2024-01-09 [1] CRAN (R 4.4.1)
+   gtable        0.3.5   2024-04-22 [1] CRAN (R 4.4.1)
+   here          1.0.1   2020-12-13 [1] CRAN (R 4.4.1)
+   hms           1.1.3   2023-03-21 [1] CRAN (R 4.4.1)
+   htmltools     0.5.8.1 2024-04-04 [1] CRAN (R 4.4.1)
+   htmlwidgets   1.6.4   2023-12-06 [1] CRAN (R 4.4.1)
+   jsonlite      1.8.8   2023-12-04 [1] CRAN (R 4.4.1)
+   knitr         1.47    2024-05-29 [1] CRAN (R 4.4.1)
+   labeling      0.4.3   2023-08-29 [1] CRAN (R 4.4.0)
+   lifecycle     1.0.4   2023-11-07 [1] CRAN (R 4.4.1)
+   magrittr    * 2.0.3   2022-03-30 [1] CRAN (R 4.4.1)
+   munsell       0.5.1   2024-04-01 [1] CRAN (R 4.4.1)
+   pillar        1.9.0   2023-03-22 [1] CRAN (R 4.4.1)
+   pkgconfig     2.0.3   2019-09-22 [1] CRAN (R 4.4.1)
+   R6            2.5.1   2021-08-19 [1] CRAN (R 4.4.1)
+   readr         2.1.5   2024-01-10 [1] CRAN (R 4.4.1)
+   rlang         1.1.4   2024-06-04 [1] CRAN (R 4.4.1)
+   rmarkdown     2.27    2024-05-17 [1] CRAN (R 4.4.1)
+   rprojroot     2.0.4   2023-11-05 [1] CRAN (R 4.4.1)
+   rstudioapi    0.16.0  2024-03-24 [1] CRAN (R 4.4.1)
+   scales        1.3.0   2023-11-28 [1] CRAN (R 4.4.1)
+   sessioninfo   1.2.2   2021-12-06 [1] CRAN (R 4.4.1)
+   tibble        3.2.1   2023-03-20 [1] CRAN (R 4.4.1)
+   tidyselect    1.2.1   2024-03-11 [1] CRAN (R 4.4.1)
+   tzdb          0.4.0   2023-05-12 [1] CRAN (R 4.4.1)
+   utf8          1.2.4   2023-10-22 [1] CRAN (R 4.4.1)
+   vctrs         0.6.5   2023-12-01 [1] CRAN (R 4.4.1)
+   vroom         1.6.5   2023-12-05 [1] CRAN (R 4.4.1)
+   withr         3.0.0   2024-01-16 [1] CRAN (R 4.4.1)
+   xfun          0.45    2024-06-16 [1] CRAN (R 4.4.1)
+   yaml          2.3.9   2024-07-05 [1] CRAN (R 4.4.1)
 
- [1] C:/Users/gcook/_portable_apps/R/R-4.3.1/library
+ [1] C:/Users/gcook/_portable_apps/R/R-4.4.1/library
 
  D ── DLL MD5 mismatch, broken installation.
 
