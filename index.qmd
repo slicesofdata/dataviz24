@@ -16,20 +16,23 @@ execute:
 ---
 
 ```{r, echo=FALSE}
-#| image: images/???.jpg
+#| image: images/dataviz_hex_plus_course.png
 #| fig-width: 4
 #| figh-height: 5
 #| out-width: "20%"
 #| fig-align: "left"
-knitr::include_graphics('images/hex_main.png')
+knitr::include_graphics('images/dataviz_hex_plus_course.png')
 ```
 
 
-## **PSYC 166: Foundations of Data Science (Human Cognition)**
+## **PSYC 167: Data Visualization**
 
-This is the course website for PSYC 166: *Foundations of Data Science (Human Cognition)*, taught by [Prof. Gabriel I. Cook](https://gabrielcook.xyz); 1 credit
+This is the course website for PSYC 167: *Data Visualization*, taught by [Prof. Gabriel I. Cook](https://gabrielcook.xyz); 1 credit
 
 **Description**
 
-This course introduces students to R, a programming language for statistical computing and graphics. Students will learn how to clean, manipulate, transform, join, and tidy data sets to prepare for statistical modeling. Supervised (e.g., regression) and unsupervised (e.g., clustering) approaches will be applied to understand simple and complex relationships between cognitive and non-cognitive variables (e.g., biology, aging, education, socioeconomic, health, etc.). Students will apply their skills to wrangle, explore, and model relevant data sets for a hands-on project for local scholars, offices, organizations, or industry participants. Data sets and relevant readings will change depending on semester. 
+Data visualization is the science and art of creating graphical representations of information and data. Visual representations provide accessible ways to see patterns, trends, and outliers in data. Variables like position, size, and orientation can focus attention and guide perception but can also bias interpretation of data. Students will learn how well-designed visualizations can reduce bias and improve comprehension for data thereby facilitating data-driven decision-making. Students will explore techniques for creating effective visualizations based on principles from cognitive and perceptual psychology, art, and design. Students will gain hands-on experience coding real-world data visualizations for local offices, organizations, and industry participants.
+
+The course is targeted toward students interested in using visualizations to communicate their own messages, and students interested in creating better visualization tools and systems, and students with expressed interest in cognition and cognitive biases related to data communication. Students will engage in discussions of the readings, complete programming and data analysis assignments, and prepare a final project involving storytelling with data visualizations. 
+
 
