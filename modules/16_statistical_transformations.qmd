@@ -1,0 +1,1108 @@
+---
+title: "*Statistical transformations*"
+author: "Gabriel I. Cook"
+#date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+
+#order: 2 
+---
+
+```{r}
+#| label: load-packages
+#| include: false
+```
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+# to restart a fresh session
+# .rs.restartR()
+```
+
+
+::: callout-important
+## Under construction. 
+
+This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.
+
+:::
+
+# **Overview**
+
+This module describes some differences in data summaries and operations of functions in **{dplyr}**. The way data are summarized will influence the way the data are communicated visually. Depending on the complexity of a data visualization, you may need to create multiple data frames as a single data frame may contain either too much or too little information. We will also discuss differences in grouping structure for `dplyr::mutate()` and `dplyr::summarize()` that will affect both variable computation and plot creation. 
+
+
+# **To Do**
+
+## **Readings**
+
+Reading should take place in two parts:
+
+ - *Prior to class*, the goal should be to familiarize yourself and bring questions to class. The readings from [TFDV](https://clauswilke.com/dataviz) are conceptual and should facilitate readings from [EGDA](https://ggplot2-book.org/) for code implementation.
+ - *After class*, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.  
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of **{ggplot2}**. I will assume that you attend class with some level of basic understanding of concepts.
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing **{ggplot2}** code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week's readings. 
+
+*After Class*: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from **Wickham, Navarro, & Pedersen (under revision)**. *ggplot2: Elegant Graphics for Data Analysis (3e)*.
+
+- [Wickham, Navarro, & Pedersen (under revision). *ggplot2: Elegant Graphics for Data Analysis (3e)*. Weighting data](https://ggplot2-book.org/statistical-summaries#sec-weighting)
+- [Wickham, Navarro, & Pedersen (under revision). *ggplot2: Elegant Graphics for Data Analysis (3e)*. Stats](https://ggplot2-book.org/layers#sec-stat)
+
+
+## **External Functions**
+
+Provided in class:
+
+`view_html()`: for viewing data frames in html format, from `/r/my_functions.R` 
+
+You can use this in your own work space but I am having a challenge rendering this of the website, so I'll default to `print()` on occasion.
+
+```{r}
+source(here::here("r", "my_functions.R"))
+```
+
+## **Libraries**
+
+- **{dplyr}** `r packageVersion("dplyr")`: for selecting, filtering, and mutating
+- **{magrittr}** `r packageVersion("magrittr")`: for code clarity and piping data frame objects
+- **{ggplot2}** `r packageVersion("ggplot2")`: for plotting
+
+
+## **Load libraries**
+
+```{r message=FALSE}
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+```
+
+
+# **Loading Data**
+
+For this exercise, we will use some data from a 2023 CMS swim meet located at: "https://github.com/slicesofdata/dataviz23/raw/main/data/swim/cleaned-2023-CMS-Invite.csv".
+
+```{r}
+SWIM <- readr::read_csv("https://github.com/slicesofdata/dataviz23/raw/main/data/swim/cleaned-2023-CMS-Invite.csv",
+                        show_col_types = F)
+```
+
+# **Flavors of Data**
+
+Data come in many flavors. Data are collected on virtually everything you could think of. If there is a record of something, there is data. The stars, weather, television viewing, social media use, ocean currents, brand preference, parenting, symphonies, learning to code, graphical perceptual. When there is no record of something, you could collect data on it. For example, you could start logging the quantity of quality of advice your grandparents offer you. You may likely discover that advice changes based on their age. You may also consider logging the number to times you see your grandparents or your parents/guardians annually in order to determine approximately how many more times you will see them before they die, if they haven't yet. In fact, some folks have already worked on this problem using actuarial tables. [Seeyourfolks](https://seeyourfolks.com/) will provide a model estimate for you. See for yourself. Sure, it may be in error but all models have error. Nevertheless, prediction may change your life. 
+
+
+# **Data Organization and Variability**
+
+In some industries, data may be organized at a high level. For example, someone examining population growth may have data at a census level or an annual level. Someone who studies education may had data organized at a state level or county level. In other industries, data may be organized at a fine-grained level. For example, someone studying health outcomes may have data about individuals daily if daily health checks are part of a data-collection protocol. Someone who studies education may design a study to collect data, or obtain data, on daily-performance of students. Even further, their data may contain repeated measurements of specific topics (e.g., 10 different addition problems rather than one). Similarly, someone studying some aspect of human cognition may have high-level data like overall accuracy and total time needed to complete the task or they might have data at a low level containing trial-level accuracy and reaction timed data for each item.  
+
+Depending the organization of data and its level of granularity, one may be limited to a set of statistical models to examine. Because variability in data plays a significant role in testing models, the absence of variability will prevent modeling using statistical techniques that require that variability. For example, if your data set contains only one value for a country, you are likely limited to models that allow for comparisons or associations across countries or across time. For example, you could examine data to understand how population growth for a single country changes over time or you could examine population growth in one country compares to one or more than one country. Using the educational example, one could examine changes in a state over time or one could examine states to one another. By contrast, if you have daily data per student for a variety of topics, you have variability in data to examine at a variety of levels. You could examine how an individual's performance changes across time in general or specifically for a specific topic. You can also examine how the individual performs on one type of task relative to another. You could also examine changes over time in performance on one task compared with changes over time for other tasks. Stepping up the hierarchy, you could compare performance of individuals across teachers, teacher's sections, schools, school districts, counties, states, etc. because there is variability in the data to try to understand. 
+
+Although the data structure is typically conceived from top to bottom, which lower levels *nested* under higher levels, I will present the opposite order to prevent you reading from the bottom up.
+
+```
+Daily Performance
+- on an item type (e.g., 4 + 17)
+-- on a task (e.g., addition)
+--- for a person (e.g, Bill)
+---- in a teacher's class (e.g., Mrs. Collins, Section 1)
+----- in a school (e.g., Robert D. Wilson)
+------ in a district (e.g., Western Wayne)
+------- in a country (e.g., Wayne)
+-------- in a state (e.g., Pennsylvania)
+--------- in a country (e.g., United States of America)
+```
+
+The structure at all these levels means that you can perform more complex models like linear-mixed models/hierarchical linear modeling. The variability in the data at all these levels allows you to account for the variability in ways you cannot if you only have top-level data. When you have the variability, you can examine for effect like random effects or fixed effects, which are not applicable to simpler linear models. To the extent that teachers in District A teach differently or motivate students differently from those teachers in District B, you could examine the data for these differences and account for them statistically (hold them constant as if teachers were the same) at higher levels of the data. In fact, that repeated-measures ANOVA model you are taught in your statistics class is not be appropriate for data with repeated measurements under different conditions because two individuals who with the same average performance may differ in their variability. For example, two students answer the subtraction problem (14 - 7) on average in 10.0 seconds across 5 instances. Mildred is consistent and answers it between 8 and 12 seconds. Tilford, however, answers with a range of 5 to 20 seconds. Although performance time is equated, the variability represents something very different in ability. 
+
+
+# **Aggregating Data**
+
+Data aggregation refers to how data are organized or compiled. When you have multiple levels of data as presented in the example above, data aggregation refers to the process of taking the raw data and gathering it in some way to summarize for statistical analysis or data visualization. For example, you could summarize data by individual, class, school, district, county, and state. Alternatively, you could summarize data by district, county, and state and ignore individuals, class, and school. The two types of data aggregation will result in different numbers of cases (rows) in a data frame most obviously but also in the actual numbers. 
+
+The variability in individuals as well as in subgroups can be useful to answering your data question. Models like linear mixed models are beyond the scope of this course, however. Whether you look into those types of model or you don't, you should realize that you are making a big assumption in your data when you aggregate at any level. That assumption is that the variability in the data that are aggregated is the same across all cases in the data. Specifically, by aggregating Tilford's and Mildred's individual data in order to obtain their average performance, you have lost the variability at the individual level and essentially arbitrarily set that variability to 0. At higher level, aggregating the data by `School` also means that you lose this information and make the assumption that there is no variability among individuals in each school (e.g., all individuals have the same value). Such assumptions are particularly relevant to repeated-measures models (e.g., repeated-measures ANOVA does not use this information) and are potentially not assumptions you want to make about your data.
+
+In the end, how you interpret a model or a data visualization will be dependent on that aggregation of the data, modeled or displayed. The take home message about aggregating data, then, is that you trade off a loss of information for some summary. Only you can weigh the costs and benefits of this trade off. That said, sometimes you have no choice because your client, your employer, or your data resource has only data an an aggregate level. In those situations, you cannot do much except acknowledge the information loss in the ability of the model to predict an outcome. If, however, that aggregated level can still be summarized or aggregated in some way, you are back to reflecting on issues of aggregation. 
+
+
+# **Aggregating Data using `group_by()`**
+
+**{dplyr}** has one main verb function for grouping data. `group_by()` orders the groups in an ascending order so that functions performed on the subgroups will return a data frame that is ordered based on the grouping variable(s). Other functions like `group_map()`, `group_nest()`, `group_split()`, and `group_trim()` exist but they are experimental for **{dplyr}** `r `packageVersion("dplyr")`. Although they allow for fun tasks like passing data subsets to statistical models, their experimental life cycle suggests you might not get to comfortable with them. 
+
+## *Data aggregation using `group_by()`*
+
+Let's go through a simple example of data aggregation using `group_by()`. 
+```{r}
+DATA <- data.frame(
+  Student = c("Jim", "Sally", "June", "Mildred", "Tilford", "Beavis", "Herman", "Peppa", "Kay", "Jake", "Name Missing"),
+  Score  = c(80, 85, 79, 80, 81, 91, 89, 60, 65, 67, 65), 
+  School = c("A", "A", "B", "B", "C", "C", "C", "D", "D", "E", "E"), 
+  District = c("West", "West", "West", "West", "East", "East", "East", "North", "North" , "North", "North")
+  ) 
+```
+
+You can see that the performance for all students is on average, for example, if you didn't know where they went to school. We would take only the mean.
+
+```{r}
+DATA %>%
+  summarize(Score = mean(Score))     # calculate average
+```
+
+Let's say we try to determine average performance for "all students" if we had the data aggregated as the school level and not the individual level. 
+
+```{r}
+DATA %>%
+  group_by(School) %>%
+  summarize(Score = mean(Score)) %>% # get the school level aggregated data
+  summarize(Score = mean(Score))     # then calculate average across all schools
+```
+
+Let's say we try to determine average performance for "all students" if we had the data aggregated as the district level and not the individual level. 
+
+```{r}
+DATA %>%
+  group_by(District) %>%
+  summarize(Score = mean(Score)) %>% # get the district level aggregated data
+  summarize(Score = mean(Score))     # then calculate average across all districts
+```
+
+So what's the average performance for students? Well, that interpretation differs based on how values are treated. At the highest level, all students' `Scores` are weighed equally. Each student contributes to the data in the same way. When aggregated by `School`, each school contributes to the calculation equally, even if the number of bodies per school differs. And finally, when data are aggregated at the `District` level, all districts are treated equally in the calculation independent on the number of schools in a district. Only with weighting means would you end up with the same average performance.  
+
+Measures of variability in the data, however, reveal something else. Schools differ in variability and schools within districts vary as well. Depending on the level of aggregation, you may never notice interesting patterns in data that lead to questions to investigate and later policies to change. For example, addressing a school that is left behind others or a district that is left behind others. Aggregation can also lead to inefficient allocations of resources. If one school in a district needs help rather than all schools in the district needing help, the cost may differ substantially.
+
+```{r}
+std_error <- function(x) { sd(na.omit(x)) / sqrt(length(na.omit(x))) }
+
+DATA %>%
+  group_by(School, District) %>%
+  summarize(Var = var(Score),
+            SD  = sd(Score),
+            SEM = std_error(Score),
+            min = min(Score),
+            max = max(Score)
+  ) %>% mutate(range = max - min)
+```
+
+
+# **Comparing mutate() with summarize()**
+
+**{dplyr}** has two main verb functions for creating variables. They operate differently and their returned tibble also differ. If you have not been paying attention to the returned tibble post calculation, you might have overlooked the differences. 
+
+## *Grouping structure of `group_by()` and `mutate()`*
+
+Let's `mutate()` the mean for `Score` after sub-setting with `group_by()`.
+
+```{r}
+DATA %>%
+  group_by(School, District) %>%
+  mutate(Score = mean(na.omit(Score)))
+```
+
+There are two things to watch when using this `mutate()` following `group_by()`. 
+
+**1.** A `Score` will be assigned to each row/case or `Student` in the data frame. 
+
+When schools and districts are grouped, each student in the same school will have the same assigned average value. All rows are maintained, none dropped. 
+
+**2.** The returned tibble takes on a new structure.
+
+Looking at the feedback in the console, you see the following report preceding the data.
+
+```
+A tibble: 11 × 3
+# Groups:   School, District [5]
+```
+
+You also see this structure using `glimpse()`. 
+
+```{r}
+DATA %>%
+  group_by(School, District) %>%
+  mutate(Score = mean(na.omit(Score))) %>%
+  glimpse()
+```
+
+```
+Rows: 11
+Columns: 3
+Groups: School, District [5]
+```
+
+What does the `[5]` mean? Well, before we answer this, let's use `summarize()`.
+
+
+## *Grouping structure of `group_by()` and `summarize()`* 
+
+Let's `summarize()` the mean for `Score` after sub-setting with `group_by()`.
+
+```{r}
+DATA %>%
+  group_by(School, District) %>%
+  summarize(Score = mean(Score))
+```
+
+There are two things to watch when using this `summarize()` following `group_by()`. 
+
+**1.** A `Score` average is assigned to each row/case or `School` in this aggregated data frame. 
+
+When schools and districts are grouped, each school will have its own average value. Rows from the data frame are dropped as are columns that are not passed to `group_by()`. In this case, `School`, `District`, and the new variable, `Score` are returned. 
+
+**2.** The returned tibble takes on a new structure.
+
+The feedback in the console is a little more detailed here.
+
+```
+`summarise()` has grouped output by 'School'. You can override using the `.groups` argument.
+# A tibble: 5 × 3
+# Groups:   School [5]
+```
+
+You see reference to overriding the grouping using `.groups`. According to the [tidyverse documentation for grouping](https://dplyr.tidyverse.org/articles/grouping.html), this parameter *"controls the grouping structure of the output. The historical behaviour of removing the right hand side grouping variable corresponds to `.groups = "drop_last"` without a message or `.groups = NULL` with a message (the default)"*.   
+
+You have most likely paid little attention to this message. By default `summarize()` keeps the first grouping variable passed to `group_by()` in the returned tibble. This is why you see `School` referenced and not `District` or both variables. So, do you want your data frame to contain groups or no groups? Stated differently, do you just want that data summarized by your grouping variables and have a simple nxm data frame or do you want something more complex?
+
+To see the structure better, let's first look a the structure of `DATA` and then more closely at the summarized version.
+
+```{r}
+str(DATA)
+```
+
+Let's assign the summarized data frame to an object for inspection.
+
+```{r}
+DSUM <- DATA %>%
+  group_by(School, District) %>%
+  summarize(Score = mean(Score))
+```
+
+For `DSUM`, the structure is different. In particular, you see reference to `(S3: grouped_df/tbl_df/tbl/data.frame)`. This tells you that the data frame is not a simple nxm but contains groups. You could think of this as  3 nxm data frames organized together. For more details, see the [dplyr](https://dplyr.tidyverse.org/reference/grouped_df.html) documentation. 
+
+```{r}
+str(DSUM)
+```
+
+
+
+### *`group_by()` and `summarize()` with `.groups`*
+
+When you group data using `group_by()` and then `summarize()`, the summary variables (e.g., mean) will result in a single row for each level of a single grouping variable. If there are more than one grouping variable, the additional grouping variable will be introduced to the data frame as a second column. The total number of rows in the data frame will be equal to the *number of levels of group 1* x *number of levels of group 2* if an only if each levels of group 1 has a corresponding level for group 2, 
+
+for example:
+
+```
+sex   age    mean
+men   young  x
+men   old    x
+women young  x
+women old    x
+```
+
+If there is no pairing of levels in the data (e.g., no men who are old), that row will be omitted from the returned data frame. 
+
+for example:
+
+```
+sex   age    mean
+men   young  x
+women young  x
+women old    x
+```
+
+rather than:
+
+```
+sex   age    mean
+men   young  x
+men   old    NA
+women young  x
+women old    x
+```
+
+You really need to query `?dplyr::summarize` to understand `.groups`, which controls the grouping of the returned data frame. This is also experimental to `summarize()`, so it might not be available in the future.
+
+There are four argument options:
+
+- `"drop_last"`: dropping the last level of grouping. This was the only supported option before version 1.0.0.
+- `"drop"`: All levels of grouping are dropped.
+- `"keep"`: Same grouping structure as .data.
+- `"rowwise"`: Each row is its own group.
+
+
+#### `.groups = "drop_last"`:
+
+```{r}
+SWIM %>%
+  group_by(Event, Distance) %>%
+  summarize(Time = mean(Time),
+            .groups = "drop_last")
+```
+
+You will see that the grouping for `Distance` is not in the grouping structure because it was the last grouping. 
+
+```
+# A tibble: 14 × 3
+# Groups:   Event [6]
+   Event        Distance   Time
+```
+
+#### `.groups = "drop"`:
+
+```{r}
+SWIM %>%
+  group_by(Event, Distance) %>%
+  summarize(Time = mean(Time),
+            .groups = "drop")
+```
+
+You will see that all group are *dropped* from the grouping structure.
+
+```
+# A tibble: 14 × 3
+   Event        Distance   Time
+```
+
+#### `.groups = "keep"`:
+
+```{r}
+SWIM %>%
+  group_by(Event, Distance) %>%
+  summarize(Time = mean(Time),
+            .groups = "keep")
+```
+
+You will see that all group are *kept* in the grouping structure.
+
+```
+# A tibble: 14 × 3
+# Groups:   Event, Distance [14]
+   Event        Distance   Time
+```
+
+#### `.groups = "rowwise"`:
+
+```{r}
+SWIM %>%
+  group_by(Event, Distance) %>%
+  summarize(Time = mean(Time),
+            .groups = "rowwise")
+```
+
+You will see that there groups but these are *not* based on the 
+
+```
+# A tibble: 14 × 3
+# Rowwise:  Event, Distance
+```
+
+The grouping structure always matters for subsequent computations. But with `"rowwise"` you will see this clearly. Following from above, let's say we wanted to compute the mean across all of the `Events` in the data frame returned by `group_by()` then `summarize()`. We add `mutate(mean = mean(Time))` on a new line of our piped code block.
+
+```{r}
+SWIM %>%
+  group_by(Event, Distance) %>%
+  summarize(Time = mean(Time),
+            .groups = "rowwise") %>%
+  mutate(mean = mean(Time))
+```
+
+The `mean` column does not contain a single mean replicated for each row in the data frame. Rather the grouping was per row, so each row has its one mean. The mean of a single value is, of course, itself.  
+
+
+
+#### Revisiting `".groups = drop_last"`:
+
+Returning to the default `.groups` structure, which is `"drop_last"`, we can add the same `mutate()` to see what happens.
+
+```{r}
+SWIM %>%
+  group_by(Event, Distance) %>%
+  summarize(Time = mean(Time),
+            .groups = "drop_last") %>%
+  mutate(mean = mean(Time))
+```
+
+
+The `mean` column still has different values but they are replicated on rows with the same `Event` group. This is because the data are grouped that way. 
+
+
+#### Revisiting `.groups = "drop"`:
+
+Let's again add the same `mutate()` to see what happens.
+
+```{r}
+SWIM %>%
+  group_by(Event, Distance) %>%
+  summarize(Time = mean(Time),
+            .groups = "drop") %>%
+  mutate(mean = mean(Time))
+```
+
+
+#### Consider `ungroup()`:
+
+`.groups = "drop"` in effect works the same as does `ungroup()`. The grouping structure is broken and all subsequent operations are based on the ungrouped data frame.
+
+```{r}
+SWIM %>%
+  group_by(Event, Distance) %>%
+  summarize(Time = mean(Time)) %>%
+  ungroup() %>%
+  mutate(mean = mean(Time))
+```
+
+Keep in mind that functions work as they are programmed to work. Functions do not work like you think they work. You must understand the function and check our work to ensure your calculations are what you intend them to be.  
+
+#### The *order of operations* matters
+
+To illustrate further, consider you want to calculate some summary statistics. You set out to obtain the mean and the standard deviation for your data. Those computations will be performed according to the grouping structure. 
+
+When you compute standard deviation and the mean of `Time`, you assign the mean to `Time` because you want your plot to contain a clean name rather than one like `Time_Mean` that you will have to address in the plot. 
+
+```{r}
+SWIM %>%
+  group_by(Event, Distance) %>%
+  summarize(Time_sd = sd(Time),  # get sd of Time
+            Time = mean(Time)    # get mean, assign to same name
+            )
+```
+
+Both variables use the same data because the standard deviation assigns the value to a different variable name `Time_sd`. The `mean()` is not based on some changed variable. 
+
+The output is different from the one returned when the mean is computed before the standard deviation and in particular when the mean is assigned to `Time`. In this case, the standard deviation is based on this new `Time` variable. Because the standard deviation is a measure of variability, and `Time` does not vary based on the grouping structure, `NA` is returned. 
+
+```{r}
+SWIM %>%
+  group_by(Event, Distance) %>%
+  summarize(Time = mean(Time),   # get mean, assign to same name
+            Time_sd = sd(Time)   # get sd of Time        
+            )
+```
+
+If you really wanted the standard deviation of all the means, consider ungrouping and then compute the standard deviation or use `.groups =  "drop"` in `summarize()`. Realize, however, this latter functionality is experimental and may not work sometime later. You are likely better off using `ungroup()`. 
+
+```{r}
+SWIM %>%
+  group_by(Event, Distance) %>%
+  summarize(Time = mean(Time)) %>%  # get mean, assign to same name
+  ungroup() %>%
+  mutate(sd = sd(Time))
+```
+
+
+# **More on Grouping Structure**
+
+We can now also consider ways to create column variables and a corresponding grouping structure within the `group_by()` verb. 
+
+## **New Variable Columns**
+
+`group_by()` is not designed to create new variables but rather create groups. The function, however, does not require variables in a data frame in order to group based on their levels or differences in values.  
+
+### **`group_by()` using a function**
+
+Heretofore, we have grouped by column variables in a data frame. But you can also group in other ways, for example, by a variable calculated by a function. For example, if you wanted to group by standard deviations, you could calculated the standard deviation `(Score-mean(Score)) / sd(Score)` for each student and then `cut()` that variable into groups. `cut` will take a numeric vector variable and turn it into a factor variable of *n* groups as determined by what you pass to `breaks`. There is also an argument to make the factor ordered if you wish, `ordered_result = TRUE` but the default behavior does not order the factor.  You can also change the level labels if you inspect the function.
+
+
+```{r}
+DATA %>%
+  group_by(., z_factor = cut( x = ((Score - mean(Score)) / sd(Score) ), 
+                          breaks = 5, 
+                          ordered_result = T
+                          )
+  )
+
+```
+
+You can see that there are 4 different levels of the grouping variable. The tibble is grouped of course too.
+
+If you struggle with remembering the formula for a z score, `scale()` will to the same thing.  
+
+```{r}
+DATA %>%
+  mutate(z = (Score - mean(Score))/sd(Score),
+         scale = scale(Score)
+         )
+```
+
+If you want *n* groups based on specific breaks, then pass a vector of those break units. For example, if we want levels to correspond to some meaningful standard-deviation cuts. For example, if you wanted to group those with z scores ranging from infinitely negative to -2, -2 to -1, - to 1, 1 to 2, and 2 to infinitely large, you could specify the breaks. If there are no values in those ranges, then there won't be any data for those breaks.
+
+```{r}
+DATA %>%
+  group_by(z_factor = cut( scale(Score), 
+                          breaks = c(-Inf, -2, -1, 1, 2, Inf),
+                          ordered_result = T
+                          ), 
+           ) %>%
+  ungroup() 
+```
+
+
+You can also just group by the function without using `cut()` if you wish to group by those with identical values on the variable. In this case, using `count()` or `tally()` reveals there are only two instances with the same score.
+
+```{r}
+DATA %>%
+  group_by(., z_factor = ((Score - mean(Score)) / sd(Score) )) %>%
+  count(sort = TRUE)     # tally(sort = TRUE)
+```
+
+
+## **Add/drop Grouping Variable Columns**
+
+By default, `group_by()` on a data frame that is already grouped (see earlier on grouped data frame), the existing grouping structure will be replaced by new grouping structure. 
+
+Let's get an example. Please note that this example assigned the tibble to an object but whether you assign or not, the grouped structure exists. So functions that follow the `group_by()` keep that structure.  
+
+```{r}
+school_grouped <- DATA %>%
+  group_by(School) 
+
+school_grouped
+```
+
+
+Now group by a new column:
+
+```{r}
+school_grouped %>%
+  group_by(District)
+```
+
+You will see the grouping structure has changed.
+
+```
+# A tibble: 11 × 4
+# Groups:   District [3]
+```
+
+
+### **Retain Grouping**
+
+If you want to retain the existing group, you would need to use `.add = TRUE`.
+
+```{r}
+school_grouped %>%
+  group_by(District, .add = TRUE)
+```
+
+Notice in the console, that both `School` and `District` are included in the groups.
+
+```
+# A tibble: 11 × 4
+# Groups:   School, District [5]
+```
+
+
+## **Why Care About Grouping Structure**
+
+Well, the functions you apply to a grouped tibble will sometimes lead to calculations that are not what you intend. We provided some examples earlier but given the importance of the issue, we may benefit from another example. 
+
+Let's say you want to compute the average for each school and add that school average for each student. This would tell you how the student differs from their school performance. Then you want to obtain the mean of all the schools and see how the school differs from all the schools.
+
+You code it out:
+
+```{r}
+DATA %>%
+  # group 
+  group_by(School) %>%
+  # calculate the mean of Score for each School
+  mutate(School_Mean = mean(Score)) %>%  
+  # calculate the mean of all values (think Grand Mean from stats)
+  mutate(Mean_of_all = mean(School_Mean)) %>%
+  # calculate the school performance relative to all
+  mutate(School_Performance = factor(case_when(
+    School_Mean < Mean_of_all ~ "Below Average",
+    School_Mean == Mean_of_all ~ "Average",
+    School_Mean > Mean_of_all ~ "Above Average"
+    ), ordered = T)
+  )
+```
+
+Perfect. OK, let's plot it. Oh but first let me inspect the data. Um, why is `School_Performance` the same for all `Students`? Schools are not performing the same so they cannot all be average. Check your `case_when()` for errors because that where the new variable was created. Then you spend 40 days and 40 nights trying to fix your code. No matter what you do with `case_when()`, you cannot fix the problem. So you try to create 42 data frames to solve your problem. Even grandma knows that is a ridiculous strategy. She suggests you read the documentation for all of the functions you used because one time her pot-luck cake flopped and she inspected the expiration date for all of her ingredients and found the baking soda was old.   
+
+You discover that the grouping structure is retained on all operations until that grouping structure is removed or replaced.
+
+
+# **ungroup()**
+
+Whereas summarize has a `.groups` functionality, `mutate()` does not. In order to have a simple data frame use follow `group_by()` and `mutate()` with  `ungroup()`. But `ungroup()` can be used following both functions if that approach makes more sense to you.
+
+Let's add an `ungroup()` directly after performing the operation that needed the grouping structure. 
+
+```{r}
+DATA %>%
+  # group 
+  group_by(School) %>%
+  # calculate the mean of Score for each School
+  mutate(School_Mean = mean(Score)) %>%  
+  # break that grouping structure
+  ungroup() %>%
+  # calculate the mean of all values (think Grand Mean from stats)
+  mutate(Mean_of_all = mean(School_Mean)) %>%
+  # calculate the school performance relative to all
+  mutate(School_Performance = factor(case_when(
+    School_Mean < Mean_of_all ~ "Below Average",
+    School_Mean == Mean_of_all ~ "Average",
+    School_Mean > Mean_of_all ~ "Above Average"
+    ), ordered = T)
+  )
+```
+
+Yes! `Mean_of_all` is now a true grand mean based on all of the data with no grouping at all. Comparing `Mean_of_all` to `School_Mean` provides two classifications. 
+
+
+
+
+## **Variable loss with `summarize()`**
+
+Because `summarize()` returns a tibble based on the grouping structure, you will lose all variables that are not in the grouping structure. By design, it no longer allows you to return a data frame with duplicated rows based on the variables passed to `group_by()`. 
+
+Returning to the school data, what this means, is that you cannot retain the `School` if you group by the `District` in order to obtain averages by district.  
+
+```{r}
+DATA %>%
+  group_by(District) %>%
+  summarize(Mean = mean(Score))
+```
+
+If you try to add `School` to `group_by()`, then you will only obtain the averages by schools within districts. 
+
+```{r}
+DATA %>%
+  group_by(School, District) %>%
+  summarize(Mean = mean(Score)) 
+```
+
+You can try to summarize based on a variable without assign it to a function but that is no longer allowed with `summarize()`. The following code block will throw an error.
+
+```
+DATA %>%
+  group_by(District) %>%
+  summarize(Mean = mean(Score),
+          School               # add school 
+          )
+```
+
+
+## **An alternative to `summarize()`: `reframe()`**
+
+
+Instead, you can use `reframe()`, which allows for previous functionality of `summarize()` that is now deprecated.  
+
+```{r}
+DATA %>%
+  group_by(District) %>%
+  reframe(Mean = mean(Score),
+          School,
+          Student
+          )
+```
+
+Remember that the operations in `summarize()`, `mutate()`, and `reframe()` all depend on the grouping structure. If you wanted to add variables, you would need to group a different way and you would need to add all variables into `summarize()` every step of the way.
+
+```{r}
+DATA %>%
+  group_by(District) %>%
+  reframe(District_Mean = mean(Score),
+          School, 
+          Student,
+          Score
+          ) %>%
+  ungroup() %>%
+  group_by(School) %>%
+  reframe(School_Mean = mean(Score),
+          School, 
+          Student,
+          Score,
+          District_Mean
+          ) %>%
+  ungroup()
+```
+
+
+## **Retaining distinct data after `mutate()` using distinct()`**
+
+
+This is just too tedious. Your better option is `mutate()` as all variables will be added to the full data frame. All variables are neatly and logically appended to the right hand side of the data frame.
+
+```{r}
+DATA %>%
+  group_by(District) %>%
+  mutate(District_Mean = mean(Score)) %>%
+  group_by(School) %>%
+  mutate(School_Mean = mean(Score))
+```
+
+Also, when you use a new `group_by()`, it will replace previous grouping structure by default. The following two code blocks return the same data frame.
+
+```
+DATA %>%
+  group_by(District) %>%
+  mutate(District_Mean = mean(Score)) %>%
+  group_by(School) %>%
+  mutate(School_Mean = mean(Score))
+  
+DATA %>%
+  group_by(District) %>%
+  mutate(District_Mean = mean(Score)) %>%
+  ungroup() %>%                   # ungroup
+  group_by(School) %>%
+  mutate(School_Mean = mean(Score))
+```
+
+If you wish those variables to remain, you have a couple of options. The first would be to use `mutate()`.  
+
+Notice, however, that if you want to extract the summaries from the large data frame as you would have had you used `summarize()` , you cannot just `select()` your column of interest because the repetitions will exist for each row in the data frame. 
+
+```{r}
+DATA %>%
+  group_by(District) %>%
+  mutate(District_Mean = mean(Score)) %>%
+  select(c("School", "District_Mean"))
+```
+
+You can obtain the rows that are `distinct()` (unique) and then `pick()` the ones to keep.
+
+```{r}
+DATA %>%
+  group_by(District) %>%
+  mutate(District_Mean = mean(Score)) %>%
+  distinct(., pick(c("District", "District_Mean")))
+```
+
+But you will need to `ungroup()` before `distinct()` because, as we have mentioned before, all subsequent functions other than `group_by()` will maintain the previous grouping structure by default.  
+
+```{r}
+DATA %>%
+  group_by(School) %>%
+  mutate(School_Mean = mean(Score)) %>%
+  ungroup()
+```
+
+
+
+# **Visualizing Data**
+
+Visualizations of data aggregated differently will also convey information differently. The four variants of the data presented as bars communicate 
+
+```{r, echo=FALSE, warning=FALSE}
+avg_plot <- DATA %>%
+  summarize(., Score = mean(Score)) %>% 
+  mutate(Average = "Average") %>%
+  ggplot(., aes(x = Average, Score)) +
+  geom_col(width = .1) + #(position = position_jitter(width = .1)) + 
+  ylim(0, 100) +
+  theme(axis.text.x = element_blank(),  
+        axis.ticks.x = element_blank()) + labs(tag = "A")
+
+district_plot <- DATA %>%
+  ggplot(., aes(District, Score)) +
+  geom_col(width = .1 * 3) + #point(position = position_jitter(width = .1)) + 
+  ylim(0, 100) +
+  theme(axis.ticks.x = element_blank()) + labs(tag = "B")
+
+school_plot <- DATA %>%
+  ggplot(., aes(School, Score)) +
+  geom_col(width = .1 * 5) + #position = position_jitter(width = .1)) + 
+  ylim(0, 100) +
+  theme(axis.ticks.x = element_blank()) + labs(tag = "C") 
+
+school_district_plot <- DATA %>%
+  ggplot(., aes(School, Score, fill = District)) +
+  geom_col(width = .1 * 5) + 
+  ylim(0, 100) +
+  theme(legend.position = "top",
+        axis.ticks.x = element_blank()) + labs(tag = "D")  
+
+suppressWarnings(
+  plot(gridExtra::arrangeGrob(avg_plot, 
+                            district_plot, 
+                            school_plot, 
+                            school_district_plot, ncol = 2)
+     )
+)
+```
+
+Note: When you create `geom_bar()` or `geom_col()` plots, the bar `width` will change depending on the number of the bars in the plot. A legend position will also affect bar width. Thus, the four resulting visualizations will contain different bar widths even if set to the same value.  
+
+```{r}
+avg_plot <- DATA %>%
+  summarize(., Score = mean(Score)) %>% 
+  mutate(Average = "Average") %>%
+  ggplot(., aes(x = Average, Score)) +
+  geom_point() + 
+  ylim(0, 100) +
+  theme(axis.text.x = element_blank(),  
+        axis.ticks.x = element_blank()) + labs(tag = "A")
+
+district_plot <- DATA %>%
+  ggplot(., aes(District, Score)) +
+  geom_point(position = position_jitter(width = .1)) + 
+  ylim(0, 100) +
+  theme(axis.ticks.x = element_blank()) + labs(tag = "B")
+
+school_plot <- DATA %>%
+  ggplot(., aes(School, Score)) +
+  geom_point(position = position_jitter(width = .1)) + 
+  ylim(0, 100) +
+  theme(axis.ticks.x = element_blank()) + labs(tag = "C") 
+
+school_district_plot <- DATA %>%
+  ggplot(., aes(School, Score, col = District)) +
+  geom_point(position = position_jitter(width = .1)) + 
+  ylim(0, 100) +
+  theme(legend.position = "top",
+        axis.ticks.x = element_blank()) + labs(tag = "D")  
+
+suppressWarnings(
+  plot(gridExtra::arrangeGrob(avg_plot, 
+                            district_plot, 
+                            school_plot, 
+                            school_district_plot, ncol = 2)
+     )
+)
+```
+
+
+# **Adding Data Summaries to Plots**
+
+But, let's consider you don't want to use color for your plot because the printing fees costs too much. Or perhaps, you are giving a talk to an audience of people who have achromatopsia. Whatever the reason, you need shapes. There are different ways to map shapes to variables. One way is with `aes(shape = variable)`. Just like with mapping `col` or `fill` to variables results in a palette assignment, a set of shapes are used by default as well. If you don't like those shapes, you can pass a name vector to `scale_shape_manual(values = my_name_vector)`. Shapes, however, can also be mapped by variables as their *identity*. We have discussed identity values before. For shape, you need to find the shape values to assign a variable and then add a `scale_shape_identity()` layer. 
+
+For this example, we will add two new variables to the data frame and then map each to the full data and the group data, respectively.
+
+First, let's look at different shapes.
+
+```{r}
+ggpubr::show_point_shapes()
+```
+
+# **A Single Data Frame using `mutate()`**
+
+Let's say that we want a plot that contains all of the data points jittered as well as the group means jittered so they don't overlap. If we want one data frame to handle it, we will need to `mutate()` the group means following `group_by(Event, School)`. In the event that there happen to be exact or very similar means for the Schools, we will want to jitter the group means using `position = position_jitter(height = 0, width = .1)`. 
+
+Let's see what happens. But to lead into another step, we will just assign a new data frame to `SWIM_NEW`.
+
+
+```{r}
+SWIM_NEW <- SWIM %>%
+  filter(Time < 500) %>%
+  mutate(
+    School = ifelse(stringr::str_detect(School, "Clare"), "CMS", "PP"),
+    Shape  = ifelse(stringr::str_detect(School, "CMS"), 1, 2),
+    Shape2 = ifelse(stringr::str_detect(School, "CMS"), 21, 24),
+    ) %>%
+  # group both (creates nxm subsets)
+  group_by(Event, School) %>% 
+  mutate(Mean = mean(Time)) %>%
+  ungroup() 
+```
+
+Then pass to `ggplot()`:
+
+```{r}
+full_identity_plot <- SWIM_NEW %>%
+  ggplot(., mapping = aes(x = Event)
+         ) +
+  # plot all data (y = Time)
+  geom_point(mapping = aes(y = Time, 
+                           shape = Shape
+                           ),
+             stroke = 1.2, # make a little thinker
+             alpha = .4,   # a little transparent
+             position = position_jitter(seed = 167, 
+                                        height = 0, 
+                                        width = .2)
+  ) + 
+  # Add a layer using the grouped data (y = Mean)
+  geom_point(mapping = aes(y = Mean, 
+                           shape = Shape2   # filled 
+                           ), 
+             fill = "grey50",   # fill color
+             size = 3,          # larger size
+             alpha = 1,         # opaque
+             position = position_jitter(seed = 167, height = 0, width = .1)
+             ) +
+  coord_flip() +
+  scale_shape_identity() +    # use the actual values in the mapped variable
+  labs(caption = "Caption illustration:\nCMS (cicle),  PP (triangle); Mean (filled)")
+
+full_identity_plot
+```
+
+
+## **The Jitter problem with full data frame**
+
+Jittering takes place at the row level. Because the full data frame is used, each row plotted gets jitter. This means that the group mean that is on each row (redundant per group) is plotted. In such cases, you might be better off using one data frame for the full plot and a summarized data frame for the other plot. You can define the data frame in `ggplot()` or in the specific `geom_point()`. In this example, we will define it in `ggplot()` along with aesthetics. This will be inherited by default for the first `geom_point()` and then we can specify for the second `geom_point()`.
+
+Because there are different data frames, `Time` can be used in both data sets. There is no need to have two different variables as there is for the full data set. 
+
+```{r}
+SWIMMEAN <- SWIM_NEW %>%
+  # group both (creates nxm subsets)
+  group_by(Event, School) %>% 
+  summarize(Time = mean(Time)) %>%
+  ungroup() %>%
+  # and we need to add a shape too
+  mutate(
+    Shape  = ifelse(stringr::str_detect(School, "CMS"), 21, 24) # filled
+  ) 
+
+SWIMMEAN
+```
+
+Notice that this data frame contains only four variables: `Event`, `School`, `Time`, and `Shape`. All aesthetics for a plot using that data set will be constrained to those variables. Because both data frames contain them, we can just add the aesthetics to the plot object rather than the geom.
+
+
+```{r}
+subset_identity_plot <- SWIM_NEW %>%
+  ggplot(data = ., 
+         mapping = aes(x = Event,
+                       y = Time, 
+                       shape = Shape
+                       )
+         ) +
+  # plot all data (y = Time) from SWIM
+  geom_point(position = position_jitter(seed = 167, 
+                                        height = 0, 
+                                        width = .2),
+             alpha = .8,
+             size = 2
+  ) +
+  # Add a layer using the grouped data (y = Time) from SWIMMEAN
+  geom_point(data = SWIMMEAN,
+             size = 3,
+             fill = "grey60",
+             stroke = 1,
+             alpha = 1,
+             position = position_jitter(seed = 167, height = 0, width = .3)
+             ) +
+  coord_flip() +
+  scale_shape_identity() +
+  labs(caption = "Caption illustration:\nCMS (cicle),  PP (triangle); Mean (filled)")
+
+subset_identity_plot
+```
+
+
+Both plots together:
+
+```{r}
+suppressMessages(
+  plot(gridExtra::arrangeGrob(full_identity_plot, 
+                       subset_identity_plot, ncol = 1)
+  )
+)
+```
+
+What you see in the second plot is what you might expect. Remember, that if you want to pass a grouping variable summary as an additional layer of a plot, you might be better off creating a separate data frame and pass it separately.
+
+
+## **Examples of Color Versions**
+
+
+```{r}
+color_plot1 <- SWIM_NEW %>%
+  # group both (creates nxm subsets)
+  group_by(Event, School) %>%
+  mutate(MeanTime = mean(Time)) %>%
+  ungroup() %>%
+  ggplot(., aes(x = Event, 
+                y = Time, 
+                col = School, 
+                fill = School
+                )
+         ) +
+  # plot all data (y = Time)
+  geom_point(position = position_jitter(seed = 167, 
+                                        height = 0, 
+                                        width = .2),
+             pch = 1,
+             alpha = .7,
+             stroke = 1,
+             size = 2
+  ) +
+  # Add a layer using the grouped data (y = MeanTime)
+  geom_point(aes(y = MeanTime), 
+             size = 2,
+             alpha = .4
+             ) +
+  coord_flip() +
+  labs(caption = "Caption illustration:\nMeans are closed circles")
+
+color_plot2 <- SWIM_NEW %>%
+  # group both (creates nxm subsets)
+  group_by(Event, School) %>% 
+  mutate(MeanTime = mean(Time)) %>%
+  ungroup() %>%
+  ggplot(., aes(x = Event, 
+                y = Time, 
+                col = School, 
+                fill = School
+                )
+         ) +
+  # plot all data (y = Time)
+  geom_point(position = position_jitter(seed = 167, 
+                                        height = 0, 
+                                        width = .2),
+             alpha = .7,
+             size = 2
+  ) +
+  # Add a layer using the grouped data (y = MeanTime)
+  geom_point(aes(y = MeanTime), 
+             pch = 1,
+             size = 2,
+             stroke = 1,
+             alpha = .4
+             ) +
+  coord_flip() +
+  labs(caption = "Caption illustration:\nMeans are open circles")
+
+plot(gridExtra::arrangeGrob(color_plot1, color_plot2, ncol = 1))
+```
+
+
+
+
+## **A note on `size`**
+
+For `geom_point()`, you should understand what is happening when you pass an argument (e.g., `size = 2`) to the parameter because of its implications for bias in data visualizations. The size parameter scales on both the x and y dimensions proportionately which means that for any circle that doubles the size of the point, its radius will also double. When the radius doubles, however, the diameter and circumference also double. You might guess where this discussion is going. 
+
+If size is a constant, this likely will not be a problem. If, however, size is mapped to a variable, then then you have a perceptual challenge related to difficulty with comparing area. See [Cleveland & McGill (1984)](https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080). Moreover, because the area of a circle is proportional to the square of its radius, doubling the point size increases area fourfold. 
+
+Here is an example. 
+
+```{r}
+ggplot(data = 
+         data.frame(x     = 0, 
+                    y     = 0, 
+                    panel = c("Size = 13", "Size = 26"), 
+                    size = c(13, 26)),
+       mapping = aes(x, y, size = size)
+       ) + 
+  geom_point() +
+  scale_x_continuous(limits = c(-5, 5),
+                     breaks = seq(-5, 5, 1)) +
+  scale_y_continuous(limits = c(-5, 5),
+                     breaks = seq(-5, 5, 1)) +
+  scale_size_identity() +
+  facet_wrap(.~panel) + 
+  labs(x = NULL, y = NULL)
+```
+
+
+
+# **Summary**
+
+How data are aggregated will affect both summary statistics and data visualizations. With each level of aggregation, fine-grained or case-level data are lost and not available for plotting. That fine-grained detail may be computed with measures like variability and confidence levels but those measures are summaries themselves. Including them is not the same as including all data. That said, including all data may influence visual attention and interpretation of plots to the extent that outlying points or grouping characteristics (point proximity) drive attention to physical locations of plots at the cost of attending to other locations. 
+
+A main workhorse of adding variables and creating aggregated data in the `R` language is the **{dplyr}** library. You must, however, be sensitive to the way its functions work so that the variables you create in either a full or summarized data frame represent your intentions and goals. 
+
+We have seen that a lot of customization can be applied to our visualizations of data and have shown just a little bit of what can be done. Many more functions and parameters can be used to customize to greater extents. 
+
+# **Session Info**
+
+```{r, echo = FALSE}
+sessionInfo()
+```
+
+

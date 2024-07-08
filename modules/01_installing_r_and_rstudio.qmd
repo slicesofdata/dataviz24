@@ -1,5 +1,5 @@
 ---
-title: "**Installing R & RStudio**"
+title: "*Installing R & RStudio*"
 author: "Gabriel I. Cook"
 #date: "`r Sys.Date()`"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
@@ -11,14 +11,22 @@ execute:
 #order: 2 
 ---
 
+::: callout-important
+## Under construction. 
+
+Do not install course software until this warning is removed. 
+:::
+
 ```{r, include = FALSE}
 #knitr::opts_chunk$set(
 #  collapse = TRUE,
 #  comment = "#>"
 #)
 
-this_r_version <- "4.3.2"
-this_rstudio_version <- "2023.12.0-369"
+this_r_version <- paste0(R.version$major, ".", R.version$minor) 
+#"4.4.1"
+this_rstudio_version <- "2024.04.2-764"  #gsub("RStudio", "", tools::RStudio.Version()$long_version) # "2023.12.0-369"
+# RStudio-2024.04.2-764.exe
 ```
 # **Overview**
 

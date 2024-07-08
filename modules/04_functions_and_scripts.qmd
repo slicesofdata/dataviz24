@@ -1,5 +1,5 @@
 ---
-title: "**Functions, Arguments, and R scripts**"
+title: "*Functions, Arguments, and R scripts*"
 author: "Gabriel I. Cook"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 
@@ -89,7 +89,7 @@ Read through the module. You can use the `R` console or open up an `R Markdown` 
 You can access remotely using this code, though you do not need to do so now.
 
 ```{r}
-source("https://raw.githubusercontent.com/slicesofdata/fods24/main/r/functions/view_html.R")
+source("https://raw.githubusercontent.com/slicesofdata/dataviz24/main/r/functions/view_html.R")
 ```
 
 

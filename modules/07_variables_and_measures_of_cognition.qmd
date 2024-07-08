@@ -1,5 +1,5 @@
 ---
-title: "**Variables and Measures of Cognition**"
+title: "*Variables and Measures of Cognition*"
 author: "Gabriel I. Cook"
 #date: "`r Sys.Date()`"
 date: "`r format(Sys.time(), '%d %B, %Y')`"

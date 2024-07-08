@@ -1,0 +1,772 @@
+---
+title: "*Color scales and palettes*"
+author: "Gabriel I. Cook"
+#date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+
+#order: 2 
+---
+
+```{r}
+#| label: load-packages
+#| include: false
+
+
+```
+
+::: callout-important
+## Under construction. 
+
+This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.
+
+:::
+
+# **Overview**
+
+## **Readings**
+
+Reading should take place in two parts:
+
+ - *Prior to class*, the goal should be to familiarize yourself and bring questions to class. The readings from [TFDV](https://clauswilke.com/dataviz) are conceptual and should facilitate readings from [EGDA](https://ggplot2-book.org/) for code implementation.
+ - *After class*, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.  
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of **{ggplot2}**. I will assume that you attend class with some level of basic understanding of concepts.
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing **{ggplot2}** code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week's readings. 
+
+*After Class*: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from **Wickham, Navarro, & Pedersen (under revision)**. *ggplot2: Elegant Graphics for Data Analysis (3e)*.
+
+- [Wilke (2019). *Fundamentals of Data Visualization*. Color basics](https://clauswilke.com/dataviz/color-basics.html)
+- [Wickham, Navarro, & Pedersen (under revision). *ggplot2: Elegant Graphics for Data Analysis (3e)*. Color scales](https://ggplot2-book.org/scales-colour)
+
+
+## **External Functions**
+
+Provided in class:
+
+`view_html()`: for viewing data frames in html format, from `/r/my_functions.R` 
+
+You can use this in your own workspace but I am having a challenge rendering this of the website, so I'll default to `print()` on occasion.
+
+```{r}
+source(here::here("r", "my_functions.R"))
+```
+
+## **Libraries**
+
+- **{colorblindr}** `r packageVersion("colorblindr")`: for simulations of color vision deficiencies to ggplot2 objects; post-hoc color editing 
+- **{colorspace}** `r packageVersion("colorspace")`: for manipulating and assessing colors and color palettes
+- **{cowplot}** `r packageVersion("cowplot")`: for ggplot add-ons; object management
+- **{here}**: `r packageVersion("here")`: for path management
+- **{dplyr}** `r packageVersion("dplyr")`: for selecting, filtering, and mutating
+- **{ggplot2}** `r packageVersion("ggplot2")`: for plotting
+- **{ggthemes}** `r packageVersion("ggthemes")`: for palettes and themes
+- **{magrittr}** `r packageVersion("magrittr")`: for code clarity and piping data frame objects
+- **{patchwork}** `r packageVersion("patchwork")`: for plotting on grids
+- **{RColorBrewer}** `r packageVersion("RColorBrewer")`: for color palettes 
+
+
+## **Load libraries**
+
+```{r message=FALSE}
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+library(colorspace)
+library(cowplot)
+library(ggthemes)  # for scale_color_colorblind()
+library(colorblindr)
+library(khroma)
+```
+
+
+# **Loading Data**
+
+For this exercise, we will use some data from a 2023 CMS swim meet located at: "https://github.com/slicesofdata/dataviz23/raw/main/data/swim/cleaned-2023-CMS-Invite.csv".
+
+```{r}
+SWIM <- readr::read_csv("https://github.com/slicesofdata/dataviz23/raw/main/data/swim/cleaned-2023-CMS-Invite.csv", show_col_types = F)
+```
+
+# **Color Uses in Data Visualization**
+
+## To distinguish categories (qualitative)
+
+```{r}
+SWIM %>%
+  ggplot(., aes(x = School, fill = Event)) +
+  geom_bar()
+```
+
+## To represent numeric values (sequential)
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000) %>%
+  ggplot(., aes(x = Event, y = Time, col = Time)) +
+  geom_point(position = position_jitter()) + theme_classic()
+```
+
+When no fill scale is defined, default is `scale_fill_gradient()`, which we can change to something else. 
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000) %>%
+  ggplot(., aes(x = Event, y = Time, col = Time)) +
+  geom_point(position = position_jitter()) + theme_classic() +
+  scale_fill_viridis_c()
+```
+
+But the function won't change anything if we don't use the proper `scale_*_()` function. 
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000) %>%
+  ggplot(., aes(x = Event, y = Time, col = Time)) +
+  geom_point(position = position_jitter()) + theme_classic() +
+  scale_color_viridis_c()
+```
+
+Or:
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000) %>%
+  ggplot(., aes(x = Event, y = Time, col = Time)) +
+  geom_point(position = position_jitter()) + theme_classic() +
+  scale_color_viridis_c(option = "B", begin = 0.15)
+```
+
+
+## To represent numeric values (diverging):
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000, Time < 200) %>%
+  filter(., Event == "Freestyle") %>%
+  mutate(., Diff = (Time - mean(Time, na.rm = T))) %>%
+  ggplot(., aes(x = Event, y = Time, col = Diff)) +
+  geom_point(position = position_jitter()) + theme_classic() +
+  scale_color_gradient2()
+```
+
+Or:
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000, Time < 200) %>%
+  filter(., Event == "Freestyle") %>%
+  mutate(., Diff = (Time - mean(Time, na.rm = T))) %>%
+  ggplot(., aes(x = Event, y = Time, col = Diff)) +
+  geom_point(position = position_jitter()) + theme_classic() +
+  scale_color_continuous_diverging() 
+```
+
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000, Time < 200) %>%
+  filter(., Event == "Freestyle") %>%
+  mutate(., Diff = (Time - mean(Time, na.rm = T))) %>%
+  ggplot(., aes(x = Event, y = Time, col = Diff)) +
+  geom_point(position = position_jitter()) + theme_classic() +
+  scale_color_distiller(type = "div")
+```
+
+There are other applications too but we cannot get into them all here.
+
+
+# **What is a Color Palette?**
+
+First, just in base R, there are `r length(colors())` colors, which you can check out using `colors()` and `demo("colors")`.
+
+Well, let's see:
+
+```{r}
+?palette
+palette()
+```
+
+We see `palette()` returns a character vector of 8 color elements. We can plot these to see the colors.
+
+```{r}
+ggplot(data = data.frame(x = 1:8, 
+                         y = rep(1, 8),
+                         names = sort(palette())),
+       mapping = aes(names, y)) +
+  geom_tile(fill = palette(),
+            size = 6
+  ) + coord_flip() + theme_classic() + 
+  xlab("") + ylab("") + theme(axis.text.x = element_blank())
+```
+
+
+You can also 
+```{r}
+palette.colors(n = 5, 
+               palette = "Okabe-Ito", 
+               alpha = .5, 
+               recycle = FALSE
+               )
+
+get_palette <- function(n = 5, 
+                        palette = "Okabe-Ito", 
+                        alpha = 1, 
+                        plot = TRUE, 
+                        tile_size = 5) {
+  
+  pal = palette.colors(n = n, 
+               palette = palette, 
+               alpha = alpha, 
+               recycle = FALSE
+               )
+  
+  if (plot) {
+    (p <- ggplot(data = data.frame(x = 1:n, 
+                             y = rep(1, n), 
+                             names = pal),
+           mapping = aes(x = names, y = y)
+           ) +
+    geom_tile(aes(fill = pal, size = tile_size),
+              alpha = alpha, show.legend = FALSE) + 
+      coord_flip() + theme_classic() + 
+      xlab("") + ylab("") + 
+      theme(axis.text.x = element_blank()) 
+    )
+  }
+  #print(pal); 
+  return(pal)
+  }
+
+```
+
+```{r, include=F}
+#two critical conditions for designing sequential color scales that can represent data values: 
+#1 - The colors need to clearly indicate which data values are larger or smaller than which other ones, 
+#2 - the differences between colors need to visualize the corresponding differences between data values. 
+#Unfortunately, several existing color scales—including very popular ones—violate one or both of these conditions. 
+```
+
+
+```{r}
+get_palette(n = 5, palette = "Okabe-Ito", alpha = .4, plot = F)
+```
+
+The colors will change if you change the alpha.
+
+```{r}
+get_palette(n = 8, palette = "Okabe-Ito", alpha = .5, plot = T)
+```
+
+```{r}
+get_palette(n = 8, palette = "Okabe-Ito", alpha = .2, plot = T)
+```
+
+
+## **Color Scales Built into {ggplot2}** 
+
+There are colors built into **{ggplot2}**. The `scale_*()` functions will also following the naming conventions  `scale_color_*()` or `scale_fill_*()`. When you have bars, remember that you are changing `fill` color and with solid circle points you are changing `col` so your go-to functions should adhere to those naming conventions (e.g., `scale_fill_*()` and `scale_color_*()`). Some examples include: `scale_color_brewer()` or `scale_color_distiller()` for discrete or continuous scales, respectively.
+
+
+**{ggplot}** functions:
+
+- `scale_color_hue()`: color, *data*: discrete, *palette*: qualitative
+- `scale_fill_hue()`:	fill, *data*: discrete, *palette*: qualitative
+- `scale_color_gradient()`:	color, *data*: continuous, *palette*: sequential
+- `scale_color_gradient2()`:	color, *data*: continuous, *palette*: diverging
+- `scale_fill_viridis_c()`:	color, *data*: continuous, *palette*: sequential
+- `scale_fill_viridis_d()`:	fill, *data*: discrete, *palette*: sequential
+- `scale_color_brewer()`:	color, *data*: discrete , *palette*: qualitative, diverging, sequential
+- `scale_fill_brewer()`: fill, *data*: discrete, *palette*: qualitative, diverging, sequential
+- `scale_color_distiller()`: color, *data*: continuous, *palette*: qualitative, diverging, sequential
+
+
+# **{colorspace}**
+
+The **{colorspace}** library written by Claus Wilke, Reto Stauffer, and Achim Zeileis brings some really useful color functionality to **{ggplot2}** and creates some order to an otherwise messing set of functions.
+
+Function naming convention: `scale_<aesthetic>_<datatype>_<colorscale>()`
+
+`<aesthetic>`: name of the aesthetic (fill, color, colour)
+`<datatype>`: type of variable plotted (discrete, continuous, binned)
+`<colorscale>`: type of the color scale (qualitative, sequential, diverging, divergingx)
+
+Scale function	Aesthetic    	Data type	Palette type    
+
+- `scale_color_discrete_qualitative()`	color, discrete, qualitative
+- `scale_fill_continuous_sequential()`	fill, continuous, sequential
+- `scale_colour_continous_divergingx()`	color, continuous, diverging
+
+## **{colorspace}** Color Palettes
+
+```{r}
+colorspace::hcl_palettes(type = "sequential", plot = TRUE) # all sequential palettes
+```
+
+```{r}
+colorspace::hcl_palettes(type = "diverging", plot = TRUE, n = 9) # all diverging palettes
+```
+
+```{r}
+colorspace::divergingx_palettes(plot = TRUE, n = 9) # all divergingx palettes
+```
+
+## **Example plots**
+
+We can then specify the function according to our goal using: `scale_<aesthetic>_<datatype>_<colorscale>()`. We can see an example with `fill`ing points.
+
+Continuous: 
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000, Time < 200) %>%
+  filter(., Event == "Freestyle") %>%
+  mutate(., Diff = (Time - mean(Time, na.rm = T))) %>%
+  ggplot(., aes(x = Event, y = Time, col = Diff)) +
+  geom_point(position = position_jitter()) + theme_classic() +
+  scale_color_continuous()
+```
+
+Continuous and Sequential:
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000, Time < 200) %>%
+  filter(., Event == "Freestyle") %>%
+#  mutate(., Diff = (Time - mean(Time, na.rm = T))) %>%
+  ggplot(., aes(x = Event, y = Time, col = Time)) +
+  geom_point(position = position_jitter()) + theme_classic() +
+  scale_color_continuous_sequential()
+```
+
+Discrete and Sequential: 
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000, Time < 200) %>%
+  filter(., Event == "Freestyle") %>%
+  mutate(., Diff = (Time - mean(Time, na.rm = T))) %>%
+  ggplot(., aes(x = Event, y = Time, col = School)) +
+  geom_point(position = position_jitter()) + theme_classic() +
+  scale_color_discrete_sequential()
+```
+
+A specific palette added: `palette = "Inferno"`
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000, Time < 200) %>%
+  filter(., Event == "Freestyle") %>%
+#  mutate(., Diff = (Time - mean(Time, na.rm = T))) %>%
+  ggplot(., aes(x = Event, y = Time, col = Time)) +
+  geom_point(position = position_jitter()) + theme_classic() +
+  scale_color_continuous_sequential(palette = "Inferno")
+```
+
+Continuous and Diverging:
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000, Time < 200) %>%
+  filter(., Event == "Freestyle") %>%
+  mutate(., Diff = (Time - mean(Time, na.rm = T))) %>%
+  ggplot(., aes(x = Event, y = Time, col = Diff)) +
+  geom_point(position = position_jitter()) + theme_classic() +
+  scale_color_continuous_diverging()
+```
+
+
+## **Exploring {colorspace}**
+
+For a dynamic exploration use `colorspace::hcl_wizard()`, which is a **{shiny}** app . When you are done exploring, click the "Return to R" box.
+
+### **Color Picker**
+
+**{colorspace}** also has a color picker function, `colorspace::hclcolorpicker()` which will allow you to pick color and obtain the [hexidecimal color](https://www.color-hex.com/) codes.  You can also obtain html color names and rgb codes for colors at websites like [htmlcolorcodes.com](https://htmlcolorcodes.com/color-names/). With recent updates to RStudio, color names written as character strings when typed in the console or in files will display the color. Hint: you must type the names in lowercase (e.g., "mediumseagreen. If the color is not known by its name, then you won't see the background string color change.
+
+
+# **Setting Colors Manually**
+
+## *Discrete, qualitative scales*
+
+Discrete, qualitative scales are sometimes best set manually.
+
+An example using default color palette:
+
+```{r}
+SWIM %>%
+  filter(., Distance < 1000) %>%
+  ggplot(., aes(x = Distance, y = Time, color = School)) +
+  geom_point(position = position_jitter()) +
+  scale_color_hue()
+```
+Now consider the following plot.
+
+```{r temps-months-default, echo = TRUE, fig.height = 3}
+SWIM %>%
+  ggplot(., aes(x = School, y = Time, fill = Event)) + 
+  geom_col() 
+```
+
+
+To set the color, add a layer:
+
+For the hue, `scale_<datatype>_hue()` could be `scale_colour_hue()` or `scale_fill_hue()`. The two function are listed below.
+
+```
+scale_colour_hue(
+  ...,
+  h = c(0, 360) + 15,
+  c = 100,
+  l = 65,
+  h.start = 0,
+  direction = 1,
+  na.value = "grey50",
+  aesthetics = "colour"
+)
+
+scale_fill_hue(
+  ...,
+  h = c(0, 360) + 15,
+  c = 100,
+  l = 65,
+  h.start = 0,
+  direction = 1,
+  na.value = "grey50",
+  aesthetics = "fill"
+)
+```
+
+
+When you are trying to customize a plot for a client or find issue with the color palettes out-of-the-box, `scale_color_manual()` or `scale_fill_manual()` are likely your best friends. As you see in the functions, you need to pass some color `values`. This is a vector of color by name or hexidecimal code.
+
+```
+scale_colour_manual(
+  ...,
+  values,
+  aesthetics = "colour",
+  breaks = waiver(),
+  na.value = "grey50"
+)
+
+scale_fill_manual(
+  ...,
+  values,
+  aesthetics = "fill",
+  breaks = waiver(),
+  na.value = "grey50"
+)
+```
+
+But you need to know how values are mapped to subgroups. How many subgroups are there and what are they?
+
+```{r}
+glimpse(SWIM) 
+
+unique(SWIM$Event)
+```
+
+Make note of the order. 
+
+The order of the colors in the vector passes to `values` will map to the order of the levels in the data frame. We can demonstrate this by changing the data frame arrangement. 
+
+Sorting by ascending or descending order changes the data frame. 
+
+```{r}
+SWIM %>% select(., Event) %>% unique()
+
+SWIM %>% arrange(., desc(Event)) %>% select(., Event) %>% unique()
+```
+
+So how you sort the data frame matters, right? No. 
+
+Is this vector a factor? Note, you can also see this using `glimpse()`.
+
+```{r}
+is.factor(SWIM$Event)
+```
+
+```{r}
+glimpse(SWIM)
+```
+
+What are the levels?
+
+```{r}
+levels(SWIM$Event)
+```
+
+The `levels()` function will only return levels if the vector is a factor. 
+
+
+Let's change the variable in the data frame:
+
+```{r}
+SWIM <- SWIM %>% mutate(., Event = factor(Event))
+
+
+levels(SWIM$Event)
+
+
+num_events <- length(levels(SWIM$Event))
+```
+
+
+```{r}
+is.ordered(SWIM$Event)
+```
+
+So it is not an ordered factor but it does have an order and that order will affect the plot.
+
+The colors in the vector passed to `values` will map onto the order of the levels as displayed by `levels()`.
+
+```{r}
+SWIM %>%
+  filter(., Distance < 300) %>%
+  ggplot(., aes(x = Split50, y = Time, color = Event)) +
+  geom_point() +
+  scale_color_manual(
+    values = c("#E69F00", "#1E90FF", "#009E73", 
+               "#FFD700", "maroon", "gray")
+  )
+```
+
+## *Reverse the using `rev()`*
+
+```{r}
+SWIM %>%
+  filter(., Distance < 300) %>%
+  ggplot(., aes(x = Split50, y = Time, color = rev(Event))) +
+  geom_point() +
+  scale_color_manual(
+    values = c("#E69F00", "#1E90FF", "#009E73", 
+               "#FFD700", "maroon", "gray")
+  )
+```
+
+Something is wrong. Double check your data and labels.
+
+
+## *`mutate()` to change the order of `levels`*
+
+```{r}
+SWIM %>%
+  filter(., Distance < 300) %>%
+  mutate(., Event = factor(Event, 
+                           levels = c("Freestyle", "Breaststroke", 
+                                      "Butterfly", "Backstroke",
+                                      "IM", "Medley"
+                                      ))
+         ) %>% 
+  ggplot(., aes(x = Split50, y = Time, color = Event)) +
+  geom_point() +
+  scale_color_manual(
+    values = c("#E69F00", "#1E90FF", "#009E73", 
+               "#FFD700", "maroon", "gray")
+  )
+```
+
+OK, so we see that the color changes because the order of the levels changed. They are reordered in the plot legend. 
+
+
+## *`mutate()` to make it an ordered factor*
+
+The order of the labels does not make a factor ordered. We need to do something special to accomplish that, which we will do here. However, the example is arbitrary here as there is not order or ranking to how I arrange them.
+
+```{r}
+SWIM %>%
+  filter(., Distance < 300) %>%
+  mutate(., Event = factor(Event, 
+                           levels = c("Freestyle", "Breaststroke", 
+                                      "Butterfly", "Backstroke",
+                                      "IM", "Medley"
+                                       ),
+                           ordered = T)
+         ) %>% 
+  ggplot(., aes(x = Split50, y = Time, color = Event)) +
+  geom_point() +
+  scale_color_manual(
+    values = c("#E69F00", "#1E90FF", "#009E73", 
+               "#FFD700", "maroon", "gray")
+  )
+```
+
+
+## *Change the `labels` for the `levels`*
+
+Pass a vector of equal length with label names. 
+
+```{r}
+SWIM %>%
+  filter(., Distance < 300) %>%
+  mutate(., Event = factor(Event, 
+                           levels = c("Freestyle", "Breaststroke", 
+                                      "Butterfly", "Backstroke",
+                                      "IM", "Medley"
+                                       ),
+                           labels = c("Free", "Breast", "Fly",
+                                      "Back", "IM", "Medley"))
+         ) %>% 
+  ggplot(., aes(x = Split50, y = Time, color = Event)) +
+  geom_point() +
+  scale_color_manual(
+    values = c("#E69F00", "#1E90FF", "#009E73", 
+               "#FFD700", "maroon", "gray")
+  )
+```
+
+Colors didn't change but labels did. 
+
+
+## *Pair a Color with a Level*
+
+I'm not going to get into why this approach is actually a vector but you can test it if you want.
+
+```{r}
+is.vector(c(Freestyle = "#E69F00", Breaststroke = "#1E90FF",
+            Butterfly = "#009E73", Backstroke = "#FFD700", 
+            IM = "maroon", Medley = "gray"))
+
+```
+
+Pass a vector of names and color values. 
+
+```{r}
+SWIM %>%
+  filter(., Distance < 300) %>%
+  ggplot(., aes(x = Split50, y = Time, color = Event)) +
+  geom_point() +
+  scale_color_manual(
+    values = c(Freestyle = "#E69F00", Breaststroke = "#1E90FF",
+               Butterfly = "#009E73", Backstroke = "#FFD700", 
+               IM = "maroon", Medley = "gray")
+  )
+```
+
+## *Pass a vector of colors*
+
+Changing the colors inside the function can be annoying so you might just create a vector object to pass to `values`.
+
+```{r}
+color_vector <- c(Freestyle = "#E69F00", Breaststroke = "#1E90FF",
+                  Butterfly = "#009E73", Backstroke = "#FFD700", 
+                  IM = "maroon", Medley = "gray")
+  
+SWIM %>%
+  filter(., Distance < 300) %>%
+  ggplot(., aes(x = Split50, y = Time, color = Event)) +
+  geom_point() +
+  scale_color_manual(values = color_vector)
+```
+
+### *Vectors containing additional name elements*
+
+If that vector contains names that are not in the variable vector, then the function will not break. Rather, colors will show for level in the data only. We are going to save this plot object to use later.
+
+```{r}
+color_vector <- c(Freestyle = "#E69F00", Breaststroke = "#1E90FF",
+                  Butterfly = "#009E73", Backstroke = "#FFD700", 
+                  IM = "maroon", Medley = "gray",
+                  SomethingNew = "blue"
+                  )
+
+(SWIM_plot <- SWIM %>%
+  filter(., Distance < 300) %>%
+  ggplot(., aes(x = Split50, y = Time, color = Event)) +
+  geom_point() +
+  scale_color_manual(values = color_vector)
+)
+```
+
+### *Vectors missing name elements*
+
+But when names in the data vector are not in the color vector, something interesting happens.
+
+```{r}
+(color_vector <- color_vector[1:3])
+```
+
+```{r}
+SWIM %>%
+  filter(., Distance < 300) %>%
+  ggplot(., aes(x = Split50, y = Time, color = Event)) +
+  geom_point() +
+  scale_color_manual(values = color_vector)
+```
+
+First, and most obviously, the missing pair is dropped from the legend. So the data points are stripped from the plot too, right? Look closer. No! They are in a there but plotting as `"grey50"`. This happens because the default setting `na.value = "grey50"`.
+
+There is also no warning, so double check your plots!
+
+
+More dramatically, show only the first color element.
+
+```{r}
+SWIM %>%
+  filter(., Distance < 300) %>%
+  ggplot(., aes(x = Split50, y = Time, color = Event)) +
+  geom_point() +
+  scale_color_manual(values = color_vector[1])
+
+color_vector
+which(names(color_vector) == "Freestyle")
+```
+
+
+This approach can be useful if you want to color only certain events by their name. 
+The goal would be to determine which color corresponds to the Freestyle and plot only that. But remember, there are names in the vector and color values.
+
+```{r}
+color_vector
+
+
+names(color_vector)
+```
+
+We need to find out the color position corresponding to the name position Using `which()` we can evaluate the names to determine which position is the Freestyle.
+
+```{r}
+which(names(color_vector) == "Freestyle")
+```
+
+What we get returned is position `r which(names(color_vector) == "Freestyle")`. Of course, you knew that but something might change and if it moves position based on a reordering, then hard coding won't work.
+
+To obtain the color associated with element position `r which(names(color_vector) == "Freestyle")`, use `[]` notation after the vector.
+
+```{r}
+color_vector[1] # hard coded solution
+
+color_vector[which(names(color_vector) == "Freestyle")] # flexible solution
+```
+
+
+Putting it all together, pass that to `values`:
+
+```{r}
+SWIM %>%
+  filter(., Distance < 300) %>%
+  ggplot(., aes(x = Split50, y = Time, color = Event)) +
+  geom_point() +
+  scale_color_manual(values = color_vector[which(
+    names(color_vector) == "Freestyle")]
+    )
+```
+
+And if you wanted more than one event, evaluate with `%in%` rather than `==`. For example, `names(color_vector) %in% c("Freestyle", "Butterfly")`.
+
+```{r}
+SWIM %>%
+  filter(., Distance < 300) %>%
+  ggplot(., aes(x = Split50, y = Time, color = Event)) +
+  geom_point() +
+  scale_color_manual(values = color_vector[which(
+    names(color_vector) %in% c("Freestyle", "Butterfly"))]
+    )
+```
+
+
+

@@ -1,5 +1,5 @@
 ---
-title: "**Vectors and Data Frame Basics**"
+title: "*Vectors and Data Frame Basics*"
 author: "Gabriel I. Cook"
 #date: "`r Sys.Date()`"
 date: "`r format(Sys.time(), '%d %B, %Y')`"

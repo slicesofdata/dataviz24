@@ -1,5 +1,5 @@
 ---
-title: "**Project Management 01: Installing and Setting Up Git and GitHub for R**"
+title: "*Project Management 01: Installing and Setting Up Git and GitHub for R*"
 author: "Gabriel I. Cook"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 

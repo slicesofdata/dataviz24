@@ -1,0 +1,749 @@
+---
+title: "*Coordinates, axes, and position scales*"
+author: "Gabriel I. Cook"
+#date: "`r Sys.Date()`"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  #enabled: false
+  freeze: auto
+
+#order: 2 
+  
+#http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization
+---
+
+```{r}
+#| label: load-packages
+#| include: false
+```
+
+::: callout-important
+## Under construction. 
+
+This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.
+
+:::
+
+# **Overview**
+
+The focus of this module will be on plots visualized on a Cartesian Coordinate system. When you are dealing with other types of data, you may wish to plot on a different coordinate systems. When needed, you can check out `ggplot2::coord_polar()` or libraries like **{sf}** for plotting maps. Moreover, out-of-the-box plots present axes that are rarely visualized in a way suitable to your plot. The often, if not always, require some fine tuning. This module will focus on changes scale `limits`, `breaks`, and `labels`. 
+
+# **To Do**
+
+## **Readings**
+
+Reading should take place in two parts:
+
+ - *Prior to class*, the goal should be to familiarize yourself and bring questions to class. The readings from [TFDV](https://clauswilke.com/dataviz) are conceptual and should facilitate readings from [EGDA](https://ggplot2-book.org/) for code implementation.
+ - *After class*, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. 
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of **{ggplot2}**. I will assume that you attend class with some level of basic understanding of concepts.
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing **{ggplot2}** code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week's readings. 
+
+*After Class*: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from **Wickham, Navarro, & Pedersen (under revision)**. *ggplot2: Elegant Graphics for Data Analysis (3e)*.
+
+
+- [Wilke (2019). *Fundamentals of Data Visualization*.  Coordinate Systems / Axes](https://clauswilke.com/dataviz/coordinate-systems-axes.html)
+- [Wickham, Navarro, & Pedersen (under revision). *ggplot2: Elegant Graphics for Data Analysis (3e)*. Position scales and axes](https://ggplot2-book.org/scales-position)
+
+
+## **External Functions**
+
+Provided in class:
+
+`view_html()`: for viewing data frames in html format, from `/r/my_functions.R` 
+
+You can use this in your own work space but I am having a challenge rendering this of the website, so I'll default to `print()` on occasion.
+
+```{r}
+source(here::here("r", "my_functions.R"))
+```
+
+## **Libraries**
+
+- **{dplyr}** `r packageVersion("dplyr")`: for selecting, filtering, and mutating
+- **{magrittr}** `r packageVersion("magrittr")`: for code clarity and piping data frame objects
+- **{ggplot2}** `r packageVersion("ggplot2")`: for plotting
+
+## **Load libraries**
+
+```{r message=FALSE}
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+```
+
+# **Loading Data**
+
+For this exercise, we will use some data from a 2023 CMS swim meet located at: "https://github.com/slicesofdata/dataviz23/raw/main/data/swim/cleaned-2023-CMS-Invite.csv".
+
+```{r}
+SWIM <- readr::read_csv("https://github.com/slicesofdata/dataviz23/raw/main/data/swim/cleaned-2023-CMS-Invite.csv",
+                        show_col_types = F)
+```
+
+
+# **Coordinates**
+
+For any graphical data visualization to be created, it must fall within some defined position scales. The position scale is essential for defining where elements of the visualization are located in space. For two dimensional visualizations that appear in print or in electronic form, those positions are constrained by two axes, conventionally known as x and y. In print, those positions typically take the horizontal and vertical positions, respectively. Those axis names and their orientations are arbitrary but they provide a common language for all people creating visualizations to understand. Together, set of position scales (x and y here) and their relative geometric arrangement creates the coordinate system. 
+
+To plot a single bar as narrow as a single pixel (technically a line), some position needs to be determined on the x-axis for the bar location and on the y-axis for its terminal height. That xy location for that specification is very much just a point until the bar (line) extends to some terminal location, typically at the x-axis. When the bar width is greater than a single pixel, then the thickness defines more positions but are needed nonetheless. When there are two or more bars, each likely needs its own position so that they are not stacked on top of each other. Similarly, points for scatter plots also need positions in space to represent their x and y positions. 
+
+
+
+## **The Cartesian Coordinate System**
+
+The coordinate system described above is that Cartesian coordinate system, within which locations are specified by positions on the x and y axis corresponding to specific values determined by x and y as single values or specified by sets of values belonging to x and y. Because axes themselves are lines and represent continuous position scales, they stretch in real numbers beyond 0 in both directions, resulting in four quadrants of the coordinate system. Thus, x and y axes can contain both positive and negative real numbers. The visualization, however, needs axis limits in order to define the space along x and y for the data to appear. As you are familiar, many plots limit x and y axes to a value of 0 on the low end and some other value on the upper end. Data that exist outside of the define plot axis limits will not be depicted in the plot.
+
+A plot depicting values from x and y variables from the same unit system should be visualized such that the interval between values along two axes is equivalent. For example, if x and y both represent quantities, the number of pixels separating 1 and 3 on the x axis should be equivalent on the y axis. In other words, the same number of data units along the x or y axis should correspond to the same distance on those axes. Violations of this representation occur and present perceptual distortions of the data. In some instances, for example, when the limits of the x and y axes are the same, the plot should take form as a square rather than rectangle with either the x or the y axis longer than the other. 
+
+When the variables are on different scales, however, either x or y axis could be stretched or compressed for a different perspective depending on the goal so storytelling. As long as one is not trying to bias their audience in a way to mislead them, a favorable aspect ratio could be one with good aesthetics. A plot with balance is always appealing. Something too wide or too tall may just appear odd. In general, an aspect ratio should be chosen that communicates important aspects of differences in position are noticeable.
+
+When plots (e.g., `geom_()`s) use statistical transformations (e.g., jittering), you should consider carefully the influence of the data position relative to the actual data. Fine tuned these transformations to ensure the the visualize data are most true to the actual data to reduce bias.  
+
+
+## **Coordinate Functions: `coord_*()`**
+
+There are a variety of `coord_()` layer functions for . By default, plots already have a `coord_cartesian()` layer.  Also, the x-axis is oriented horizontally and the y-axis is oriented vertically. By tradition, predictor variables assume the x-axis orientation, whereas outcome variables assume the y-axis. 
+
+### **`coord_flip()`**
+
+`coord_flip()` is used to flip the Cartesian coordinate system such that the x and y axis swap positions. Flipping may facilitate plot perception, for example, when bar length rather than height either makes more sense or supports comparisons. Outcome variables that are natively perceived in terms of length rather than height may also benefit from plotting the outcome variable along the x axis.
+
+```{r}
+SWIM %>% 
+  filter(Distance == 100) %>%
+  group_by(Event) %>%
+  summarize(Time = mean(Time)) %>%
+  ggplot(data = .,
+         mapping = aes(x = Event, y = Time)) +
+  geom_col() +
+  coord_flip()
+```
+
+
+
+###  **`coord_fixed()`**
+
+When ensuring the aspect ratio of the coordinate system is important, `coord_fixed()` will prove helpful. 
+
+The most important parameter of the function is `ratio`, which by default is set to `ratio = 1`. The ratio represents the aspect ratio, expressed as `y / x`. Thus, the number of units on the y-axis that are equivalent to one unit on the x-axis. Thus, `ratio = 1` ensures that one unit on the x-axis equates to 1 unit on the y-axis. 
+
+You can easily modify this to a different value, for example, `1.5`, `2` or `10` to make the y axis longer than the x axis by this ratio. If you wish to make the y axis shorted, use a value or fraction to be less than 1 (e.g., `1/5`). In addition, `xlim` and `ylim` parameters can be set in this layer.
+
+To illustrate, let's set the two axis limits to begin and end at the same values using `xlim()` and `ylim()`. Both require a two element vector. In addition, the default ratio is `ratio = 1`.
+
+```{r}
+SWIM %>% 
+  filter(Distance == 100) %>%
+  ggplot(data = .,
+         mapping = aes(x = Split50, y = Time)) +
+  geom_point() +
+  xlim(0, 60) +
+  ylim(0, 60) +
+  #coord_equal()
+  coord_fixed(ratio = 1)
+```
+
+Setting `ratio = 2`:
+
+```{r}
+SWIM %>% 
+  filter(Distance == 100) %>%
+  ggplot(data = .,
+         mapping = aes(x = Split50, y = Time)) +
+  geom_point() +
+  xlim(0, 60) +
+  ylim(0, 60) +
+  coord_fixed(ratio = 2)
+```
+
+You see that the plot is now lengthened `2:1` in favor of the y-axis. 
+
+
+But the function might not work exactly as you expect. For example, if you axis limits are not set to be the same, but rather x is twice that of y, then a ratio of `1` behaves perhaps a little different from what you might think. 
+
+```{r}
+expand_plot <- SWIM %>% 
+  filter(Distance == 100) %>%
+  ggplot(data = .,
+         mapping = aes(x = Split50, y = Time)) +
+  geom_point()
+
+noexpand_plot <- SWIM %>% 
+  filter(Distance == 100) %>%
+  ggplot(data = .,
+         mapping = aes(x = Split50, y = Time)) +
+  geom_point() +
+  # do not expand axis (no padding))
+  coord_cartesian(expand = FALSE)
+
+suppressMessages(
+  plot(
+    gridExtra::arrangeGrob(expand_plot, noexpand_plot, ncol = 1))
+)
+```
+
+Be careful:
+
+```{r}
+noexpand_plot2 <- SWIM %>% 
+  filter(Distance == 100) %>%
+  ggplot(data = .,
+         mapping = aes(x = Split50, y = Time)) +
+  geom_point() +
+  # do not expand axis (no padding))
+  #coord_cartesian(expand = FALSE) +
+  #coord_cartesian(expand = FALSE,
+  #                xlim = c(0, 40),
+  #                ylim = c(0, 80)
+  #                ) +
+  coord_fixed(ratio = 1, 
+              xlim = c(0, 40), 
+              ylim = c(0, 80)
+              )
+  #scale_y_continuous(expand = c(0, 0))
+
+suppressMessages(
+  plot(
+    gridExtra::arrangeGrob(expand_plot, 
+                           noexpand_plot,
+                           noexpand_plot2,
+                           ncol = 1))
+)
+```
+
+
+### **`coord_equal()`**
+
+```{r}
+SWIM %>% 
+  filter(Distance == 100) %>%
+  ggplot(data = .,
+         mapping = aes(x = Split50, y = Time)) +
+  geom_point() +
+  xlim(0, 60) +
+  ylim(0, 60) +
+  coord_equal()
+```
+
+
+## **Nonlinear scales**
+
+In many cases, you will be trying to visualize data that are linear such that the numeric values of the variable map on to the same positions in space. The interval between numeric values is the same as the interval in physical space for the printed plot. In other cases, the interval between values may not be linear. For example, data that are converted to logarithms, square roots, cubes, etc. have one distance representing the actual numeric values (linear) and another distance corresponding to the values on the transformed scale (ordinal).  
+
+Wilke discusses several issues related to linear and nonlinear scales is his chapter covering [axes](https://clauswilke.com/dataviz/coordinate-systems-axes.html). In particular, he discusses instances for presenting data as logarithms, how to plot the, and  
+
+log-transformed data, we can get confused about whether the data were transformed using the natural logarithm or the logarithm to base 10. And it’s not uncommon for labeling to be ambiguous, e.g. “log(x)”, which doesn’t specify a base at all. I recommend that you always verify the base when working with log-transformed data. When plotting log-transformed data, always specify the base in the labeling of the axis.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+#ggsave(
+#  filename = here::here("figs", "plot1_w6_h6_.png"), 
+#  plot = plot1, 
+#  device = ragg::agg_png, 
+#  width = 6, 
+#  height = 6, 
+#  units = "cm", 
+#  res = 300
+#)
+
+```
+
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+#https://www.tidyverse.org/blog/2020/08/taking-control-of-plot-scaling/
+
+#Absolute size: This is the physical dimensions of the graphic (or, more precisely, the intended physical dimensions). This is measured in centimeters or inches or another absolute length unit.
+
+#Pixel size: For raster output, the graphic is encoded as a matrix of color values. Each cell in the matrix is a pixel. The pixel size is the number of rows and columns in the matrix. Pixels does not have any inherent physical size.
+
+#Resolution: This number ties absolute and pixel size together. It is usually given in ppi (pixels per inch), though dpi (dots per inch) is used interchangeably. A resolution of 72 ppi means that an inch is considered 72 pixels long.
+
+#Pointsize: This is a measure tied to text sizing. When we set a font to size 12, it is given in points. While the actual size of a point has varied throughout history, the general consensus now is that 1pt = 1/72 inch (this is also adopted by R). Since points is an absolute unit, the resolution of the output will determine the number of pixels it correspond to.
+
+```
+
+
+## **Examples of Plots with Axis Problems**
+
+As we have seen with some plots out-of-the-box, the tick marks along either the x or y axis are not suitable for favorable perceptual experiences. The user can be particularly strained with the height of the bar cannot be mapped to a value on the y-axis or a position along the x-axis cannot be mapped well to the bin. These problems are seen in these two simple examples.
+
+```{r}
+plot1 <- SWIM %>%
+  filter(Time < 500) %>%
+  ggplot(., aes(Time)) +
+  geom_histogram(bins = 20) +
+  labs(title = "bins = 20",  
+       tag = "A",
+       )
+
+plot2 <- SWIM %>%
+  filter(Time < 500) %>%
+  ggplot(., aes(Time)) +
+  geom_histogram(bins = 60) +
+  labs(title = "bins = 60",  
+       tag = "B",
+       )
+
+
+plot(gridExtra::arrangeGrob(plot1, plot2, ncol = 1))
+```
+
+The previous modules are replete with plots containing this problem that compromises your ability to interpret the plot. At the time we introduced those plots, ways to address this problem were not introduced. This module addresses scale and axis adjustments.  
+
+
+# **Counts, Proportions, and Percentages**
+
+When plotting `geom_histogram()`, the default statistical transformation is to calculate frequency counts (Plot A). 
+
+Counts, however, represent frequencies for specific instances of a larger set of instances, so proportions allow the user to understand the relative distribution of counts across the bins. Plot B illustrates this usage. As long at the data frame passed into the `geom_()` is what appears on the plot, the user could also discover (if they did not know) that the bins sum to 1.0 for proportions and 100% for percentages. 
+
+But some users struggle with proportions and for them, percentages make more sense. Plot C makes an adjustment the position scaling of the y-axis. Because the y-axis is continuous, `scale_y_continuous(labels = scales::percent)`, will take the values and replace them with a percent rescaling from the **{scales}** library.
+
+```{r}
+plot1 <- SWIM %>%
+  filter(Time < 300) %>%
+  ggplot(., aes(Time)) +
+  geom_histogram() +
+  labs(title = "counts",  
+       tag = "A",
+       y = "count"
+       )
+
+plot2 <- SWIM %>%
+  filter(Time < 300) %>%
+  ggplot(., aes(Time)) +
+  geom_histogram(aes(y = after_stat(count)/sum(after_stat(count)))) +
+  labs(title = "proportions",  
+       tag = "B",
+       y = "proportion"
+       )
+
+plot3 <- SWIM %>%
+  filter(Time < 300) %>%
+  ggplot(., aes(Time)) +
+  geom_histogram(aes(y = after_stat(count)/sum(after_stat(count)))) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "percentages",  
+       tag = "C",
+       y = "percent"
+       )
+
+plot4 <- SWIM %>%
+  #filter(Time < 500) %>%
+  ggplot(., aes(Time)) +
+  geom_histogram(aes(y = after_stat(count)/sum(after_stat(count)))) +
+  scale_y_continuous(labels = scales::percent) +
+  scale_x_continuous(limits = c(0, 300)) +
+  labs(title = "percentages with truncated x-axis",  
+       tag = "D",
+       y = " "
+       )
+
+plot(gridExtra::arrangeGrob(plot1, plot2, plot3, plot4, ncol = 2))
+```
+
+Notice that a labeling of the y-axis is also removed because the percent labeling makes this detail redundant. Only if your numbers omit a % would you need to include a major axis label. Do not burden your audience with details that do not facilitate plot consumption.
+
+
+## **Position Scale Types**
+
+Although there are several types of scales, the two most common are scales for continuous data or discrete data. The focus will be on changing them.
+
+```
+scale_*_continuous()
+scale_*_discrete()
+```
+
+## **Position scales for continuous data: `scale_*_continuous()`**
+
+The continuous scale:
+
+```
+scale_y_continuous(
+  name = waiver(),
+  breaks = waiver(),
+  minor_breaks = waiver(),
+  n.breaks = NULL,
+  labels = waiver(),
+  limits = NULL,
+  expand = waiver(),
+  oob = censor,
+  na.value = NA_real_,
+  trans = "identity",
+  guide = waiver(),
+  position = "left",
+  sec.axis = waiver()
+)
+```
+
+### *Axis `limits`*
+
+In general, axis limits specify where the axis should start and where is should end (what's rendered is a little more complicated though). 
+
+Notice there are four plots (e.g., A, B, C, and D). Examine them for differences in their bars. Plot D bars look different from the others beyond the obvious y-axis difference. The data passed to the geom for that plot are not what appear on the plot. After the plot was rendered, the x-axis was adjusted by adjusting its limits.
+
+A layer was added to the plot to set the limits `scale_x_continuous(limits = c(0, 300))`. Although there was no filtering of `Time` from the data frame, the limits were adjusted and the x-axis appears like Plots A, B, and C. Because the limits were adjusted after the statistical transformation took place in the geom, what you see is incorrect for the data. Whereas this approach presents no perceptual issue for most geoms, this approach will result in a misrepresentation of data for histogram plots displaying proportions or percentages. If you wish to present percentages, adjust the data frame a priori.
+
+
+### *Tick Marks*
+
+You can specify where ticks appear along an axis by passing break specifications to `breaks`. Breaks also need corresponding `labels`. We will address both together because a label needs to exist for each of the breaks.  
+
+We can add `breaks` as a vector but remember that `labels = scales::percent` is just changing the rendering of the plot, not the actual values from the statistical transformation. You will need to pass a vector of proportions. 
+
+```
+  scale_y_continuous(breaks = c(.05, .10, .15, .20, .30),
+                     labels = scales::percent
+                     )
+```
+
+```{r}
+SWIM %>%
+  filter(Time < 300) %>%
+  ggplot(., aes(Time)) +
+  geom_histogram(aes(y = after_stat(count)/sum(after_stat(count)))) +
+  scale_y_continuous(breaks = c(.05, .10, .15, .20, .30),
+                     labels = scales::percent
+                     ) 
+```
+
+Wait! Not all ticks are there. This is because `geom_histogram()` made adjustments to the plot by default. You will need to make sure the `limits` accommodate the `breaks`.
+
+```{r}
+SWIM %>%
+  filter(Time < 300) %>%
+  ggplot(., aes(Time)) +
+  geom_histogram(aes(y = after_stat(count)/sum(after_stat(count)))) +
+  scale_y_continuous(breaks = c(.05, .10, .15, .20, .30),
+                     labels = scales::percent,
+                     limits = c(0, .30)
+    ) +
+  labs(y = "")
+```
+
+But notice also that only certain breaks were specified. Whether intentional or unintentional, there is a 10% jump from 20% to 30%. This looks odd but perhaps that was intentional. 
+
+```{r}
+SWIM %>%
+  filter(Time < 300) %>%
+  ggplot(., aes(Time)) +
+  geom_histogram(aes(y = after_stat(count)/sum(after_stat(count)))) +
+  scale_y_continuous(breaks = c(.05, .10, .15, .20, .30),
+                     labels = scales::percent,
+                     limits = c(0, .30)
+    ) +
+  labs(y = "")
+```
+
+
+## *Breaks as a sequence using `seq()`*
+
+Using `seq()` we can specify the starting point (from) the ending point (to) and the step by which to create the sequence.
+
+For example, `seq(from = 0, to = .3, by = .05)` will return `r seq(0, .3, by = .05)`. We could also make the `breaks` sequence from 0 to 1 but if we truncate the `limits`, then you just won't see them anyway. Just don't truncate the bottom.
+
+```{r}
+SWIM %>%
+  filter(Time < 300) %>%
+  ggplot(., aes(Time)) +
+  geom_histogram(aes(y = after_stat(count)/sum(after_stat(count)))) +
+  scale_y_continuous(breaks = seq(0, 1, by = .05),
+                     labels = scales::percent,
+                     limits = c(0, .20)
+    ) +
+  labs(y = "")
+```
+
+
+## *Break labels*
+
+You see that a `labels` adjustment has been added to the y-axis. This should suggest to you that you could pass your own break `labels` to either axis.
+
+For example, we can just add a couple labels on the x-axis. Keep in mind that specifying `labels` will override other labeling by default.
+
+```
+  scale_x_continuous(
+    breaks = c(100, 200),
+    label = c("100m", "Wow")
+    )
+```
+
+And we can make the labelling more clear along the y-axis but making the sequence step smaller.
+
+```
+  scale_y_continuous(breaks = seq(0, 1, by = .02),
+                     labels = scales::percent,
+                     limits = c(0, .2)
+                     )
+```
+
+Which gives us:
+
+```{r}
+SWIM %>%
+  filter(Time < 300) %>%
+  ggplot(., aes(Time)) +
+  geom_histogram(aes(y = after_stat(count)/sum(after_stat(count)))) +
+  scale_y_continuous(breaks = seq(0, 1, by = .02),
+                     labels = scales::percent,
+                     limits = c(0, .2)
+                     ) +
+  scale_x_continuous(breaks = c(100, 200),
+                     label = c("100m", "Wow")
+                     ) +
+  labs(y = "")
+```
+
+
+
+## **Position scales for discrete data: `scale_*_discrete()`**
+
+A `geom_*()` that plots data for a categorical variable, will have a discrete x-axis. 
+
+```
+discrete_scale(
+  aesthetics,
+  scale_name,
+  palette,
+  name = waiver(),
+  breaks = waiver(),
+  labels = waiver(),
+  limits = NULL,
+  expand = waiver(),
+  na.translate = TRUE,
+  na.value = NA,
+  drop = TRUE,
+  guide = "legend",
+  position = "left",
+  super = ScaleDiscrete
+)
+
+```
+
+
+### *Limits and Breaks*
+
+When adjusting discrete `limits`, the limits correspond to the levels.
+
+```
+scale_x_discrete(limits = c("Freestyle", "Butterfly"))
+```
+
+```{r}
+SWIM %>%
+  filter(Time < 500) %>%
+  ggplot(., aes(x = Event, y = Time)) +
+  geom_point(position = position_jitter()) +
+  scale_x_discrete(limits = c("Freestyle", "Butterfly"))
+```
+
+If you try to adjust a discrete axis using `scale_*_continuous()`, you will get the following error.
+
+`Error: Discrete value supplied to continuous scale`
+
+
+And `breaks` operate the same way so we can specify as vector here too.
+
+```
+breaks = c("Freestyle", "Butterfly")
+```
+
+```{r}
+SWIM %>%
+  filter(Time < 500) %>%
+  ggplot(., aes(x = Event, y = Time)) +
+  geom_point(position = position_jitter()) +
+  scale_x_discrete(breaks = c("Freestyle", "Butterfly"))
+```
+
+Then select a subset by level:
+
+```
+scale_x_discrete(limits = c("Freestyle", "Butterfly"))
+```
+
+Alternatively, if you don't want to reference a long function like `scale_x_discrete()`, there are shorthand functions for limits which you could just add as layers to the plot.
+
+- `xlim()`: a two-element vector with the start and end values
+- `ylim()`: a two-element vector with the start and end values
+
+
+```{r}
+SWIM %>%
+  filter(Time < 500) %>%
+  ggplot(., aes(x = Event, y = Time)) +
+  geom_point(position = position_jitter()) +
+  ylim(0, 600) +
+  xlim("Backstroke" , "Freestyle", "Butterfly")
+#scale_x_discrete(breaks = c("Freestyle", "Butterfly"))
+```
+
+
+You can also expand plot limits to ensure you include a value. For more, see `expand_limits()`.
+
+
+
+## **Other Scale Functions**
+
+There are many other `scale_*_()` functions you could apply.
+
+```
+scale_x_sqrt(...)
+scale_y_sqrt(...)
+```
+
+## **Reverse a Continuous Scale**
+
+```
+scale_x_reverse()
+scale_y_reverse()
+```
+
+```{r}
+SWIM %>%
+  filter(Time < 500) %>%
+  ggplot(., aes(x = Event, y = Time)) +
+  geom_point(position = position_jitter()) +
+  scale_y_reverse()
+```
+
+
+## **Convert to Log Scale**
+
+Whenever you perform operations, you should know what the returned values with be. The default logging function, `log()`, calculates the natural log. Use `log10()` or `log(base = 10)` to calculate base 10 logs.
+
+```
+scale_x_log10(...)
+scale_y_log10(...)
+```
+
+```{r}
+plot1 <- SWIM %>%
+  filter(Time < 500) %>%
+  ggplot(., aes(x = Event, y = Time)) +
+  geom_point(position = position_jitter()) +
+  labs(title = "default",
+       tag = "A",
+  ) + coord_flip()
+
+
+plot2 <- SWIM %>%
+  filter(Time < 500) %>%
+  ggplot(., aes(x = Event, y = Time)) +
+  geom_point(position = position_jitter()) +
+  scale_y_log10() +
+  labs(title = "scale_y_log10()",
+       tag = "B",
+       y = "log10(Time)"
+  ) + coord_flip()
+
+
+plot(gridExtra::arrangeGrob(plot1, plot2, ncol = 1))
+```
+
+Although the data have been transformed, one problem is that that the labels are not fixed to match the transformation. 
+
+We can set `breaks` and `labels` in `scale_y_log10()` as we have done earlier. This steps is failry complicated. Just as we fixed labels for percents with `scales::percent`, the **{scales}** library offers assistance here as well. We can use `scales::trans_breaks()` and pass some arguments. 
+
+
+```
+   breaks = scales::breaks_log(n = 6, base = 10)
+   labels = labels = scales::label_log(digits = 2)
+```
+
+```{r}
+plot3 <- SWIM %>%
+  filter(Time < 500) %>%
+  ggplot(., aes(x = Event, y = Time)) +
+  geom_point(position = position_jitter()) +
+  # create breaks and labels corresponding to the breaks 
+  scale_y_log10(
+   breaks = scales::breaks_log(n = 6, base = 10),
+  ) + 
+  labs(title = "scale_y_log10() ",
+       subtitle = "with with scales::breaks_log() ",
+       tag = "C",
+       y = "log10(Time)"
+  ) + coord_flip()
+
+plot4 <- SWIM %>%
+  filter(Time < 500) %>%
+  ggplot(., aes(x = Event, y = Time)) +
+  geom_point(position = position_jitter()) +
+  # create breaks and labels corresponding to the breaks 
+  scale_y_log10(
+   breaks = scales::breaks_log(n = 6, base = 10),
+   labels = scales::label_log(digits = 2)
+  ) + 
+  labs(title = "scale_y_log10()  ",
+       subtitle = "with breaks and exponentiated labels",
+       tag = "D",
+       y = "log10(Time)"
+  ) + coord_flip()
+
+
+ 
+plot(gridExtra::arrangeGrob(plot3, plot4, ncol = 1))
+```
+
+
+But they still might not look right. We can control our axis breaks by creating a sequence of values that we pass to `scale_x_log10(breaks = ?)`. Starting at 10 seconds, we square to obtain 9 values. 
+
+```{r}
+10 * 2^seq(from = 0, to = 9, by = 1)
+```
+
+We can create a starting point by creating a new data frame and defining an object to hold the fastest time and then plug that into `seq()`.
+
+```{r}
+SWIM_with_min <- SWIM %>%
+  filter(Time < 500) %>%
+  filter(Event == "Freestyle") %>%
+  #filter(Distance == 200) %>%
+  mutate(Distance = factor(Distance)) 
+
+minTime <- min(SWIM_with_min$Time)
+maxTime <- max(SWIM_with_min$Time)
+
+(plot5 <- SWIM_with_min %>%
+  ggplot(., aes(x = Event, y = Time, col = Distance)) +
+  geom_point(position = position_jitter()) +
+  # create breaks starting at 10 and then doubling
+  scale_y_log10(
+   breaks = minTime * 2^seq(from = 0, to = 9, by = 1),
+   #labels = scales::log_breaks(10)# label_log(digits = 2)
+  ) + 
+  labs(title = "scale_y_log10() with breaks sequence",
+       subtitle = paste0("adjusted to fastest time of: ", minTime, "s"),
+       tag = "E",
+       y = "log10(Time)",
+       x = ""
+  ) 
+)
+```
+
+## **Position scales for date/time data**
+
+There area also scales for dealing with date and times. These can be used also in conjunction with `breaks_pretty()`. 
+
+```
+scale_*_date()
+scale_*_time()
+```
+
+
+# **Summary**
+
+We have seen that a lot of customization can be applied to our visualizations of data and have shown just a little bit of what can be done. Many more functions and parameters can be used to customize to greater extents. 
+
+# **Session Info**
+
+```{r, echo = FALSE}
+sessionInfo()
+```
+
+

@@ -1,5 +1,5 @@
 ---
-title: "**Selecting, Filtering, & Mutating**"
+title: "*Selecting, Filtering, & Mutating*"
 author: "Gabriel I. Cook"
 #date: "`r Sys.Date()`"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
@@ -8,6 +8,7 @@ execute:
   #enabled: false
   freeze: auto
 
+#order: 2 
 ---
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
