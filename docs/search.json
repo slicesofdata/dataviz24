@@ -1,159 +1,5 @@
 [
   {
-    "objectID": "modules/04_functions_and_scripts.html",
-    "href": "modules/04_functions_and_scripts.html",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "",
-    "text": "# ::: callout-important\n# ## Under construction. \n\n#This page is a work in progress and may contain areas that need more detail or that required syntactical, #grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I #can fix it for you.\n#:::"
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#readings-and-preparation",
-    "href": "modules/04_functions_and_scripts.html#readings-and-preparation",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Readings and Preparation",
-    "text": "Readings and Preparation\nBefore Class: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.\nClass: In class, some functions and concepts will be introduced and we will practice implementing code through exercises."
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#supplementary-readings",
-    "href": "modules/04_functions_and_scripts.html#supplementary-readings",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Supplementary Readings",
-    "text": "Supplementary Readings\n\nR Workflow Basics\nHuber: Functions\n\n\nTo Do\nRead through the module. You can use the R console or open up an R Markdown (e.g., .Rmd) file to follow along interactively. If you instead prefer to simply read through the content so that you can understand the concepts without coding, that is fine too. Concepts will be applied in class in order to complete activities, however. Reading the module will provide you with confidence working on those activities and prevent you from feeling lost while completing activities. Testing out some code may provide you more confidence."
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#libraries",
-    "href": "modules/04_functions_and_scripts.html#libraries",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Libraries",
-    "text": "Libraries\n\n{here} 1.0.1: for file path management"
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#external-functions",
-    "href": "modules/04_functions_and_scripts.html#external-functions",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "External Functions",
-    "text": "External Functions\nview_html(): for viewing data frames in html format\nYou can access remotely using this code, though you do not need to do so now."
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#examples-of-objects",
-    "href": "modules/04_functions_and_scripts.html#examples-of-objects",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Examples of objects",
-    "text": "Examples of objects\nYou can also think of an object as a sort of container that holds something. Containers of different types hold different things and so is true in computer programming. A container for holding water may look different from a container for holding books. In computer speak, one type of container can hold numbers, another can hold characters, another can hold a data frame, etc. The container object is holding whatever you have assigned it to hold.\nWe will deal with different types of objects in data science. Without providing too complicated or technical of descriptions, some are described below.\n\nnumeric objects: representing numeric information (e.g., one’s age)\ncharacter objects: representing character information (e.g., one’s name or race)\nvector objects: representing more than one numeric object (e.g., ages of participants)\ndata frame objects: containing vectors of data (e.g., column variables and row instances of data)\nfunction objects: that accept one object and return an other object (e.g., the mean of numeric vector)\n\nThere are other type of objects that you will learn about and encounter but for now, those are the most relevant."
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#a-character-example",
-    "href": "modules/04_functions_and_scripts.html#a-character-example",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "A character example",
-    "text": "A character example\nLet’s start with an example of an object called name, which we would like to assign a set of characters, like Jim Bob.\nIn order to create such an object, we would need to place the characters within quotation marks (e.g., single or double, does not matter). The quotes let R know the contents of name are characters (aka strings).\n\"Jim Bob\"\nWhen dealing with data, you will encounter many character objects as they often represent factor variables (e.g., race, ethnicity, favorite game, etc.) but you will also see lots of objects that are numeric in some form (e.g., age, rating, cognitive performance, etc.)."
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#assignment-provides-meaning-or-definition",
-    "href": "modules/04_functions_and_scripts.html#assignment-provides-meaning-or-definition",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Assignment provides meaning or definition",
-    "text": "Assignment provides meaning or definition\nAssignment is akin to creating a new word and assigning a meaning to it. You could also think of an assignment statement as a way to tell R to “create this thing and set it equal to something” so that the computer understand what association represents."
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#a-character-object-a-silly-example",
-    "href": "modules/04_functions_and_scripts.html#a-character-object-a-silly-example",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "A character object: A silly example",
-    "text": "A character object: A silly example\nIf objects are like containers holding things, we can use name of the object (e.g., container) and then assign \"things\" to it using &lt;-. In order to create a character object, we would need to place the characters within quotation marks (e.g., single or double, does not matter). The quotes let R know the contents of container are characters (aka strings).\n\"things\"\nWhen dealing with data, you will encounter many character objects as they often represent factor variables (e.g., race, ethnicity, favorite game, etc.) but you will also see lots of objects that are numeric in some form (e.g., age, rating, cognitive performance, etc.).\nSilly Example:\n\n\"something\" assigned to container\ncontainer &lt;- \"something\"\n\n\ncontainer &lt;- \"things\"\n\nAnd to see its contents, use print() to return the objects content:\n\nprint(container)\n\n[1] \"things\"\n\n\nOr just type the name of the object and you will see the returned object is \"things\".\n\ncontainer\n\n[1] \"things\"\n\n\nFor another example, we could also create an object called name, which we could assign a set of characters, like Jim Bob, making the object a character object.\n\nname &lt;- \"Jim Bob\"\n\nTo see what is returned:\n\nname\n\n[1] \"Jim Bob\"\n\n\nWhether you name is or is not Jim Bob, you can see that name contains the characters that represent the name of someone named “Jim Bob”. Although we assigned \"Jim Bob\" to name, we could have assigned it a given name. The assignment process simply stores the assigned information as an object using of whatever name you decided to call it (e.g., name, Name, NAME, xyz, etc.). We will discuss more on these letter casing differences later.\nYou could also assign the character to the object this way.\n\n\"things\" -&gt; container\n\nHowever, we won’t use much of this approach for different reasons. One reason is that doing so does not follow the R Style Guide. The style guide defines a set of guidelines for coding in R. Rather than memorize all of the styling, pay careful attention to the way code appears in the examples provided and try your best to model your code after the examples. For example, don’t do something this container&lt;-\"things\" just so you save space as doing so makes the code more difficult for you and others to read and understand.\nOK, back to Jim Bob. Of course, there are different people other than Jim Bob who exist in the world but when coding, they do not exist unless you create them. So, let’s create an object that holds the name of \"Jim Bob\".\nname &lt;- \"Jim Bob\"\n\nname &lt;- \"Jim Bob\"     # assign string to object named name\n\n\nName &lt;- \"Jim Bob\"     # we could have assigned it a different name, say Name\n\n\nNAME &lt;- \"Jim Bob\"     # or assigned it in all caps\n\nWhenever you reference the object name (or Name), R will return the contents of the object to you, which in this case will be a character or string object containing a single person’s name because that’s how we assigned it.\n\nname               # call object to return contents of \"name\"\n\n[1] \"Jim Bob\"\n\n\nAnd again, we can use print() to do the same thing:\n\nprint(name)\n\n[1] \"Jim Bob\"\n\n\n\nBeing mindful of case sensitivity\nA word of warning is needed here. Although name, Name, and NAME all contain the same four characters, n a m and e all arranged it he same order, the objects are all different. They just happen to hold the same content. The reason for there being three different object is because R is a case-sensitive language, which means that the letter case matters. In some programming languages, the case is ignored.\nTo illustrate, consider an example for which you assign different names to the object.\nname &lt;- \"Jim Bob\"     # create the object\n\n\nName &lt;- \"Bob\"         # then change it\n\n\nNAME &lt;- \"Jim\"         # then change it again\nIn those languages, if you asked what the name object contained, the program would return \"Jim\" because these characters were assigned last, even though they were assigned to an uppercase version, NAME. With R, you will need to be mindful of the letter case. This is by design, perhaps an advantage rather than a disadvantage."
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#a-numeric-object",
-    "href": "modules/04_functions_and_scripts.html#a-numeric-object",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "A numeric object",
-    "text": "A numeric object\nWhat about numeric information? We can create an object called year and assign the current year to it; let’s have this object contain the current year in numeric form, not as a string. Remember to use &lt;- for assignment.\n\nyear &lt;- 2024    # assign a number to year ; notice no quotes\n\nIn order to know whether this year object now contains the year, we can check by typing the name of the object or use print() to print the returned value.\n\nyear\n\n[1] 2024\n\nprint(year)\n\n[1] 2024"
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#inspecting-vectors-with-some-functions",
-    "href": "modules/04_functions_and_scripts.html#inspecting-vectors-with-some-functions",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Inspecting vectors with some functions",
-    "text": "Inspecting vectors with some functions\nname and year are very simple objects. name is a simple character/string object we created, which contains only the name of 1 person and year only holds the current year. There is something else important about how R treats them that you cannot see on the surface. Both of these objects are also vectors. Vectors are one-dimensional arrays containing n pieces of information. You might also think of a vector so a variable (e.g., IQs of people). Both the name and year vectors contain only one piece of information, however. If you don’t believe me, we can use some functions that will answer this for us.\n\nis.vector() is a function that returns a logical (T or F) about whether the object is a vector\nlength() is a function that returns a non-negative numeric integer representing the number of elements contained\ntypeof() is a function that returns the object’s type\n\nLet’s try them by passing the object name inside the function.\n\nis.vector(name)   # is it a vector?\n\n[1] TRUE\n\n#?length\nlength(name)      # how many elements?\n\n[1] 1\n\ntypeof(name)      # what is it's type?\n\n[1] \"character\"\n\n\nIf name contained more than one object, it would still be a vector having a different length. But in order to create such vectors, each element of the vector needs to be separated by a comma and each elements needs to be wrapped by quotes.\nIf you do not separate strings by a comma…\n\nname &lt;- \"Jim Bob Kendra\"\n\n\nname                                # return object; also print(name)\n\n[1] \"Jim Bob Kendra\"\n\nis.character(name)                  # is it a character?\n\n[1] TRUE\n\nlength(name)                        # what is its length?\n\n[1] 1\n\n\nIf you do use quotes for each element and separate each by a comma, you need to use a function to combine them, which is c().\n\nname &lt;- c(\"Jim Bob\", \"Kendra\")  # two names, combine with c()\n\n\n\nis.character(name)        \n\n[1] TRUE\n\nlength(name)                   # vector with length 2\n\n[1] 2\n\n\nThe more you work with character vector, the more you way want to avoid some annoyances of creating them.\nThe {Hmisc} library has a function called Cs() that obviates the inclusion of the quotes.\n\nHmisc::Cs(Jim, Kendra, Bill, Sandy)\n\n[1] \"Jim\"    \"Kendra\" \"Bill\"   \"Sandy\" \n\n\nBeware of vectors containing elements with space like this:\nHmisc::Cs(Jim Bob, Kendra)\nR will throw an error to inform you that something is wrong. For example: Error: unexpected symbol in \"Hmisc::Cs(Jim Bob\"."
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#elements-of-vectors",
-    "href": "modules/04_functions_and_scripts.html#elements-of-vectors",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Elements of vectors",
-    "text": "Elements of vectors\nAs a side note, the pieces/values of a vector are referred to as elements. You can reference elements by number representing their position in the vector.\n\nname[1]   # first element\n\n[1] \"Jim Bob\"\n\nname[2]   # second element\n\n[1] \"Kendra\"\n\nname[3]   # a third element? No. It only has length 2\n\n[1] NA\n\n\nObjects in R, however, can take on many forms other than strings or numbers just illustrated. Objects can be strings/characters, numeric values, character strings, functions, data frames, vectors, lists, matrices, plots, etc. If you use typeof() on a data frame object, the function will return \"list\" because a data frame is also a list. More on this later."
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#creating-a-.r-script-file-to-source",
-    "href": "modules/04_functions_and_scripts.html#creating-a-.r-script-file-to-source",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Creating a .R script file to source()",
-    "text": "Creating a .R script file to source()\nThere are a few ways to create files for your R project. You can do so easily from RStudio or you can do so more quickly using Git.\n\nCreating a .R script using RStudio\nYou can easily create an .R script file from RStudio. You are most likely familiar with this file creation process.\nFirst, go to File &gt; New File &gt; R Script\nSecond, File &gt; Save As, browse to the projects /r directory, name it my_first_script.R and click save.\nIn it, type message(\"My first script file.\") and save it as my_first_script (the .R should be automatic) in your \"/r\" directory.\nYour file will be written to the r/ directory and will be opened in RStudio.\nBecause the .Rmd file you are working with is already saved in \"/r\" (if you saved it there correctly), you can source the file by name.\n\n\nCreating a .R script file using the Terminal\nFirst, go to your Terminal in RStudio. This is located by the Console tab and is the same place you type your Git commands.\nSecond, you can use the touch function to create the file. You will want to specify the directory to write the file and the name of the file to write.\nThird, to create a file named my_first_script.R, type:\ntouch r/my_first_script.R and your file will be written to the r/ directory.\nTo open the file in RStudio, the easiest way to go to the Files pane in RStudio, locate it and click it so that it appears as an open tab.\nIf you want to add it to Git, type:\ngit add r/my_first_script.R and it will be staged.\nIf you misspelled the file name and want to delete it, or just need to delete it for some reason, you can type:\nrm r/my_first_script.R\nTo delete it and remove from Git, type:\ngit rm r/my_first_script.R"
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#adding-code-to-the-script-file",
-    "href": "modules/04_functions_and_scripts.html#adding-code-to-the-script-file",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Adding code to the script file",
-    "text": "Adding code to the script file\nWe will now add code to the file. To demonstrate how this works, let’s just add a message to the file using message() which is a simple stand-in for a bunch of lines of code.\nIn the script file, type:\nmessage(\"My first script file.\")\nNote: Make sure you save the file."
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#sourcing-the-script-file",
-    "href": "modules/04_functions_and_scripts.html#sourcing-the-script-file",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Sourcing the script file`",
-    "text": "Sourcing the script file`\nNow, to run the code saved in my_first_script.R, we will source() the file by specifying the path to it using {here}.\n\nsource(file = here::here(\"r\", \"my_first_script.R\"))\n\nMy first script file.\n\n\nBut you can omit using file because you are only passing one argument and it’s file.\n\nsource(here::here(\"r\", \"my_first_script.R\"))\n\nMy first script file."
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#sourcing-multiple-script-files",
-    "href": "modules/04_functions_and_scripts.html#sourcing-multiple-script-files",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Sourcing multiple script files",
-    "text": "Sourcing multiple script files\nWhen you have multiple files to source(), you can source them individually, making sure that they are ordered in the order you wish to run them. They will execute line by line.\nsource(here::here(\"r\", \"read_data.R\"))\nsource(here::here(\"r\", \"clean_data.R\"))\nsource(here::here(\"r\", \"create_plots.R\"))\nYou can also create a new .R script file that contains the above three lines of source code and add them to another file, named appropriately like read_clean_plot_data.R. and then source that file like this:\nsource(here::here(\"r\", \"read_clean_plot_data.R\"))"
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#sourcing-all-files-in-a-directory",
-    "href": "modules/04_functions_and_scripts.html#sourcing-all-files-in-a-directory",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Sourcing all files in a directory",
-    "text": "Sourcing all files in a directory\nIf all those files to source are in a directory, you can use a special source function from {R.utils} R.utils::sourceDirectory(). For example, if you have all of personal or project-related functions nicely organized in a directory like r/funcions/, you can easily source it like this. The benefit here is that you don’t have to specify all of the files individually.\n\nR.utils::sourceDirectory(here::here(\"src\", \"functions\"))"
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#an-alternative-to-view",
-    "href": "modules/04_functions_and_scripts.html#an-alternative-to-view",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "An alternative to View()",
-    "text": "An alternative to View()\nAs an alternative to View(), a function that I wrote using the {DT} library to display the data in an HTML table that allows you to sort the data.\n\nview_html() (lowercase v): returns an filterable html table of the data frame; my alternative to View()\n\nIf you want to use this function, you can source() the raw code from the course site using the code below. Because I use this function often, you might wish to add it to your /r/functions/ directory and simply source all of the files in that directory as describe above.\n\nsource(\"https://raw.githubusercontent.com/slicesofdata/fods24/main/r/functions/view_html.R\")"
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#getting-the-head-of-a-data-frame",
-    "href": "modules/04_functions_and_scripts.html#getting-the-head-of-a-data-frame",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Getting the head() of a data frame`",
-    "text": "Getting the head() of a data frame`\nIf you query the function in the console by typing using ?head or help(head), you will see in there are two main parameters.\nParameters/Arguments:\n\nx: a vector or data frame object\nn: a value of the indices to be selected (e.g., elements of vector, rows in data frame)\n\nhead() needs an object x in order to do anything. We can pass the USArrests data frame as the argument and if all goes well, we will only see the top or head of this data frame.\n\nhead(x = USArrests)   # 6 rows by default\n\n           Murder Assault UrbanPop Rape\nAlabama      13.2     236       58 21.2\nAlaska       10.0     263       48 44.5\nArizona       8.1     294       80 31.0\nArkansas      8.8     190       50 19.5\nCalifornia    9.0     276       91 40.6\nColorado      7.9     204       78 38.7\n\n\nAnd if you pass arguments to parameters in function according to their order (e.g., position), you do not need to reference the parameters by name when passing arguments. For example, we can remove the reference to x.\n\nhead(USArrests)   # 6 rows by default\n\n           Murder Assault UrbanPop Rape\nAlabama      13.2     236       58 21.2\nAlaska       10.0     263       48 44.5\nArizona       8.1     294       80 31.0\nArkansas      8.8     190       50 19.5\nCalifornia    9.0     276       91 40.6\nColorado      7.9     204       78 38.7\n\n\nThe second parameter for head() is n, the number of rows for the function to return. The default number was 6. We can change the default operation by passing 3 as the argument to it.\nBut as long as we pass the arguments to x and then to n, then we do not need to reference either by name. Instead, we can just pass the arguments.\nBut if you change order, you will need to reference the arguments. You cannot call head(3, USArrests) for example but you can call head(n = 3, x = USArrests). You normally would not wish to change the order of arguments for head() but for more complicated functions, you might wish to for different reasons.\nUsing the viewing options:\n\n#View(USArrests)                            # the standard viewer\n\n#view_html(USArrests, rows = T, show = 5)   # but same as \n\n#view_html(head(USArrests), rows = T)"
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#checking-whether-an-object-is-a-data-frame-using-is.data.frame",
-    "href": "modules/04_functions_and_scripts.html#checking-whether-an-object-is-a-data-frame-using-is.data.frame",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Checking whether an object is a data frame using is.data.frame()",
-    "text": "Checking whether an object is a data frame using is.data.frame()\nYou can also check whether the USArrests data file is a data frame using is.data.frame(), which will return TRUE indicating that it is indeed a data frame.\n\nis.data.frame() returns logical ( T or F) about data frame as two-dimensional array"
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#checking-the-structure-of-a-data-frame-using-str",
-    "href": "modules/04_functions_and_scripts.html#checking-the-structure-of-a-data-frame-using-str",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Checking the structure of a data frame using str()",
-    "text": "Checking the structure of a data frame using str()\nThat seems tedious, however. You can learn a lot more about the data frame by examining its structure using str(). The USArrests object is a data frame, contains 50 observations (e.g., rows) and 4 variables (columns). All column variables appear to contains numbers, with two of them being numeric, abbreviated num and two are integers, abbreviated int.\n\nstr() returns the structure of a data frame"
-  },
-  {
-    "objectID": "modules/04_functions_and_scripts.html#using-other-functions",
-    "href": "modules/04_functions_and_scripts.html#using-other-functions",
-    "title": "Functions, Arguments, and R scripts",
-    "section": "Using other functions`",
-    "text": "Using other functions`\nAnd you can check the names of the columns using names(). What is actually returned to you is a character vector, or a vector whose elements are of character type. You can test whether the column names is a vector by wrapping names() with the is.vector() function. Similarly, wrapping names() in typeof() will tell you the type is character.\n\nnames(): returns names of data frame\nis.vector(): returns logical if/if not a vector (see other is. functions)\ntypeof(): returns the type of the object\n\n\nnames(USArrests)           # get the names of the columns?\n\n[1] \"Murder\"   \"Assault\"  \"UrbanPop\" \"Rape\"    \n\nis.vector(names(USArrests))\n\n[1] TRUE\n\ntypeof(names(USArrests))   # get the type of structure are the names\n\n[1] \"character\""
-  },
-  {
     "objectID": "syllabus/syllabus.html",
     "href": "syllabus/syllabus.html",
     "title": "Syllabus",
@@ -252,25 +98,18 @@
     "text": "FAQ\nIf you have questions about the syllabus, let’s talk about it in class, and/or please create a thread to discuss the question on Discord."
   },
   {
-    "objectID": "slides/02_git_slides.html",
-    "href": "slides/02_git_slides.html",
-    "title": "Git and GitHub",
-    "section": "",
-    "text": "Project backup\nGit monitors/controls file versions (empty directories).\nSee specific changes inside files\nUndo changes (time machine)\nVersion Control Summary Video\n\n\n\n\n\nThere are 4 main parts to Git Workflow:\n\n\nMake local changes (in your working directory)\nStage changes (in your staging directory)\nCommit changes (to apply them for pushing to your remote repository)\nPush for sending commits to remote repo (on GitHub)\n\n\nOther: Merge for merging branches (i.e., to incorporate your edits into main)\nVideo of Version Control Workflow Basics\n\n\n\n## **Git: Image Version**\n\n@[understanding git through images](https://dev.to/nopenoshishi/understanding-git-through-images-4an1)"
-  },
-  {
     "objectID": "slides/02_git_slides.html#what-is-version-control-for",
     "href": "slides/02_git_slides.html#what-is-version-control-for",
     "title": "Git and GitHub",
-    "section": "",
-    "text": "Project backup\nGit monitors/controls file versions (empty directories).\nSee specific changes inside files\nUndo changes (time machine)\nVersion Control Summary Video"
+    "section": "What is version control for?",
+    "text": "What is version control for?\n\n\nProject backup\nGit monitors/controls file versions (empty directories).\nSee specific changes inside files\nUndo changes (time machine)\nVersion Control Summary Video"
   },
   {
     "objectID": "slides/02_git_slides.html#version-control-git-workflow-basics",
     "href": "slides/02_git_slides.html#version-control-git-workflow-basics",
     "title": "Git and GitHub",
-    "section": "",
-    "text": "There are 4 main parts to Git Workflow:\n\n\nMake local changes (in your working directory)\nStage changes (in your staging directory)\nCommit changes (to apply them for pushing to your remote repository)\nPush for sending commits to remote repo (on GitHub)\n\n\nOther: Merge for merging branches (i.e., to incorporate your edits into main)\nVideo of Version Control Workflow Basics\n\n\n\n## **Git: Image Version**\n\n@[understanding git through images](https://dev.to/nopenoshishi/understanding-git-through-images-4an1)"
+    "section": "Version Control: Git Workflow Basics",
+    "text": "Version Control: Git Workflow Basics\nThere are 4 main parts to Git Workflow:\n\n\nMake local changes (in your working directory)\nStage changes (in your staging directory)\nCommit changes (to apply them for pushing to your remote repository)\nPush for sending commits to remote repo (on GitHub)\n\n\nOther: Merge for merging branches (i.e., to incorporate your edits into main)\nVideo of Version Control Workflow Basics\n\n\n\n## **Git: Image Version**\n\n@[understanding git through images](https://dev.to/nopenoshishi/understanding-git-through-images-4an1)"
   },
   {
     "objectID": "slides/02_git_slides.html#connecting-git-to-github-the-rstudio-terminal",
@@ -399,18 +238,11 @@
     "text": "Videos of many things you can do\nIf interested, see gittower YouTube"
   },
   {
-    "objectID": "slides/023_git.html",
-    "href": "slides/023_git.html",
-    "title": "Git and GitHub",
-    "section": "",
-    "text": "What is version control?\n\nProject backup\nSee specific changes inside files\nUndo changes (time machine)\n\nVersion Control Summary Video"
-  },
-  {
     "objectID": "slides/023_git.html#version-control",
     "href": "slides/023_git.html#version-control",
     "title": "Git and GitHub",
-    "section": "",
-    "text": "What is version control?\n\nProject backup\nSee specific changes inside files\nUndo changes (time machine)\n\nVersion Control Summary Video"
+    "section": "Version Control",
+    "text": "Version Control\n\n\nWhat is version control?\n\nProject backup\nSee specific changes inside files\nUndo changes (time machine)\n\nVersion Control Summary Video"
   },
   {
     "objectID": "slides/023_git.html#version-control-git-workflow-basics",
@@ -1519,6 +1351,377 @@
     "text": "Recoding vectors\nSometimes elements of vectors are messy and need to be fixed. In general, this process is referred to as recoding. There are various ways to recode in R and there are special libraries dedicated to recoding. Now, we will perform some simple recoding.\nYou can use ifelse() or dplyr::case_when() to test whether the elements of a vector match some condition and if yes (do one thing), otherwise no (do something else). In order to understand how these functions and many others work we need to understand a logical test.\n\nifelse()\ndplyr::case_when()\n\n\nPerforming a logical test\nWe can perform a logical test on all types of objects but this example will focus on vectors, for which all elements will be examined. The logical test will return TRUE or FALSE for each vector element depending on whether the case matches a test condition.\nRather than illustrate this the 1000 element sex vector, we will create a vector of length 5 called temp_sex. In this example, you will also see what happens when you need to clean up and recode the sloppy data. You can see are composed of both upper and lower case letters presumably corresponding to biological sex. Because R is a case-sensitive language, \"M\" and \"m\" represent different objects even though the intent is for them to be the same.\n\ntemp_sex &lt;- c(\"M\", \"m\", \"F\", \"f\", NA)\n\nYou can see that some character elements in the vector are upper- and lowercase m’s and f’s. Let’s see what happens when we perform a logical test of the vector. Remember that by itself = will be assignment (like &lt;-). In order to determine whether an object or elements of an object is equal to something, we use ==.\nFor example, temp_sex == \"M\":\n\ntemp_sex == \"M\"\n\n[1]  TRUE FALSE FALSE FALSE    NA\n\n\nThe returned vector is of the same length as the vector tested. Each element of the vector was tested and those elements that matched the character \"M\" returns TRUE. The other elements are FALSE, except of the NA, or missing value. Importantly, the logical test does not return FALSE for NAs.\n\n\nRecoding using ifelse()\nLet’s perform the logical test inside ifelse(). The function will test each element and IF it is TRUE (matches the condition) will assign 0, else/otherwise assign 1 in order to recode the letters into numbers. Of course, you may often wish to recode letters into other letters.\n\nifelse(temp_sex == \"M\", 0, 1)\n\n[1]  0  1  1  1 NA\n\n\nWe can see that all of the TRUEs are 0 and all else except for NA are 0. You can see that only the \"M\" was recoded to 0 and all other elements that were not NA were recoded as 1. Clearly, this is not correct. We can use multiple ifelse() functions but the solution won’t be offered here because it’s just really messy. Instead of focusing on bad code, let’s just focus on offering better solutions.\nPerforming the same test on sex but piping the vector to head() will allow for inspection of the first few elements.\n\nifelse(sex == \"M\", 0, 1) |&gt;\n  head()\n\n[1] 1 1 1 1 1 1\n\n\nThe ifelse() approach is fine for two groups. When there are more than two groups, however, re-coding can be confusing with ifelse() because you’ll need to nest an ifelse() inside an ifelse(). The popular {dplyr} library also has a couple functions similar to ifelse(), for example, if_else() and case_when().\n\n\nRecoding using dplyr::case_when()\nThe case_when() function will also perform logical tests but you can easily specify more than one. The help documentation tells us that “This function allows you to vectorise multiple if_else() statements. Each case is evaluated sequentially and the first match for each element determines the corresponding value in the output vector. If no cases match, the .default is used as a final”else” statement.” And later “If none of the cases match and no .default is supplied, NA is used.\nWith case_when(), we will perform a logical test of the elements against the character string \"M\" first. The elements that match \"M\" will evaluate as TRUE and will be recoded as 0. Then the elements of the new recoded vector will be tested again against \"F\". Those that are TRUE will be recoded as 1. Anything else will be assigned NA for missing because they matched neither \"M\" nor \"F\".\nWe wee that only the first element returns TRUE. Other elements are FALSE or NA.\n\ndplyr::case_when(\n  temp_sex == \"M\" ~ 0,\n  temp_sex == \"F\" ~ 1\n  ) \n\n[1]  0 NA  1 NA NA\n\n\nBut note that if the character case is inconsistent, NA’s will replace elements that are \"m\" and \"f\". An easy fix for casing is to convert the vector (without assignment) by passing it to tolower() or toupper() and then perform the logical conversion on the case change elements.\n\ndplyr::case_when(\n  toupper(temp_sex) == \"M\" ~ 0,\n  toupper(temp_sex) == \"F\" ~ 1\n  ) \n\n[1]  0  0  1  1 NA\n\n\nYou can now see that all elements will evaluate to TRUE and are recoded except for the NA in the vector. Keep in mind that strings may be very messy and require careful inspection and cleaning. Sometimes simple case recoding solves your problems.\nNote: There is a much powerful library called {stringr} for wrangling strings. We will use this library to perform other tasks. If you wanted to familiarize yourself with making strings upper or lowercase using that library, use stringr::str_to_lower() and stringr::str_to_upper().\nTo illustrate:\n\nlibrary(stringr)            # load the library first\n\ndplyr::case_when(\n  str_to_upper(temp_sex) == \"M\" ~ 0,\n  str_to_upper(temp_sex) == \"F\" ~ 1\n  ) \n\n[1]  0  0  1  1 NA\n\n\nWhen you have more logical tests to perform, you can specify them on a new line. Using the existing vector, we can illustrate with a silly example.\n\ndplyr::case_when(\n  temp_sex == \"m\" ~ \"Young Men\",\n  temp_sex == \"M\" ~ \"Old Men\",\n  temp_sex == \"f\" ~ \"Young Women\",\n  temp_sex == \"F\" ~ \"Old Women\",\n  ) \n\n[1] \"Old Men\"     \"Young Men\"   \"Old Women\"   \"Young Women\" NA           \n\n\nWe have not recoded the vector to have clear names for 4 groups, plus and NAs. Of course, you have not changed temp_sex unless you assign the returned vector to a name.\n\ntemp_sex\n\n[1] \"M\" \"m\" \"F\" \"f\" NA \n\n\nAssign to temp_sex to overwrite:\n\ntemp_sex &lt;- dplyr::case_when(\n  temp_sex == \"m\" ~ \"Young Men\",\n  temp_sex == \"M\" ~ \"Old Men\",\n  temp_sex == \"f\" ~ \"Young Women\",\n  temp_sex == \"F\" ~ \"Old Women\",\n  ) \n\n\ntemp_sex\n\n[1] \"Old Men\"     \"Young Men\"   \"Old Women\"   \"Young Women\" NA"
   },
   {
+    "objectID": "modules/02_2_using_git_and_github.html",
+    "href": "modules/02_2_using_git_and_github.html",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "",
+    "text": "Under construction.\n\n\n\nThis page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you."
+  },
+  {
+    "objectID": "modules/02_2_using_git_and_github.html#overview",
+    "href": "modules/02_2_using_git_and_github.html#overview",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "Overview",
+    "text": "Overview\nThis module focuses on getting organized. Rather than save files in a haphazard way that will just introduce stress to your life, we will focus on creating order. The best way to create order and stay organized is to 1) create projects in RStudio, 2) create directories and sub-directories that leave no ambiguity about where your files are, and 3) manage all directory paths and file paths simply using the {here} library. Another way is to connect that project with a remote repository saved someplace like GitHub for collaboration. In certain classes (and for your team project), you will use Git to interact with remote repositories connected to Projects in RStudio.\nIn order to maintain organization for this class and the project, you will set up a class folder (aka directory) on your computer. You will then create an RStudio project and connect it to a remote private repository on your GitHub account. The reason for its privacy is because of data related to certain exercises. You will use this RStudio project for all class exercises and homework so that there is no ambiguity about where your files are saved. Finally, you will create directories within your new project directory so that you have an organized directory structure for storing your files. Systems paths for project files and directories will be manage using the {here} library. This process will also ensure that each student’s computer is configured in the same manner.\nReading through these steps, however, will facilitate your ability to apply the concepts and run the associated functions in class. Thus, all students will gain some basic experience with Git commands and a remote repository. Students will be collaborators of a repository for their team project. Coding leads will carry the responsibility of maintaining the organization of the team’s private repository."
+  },
+  {
+    "objectID": "modules/02_2_using_git_and_github.html#libraries-used",
+    "href": "modules/02_2_using_git_and_github.html#libraries-used",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "Libraries Used",
+    "text": "Libraries Used\n\n{usethis}: 2.2.3: for project workflow automation\n{gitcreds}: 0.1.2: for querying git credentials\n{gert}: 2.0.1: optional R library approach for git commands\n\n\nReadings and Preparation\nBefore Class: First, read (and/or watch course videos) to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.\nComplete the items in the To Do: Steps of the Task section.\nClass: In class, some functions and concepts will be introduced and we will practice implementing code through exercises.\n\n\nTo Do: Steps of the Task\nFollowing the sections below, you will:\n\nSet up your class space\n\n\nCreate top-level directory anywhere on your computer\nName it dataviz (heretofore referred to at /dataviz)\n\n\nCreate a Version-Control Project with RStudio\n\n\nName it dataviz-exercises (for class exercises and your homework)\n\n\nMake file edits, stage those edits, and commit them\nPush commits to GitHub"
+  },
+  {
+    "objectID": "modules/02_2_using_git_and_github.html#creating-a-local-directory-for-class",
+    "href": "modules/02_2_using_git_and_github.html#creating-a-local-directory-for-class",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "Creating a Local Directory for Class",
+    "text": "Creating a Local Directory for Class\nCreate a folder (aka directory) named \"dataviz\" on your computer. I recommend creating the directory someplace where you might not accidentally delete it."
+  },
+  {
+    "objectID": "modules/02_2_using_git_and_github.html#connecting-the-repository-to-an-rstudio-project",
+    "href": "modules/02_2_using_git_and_github.html#connecting-the-repository-to-an-rstudio-project",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "Connecting the Repository to an RStudio Project",
+    "text": "Connecting the Repository to an RStudio Project\n\nIn RStudio, File &gt; New Project &gt; Version Control &gt; Git.\nIn the pop-up, you will see a request for the “repository URL”. Paste the URL of the GitHub repository. This URL will be the same as what you see on your GitHub account. However, we need to add .git to the end of it.\n\n    https://github.com/&lt;your_github_username&gt;/dataviz-exercises.git\n\nWhen you create the project, a directory will be created as a sub-directory of /dataviz and its name should auto populate (e.g., 'dataviz-exercises').\n\nWARNING: Do not create the project inside of an existing project’s directory.\nNote: I recommend that you also select “Open in new session” in order to compartmentalize projects. When you work on the team project, open the project. When you work on your homework or other class exercises, open your homework project.\n\nClick “Create Project” to create the new project directory, which will create:\n\na project directory on your computer\na project file with file extension .Rproj\na Git repository or link to the remote GitHub repository for the project (also an RStudio Project)\n\n\nIf the repository already exists on GitHub (and it does in this instance) you should see RStudio flash a connection to GitHub and likely pull the repo contents down to your newly-created project directory. In this case, however, your repository will contain few files."
+  },
+  {
+    "objectID": "modules/02_2_using_git_and_github.html#creating-project-relevant-directories",
+    "href": "modules/02_2_using_git_and_github.html#creating-project-relevant-directories",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "Creating Project Relevant Directories",
+    "text": "Creating Project Relevant Directories\nInside the /dataviz/dataviz-exercises directory your full project directory structure should look like the one below. The purpose of each directory and sub-directory is explained following the structure.\n└── data\n│   └── interim \n│   ├── processed\n│   └── raw\n├── dataviz-exercises.Rproj (the R project file)\n├── docs\n├── .gitignore              (a version control gitignore file)\n├── README.md               (a read me file)\n├── refs\n└── reports\n│   ├── figs\n│   └── images\n└── src\n│   ├── data\n│   ├── figs\n│   └── functions\nThus, you will create the following directories.\n\n/data: for raw/virgin data files and modified data files\n/docs: for document files like the project description, any dictionary of variable names, etc.\n/refs: for references, papers, reading materials, and other document\n/report: for R Markdown (e.g., .Rmd) report files and their output file types (e.g., .docx, .pdf)\n/src: for all source code related files (e.g., .R scripts, functions, .py files, etc.). General scripts can be saved in the top level /src but most of your script files will be saved in /src/figs because you will create figures\n\nInside /data, add the following sub-directories:\n\n/raw, for /data/raw/: containing raw data files obtained from sources\n/interim, for /data/interim/: containing intermediate transformed data\n/processed, for /data/processed/: containing finalized data files that are ready for plotting.\n\nNOTE: For this course, you will see me write data as .Rds files using the saveRDS() function because this format will preserve variable formatting which will affect plots.\nWARNING: If you process and save those data files as .csv, .xlsx, or similar, you will likely find yourself working harder by recoding solutions you have already performed.\nInside /src, add the following sub-directories:\n\n/functions, for /src/functions/: containing all .R functions needed do not belong to libraries\n/figs, for /src/figs/: containing .R scripts needed to create visualizations\n/data, for /src/data/: containing .R scripts needed to download or generate data\n\nInside /report, add the following sub-directories:\n\n/figs for /report/figs/: containing visualization files (e.g., .png) for the report\n/images for /report/images/: containing image files (e.g., png) for the report\n\nWhen testing your plots, you may wish to add notes or other written content that you can use in conjunction with your plots. In such cases, I recommend creating R Markdown files with meaningful names for taking notes. You can save these reports in the top-level of /report and then source your .R figure script\nBelow are examples of an .R script for creating your visualizations and an .Rmd file that reads the .R script and renders the .png file within it. These files are also located under the Example Files & Other course tab. Your team report will utilize this same structure, though details and files will be also located under the Project course tab.\n\nexample-rmarkdown-file-with-fig-script.Rmd\nexample-figure-script.R\n\nYou will now see the directory structure, though all your directories will be empty. Moving forward, save all data to their relevant directories within /data; create all .R code files and scripts in files in /src, including scripts use to create your visualizations and .png plot files; create all exercise or homework R Markdown files (e.g., .Rmd) in /report. Finally, any readings or references can can saved in /refs and any other document files can be saved in /docs. Reserve /report/figs for writing/saving plots or figures. All paths to directories and files for reading and writing files will be managed using the {here} library."
+  },
+  {
+    "objectID": "modules/02_2_using_git_and_github.html#understanding-git-workflow-basics",
+    "href": "modules/02_2_using_git_and_github.html#understanding-git-workflow-basics",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "Understanding Git Workflow Basics",
+    "text": "Understanding Git Workflow Basics\nThere are three main parts to Git Workflow:\n\nMake local changes (in your working directory)\nStage changes (in your staging directory)\nCommit changes (to apply them for pushing to your remote repository)"
+  },
+  {
+    "objectID": "modules/02_2_using_git_and_github.html#making-local-file-changes-committing-and-pushing-to-github",
+    "href": "modules/02_2_using_git_and_github.html#making-local-file-changes-committing-and-pushing-to-github",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "Making Local File Changes, Committing, and Pushing to GitHub",
+    "text": "Making Local File Changes, Committing, and Pushing to GitHub\n\nMaking a local change\n\nCreate a .R script and name it something like yourname.R. Always name files in lowercase font. Where should you save it? You guessed it: /src/r.\n\nChecking the status of local file changes\n\nCheck for the local changes you have made at the Terminal by typing git status and press return/enter\n\n$ git status\n\nIf you made changes, Git will tell you what those changes are. For example, there will be a new file, a deleted file, a modified file, etc.\n\nStaging Changes (Add Changes)\n\nStage a specific change: If you made multiple changes and all you want to do is commit a single change and no others, you can specify the change you want to add. For example, if you want only to add a specific file, like yourname.R, you will use git add &lt;file&gt;... such that &lt;file&gt; refers to the file name.\n\nAt the Terminal prompt, type git add followed by &lt;file&gt; to include in what will be committed)\n$ git add scr/r/yourname.R\n\nStage all change(s): When you make numerous changes, you may wish not to specify each file individually as that could be tedious. In this case, you may wish to stage all of your changes. Assuming everything you are doing is relevant to the project, one of the easiest ways to add changes is to just add all of your file changes. Note, your changes should not be done inside data files (e.g., .csv, .xlsx). Changes should only be done using R code. If not, your project will not be reproducible.\n\nAt the Terminal, you can type git add . which tells Git that you are adding all of those changes to commit them.\n$ git add .\n\n\nCommitting the change(s)\n\nNow that you made a change, you will commit it and assign a useful message to remind your future self and collaborators what you just did.\n\nAt the Terminal, type git commit to commit the changes, add -m to tell git you want a message, and then type the message as a string, \"my message here\" and then press enter/return to commit the changes.\n$ git commit -m \"added my first .R file\"\n\n\nPush the change to the remote repository\n\nWe need to push the changes to the remote GitHub repository for version control and for collaborators to access\n\nAt the Terminal, you will push those changes using git push and press enter/return to push.\n$ git push\n\nIf you navigate to your GitHub account in your web browser, you will see the changes there as soon as they arrive. Congrats!\n\nPractice (Yes, seriously): Changing, Committing, and Pushing Again\n\nYou know that file with your name is not needed for the project. Delete it from the project as you normally would delete a file (no need to use the Terminal) and then add the change, commit the change with message “deleted my silly file”, and push that change.\nIf for some reason, your push did not work, you may need to specify the project branch. Branching is beyond the scope of this course. If team members are working on separate tasks, their code will be compartmentalized so you can use the main branch.\n\nYou can set the branch to the main branch at the Terminal using git branch -M main.\n$ git branch -M main\n\n\nPushing Specific File Changes\n\nYou should not push all of your edits. For example, if you edit a file and save it but it is incomplete (e.g., it contains errors) that will create problems for your team members. You do not want to share these edits with your coding lead (or push these edits to the repo). If you do push them, your team member’s code will also break if they are sourcing (e.g., source()) your script file. Similarly, if the data file you write out contains errors, a teammate cannot read that file in successfully. So make sure that what you push is correct and accurate before pushing.\n\nPulling Changes from the Remote\n\nThe opposite of push is pull. When your teammates push their changes (e.g., data cleaning, file creation, etc.) to the repo and your code depends on those files, you will want to make sure their edits are in your local project so that you can use them.\n\nTo pull the changes down to your project, at the Terminal, type git pull.\n$ git pull\n\nYou should find the changes appear in your local project directory."
+  },
+  {
+    "objectID": "modules/02_2_using_git_and_github.html#using-the-git-tab-in-your-rstudio-pane",
+    "href": "modules/02_2_using_git_and_github.html#using-the-git-tab-in-your-rstudio-pane",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "Using the Git Tab in your RStudio Pane",
+    "text": "Using the Git Tab in your RStudio Pane\nIf you do not use the Terminal to run Git commands (e.g., add, commit, and push), you can also use Git with RStudio, though I tend to find this process creates an annoying lag when there are many files.\n\nThe {gert} Library Approach\nIf you want to try {gert}, load the library to gain access the functions. You also can find more details at the gert github page.\n\nLoad the library: library(gert)\n\nWhen you load the library, configuration details for the user will be returned in the R console and look something like you see below.\nLinking to libgit2 v1.7.1, ssh support: YES\nGlobal config: C:\\Users\\beavis\\.gitconfig\nSystem config: C:/Users/beavis/AppData/Local/Programs/Git/etc/gitconfig\nDefault user: beavis &lt;beavis@domain.com&gt;\nIn the following steps, you will see that the function names are similar to those for Git.\n\nStaging/Adding a file, making sure to specify a directory:\n\nIf the file you wish to add is in a sub-directory like /src/r, use gert::git_add('src/r/newfile.R') rather than gert::git_add('newfile.R')\n\nCommitting the added file(s) with a message:\n\nOnce you staged the change, you will commit it to the repo.\n\nPushing commits:\n\nAfter your commits have useful messages, push them to the remote repository.\ngert::git_push()\n\nChecking the status of the repo:\n\nTo check the status of the gert::git_status()\n\n\nRStudio Pane\nWhen you edit files (e.g., made changes and saved the file), the file will be detected in the project if you have set up Git. The changes detected will be listed in the window for this tab. You can then stage, commit the changes, push the changes using this RStudio GUI.\n\nClick the Git tab\nCheck the box under Staged next to the file\n\nNote: There may be a delay.\n\nClick the Commit icon on the toolbar directly above Status\n\nA window will pop up showing some of the edits to the file\nA window for Commit message will also appear for adding your message. This window is where you want to be.\n\nType your commit message in that window\n\nYour message should be clear and useful to remind your future self or colleagues of the edits but not be overly wordy.\n\nClick Commit to commit the change\nClick the Green Arrow to Push your committed change up to the remote repository.\n\nNote: You will click the Blue Arrow to Pull the changes down from the remote repository what were pushed there by your collaborators"
+  },
+  {
+    "objectID": "modules/02_2_using_git_and_github.html#creating-a-version-control-project-in-rstudio-for-the-team-project",
+    "href": "modules/02_2_using_git_and_github.html#creating-a-version-control-project-in-rstudio-for-the-team-project",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "Creating a Version Control Project in RStudio for the Team Project",
+    "text": "Creating a Version Control Project in RStudio for the Team Project\n\nIn RStudio, File &gt; New Project &gt; Version Control &gt; Git.\nIn the pop-up, you will see a request for the “repository URL”. Paste the URL of the GitHub repository based on your liaison name. This URL will be the same as what you see on your GitHub account. However, we need to add .git to the end.\n\n    https://github.com/slicesofdata/dataviz-&lt;to_be_announced&gt;.git\n\nWhen you create the project, a directory will be created, a name will auto populate (e.g., ‘dataviz-liaison’). Although I don’t recommend this, if you desire to change the name, name it something that you will know as your team project. In order to keep the class organized, I might suggest you create the tem project also in your /dataviz course directory. You should already have an /dataviz-exercises R project directory for your exercises and homework in that course directory. Adding the team project will simply add a /dataviz-&lt;to_be_announced&gt; directory there as well. WARNING: Do not create the project inside of an existing project’s directory.\n\nNote: I recommend that you also select “Open in new session” in order to compartmentalize projects. When you work on the team project, open that project in a new sessions. When you work on your homework or other class exercises, open your that project in a new session. Alternatively, close a project and open the one you are working on.\n\nClick “Create Project” to create the new project directory, which will create:\n\na project directory on your computer\na project file of the same name with file extension .Rproj inside that directory\na Git repository or link to the remote GitHub repository for the project (also an RStudio Project)\n\n\nIf the repository already exists (and it does in this instance) you should see RStudio flash a connection to GitHub and likely clone the repo by pulling the repo contents down to your newly-created project directory. You will see the directory structure and corresponding files. Your code files should be saved to /src/r, the data you read or save to /data, your R Markdown report files to /report, etc.\nThese directories are there for project management purposes. Also, to maintain a clean project, create sub-directories within those directories as needed; create new directories if and only if its contents differ qualitatively from what is in the existing directories. Because the project report will need to be reproduced, don’t complicate your code by creating RMarkdown files for code used to perform some task when only code is needed. In those cases, use .R code script files. Use .Rmd files only for a report containing text and minor code. You cannot easily source() .Rmd files and creating them will be a a hassle to deal with later. Project organization is an element of the project."
+  },
+  {
+    "objectID": "modules/02_2_using_git_and_github.html#summary",
+    "href": "modules/02_2_using_git_and_github.html#summary",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "Summary",
+    "text": "Summary\nYou now understand how to create projects in R, how to connect projects to remote GitHub repositories, and how to use Git to track your work in your local repository and a remote one. These simple commands are basic but provide you some exposure to and confidence with using Git for version control."
+  },
+  {
+    "objectID": "modules/02_2_using_git_and_github.html#other-resources",
+    "href": "modules/02_2_using_git_and_github.html#other-resources",
+    "title": "Project Management 02: R Projects, Git, and GitHub",
+    "section": "Other Resources",
+    "text": "Other Resources\n\nGit Client:\n\nGit clients work like the RStudio Gui option described above but likely much better. One client is GitKraken. * If you find the Terminal command line daunting or limiting, I might recommend a Git Client to use as I am not a big fan of the RStudio interface. * GitKraken is a good option and they have lots of tutorials on their website. GitKraken is seamless to set up. Install, connect your GitHub account, select your repo to add, and voilà. You can stage, commit, and push from there.\n\nhappygitwithr"
+  },
+  {
+    "objectID": "index.html#psyc-167-data-visualization",
+    "href": "index.html#psyc-167-data-visualization",
+    "title": "",
+    "section": "PSYC 167: Data Visualization",
+    "text": "PSYC 167: Data Visualization\nThis is the course website for PSYC 167: Data Visualization, taught by Prof. Gabriel I. Cook; 1 credit\nDescription\nData visualization is the science and art of creating graphical representations of information and data. Visual representations provide accessible ways to see patterns, trends, and outliers in data. Variables like position, size, and orientation can focus attention and guide perception but can also bias interpretation of data. Students will learn how well-designed visualizations can reduce bias and improve comprehension for data thereby facilitating data-driven decision-making. Students will explore techniques for creating effective visualizations based on principles from cognitive and perceptual psychology, art, and design. Students will gain hands-on experience coding real-world data visualizations for local offices, organizations, and industry participants.\nThe course is targeted toward students interested in using visualizations to communicate their own messages, and students interested in creating better visualization tools and systems, and students with expressed interest in cognition and cognitive biases related to data communication. Students will engage in discussions of the readings, complete programming and data analysis assignments, and prepare a final project involving storytelling with data visualizations."
+  },
+  {
+    "objectID": "cheatsheets_and_tips/symbols.html",
+    "href": "cheatsheets_and_tips/symbols.html",
+    "title": "Symbols",
+    "section": "",
+    "text": "Symbol\nTerm\n\n\n\n\n&lt;-\nassignment operator\n\n\n()\n(round) brackets / parentheses\n\n\n[]\nsquare brackets\n\n\n{}\ncurly brackets\n\n\n&lt;&gt;\nchevrons/angled brackets\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n#\nhash/pound\n\n\n/\nforward slash\n\n\n\\\nbackslash\n\n\n-\ndash/hyphen/minus\n\n\n_\nunderscore\n\n\n*\nasterisk/star\n\n\n^\ncaret/power symbol\n\n\n~\ntilde/twiddle\n\n\n=\nequal sign\n\n\n==\ndouble equal sign (logical equivalence)\n\n\n.\nfull stop/period/point\n\n\n|&gt;\npipe (see also %&gt;% for {magrittr})\n\n\n&\nampersand/and (“and” operator)\n\n\n|\nvertical bar/pipe (“or” operator)\n\n\n!\nexclamation mark/bang (“not” operator)\n\n\n?\nquestion mark\n\n\n’\nsingle quote/apostrophe"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Nothing to see here"
+  },
+  {
+    "objectID": "homework/homework.html",
+    "href": "homework/homework.html",
+    "title": "Homework",
+    "section": "",
+    "text": "Under construction\n\n\n\nThis syllabus is under construction until Fall 2023"
+  },
+  {
+    "objectID": "homework/homework.html#exercises",
+    "href": "homework/homework.html#exercises",
+    "title": "Homework",
+    "section": "Exercises",
+    "text": "Exercises\nVarious tasks and exercises will be found here.\nThe exercise list will be updated as the semester progresses."
+  },
+  {
+    "objectID": "homework/homework.html#download",
+    "href": "homework/homework.html#download",
+    "title": "Homework",
+    "section": "Download",
+    "text": "Download\nHomework Exercise 01"
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "",
+    "text": "We will perform all the necessary tasks for using Git with RStudio and managing files at the remote repository at GitHub. You will create a GitHub account if you do not have one; install Git on your computer if needed; configure Git on RStudio; and create a RStudio project.\n\n\n\nCreate a GitHub account\nCreate GitHub repository: “dataviz-exercises”\nInstall Git on your computer (if not already installed)\nConfigure Git for R, within R/RStudio (a familiar context)\n\nCreate a Personal Access Token (PAT)\nSet your Git Credentials (using your PAT)"
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#overview",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#overview",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "",
+    "text": "We will perform all the necessary tasks for using Git with RStudio and managing files at the remote repository at GitHub. You will create a GitHub account if you do not have one; install Git on your computer if needed; configure Git on RStudio; and create a RStudio project.\n\n\n\nCreate a GitHub account\nCreate GitHub repository: “dataviz-exercises”\nInstall Git on your computer (if not already installed)\nConfigure Git for R, within R/RStudio (a familiar context)\n\nCreate a Personal Access Token (PAT)\nSet your Git Credentials (using your PAT)"
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#libraries-used",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#libraries-used",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "Libraries Used",
+    "text": "Libraries Used\n\n{usethis}: 2.2.3: for project workflow automation\n{gitcreds}: 0.1.2: for querying git credentials"
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#git-why-go-through-the-trouble",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#git-why-go-through-the-trouble",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "Git: Why Go Through the Trouble?",
+    "text": "Git: Why Go Through the Trouble?\nProjects are rarely done without collaborators. Teams collaborate, leveraging team members’ work and accomplishments. Using R in conjunction with the a distributed version control system, like Git, will facilitate that collaboration process. Writing flexible R code that does not hard-code objects will allow your research project to be reproducible, for example, when variables and data change (e.g., new data added, a new year added, etc.). Git long with GitHub will allow you to track your edits (the version control) and share your code with your collaborators or interested scholars.\nSome benefits of using version control:\n\nFacilitates project sharing (once it’s setup, you’ll get there)\nFacilitates collaboration. Others can also report errors or suggest features to your project.\nMakes reverting back to previous states easy. You can easily revert back to a previous version of your code in the event you discover errors or you delete critical details accidentally.\nServes as a memory for edits when memory fails. All changes across different versions of your code or written content is available.\n\nRStudio integrates support for Git but this interface is a little clunky. You can use it but RStudio also allows for communication via the command line Terminal, which will be the preferred method shared here."
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#creating-a-github-account",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#creating-a-github-account",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "Creating a GitHub Account",
+    "text": "Creating a GitHub Account\n\nGo to GitHub and create a free GitHub account. Make note of your username and your associated e-mail as you will need those for configuring Git with R.\n\nConsider this brief 15-minute TryGit Tutorial.\n\nStay logged in so that you can complete a later step.\nSend your PM your GitHub username. Your PM will send those to me and I will add you to a private repo. Once you are added to the repo, you can do the next step."
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#creating-a-repository-on-github",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#creating-a-repository-on-github",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "Creating a Repository on GitHub",
+    "text": "Creating a Repository on GitHub\nYou will need to create a repository by following the option to do so using the GitHub UI. Use that link if necessary but the images below should suffice.\n\nOnce logged into your GitHub account, you will see a + along the top of your account earn your profile icon. Click the option to create a “New Repository”.\n\n\n\n\n\n\n\nName the repository dataviz-exercises and provide a description like “for dataviz class exercises and homework”.\n\n\n\n\n\n\n\nSelect the option to make the repository Private, check to add a README file, and add a .gitignore file by scrolling to find R:\n\n\n\n\n\n\n\nClick Create Repository"
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#installing-git",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#installing-git",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "Installing Git",
+    "text": "Installing Git\n\nDo I need to install Git?\n\nMac OS Users can check whether Git is already installed by typing git --version at the Mac Terminal. If a version number is returned, then Git is installed.\nWindows Users can press the Windows key (or click the Start button) and type Git in the search bar. If you see Git or Git Bash listed, then Git is installed. At the R console, you can also type system(\"git --version\") and if it is installed, the function should return the version number.\n\nDownload and Install Git (if necessary)\n\nMac OS Users may experience problems and see instructions at the Git download site to install Homebrew and then set the PATH variable. You don’t need to do that. Instead, I recommend downloading the binary version here and download it to install.\nWindows Users can download the latest version of Git here. Download and install Git, making a note of where on your computer you are install it as you may need to locate the path for RStudio, especially if you use a portable version of Git."
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#checking-git-setup-in-rstudio",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#checking-git-setup-in-rstudio",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "Checking Git Setup in RStudio",
+    "text": "Checking Git Setup in RStudio\nYou will need to tell RStudio where to find the Git program as this may not be recognize automatically.\n\nFind the path to the Git program executable that was installed in an earlier step.\n\nIn the Terminal within RStudio (not the R console), type: where git on Windows and which git on Mac/Linux to find the path to the program. If there are more than one paths listed, just make note of one of them.\nIf for some reason you don’t see a path listed using that approach, type: Sys.which(\"git\") in your R console. The path here will likely be truncated so you will have to try to fill in the gaps when performing the step to set the path. See me for help.\n\nIn 1RStudio1, go to Tools &gt; Global Options and click on left side bar menu item Git/SVN.\nSelect the option at the top to Enable version control interface for RStudio projects if it is not selected.\nSet the path to the Git executable if it is not already there. Browse to the path to where Git.exe installed on your computer. Windows Users should make note that this path should be a path containing Git.exe and not a path containing git-bash.exe.\nClick Apply and then click OK."
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#configuring-git-and-github",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#configuring-git-and-github",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "Configuring Git and GitHub",
+    "text": "Configuring Git and GitHub\nThere are two ways you can set up, either using R (console) or the command line (terminal). My recommendation is to use R because that is where you are likely most familiar, if even a small degree. We will use functions from the {usethis} library to help you. This library should be installed already as part of the class setup. If you get an error stating that the library is not installed when executing the steps below, just type install.packages(\"usethis\", dep = TRUE) at your R console.\nThe {usethis} library will make connecting your R project to your github account simple. You will use usethis::use_git_config() to configure your GitHub account with Git on your computer; if you did not create, see earlier step. In the below example, you will see that we need to provide two character strings as arguments to the function. The strings are used to set your user.name and your user.email (the e-mail attached to your GitHub account). Double check your GitHub e-mail and username.\nEdit the following code to include your username and email and then execute your modified R code:\nusethis::use_git_config(user.name = \"github_username\", \n                        user.email = \"github_email@gitrdone.com\"\n                        )\nDone!"
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#creating-a-personal-access-token-pat-for-github",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#creating-a-personal-access-token-pat-for-github",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "Creating a Personal Access Token (PAT) for GitHub",
+    "text": "Creating a Personal Access Token (PAT) for GitHub\nBefore completing this step, log into your GitHub account to facilitate the communication between RStudio and GitHub.\nYou will need a personal access token (PAT) for making remote changes to GitHub. A first step then is to create a PAT using usethis::create_github_token(). Second, you will register your PAT with the Git credential manager used by your computers operating system using gitcreds::gitcreds_set(). Keep in mind that if you use a different computer (e.g., you get a new one), you’ll need to register the PAT on that computer following the same steps described here.\nTo create your personal access token (PAT), type the following at your R console: \nusethis::create_github_token()\nAfter executing the code, you will be taken to your GitHub account (if you remained logged in). Go to the bottom of the page and click generate token. You should add a description for it so that you can understand its use case. For example, describe it based the computer you are using it on, “my computer make and model”. You may also describe it based on a project you are working on, “token-for-project-xyz”. If you do not add a description, you will likely become overwhelmed and/or confused when you have multiple tokens. When you need to regenerate or delete a token that expires, you will not be able to determine what they are for if you do not add a description.\nAfter creating your token, Copy it to your computer’s clipboard and save it someplace safe. Do not share your token with anyone because anyone who has it can access your public or private GitHub repositories.\nWarning: Your PAT will expire after some duration, usually 30 days unless you change it. For this project, I suggest you change the expiration to a date after the semester ends to ensure you don’t have to go through this process again during the semester. Getting a new PAT is not difficult, however. If your PAT will soon expire, GitHub will send you an e-mail alerting you also. You can regenerate a PAT from a link in your e-mail, so make sure your associated e-mail is one you check."
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#setting-your-git-credentials-using-pat",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#setting-your-git-credentials-using-pat",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "Setting your Git Credentials (using PAT)",
+    "text": "Setting your Git Credentials (using PAT)\nNow that you have a PAT, we now need to set those credentials for RStudio to communicate with your GitHub account.\nExecute the following R code to set your credentials:\ngitcreds::gitcreds_set()\nYou may see a set of number options with corresponding descriptions. If you see them, enter the number corresponding to the option that makes the most sense for what you are trying to accomplish, for example, something like “set or replace your credentials”.\nWhen should then see a prompt like ? Enter new password or token. At this point, paste your PAT here and press return/enter. Then remove the PAT from your clipboard so that you don’t paste them someplace.\nYou can check that your credentials are stored by typing the following R code in the console:\ngh::gh_whoami()\n\nUpdating your Personal Access Token (PAT)\nAt some point, even if you set your PAT to expire after the semester, it will expire and you will need to update it. When it’s about to expire, or if it has expired, you can go to https://github.com/settings/tokens while logged into your GitHub account and regenerate the token and change the expiration date. Then, copy the PAT to the clipboard and set your credentials again using gitcreds::gitcreds_set()."
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#summary",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#summary",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "Summary",
+    "text": "Summary\nYou have now created your GitHub account, created a repository, created a PAT, and installed and/or set up Git with RStudio. The next step will be to connect the remote GitHub repository with your R/RStudio setup."
+  },
+  {
+    "objectID": "modules/02_1_installing_and_setting_up_git_and_github.html#optional-resources",
+    "href": "modules/02_1_installing_and_setting_up_git_and_github.html#optional-resources",
+    "title": "Installing Git and Setting Up Git and GitHub for R Projects",
+    "section": "Optional Resources",
+    "text": "Optional Resources\nIf you find yourself working on complicated projects, you might benefit from using a Git client or need to troubleshoot events. Although you won’t need to do this for this course, I’m providing some resources for your future. Feel free to come back to this course site to review content as I don’t intend to remove anything.\n\nGit Client: Git clients work like the RStudio Gui option described above but likely much better. If you find the Terminal command line daunting or limiting, I might recommend a Git Client to use as I am not a big fan of the RStudio interface.\n\nGitKraken is a good option and they have lots of tutorials on their website. GitKraken is seamless to set up. Install, connect your GitHub account, select your repo to add, and voilà. You can stage, commit, and push from there.\nGitHub Desktop is another common option. Install, connect your GitHub account and select your repo to add, and voilà. You can stage, commit, and push from there.\n\nTroubleshooting: happygitwithr is a resource for troubleshooting Git issues specifically with R."
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html",
+    "href": "modules/04_functions_and_scripts.html",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "",
+    "text": "A good friend of mine was once tried using R to summarize data. He couldn’t figure out why he could not use a function called mean() to calculate the mean of variables in his data set. Yes, mean() does compute a mean but he did not understand the object for which he was trying to compute a mean. When I explained the issue to him, he told me that he would often try to ‘brute force’ his way into obtaining results. He did not understand how the function worked and was not very concerned with learning. Without knowing how functions work, you limit yourself to troubleshoot answers and you spend a lot of time troubleshooting errors. You cannot just brute force yourself into data science or running models without getting yourself into trouble.\nAlthough the R language differs from other languages like Python, JavaScript, or HTML, the concepts covered is this section may be redundant for student who have taken a computer-science class. For beginners, the concepts may initially be challenging or confusing. You may even question why we cannot just jump into data manipulation and why all of this matters. In order to code in R so that you can be comfortable using it and with communicating with other users, a very basic understanding of programming concepts is important. This way, when someone asks you about an object, function, or assignment, you will know what they are taking about. And, well, you cannot communicate with R without knowing how functions work at a basic level.\n\n\nBefore Class: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.\nClass: In class, some functions and concepts will be introduced and we will practice implementing code through exercises.\n\n\n\n\nR Workflow Basics\nHuber: Functions\n\n\n\nRead through the module. You can use the R console or open up an R Markdown (e.g., .Rmd) file to follow along interactively. If you instead prefer to simply read through the content so that you can understand the concepts without coding, that is fine too. Concepts will be applied in class in order to complete activities, however. Reading the module will provide you with confidence working on those activities and prevent you from feeling lost while completing activities. Testing out some code may provide you more confidence.\n\n\n\n\n\n{here} 1.0.1: for file path management\n\n\n\n\nview_html(): for viewing data frames in html format\nYou can access remotely using this code, though you do not need to do so now.\nsource(https://raw.githubusercontent.com/slicesofdata/dataviz24/main/modules/src/functions/view_html.R)"
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#readings-and-preparation",
+    "href": "modules/04_functions_and_scripts.html#readings-and-preparation",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "",
+    "text": "Before Class: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.\nClass: In class, some functions and concepts will be introduced and we will practice implementing code through exercises."
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#supplementary-readings",
+    "href": "modules/04_functions_and_scripts.html#supplementary-readings",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "",
+    "text": "R Workflow Basics\nHuber: Functions\n\n\n\nRead through the module. You can use the R console or open up an R Markdown (e.g., .Rmd) file to follow along interactively. If you instead prefer to simply read through the content so that you can understand the concepts without coding, that is fine too. Concepts will be applied in class in order to complete activities, however. Reading the module will provide you with confidence working on those activities and prevent you from feeling lost while completing activities. Testing out some code may provide you more confidence."
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#libraries",
+    "href": "modules/04_functions_and_scripts.html#libraries",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "",
+    "text": "{here} 1.0.1: for file path management"
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#external-functions",
+    "href": "modules/04_functions_and_scripts.html#external-functions",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "",
+    "text": "view_html(): for viewing data frames in html format\nYou can access remotely using this code, though you do not need to do so now.\nsource(https://raw.githubusercontent.com/slicesofdata/dataviz24/main/modules/src/functions/view_html.R)"
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#examples-of-objects",
+    "href": "modules/04_functions_and_scripts.html#examples-of-objects",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Examples of objects",
+    "text": "Examples of objects\nYou can also think of an object as a sort of container that holds something. Containers of different types hold different things and so is true in computer programming. A container for holding water may look different from a container for holding books. In computer speak, one type of container can hold numbers, another can hold characters, another can hold a data frame, etc. The container object is holding whatever you have assigned it to hold.\nWe will deal with different types of objects in data science. Without providing too complicated or technical of descriptions, some are described below.\n\nnumeric objects: representing numeric information (e.g., one’s age)\ncharacter objects: representing character information (e.g., one’s name or race)\nvector objects: representing more than one numeric object (e.g., ages of participants)\ndata frame objects: containing vectors of data (e.g., column variables and row instances of data)\nfunction objects: that accept one object and return an other object (e.g., the mean of numeric vector)\n\nThere are other type of objects that you will learn about and encounter but for now, those are the most relevant."
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#a-character-example",
+    "href": "modules/04_functions_and_scripts.html#a-character-example",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "A character example",
+    "text": "A character example\nLet’s start with an example of an object called name, which we would like to assign a set of characters, like Jim Bob.\nIn order to create such an object, we would need to place the characters within quotation marks (e.g., single or double, does not matter). The quotes let R know the contents of name are characters (aka strings).\n\"Jim Bob\"\nWhen dealing with data, you will encounter many character objects as they often represent factor variables (e.g., race, ethnicity, favorite game, etc.) but you will also see lots of objects that are numeric in some form (e.g., age, rating, cognitive performance, etc.)."
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#assignment-provides-meaning-or-definition",
+    "href": "modules/04_functions_and_scripts.html#assignment-provides-meaning-or-definition",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Assignment provides meaning or definition",
+    "text": "Assignment provides meaning or definition\nAssignment is akin to creating a new word and assigning a meaning to it. You could also think of an assignment statement as a way to tell R to “create this thing and set it equal to something” so that the computer understand what association represents."
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#a-character-object-a-silly-example",
+    "href": "modules/04_functions_and_scripts.html#a-character-object-a-silly-example",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "A character object: A silly example",
+    "text": "A character object: A silly example\nIf objects are like containers holding things, we can use name of the object (e.g., container) and then assign \"things\" to it using &lt;-. In order to create a character object, we would need to place the characters within quotation marks (e.g., single or double, does not matter). The quotes let R know the contents of container are characters (aka strings).\n\"things\"\nWhen dealing with data, you will encounter many character objects as they often represent factor variables (e.g., race, ethnicity, favorite game, etc.) but you will also see lots of objects that are numeric in some form (e.g., age, rating, cognitive performance, etc.).\nSilly Example:\n\n\"something\" assigned to container\ncontainer &lt;- \"something\"\n\n\ncontainer &lt;- \"things\"\n\nAnd to see its contents, use print() to return the objects content:\n\nprint(container)\n\n[1] \"things\"\n\n\nOr just type the name of the object and you will see the returned object is \"things\".\n\ncontainer\n\n[1] \"things\"\n\n\nFor another example, we could also create an object called name, which we could assign a set of characters, like Jim Bob, making the object a character object.\n\nname &lt;- \"Jim Bob\"\n\nTo see what is returned:\n\nname\n\n[1] \"Jim Bob\"\n\n\nWhether you name is or is not Jim Bob, you can see that name contains the characters that represent the name of someone named “Jim Bob”. Although we assigned \"Jim Bob\" to name, we could have assigned it a given name. The assignment process simply stores the assigned information as an object using of whatever name you decided to call it (e.g., name, Name, NAME, xyz, etc.). We will discuss more on these letter casing differences later.\nYou could also assign the character to the object this way.\n\n\"things\" -&gt; container\n\nHowever, we won’t use much of this approach for different reasons. One reason is that doing so does not follow the R Style Guide. The style guide defines a set of guidelines for coding in R. Rather than memorize all of the styling, pay careful attention to the way code appears in the examples provided and try your best to model your code after the examples. For example, don’t do something this container&lt;-\"things\" just so you save space as doing so makes the code more difficult for you and others to read and understand.\nOK, back to Jim Bob. Of course, there are different people other than Jim Bob who exist in the world but when coding, they do not exist unless you create them. So, let’s create an object that holds the name of \"Jim Bob\".\nname &lt;- \"Jim Bob\"\n\nname &lt;- \"Jim Bob\"     # assign string to object named name\n\n\nName &lt;- \"Jim Bob\"     # we could have assigned it a different name, say Name\n\n\nNAME &lt;- \"Jim Bob\"     # or assigned it in all caps\n\nWhenever you reference the object name (or Name), R will return the contents of the object to you, which in this case will be a character or string object containing a single person’s name because that’s how we assigned it.\n\nname               # call object to return contents of \"name\"\n\n[1] \"Jim Bob\"\n\n\nAnd again, we can use print() to do the same thing:\n\nprint(name)\n\n[1] \"Jim Bob\"\n\n\n\nBeing mindful of case sensitivity\nA word of warning is needed here. Although name, Name, and NAME all contain the same four characters, n a m and e all arranged it he same order, the objects are all different. They just happen to hold the same content. The reason for there being three different object is because R is a case-sensitive language, which means that the letter case matters. In some programming languages, the case is ignored.\nTo illustrate, consider an example for which you assign different names to the object.\nname &lt;- \"Jim Bob\"     # create the object\n\n\nName &lt;- \"Bob\"         # then change it\n\n\nNAME &lt;- \"Jim\"         # then change it again\nIn those languages, if you asked what the name object contained, the program would return \"Jim\" because these characters were assigned last, even though they were assigned to an uppercase version, NAME. With R, you will need to be mindful of the letter case. This is by design, perhaps an advantage rather than a disadvantage."
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#a-numeric-object",
+    "href": "modules/04_functions_and_scripts.html#a-numeric-object",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "A numeric object",
+    "text": "A numeric object\nWhat about numeric information? We can create an object called year and assign the current year to it; let’s have this object contain the current year in numeric form, not as a string. Remember to use &lt;- for assignment.\n\nyear &lt;- 2024    # assign a number to year ; notice no quotes\n\nIn order to know whether this year object now contains the year, we can check by typing the name of the object or use print() to print the returned value.\n\nyear\n\n[1] 2024\n\nprint(year)\n\n[1] 2024"
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#inspecting-vectors-with-some-functions",
+    "href": "modules/04_functions_and_scripts.html#inspecting-vectors-with-some-functions",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Inspecting vectors with some functions",
+    "text": "Inspecting vectors with some functions\nname and year are very simple objects. name is a simple character/string object we created, which contains only the name of 1 person and year only holds the current year. There is something else important about how R treats them that you cannot see on the surface. Both of these objects are also vectors. Vectors are one-dimensional arrays containing n pieces of information. You might also think of a vector so a variable (e.g., IQs of people). Both the name and year vectors contain only one piece of information, however. If you don’t believe me, we can use some functions that will answer this for us.\n\nis.vector() is a function that returns a logical (T or F) about whether the object is a vector\nlength() is a function that returns a non-negative numeric integer representing the number of elements contained\ntypeof() is a function that returns the object’s type\n\nLet’s try them by passing the object name inside the function.\n\nis.vector(name)   # is it a vector?\n\n[1] TRUE\n\n#?length\nlength(name)      # how many elements?\n\n[1] 1\n\ntypeof(name)      # what is it's type?\n\n[1] \"character\"\n\n\nIf name contained more than one object, it would still be a vector having a different length. But in order to create such vectors, each element of the vector needs to be separated by a comma and each elements needs to be wrapped by quotes.\nIf you do not separate strings by a comma…\n\nname &lt;- \"Jim Bob Kendra\"\n\n\nname                                # return object; also print(name)\n\n[1] \"Jim Bob Kendra\"\n\nis.character(name)                  # is it a character?\n\n[1] TRUE\n\nlength(name)                        # what is its length?\n\n[1] 1\n\n\nIf you do use quotes for each element and separate each by a comma, you need to use a function to combine them, which is c().\n\nname &lt;- c(\"Jim Bob\", \"Kendra\")  # two names, combine with c()\n\n\n\nis.character(name)        \n\n[1] TRUE\n\nlength(name)                   # vector with length 2\n\n[1] 2\n\n\nThe more you work with character vector, the more you way want to avoid some annoyances of creating them.\nThe {Hmisc} library has a function called Cs() that obviates the inclusion of the quotes.\n\nHmisc::Cs(Jim, Kendra, Bill, Sandy)\n\n[1] \"Jim\"    \"Kendra\" \"Bill\"   \"Sandy\" \n\n\nBeware of vectors containing elements with space like this:\nHmisc::Cs(Jim Bob, Kendra)\nR will throw an error to inform you that something is wrong. For example: Error: unexpected symbol in \"Hmisc::Cs(Jim Bob\"."
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#elements-of-vectors",
+    "href": "modules/04_functions_and_scripts.html#elements-of-vectors",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Elements of vectors",
+    "text": "Elements of vectors\nAs a side note, the pieces/values of a vector are referred to as elements. You can reference elements by number representing their position in the vector.\n\nname[1]   # first element\n\n[1] \"Jim Bob\"\n\nname[2]   # second element\n\n[1] \"Kendra\"\n\nname[3]   # a third element? No. It only has length 2\n\n[1] NA\n\n\nObjects in R, however, can take on many forms other than strings or numbers just illustrated. Objects can be strings/characters, numeric values, character strings, functions, data frames, vectors, lists, matrices, plots, etc. If you use typeof() on a data frame object, the function will return \"list\" because a data frame is also a list. More on this later."
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#creating-a-.r-script-file-to-source",
+    "href": "modules/04_functions_and_scripts.html#creating-a-.r-script-file-to-source",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Creating a .R script file to source()",
+    "text": "Creating a .R script file to source()\nThere are a few ways to create files for your R project. You can do so easily from RStudio or you can do so more quickly using Git.\n\nCreating a .R script using RStudio\nYou can easily create an .R script file from RStudio. You are most likely familiar with this file creation process.\nFirst, go to File &gt; New File &gt; R Script\nSecond, File &gt; Save As, browse to the projects /r directory, name it my_first_script.R and click save.\nIn it, type message(\"My first script file.\") and save it as my_first_script (the .R should be automatic) in your \"/r\" directory.\nYour file will be written to the r/ directory and will be opened in RStudio.\nBecause the .Rmd file you are working with is already saved in \"/r\" (if you saved it there correctly), you can source the file by name.\n\n\nCreating a .R script file using the Terminal\nFirst, go to your Terminal in RStudio. This is located by the Console tab and is the same place you type your Git commands.\nSecond, you can use the touch function to create the file. You will want to specify the directory to write the file and the name of the file to write.\nThird, to create a file named my_first_script.R, type:\ntouch r/my_first_script.R and your file will be written to the r/ directory.\nTo open the file in RStudio, the easiest way to go to the Files pane in RStudio, locate it and click it so that it appears as an open tab.\nIf you want to add it to Git, type:\ngit add r/my_first_script.R and it will be staged.\nIf you misspelled the file name and want to delete it, or just need to delete it for some reason, you can type:\nrm r/my_first_script.R\nTo delete it and remove from Git, type:\ngit rm r/my_first_script.R"
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#adding-code-to-the-script-file",
+    "href": "modules/04_functions_and_scripts.html#adding-code-to-the-script-file",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Adding code to the script file",
+    "text": "Adding code to the script file\nWe will now add code to the file. To demonstrate how this works, let’s just add a message to the file using message() which is a simple stand-in for a bunch of lines of code.\nIn the script file, type:\nmessage(\"My first script file.\")\nNote: Make sure you save the file."
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#sourcing-the-script-file",
+    "href": "modules/04_functions_and_scripts.html#sourcing-the-script-file",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Sourcing the script file`",
+    "text": "Sourcing the script file`\nNow, to run the code saved in my_first_script.R, we will source() the file by specifying the path to it using {here}.\n\nsource(file = here::here(\"r\", \"my_first_script.R\"))\n\nMy first script file.\n\n\nBut you can omit using file because you are only passing one argument and it’s file.\n\nsource(here::here(\"r\", \"my_first_script.R\"))\n\nMy first script file."
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#sourcing-multiple-script-files",
+    "href": "modules/04_functions_and_scripts.html#sourcing-multiple-script-files",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Sourcing multiple script files",
+    "text": "Sourcing multiple script files\nWhen you have multiple files to source(), you can source them individually, making sure that they are ordered in the order you wish to run them. They will execute line by line.\nsource(here::here(\"r\", \"read_data.R\"))\nsource(here::here(\"r\", \"clean_data.R\"))\nsource(here::here(\"r\", \"create_plots.R\"))\nYou can also create a new .R script file that contains the above three lines of source code and add them to another file, named appropriately like read_clean_plot_data.R. and then source that file like this:\nsource(here::here(\"r\", \"read_clean_plot_data.R\"))"
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#sourcing-all-files-in-a-directory",
+    "href": "modules/04_functions_and_scripts.html#sourcing-all-files-in-a-directory",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Sourcing all files in a directory",
+    "text": "Sourcing all files in a directory\nIf all those files to source are in a directory, you can use a special source function from {R.utils} R.utils::sourceDirectory(). For example, if you have all of personal or project-related functions nicely organized in a directory like r/funcions/, you can easily source it like this. The benefit here is that you don’t have to specify all of the files individually.\n\nR.utils::sourceDirectory(here::here(\"src\", \"functions\"))"
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#an-alternative-to-view",
+    "href": "modules/04_functions_and_scripts.html#an-alternative-to-view",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "An alternative to View()",
+    "text": "An alternative to View()\nAs an alternative to View(), a function that I wrote using the {DT} library to display the data in an HTML table that allows you to sort the data.\n\nview_html() (lowercase v): returns an filterable html table of the data frame; my alternative to View()\n\nIf you want to use this function, you can source() the raw code from the course site using the code below. Because I use this function often, you might wish to add it to your /r/functions/ directory and simply source all of the files in that directory as describe above.\n\nsource(\"https://raw.githubusercontent.com/slicesofdata/fods24/main/r/functions/view_html.R\")"
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#getting-the-head-of-a-data-frame",
+    "href": "modules/04_functions_and_scripts.html#getting-the-head-of-a-data-frame",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Getting the head() of a data frame`",
+    "text": "Getting the head() of a data frame`\nIf you query the function in the console by typing using ?head or help(head), you will see in there are two main parameters.\nParameters/Arguments:\n\nx: a vector or data frame object\nn: a value of the indices to be selected (e.g., elements of vector, rows in data frame)\n\nhead() needs an object x in order to do anything. We can pass the USArrests data frame as the argument and if all goes well, we will only see the top or head of this data frame.\n\nhead(x = USArrests)   # 6 rows by default\n\n           Murder Assault UrbanPop Rape\nAlabama      13.2     236       58 21.2\nAlaska       10.0     263       48 44.5\nArizona       8.1     294       80 31.0\nArkansas      8.8     190       50 19.5\nCalifornia    9.0     276       91 40.6\nColorado      7.9     204       78 38.7\n\n\nAnd if you pass arguments to parameters in function according to their order (e.g., position), you do not need to reference the parameters by name when passing arguments. For example, we can remove the reference to x.\n\nhead(USArrests)   # 6 rows by default\n\n           Murder Assault UrbanPop Rape\nAlabama      13.2     236       58 21.2\nAlaska       10.0     263       48 44.5\nArizona       8.1     294       80 31.0\nArkansas      8.8     190       50 19.5\nCalifornia    9.0     276       91 40.6\nColorado      7.9     204       78 38.7\n\n\nThe second parameter for head() is n, the number of rows for the function to return. The default number was 6. We can change the default operation by passing 3 as the argument to it.\nBut as long as we pass the arguments to x and then to n, then we do not need to reference either by name. Instead, we can just pass the arguments.\nBut if you change order, you will need to reference the arguments. You cannot call head(3, USArrests) for example but you can call head(n = 3, x = USArrests). You normally would not wish to change the order of arguments for head() but for more complicated functions, you might wish to for different reasons.\nUsing the viewing options:\n\n#View(USArrests)                            # the standard viewer\n\n#view_html(USArrests, rows = T, show = 5)   # but same as \n\n#view_html(head(USArrests), rows = T)"
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#checking-whether-an-object-is-a-data-frame-using-is.data.frame",
+    "href": "modules/04_functions_and_scripts.html#checking-whether-an-object-is-a-data-frame-using-is.data.frame",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Checking whether an object is a data frame using is.data.frame()",
+    "text": "Checking whether an object is a data frame using is.data.frame()\nYou can also check whether the USArrests data file is a data frame using is.data.frame(), which will return TRUE indicating that it is indeed a data frame.\n\nis.data.frame() returns logical ( T or F) about data frame as two-dimensional array"
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#checking-the-structure-of-a-data-frame-using-str",
+    "href": "modules/04_functions_and_scripts.html#checking-the-structure-of-a-data-frame-using-str",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Checking the structure of a data frame using str()",
+    "text": "Checking the structure of a data frame using str()\nThat seems tedious, however. You can learn a lot more about the data frame by examining its structure using str(). The USArrests object is a data frame, contains 50 observations (e.g., rows) and 4 variables (columns). All column variables appear to contains numbers, with two of them being numeric, abbreviated num and two are integers, abbreviated int.\n\nstr() returns the structure of a data frame"
+  },
+  {
+    "objectID": "modules/04_functions_and_scripts.html#using-other-functions",
+    "href": "modules/04_functions_and_scripts.html#using-other-functions",
+    "title": "Functions, Arguments, and R scripts",
+    "section": "Using other functions`",
+    "text": "Using other functions`\nAnd you can check the names of the columns using names(). What is actually returned to you is a character vector, or a vector whose elements are of character type. You can test whether the column names is a vector by wrapping names() with the is.vector() function. Similarly, wrapping names() in typeof() will tell you the type is character.\n\nnames(): returns names of data frame\nis.vector(): returns logical if/if not a vector (see other is. functions)\ntypeof(): returns the type of the object\n\n\nnames(USArrests)           # get the names of the columns?\n\n[1] \"Murder\"   \"Assault\"  \"UrbanPop\" \"Rape\"    \n\nis.vector(names(USArrests))\n\n[1] TRUE\n\ntypeof(names(USArrests))   # get the type of structure are the names\n\n[1] \"character\""
+  },
+  {
     "objectID": "modules/07_variables_and_measures_of_cognition.html",
     "href": "modules/07_variables_and_measures_of_cognition.html",
     "title": "Variables and Measures of Cognition",
@@ -2569,67 +2772,60 @@
     "text": "Books\n\nLots of alternative books https://www.bigbookofr.com/data-visualization.html"
   },
   {
-    "objectID": "slides/01_intro_rstudio_rmarkdown_slides.html",
-    "href": "slides/01_intro_rstudio_rmarkdown_slides.html",
-    "title": "R, RStudio, & Rmarkdown",
-    "section": "",
-    "text": "code or programs you write execute in real time\nby he R interpreter that translates your code\ncode does not need to be compiled prior to being executed\n\n\n\n\n\n\n\nhttps://en.wikipedia.org/wiki/Functional_programming\nprograms are constructed by applying and composing functions\nfunctions:\n\nmean()\ndplyr::summarize()\n\n\n\n\n\n\n\n\nnumeric objects (e.g., 2024, 21.2)\nstrings/character objects:\n\ncomposed of letters\nenclosed by quotes (e.g., \"Sam\", \"Male\", \"21\")\n\nvector objects:\n\ncollections of objects (e.g., c(\"18\", \"23\", \"20\"))\n\ndata frames:\n\ncollections of vectors\n\n\n\n\n\n\n\n\nwe assign objects to names/names to objects\n\nages &lt;- c(\"18\", \"23\", \"20\")\n\nwe perform functions on objects:\n\nas.numeric(ages)\noften by assigning or reassigning:\n\nages &lt;- as.numeric(ages)\n\n\n\n\n\n\n\n\n\nwe inspect object contents\n\nages\nand get something returned: [1] 18 23 20\n\nwe perform more functions on objects:\n\nmean(ageas.numeric(ages))\n[1] 20.33333\n\nwe model data frames\n\n\n\n\n\n\n\n\nfind the Console\nfind the Terminal\nfind ‘environment’ in pane\nfind ‘history’ in pane\nfind ‘help’ in pane\nfind ‘files’ in pane\nfind ‘plots’ in pane\n\n\n\n\n\n\n\n\nyear &lt;- 2024\n\n\n\n\ncode\nyear &lt;- 2024\n\n\n\nassign objects to names using &lt;-, not =\n\n\n\n\n\n\n\n\nages &lt;- c(18, 22, 24)\n\n\n\n\ncode\nages &lt;- c(18, 22, 24)\n\n\n\n[1] 18 22 24"
-  },
-  {
     "objectID": "slides/01_intro_rstudio_rmarkdown_slides.html#r-is-an-interpreted-language",
     "href": "slides/01_intro_rstudio_rmarkdown_slides.html#r-is-an-interpreted-language",
     "title": "R, RStudio, & Rmarkdown",
-    "section": "",
-    "text": "code or programs you write execute in real time\nby he R interpreter that translates your code\ncode does not need to be compiled prior to being executed"
+    "section": "R is an Interpreted Language",
+    "text": "R is an Interpreted Language\n\n\ncode or programs you write execute in real time\nby he R interpreter that translates your code\ncode does not need to be compiled prior to being executed"
   },
   {
     "objectID": "slides/01_intro_rstudio_rmarkdown_slides.html#r-involves-functional-programming",
     "href": "slides/01_intro_rstudio_rmarkdown_slides.html#r-involves-functional-programming",
     "title": "R, RStudio, & Rmarkdown",
-    "section": "",
-    "text": "https://en.wikipedia.org/wiki/Functional_programming\nprograms are constructed by applying and composing functions\nfunctions:\n\nmean()\ndplyr::summarize()"
+    "section": "R involves functional programming",
+    "text": "R involves functional programming\n\n\nhttps://en.wikipedia.org/wiki/Functional_programming\nprograms are constructed by applying and composing functions\nfunctions:\n\nmean()\ndplyr::summarize()"
   },
   {
     "objectID": "slides/01_intro_rstudio_rmarkdown_slides.html#some-basics",
     "href": "slides/01_intro_rstudio_rmarkdown_slides.html#some-basics",
     "title": "R, RStudio, & Rmarkdown",
-    "section": "",
-    "text": "numeric objects (e.g., 2024, 21.2)\nstrings/character objects:\n\ncomposed of letters\nenclosed by quotes (e.g., \"Sam\", \"Male\", \"21\")\n\nvector objects:\n\ncollections of objects (e.g., c(\"18\", \"23\", \"20\"))\n\ndata frames:\n\ncollections of vectors"
+    "section": "Some basics",
+    "text": "Some basics\n\n\nnumeric objects (e.g., 2024, 21.2)\nstrings/character objects:\n\ncomposed of letters\nenclosed by quotes (e.g., \"Sam\", \"Male\", \"21\")\n\nvector objects:\n\ncollections of objects (e.g., c(\"18\", \"23\", \"20\"))\n\ndata frames:\n\ncollections of vectors"
   },
   {
     "objectID": "slides/01_intro_rstudio_rmarkdown_slides.html#some-basics-cont.",
     "href": "slides/01_intro_rstudio_rmarkdown_slides.html#some-basics-cont.",
     "title": "R, RStudio, & Rmarkdown",
-    "section": "",
-    "text": "we assign objects to names/names to objects\n\nages &lt;- c(\"18\", \"23\", \"20\")\n\nwe perform functions on objects:\n\nas.numeric(ages)\noften by assigning or reassigning:\n\nages &lt;- as.numeric(ages)"
+    "section": "Some basics (cont.)",
+    "text": "Some basics (cont.)\n\n\nwe assign objects to names/names to objects\n\nages &lt;- c(\"18\", \"23\", \"20\")\n\nwe perform functions on objects:\n\nas.numeric(ages)\noften by assigning or reassigning:\n\nages &lt;- as.numeric(ages)"
   },
   {
     "objectID": "slides/01_intro_rstudio_rmarkdown_slides.html#some-basics-cont.-1",
     "href": "slides/01_intro_rstudio_rmarkdown_slides.html#some-basics-cont.-1",
     "title": "R, RStudio, & Rmarkdown",
-    "section": "",
-    "text": "we inspect object contents\n\nages\nand get something returned: [1] 18 23 20\n\nwe perform more functions on objects:\n\nmean(ageas.numeric(ages))\n[1] 20.33333\n\nwe model data frames"
+    "section": "Some basics (cont.)",
+    "text": "Some basics (cont.)\n\n\nwe inspect object contents\n\nages\nand get something returned: [1] 18 23 20\n\nwe perform more functions on objects:\n\nmean(ageas.numeric(ages))\n[1] 20.33333\n\nwe model data frames"
   },
   {
     "objectID": "slides/01_intro_rstudio_rmarkdown_slides.html#open-rstudio",
     "href": "slides/01_intro_rstudio_rmarkdown_slides.html#open-rstudio",
     "title": "R, RStudio, & Rmarkdown",
-    "section": "",
-    "text": "find the Console\nfind the Terminal\nfind ‘environment’ in pane\nfind ‘history’ in pane\nfind ‘help’ in pane\nfind ‘files’ in pane\nfind ‘plots’ in pane"
+    "section": "Open RStudio",
+    "text": "Open RStudio\n\n\nfind the Console\nfind the Terminal\nfind ‘environment’ in pane\nfind ‘history’ in pane\nfind ‘help’ in pane\nfind ‘files’ in pane\nfind ‘plots’ in pane"
   },
   {
     "objectID": "slides/01_intro_rstudio_rmarkdown_slides.html#write-some-code-in-the-r-console",
     "href": "slides/01_intro_rstudio_rmarkdown_slides.html#write-some-code-in-the-r-console",
     "title": "R, RStudio, & Rmarkdown",
-    "section": "",
-    "text": "year &lt;- 2024\n\n\n\n\ncode\nyear &lt;- 2024\n\n\n\nassign objects to names using &lt;-, not ="
+    "section": "Write some code in the R console",
+    "text": "Write some code in the R console\n\n\n\nyear &lt;- 2024\n\n\n\n\ncode\nyear &lt;- 2024\n\n\n\nassign objects to names using &lt;-, not ="
   },
   {
     "objectID": "slides/01_intro_rstudio_rmarkdown_slides.html#write-more-code-in-the-r-console",
     "href": "slides/01_intro_rstudio_rmarkdown_slides.html#write-more-code-in-the-r-console",
     "title": "R, RStudio, & Rmarkdown",
-    "section": "",
-    "text": "ages &lt;- c(18, 22, 24)\n\n\n\n\ncode\nages &lt;- c(18, 22, 24)\n\n\n\n[1] 18 22 24"
+    "section": "Write more code in the R console",
+    "text": "Write more code in the R console\n\n\n\nages &lt;- c(18, 22, 24)\n\n\n\n\ncode\nages &lt;- c(18, 22, 24)\n\n\n\n[1] 18 22 24"
   },
   {
     "objectID": "slides/01_intro_rstudio_rmarkdown_slides.html#rstudio",
@@ -2751,18 +2947,11 @@
     "text": "Locate the HTML file \n\nmy_first_markdown.html"
   },
   {
-    "objectID": "slides/02_git.html",
-    "href": "slides/02_git.html",
-    "title": "Git and GitHub",
-    "section": "",
-    "text": "What is version control?\n\nProject backup\nSee specific changes inside files\nUndo changes (time machine)\n\nVersion Control Summary Video"
-  },
-  {
     "objectID": "slides/02_git.html#version-control",
     "href": "slides/02_git.html#version-control",
     "title": "Git and GitHub",
-    "section": "",
-    "text": "What is version control?\n\nProject backup\nSee specific changes inside files\nUndo changes (time machine)\n\nVersion Control Summary Video"
+    "section": "Version Control",
+    "text": "Version Control\n\n\nWhat is version control?\n\nProject backup\nSee specific changes inside files\nUndo changes (time machine)\n\nVersion Control Summary Video"
   },
   {
     "objectID": "slides/02_git.html#version-control-git-workflow-basics",
@@ -2898,73 +3087,66 @@
     "text": "Videos of many things you can do\nIf interested, see gittower YouTube"
   },
   {
-    "objectID": "slides/03_functions_slides.html",
-    "href": "slides/03_functions_slides.html",
-    "title": "Functions, Parameters, and Arguments",
-    "section": "",
-    "text": "An object as a sort of container\nContainers hold different things\n\n\n\n\n\n\nnumeric objects: representing numeric information (e.g., one’s age)\ncharacter objects: representing character information (e.g., one’s name or race)\nvector objects: representing more than one numeric object (e.g., ages of participants)\ndata frame objects: containing vectors of data (e.g., column variables and row instances of data)\nfunction objects: that accept one object and return an other object (e.g., the mean of numeric vector)\n\n\n\n\n\n\n\nObjects need names\nObtained through assignment\n\nname is assigned an object; or\nobject is set to name\n\nAssignment operator &lt;-\n\nex: age &lt;- 22\nex: age &lt;- as.numeric(c(\"22\", \"25\", \"19\"))\n\n\n\n\n\n\n\nFunctions are special objects which contain statements for carrying out operations\n\nc() or Hmisc::Cs(): to combine elements into a vector\nmean(): to compute the mean of a numeric vector\nsource(): for reading/executing R code\ndplyr::mutate(): for creating variables in data frames\nrio::import() or readr::read_csv(): for reading data files\nreadRDS(): for reading compressed data files\n\n\n\n\n\n5 terms concepts to know:\n\n\nname (created by assignment operator &lt;-)\ndefinition (code statements or instructions for its usage)\narguments (optional variables that specify the function’s operation)\nfunction call (e.g., execution of a function)\nreturned object (value returned from the executed function)\n\n\n\n\n\n\n\nmy_function &lt;- function() {\n\n    statements/instructions to do something\n\n    \n    return(result of instructions)\n\n}\n\n\n\n\n\n\n\n\nget_years_since_birth &lt;- function(dob) {\n  if (!hasArg(dob)) {\n      message(\"Error: dob missing/no argument provided\")\n    } \n  else {\n    # make string a data\n    dob = lubridate::as_date(dob) \n    # obtain the difference in time in days\n    diff = difftime(time1 = Sys.Date(), time2 = dob, units = \"days\")\n    # create age based on days in year\n    age = as.numeric(diff / 365.25)\n    # return the age in years, truncated \n    return(trunc(age))\n  }\n}\n\n\n\n\n\n\n\n{dplyr}: for wrangling data frames\n{ggplot2}: for plotting data\n{tidyverse}: for loading all libraries in the tidyverse ecosystem\n{easystats}: for loading all libraries in the easystats ecosystem\n\n\n\n\n\n\n\nLoading all functions:\n\nlibrary(dplyr)\n\nLoading order matters: Function of the same name will overwrite others\n\n\n\n\n\n\n\nIf loaded:\n\nmutate() (from {dplyr})\n\nIf not loaded:\n\neeptools::age_calc(): for calculating age based on a date\n:: calls ensures choice (duplicate function names in different libraries)"
-  },
-  {
     "objectID": "slides/03_functions_slides.html#some-object-types",
     "href": "slides/03_functions_slides.html#some-object-types",
     "title": "Functions, Parameters, and Arguments",
-    "section": "",
-    "text": "numeric objects: representing numeric information (e.g., one’s age)\ncharacter objects: representing character information (e.g., one’s name or race)\nvector objects: representing more than one numeric object (e.g., ages of participants)\ndata frame objects: containing vectors of data (e.g., column variables and row instances of data)\nfunction objects: that accept one object and return an other object (e.g., the mean of numeric vector)"
+    "section": "Some Object Types",
+    "text": "Some Object Types\n\n\nnumeric objects: representing numeric information (e.g., one’s age)\ncharacter objects: representing character information (e.g., one’s name or race)\nvector objects: representing more than one numeric object (e.g., ages of participants)\ndata frame objects: containing vectors of data (e.g., column variables and row instances of data)\nfunction objects: that accept one object and return an other object (e.g., the mean of numeric vector)"
   },
   {
     "objectID": "slides/03_functions_slides.html#object-assignment",
     "href": "slides/03_functions_slides.html#object-assignment",
     "title": "Functions, Parameters, and Arguments",
-    "section": "",
-    "text": "Objects need names\nObtained through assignment\n\nname is assigned an object; or\nobject is set to name\n\nAssignment operator &lt;-\n\nex: age &lt;- 22\nex: age &lt;- as.numeric(c(\"22\", \"25\", \"19\"))"
+    "section": "Object Assignment",
+    "text": "Object Assignment\n\n\nObjects need names\nObtained through assignment\n\nname is assigned an object; or\nobject is set to name\n\nAssignment operator &lt;-\n\nex: age &lt;- 22\nex: age &lt;- as.numeric(c(\"22\", \"25\", \"19\"))"
   },
   {
     "objectID": "slides/03_functions_slides.html#function-objects",
     "href": "slides/03_functions_slides.html#function-objects",
     "title": "Functions, Parameters, and Arguments",
-    "section": "",
-    "text": "Functions are special objects which contain statements for carrying out operations\n\nc() or Hmisc::Cs(): to combine elements into a vector\nmean(): to compute the mean of a numeric vector\nsource(): for reading/executing R code\ndplyr::mutate(): for creating variables in data frames\nrio::import() or readr::read_csv(): for reading data files\nreadRDS(): for reading compressed data files"
+    "section": "Function Objects",
+    "text": "Function Objects\n\nFunctions are special objects which contain statements for carrying out operations\n\nc() or Hmisc::Cs(): to combine elements into a vector\nmean(): to compute the mean of a numeric vector\nsource(): for reading/executing R code\ndplyr::mutate(): for creating variables in data frames\nrio::import() or readr::read_csv(): for reading data files\nreadRDS(): for reading compressed data files"
   },
   {
     "objectID": "slides/03_functions_slides.html#function-characteristics",
     "href": "slides/03_functions_slides.html#function-characteristics",
     "title": "Functions, Parameters, and Arguments",
-    "section": "",
-    "text": "5 terms concepts to know:\n\n\nname (created by assignment operator &lt;-)\ndefinition (code statements or instructions for its usage)\narguments (optional variables that specify the function’s operation)\nfunction call (e.g., execution of a function)\nreturned object (value returned from the executed function)"
+    "section": "Function Characteristics",
+    "text": "Function Characteristics\n5 terms concepts to know:\n\n\nname (created by assignment operator &lt;-)\ndefinition (code statements or instructions for its usage)\narguments (optional variables that specify the function’s operation)\nfunction call (e.g., execution of a function)\nreturned object (value returned from the executed function)"
   },
   {
     "objectID": "slides/03_functions_slides.html#function-statements-without-parameterargument",
     "href": "slides/03_functions_slides.html#function-statements-without-parameterargument",
     "title": "Functions, Parameters, and Arguments",
-    "section": "",
-    "text": "my_function &lt;- function() {\n\n    statements/instructions to do something\n\n    \n    return(result of instructions)\n\n}"
+    "section": "Function Statements without Parameter/Argument",
+    "text": "Function Statements without Parameter/Argument\n\n\nmy_function &lt;- function() {\n\n    statements/instructions to do something\n\n    \n    return(result of instructions)\n\n}"
   },
   {
     "objectID": "slides/03_functions_slides.html#function-example-with-parameterargument",
     "href": "slides/03_functions_slides.html#function-example-with-parameterargument",
     "title": "Functions, Parameters, and Arguments",
-    "section": "",
-    "text": "get_years_since_birth &lt;- function(dob) {\n  if (!hasArg(dob)) {\n      message(\"Error: dob missing/no argument provided\")\n    } \n  else {\n    # make string a data\n    dob = lubridate::as_date(dob) \n    # obtain the difference in time in days\n    diff = difftime(time1 = Sys.Date(), time2 = dob, units = \"days\")\n    # create age based on days in year\n    age = as.numeric(diff / 365.25)\n    # return the age in years, truncated \n    return(trunc(age))\n  }\n}"
+    "section": "Function Example with Parameter/Argument",
+    "text": "Function Example with Parameter/Argument\n\n\n\nget_years_since_birth &lt;- function(dob) {\n  if (!hasArg(dob)) {\n      message(\"Error: dob missing/no argument provided\")\n    } \n  else {\n    # make string a data\n    dob = lubridate::as_date(dob) \n    # obtain the difference in time in days\n    diff = difftime(time1 = Sys.Date(), time2 = dob, units = \"days\")\n    # create age based on days in year\n    age = as.numeric(diff / 365.25)\n    # return the age in years, truncated \n    return(trunc(age))\n  }\n}"
   },
   {
     "objectID": "slides/03_functions_slides.html#functions-in-libraries",
     "href": "slides/03_functions_slides.html#functions-in-libraries",
     "title": "Functions, Parameters, and Arguments",
-    "section": "",
-    "text": "{dplyr}: for wrangling data frames\n{ggplot2}: for plotting data\n{tidyverse}: for loading all libraries in the tidyverse ecosystem\n{easystats}: for loading all libraries in the easystats ecosystem"
+    "section": "Functions in Libraries",
+    "text": "Functions in Libraries\n\n\n{dplyr}: for wrangling data frames\n{ggplot2}: for plotting data\n{tidyverse}: for loading all libraries in the tidyverse ecosystem\n{easystats}: for loading all libraries in the easystats ecosystem"
   },
   {
     "objectID": "slides/03_functions_slides.html#loadingimporting-functions-from-libraries",
     "href": "slides/03_functions_slides.html#loadingimporting-functions-from-libraries",
     "title": "Functions, Parameters, and Arguments",
-    "section": "",
-    "text": "Loading all functions:\n\nlibrary(dplyr)\n\nLoading order matters: Function of the same name will overwrite others"
+    "section": "Loading/Importing Functions from Libraries",
+    "text": "Loading/Importing Functions from Libraries\n\n\nLoading all functions:\n\nlibrary(dplyr)\n\nLoading order matters: Function of the same name will overwrite others"
   },
   {
     "objectID": "slides/03_functions_slides.html#calling-functions-from-libraries",
     "href": "slides/03_functions_slides.html#calling-functions-from-libraries",
     "title": "Functions, Parameters, and Arguments",
-    "section": "",
-    "text": "If loaded:\n\nmutate() (from {dplyr})\n\nIf not loaded:\n\neeptools::age_calc(): for calculating age based on a date\n:: calls ensures choice (duplicate function names in different libraries)"
+    "section": "Calling Functions from Libraries",
+    "text": "Calling Functions from Libraries\n\n\nIf loaded:\n\nmutate() (from {dplyr})\n\nIf not loaded:\n\neeptools::age_calc(): for calculating age based on a date\n:: calls ensures choice (duplicate function names in different libraries)"
   }
 ]
