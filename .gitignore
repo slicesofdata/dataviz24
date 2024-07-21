@@ -6,6 +6,7 @@
 .Rprofile
 
 /.quarto/
+ignored/
 _content/
 _freeze/
 _omit/
