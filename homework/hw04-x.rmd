@@ -1,0 +1,242 @@
+---
+title: "Exercise 04"
+author: ""
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  #word_document:
+  #  toc: yes
+  #  number_sections: yes
+  html_document:
+    toc: yes
+    number_sections: yes
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For this homework, you will save the `R Markdown` (e.g., `.Rmd`) homework document and save it to your `homework` project directory on your computer. Save a new copy of this file so that its name has the prefix `2023_Lastname_FirstInitial`. Full name example: `2023_cookg_EX_04.Rmd`. Feel free to work with a partner but understand that the work submitted has to be your own.
+
+
+
+
+
+
+
+
+
+
+
+
+The homework utilizes the modules below. 
+
+- [reading data files](https://slicesofdata.github.io/dataviz23/modules/03_reading_data_files.html)
+- [data frame manipulation and wrangling](https://slicesofdata.github.io/dataviz23/modules/04_data_frame_manipulation_and_wrangling.html)
+- [data subsets and summaries](https://slicesofdata.github.io/dataviz23/modules/07_data_subsets_and_summaries.html)
+
+
+**This homework is due on Tuesday by 2:30pm.**
+
+
+*Enter your name in the YAML code*   
+
+
+
+**Questions:**
+
+# *Load libraries*
+
+Note: The solution to this problem depends on solutions to subsequent problems but this represents one of the first things to do in your file (unless you `source()` other `.R` files containing the libraries as part of your setup). 
+
+Insert a code block below and write your code to load the libraries you will later use to answer the problems in this homework. Do not load libraries that you do not need. Also, do not load libraries if you are going to reference a function along with the library (e.g., `library::function()`), which may be the preference when you need to use only one or two functions from a library on a few occasions. 
+
+
+
+# *Download and Source a `.R` script.*
+
+First, we need to get all the TFRRS data. Use the code from the code block below to download an `.R` script file. That script file will perform the download of a `"tfrrs.zip"`.  The download won't work unless you have the script file on your computer so make sure you have it saved where you would save code files. Make a note of where this code is and then source `"download_tfrrs_data.R"` either inside the code block below or in the `R` console. If the download does not work, access the zip from the *data* tab on the course site and unzip into `/data`.
+
+```
+download.file("https://github.com/slicesofdata/dataviz23/raw/main/R/download_tfrrs_data.R", 
+              here::here("r", "download_tfrrs_data.R"))
+```
+
+Make note of where `"download_tfrrs_data.R"` was saved. 
+
+```{r eval=FALSE, include=FALSE}
+
+```
+
+Make now of where the data files were unpacked.
+
+
+
+
+# *Read a Local csv File*
+
+After saving and unpacking the data, use **{readr}** along with **{here}** to read the `2010_CMS_Athena_Outdoor_100.csv` file and assign it to an object of some name. You might wish to examine whether column names exist or do not and make any necessary function argument modifications.
+
+```{r}
+
+```
+
+
+
+# *Understanding Function Arguments*
+
+Why will these two function calls return the same object? You might need to query help from R using ?readr::read_csv to answer. 
+
+```
+readr::read_csv(file = "my_data.csv")
+
+readr::read_csv("my_data.csv")
+```
+
+
+**Explain why:**
+
+
+If you did not have column/variables in your data file and you wanted to override the default argument for col_names, why would the following function call not work? 
+
+`readr::read_csv(F, file = filename)`
+
+
+```{r}
+
+```
+
+**Explain:**
+
+
+# *View A Data Frame*
+
+Use a function of your choice to view the data frame. If you want to use my `view_html()` function, you will need to make sure you define the function in this file in some way (review past material and ways we have done this). By default, `RMarkdown` will not use function definitions outside of this scope. Pro tip: Consider sourcing your personal functions file.
+
+```{r}
+
+```
+
+After viewing, comment out your above code block so that the output will not appear in your knitted output file. Alternatively, select the gear icon from in your code block and change the output option to "show nothing (run code)" or "show nothing (do not run code)".  
+
+
+
+# *Getting Data Frame Column Names* 
+
+Use the function discussed earlier to obtain the names of the columns.
+
+```{r}
+
+```
+
+
+
+# *Working with Vector Elements*
+
+Find the *length* of the elements in the column names:
+
+```{r}
+
+```
+
+**How many variables are there?**
+
+
+
+# *Select Columns from a Data Frame*
+
+There are many ways to select data from a data frame. You don't know how you might want to filter, so get some practice by reviewing some options as presented in the module on data frame manipulation. 
+
+Take your data frame and subset it so that your function returns columns according to the following approaches. 
+
+
+## Two columns by their exact name:
+
+```{r}
+
+```
+
+
+## All columns that are numeric:
+
+```{r}
+
+```
+
+
+## All columns that have a name that contains, starts with, or ends with some letter:
+
+```{r}
+
+```
+
+
+# *Filter Rows of a Data Frame*
+
+There are many ways to filter data. You don't know how you will need to filter, so review some options as presented in the module on data frame manipulation.
+
+Take your data frame and filter so that your function returns rows according to the following approaches. 
+
+## Time is less that 13.1:
+
+```{r}
+
+```
+
+**Who has the fastest time?:**
+
+
+
+## Filter by times under 14 seconds during the month of April and sort the data frame so that the fastest times are at the top: 
+
+```{r}
+
+```
+
+
+## Filter by times that are faster that the mean of all times: 
+
+```{r}
+
+```
+
+## Create a new variable that represents the mean of all times, then filter to include only times that are faster than that mean, and only for meets in April.
+
+```{r}
+
+```
+
+
+# *Summarize A Data Frame*
+
+## Overall Summary
+
+## Summarize Overall
+
+Summarize the data so that you have the mean across all runners:
+
+```{r}
+
+```
+
+
+
+## Summarize by Grouping
+
+Summarize the data so that you have the mean of time for each of the meet locations and then arrange the data frame by the fastest meet locations:
+
+```{r}
+
+```
+
+## Choose your own summary adventure:
+
+Summarize the data frame in some other way you wish. Consider thinking of ways that may be relevant for the project:
+
+```{r}
+
+```
+
+
+**Please knit an `html` file upload [here](https://claremontmckenna.app.box.com/f/140969a32dea44e9ab6c0c00146d66e3).** 
+

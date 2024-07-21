@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r, eval=TRUE, include=FALSE, message=FALSE, warning=FALSE}
 library(dplyr)
 library(tibble)
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 source(here::here("r", "src", "color_format_text.R"))
 ```
 

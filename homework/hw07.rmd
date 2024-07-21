@@ -1,0 +1,200 @@
+---
+title: "Exercise 07"
+author: "yourname"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  #word_document:
+  #  toc: yes
+  #  number_sections: yes
+  html_document:
+    toc: no
+    number_sections: yes
+    code_folding: show #hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For this homework, you will save the `R Markdown` (e.g., `.Rmd`) homework document and save it to your `homework` project directory on your computer. Save a new copy of this file so that its name has the prefix `2023_Lastname_FirstInitial`. Full name example: `2023_cookg_EX_07.Rmd`. Feel free to work with a partner but understand that the work submitted has to be your own.
+
+This homework utilizes examples from these modules:
+
+- **data frame manipulation and wrangling**
+- **data subsets and summaries**
+- **ggplot and the grammar of graphics**
+- **color scales**
+- **coordinates and position scales** 
+
+
+**This homework is due on Tuesday by 2:30pm.**
+
+
+*Enter your name in the author YAML code above*   
+
+
+
+# (1pt) **Load only used libraries**
+
+```{r echo=TRUE}
+
+```
+
+
+# **Get a Plot**
+
+Obtain this plot and assign it to an object. There is a file at this location: 'https://github.com/slicesofdata/dataviz23/raw/main/images/pie_pyramid.png'
+
+Assign the path to an object and pass that object into the function below. `cowplot::ggdraw()` will read the image and convert it to an ggplot object. `cowplot::draw_image()` will draw the plot. Assign the plot to an object named `pryamid_plot` 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+pie_pyramid <- 'https://github.com/slicesofdata/dataviz23/raw/main/images/pie_pyramid.png'
+
+pryamid_plot <- ggdraw() + 
+  draw_image(pie_pyramid) 
+```
+
+Pie charts can be difficult to interpret because numeric data (e.g., counts) are encoded in the plot using area. They also can be difficult to interpret if labels are bad. Try your best to interpret this plot.
+
+(1pt) *ANSWER*
+
+
+
+
+# **Get your data**
+
+```{r}
+
+
+```
+
+
+# (1pt) **Density Plot (1pt)**
+
+Using some data set from your project:
+
+## Create a geom_density that plots a single variable along the x-axis;
+## Plot another variable that is mapped to the fill color; fix opacity
+## Adjust your x axis so that there are enough breaks visualized to facilitate plot interpretation but is also does not make the numbers too close together
+
+```{r}
+
+
+```
+
+
+# **Thinking Smarter Not Harder**
+*Project data, multiple geoms, colors, and breaks*
+
+At this point in the semester, you should have the data for your project across all of the years combined and these are in a single data frame and written as an uber `.csv` file. Most likely, this uber file should be cleaned up somewhat. For example, the key performance metric should be cleaned up, some factor variables should be factors, some ordered factors should be ordered, etc. Given these edits, the uber file should be saved as an `.Rds` file to preserve data frame elements like ordered factors and others. If your team has not accomplished this task of cleaning your file and writing it as an `.Rds` file, you know what you must do for next week. In that case, you can omit this problem for this week but must submit it with the homework next week.
+
+This problem is to encourage thinking programmatically so that you can help out your future self. **You want to avoid all temptations with hard coding**. This type of thinking does not always come easily. So let's do a walk through of some logic to provide an example of working smarter rather than harder.
+
+Afterward, you should use apply the logic with your own coding to prevent having to fix your code when things update. You should also use this opportunity to consider where the best place is to add/save code the does something like this so that all of your coding scripts can leverage automatically in this way. Again, you wan to **avoid hard coding at all costs**. If you end up copying and pasting a code block into 8 different locations, when you want to change that code you have to do so in 8 different blocks. Don't be tempted because your coding quality will be evaluated for your project.
+
+
+## Read in your cleaned uber file using **{here}** and assign to a data frame object.
+
+```{r}
+
+
+```
+
+## (1pt) Create a *numeric vector* outside of the data frame which contains just two elements. You can obtain those two elements by extracting the *range* of the calendar years which will provide you with the *minimum* and the *maximum* years from your data frame. Name that vector `year_range`
+ 
+```{r}
+
+
+```
+
+## (1pt) Use **{dplyr}** to compute the mean grouped by calendar year variable and the Stag/Athena variable. Note, if you summarize, you will lose some rows in your data frame and I want you to have all the rows there. You should have a data frame which has values for your mean variable that are repeated for all athletes in the a given year on a given team.
+
+```{r}
+
+```
+
+
+
+## (1pt) You are now going to create a multi-layered geom plot. For one `geom_point()` layer, plot the performance variable as a function of the calendar year. Map the point color to the Stag and Athena variable.
+
+```{r}
+
+
+```
+
+
+## (1pt) The points will be very busy, so deal with the overplotting problem in ways that is most true reflection of the actual data. Consider also doing so to favor *reproducibility* of your point position.  
+
+```{r}
+
+
+```
+
+
+## (1pt) For the second `geom_point()` layer, plot the average of the performance variable as a function of the calendar year. Make the point size larger than the default. Map an aesthetic so that your points will be colored different for the Stags and Athenas. 
+
+```{r}
+
+
+```
+
+You should notice that all years are not labeled on x axis.
+
+## (1pt) Add a `scale_*()` layer to add the `breaks` and `labels` for **all** years. *Remember, avoid all temptations with hard coding*. You can do this by creating a sequence of numbers *from* the minimum in the your `year_range` vector to the *maximum* of the vector *by* 1. 
+
+Don't worry about the orientation of the labels for now. If you find the plot labels difficult to read, consider flipping the axes.  
+
+```{r}
+
+
+```
+
+## (1pt) Now add a layer to change the color of the points manually. Stag and Athena mean points should be different from the default beach colors.
+ 
+```{r}
+
+
+```
+
+
+# Yes/No: Did you use an AI to help you?
+
+
+
+# **(1pt) BONUS: Make up for previous lost points**
+
+**Check to see your plot is suitable for people with colorblindness**
+
+**{colorblindr}** is useful to check your plots for those with color deficiencies. Specifically, `colorblindr::edit_colors()` will edit the colors so that they adjust for those with *protanopia*, *deuteranopia*, and *tritanopia*. 
+
+The `colorblindr::edit_colors` function will take the plot, a function argument for the deficiency (e.g., `protanopia`, `deuteranopia`, and `tritanopia`), and the severity (e.g., from 0 to 1, with greater values as more severity). The plot will edit the colors and return the edited plot.  
+
+For example, protanopia with severity 0.9:
+
+```
+original_plot <- colorblindr::edit_colors(my_plot, protan, sev = 0.9)
+```
+
+## Using the logic above, assign your plot to an object and then create 3 more plots (additional to the original), one plot for each type of the following color deficiencies: `protan`, `deutan`, and `tritan`. Set some severity value as well, ranging from 0 to 1. Be creative. Just don't copy the code.
+
+```{r}
+
+
+```
+
+## Use **{gridExtra}** to plot the 4 plots in two columns. Don't worry if the plots look like they don't fit. 
+
+```{r}
+
+
+```
+
+
+The first problem was a joke. If you did not get the joke, examine the plot again.
+
+**Please knit an `html` file and upload [here](https://claremontmckenna.app.box.com/f/140969a32dea44e9ab6c0c00146d66e3).** 
+
+
+
+
+

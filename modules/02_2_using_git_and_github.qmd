@@ -1,0 +1,382 @@
+---
+title: "*Project Management 02: R Projects, Git, and GitHub*"
+author: "Gabriel I. Cook"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+
+execute:
+  enabled: true
+---
+
+```{r}
+#| label: load-packages
+#| include: false
+# see other examples for reverting changes
+#https://jennybc.github.io/2014-05-12-ubc/ubc-r/session03_git.html
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+source(here::here("src", "color_format_text.R"))
+source(here::here("src", "_common2.R"))
+
+```
+
+::: callout-important
+## Under construction. 
+
+This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.
+:::
+
+
+## **Overview**
+
+This module focuses on getting organized. Rather than save files in a haphazard way that will just introduce stress to your life, we will focus on creating order. The best way to create order and stay organized is to 1) create *projects* in RStudio, 2) create directories and sub-directories that leave no ambiguity about where your files are, and 3) manage all directory paths and file paths simply using the `{here}` library. Another way is to connect that project with a remote repository saved someplace like GitHub for collaboration. In certain classes (and for your team project), you will use Git to interact with remote repositories connected to Projects in RStudio.
+
+In order to maintain organization for this class and the project, you will set up a class folder (aka directory) on your computer. You will then create an RStudio project and connect it to a remote private repository on your GitHub account. The reason for its privacy is because of data related to certain exercises.
+You will use this RStudio project for **all class exercises and homework** so that there is no ambiguity about where your files are saved. Finally, you will create directories within your new project directory so that you have an organized directory structure for storing your files. Systems paths for project files and directories will be manage using the **`{here}`** library. This process will also ensure that each student's computer is configured in the same manner. 
+
+Reading through these steps, however, will facilitate your ability to apply the concepts and run the associated functions in class. Thus, all students will gain some basic experience with Git commands and a remote repository. Students will be collaborators of a repository for their team project. Coding leads will carry the responsibility of maintaining the organization of the team's private repository. 
+
+## **Libraries Used** 
+
+- **{usethis}**: `r packageVersion("usethis")`: for project workflow automation 
+- **{gitcreds}**: `r packageVersion("gitcreds")`: for querying git credentials
+- **{gert}**: `r packageVersion("gert")`: optional R library approach for git commands
+
+
+### **Readings and Preparation**
+
+*Before Class*: First, read (and/or watch course videos) to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.
+
+Complete the items in the **To Do: Steps of the Task** section.
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing code through exercises. 
+
+```{r eval=FALSE, include=FALSE}
+# ## **Supplemental Readings**
+```
+
+
+### **To Do: Steps of the Task**
+
+Following the sections below, you will:
+
+1. Set up your class space 
+  * Create top-level directory anywhere on your computer
+  * Name it `dataviz` (heretofore referred to at `/dataviz`)
+2. Create a *Version-Control Project* with RStudio 
+  * Name it `dataviz-exercises` (for class exercises and your homework)
+3. Make file edits, stage those edits, and commit them
+4. Push commits to GitHub 
+
+
+```{r eval=FALSE, include=FALSE}
+###########################
+# SKIPPED
+###########################
+#*Class Activity:*
+#
+#When you collaborate with others, you have to be more mindful of the changes you make and those that others #make, ensuring that the repository can incorporate the changes. Thus, we will interact with Git in class in a #slightly different way. 
+#
+#Things we will do:
+#
+#1. Create a new project and connect to a remote repository
+#2. Create a branch (connect to a branch)
+#2. Make file edits, stage them, and commit them
+#3. Push commits to GitHub
+#4. Merge your branch with the main brain
+
+
+```
+
+## **Creating a Local Directory for Class**
+
+Create a folder (aka directory) named `"dataviz"` on your computer. I recommend creating the directory someplace where you might not accidentally delete it.
+
+
+## **Connecting the Repository to an RStudio Project**
+
+1. In RStudio, **File > New Project > Version Control > Git**. 
+
+2. In the pop-up, you will see a request for the "repository URL". Paste the URL of the GitHub repository. This URL will be the same as what you see on your GitHub account. However, we need to add `.git` to the end of it.
+
+```
+    https://github.com/<your_github_username>/dataviz-exercises.git
+```
+
+3. When you create the project, a directory will be created as a sub-directory of `/dataviz` and its name should auto populate (e.g., `'dataviz-exercises'`).  
+
+**WARNING:** *Do not* create the project inside of an existing project's directory.
+
+**Note:** I recommend that you also select *"Open in new session"* in order to compartmentalize projects. When you work on the team project, open the project. When you work on your homework or other class exercises, open your *homework* project.
+
+4. Click *"Create Project"* to create the new project directory, which will create:
+     * a project directory on your computer
+     * a project file with file extension `.Rproj`
+     * a Git repository or link to the remote GitHub repository for the project (also an RStudio Project)
+
+If the repository already exists on GitHub (and it does in this instance) you should see RStudio flash a connection to GitHub and likely *pull* the repo contents down to your newly-created project directory. In this case, however, your repository will contain few files.
+
+
+## **Creating Project Relevant Directories**
+
+Inside the `/dataviz/dataviz-exercises` directory your full project directory structure should look like the one below. The purpose of each directory and sub-directory is explained following the structure. 
+
+```
+└── data
+│   └── interim 
+│   ├── processed
+│   └── raw
+├── dataviz-exercises.Rproj (the R project file)
+├── docs
+├── .gitignore              (a version control gitignore file)
+├── README.md               (a read me file)
+├── refs
+└── reports
+│   ├── figs
+│   └── images
+└── src
+│   ├── data
+│   ├── figs
+│   └── functions
+```
+
+Thus, you will create the following directories. 
+
+- `/data`: for raw/virgin data files and modified data files
+- `/docs`: for document files like the project description, any dictionary of variable names, etc.
+- `/refs`: for references, papers, reading materials, and other document 
+- `/report`: for R Markdown (e.g., .Rmd) report files and their output file types (e.g., .docx, .pdf)
+- `/src`: for all source code related files (e.g., .R scripts, functions, .py files, etc.). General scripts can be saved in the top level `/src` but most of your script files will be saved in `/src/figs` because you will create figures
+
+Inside `/data`, add the following sub-directories:
+
+- `/raw`, for `/data/raw/`: containing raw data files obtained from sources
+- `/interim`, for `/data/interim/`: containing intermediate transformed data
+- `/processed`, for `/data/processed/`: containing finalized data files that are ready for plotting. 
+
+**NOTE:** For this course, you will see me write data as `.Rds` files using the `saveRDS()` function because this format will preserve variable formatting which will affect plots. 
+
+**WARNING:** If you process and save those data files as `.csv`, `.xlsx`, or similar, you will likely find yourself working harder by recoding solutions you have already performed. 
+
+Inside `/src`, add the following sub-directories:
+
+- `/functions`, for `/src/functions/`: containing all .R functions needed do not belong to libraries
+- `/figs`, for `/src/figs/`: containing .R scripts needed to create visualizations
+- `/data`, for `/src/data/`: containing .R scripts needed to download or generate data
+
+Inside `/report`, add the following sub-directories:
+
+- `/figs` for `/report/figs/`: containing visualization files (e.g., .png) for the report
+- `/images` for `/report/images/`: containing image files (e.g., png) for the report
+
+When testing your plots, you may wish to add notes or other written content that you can use in conjunction with your plots. In such cases, I recommend creating R Markdown files with meaningful names for taking notes. You can save these reports in the top-level of `/report` and then source your .R figure script 
+
+Below are examples of an .R script for creating your visualizations and an .Rmd file that reads the .R script and renders the `.png` file within it. These files are also located under the **Example Files & Other** course tab. Your team report will utilize this same structure, though details and files will be also located under the
+[**Project**](`r paste(the_course_site, "project", sep = "/")`) course tab. 
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+ex1 <- github_raw_link(subdir = "exmaples", 
+                file = "example-rmarkdown-file-with-fig-script.Rmd"
+                )
+ex2 <- github_raw_link(subdir = "exmaples", 
+                file = "example-figure-script.R"
+                )
+```
+
+- [example-rmarkdown-file-with-fig-script.Rmd](`r ex1`)
+- [example-figure-script.R](`r ex2`)
+
+You will now see the directory structure, though all your directories will be empty. Moving forward, save all data to their relevant directories within `/data`; create all `.R` code files and scripts in files in `/src`, including scripts use to create your visualizations and .png plot files; create all exercise or homework R Markdown files (e.g., `.Rmd`) in `/report`. Finally, any readings or references can can saved in `/refs` and any other document files can be saved in `/docs`. Reserve `/report/figs` for writing/saving plots or figures. All paths to directories and files for reading and writing files will be managed using the `{here}` library. 
+
+
+
+## **Understanding Git Workflow Basics**
+
+There are three main parts to Git Workflow:
+
+- Make local changes (in your working directory) 
+- Stage changes (in your staging directory) 
+- Commit changes (to apply them for pushing to your remote repository)
+
+
+## **Making Local File Changes, Committing, and Pushing to GitHub**
+
+1. **Making a local change**
+     * Create a `.R` script and name it something like `yourname.R`. Always name files in lowercase font. Where should you save it? You guessed it: `/src/r`. 
+
+2. **Checking the status of local file changes**
+     * Check for the local changes you have made at the *Terminal* by typing `git status` and press return/enter
+        * `$ git status`
+     
+     *  If you made changes, Git will tell you what those changes are. For example, there will be a new file, a deleted file, a modified file, etc.
+
+3. **Staging Changes (Add Changes)**
+    a. *Stage a specific change*: If you made multiple changes and all you want to do is commit a single change and no others, you can specify the change you want to add. For example, if you want only to add a specific file, like `yourname.R`, you will use `git add <file>...` such that `<file>` refers to the file name.
+        * At the *Terminal* prompt, type `git add` followed by `<file>` to include in what will be committed)
+        * `$ git add scr/r/yourname.R` 
+    b. *Stage all change(s)*: When you make numerous changes, you may wish not to specify each file individually as that could be tedious. In this case, you may wish to stage all of your changes. Assuming everything you are doing is relevant to the project, one of the easiest ways to add changes is to just add all of your file changes. Note, your changes should not be done inside data files (e.g., `.csv`, `.xlsx`). Changes should only be done using R code. If not, your project will not be reproducible. 
+        * At the *Terminal*, you can type `git add .` which tells Git that you are adding all of those changes to commit them.
+        * `$ git add .`
+
+4. **Committing the change(s)** 
+     * Now that you made a change, you will commit it and assign a useful message to remind your future self and collaborators what you just did. 
+        * At the *Terminal*, type `git commit` to commit the changes, add `-m` to tell git you want a message, and then type the message as a string, `"my message here"` and then press enter/return to commit the changes.
+        * `$ git commit -m "added my first .R file"`
+
+5. **Push the change to the remote repository**
+     * We need to push the changes to the remote GitHub repository for version control and for collaborators to access
+        * At the *Terminal*, you will push those changes using `git push` and press enter/return to push.
+        * `$ git push`
+     * If you navigate to your GitHub account in your web browser, you will see the changes there as soon as they arrive. Congrats!
+
+6. **Practice (Yes, seriously): Changing, Committing, and Pushing Again**
+     * You know that file with your name is not needed for the project. Delete it from the project as you normally would delete a file (no need to use the Terminal) and then *add* the change, *commit* the change with message "deleted my silly file", and *push* that change. 
+     * If for some reason, your push did not work, you may need to specify the project branch. Branching is beyond the scope of this course. If team members are working on separate tasks, their code will be compartmentalized so you can use the main branch.
+        * You can set the branch to the main branch at the *Terminal* using `git branch -M main`.
+        * `$ git branch -M main`
+
+7. **Pushing Specific File Changes**
+     * You should **not** push *all* of your edits. For example, if you edit a file and save it but it is incomplete (e.g., it contains errors) that will create problems for your team members. You do not want to share these edits with your coding lead (or push these edits to the repo). If you do push them, your team member's code will also break if they are sourcing (e.g., `source()`) your script file. Similarly, if the data file you write out contains errors, a teammate cannot read that file in successfully. So make sure that what you push is correct and accurate before pushing.
+
+8. **Pulling Changes from the Remote** 
+     * The opposite of push is *pull*. When your teammates push their changes (e.g., data cleaning, file creation, etc.) to the repo and your code depends on those files, you will want to make sure their edits are in your local project so that you can use them. 
+        * To pull the changes down to your project, at the *Terminal*, type `git pull`.
+        * `$ git pull`
+
+     * You should find the changes appear in your local project directory.
+
+
+## **Using the Git Tab in your RStudio Pane**
+
+If you do not use the Terminal to run Git commands (e.g., add, commit, and push), you can also use Git with RStudio, though I tend to find this process creates an annoying lag when there are many files. 
+
+### **The `{gert}` Library Approach**
+
+If you want to try **`{gert}`**, load the library to gain access the functions. You also can find more details at the [gert github page](https://github.com/r-lib/gert).
+
+1.  Load the library: `library(gert)`
+
+When you load the library, configuration details for the user will be returned in the R console and look something like you see below.
+
+```
+Linking to libgit2 v1.7.1, ssh support: YES
+Global config: C:\Users\beavis\.gitconfig
+System config: C:/Users/beavis/AppData/Local/Programs/Git/etc/gitconfig
+Default user: beavis <beavis@domain.com>
+```
+
+In the following steps, you will see that the function names are similar to those for Git.
+
+2. *Staging/Adding a file, making sure to specify a directory*: 
+
+If the file you wish to add is in a sub-directory like `/src/r`, use `gert::git_add('src/r/newfile.R')` rather than `gert::git_add('newfile.R')`
+
+3. *Committing the added file(s) with a message*:
+
+Once you staged the change, you will commit it to the repo.
+
+```{r eval=FALSE, include=FALSE}
+gert::git_commit(message = "Adding a file", 
+                 author = "beavis <beavis@domain.com>"
+                 )
+```
+
+4. *Pushing commits:* 
+
+After your commits have useful messages, push them to the remote repository. 
+
+`gert::git_push()`
+
+
+5. *Checking the status of the repo:* 
+
+To check the status of the `gert::git_status()`
+
+
+### **RStudio Pane**
+
+When you edit files (e.g., made changes and saved the file), the file will be detected in the project if you have set up Git. The changes detected will be listed in the window for this tab. You can then stage, commit the changes, push the changes using this RStudio GUI.
+
+1. Click the Git tab
+
+2. Check the box under *Staged* next to the file
+     * Note: There may be a delay.
+
+3. Click the *Commit* icon on the toolbar directly above *Status*
+     * A window will pop up showing some of the edits to the file
+     * A window for *Commit message* will also appear for adding your message. This window is where you want to be.
+     
+4. Type your commit message in that window
+     * Your message should be clear and useful to remind your future self or colleagues of the edits but not be overly wordy. 
+
+5. Click Commit to commit the change
+
+```{r include=FALSE}
+colFmt <- function(x,color) {
+  
+  outputFormat <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+  
+  if(outputFormat == 'latex') {
+    ret <- paste("\\textcolor{",color,"}{",x,"}",sep="")
+  } else if(outputFormat == 'html') {
+    ret <- paste("<font color='",color,"'>",x,"</font>",sep="")
+  } else {
+    ret <- x
+  }
+  
+  return(ret)
+}
+```
+
+6. Click the `r colFmt("Green", 'lime')` Arrow to *Push* your committed change *up* to the remote repository.
+
+Note: You will click the `r colFmt("Blue", 'blue')` Arrow to *Pull* the changes *down* from the remote repository what were pushed there by your collaborators
+
+
+
+
+## **Creating a Version Control Project in RStudio for the Team Project**
+
+1. In RStudio, **File > New Project > Version Control > Git**. 
+
+2. In the pop-up, you will see a request for the "repository URL". Paste the URL of the GitHub repository based on your liaison name. This URL will be the same as what you see on your GitHub account. However, we need to add `.git` to the end.
+
+```
+    https://github.com/slicesofdata/dataviz-<to_be_announced>.git
+```
+
+3. When you create the project, a directory will be created, a name will auto populate (e.g., 'dataviz-liaison'). Although I don't recommend this, if you desire to change the name, name it something that you will know as your team project. In order to keep the class organized, I might suggest you create the tem project also in your `/dataviz` course directory. You should already have an `/dataviz-exercises` R project directory for your exercises and homework in that course directory. Adding the team project will simply add a `/dataviz-<to_be_announced>` directory there as well. *WARNING:* Do not create the project inside of an existing project's directory.
+
+    * Note: I recommend that you also select *"Open in new session"* in order to compartmentalize projects. When you work on the team project, open that project in a new sessions. When you work on your homework or other class exercises, open your that project in a new session. Alternatively, close a project and open the one you are working on.
+
+4. Click *"Create Project"* to create the new project directory, which will create:
+     * a project directory on your computer
+     * a project file of the same name with file extension `.Rproj` inside that directory
+     * a Git repository or link to the remote GitHub repository for the project (also an RStudio Project)
+ 
+If the repository already exists (and it does in this instance) you should see RStudio flash a connection to GitHub and likely clone the repo by *pull*ing the repo contents down to your newly-created project directory. You will see the directory structure and corresponding files. Your code files should be saved to `/src/r`, the data you read or save to `/data`, your R Markdown report files to `/report`, etc. 
+
+These directories are there for project management purposes. Also, to maintain a clean project, create sub-directories within those directories as needed; create new directories *if and only if* its contents differ qualitatively from what is in the existing directories. Because the project report will need to be reproduced, don't complicate your code by creating RMarkdown files for code used to perform some task when only code is needed. In those cases, use `.R` code script files. Use `.Rmd` files only for a report containing text and minor code. You cannot easily `source()` `.Rmd` files and creating them will be a a hassle to deal with later. Project organization is an element of the project.
+
+
+## **Summary**
+
+You now understand how to create projects in R, how to connect projects to remote GitHub repositories, and how to use Git to track your work in your local repository and a remote one. These simple commands are basic but provide you some exposure to and confidence with using Git for version control. 
+
+
+## **Other Resources**
+
+1. Git Client: 
+
+Git clients work like the RStudio Gui option described above but likely much better. One client is [GitKraken](https://www.gitkraken.com/).
+     * If you find the *Terminal* command line daunting or limiting, I might recommend a Git Client to use as I am not a big fan of the RStudio interface.
+     * GitKraken is a good option and they have lots of tutorials on their website. GitKraken is seamless to set up. Install, connect your GitHub account, select your repo to add, and voilà. You can stage, commit, and push from there.  
+
+2. [happygitwithr](https://happygitwithr.com/)
+
+
+# **Session Information**
+
+```{r}
+sessionInfo()
+```

@@ -1,0 +1,24 @@
+---
+title: "Installation & Setup" # index to display header for the nested *.qmd files (even if in subdirectory); displays directory name otherwise
+description: "Overview of Modules for PSYC 167"
+#author: ""
+#date: ""
+
+order: 1 
+
+execute:
+  #enabled: false
+  freeze: auto
+---
+
+For this course, we use the R programming language. Although you may have a preferred IDE, my recommendation is to use RStudio. All instructions will assume you are using RStudio. We will also use the R Markdown language for report documents. Projects will be managed at GitHub and will interface with RStudio using the Git program. 
+
+## Setup Structure
+
+- Install R and RStudio
+- Create a GitHub account if you do not have one
+- Install Git if your computer system needs it (e.g., not installed) 
+
+## Other Setup Topics
+
+For those requiring refreshers about R Markdown, functions, and scripts are in this section.

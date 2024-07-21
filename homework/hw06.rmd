@@ -1,0 +1,153 @@
+---
+title: "Exercise 06"
+author: "yourname"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  #word_document:
+  #  toc: yes
+  #  number_sections: yes
+  html_document:
+    toc: yes
+    number_sections: yes
+    code_folding: show #hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For this homework, you will save the `R Markdown` (e.g., `.Rmd`) homework document and save it to your `homework` project directory on your computer. Save a new copy of this file so that its name has the prefix `2023_Lastname_FirstInitial`. Full name example: `2023_cookg_EX_06.Rmd`. Feel free to work with a partner but understand that the work submitted has to be your own.
+
+This homework utilizes examples from these modules:
+
+- **data frame manipulation and wrangling**
+- **data subsets and summaries**
+- **ggplot and the grammar of graphics**
+- **color scales**
+
+
+**This homework is due on Tuesday by 2:30pm.**
+
+
+*Enter your name in the author YAML code above*   
+
+
+```{r}
+source(here::here("r", "my_functions.R"))
+```
+
+# *Libraries*
+
+```{r include=FALSE}
+library(colorspace)
+library(dplyr)
+library(ggplot2)
+library(monochromeR)
+library(magrittr)
+```
+
+**{monochromeR}** has a `generate_palette()` that could help with this assignment. **{monochromR}** also contains functions for converting rgb color to hex colors, just in case you need to.
+
+```
+generate_palette(
+  colour,                   # the starting colour for the palette
+  modification,             # options to "go_darker", "go_lighter", "go_both_ways", or "blend".
+  n_colours,                # the number of colors to return
+  blend_colour = NULL,      # optional for blending colors
+  view_palette = FALSE,     # 
+  view_labels = TRUE,       # 
+  ...
+)
+```
+
+
+# *Diverging Palette using {colorspace}*
+
+Using the data set for your project, set up your data frame (e.g., mutate if necessary) in a way that would be appropriate for a diverging color palette. Create two plots based on the data, make one of the plots with a diverging palette and (the other not) using **{colorspace}**. Use a palette other than one used in the class module. Hint: You will need to pass something to `palette`. Also, your `geom_*()` could require either `col` or `fill` so pay attention to the function naming convention. Be mindful also of the difference between `scale_*_continuous_*()` and `scale_*_discrete_()` to prevent an error.
+
+1. assign each plot to an object;
+2. pass the plot objects as arguments to `gridExtra::arrangeGrob()`
+
+```{r}
+
+```
+
+3. Modify the following code to create your two plots and arrange either as a single column `ncol = 1` or two columns `ncol = 2`.
+
+```
+plot(gridExtra::arrangeGrob(myfirstplot, mysecondplot, ncol = 1))
+```
+
+```{r}
+
+```
+
+# *Identify the Number of Colors Needed*
+
+Use any necessary functions discussed earlier in class that would allow you to find the number of level in a factor variable that you want to use as a color aesthetic. Your `geom_*()` could require either `col` or `fill`. Assign that returned number to an object because you will use that object later. Do not count by hand and hard code the number or you will lose points on subsequent problems.
+
+```{r}
+
+```
+
+
+# *Creating Color Palettes* 
+
+Find out the official team colors for the CMS Athletics (try a color dropper, like [this](https://pinetools.com/image-color-picker)). 
+
+1. Use `monochromeR::generate_palette()` to create a color palette that starts with one of the colors and blends another color and assign the hex colors to a vector object. Pass to `n_colors` your object contain the number of levels/colors you will need.
+
+```{r}
+
+
+```
+
+2. Create a second palette that starts with the same color but does not blend. Instead, make it darker.
+
+```{r}
+
+
+```
+
+3. Create a third palette that starts with the same color but does not blend. Instead, make it lighter.
+
+```{r}
+
+
+```
+
+You can see if the `"go_both_ways"` modification helps with the palette.
+
+
+
+# *Assign Colors to Levels*
+
+Given all of the color palettes you created, using one of them, create a *named vector* containing both the factor level colors and their corresponding colors in some way you see fit and use that vector to assign those colors  *manually* to the levels in your plot.  
+
+```{r}
+
+
+```
+
+If you think the colors are too close to distinguish, make a note of this limitation. Food for thought: You can ask whether colors are needed or help at all as they might not be useful for a given plot. Colors may also just confuse. You could also try a different palette but you don't have to for the assignment. 
+
+
+
+
+# *Just for Fun*
+
+Pass one of your color palettes to `swatchplot(my_palette, cvd = TRUE)` to see what the colors will look like to someone with a variant of color deficiency.
+
+```{r}
+
+
+```
+
+
+
+**Please knit an `html` file and upload [here](https://claremontmckenna.app.box.com/f/140969a32dea44e9ab6c0c00146d66e3).** 
+
+
+
+
+

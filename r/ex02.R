@@ -3,7 +3,7 @@
 ### Author: Me
 ################################################################################
 # call/define my functions in function directory
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 ################################################################################
 
 

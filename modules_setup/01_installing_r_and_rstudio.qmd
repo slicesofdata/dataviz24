@@ -22,12 +22,14 @@ Do not install course software until this warning is removed.
 #  collapse = TRUE,
 #  comment = "#>"
 #)
+source(here::here("src", "_common.R"))
 
 this_r_version <- paste0(R.version$major, ".", R.version$minor) 
 #"4.4.1"
 this_rstudio_version <- "2024.04.2-764"  #gsub("RStudio", "", tools::RStudio.Version()$long_version) # "2023.12.0-369"
 # RStudio-2024.04.2-764.exe
 ```
+
 # **Overview**
 
 For this course, we will use the `R` programming language and the `RStudio` IDE for manipulating data and creating data visualizations.
@@ -52,13 +54,14 @@ The first step is to install these pieces of software so that you can use them.
 
 Your version of operating system will dictate which version of R to download and install. Make note of your computer's operating system.
 
-***Windows*** systemsare easier and Windows 10 and 11 operating systems will both use the same R versions.
+***Windows*** systems are easier and Windows 10 and 11 operating systems will both use the same R versions.
 
 ***Macs*** are somewhat more complicated. The version depends on your cpu. Here is how you can determine:
 
 <https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/> .
 
 There will be two cpu options, Intel 64-bit for macOS 10.13 or Apple silicon arm64 for macOS 11 and higher.
+
 
 **Cloud Options:**
 

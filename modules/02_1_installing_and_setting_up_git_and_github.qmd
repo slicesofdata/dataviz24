@@ -1,5 +1,5 @@
 ---
-title: "*Project Management 01: Installing and Setting Up Git and GitHub for R*"
+title: "*Installing Git and Setting Up Git and GitHub for R Projects*"
 author: "Gabriel I. Cook"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 
@@ -14,20 +14,15 @@ execute:
 #https://jennybc.github.io/2014-05-12-ubc/ubc-r/session03_git.html
 ```
 
-::: callout-important
-## Under construction. 
-
-This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.
-:::
-
 ## **Overview**
 
-We will perform all the necessary tasks for using Git with RStudio and managing files at the remote repository at GitHub. 
+We will perform all the necessary tasks for using Git with RStudio and managing files at the remote repository at GitHub. You will create a GitHub account if you do not have one; install Git on your computer if needed; configure Git on RStudio; and create a RStudio project. 
+
 
 ### **To Do: Steps of the Task**
 
 1. Create a GitHub account
-2. Create GitHub repository: "fods-exercises" 
+2. Create GitHub repository: "dataviz-exercises" 
 3. Install Git on your computer (if not already installed)
 4. Configure Git for R, within R/RStudio (a familiar context)
    * Create a Personal Access Token (PAT)
@@ -37,6 +32,11 @@ We will perform all the necessary tasks for using Git with RStudio and managing 
 
 - **{usethis}**: `r packageVersion("usethis")`: for project workflow automation 
 - **{gitcreds}**: `r packageVersion("gitcreds")`: for querying git credentials
+
+```{r include=FALSE}
+source(here::here("src", "color_format_text.R"))
+source(here::here("src", "_common.R"))
+```
 
 
 ## **Git: Why Go Through the Trouble?**
@@ -72,7 +72,7 @@ You will need to create a repository by following the option to do so using the 
 knitr::include_graphics(here::here("images", "create_github_repo_01.png"))
 ```
 
-2. Name the repository **fods-exercises** and provide a description like *"for fods class exercises and homework"*.
+2. Name the repository **dataviz-exercises** and provide a description like *"for dataviz class exercises and homework"*.
 
 ```{r echo=FALSE}
 knitr::include_graphics(here::here("images", "create_github_repo_02.png"))

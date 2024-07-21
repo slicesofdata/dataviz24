@@ -1,0 +1,26 @@
+---
+title: "**Homework**"
+#editor: visual
+format:
+  html:
+    theme: cosmo
+    css: css/styles.scss
+    #fontcolor: white
+    toc: true
+---
+
+::: callout-important
+## Under construction
+
+This syllabus is under construction until Fall 2023
+:::
+
+## **Exercises**
+
+Various tasks and exercises will be found here. 
+
+The exercise list will be updated as the semester progresses.
+
+## **Download**
+
+[Homework Exercise 01](https://github.com/slicesofdata/dataviz23/tree/main/figs/diamonds_full.png)

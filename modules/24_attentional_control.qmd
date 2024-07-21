@@ -107,8 +107,9 @@ DATA_summary <- DATA |>
   mutate(c = case_when(
     Team == "Athena" ~ glue::glue('<span style="color:firebrick">,Athlete,</span>'),
     TRUE ~ paste0('<span style="color:grey">,Athlete,</span>')
-    )) #|> #view_html()
+    ))  
 
+view_html(DATA_summary)
 ```
 
 # **Sizing up plot elements**

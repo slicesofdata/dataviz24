@@ -33,7 +33,7 @@ This page is a work in progress and may contain areas that need more detail or t
 #library()
 #source(here::here("r", "my_functions.R"))
 #source(here::here("r", "functions", "view_html.R"))
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 ```
 
 

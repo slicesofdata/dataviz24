@@ -3,7 +3,12 @@ title: "Modules" # index to display header for the nested *.qmd files (even if i
 description: "Overview of Modules for PSYC 167"
 #author: ""
 #date: ""
-#order: 0 
+
+order: 2
+
+execute:
+  #enabled: false
+  freeze: auto
 ---
 
 This course consists of various content modules that introduce students to data visualization techniques using R. Techniques, however, should not be applied haphazardly but instead with respect to the biological and cognitive limitations of the user. The general principles of data visualization taught can be applied to programming languages other than R (e.g., Python, D3, etc.).

@@ -12,6 +12,7 @@ _omit/
 omit/
 notes/
 _notes/
+python/
 homework/key
 
 *.RData

@@ -1,5 +1,5 @@
 ---
-title: "**Team membership and roles**"
+title: "*Team membership and roles*"
 author: "Gabriel I. Cook"
 #date: "`r Sys.Date()`"
 #date: "`r format(Sys.time(), '%d %B, %Y')`"

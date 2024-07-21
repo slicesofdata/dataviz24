@@ -1,0 +1,180 @@
+---
+title: "Exercise 05"
+author: "yourname"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  #word_document:
+  #  toc: yes
+  #  number_sections: yes
+  html_document:
+    toc: yes
+    number_sections: yes
+    code_folding: show #hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For this homework, you will save the `R Markdown` (e.g., `.Rmd`) homework document and save it to your `homework` project directory on your computer. Save a new copy of this file so that its name has the prefix `2023_Lastname_FirstInitial`. Full name example: `2023_cookg_EX_05.Rmd`. Feel free to work with a partner but understand that the work submitted has to be your own.
+
+This homework utilizes examples from these modules:
+
+- **data frame manipulation and wrangling**
+- **data subsets and summaries**
+- **ggplot and the grammar of graphics**
+- **visualizing associations**
+- **spatial position and adjustment**
+
+
+**This homework is due on Tuesday by 2:30pm.**
+
+
+*Enter your name in the author YAML code above*   
+
+
+```{r}
+source(here::here("r", "my_functions.R"))
+```
+
+# *Loading libraries*
+
+```{r message=FALSE, warning=FALSE}
+
+```
+
+
+For this homework, you will use two data frames containing hammer throw data. One data frame contains all data and the other aggregates the data in some ways. 
+
+In order to read the compressed `.Rds` file, we will need some code that allows you to. Don't worry about the technical side of the code but keep this reference in mind if you have to read in `.Rds` files from github. Running the code below will get you started. 
+
+```{r, echo=FALSE}
+HT <- readRDS(gzcon(url("https://github.com/slicesofdata/dataviz23/raw/main/data/tfrrs/HT.Rds")))
+
+HT_SUM <- readRDS(gzcon(url("https://github.com/slicesofdata/dataviz23/raw/main/data/tfrrs/HT_SUM.Rds")))
+```
+
+
+# *Make a scatter plot using the full data frame*
+
+Create a plot that plots the distance measurement as a function of the season/year.
+
+```{r}
+
+
+```
+
+
+
+
+# *Make a scatter plot using the aggregated data frame*
+
+Create a plot that plots the average distance measurement as a function of the season/year.
+
+```{r}
+
+
+```
+
+
+# *Interpret data*
+
+What do you see in the data? Does a smoothing reveal any pattern that you cannot see in the points?
+
+```{r}
+
+```
+
+**ANSWER**:
+
+
+
+
+
+# *Examine x and y by subsets*
+
+(a) Using the full data, plot the distance as a function of season that you you can discriminate between points for Stags and Athenas. 
+
+```{r}
+
+
+```
+
+
+(b) The points might be overlapping, so try to address this problem in some way. 
+
+```{r}
+
+
+```
+
+
+(c) Using the same logic for your points, add a smoothing function that uses the same aesthetic. In other words, the plot should reveal a separate fit for Stags and Athenas. 
+
+```{r}
+
+
+```
+
+
+(d) *What did you find?*
+
+
+
+
+
+
+
+# *Multiclass scatterplots*
+
+(a) Explore the aggregated data and create a multiclass scatter plot. If you plot the same boring variables used in class examples or other questions presented here, don't expect full credit. If there are NAs in the legend, filter them out. 
+
+```{r}
+
+
+
+```
+
+(b) Explain why you created this plot.
+
+
+
+
+(c) Explain what you see in the data.
+
+
+
+
+# *Bar plots*
+
+(a) Create a stacked bar plot that could be useful to understand the data. 
+
+```{r}
+
+```
+
+
+
+(b) Create a grouped bar plot that could be useful to understand the data. 
+
+```{r}
+
+```
+
+
+
+
+
+As a bonus, sometimes you want to examine a correlation matrix. **{corrplot}** can make this easy. But you will need to include only your numeric variables and you need to convert the data into a correlation matrix using `cor()`, which by default computes the linear association, Pearson's *r*. You then pass that to `corrplot::corrplot()`. You can check if you want.
+
+```
+DataFrame %>%
+  select(., c(numeric vars )) %>% 
+  cor() %>%
+  corrplot::corrplot(method = "number", tl.col = "black")
+```
+
+
+
+**Please knit an `html` file and upload [here](https://claremontmckenna.app.box.com/f/140969a32dea44e9ab6c0c00146d66e3).** 
+

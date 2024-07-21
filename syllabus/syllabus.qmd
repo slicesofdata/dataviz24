@@ -1,5 +1,5 @@
 ---
-title: "**Syllabus**"
+title: "Syllabus"
 editor: visual
 format:
   html:
@@ -12,7 +12,13 @@ format:
 #execute:
   #enabled: false
  # freeze: auto
+
+execute:
+  #enabled: false
+  freeze: auto
 ---
+
+## **Course Details**
 
 ```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
 library(magrittr)
@@ -61,33 +67,21 @@ knitr::kable(
 
 ## **Course Description**
 
-This course introduces students to R, a programming language for statistical computing and graphics. Students will learn how to clean, manipulate, transform, join, and tidy data sets to prepare for statistical modeling. Supervised (e.g., regression) and unsupervised (e.g., clustering) approaches will be applied to understand simple and complex relationships between cognitive and non-cognitive variables (e.g., biology, aging, education, socioeconomic, health, etc.). Students will apply their skills to wrangle, explore, and model relevant data sets for a hands-on project for local scholars, offices, organizations, or industry participants. Data sets and relevant readings will change depending on semester.
+Data visualization is the science and art of creating graphical representations of information and data. Visual representations provide accessible ways to see patterns, trends, and outliers in data. Variables like position, size, and orientation can focus attention and guide perception but can also bias interpretation of data. Students will learn how well-designed visualizations can reduce bias and improve comprehension for data thereby facilitating data-driven decision-making. Students will explore techniques for creating effective visualizations based on principles from cognitive and perceptual psychology, art, and design. Students will gain hands-on experience coding real-world data visualizations for local offices, organizations, and industry participants.
 
-**Prerequisite**: PSYC109 CM or equivalent; recommended a course in Cognitive Psychology or Cognitive Science; or permission of instructor; not open to students who have completed CSCI 36 or any other introductory course in foundation of data science.
+The course is targeted toward students with expressed interest in cognition and cognitive biases related to data communication, students interested in using visualization to communicate their own messages, and students interested in creating better visualization tools and systems. Students will engage in discussions of the readings, complete programming and data analysis assignments, and prepare a final project involving storytelling with data visualizations.
+
+*Prerequisite*: For data-science sequence or majors (level-A data-science course); recommended a course in Perception, Visual Attention, Cognitive Psychology, or Cognitive Science; or permission of instructor
 
 ### **Course Specific Learning Goals**
 
--   Understand various forms of cognitive functioning, how they are measured, and how those abilities relate with other variables
-
--   Learn how to use R and RStudio to answer real‐word questions with data
-
--   Use the **{dplyr}** and **{tidyr}** libraries to clean data prior to statistical analysis
-
--   Learn how to import, clean, manipulate, tidy, and summarize data
-
--   Examine relationships among cognitive and non-cognitive variables by applying statistical methods and models to data
-
--   Practice using statistical probability and inference
-
--   Learn how to examine relationships among variables and apply statistical methods and models to data (e.g., supervised or unsupervised machine‐learning methods)
-
--   Visualize data and/or model parameters
-
--   Learn how to manage local and remote projects and collaborate with others
-
--   Practice scientific writing integrating data with theory
-
--   Create dynamic and reproducible reports with R Markdown
+-   Understand various uses of visual variables to create data visualizations;
+-   Understand both advantages and disadvantages of using visual variables to create data visualizations;
+-   Analyze, critique, and revise data visualizations;
+-   Understand the functionality of the ggplot2 library for creating data visualizations;
+-   Present data with visual representations for your target audience, task, and data;
+-   Identify appropriate data visualization techniques given particular requirements imposed by the data and/or audience; and
+-   Apply appropriate design principles in the creation of presentations and visualizations
 
 The following **departmental learning goals** will also be met: 1. Knowledge of major concepts in cognitive psychology; 2. Understanding of research methods in psychology, including research design, data analysis and interpretation; 3. Development of critical-thinking skills and use of the scientific approach to solve problems related to behavior and mental processes; 4. Oral and written communication skills.
 
@@ -104,37 +98,41 @@ The following **departmental learning goals** will also be met: 1. Knowledge of 
 
 *"Courses should involve approximately equal workloads. Generally, students should expect to spend from 6 to 8 hours per week, over and above the time spent in classroom, on each course."* -- CMC Faculty Handbook
 
-If you do the math, including class time of 2½ hours, you should expect to allocate 8 ½ to 10 ½ hours per week for courses at CMC. "Per week" is a key phrase; courses are not designed for nondistributed cramming.
+If you do the math, including class time of 2½ hours, you should expect to allocate 8 to 10 hours per week for courses at CMC. "Per week" is a key phrase; courses are not designed for nondistributed cramming.
 
 ## Course Materials and Textbook
 
 All of the course materials will be available on this course website .
 
-Link to the course website: <https://gabrielcook.xyz/fods24/>
+Link to the course website: <https://gabrielcook.xyz/dataviz24/>
 
 #### **Required Equipment**:
 
-Computer: current Mac (macOS) or PC (Windows or Linux) with high-speed internet connection, capable of running `R` and `RStudio`
+Computer: current Mac (macOS) or PC (Windows or Linux) with high-speed internet connection, capable of running `R` and `RStudio`; hard-drive space about 5 GB
 
 #### **Required Software**:
 
 **R** and **RStudio**: Students will be required to use R and RStudio software. Note: Install Version will be provided. Before installing RStudio, you must also download and install the base R software at <https://www.r-project.org/> that is appropriate for your computer's operating system. RStudio can be downloaded for free at <https://www.rstudio.com>. You are expected to install R and RStudio on your personal computer by downloading the software from the links above. You will also have to install appropriate libraries throughout the course. Further instructions will be provided.
 
-### **Reading Materials/Textbook(s)**
+### Reading Materials/Textbook(s)
 
 Readings will be taken from different sources and will appear in each topic module.
 
--   \[[**R4DS**](http://r4ds.had.co.nz)\] Grolemund and Wickham (2016): *R for Data Science*. Electronic version.
+-   *Wickham, H., Navarro. D., & Pedersen, T. L.. [ggplot2: Elegant Graphics for Data Analysis, 3rd ed](https://ggplot2-book.org/).*
 
--   \[[**FODS**](https://s3-us-west-1.amazonaws.com/markhuber-datascience-resources.org/Books/Foundations_of_Data_Science.pdf)\] Huber (2020): Foundations of Data Science.
+-   Claus O. Wilke (2019). [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/directory-of-visualizations.html). O'Reilly Media.
+
+-   Xie, Y., Allaire, J. J., & Grolemund, G. [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+
+-   Kieran Healy (2018). [Data Visualization: A Practical Introduction](https://socviz.co/). Princeton University Press.
 
 -   Nordmann, E. & DeBruine, L. (2023). **Applied Data Skills**: Processing & Presenting Data (2023) . <https://psyteachr.github.io/ads-v2>
 
--   \[**DSRR**\] Data Skills for Reproducible Research: Electronic version.
+These textbooks are free and open-source.
 
--   \[[**Data Skills**](https://psyteachr.github.io/data-skills-v2/index.html)\](<https://psyteachr.github.io/data-skills-v2/>
+## **Course Structure**
 
--   Cognition readings for project topics will be available on Canvas/Sakai
+Students are expected to participate in all aspects of the class. This class involves developing topic knowledge and computer programming skills for visualizing data. The assumption is that students possess varying levels of skills related to programming. Class time will be spend engaging in a variety of tasks and activities, including lectures, group-work, applied coding activities, presentations, and discussions.
 
 These textbooks are free and open-source.
 
@@ -146,10 +144,6 @@ Students will read materials covering data-set relevant cognitive functions or a
 
 **Data Validation and Wrangling**: Students will learn how to wrangle raw data, clean, and manipulate data. The course would involve both data wrangling and data cleaning. Students would learn main concepts of data sanitation of messy data, for example, how to clean, recode, de-dup, fix structural errors and typos, standardize data, etc. in service of applying machine-learning models.
 
-**Statistical Probability & Inference:** Students may not have much experience with formal statistics so they would learn about probability, error, confidence intervals, and frequentist inference in order to interpret data. They would also have to specify models for machine learning, for example, multiple regression.
-
-**Machine Learning:** The goal is to introduce students to supervised and unsupervised machine learning applications in order to understand relationships among variables and for classifying and segmenting. For example, supervised learning (e.g., correlation, regression, multiple regression, and if time support-vector machines for nonlinear classification) would be used for understanding relationships among cognitive variables, non-cognitive variables, and to identify groups. Unsupervised learning (e.g., hierarchical clustering, dimension reduction) would be used to understand to data segmentation.
-
 **Project Management:** Projects for academics and industry involve collaboration as well as organization of code and materials. Students will learn about and maintain a project with an organized directory structure both locally and remotely with collaborators using Git and [GitHub](github.com).
 
 ***Academic Integrity.*** Although you may find yourself working on assignments with a partner or discussing them with classmates, all assignments should be your one original work. You are not to share materials with other students if that material has the potential of being copied, even if your intention is not to allow a classmate to copy your work. Any signs of academic dishonesty will be submitted to the Academic Standards Committee for review. Although I do not anticipate any events of academic dishonesty, any form of dishonestly of any form will *not* be tolerated.
@@ -160,7 +154,7 @@ Many students are unclear of the definition of plagiarism and for that reason I 
 
 ## **Course Structure**
 
-The assumption is that students possess varying levels of skills related to programming. Nevertheless, students are expected to attend class prepared to engage with and practice concepts related to readings and lectures. Prior to class, students should have completed readings (e.g., modules or readings referenced therein) and watched any associated lectures on the material. Class time will involve answering questions raised by students, a mining lecture, and coding activities that will inform the final project (note, concepts build). Homework assignments will also involved engagement with the project data. Class time will be spent engaging in a variety of tasks and activities, including lectures, group-work, applied coding activities, presentations, and discussions.
+Students are expected to participate in all aspects of the class. This class involves developing topic knowledge and computer programming skills for visualizing data. The assumption is that students possess varying levels of skills related to programming. Nevertheless, students are *expected to attend class prepared to engage with and practice concepts related to readings and lectures*. Prior to class, students should have completed course content (e.g., videos, modules, or readings referenced therein) and watched any associated lectures on the material. Class time will involve answering questions raised by students, a mini lecture, and coding activities that will inform the final project (note, concepts build). Homework assignments will also involved engagement with the project data. Class time will be spent engaging in a variety of tasks and activities, including lectures, group-work, applied coding activities, presentations, and discussions.
 
 ## **Course Schedule**
 
@@ -179,9 +173,11 @@ knitr::kable(SCHEDULE)
 
 ## **Assignments and Grading**
 
-This is an engagement and skills-acquisition based course. At the beginning of the course and throughout, students will be given instruction on building and maintaining a website using quarto and github pages. Each week students will contribute blog posts and other content to their websites in response to module assignments. Students will be expected to submit URL links to their blogs using Blackboard. Students are expected to attend and participate in each class. The final project includes conducting, communicating, and preserving a reproducible data analysis project.
+This is an engagement and skills-acquisition based course. Students will have opportunities to strengthen skills outside of the classroom in preparation of performing class exercises related to the team project, take computer-free quizzes that involve writing and evaluating code and objects returned from code. Failure to engage in material or rely on ChatGPT or other AI tools will likely result in an inability to perform well on quizzes. The team project involves weekly data manipulation and visualization as well as presentations and a final deliverable. 
 
-### Evaluation and Grading
+Students are expected to make progress weekly on the team project by completing projects elements that are currently possible to complete (e.g., organizing the repo and its directories, editing the R Markdowns files, ensuring reproducibility, drafting background content, etc.). Procrastination on your part will bring you unnecessary stress and anxiety, a lower quality deliverable, and diffusion of responsibility that I was somehow responsible for your oversight. In turn, your frustration may result in lower course evaluations for me. I am fine with this. 
+
+### **Evaluation and Grading**
 
 ```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
 GRADE_ITEMS <- rio::import(here::here("syllabus/tables/grade_items.csv"))
@@ -223,10 +219,11 @@ I will regularly use e-mail but you should contact me on the Discord channel, wh
 
 If you have questions, please message me on **Discord**. If you need to e-mail me:
 
-1.  Always add 'PSYC 166" to the subject line
+1.  Always add 'PSYC 167" to the subject line
 2.  email me at: gcook\@cmc.edu
 
-## **University's policy on Academic Integrity**
+
+## **College Policy on Academic Integrity**
 
 The faculty and administration of Claremont McKenna College support an environment free from cheating and plagiarism. Each student is responsible for being aware of what constitutes cheating and plagiarism and for avoiding both.
 
@@ -240,7 +237,7 @@ Although you may find yourself working on assignments with a partner or discussi
 
 #### **Statement of Reasonable Accommodations**
 
-Your experience in this class is important to me. If you have already established accommodations with Disability & Accessibility Services at CMC, please communicate your approved accommodations to me during the first week of the semester so we can discuss your needs in this course ASAP. You can start this conversation by forwarding me your accommodation letter. If you have not yet established accommodations through Accessibility Services but have a temporary health condition or permanent disability (conditions include but are not limited to: mental health, attention-related, learning, vision, hearing, physical or health), you are encouraged to contact Assistant Dean for Disability Services & Academic Success, Kari Rood, at **AccessibilityServices\@cmc.edu** to ask questions and/or begin the process. General information and accommodations request information be found at the CMC DOS Accessibility Service's website. Please note that arrangements must be made with advance notice in order to access the reasonable accommodations. You are able to request accommodations from CMC Accessibility Services at any point in the semester. Be mindful that this process may take some time to complete and accommodations are not retroactive. I would err on the side of caution and make sure your accommodations are sent to me even if you do not believe you need them as some students only learn they may need time after completing assessment. The Americans With Disabilities Act (ADA) and Section 504 of the Rehabilitation Act do not make accommodations retroactive. If you are approved for extra testing time for example, you must do so before an electronic assessment is posted in order for it to be integrated into the assessment. Claremont McKenna College values creating inclusive and accessible learning environments consistent with federal and state law. If you are not a CMC student, please connect with the Disability & Accessibility Services Coordinator on your campus regarding a similar process.
+I have an eye disease and visual impairment and understand the need for accommodations. Your experience in this class is important to me. If you have already established accommodations with Disability & Accessibility Services at CMC, please communicate your approved accommodations to me during the first week of the semester so we can discuss your needs in this course ASAP. You can start this conversation by forwarding me your accommodation letter. If you have not yet established accommodations through Accessibility Services but have a temporary health condition or permanent disability (conditions include but are not limited to: mental health, attention-related, learning, vision, hearing, physical or health), you are encouraged to contact Assistant Dean for Disability Services & Academic Success, Kari Rood, at **AccessibilityServices\@cmc.edu** to ask questions and/or begin the process. General information and accommodations request information be found at the CMC DOS Accessibility Service's website. Please note that arrangements must be made with advance notice in order to access the reasonable accommodations. You are able to request accommodations from CMC Accessibility Services at any point in the semester. Be mindful that this process may take some time to complete and accommodations are not retroactive. I would err on the side of caution and make sure your accommodations are sent to me even if you do not believe you need them as some students only learn they may need time after completing assessment. The Americans With Disabilities Act (ADA) and Section 504 of the Rehabilitation Act do not make accommodations retroactive. If you are approved for extra testing time for example, you must do so before an electronic assessment is posted in order for it to be integrated into the assessment. Claremont McKenna College values creating inclusive and accessible learning environments consistent with federal and state law. If you are not a CMC student, please connect with the Disability & Accessibility Services Coordinator on your campus regarding a similar process.
 
 ### **FYI on cheating etc.**
 
@@ -258,6 +255,7 @@ The above link lists many examples of cheating and plagiarism that are not allow
 -   Do not copy random words from the internet that have nothing to do with the assignment and submit them as your own work.
 -   Do not work on individual assignments with other students, share answers or other material, and then all hand in versions of the same thing that are slightly different.
 -   Do not plagiarize yourself by submitting work that you have previously completed in another class.
+
 
 ### **Mandate to report violations**
 

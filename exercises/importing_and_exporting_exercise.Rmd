@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r include=FALSE}
 # source(here::here("r", "my_functions.R"))                # if your functions are in a file
-# R.utils::sourceDirectory(here::here("r", "functions"))   # if your functions are in files inside of a directory
+# R.utils::sourceDirectory(here::here("src", "functions"))   # if your functions are in files inside of a directory
 ```
 
 # **Overview**
@@ -38,7 +38,7 @@ Relevant Files:
 Load the **{dplyr}** library and all functions that are in your `/r/functions` directory. 
 
 ```{r include=FALSE}
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 library(dplyr)
 ```
 

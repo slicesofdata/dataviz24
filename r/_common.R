@@ -1,22 +1,43 @@
 # General Course Details
 the_email        <- "gcook@CMC.edu"
-the_semester     <- "Spring 2024"
-the_course       <- "PSYC 166"
+the_semester     <- "Fall 2024"
+the_course       <- "PSYC 167"
 the_section      <- paste(the_course, "Sect-01", sep = ", ")
-the_day_time     <- "Thursday 2:45 - 05:30PM (Pacific)"
-the_location     <- "Location: Roberts North, 105"
-the_office_hours <- "T: 1-2pm"
+the_section      <- paste(the_course)
+the_day_time     <- "T/R 1:15-2:30 PM or 2:45-4:00PM (Pacific)"
+the_location     <- "Location: Roberts North, 102"
+the_office_hours <- "T/R: 12-1pm"
 the_instructor   <- "Gabriel I. Cook"
 the_contact      <- paste0("Discord (preferred) or Email: ", the_email, " (*please put '", the_course," in subject line)*")
 the_credit       <- "3 hours; 1 credits"
 # End General Course Details
 
-the_course_site <- "https://gabrielcook.xyz/fods24"
+the_website <- "https://gabrielcook.xyz"
+the_website_sub_course <- "dataviz24"
+the_course_site <- paste(the_website, the_website_sub_course, sep = "/")
 the_course_upload_link <- "https://claremontmckenna.app.box.com/f/140969a32dea44e9ab6c0c00146d66e3"
+
+github_user <- "slicesofdata"
+github_raw_url <- "https://raw.githubusercontent.com"
+
+github_raw_link <- function(subdir = "modules",
+                            file = ""
+                            ) {
+ return(
+   paste(github_raw_url,
+         github_user,
+         "main",
+         subdir,
+         file,
+         sep = "/"
+         )
+   )
+}
 
 course_links_grep <- function(path = "modules",
                               pattern = "git",
-                              replace = "https://gabrielcook.xyz/fods24") {
+                              replace = the_course_site
+                              ) {
   library(magrittr)
   return(
     list.files(path = here::here(path),
@@ -50,3 +71,5 @@ huber_factors_ch <- glue::glue(huber_pdf,"#page=",front_matter + 186)
 huber_sql_ch <- glue::glue(huber_pdf,"#page=",front_matter + 199)
 huber_writing_functions_ch <- glue::glue(huber_pdf,"#page=",front_matter + 232)
 huber_modeling_ch <- glue::glue(huber_pdf,"#page=",front_matter + 241)
+
+message("done")

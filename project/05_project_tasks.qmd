@@ -1,5 +1,5 @@
 ---
-title: "**Project Tasks**"
+title: "*Project Tasks*"
 author: "Gabriel I. Cook"
 #date: "`r format(Sys.time(), '%d %B, %Y')`"
 
@@ -7,6 +7,12 @@ execute:
   #enabled: false
   freeze: auto
 ---
+
+
+# **NEEDS EDITING TO REFLECT NEW PROJECTS**
+# **NEEDS EDITING TO REFLECT NEW PROJECTS**
+# **NEEDS EDITING TO REFLECT NEW PROJECTS**
+
 
 # **Overview**
 
@@ -18,7 +24,7 @@ Some tasks have to be performed in a sequential order but others can be integrat
 
 1. Review the project proposal details in `/docs` 
 
-2. Review the CHAMP documents in `/docs` to understand the structure of the data and identify relevant variables
+2. Review any project documents in `/docs` to understand the structure of the data and identify relevant variables
 
 3. Schedule to meet with liaison to discuss project in order to formulate a game plan; ask about variables of interest
 
@@ -31,6 +37,7 @@ Some tasks have to be performed in a sequential order but others can be integrat
 7. Integrate team member sub-goal code files
 
 8. Finalize report
+
 
 *Report drafting*. This tasks can get integrated within the other tasks. For example, delegating tasks, setting deadlines for rough drafts, etc.). Relevant references in `/refs` can be disseminated, read, and used to prepare the theoretical and conceptual motivation for the project. 
 
@@ -45,25 +52,26 @@ A recommended sub-goal process is described below
 
   1. Import master data file
   2. Select variables of interest for that Task/Survey 
-  3. Write out wide `<task>_wide.Rds` data file containing ids and variables for that task
+  3. Write out wide `<task>_wide.rds` data file containing ids and variables for that task
+  4. Ensure all files are lowercase with no spaces; use - or _ 
 
 **B. Clean the task/survey data**    
 
    1. Transform Data: Pivot wide to long
-   2. Write out long `<task>_long.Rds` data file
+   2. Write out long `<task>_long.rds` data file
    3. Clean, create, etc. relevant variables (not aggregated)
 
 **C. Aggregate/Summarize task/survey data**    
 
-   1. Write out  long `task_long_clean.Rds` data file
+   1. Write out  long `task_long_clean.rds` data file
    2. Aggregate/Summarize Data: Create participant level relevant data (e.g., average accuracy, average response time, etc.) 
-   3. Write out  long `<task>_long_agg.Rds` data file
+   3. Write out  long `<task>_long_agg.rds` data file
 
 **D. Prepare aggregated task/survey data for statistical description**
 
    1. If doing correlation with other variables, sometimes need to transform the data frame. If so:
    2. Pivot long to wide 
-   3. Write out long `<task>_wide_agg.Rds` data file
+   3. Write out long `<task>_wide_agg.rds` data file
 
 **E. Produce Data Summaries: Descriptive Statistics**
 

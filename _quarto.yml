@@ -2,10 +2,11 @@ project:
   type: website
   output-dir: docs
   preview:
-    port: 166
+    port: 167
     browser: true
     navigate: true
   render:
+    #- "modules/01 installation and setup/*.qmd"
     - "*.qmd"
     - "!_omit/"                             # do not build anything in /_omit
 #    - "!slides/"                           # do not build anything in /slides
@@ -15,17 +16,21 @@ project:
     #- "!modules/01_installing_r_and_rstudio.qmd"
 #    - "!modules/" # Note regarding !, if try to render with an ignore, will get ERROR: TypeError: Cannot convert undefined or null to object
 
-
 website:
-  title: "**PSYC166**"
   navbar:
     left:
       - text: "**Home**"
         file: index.qmd
-      - text: "**Syllabus**"
-        file: syllabus/syllabus.qmd
+      - text: "**Schedule**"
+        file: schedule/index.qmd                            # all files in dir are referenced and ordered by file number
+      #- text: "**Syllabus**"
+      #  file: syllabus/syllabus.qmd
       #- text: "Textbook"
       #  href: https://psyteachr.github.io/ads-v2
+      #- text: "**Installation**"
+      #  file: modules/001_subdir01/index.qmd
+      #- text: "**Setup**"
+      #  file: modules/module_setup/index.qmd                            # all files in dir are referenced and ordered by file number
       - text: "**Modules**"
         file: modules/index.qmd                            # all files in dir are referenced and ordered by file number
       - text: "**Project**"
@@ -43,109 +48,110 @@ website:
           href: slides/02_git_slides.qmd
         - text: Functions, Parameters, and Arguments
           href: slides/03_functions_slides.qmd
-        - text: Vectors and Data Frames
-          href: slides/04_vectors_and_data_frames_slides.qmd
-        - text: Importing and Exporting Data
-          href: slides/05_importing_and_exporting_slides.qmd
-        - text: Variables, Measures of Cognition
-          href: slides/06_variables_cognition_slides.qmd
-        - text: 'Manipulating Data: Selecting, Filtering, & Mutating'
-          href: slides/07_manipulating_data_selecting_filtering_mutating_slides.qmd
-        - text: Cognitive Task Data
-          href: slides/08_cognitive_data_slides.qmd
-        - text: Grouping and Summarizing Data
-          href: slides/09_summarizing_data_slides.qmd
-        - text: Grouping and Summarizing Data (Advanced)
-          href: slides/09_summarizing_data_advanced_slides.qmd
-        - text: Summarizing Task Data
-          href: slides/10_cognitive_data_summary_slides.qmd
-        - text: 'Transforming Data: Pivoting'
-          href: slides/07_manipulating_data_pivoting_slides.qmd
-        - text: Joining Data
-          href: slides/13_joining_data_slides.qmd
+#        - text: Vectors and Data Frames
+#          href: slides/04_vectors_and_data_frames_slides.qmd
+#        - text: Importing and Exporting Data
+#          href: slides/05_importing_and_exporting_slides.qmd
+#        - text: Variables, Measures of Cognition
+#          href: slides/06_variables_cognition_slides.qmd
+#        - text: 'Manipulating Data: Selecting, Filtering, & Mutating'
+#          href: slides/07_manipulating_data_selecting_filtering_mutating_slides.qmd
+#        - text: Cognitive Task Data
+#          href: slides/08_cognitive_data_slides.qmd
+#        - text: Grouping and Summarizing Data
+#          href: slides/09_summarizing_data_slides.qmd
+#        - text: Grouping and Summarizing Data (Advanced)
+#          href: slides/09_summarizing_data_advanced_slides.qmd
+#        - text: Summarizing Task Data
+#          href: slides/10_cognitive_data_summary_slides.qmd
+#        - text: 'Transforming Data: Pivoting'
+#          href: slides/07_manipulating_data_pivoting_slides.qmd
+#        - text: Joining Data
+#          href: slides/13_joining_data_slides.qmd
         #- text: Joining Project Data
         #  href: slides/15_joining_project_data_slides.qmd
-        - text: Visualizing Data
-          href: slides/11_visualizing_data_slides.qmd
-        - text: Examining Relationships
-          href: slides/12_examining_relationships_slides.qmd
-        - text: Strings, Factors, and Regular Expressions
-          href: slides/14_strings_and_factors_slides.qmd
-        - text: Discussing Models for Cognitive Tasks
-          href: slides/16_models_project_slides.qmd
-        - text: Linear Models
-          href: slides/17_linear_models_slides.qmd
-        - text: Exploratory Data Analysis
-          href: slides/18_eda_slides.qmd
+#        - text: Visualizing Data
+#          href: slides/11_visualizing_data_slides.qmd
+#        - text: Examining Relationships
+#          href: slides/12_examining_relationships_slides.qmd
+#        - text: Strings, Factors, and Regular Expressions
+#          href: slides/14_strings_and_factors_slides.qmd
+#        - text: Discussing Models for Cognitive Tasks
+#          href: slides/16_models_project_slides.qmd
+#        - text: Linear Models
+#          href: slides/17_linear_models_slides.qmd
+#        - text: Exploratory Data Analysis
+#          href: slides/18_eda_slides.qmd
 
 ################################################################################
       #- text: "**Readings**"
       #  href: readings/readings.qmd
 
 ################################################################################
-
       - text: "**HW**"
-        # file: homework/index.qmd         # this quarto file is not used - files referenced separately
         menu:
-          - text: HW 01
-            href: https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW01.Rmd
-          - text: HW 02
-            href: https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW02.Rmd
-          - text: HW 03
-            href: https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW03.Rmd
-          - text: HW 04
-            href: https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW04.Rmd
-          - text: HW 05
-            href: https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW05.Rmd
-          - text: HW 06
-            href: https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW06.Rmd
-          - text: HW 07
-            file: https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW07.Rmd
-          - text: HW 08
-            href: https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW08.Rmd
-          - text: HW 09
-            href: https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW09.Rmd
-          - text: HW 10
-            href: https://raw.githubusercontent.com/slicesofdata/fods24/main/homework/HW10.Rmd
+        - text: HW 01
+          #  href: https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw01.pdf
+          #- text: HW 01
+          #  href: https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw01.rmd
+#          - text: HW 02
+#            href: https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw02.rmd
+#          - text: HW 03
+#            href: https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw03.rmd
+#          - text: HW 04
+#            href: https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw04.rmd
+#          - text: HW 05
+#            href: https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw05.rmd
+#          - text: HW 06
+#            href: https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw06.rmd
+#          - text: HW 07
+#            file: https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw07.rmd
+#          - text: HW 08
+#            href: https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw08.rmd
+#          - text: HW 09
+#            href: https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw09.rmd
+#          - text: HW 10
+#            href: https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw10.rmd
 
 ################################################################################
       - text: "**Exercises**"  # Built like Homework
         menu:
-          - text: using_git_with_projects_exercise.docx
-            href: exercises/using_git_with_projects_exercise.Rmd
+          - pending
+        #  - text: using_git_with_projects_exercise.docx
+        #    href: exercises/using_git_with_projects_exercise.rmd
 
-          - text: functions_exercise.docx
-            href: exercises/functions_exercise.docx
+#          - text: functions_exercise.docx
+#            href: exercises/functions_exercise.docx
 
-          - text: vectors_and_dataframes_exercise.docx
-            href: exercises/vectors_and_dataframes_exercise.docx
+#          - text: vectors_and_dataframes_exercise.docx
+#            href: exercises/vectors_and_dataframes_exercise.docx
 
-          - text: importing_and_exporting_exercise.docx
-            href: exercises/imorting_and_exporting_exercise.docx
+#          - text: importing_and_exporting_exercise.docx
+#            href: exercises/imorting_and_exporting_exercise.docx
 
-          - text: transforming_exercise.docx
-            href: exercises/transforming_exercise.docx
+#          - text: transforming_exercise.docx
+#            href: exercises/transforming_exercise.docx
 
-          - text: summarizing_exercise.docx
-            href: exercises/summarizing_exercise.docx
+#          - text: summarizing_exercise.docx
+#            href: exercises/summarizing_exercise.docx
 
-          - text: pivoting_exercise.docx
-            href: exercises/pivoting_exercise.docx
+#          - text: pivoting_exercise.docx
+#            href: exercises/pivoting_exercise.docx
 
-          - text: visualizing_exercise.docx
-            href: exercises/visualization_exercise.docx
+#          - text: visualizing_exercise.docx
+#            href: exercises/visualization_exercise.docx
 
-          - text: joining_exercise.docx
-            href: exercises/joining_exercise.docx
+#          - text: joining_exercise.docx
+#            href: exercises/joining_exercise.docx
 
-          - text: strings_and_factors_exercise.docx
-            href: exercises/strings_and_factors_exercise.docx
+#          - text: strings_and_factors_exercise.docx
+#            href: exercises/strings_and_factors_exercise.docx
 
-          - text: linear_models_exercise.docx
-            href: exercises/linear_models_exercise.Rmd
+#          - text: linear_models_exercise.docx
+#            href: exercises/linear_models_exercise.Rmd
 
-          - text: eda_exercise.docx
-            href: exercises/eda_exercise.docx
+#          - text: eda_exercise.docx
+#            href: exercises/eda_exercise.docx
 
 #
 ################################################################################
@@ -153,7 +159,7 @@ website:
         # file: data/index.qmd         # this quarto file is not used
         menu:
           - text: cms-top-all-time-2023-swim.xlsx
-            href: https://github.com/slicesofdata/dataviz23/raw/main/data/cms-top-all-time-2023-swim.zip
+            href: https://github.com/slicesofdata/dataviz24/raw/main/data/cms-top-all-time-2023-swim.zip
           - text: Fun Tidy Tuesday Data Sets
             href: https://github.com/rfordatascience/tidytuesday
           - text: Defense Casualty Analysis System (DCAS)
@@ -161,6 +167,15 @@ website:
             #href: https://dcas.dmdc.osd.mil/dcas/app/conflictCasualties/vietnam/vietnamSum
 
 ################################################################################
+      - text: "**Example Files & Other**"
+        menu:
+          - text: "**Other Tools/Resources**"
+            href: resources/tools.qmd
+          - text: "example-figure-script.R"
+            href: examples/example-figure-script.R
+          - text: "example-rmarkdown-file-with-fig-script.Rmd"
+            href: examples/example-rmarkdown-file-with-fig-script.Rmd
+
       - text: "**Cheatsheets**"
         #file: cheatsheets/index.qmd     # this quarto file is not used
         menu:
@@ -183,9 +198,6 @@ website:
           - text: Quarto Cheat Sheet (what Quarto Files Look Like)
             href: https://images.datacamp.com/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf
 ################################################################################
-      - text: "**Other Tools**"
-        href: resources/tools.qmd
-
 
 ################################################################################
 # on the right of the page
@@ -199,22 +211,33 @@ website:
 ################################################################################
 # to add a topic sidebar
   sidebar:
-      #style: "floating"
-      #collapse-level: 2
-      #align: left
       #contents: auto
     - title: "Home"
-      style: "floating"
-      collapse-level: 2
+      #search:
+        #location: navbar
+        #type: textbox
+        #keyboard-shortcut: ["?", "H"] #override
+      #style: "floating"
+      style: "docked"
+      collapse-level: 1
       align: left
       contents:
-        - syllabus/syllabus.qmd
-        - auto: modules
-        - auto: project
-
+        - syllabus/syllabus.qmd # link to syllabus
+        - "---"
+        - auto: schedule # will build automatically based on folder contents
+        - "---"
+        - auto: modules_setup
+        - "---"
+        #- section: Section 1
+        - auto: modules # will build automatically based on folder contents; subdirs too
+        #- auto: modules/module_core/ # will build automatically based on folder contents; subdirs too
+        #- modules/module_core
+        - "---"
+        - auto: project  # will build automatically based on folder contents
     - title: "Slides"
-      style: "floating"
-      collapse-level: 2
+      #style: "floating"
+      style: "docked"
+      collapse-level: 1
       align: left
 
 ################################################################################

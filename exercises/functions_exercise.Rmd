@@ -204,7 +204,7 @@ Assuming you save any personal functions in `/r/functions`, you may wish to sour
 5. If you see other functions from class or otherwise, you can create a file and add the function to the directory.
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 ```
 
 The next step involves creating an R Markdown report file that incorporates the other work and leverages it for reproduction.
@@ -286,7 +286,7 @@ You can work hard or you can work by being smart. When you have code that you ma
 
 ```
      snippet source_dir
-	      R.utils::sourceDirectory(here::here("r", "functions"))
+	      R.utils::sourceDirectory(here::here("src", "functions"))
 ```
 
 3. Save the snippet file

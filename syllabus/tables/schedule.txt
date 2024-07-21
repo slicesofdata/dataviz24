@@ -1,25 +1,34 @@
-Date;Week;Module;Topic
-01-18;1;1;Introduction to R, RStudio, and R Markdown
-01-25;2;2;Data Mise en Place (Project Management), Git & GitHub
-02-01;3;3;Functions, Parameters, Arguments, and Scripts
-;3;4;Vectors and Data Frame Basics
-02-08;4;5;Importing and Exporting Data / Vectors and Data Frame Basics
-;4;6;Variables and Measures of Cognition
-02-15;5;7;Manipulating Data Frames (Selecting, Filtering, & Mutating)
-;5;8;Working with Cognitive Task Data
-02-22;6;9;Grouping and Summarizing Data
-;6;10;Summarizing Cognitive Task Data
-03-01;7;11;Transforming Data Frames (Pivoting)
-;7;12;Visualizing Data
-03-07;8;13;Joining Relational Data
-03-14;9;-;"<span style=""color:#1EDAFB"">Spring Break (no class)</span>"
-03-21;10;-;"<span style=""color:#8DFF0A"">Mid-Term Presentation</span>"
-03-28;11;14;Examining Relationships in Variables of Cognition
-;11;15;Strings and Factors
-04-04;12;16;Discuss Appropriate Models Related to Cognition Readings
-;12;16;Cont.
-04-11;13;17;Linear Model Testing
-04-18;14;18;Exploratory Data Analysis
-;14;18;Cont.
-04-25;-;-;Project Week
-05-02;-;-;"<span style=""color:#8DFF0A"">Presentation (Last day of Instruction)</span>"
+Date;Day;Item;Module Links and Content
+"By First Class (Date)";--;--;"<a href="https://gabrielcook.xyz/fods24/modules/01_installing_r_and_rstudio.html">Introduction to R, RStudio, and R Markdown</a>", "<a href="https://gabrielcook.xyz/fods24/modules/01_installing_r_and_rstudio.html">video</a>"
+27-Aug ;T;01;Introduction & Project Management
+29-Aug ;R;02;Graphical Perception
+03-Sept;T;03;Frame Manipulation and Wrangling
+05-Sept;R;04;Data Subsets and Summaries
+10-Sept;T;05;The Grammar of Graphics
+12-Sept;R;06;Visualizing Amounts
+17-Sept;T;07;Visualizing Associations
+19-Sept;R;08;Spatial Position and Adjustment
+24-Sept;T;09;Considerations in Data Visualization
+26-Sept;R;10;Color Scales and Palettes
+01-Oct ;T;11;Histograms and Density Plots
+03-Oct ;R;12;"Coordinates, Axes and Position Scales"
+08-Oct ;T;13;Statistical Transformations (Data as-is Versus Summaries)
+10-Oct ;R;14;More Data Wrangling
+15-Oct ;T;--;"<span style=""color:#ffa500"">Fall Break (no class)</span>"
+17-Oct ;R;15;Visualizing More Distributions
+22-Oct ;T;16;Visualizing Uncertainty
+24-Oct ;R;--;"<span style=""color:#FF00FF"">Mid-Term Presentation</span>"
+29-Oct ;T;18;Visualizing Trends
+31-Oct ;R;19;Legends and Arrangement
+NLT<br> 31-Oct ;--;--;"<span style=""color:#DE3163"">Mid-Term Presentation to Liaison</span>" (By End of Day)
+05-Nov ;T;20;Designing Perceptually Efficient Visualizations
+07-Nov ;R;21;Annotation and Text
+12-Nov ;T;22;Multi-Panel Plots: Faceting and Layers
+14-Nov ;R;24;Attentional Control and Tradeoffs
+19-Nov ;T;23;Titles Captions & Tables
+21-Nov ;T;24;Figure Design (Themes)
+26-Nov ;R;--;"<span style=""color:#1EDAFB"">Thanksgiving Break (no class)</span>"
+03-Dec ;T;--;Team Project Preparation
+05-Dec ;R;--;"<span style=""color:#FFFFFF"">Presentation (Last day of Instruction)</span>"
+NLT<br>13-Dec ;Fri;--;"<span style=""color:#FF00FF"">Finals Week: Final Push to Repo/Written Report</span>" (By Noon)
+NLT<br>13-Dec ;Fri;--;"<span style=""color:#FF00FF"">Final Presentation to Liaison</span>" (By End of Day) - Do Not Schedule your Flights prior to presentation to liaison unless you obtain written approval that an online presentation is sufficient.

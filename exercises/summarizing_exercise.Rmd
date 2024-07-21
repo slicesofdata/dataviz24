@@ -54,7 +54,7 @@ Examine the structure of your data frame using **{dplyr}** so that you know vari
 
 ```{r, eval=eval_answers, include=include_answers}
 library(dplyr)
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 glimpse(SSPAN)
 ```
 

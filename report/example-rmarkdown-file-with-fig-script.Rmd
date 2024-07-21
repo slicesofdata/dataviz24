@@ -1,0 +1,100 @@
+---
+title: "Example .Rmd for plot about xyz"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# **Recommedation 1**
+
+Code your plot in a .R file and then call that into your .Rmd file.
+
+## **Load libraries and functions**
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# no messages
+# no warnings
+# run code, no output
+
+# source needed functions and libraries
+R.utils::sourceDirectory(here::here("src", "functions"))
+library(knitr)
+library(ggplot2) # though may be loaded in .R script
+library(dplyr)   # though may be loaded in .R script
+```
+
+## **Call the script**
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# no messages
+# no warnings
+# run code, no output
+
+# source the script that reads your data and creates your visualization figure 
+source(here::here("src", "figs", "example_figure_script.R"))
+```
+
+Add notes about your amazing notes here.
+
+
+## **Read .png graphic into the .Rmd file**
+
+This is what you will do for the team project.
+
+```{r echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+knitr::include_graphics(path = here::here("report", "figs", "my_awesome_plot.png"),
+                        dpi = 320
+                        )
+```  
+
+# **Recommendation 2**
+
+Another approach is to work in the .Rmd file. Once you are happy with it, make a copy that removes the Markdown code and save as a .R script. 
+
+This plot does xyz and will be moved to an .R script along with code to save the file once I'm happy with what it does. The .Rmd file will then call the .png file using **{knitr}**.
+
+```{r}
+################################################################################
+# ggplot2 code for creating visualization about ...
+
+mtcars_plot <-
+  dat |>
+  ggplot() +
+  geom_point(mapping = aes(x = wt, y = mpg))
+
+
+################################################################################
+# code to save plot
+
+ggsave(filename = here::here("report", "figs", "my_awesome_plot.png"),
+       plot = mtcars_plot,  # last_plot(),  the default is the last plot
+       device = ragg::agg_png,
+       dpi = 320            # 320 retina, 300 is fine
+)
+
+```
+
+
+# **Note**
+
+However you decide to create your scripts, you will:
+
+1. add your author name;
+2. provide a description about its purpose;
+3. ensure you load function files and libraries;
+4. using **{here}**, save the plot as a .png file in /report/figs;
+
+- **Ex:** here::here("report", "figs", "my_awesome_plot.png"),
+
+5. save the script in /src/figs making sure to name it and the .png file with same name, meaningful for the plot. Don't name the plot something like Plot42;
+
+- **Ex:** here::here("src", "figs", "my_awesome_plot.R"),
+
+6. and then using **{here}**, source the script from /src/figs in your .Rmd report file if its needed
+
+- **Ex:** source(here::here("src", "figs", "my_awesome_plot.R"))
+

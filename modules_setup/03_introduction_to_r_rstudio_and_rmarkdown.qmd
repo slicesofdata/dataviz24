@@ -1,5 +1,5 @@
 ---
-title: "*Introduction to RStudio and R Markdown*"
+title: "*Introduction to RStudio, R Markdown, & Functions*"
 author: "Gabriel I. Cook"
 #date: "`r Sys.Date()`"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
@@ -13,27 +13,20 @@ execute:
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 # secret functions
 # source(here::here("r", "src", "color_format_text.R"))
-source(here::here("r", "_common.R"))
+
 ```
-
-::: callout-important
-## Under construction. 
-
-This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.
-:::
 
 
 ```{r}
 #| label: load-packages
 #| include: false
-
-
-R.utils::sourceDirectory(here::here("r", "functions"))
+source(here::here("src", "_common.R"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 ```
 
 # **Overview**
 
-In this module, we familiarize ourselves with using `R` in `RStudio` as well as create files that contain both text and `R` using  [**R Markdown**](https://gabrielcook.xyz/fods24/cheatsheets/rmarkdown-2.0.pdf). 
+In this module, we familiarize ourselves with using `R` in `RStudio` as well as create files that contain both text and `R` using  [**R Markdown**](`r paste(the_website, the_website_sub_course, "cheatsheets/rmarkdown-2.0.pdf", sep = "/")`)
 
 
 ## **Readings and Preparation**
@@ -49,9 +42,6 @@ In this module, we familiarize ourselves with using `R` in `RStudio` as well as 
 # 
 #- [R4DS: YAML Header](https://r4ds.hadley.nz/quarto.html#yaml-header)
 ```
-
-- [Huber: RMarkdown](`r huber_rmarkdown_ch`)
-
 
 ## **Libraries** 
 
@@ -73,7 +63,8 @@ The code you write for the interpreter will involve referencing functions. You h
 
 ## **A Function Example**
 
-For example, reading a file into `R` involves using a function that performs that operation. For these functions to read a file containing data, you will need to specify the required and/or optional `arguments` for given `parameters` of the function. Functions and coding basics will be covered more extensively in a later topic. For now, one such function is `read.table()` with is used to read tabular data files. Another function is `read.csv()`, which is a special case of the former function. For this function to read a file, you would need to specify the `file` argument (and file path if the file is not in your working directory) argument at very least so that `R` knows what file to read. Another function you may use is `data.frame()` which is used to create data frames. Using `R` depends on using functions that are designed to handle various tasks. Unlike some langauges, we will not have to create many of our own functions but instead will leverage the work of `R` developers. 
+For example, reading a file into `R` involves using a function that performs that operation. For these functions to read a file containing data, you will need to specify the required and/or optional `arguments` for given `parameters` of the function. Given prerequisite courses, functions and coding basics will not be covered extensively in this course. If a refresher is needed, [one is here](  
+`r get_url_for_module_setup(file_name = "functions_and_scripts")`). Nevertheless, one such function is `read.table()` which is used to read tabular data files. Another function is `read.csv()`, which is a special case of `read.table()`. For this function to read a file, you would need to specify the `file` argument (and file path if the file is not in your working directory) argument at very least so that `R` knows what file to read. Another function you may use is `data.frame()` which is used to create data frames. Using `R` depends on using functions that are designed to handle various tasks. Unlike some languages, we will not have to create many of our own functions but instead will leverage the work of `R` developers. 
 
 
 # **Getting Help**
@@ -100,7 +91,9 @@ These methods are all equivalent ways of getting help:
 
 ```{.r}
 help("summarize")
+
 ?summarize
+
 ?summarize::summarize
 ```
 
@@ -118,8 +111,6 @@ For example, if you know you are using the **{dplyr}** library and you are using
 # **R Coding Style Guide**
 
 Hadley Wickham, the developer of many `R` libraries, including the main graphics package, **{ggplot}** and its current form, **{ggplot2}** and the main data manipulation package, **{dplyr}**, has provided recommendations for `R` coding styles. Having a common coding style generally makes reading code easier across individuals. You can find the style guide available at [https://style.tidyverse.org/](https://style.tidyverse.org/). In particular, check the section on [syntax](https://style.tidyverse.org/syntax.html) as that will be your focus. 
-
-
 
 # **Setting Up RStudio**
 
@@ -150,10 +141,14 @@ This exercise serves as a tutorial with the goal of familiarizing you with using
 
 ## **R Markdown: Cheat Sheet**
 
-There are many ways to customize an `R Markdown` file. You will need to insert `R` code, write text descriptions, create plots and tables, etc. In some instances you would want to include your `R` code or hide it from the output in their certain ways for doing that in the `R Markdown` language. Some of these ways are created automatically for you in `RStudio` when you initiate new `R Markdown` file.  others can be be found in this 
+There are many ways to customize an `R Markdown` file. You will need to insert `R` code, write text descriptions, create plots and tables, etc. In some instances you would want to include your `R` code or hide it from the output in their certain ways for doing that in the `R Markdown` language. Some of these ways are created automatically for you in `RStudio` when you initiate new `R Markdown` file.  Others can be be found in this 
 [R Markdown cheat sheet](https://www.dataquest.io/blog/r-markdown-guide-cheatsheet/). 
 `RStudio` also has various cheat sheets which you can find [here](https://www.rstudio.com/resources/cheatsheets/).
-You can also read more in [Huber: CH 2](https://www.markhuberdatascience.org/_files/ugd/c2b9b6_543ea42a1ea64e32b4440b34ffd71635.pdf)
+
+
+```{r eval=FALSE, include=FALSE}
+# You can also read more in [Huber: CH 2](https://www.markhuberdatascience.org/_files/ugd/c2b9b6_543ea42a1ea64e32b4440b34ffd71635.pdf)
+```
 
 On the [course site](the_course_site), there are additional cheat sheet files located on the **Cheat sheet** tab.  
 

@@ -14,7 +14,7 @@ eval_answers <- TRUE
 ```{r include=FALSE}
 library(dplyr)
 library(magrittr)
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 source(here::here("r", "src", "color_format_text.R"))
 ```
 

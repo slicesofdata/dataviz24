@@ -7,15 +7,200 @@ description: ""
 ---
 
 ```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
+library(dplyr)
+
 #SCHEDULE <- rio::import(here::here("syllabus/tables/2schedule.csv"))
 SCHEDULE <- read.table(here::here("syllabus/tables/schedule.txt"), 
                        header = T,
                        sep = ";"
                        )
 names(SCHEDULE)  <- gsub("\\.", " ", names(SCHEDULE))
+```
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=TRUE}
+# then build the table
 knitr::kable(SCHEDULE)
 ```
 
 ```{r eval=FALSE, include=FALSE}
 #For more information on see [notes on privacy and sharing in the compendium](compendium/privacy.qmd).
+
 ```
+
+```{r eval=FALSE, include=FALSE}
+SCHEDULE |>
+  filter(Item != "--") |>
+  mutate(Item2 = row_number())
+```
+
+```{r eval=FALSE, include=FALSE}
+# Get the module files
+class_modules <- setdiff(list.files(here::here("modules")), "index.qmd")
+class_modules <- grep("\\.qmd$", class_modules, value = TRUE)
+
+class_modules_as_html <- gsub(".qmd", ".html", class_modules)
+
+class_url <- "https://gabrielcook.xyz/dataviz24"
+module_urls <- paste(class_url, "modules", class_modules_as_html, sep = "/")
+
+# get the full path 
+#mod_full_names <- paste0(here::here(), "/", class_modules)
+
+# Read the title of each file
+
+# make function for reading second line
+read_second_line <- function(file_path) {
+  # Read the first two lines of the file
+  lines <- readLines(file_path, n = 2)
+  
+  # Return the cleaned second line if it exists, otherwise return NA
+  if (length(lines) >= 2) {
+    second_line <- lines[2]
+    # Remove the word "title", colons, backslashes, and asterisks
+    #cleaned_line <- gsub("title|:|\\\\|\\*", "", second_line, ignore.case = TRUE)
+    cleaned_line <- gsub("[^[:alnum:] &]", "", second_line)
+    cleaned_line <- gsub("title", "", cleaned_line)
+    # Trim any leading or trailing whitespace
+    cleaned_line <- trimws(cleaned_line)
+    return(cleaned_line)
+  } else {
+    return(NA)
+  }
+}
+
+# Initialize a list to store the first lines
+mod_first_lines <- list()
+
+# Loop through each file and read the first line
+cnt = 0; for (file in class_modules) {
+  cnt = cnt + 1
+  # Construct the full file path
+  file_path <- here::here("modules", file)
+  
+  # Read the first line of the file
+  first_line <- read_second_line(file_path)
+  
+  # Store the first line in the list
+  mod_first_lines[[cnt]] <- first_line
+}
+
+mod_first_lines <- unlist(mod_first_lines)
+
+
+
+#"<a href="URL">TITLE</a>",
+url_and_titles <- data.frame(url = module_urls, title = mod_first_lines)
+
+url_and_titles <- data.frame(
+  URL = module_urls,
+  TITLE = mod_first_lines,
+  stringsAsFactors = FALSE
+)
+
+
+# Create a new column for the hyperlinks
+url_and_titles$Hyperlink <- paste0('<a href="', url_and_titles$URL, '">', url_and_titles$TITLE, '</a>')
+
+
+#SCHEDULE$Links <- url_and_titles$Hyperlink 
+#SCHEDULE$`Module Links and Content`
+# Print the updated data frame
+
+
+#view_html(SCHEDULE)
+```
+
+
+
+
+```{r eval=FALSE, include=FALSE}
+
+# Example data frame with 33 elements
+df <- data.frame(
+  Date = c("By First Class (Date)", "27-Aug", "29-Aug", "03-Sept", "05-Sept", "10-Sept", "12-Sept", "17-Sept", 
+           "19-Sept", "24-Sept", "26-Sept", "01-Oct", "03-Oct", "08-Oct", "10-Oct", "15-Oct", "17-Oct", "22-Oct", 
+           "24-Oct", "29-Oct", "31-Oct", "NLT<br> 31-Oct", "05-Nov", "07-Nov", "12-Nov", "14-Nov", "19-Nov", "21-Nov", 
+           "26-Nov", "03-Dec", "05-Dec", "NLT<br>13-Dec", "NLT<br>13-Dec"),
+  Day = c("--", "T", "R", "T", "R", "T", "R", "T", "R", "T", "R", "T", "R", "T", "R", "T", "R", "T", "R", "T", "R", "--", "T", "R", "T", "R", "T", "T", "R", "T", "R", "Fri", "Fri"),
+  Item = c("--", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "--", "15", "16", "--", "18", "19", "--", "20", "21", "22", "24", "23", "24", "--", "--", "--", "--", "--"),
+  `Module Links and Content` = c(
+    '<a href=https://gabrielcook.xyz/fods24/modules/01_installing_r_and_rstudio.html>Introduction to R, RStudio, and R Markdown</a>, <a href=https://gabrielcook.xyz/fods24/modules/01_installing_r_and_rstudio.html>video</a>',
+    'Introduction & Project Management', 'Graphical Perception', 'Frame Manipulation and Wrangling', 'Data Subsets and Summaries',
+    'The Grammar of Graphics', 'Visualizing Amounts', 'Visualizing Associations', 'Spatial Position and Adjustment',
+    'Considerations in Data Visualization', 'Color Scales and Palettes', 'Histograms and Density Plots',
+    'Coordinates, Axes and Position Scales', 'Statistical Transformations (Data as-is Versus Summaries)',
+    'More Data Wrangling', '<span style="color:#ffa500">Fall Break (no class)</span>', 'Visualizing More Distributions',
+    'Visualizing Uncertainty', '<span style="color:#FF00FF">Mid-Term Presentation</span>', 'Visualizing Trends',
+    'Legends and Arrangement', '<span style="color:#DE3163">Mid-Term Presentation to Liaison</span> (By End of Day)',
+    'Designing Perceptually Efficient Visualizations', 'Annotation and Text', 'Multi-Panel Plots: Faceting and Layers',
+    'Attentional Control and Tradeoffs', 'Titles Captions & Tables', 'Figure Design (Themes)',
+    '<span style="color:#1EDAFB">Thanksgiving Break (no class)</span>', 'Team Project Preparation',
+    '<span style="color:#FFFFFF">Presentation (Last day of Instruction)</span>',
+    '<span style="color:#FF00FF">Finals Week: Final Push to Repo/Written Report</span> (By Noon)',
+    '<span style="color:#FF00FF">Final Presentation to Liaison</span> (By End of Day)'
+  ),
+  stringsAsFactors = FALSE
+)
+
+# Hyperlink vector
+hyperlinks <- c(
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/01_installing_r_and_rstudio.html\">Installing R & RStudio</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/01_introduction_to_r_rstudio_and_rmarkdown.html\">Introduction to RStudio and R Markdown</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/02_installing_and_setting_up_git_and_github.html\">Project Management 01 Installing and Setting Up Git and GitHub for R</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/02_using_git_and_github.html\">Project Management 02 R Projects Git and GitHub</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/04_functions_and_scripts.html\">Functions Arguments and R scripts</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/05_vectors_and_data_frame_basics.html\">Vectors and Data Frame Basics</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/07_variables_and_measures_of_cognition.html\">Variables and Measures of Cognition</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/08_ggplot_and_the_grammar_of_graphics.html\">ggplot and the grammar of graphics</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/08_manipulating_data_selecting_filtering_mutating.html\">Selecting Filtering & Mutating</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/10_visualizing_associations.html\">Visualizing associations</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/11_spatial_position_and_adjustment.html\">Spatial position and adjustment</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/12_considerations_in_data_visualization.html\">Considerations in data visualization</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/12_designing_perceptually_efficient_visualizations.html\">12 Designing perceptuallyefficient visualizations</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/13_color_scales_and_palettes.html\">Color scales and palettes</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/15_coordinates_axes_and_position_scales.html\">Coordinates axes and position scales</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/16_statistical_transformations.html\">Statistical transformations</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/17_visualizing_more_distributions.html\">Visualizing more distributions</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/19_visualizing_trends.html\">Visualizing trends</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/20_legends_and_arrangement.html\">Legends and arrangement</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/21_designing_perceptually_efficient_visualizations.html\">Designing perceptuallyefficient visualizations</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/23_multi_panel_plots_faceting.html\">Multipanel plots Faceting</a>",
+  "<a href=\"https://gabrielcook.xyz/dataviz24/modules/24_attentional_control.html\">Attentional control</a>"
+)
+
+view_html(df)
+
+# Extract titles from hyperlinks
+hyperlink_titles <- sub('.*\">(.*)</a>', '\\1', hyperlinks)
+
+# Create a new data frame with hyperlinks and their titles
+hyperlink_df <- data.frame(
+  Title = hyperlink_titles,
+  Hyperlink = hyperlinks,
+  stringsAsFactors = FALSE
+)
+
+# Extract rows where Item is not "--"
+df_not_dash <- df[df$Item != "--", ]
+
+# Extract titles from the 'Module Links and Content' column for matching
+df_not_dash_titles <- sub('.*<a href=.*>(.*)</a>.*', '\\1', df_not_dash$Module.Links.and.Content)
+
+df_not_dash_titles
+hyperlink_df$Title
+# Match titles from hyperlink_df to df_not_dash_titles
+matched_indices <- match(df_not_dash_titles, hyperlink_df$Title)
+
+matched_indices
+# Assign hyperlinks to the matched rows
+df_not_dash$Hyperlink <- hyperlink_df$Hyperlink[matched_indices]
+
+# Merge the matched hyperlinks back to the original data frame
+df$Hyperlink <- NA
+df$Hyperlink[df$Item != "--"] <- df_not_dash$Hyperlink
+
+# Print the updated data frame
+print(df)
+
+```
+

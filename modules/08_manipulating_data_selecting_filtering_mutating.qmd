@@ -31,7 +31,7 @@ This page is a work in progress and may contain areas that need more detail or t
 
 #library()
 # source(here::here("r", "my_functions.R"))
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 source("https://raw.githubusercontent.com/slicesofdata/fods24/main/r/functions/view_html.R")
 ```
 
@@ -67,7 +67,7 @@ In this module, we will start manipulating data frames. Data frames are composed
 `view_html()`: for viewing data frames in `HTML` format. You can source this from your `/r/functions` directory.
 
 ```{r}
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 ```
 
 If for some reason, you do not have the function saved, you can get it from the remote source.

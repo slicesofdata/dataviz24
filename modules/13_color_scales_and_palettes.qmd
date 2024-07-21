@@ -187,7 +187,8 @@ First, just in base R, there are `r length(colors())` colors, which you can chec
 Well, let's see:
 
 ```{r}
-?palette
+#?palette
+
 palette()
 ```
 

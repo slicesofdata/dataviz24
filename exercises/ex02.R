@@ -1,4 +1,4 @@
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 
 # adding dates
 birthdates <- c("2000-01-09", "1946-10-28",  "1992-05-03",  "2021-08-23",  "1957-03-05")

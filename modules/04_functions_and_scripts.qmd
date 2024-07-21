@@ -17,8 +17,11 @@ execute:
 
 ```{r include=FALSE}
 #install.packages("webshot")
-webshot::install_phantomjs()
-R.utils::sourceDirectory(here::here("r", "functions"))
+
+#webshot::install_phantomjs()
+
+source(here::here("src", "_common.R"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 ```
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
@@ -46,11 +49,14 @@ huber_writing_functions_ch <- glue::glue(huber_pdf,"#page=",front_matter + 232)
 huber_modeling_ch <- glue::glue(huber_pdf,"#page=",front_matter + 241)
 ```
 
-::: callout-important
-## Under construction. 
+```{r include=FALSE}
 
-This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.
-:::
+# ::: callout-important
+# ## Under construction. 
+
+#This page is a work in progress and may contain areas that need more detail or that required syntactical, #grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I #can fix it for you.
+#:::
+```
 
 # **Overview**
 
@@ -88,9 +94,13 @@ Read through the module. You can use the `R` console or open up an `R Markdown` 
 
 You can access remotely using this code, though you do not need to do so now.
 
-```{r}
-source("https://raw.githubusercontent.com/slicesofdata/dataviz24/main/r/functions/view_html.R")
+
+```{r include=FALSE}
+the_link <- github_raw_link(file = "src/functions/view_html.R")
+#source("https://raw.githubusercontent.com/slicesofdata/dataviz24/main/r/functions/view_html.R")
 ```
+
+`source(`r the_link`)`
 
 
 # **Simple Overview of Objects**
@@ -755,7 +765,7 @@ source(here::here("r", "read_clean_plot_data.R"))
 If all those files to source are in a directory, you can use a special source function from **{R.utils}** `R.utils::sourceDirectory()`. For example, if you have all of personal or project-related functions nicely organized in a directory like `r/funcions/`, you can easily source it like this. The benefit here is that you don't have to specify all of the files individually. 
 
 ```{r}
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 ```
 
 

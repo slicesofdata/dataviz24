@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 # source(here::here("r", "my_functions.R"))                # if your functions are in a file
-# R.utils::sourceDirectory(here::here("r", "functions"))   # if your functions are in files inside of a directory
+# R.utils::sourceDirectory(here::here("src", "functions"))   # if your functions are in files inside of a directory
 ```
 
 # **Class Practice**

@@ -17,7 +17,7 @@ include_answers <- FALSE
 
 ```{r, include=FALSE}
 # source(here::here("r", "my_functions.R"))                # if your functions are in a file
-R.utils::sourceDirectory(here::here("r", "functions"))
+R.utils::sourceDirectory(here::here("src", "functions"))
 ```
 
 # **Class Practice**
