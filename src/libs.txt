@@ -1,0 +1,11 @@
+pkg_list <- c(
+  "here", "quarto", "rmarkdown", 
+  "magrittr"
+  "tidyverse", # "dplyr", "readr", "ggplot2", 
+  "fs",
+  "gt", "gtsummary", 
+  "kable", "kableExtra",
+  "ggAssist", "ggThemeAssist"
+  "systemfonts" #ragg
+
+)

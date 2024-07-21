@@ -1,0 +1,7 @@
+Use git fetch.
+
+1. git fetch <remote>
+2. git checkout -m <commitid> <filepath>
+3. git add <filepath>
+3. git commit
+
