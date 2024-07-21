@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-07-07">
+<meta name="dcterms.date" content="2024-07-20">
 
-<title>Project Management 02: R Projects, Git, and GitHub</title>
+<title>Introduction to RStudio, R Markdown, &amp; Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -154,10 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><strong>HW</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
-        <li>
-    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw01.Rmd" rel="" target="">
- <span class="dropdown-text">HW 01</span></a>
-  </li>  
+        <li class="dropdown-header">HW 01</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -165,10 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><strong>Exercises</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
-        <li>
-    <a class="dropdown-item" href="../exercises/using_git_with_projects_exercise.Rmd" rel="" target="">
- <span class="dropdown-text">using_git_with_projects_exercise.docx</span></a>
-  </li>  
+        <li class="dropdown-header">pending</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -187,6 +181,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
  <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example-files--other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Example Files &amp; Other</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-example-files--other">    
+        <li>
+    <a class="dropdown-item" href="../resources/tools.html" rel="" target="">
+ <span class="dropdown-text"><strong>Other Tools/Resources</strong></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-figure-script.R" rel="" target="">
+ <span class="dropdown-text">example-figure-script.R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-rmarkdown-file-with-fig-script.Rmd" rel="" target="">
+ <span class="dropdown-text">example-rmarkdown-file-with-fig-script.Rmd</span></a>
   </li>  
     </ul>
   </li>
@@ -233,10 +246,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../resources/tools.html" rel="" target="">
- <span class="menu-text"><strong>Other Tools</strong></span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -259,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/02_using_git_and_github.html"><em>Project Management 02: R Projects, Git, and GitHub</em></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules_setup/index.html">Installation &amp; Setup</a></li><li class="breadcrumb-item"><a href="../modules_setup/03_introduction_to_r_rstudio_and_rmarkdown.html"><em>Introduction to RStudio, R Markdown, &amp; Functions</em></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -277,16 +286,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../schedule/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+            <a href="../modules_setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation &amp; Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -294,25 +305,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
+  <a href="../modules_setup/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Installing R &amp; RStudio</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/01_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Introduction to RStudio and R Markdown</em></span></a>
+  <a href="../modules_setup/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Project Management 01: Installing and Setting Up Git and GitHub for R</em></span></a>
+  <a href="../modules_setup/03_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><em>Introduction to RStudio, R Markdown, &amp; Functions</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/02_using_git_and_github.html" class="sidebar-item-text sidebar-link active">
+  <a href="../modules_setup/04_functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Functions, Arguments, and R scripts</em></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_1_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_2_using_git_and_github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Project Management 02: R Projects, Git, and GitHub</em></span></a>
   </div>
 </li>
@@ -337,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/08_ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>{<code>ggplot</code>} and the grammar of graphics</em></span></a>
+ <span class="menu-text"><em>{<code>ggplot2</code>}: The Grammar of Graphics</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -430,11 +465,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
@@ -480,18 +515,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
   <ul class="collapse">
   <li><a href="#readings-and-preparation" id="toc-readings-and-preparation" class="nav-link" data-scroll-target="#readings-and-preparation"><strong>Readings and Preparation</strong></a></li>
-  <li><a href="#to-do-steps-of-the-task" id="toc-to-do-steps-of-the-task" class="nav-link" data-scroll-target="#to-do-steps-of-the-task"><strong>To Do: Steps of the Task</strong></a></li>
+  <li><a href="#supplementary-readings" id="toc-supplementary-readings" class="nav-link" data-scroll-target="#supplementary-readings"><strong>Supplementary Readings</strong></a></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   </ul></li>
-  <li><a href="#libraries-used" id="toc-libraries-used" class="nav-link" data-scroll-target="#libraries-used"><strong>Libraries Used</strong></a></li>
-  <li><a href="#creating-a-local-directory-for-class" id="toc-creating-a-local-directory-for-class" class="nav-link" data-scroll-target="#creating-a-local-directory-for-class"><strong>Creating a Local Directory for Class</strong></a></li>
-  <li><a href="#connecting-the-repository-to-an-rstudio-project" id="toc-connecting-the-repository-to-an-rstudio-project" class="nav-link" data-scroll-target="#connecting-the-repository-to-an-rstudio-project"><strong>Connecting the Repository to an RStudio Project</strong></a></li>
-  <li><a href="#creating-project-relevant-directories" id="toc-creating-project-relevant-directories" class="nav-link" data-scroll-target="#creating-project-relevant-directories"><strong>Creating Project Relevant Directories</strong></a></li>
-  <li><a href="#understanding-git-workflow-basics" id="toc-understanding-git-workflow-basics" class="nav-link" data-scroll-target="#understanding-git-workflow-basics"><strong>Understanding Git Workflow Basics</strong></a></li>
-  <li><a href="#making-local-file-changes-committing-and-pushing-to-github" id="toc-making-local-file-changes-committing-and-pushing-to-github" class="nav-link" data-scroll-target="#making-local-file-changes-committing-and-pushing-to-github"><strong>Making Local File Changes, Committing, and Pushing to GitHub</strong></a></li>
-  <li><a href="#using-the-git-tab-in-your-rstudio-pane" id="toc-using-the-git-tab-in-your-rstudio-pane" class="nav-link" data-scroll-target="#using-the-git-tab-in-your-rstudio-pane"><strong>Using the Git Tab in your RStudio Pane</strong></a></li>
-  <li><a href="#creating-a-version-control-project-in-rstudio-for-the-team-project" id="toc-creating-a-version-control-project-in-rstudio-for-the-team-project" class="nav-link" data-scroll-target="#creating-a-version-control-project-in-rstudio-for-the-team-project"><strong>Creating a Version Control Project in RStudio for the Team Project</strong></a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
-  <li><a href="#other-resources" id="toc-other-resources" class="nav-link" data-scroll-target="#other-resources"><strong>Other Resources</strong></a></li>
+  <li><a href="#some-things-about-the-r-language" id="toc-some-things-about-the-r-language" class="nav-link" data-scroll-target="#some-things-about-the-r-language"><strong>Some things about the R Language</strong></a>
+  <ul class="collapse">
+  <li><a href="#r-is-an-interpreted-language" id="toc-r-is-an-interpreted-language" class="nav-link" data-scroll-target="#r-is-an-interpreted-language"><strong><code>R</code> is an Interpreted Language</strong></a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><strong>Functions</strong></a></li>
+  <li><a href="#a-function-example" id="toc-a-function-example" class="nav-link" data-scroll-target="#a-function-example"><strong>A Function Example</strong></a></li>
+  </ul></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><strong>Getting Help</strong></a>
+  <ul class="collapse">
+  <li><a href="#internal-help" id="toc-internal-help" class="nav-link" data-scroll-target="#internal-help"><strong>Internal Help</strong></a></li>
+  <li><a href="#external-help" id="toc-external-help" class="nav-link" data-scroll-target="#external-help"><strong>External Help</strong></a></li>
+  </ul></li>
+  <li><a href="#r-coding-style-guide" id="toc-r-coding-style-guide" class="nav-link" data-scroll-target="#r-coding-style-guide"><strong>R Coding Style Guide</strong></a></li>
+  <li><a href="#setting-up-rstudio" id="toc-setting-up-rstudio" class="nav-link" data-scroll-target="#setting-up-rstudio"><strong>Setting Up RStudio</strong></a></li>
+  <li><a href="#understanding-r-markdown" id="toc-understanding-r-markdown" class="nav-link" data-scroll-target="#understanding-r-markdown"><strong>Understanding R Markdown</strong></a>
+  <ul class="collapse">
+  <li><a href="#r-markdown-code-execution" id="toc-r-markdown-code-execution" class="nav-link" data-scroll-target="#r-markdown-code-execution"><strong>R Markdown: Code Execution</strong></a></li>
+  <li><a href="#r-markdown-cheat-sheet" id="toc-r-markdown-cheat-sheet" class="nav-link" data-scroll-target="#r-markdown-cheat-sheet"><strong>R Markdown: Cheat Sheet</strong></a></li>
+  <li><a href="#r-markdown-the-definitive-guide" id="toc-r-markdown-the-definitive-guide" class="nav-link" data-scroll-target="#r-markdown-the-definitive-guide"><strong>R Markdown: The Definitive Guide</strong></a></li>
+  <li><a href="#some-things-you-can-do-with-rmarkdown" id="toc-some-things-you-can-do-with-rmarkdown" class="nav-link" data-scroll-target="#some-things-you-can-do-with-rmarkdown"><strong>Some things you can do with RMarkdown</strong></a></li>
+  </ul></li>
+  <li><a href="#r-function-librariespackages" id="toc-r-function-librariespackages" class="nav-link" data-scroll-target="#r-function-librariespackages"><strong>R Function Libraries/Packages</strong></a></li>
   <li><a href="#session-information" id="toc-session-information" class="nav-link" data-scroll-target="#session-information"><strong>Session Information</strong></a></li>
   </ul>
 </nav>
@@ -501,7 +548,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><em>Project Management 02: R Projects, Git, and GitHub</em></h1>
+<h1 class="title"><em>Introduction to RStudio, R Markdown, &amp; Functions</em></h1>
 </div>
 
 
@@ -518,7 +565,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 7, 2024</p>
+      <p class="date">July 20, 2024</p>
     </div>
   </div>
   
@@ -528,243 +575,134 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Under construction.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.</p>
-</div>
-</div>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview"><strong>Overview</strong></h2>
-<p>In order to maintain organization, you will set up a class folder/directory on your computer. You will then create an RStudio project and connect it to GitHub. Finally, you will create directories within your new project directory so that you have an organized directory structure for storing your files. This process will also ensure that all student’s computers are configured in the same manner.</p>
-<p>In class, we will use Git to interact with a remote repository connected to a Project in RStudio. Reading through these steps, however, will facilitate your ability to apply the concepts and run the associated functions in class. in order to create project for class exercises (and homework) as well as your team project.</p>
-<section id="readings-and-preparation" class="level3">
-<h3 class="anchored" data-anchor-id="readings-and-preparation"><strong>Readings and Preparation</strong></h3>
+<section id="overview" class="level1">
+<h1><strong>Overview</strong></h1>
+<p>In this module, we familiarize ourselves with using <code>R</code> in <code>RStudio</code> as well as create files that contain both text and <code>R</code> using <a href="https://gabrielcook.xyz/dataviz24/cheatsheets/rmarkdown-2.0.pdf"><strong>R Markdown</strong></a></p>
+<section id="readings-and-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="readings-and-preparation"><strong>Readings and Preparation</strong></h2>
 <p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.</p>
 <p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing code through exercises.</p>
 </section>
-<section id="to-do-steps-of-the-task" class="level3">
-<h3 class="anchored" data-anchor-id="to-do-steps-of-the-task"><strong>To Do: Steps of the Task</strong></h3>
-<ol type="1">
-<li>Set up your class space</li>
-</ol>
-<ul>
-<li>Create top-level <code>/fods24</code> directory</li>
-</ul>
-<ol start="2" type="1">
-<li>Create Version Control Projects in RStudio</li>
-</ol>
-<ul>
-<li>Exercises<br>
-</li>
-<li>Team Project (will do in class)</li>
-</ul>
-<ol start="3" type="1">
-<li>Make file edits, stage the, and commit them</li>
-<li>Push commits to GitHub</li>
-</ol>
-<p><em>Class Activity:</em></p>
-<p>When you collaborate with others, you have to be more mindful of the changes you make and those that others make, ensuring that the repository can incorporate the changes. Thus, we will interact with Git in class in a slightly different way.</p>
-<p>Things we will do:</p>
-<ol type="1">
-<li>Create a new project and connect to a remote repository</li>
-<li>Create a branch (connect to a branch)</li>
-<li>Make file edits, stage them, and commit them</li>
-<li>Push commits to GitHub</li>
-<li>Merge your branch with the main brain</li>
-</ol>
+<section id="supplementary-readings" class="level2">
+<h2 class="anchored" data-anchor-id="supplementary-readings"><strong>Supplementary Readings</strong></h2>
 </section>
-</section>
-<section id="libraries-used" class="level2">
-<h2 class="anchored" data-anchor-id="libraries-used"><strong>Libraries Used</strong></h2>
+<section id="libraries" class="level2">
+<h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
 <ul>
-<li><strong>{usethis}</strong>: 2.2.3: for project workflow automation</li>
-<li><strong>{gitcreds}</strong>: 0.1.2: for querying git credentials</li>
+<li><strong>{here}</strong> 1.0.1: for file path management</li>
+<li><strong>{rmarkdown}</strong> 2.27: for creating markdown files</li>
 </ul>
 </section>
-<section id="creating-a-local-directory-for-class" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-local-directory-for-class"><strong>Creating a Local Directory for Class</strong></h2>
-<p>Create a folder (aka directory) named <code>"fods24"</code> on your computer. I recommend creating the directory someplace where you might not accidentally delete it.</p>
 </section>
-<section id="connecting-the-repository-to-an-rstudio-project" class="level2">
-<h2 class="anchored" data-anchor-id="connecting-the-repository-to-an-rstudio-project"><strong>Connecting the Repository to an RStudio Project</strong></h2>
-<ol type="1">
-<li><p>In RStudio, <strong>File &gt; New Project &gt; Version Control &gt; Git</strong>.</p></li>
-<li><p>In the pop-up, you will see a request for the “repository URL”. Paste the URL of the GitHub repository. This URL will be the same as what you see on your GitHub account. However, we need to add <code>.git</code> to the end of it.</p></li>
-</ol>
-<pre><code>    https://github.com/&lt;your_github_username&gt;/fods-exercises.git</code></pre>
-<ol start="3" type="1">
-<li>When you create the project, a directory will be created as a sub-directory of <code>/fods24</code> and its name should auto populate (e.g., <code>'fods-exercises'</code>).</li>
-</ol>
-<p><em>WARNING:</em> Do not create the project inside of an existing project’s directory.</p>
-<pre><code>* Note: I recommend that you also select *"Open in new session"* in order to compartmentalize projects. When you work on the team project, open the project. When you work on your homework or other class exercises, open your *homework* project.</code></pre>
-<ol start="4" type="1">
-<li>Click <em>“Create Project”</em> to create the new project directory, which will create:
-<ul>
-<li>a project directory on your computer</li>
-<li>a project file with file extension <code>.Rproj</code></li>
-<li>a Git repository or link to the remote GitHub repository for the project (also an RStudio Project)</li>
-</ul></li>
-</ol>
-<p>If the repository already exists on GitHub (and it does in this instance) you should see RStudio flash a connection to GitHub and likely <em>pull</em> the repo contents down to your newly-created project directory. In this case, however, your repository will contain few files.</p>
+<section id="some-things-about-the-r-language" class="level1">
+<h1><strong>Some things about the R Language</strong></h1>
+<section id="r-is-an-interpreted-language" class="level2">
+<h2 class="anchored" data-anchor-id="r-is-an-interpreted-language"><strong><code>R</code> is an Interpreted Language</strong></h2>
+<p><code>R</code> is an interpreted language. This means that code or programs you write may be executed by the <code>R</code> interpreter in real time. The code you write does not need to be compiled prior to being executed. Rather, the <code>R</code> interpreter translates your code in real time if it understands your code. If the <code>R</code> interpreter doesn’t understand your code, it will be unable to translate and you will receive some error.</p>
 </section>
-<section id="creating-project-relevant-directories" class="level2">
-<h2 class="anchored" data-anchor-id="creating-project-relevant-directories"><strong>Creating Project Relevant Directories</strong></h2>
-<p>Now, inside the <code>/fods24/fods-exercises</code> directory, create directories named:</p>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions"><strong>Functions</strong></h2>
+<p>The code you write for the interpreter will involve referencing functions. You have used a function already when installing libraries (e.g., <code>install.packages()</code>. A <code>function</code> is nothing more than a set of statements organized together to perform some desired operation. In <code>R</code>, a function is an object. This means the <code>R</code> interpreter passes control to the function, along with any arguments that are necessary for the function to perform that operation and return the result of that operation.</p>
+</section>
+<section id="a-function-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-function-example"><strong>A Function Example</strong></h2>
+<p>For example, reading a file into <code>R</code> involves using a function that performs that operation. For these functions to read a file containing data, you will need to specify the required and/or optional <code>arguments</code> for given <code>parameters</code> of the function. Given prerequisite courses, functions and coding basics will not be covered extensively in this course. If a refresher is needed, <a href="https://gabrielcook.xyz/dataviz24/modules_setup/04_functions_and_scripts.html">one is here</a>. Nevertheless, one such function is <code>read.table()</code> which is used to read tabular data files. Another function is <code>read.csv()</code>, which is a special case of <code>read.table()</code>. For this function to read a file, you would need to specify the <code>file</code> argument (and file path if the file is not in your working directory) argument at very least so that <code>R</code> knows what file to read. Another function you may use is <code>data.frame()</code> which is used to create data frames. Using <code>R</code> depends on using functions that are designed to handle various tasks. Unlike some languages, we will not have to create many of our own functions but instead will leverage the work of <code>R</code> developers.</p>
+</section>
+</section>
+<section id="getting-help" class="level1">
+<h1><strong>Getting Help</strong></h1>
+<section id="internal-help" class="level2">
+<h2 class="anchored" data-anchor-id="internal-help"><strong>Internal Help</strong></h2>
+<p>You will certainly run into problems coding. When you don’t speak the language perfectly, <code>R</code> will let you know there are errors. So, how do you find help in <code>R</code>?</p>
+<p>To ask <code>R</code> about what a function does, you can use <code>?</code> paired with the function. In the <strong>Help</strong> window, you will see information about the package the function is from, how it is used, how to use it by specifying <em>arguments</em> (more on this later), and usually some examples of how it is used.</p>
+<p><code>?install.packages</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>?install.packages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Alternatively, you can use the <code>help()</code> function:</p>
 <ul>
-<li>data</li>
-<li>docs</li>
-<li>figs</li>
-<li>r</li>
-<li>refs</li>
-<li>report</li>
+<li><code>help("install.packages")</code></li>
+<li><code>help("install.packages", package = "utils")</code></li>
 </ul>
-<p>You will now see the directory structure, though all your directories will be empty. Moving forward, save all data to <code>/data</code>, create all <code>.R</code> files in <code>/r</code>, and create all exercise or homework R Markdown files (e.g., <code>.Rmd</code>) in <code>/report</code>. Any readings or references can can saved in <code>/refs</code> and any other document files can be saved in <code>/docs</code>. Finally, reserve <code>/figs</code> for saving plots or figures.</p>
+<p>These methods are all equivalent ways of getting help:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"summarize"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>?summarize</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>?summarize<span class="sc">::</span>summarize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also simply type a query into the search bar in the <code>RStudio</code> Help menu tab (likely to the right).</p>
 </section>
-<section id="understanding-git-workflow-basics" class="level2">
-<h2 class="anchored" data-anchor-id="understanding-git-workflow-basics"><strong>Understanding Git Workflow Basics</strong></h2>
-<p>There are three main parts to Git Workflow:</p>
+<section id="external-help" class="level2">
+<h2 class="anchored" data-anchor-id="external-help"><strong>External Help</strong></h2>
+<p>Sometimes you need to find help outside of the <code>R</code> environment. In this case, just use Google. Type in your query by including the letter R to narrow the search results and you will see a lot that pops up. <a href="https://stackoverflow.com">https://stackoverflow.com</a> will likely be returned in your search results with questions that people have posted to the website for help from others. This is a community of coders helping coders. You can create an account if you wish, but reading questions and answers to those questions is free. Perhaps in years from now, you can answer questions for others.</p>
+<p>For example, if you know you are using the <strong>{dplyr}</strong> library and you are using a function called <code>starts_with()</code>, you can search Google for “dplyr starts_with r” <a href="https://www.google.com/search?q=dplyr+starts_with+r">and this is what you will see</a></p>
+</section>
+</section>
+<section id="r-coding-style-guide" class="level1">
+<h1><strong>R Coding Style Guide</strong></h1>
+<p>Hadley Wickham, the developer of many <code>R</code> libraries, including the main graphics package, <strong>{ggplot}</strong> and its current form, <strong>{ggplot2}</strong> and the main data manipulation package, <strong>{dplyr}</strong>, has provided recommendations for <code>R</code> coding styles. Having a common coding style generally makes reading code easier across individuals. You can find the style guide available at <a href="https://style.tidyverse.org/">https://style.tidyverse.org/</a>. In particular, check the section on <a href="https://style.tidyverse.org/syntax.html">syntax</a> as that will be your focus.</p>
+</section>
+<section id="setting-up-rstudio" class="level1">
+<h1><strong>Setting Up RStudio</strong></h1>
+<p>You will use <code>RStudio</code> for most coding for this course. In order to simplify troubleshooting and errors, we will customize some settings together.</p>
 <ul>
-<li>Make local changes (in your working directory)</li>
-<li>Stage changes (in your staging directory)</li>
-<li>Commit changes (to apply them for pushing to your remote repository)</li>
+<li>Getting on the same <code>RStudio</code> page</li>
+<li>Global Options</li>
+<li>Other Settings</li>
 </ul>
+<p>Please refer to the module on setting up <code>RStudio</code> for specific setup details.</p>
 </section>
-<section id="making-local-file-changes-committing-and-pushing-to-github" class="level2">
-<h2 class="anchored" data-anchor-id="making-local-file-changes-committing-and-pushing-to-github"><strong>Making Local File Changes, Committing, and Pushing to GitHub</strong></h2>
-<ol type="1">
-<li><strong>Making a local change</strong>
-<ul>
-<li>Create a <code>.R</code> script and name it something like <code>yourname.R</code>. Where should you save it? You guessed it: <code>/r</code>.</li>
-</ul></li>
-<li><strong>Checking the status of local file changes</strong>
-<ul>
-<li>Check for the local changes you have made at the <em>Terminal</em> by typing <code>git status</code> and press return/enter
-<ul>
-<li><code>$ git status</code></li>
-</ul></li>
-<li>If you made changes, Git will tell you what those changes are. For example, there will be a new file, a deleted file, a modified file, etc.</li>
-</ul></li>
-<li><strong>Staging Changes (Add Changes)</strong>
-<ol type="a">
-<li><em>Stage a specific change</em>: If you made multiple changes and all you want to do is commit a single change and no others, you can specify the change you want to add. For example, if you want only to add a specific file, like <code>yourname.R</code>, you will use <code>git add &lt;file&gt;...</code> such that <code>&lt;file&gt;</code> refers to the file name.
-<ul>
-<li>At the <em>Terminal</em> prompt, type <code>git add</code> followed by <code>&lt;file&gt;</code> to include in what will be committed)</li>
-<li><code>$ git add r/yourname.R</code></li>
-</ul></li>
-<li><em>Stage all change(s)</em>: When you make numerous changes, you may wish not to specify each file individually as that could be tedious. In this case, you may wish to stage all of your changes. Assuming everything you are doing is relevant to the project, one of the easiest ways to add changes is to just add all of your file changes. Note, your changes should not be done inside data files (e.g., <code>.csv</code>, <code>.xlsx</code>). Changes should only be done using R code. If not, your project will not be reproducible.
-<ul>
-<li>At the <em>Terminal</em>, you can type <code>git add .</code> which tells Git that you are adding all of those changes to commit them.</li>
-<li><code>$ git add .</code></li>
-</ul></li>
-</ol></li>
-<li><strong>Committing the change(s)</strong>
-<ul>
-<li>Now that you made a change, you will commit it and assign a useful message to remind your future self and collaborators what you just did.
-<ul>
-<li>At the <em>Terminal</em>, type <code>git commit</code> to commit the changes, add <code>-m</code> to tell git you want a message, and then type the message as a string, <code>"my message here"</code> and then press enter/return to commit the changes.</li>
-<li><code>$ git commit -m "added my first .R file"</code></li>
-</ul></li>
-</ul></li>
-<li><strong>Push the change to the remote repository</strong>
-<ul>
-<li>We need to push the changes to the remote GitHub repository for version control and for collaborators to access
-<ul>
-<li>At the <em>Terminal</em>, you will push those changes using <code>git push</code> and press enter/return to push.</li>
-<li><code>$ git push</code></li>
-</ul></li>
-<li>If you navigate to your GitHub account in your web browser, you will see the changes there as soon as they arrive. Congrats!</li>
-</ul></li>
-<li><strong>Practice (Yes, seriously): Changing, Committing, and Pushing Again</strong>
-<ul>
-<li>You know that file with your name is not needed for the project. Delete it from the project as you normally would delete a file (no need to use the Terminal) and then <em>add</em> the change, <em>commit</em> the change with message “deleted my silly file”, and <em>push</em> changes.</li>
-<li>If for some reason, your push did not work, you may need to specify the project branch. Branching is beyond the scope of this course. If team members are working on separate tasks, their code will be compartmentalized so you can use the main branch.
-<ul>
-<li>You can set the branch to the main branch at the <em>Terminal</em> using <code>git branch -M main</code>.</li>
-<li><code>$ git branch -M main</code></li>
-</ul></li>
-</ul></li>
-<li><strong>Pushing Specific File Changes</strong>
-<ul>
-<li>You should not push all of your edits. For example, if you edit a file and save it but it is incomplete (e.g., it contains errors) that will create problems for your team members, you do not want to push them to the repo. If you do, your team member’s code will also break if they are sourcing (e.g., <code>source()</code>) your script file. Similarly, if the data file you write out contains errors, a teammate cannot read that file in successfully. So make sure that what you push is correct and accurate before pushing.</li>
-</ul></li>
-<li><strong>Pulling Changes from the Remote</strong>
-<ul>
-<li>The opposite of push is pull. When your teammates push their changes (e.g., data cleaning, file creation, etc.) to the repo and your code depends on those files, you will want to make sure their edits are in your local project so that you can use them.
-<ul>
-<li>To pull the changes down to your project, at the <em>Terminal</em>, type <code>git pull</code>.</li>
-<li><code>$ git pull</code></li>
-</ul></li>
-<li>You should find the changes appear in your local project directory.</li>
-</ul></li>
-</ol>
+<section id="understanding-r-markdown" class="level1">
+<h1><strong>Understanding R Markdown</strong></h1>
+<p>For this class, we will create <code>R</code> scripts, which end with file extension <code>.R</code> and <code>R Markdown</code> files which end with file extension <code>.Rmd</code>. We will use <code>R Markdown</code> for creating HTML outputs to show work. <code>R Markdown</code> is also useful in order to create reports that involve italics, bolding font, inserting tables, etc.</p>
+<section id="r-markdown-code-execution" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-code-execution"><strong>R Markdown: Code Execution</strong></h2>
+<p>This exercise is created with <code>R Markdown</code> code. <code>R Markdown</code> is a version of Markdown, which is a markup language for creating formatted text output using a plain-text. You are likely familiar with the most famous markup language, HTML (Hypertext Markup Language), which makes websites readable for us all.</p>
+<p>Within this <code>R Markdown</code> file, the code is written between particular tick marks ``` and curly braces and {r}. These special character combinations simply allow RStudio to know what is R code (e.g., the lowercase r) and what is written text.</p>
+<p>In <code>RStudio</code>, you can modify the code block/chunk by clicking the gear to make changes. You can specify whether the code shows the output only, shows the code and the output, whether the code is executed but not shown, or whether the code is not run at all. You can also toggle one and off options to display warnings, message, and other details. You can also review other options if you wish. You’ll notice that <code>warnings</code> and <code>messages</code> will make your output ugly so hiding them is often ideal.</p>
+<p>This exercise serves as a tutorial with the goal of familiarizing you with using <code>R</code> and <code>R Markdown</code>. The output will be a nice HTML file containing your results. Within the code blocks, to execute code you would put your cursor on the line and press the RUN button (see top right) or press <code>CONTROL+ENTER</code> for PC or <code>COMMAND+ENTER</code> for Mac.</p>
 </section>
-<section id="using-the-git-tab-in-your-rstudio-pane" class="level2">
-<h2 class="anchored" data-anchor-id="using-the-git-tab-in-your-rstudio-pane"><strong>Using the Git Tab in your RStudio Pane</strong></h2>
-<p>If you do not use the Terminal to run Git commands (e.g., add, commit, and push), you can also use Git with RStudio, though I tend to find this process creates an annoying lag when there are many files.</p>
-<p>When you edit files (e.g., made changes and saved the file), the file will be detected in the project if you have set up Git. The changes detected will be listed in the window for this tab. You can then stage, commit the changes, push the changes using this RStudio GUI.</p>
-<ol type="1">
-<li><p>Click the Git tab</p></li>
-<li><p>Check the box under <em>Staged</em> next to the file</p>
-<ul>
-<li>Note: There may be a delay.</li>
-</ul></li>
-<li><p>Click the <em>Commit</em> icon on the toolbar directly above <em>Status</em></p>
-<ul>
-<li>A window will pop up showing some of the edits to the file</li>
-<li>A window for <em>Commit message</em> will also appear for adding your message. This window is where you want to be.</li>
-</ul></li>
-<li><p>Type your commit message in that window</p>
-<ul>
-<li>Your message should be clear and useful to remind your future self or colleagues of the edits but not be overly wordy.</li>
-</ul></li>
-<li><p>Click Commit to commit the change</p></li>
-<li><p>Click the <font color="lime">Green</font> Arrow to <em>Push</em> your committed change <em>up</em> to the remote repository.</p></li>
-</ol>
-<p>Note: You will click the <font color="blue">Blue</font> Arrow to <em>Pull</em> the changes <em>down</em> from the remote repository what were pushed there by your collaborators</p>
+<section id="r-markdown-cheat-sheet" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-cheat-sheet"><strong>R Markdown: Cheat Sheet</strong></h2>
+<p>There are many ways to customize an <code>R Markdown</code> file. You will need to insert <code>R</code> code, write text descriptions, create plots and tables, etc. In some instances you would want to include your <code>R</code> code or hide it from the output in their certain ways for doing that in the <code>R Markdown</code> language. Some of these ways are created automatically for you in <code>RStudio</code> when you initiate new <code>R Markdown</code> file. Others can be be found in this <a href="https://www.dataquest.io/blog/r-markdown-guide-cheatsheet/">R Markdown cheat sheet</a>. <code>RStudio</code> also has various cheat sheets which you can find <a href="https://www.rstudio.com/resources/cheatsheets/">here</a>.</p>
+<p>On the <a href="the_course_site">course site</a>, there are additional cheat sheet files located on the <strong>Cheat sheet</strong> tab.</p>
 </section>
-<section id="creating-a-version-control-project-in-rstudio-for-the-team-project" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-version-control-project-in-rstudio-for-the-team-project"><strong>Creating a Version Control Project in RStudio for the Team Project</strong></h2>
-<ol type="1">
-<li><p>In RStudio, <strong>File &gt; New Project &gt; Version Control &gt; Git</strong>.</p></li>
-<li><p>In the pop-up, you will see a request for the “repository URL”. Paste the URL of the GitHub repository based on your liaison name. This URL will be the same as what you see on your GitHub account. However, we need to add <code>.git</code> to the end.</p></li>
-</ol>
-<pre><code>    https://github.com/slicesofdata/fods24-&lt;to_be_announced&gt;.git</code></pre>
-<ol start="3" type="1">
-<li><p>When you create the project, a directory will be created, a name will auto populate (e.g., ‘fods24-liaison’). If you change the name, name it something that you will know as your team project. In order to keep the class organized, I might suggest you create the project in your FODS course directory. You should already have a R project for you homework called something like <code>homework.Rproj</code> in that course directory. <em>WARNING:</em> Do not create the project inside of an existing project’s directory.</p>
-<ul>
-<li>Note: I recommend that you also select <em>“Open in new session”</em> in order to compartmentalize projects. When you work on the team project, open the project. When you work on your homework or other class exercises, open your <em>homework</em> project.</li>
-</ul></li>
-<li><p>Click <em>“Create Project”</em> to create the new project directory, which will create:</p>
-<ul>
-<li>a project directory on your computer</li>
-<li>a project file with file extension <code>.Rproj</code></li>
-<li>a Git repository or link to the remote GitHub repository for the project (also an RStudio Project)</li>
-</ul></li>
-</ol>
-<p>If the repository already exists (and it does in this instance) you should see RStudio flash a connection to GitHub and likely <em>pull</em> the repo contents down to your newly-created project directory. You will see the directory structure and corresponding files. Your code files should be saved to <code>/r</code>, the data you read or save to <code>/data</code>, your RMarkdown report files to <code>/report</code>, etc.</p>
-<p>These directories are there for project management purposes. Also, to maintain a clean project, create sub-directories within those directories as needed; create new directories <em>if and only if</em> its contents differ qualitatively from what is in the existing directories. Because the project report will need to be reproduced, don’t complicate your code by creating RMarkdown files for code used to perform some task when only code is needed. In those cases, use <code>.R</code> code script files. Use <code>.Rmd</code> files only for a report containing text and minor code. You cannot easily <code>source()</code> <code>.Rmd</code> files and creating them will be a a hassle to deal with later. Project organization is an element of the project.</p>
+<section id="r-markdown-the-definitive-guide" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-the-definitive-guide"><strong>R Markdown: The Definitive Guide</strong></h2>
+<p>Xie, Allaire, and Grolemund have an advanced guide for all the things you can do with <code>R Markdown</code>. It’s called <a href="https://bookdown.org/yihui/rmarkdown/output-formats.html">R Markdown: The Definitive Guide</a></p>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary"><strong>Summary</strong></h2>
-<p>You now understand how to create projects in R, how to connect projects to remote GitHub repositories, and how to use Git to track your work in your local repository and a remote one. These simple commands are basic but provide you some exposure to and confidence with using Git for version control.</p>
+<section id="some-things-you-can-do-with-rmarkdown" class="level2">
+<h2 class="anchored" data-anchor-id="some-things-you-can-do-with-rmarkdown"><strong>Some things you can do with RMarkdown</strong></h2>
+<p>Wrap text in * to make text italics</p>
+<p>Italicize <em>this</em></p>
+<p>Wrap text in ** to make text bold</p>
+<p>Bold <strong>this</strong></p>
+<p>Embed <code>R</code> code inside text using <code>r</code></p>
+<p>For example, the average mpg for cars in the mtcars data set is 20.090625 thought that should be rounded 20.1 to be more clear.</p>
+<p>Embed <code>R</code> code blocks using ```<code>{r}</code></p>
+<p>Automatically enumerate text sections flagged using #</p>
+<p>Example:</p>
+<p><em># Main Section</em></p>
+<p><em>## 2nd Level</em></p>
+<p><em>### 3rd Level</em></p>
 </section>
-<section id="other-resources" class="level2">
-<h2 class="anchored" data-anchor-id="other-resources"><strong>Other Resources</strong></h2>
-<ol type="1">
-<li>Git Client:</li>
-</ol>
-<p>Git clients work like the RStudio Gui option described above but likely much better. One client is <a href="https://www.gitkraken.com/">GitKraken</a>. * If you find the <em>Terminal</em> command line daunting or limiting, I might recommend a Git Client to use as I am not a big fan of the RStudio interface. * GitKraken is a good option and they have lots of tutorials on their website. GitKraken is seamless to set up. Install, connect your GitHub account, select your repo to add, and voilà. You can stage, commit, and push from there.</p>
-<ol start="2" type="1">
-<li><a href="https://happygitwithr.com/">happygitwithr</a></li>
-</ol>
+</section>
+<section id="r-function-librariespackages" class="level1">
+<h1><strong>R Function Libraries/Packages</strong></h1>
+<p>Libraries, or packages, represent a collection of functions used to perform different operations in <code>R</code>. Some of the libraries are built into the base version of <code>R</code> whereas others are external and must be accessed or downloaded. These libraries are created and built by users of <code>R</code> in order to make their lives easier. The benefit for the rest of us is to utilize those resources that are shared by their creators. For example, in order to use <code>R Markdown</code> in our <code>RStudio</code>, we will need to install the <code>rmarkdown</code> library.</p>
+<p>There are different ways of installing these libraries. One of those ways is to install them directly from <code>RStudio</code> by accessing the <em>Tools</em> menu option, clicking on <em>Install Packages</em>, and by typing the name of the desired library. The library will then be installed for you to access within <code>R</code>. Another way to install packages is by using a procedure that someone code that executes the procedure. Of course, this means you have to type the code but coding is not a bad thing. In fact, type code is what makes what you do reproducible in many ways. When your memory fails for doing x, y, and z in order y, z, x, code won’t be confused.</p>
+<p>In <code>R</code> and many languages, these coded procedures are called functions. The function for installing packages is aptly named <code>install.packages()</code>. For this function will specify the name of the library/package within the parentheses.</p>
+<p><code>install.packages("rmarkdown")</code></p>
+<p>You can also install multiple libraries using <code>install.packages()</code> by combining them into a vector or a list using <code>c()</code>; the c stands for <em>combine</em>. For example,</p>
+<p><code>install.packages(c("rmarkdown", "rstudioapi"))</code></p>
+<p>Try it out:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This code is commented out so it doesn't run. You may have difficulty with knitting the file if you include it.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("rmarkdown")</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(c("rmarkdown", "rstudioapi"),</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                 repos = "https://cloud.r-project.org")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once libraries have been installed, you can access their various functions but that step will come later. Although the order of installation for libraries does not matter, the order in which you access libraries can matter. Keep an eye to for warnings in the <code>R console</code>.</p>
 </section>
 <section id="session-information" class="level1">
 <h1><strong>Session Information</strong></h1>
@@ -791,11 +729,24 @@ tzcode source: internal
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
+other attached packages:
+ [1] htmltools_0.5.8.1 DT_0.33           vroom_1.6.5       lubridate_1.9.3  
+ [5] forcats_1.0.0     stringr_1.5.1     dplyr_1.1.4       purrr_1.0.2      
+ [9] readr_2.1.5       tidyr_1.3.1       tibble_3.2.1      ggplot2_3.5.1    
+[13] tidyverse_2.0.0  
+
 loaded via a namespace (and not attached):
- [1] htmlwidgets_1.6.4 compiler_4.4.1    fastmap_1.2.0     cli_3.6.3        
- [5] tools_4.4.1       htmltools_0.5.8.1 rstudioapi_0.16.0 yaml_2.3.9       
- [9] rmarkdown_2.27    knitr_1.47        jsonlite_1.8.8    xfun_0.45        
-[13] digest_0.6.36     rlang_1.1.4       evaluate_0.24.0  </code></pre>
+ [1] bit_4.0.5         gtable_0.3.5      jsonlite_1.8.8    crayon_1.5.3     
+ [5] compiler_4.4.1    tidyselect_1.2.1  scales_1.3.0      yaml_2.3.9       
+ [9] fastmap_1.2.0     here_1.0.1        R6_2.5.1          generics_0.1.3   
+[13] knitr_1.47        htmlwidgets_1.6.4 munsell_0.5.1     rprojroot_2.0.4  
+[17] tzdb_0.4.0        pillar_1.9.0      R.utils_2.12.3    rlang_1.1.4      
+[21] utf8_1.2.4        stringi_1.8.4     xfun_0.45         bit64_4.0.5      
+[25] timechange_0.3.0  cli_3.6.3         withr_3.0.0       magrittr_2.0.3   
+[29] digest_0.6.36     grid_4.4.1        rstudioapi_0.16.0 hms_1.1.3        
+[33] lifecycle_1.0.4   R.methodsS3_1.8.2 R.oo_1.26.0       vctrs_0.6.5      
+[37] evaluate_0.24.0   glue_1.7.0        fansi_1.0.6       colorspace_2.1-0 
+[41] rmarkdown_2.27    tools_4.4.1       pkgconfig_2.0.3  </code></pre>
 </div>
 </div>
 

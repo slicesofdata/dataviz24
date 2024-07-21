@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-07-01">
+<meta name="dcterms.date" content="2024-07-20">
 
 <title>Selecting, Filtering, &amp; Mutating</title>
 <style>
@@ -154,10 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><strong>HW</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
-        <li>
-    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw01.Rmd" rel="" target="">
- <span class="dropdown-text">HW 01</span></a>
-  </li>  
+        <li class="dropdown-header">HW 01</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -165,10 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><strong>Exercises</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
-        <li>
-    <a class="dropdown-item" href="../exercises/using_git_with_projects_exercise.Rmd" rel="" target="">
- <span class="dropdown-text">using_git_with_projects_exercise.docx</span></a>
-  </li>  
+        <li class="dropdown-header">pending</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -187,6 +181,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
  <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example-files--other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Example Files &amp; Other</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-example-files--other">    
+        <li>
+    <a class="dropdown-item" href="../resources/tools.html" rel="" target="">
+ <span class="dropdown-text"><strong>Other Tools/Resources</strong></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-figure-script.R" rel="" target="">
+ <span class="dropdown-text">example-figure-script.R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-rmarkdown-file-with-fig-script.Rmd" rel="" target="">
+ <span class="dropdown-text">example-rmarkdown-file-with-fig-script.Rmd</span></a>
   </li>  
     </ul>
   </li>
@@ -233,10 +246,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../resources/tools.html" rel="" target="">
- <span class="menu-text"><strong>Other Tools</strong></span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -277,42 +286,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../schedule/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a href="../modules_setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation &amp; Setup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
+  <a href="../modules_setup/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Installing R &amp; RStudio</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/01_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Introduction to RStudio and R Markdown</em></span></a>
+  <a href="../modules_setup/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Project Management 01: Installing and Setting Up Git and GitHub for R</em></span></a>
+  <a href="../modules_setup/03_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Introduction to RStudio, R Markdown, &amp; Functions</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/02_using_git_and_github.html" class="sidebar-item-text sidebar-link">
+  <a href="../modules_setup/04_functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Functions, Arguments, and R scripts</em></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_1_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_2_using_git_and_github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Project Management 02: R Projects, Git, and GitHub</em></span></a>
   </div>
 </li>
@@ -337,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/08_ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>{<code>ggplot</code>} and the grammar of graphics</em></span></a>
+ <span class="menu-text"><em>{<code>ggplot2</code>}: The Grammar of Graphics</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -430,11 +465,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
@@ -568,7 +603,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 1, 2024</p>
+      <p class="date">July 20, 2024</p>
     </div>
   </div>
   
@@ -610,9 +645,9 @@ Under construction.
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
 <ul>
 <li><strong>{here}</strong>: 1.0.1: for path management</li>
-<li><strong>{dplyr}</strong> 1.1.2: for selecting, filtering, and mutating</li>
-<li><strong>{stringr}</strong>: 1.5.0: for working with strings</li>
-<li><strong>{tidyselect}</strong>: 1.2.0: for selecting sets from strings</li>
+<li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
+<li><strong>{stringr}</strong>: 1.5.1: for working with strings</li>
+<li><strong>{tidyselect}</strong>: 1.2.1: for selecting sets from strings</li>
 <li><strong>{magrittr}</strong>: 2.0.3: for piping with <code>%&gt;%</code> (plus other piping operators)</li>
 </ul>
 </section>
@@ -620,7 +655,7 @@ Under construction.
 <h2 class="anchored" data-anchor-id="external-functions"><strong>External Functions</strong></h2>
 <p><code>view_html()</code>: for viewing data frames in <code>HTML</code> format. You can source this from your <code>/r/functions</code> directory.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.utils<span class="sc">::</span><span class="fu">sourceDirectory</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"r"</span>, <span class="st">"functions"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.utils<span class="sc">::</span><span class="fu">sourceDirectory</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src"</span>, <span class="st">"functions"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If for some reason, you do not have the function saved, you can get it from the remote source.</p>
 <div class="cell">
@@ -3187,8 +3222,8 @@ Virginia          8.5     156       63 20.7</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb232"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb232-1"><a href="#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.1 (2023-06-16 ucrt)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
+<pre><code>R version 4.4.1 (2024-06-14 ucrt)
+Platform: x86_64-w64-mingw32/x64
 Running under: Windows 11 x64 (build 22631)
 
 Matrix products: default
@@ -3208,23 +3243,23 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] magrittr_2.0.3   tidyselect_1.2.0 vroom_1.6.3      lubridate_1.9.2 
- [5] forcats_1.0.0    stringr_1.5.0    dplyr_1.1.2      purrr_1.0.2     
- [9] readr_2.1.4      tidyr_1.3.0      tibble_3.2.1     ggplot2_3.5.1   
-[13] tidyverse_2.0.0 
+ [1] magrittr_2.0.3    tidyselect_1.2.1  htmltools_0.5.8.1 DT_0.33          
+ [5] vroom_1.6.5       lubridate_1.9.3   forcats_1.0.0     stringr_1.5.1    
+ [9] dplyr_1.1.4       purrr_1.0.2       readr_2.1.5       tidyr_1.3.1      
+[13] tibble_3.2.1      ggplot2_3.5.1     tidyverse_2.0.0  
 
 loaded via a namespace (and not attached):
- [1] bit_4.0.5         gtable_0.3.4      jsonlite_1.8.7    crayon_1.5.2     
- [5] compiler_4.3.1    scales_1.3.0      yaml_2.3.7        fastmap_1.1.1    
+ [1] bit_4.0.5         gtable_0.3.5      jsonlite_1.8.8    crayon_1.5.3     
+ [5] compiler_4.4.1    scales_1.3.0      yaml_2.3.9        fastmap_1.2.0    
  [9] here_1.0.1        R6_2.5.1          generics_0.1.3    knitr_1.47       
-[13] htmlwidgets_1.6.2 munsell_0.5.0     rprojroot_2.0.3   tzdb_0.4.0       
-[17] pillar_1.9.0      R.utils_2.12.2    rlang_1.1.1       utf8_1.2.3       
-[21] stringi_1.7.12    xfun_0.45         bit64_4.0.5       timechange_0.2.0 
-[25] cli_3.6.1         withr_2.5.0       digest_0.6.33     grid_4.3.1       
-[29] rstudioapi_0.15.0 hms_1.1.3         lifecycle_1.0.3   R.methodsS3_1.8.2
-[33] R.oo_1.25.0       vctrs_0.6.3       evaluate_0.21     glue_1.6.2       
-[37] fansi_1.0.4       colorspace_2.1-0  rmarkdown_2.27    tools_4.3.1      
-[41] pkgconfig_2.0.3   htmltools_0.5.6  </code></pre>
+[13] htmlwidgets_1.6.4 munsell_0.5.1     rprojroot_2.0.4   tzdb_0.4.0       
+[17] pillar_1.9.0      R.utils_2.12.3    rlang_1.1.4       utf8_1.2.4       
+[21] stringi_1.8.4     xfun_0.45         bit64_4.0.5       timechange_0.3.0 
+[25] cli_3.6.3         withr_3.0.0       digest_0.6.36     grid_4.4.1       
+[29] rstudioapi_0.16.0 hms_1.1.3         lifecycle_1.0.4   R.methodsS3_1.8.2
+[33] R.oo_1.26.0       vctrs_0.6.5       evaluate_0.24.0   glue_1.7.0       
+[37] fansi_1.0.6       colorspace_2.1-0  rmarkdown_2.27    tools_4.4.1      
+[41] pkgconfig_2.0.3  </code></pre>
 </div>
 </div>
 

@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-07-01">
+<meta name="description" content="Overview of Modules for PSYC 167">
 
-<title>Introduction to RStudio and R Markdown</title>
+<title>Installation &amp; Setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -154,10 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><strong>HW</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
-        <li>
-    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw01.Rmd" rel="" target="">
- <span class="dropdown-text">HW 01</span></a>
-  </li>  
+        <li class="dropdown-header">HW 01</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -165,10 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><strong>Exercises</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
-        <li>
-    <a class="dropdown-item" href="../exercises/using_git_with_projects_exercise.Rmd" rel="" target="">
- <span class="dropdown-text">using_git_with_projects_exercise.docx</span></a>
-  </li>  
+        <li class="dropdown-header">pending</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -187,6 +146,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
  <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example-files--other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Example Files &amp; Other</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-example-files--other">    
+        <li>
+    <a class="dropdown-item" href="../resources/tools.html" rel="" target="">
+ <span class="dropdown-text"><strong>Other Tools/Resources</strong></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-figure-script.R" rel="" target="">
+ <span class="dropdown-text">example-figure-script.R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-rmarkdown-file-with-fig-script.Rmd" rel="" target="">
+ <span class="dropdown-text">example-rmarkdown-file-with-fig-script.Rmd</span></a>
   </li>  
     </ul>
   </li>
@@ -233,10 +211,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../resources/tools.html" rel="" target="">
- <span class="menu-text"><strong>Other Tools</strong></span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -259,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/01_introduction_to_r_rstudio_and_rmarkdown.html"><em>Introduction to RStudio and R Markdown</em></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules_setup/index.html">Installation &amp; Setup</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -277,16 +251,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../schedule/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+            <a href="../modules_setup/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Installation &amp; Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -294,25 +270,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
+  <a href="../modules_setup/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Installing R &amp; RStudio</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/01_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><em>Introduction to RStudio and R Markdown</em></span></a>
+  <a href="../modules_setup/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Project Management 01: Installing and Setting Up Git and GitHub for R</em></span></a>
+  <a href="../modules_setup/03_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Introduction to RStudio, R Markdown, &amp; Functions</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/02_using_git_and_github.html" class="sidebar-item-text sidebar-link">
+  <a href="../modules_setup/04_functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Functions, Arguments, and R scripts</em></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_1_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_2_using_git_and_github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Project Management 02: R Projects, Git, and GitHub</em></span></a>
   </div>
 </li>
@@ -337,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/08_ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>{<code>ggplot</code>} and the grammar of graphics</em></span></a>
+ <span class="menu-text"><em>{<code>ggplot2</code>}: The Grammar of Graphics</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -430,11 +430,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
@@ -477,34 +477,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
-  <ul class="collapse">
-  <li><a href="#readings-and-preparation" id="toc-readings-and-preparation" class="nav-link" data-scroll-target="#readings-and-preparation"><strong>Readings and Preparation</strong></a></li>
-  <li><a href="#supplementary-readings" id="toc-supplementary-readings" class="nav-link" data-scroll-target="#supplementary-readings"><strong>Supplementary Readings</strong></a></li>
-  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
-  </ul></li>
-  <li><a href="#some-things-about-the-r-language" id="toc-some-things-about-the-r-language" class="nav-link" data-scroll-target="#some-things-about-the-r-language"><strong>Some things about the R Language</strong></a>
-  <ul class="collapse">
-  <li><a href="#r-is-an-interpreted-language" id="toc-r-is-an-interpreted-language" class="nav-link" data-scroll-target="#r-is-an-interpreted-language"><strong><code>R</code> is an Interpreted Language</strong></a></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><strong>Functions</strong></a></li>
-  <li><a href="#a-function-example" id="toc-a-function-example" class="nav-link" data-scroll-target="#a-function-example"><strong>A Function Example</strong></a></li>
-  </ul></li>
-  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><strong>Getting Help</strong></a>
-  <ul class="collapse">
-  <li><a href="#internal-help" id="toc-internal-help" class="nav-link" data-scroll-target="#internal-help"><strong>Internal Help</strong></a></li>
-  <li><a href="#external-help" id="toc-external-help" class="nav-link" data-scroll-target="#external-help"><strong>External Help</strong></a></li>
-  </ul></li>
-  <li><a href="#r-coding-style-guide" id="toc-r-coding-style-guide" class="nav-link" data-scroll-target="#r-coding-style-guide"><strong>R Coding Style Guide</strong></a></li>
-  <li><a href="#setting-up-rstudio" id="toc-setting-up-rstudio" class="nav-link" data-scroll-target="#setting-up-rstudio"><strong>Setting Up RStudio</strong></a></li>
-  <li><a href="#understanding-r-markdown" id="toc-understanding-r-markdown" class="nav-link" data-scroll-target="#understanding-r-markdown"><strong>Understanding R Markdown</strong></a>
-  <ul class="collapse">
-  <li><a href="#r-markdown-code-execution" id="toc-r-markdown-code-execution" class="nav-link" data-scroll-target="#r-markdown-code-execution"><strong>R Markdown: Code Execution</strong></a></li>
-  <li><a href="#r-markdown-cheat-sheet" id="toc-r-markdown-cheat-sheet" class="nav-link" data-scroll-target="#r-markdown-cheat-sheet"><strong>R Markdown: Cheat Sheet</strong></a></li>
-  <li><a href="#r-markdown-the-definitive-guide" id="toc-r-markdown-the-definitive-guide" class="nav-link" data-scroll-target="#r-markdown-the-definitive-guide"><strong>R Markdown: The Definitive Guide</strong></a></li>
-  <li><a href="#some-things-you-can-do-with-rmarkdown" id="toc-some-things-you-can-do-with-rmarkdown" class="nav-link" data-scroll-target="#some-things-you-can-do-with-rmarkdown"><strong>Some things you can do with RMarkdown</strong></a></li>
-  </ul></li>
-  <li><a href="#r-function-librariespackages" id="toc-r-function-librariespackages" class="nav-link" data-scroll-target="#r-function-librariespackages"><strong>R Function Libraries/Packages</strong></a></li>
-  <li><a href="#session-information" id="toc-session-information" class="nav-link" data-scroll-target="#session-information"><strong>Session Information</strong></a></li>
+  <li><a href="#setup-structure" id="toc-setup-structure" class="nav-link active" data-scroll-target="#setup-structure">Setup Structure</a></li>
+  <li><a href="#other-setup-topics" id="toc-other-setup-topics" class="nav-link" data-scroll-target="#other-setup-topics">Other Setup Topics</a></li>
   </ul>
 </nav>
     </div>
@@ -513,26 +487,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><em>Introduction to RStudio and R Markdown</em></h1>
+<h1 class="title">Installation &amp; Setup</h1>
 </div>
 
+<div>
+  <div class="description">
+    Overview of Modules for PSYC 167
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Gabriel I. Cook </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 1, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -540,193 +507,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Under construction.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.</p>
-</div>
-</div>
-<section id="overview" class="level1">
-<h1><strong>Overview</strong></h1>
-<p>In this module, we familiarize ourselves with using <code>R</code> in <code>RStudio</code> as well as create files that contain both text and <code>R</code> using <a href="https://gabrielcook.xyz/fods24/cheatsheets/rmarkdown-2.0.pdf"><strong>R Markdown</strong></a>.</p>
-<section id="readings-and-preparation" class="level2">
-<h2 class="anchored" data-anchor-id="readings-and-preparation"><strong>Readings and Preparation</strong></h2>
-<p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.</p>
-<p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing code through exercises.</p>
-</section>
-<section id="supplementary-readings" class="level2">
-<h2 class="anchored" data-anchor-id="supplementary-readings"><strong>Supplementary Readings</strong></h2>
+<p>For this course, we use the R programming language. Although you may have a preferred IDE, my recommendation is to use RStudio. All instructions will assume you are using RStudio. We will also use the R Markdown language for report documents. Projects will be managed at GitHub and will interface with RStudio using the Git program.</p>
+<section id="setup-structure" class="level2">
+<h2 class="anchored" data-anchor-id="setup-structure">Setup Structure</h2>
 <ul>
-<li><a href="https://www.markhuberdatascience.org/_files/ugd/c2b9b6_543ea42a1ea64e32b4440b34ffd71635.pdf#page=20">Huber: RMarkdown</a></li>
+<li>Install R and RStudio</li>
+<li>Create a GitHub account if you do not have one</li>
+<li>Install Git if your computer system needs it (e.g., not installed)</li>
 </ul>
 </section>
-<section id="libraries" class="level2">
-<h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
-<li><strong>{here}</strong> 1.0.1: for file path management</li>
-<li><strong>{rmarkdown}</strong> 2.27: for creating markdown files</li>
-</ul>
-</section>
-</section>
-<section id="some-things-about-the-r-language" class="level1">
-<h1><strong>Some things about the R Language</strong></h1>
-<section id="r-is-an-interpreted-language" class="level2">
-<h2 class="anchored" data-anchor-id="r-is-an-interpreted-language"><strong><code>R</code> is an Interpreted Language</strong></h2>
-<p><code>R</code> is an interpreted language. This means that code or programs you write may be executed by the <code>R</code> interpreter in real time. The code you write does not need to be compiled prior to being executed. Rather, the <code>R</code> interpreter translates your code in real time if it understands your code. If the <code>R</code> interpreter doesn’t understand your code, it will be unable to translate and you will receive some error.</p>
-</section>
-<section id="functions" class="level2">
-<h2 class="anchored" data-anchor-id="functions"><strong>Functions</strong></h2>
-<p>The code you write for the interpreter will involve referencing functions. You have used a function already when installing libraries (e.g., <code>install.packages()</code>. A <code>function</code> is nothing more than a set of statements organized together to perform some desired operation. In <code>R</code>, a function is an object. This means the <code>R</code> interpreter passes control to the function, along with any arguments that are necessary for the function to perform that operation and return the result of that operation.</p>
-</section>
-<section id="a-function-example" class="level2">
-<h2 class="anchored" data-anchor-id="a-function-example"><strong>A Function Example</strong></h2>
-<p>For example, reading a file into <code>R</code> involves using a function that performs that operation. For these functions to read a file containing data, you will need to specify the required and/or optional <code>arguments</code> for given <code>parameters</code> of the function. Functions and coding basics will be covered more extensively in a later topic. For now, one such function is <code>read.table()</code> with is used to read tabular data files. Another function is <code>read.csv()</code>, which is a special case of the former function. For this function to read a file, you would need to specify the <code>file</code> argument (and file path if the file is not in your working directory) argument at very least so that <code>R</code> knows what file to read. Another function you may use is <code>data.frame()</code> which is used to create data frames. Using <code>R</code> depends on using functions that are designed to handle various tasks. Unlike some langauges, we will not have to create many of our own functions but instead will leverage the work of <code>R</code> developers.</p>
-</section>
-</section>
-<section id="getting-help" class="level1">
-<h1><strong>Getting Help</strong></h1>
-<section id="internal-help" class="level2">
-<h2 class="anchored" data-anchor-id="internal-help"><strong>Internal Help</strong></h2>
-<p>You will certainly run into problems coding. When you don’t speak the language perfectly, <code>R</code> will let you know there are errors. So, how do you find help in <code>R</code>?</p>
-<p>To ask <code>R</code> about what a function does, you can use <code>?</code> paired with the function. In the <strong>Help</strong> window, you will see information about the package the function is from, how it is used, how to use it by specifying <em>arguments</em> (more on this later), and usually some examples of how it is used.</p>
-<p><code>?install.packages</code></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>?install.packages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Alternatively, you can use the <code>help()</code> function:</p>
-<ul>
-<li><code>help("install.packages")</code></li>
-<li><code>help("install.packages", package = "utils")</code></li>
-</ul>
-<p>These methods are all equivalent ways of getting help:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"summarize"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>?summarize</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>?summarize<span class="sc">::</span>summarize</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can also simply type a query into the search bar in the <code>RStudio</code> Help menu tab (likely to the right).</p>
-</section>
-<section id="external-help" class="level2">
-<h2 class="anchored" data-anchor-id="external-help"><strong>External Help</strong></h2>
-<p>Sometimes you need to find help outside of the <code>R</code> environment. In this case, just use Google. Type in your query by including the letter R to narrow the search results and you will see a lot that pops up. <a href="https://stackoverflow.com">https://stackoverflow.com</a> will likely be returned in your search results with questions that people have posted to the website for help from others. This is a community of coders helping coders. You can create an account if you wish, but reading questions and answers to those questions is free. Perhaps in years from now, you can answer questions for others.</p>
-<p>For example, if you know you are using the <strong>{dplyr}</strong> library and you are using a function called <code>starts_with()</code>, you can search Google for “dplyr starts_with r” <a href="https://www.google.com/search?q=dplyr+starts_with+r">and this is what you will see</a></p>
-</section>
-</section>
-<section id="r-coding-style-guide" class="level1">
-<h1><strong>R Coding Style Guide</strong></h1>
-<p>Hadley Wickham, the developer of many <code>R</code> libraries, including the main graphics package, <strong>{ggplot}</strong> and its current form, <strong>{ggplot2}</strong> and the main data manipulation package, <strong>{dplyr}</strong>, has provided recommendations for <code>R</code> coding styles. Having a common coding style generally makes reading code easier across individuals. You can find the style guide available at <a href="https://style.tidyverse.org/">https://style.tidyverse.org/</a>. In particular, check the section on <a href="https://style.tidyverse.org/syntax.html">syntax</a> as that will be your focus.</p>
-</section>
-<section id="setting-up-rstudio" class="level1">
-<h1><strong>Setting Up RStudio</strong></h1>
-<p>You will use <code>RStudio</code> for most coding for this course. In order to simplify troubleshooting and errors, we will customize some settings together.</p>
-<ul>
-<li>Getting on the same <code>RStudio</code> page</li>
-<li>Global Options</li>
-<li>Other Settings</li>
-</ul>
-<p>Please refer to the module on setting up <code>RStudio</code> for specific setup details.</p>
-</section>
-<section id="understanding-r-markdown" class="level1">
-<h1><strong>Understanding R Markdown</strong></h1>
-<p>For this class, we will create <code>R</code> scripts, which end with file extension <code>.R</code> and <code>R Markdown</code> files which end with file extension <code>.Rmd</code>. We will use <code>R Markdown</code> for creating HTML outputs to show work. <code>R Markdown</code> is also useful in order to create reports that involve italics, bolding font, inserting tables, etc.</p>
-<section id="r-markdown-code-execution" class="level2">
-<h2 class="anchored" data-anchor-id="r-markdown-code-execution"><strong>R Markdown: Code Execution</strong></h2>
-<p>This exercise is created with <code>R Markdown</code> code. <code>R Markdown</code> is a version of Markdown, which is a markup language for creating formatted text output using a plain-text. You are likely familiar with the most famous markup language, HTML (Hypertext Markup Language), which makes websites readable for us all.</p>
-<p>Within this <code>R Markdown</code> file, the code is written between particular tick marks ``` and curly braces and {r}. These special character combinations simply allow RStudio to know what is R code (e.g., the lowercase r) and what is written text.</p>
-<p>In <code>RStudio</code>, you can modify the code block/chunk by clicking the gear to make changes. You can specify whether the code shows the output only, shows the code and the output, whether the code is executed but not shown, or whether the code is not run at all. You can also toggle one and off options to display warnings, message, and other details. You can also review other options if you wish. You’ll notice that <code>warnings</code> and <code>messages</code> will make your output ugly so hiding them is often ideal.</p>
-<p>This exercise serves as a tutorial with the goal of familiarizing you with using <code>R</code> and <code>R Markdown</code>. The output will be a nice HTML file containing your results. Within the code blocks, to execute code you would put your cursor on the line and press the RUN button (see top right) or press <code>CONTROL+ENTER</code> for PC or <code>COMMAND+ENTER</code> for Mac.</p>
-</section>
-<section id="r-markdown-cheat-sheet" class="level2">
-<h2 class="anchored" data-anchor-id="r-markdown-cheat-sheet"><strong>R Markdown: Cheat Sheet</strong></h2>
-<p>There are many ways to customize an <code>R Markdown</code> file. You will need to insert <code>R</code> code, write text descriptions, create plots and tables, etc. In some instances you would want to include your <code>R</code> code or hide it from the output in their certain ways for doing that in the <code>R Markdown</code> language. Some of these ways are created automatically for you in <code>RStudio</code> when you initiate new <code>R Markdown</code> file. others can be be found in this <a href="https://www.dataquest.io/blog/r-markdown-guide-cheatsheet/">R Markdown cheat sheet</a>. <code>RStudio</code> also has various cheat sheets which you can find <a href="https://www.rstudio.com/resources/cheatsheets/">here</a>. You can also read more in <a href="https://www.markhuberdatascience.org/_files/ugd/c2b9b6_543ea42a1ea64e32b4440b34ffd71635.pdf">Huber: CH 2</a></p>
-<p>On the <a href="the_course_site">course site</a>, there are additional cheat sheet files located on the <strong>Cheat sheet</strong> tab.</p>
-</section>
-<section id="r-markdown-the-definitive-guide" class="level2">
-<h2 class="anchored" data-anchor-id="r-markdown-the-definitive-guide"><strong>R Markdown: The Definitive Guide</strong></h2>
-<p>Xie, Allaire, and Grolemund have an advanced guide for all the things you can do with <code>R Markdown</code>. It’s called <a href="https://bookdown.org/yihui/rmarkdown/output-formats.html">R Markdown: The Definitive Guide</a></p>
-</section>
-<section id="some-things-you-can-do-with-rmarkdown" class="level2">
-<h2 class="anchored" data-anchor-id="some-things-you-can-do-with-rmarkdown"><strong>Some things you can do with RMarkdown</strong></h2>
-<p>Wrap text in * to make text italics</p>
-<p>Italicize <em>this</em></p>
-<p>Wrap text in ** to make text bold</p>
-<p>Bold <strong>this</strong></p>
-<p>Embed <code>R</code> code inside text using <code>r</code></p>
-<p>For example, the average mpg for cars in the mtcars data set is 20.090625 thought that should be rounded 20.1 to be more clear.</p>
-<p>Embed <code>R</code> code blocks using ```<code>{r}</code></p>
-<p>Automatically enumerate text sections flagged using #</p>
-<p>Example:</p>
-<p><em># Main Section</em></p>
-<p><em>## 2nd Level</em></p>
-<p><em>### 3rd Level</em></p>
-</section>
-</section>
-<section id="r-function-librariespackages" class="level1">
-<h1><strong>R Function Libraries/Packages</strong></h1>
-<p>Libraries, or packages, represent a collection of functions used to perform different operations in <code>R</code>. Some of the libraries are built into the base version of <code>R</code> whereas others are external and must be accessed or downloaded. These libraries are created and built by users of <code>R</code> in order to make their lives easier. The benefit for the rest of us is to utilize those resources that are shared by their creators. For example, in order to use <code>R Markdown</code> in our <code>RStudio</code>, we will need to install the <code>rmarkdown</code> library.</p>
-<p>There are different ways of installing these libraries. One of those ways is to install them directly from <code>RStudio</code> by accessing the <em>Tools</em> menu option, clicking on <em>Install Packages</em>, and by typing the name of the desired library. The library will then be installed for you to access within <code>R</code>. Another way to install packages is by using a procedure that someone code that executes the procedure. Of course, this means you have to type the code but coding is not a bad thing. In fact, type code is what makes what you do reproducible in many ways. When your memory fails for doing x, y, and z in order y, z, x, code won’t be confused.</p>
-<p>In <code>R</code> and many languages, these coded procedures are called functions. The function for installing packages is aptly named <code>install.packages()</code>. For this function will specify the name of the library/package within the parentheses.</p>
-<p><code>install.packages("rmarkdown")</code></p>
-<p>You can also install multiple libraries using <code>install.packages()</code> by combining them into a vector or a list using <code>c()</code>; the c stands for <em>combine</em>. For example,</p>
-<p><code>install.packages(c("rmarkdown", "rstudioapi"))</code></p>
-<p>Try it out:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#This code is commented out so it doesn't run. You may have difficulty with knitting the file if you include it.</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("rmarkdown")</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(c("rmarkdown", "rstudioapi"),</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                 repos = "https://cloud.r-project.org")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Once libraries have been installed, you can access their various functions but that step will come later. Although the order of installation for libraries does not matter, the order in which you access libraries can matter. Keep an eye to for warnings in the <code>R console</code>.</p>
-</section>
-<section id="session-information" class="level1">
-<h1><strong>Session Information</strong></h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.1 (2023-06-16 ucrt)
-Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows 11 x64 (build 22631)
-
-Matrix products: default
-
-
-locale:
-[1] LC_COLLATE=English_United States.utf8 
-[2] LC_CTYPE=English_United States.utf8   
-[3] LC_MONETARY=English_United States.utf8
-[4] LC_NUMERIC=C                          
-[5] LC_TIME=English_United States.utf8    
-
-time zone: America/Los_Angeles
-tzcode source: internal
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
- [1] vroom_1.6.3     lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0  
- [5] dplyr_1.1.2     purrr_1.0.2     readr_2.1.4     tidyr_1.3.0    
- [9] tibble_3.2.1    ggplot2_3.5.1   tidyverse_2.0.0
-
-loaded via a namespace (and not attached):
- [1] bit_4.0.5         gtable_0.3.4      jsonlite_1.8.7    crayon_1.5.2     
- [5] compiler_4.3.1    tidyselect_1.2.0  scales_1.3.0      yaml_2.3.7       
- [9] fastmap_1.1.1     here_1.0.1        R6_2.5.1          generics_0.1.3   
-[13] knitr_1.47        htmlwidgets_1.6.2 munsell_0.5.0     rprojroot_2.0.3  
-[17] tzdb_0.4.0        pillar_1.9.0      R.utils_2.12.2    rlang_1.1.1      
-[21] utf8_1.2.3        stringi_1.7.12    xfun_0.45         bit64_4.0.5      
-[25] timechange_0.2.0  cli_3.6.1         withr_2.5.0       magrittr_2.0.3   
-[29] digest_0.6.33     grid_4.3.1        rstudioapi_0.15.0 hms_1.1.3        
-[33] lifecycle_1.0.3   R.methodsS3_1.8.2 R.oo_1.25.0       vctrs_0.6.3      
-[37] evaluate_0.21     glue_1.6.2        fansi_1.0.4       colorspace_2.1-0 
-[41] rmarkdown_2.27    tools_4.3.1       pkgconfig_2.0.3   htmltools_0.5.6  </code></pre>
-</div>
-</div>
+<section id="other-setup-topics" class="level2">
+<h2 class="anchored" data-anchor-id="other-setup-topics">Other Setup Topics</h2>
+<p>For those requiring refreshers about R Markdown, functions, and scripts are in this section.</p>
 
 
 </section>

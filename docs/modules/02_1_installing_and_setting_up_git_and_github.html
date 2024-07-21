@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-07-07">
+<meta name="dcterms.date" content="2024-07-20">
 
-<title>Project Management 01: Installing and Setting Up Git and GitHub for R</title>
+<title>Installing Git and Setting Up Git and GitHub for R Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -154,10 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><strong>HW</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
-        <li>
-    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw01.Rmd" rel="" target="">
- <span class="dropdown-text">HW 01</span></a>
-  </li>  
+        <li class="dropdown-header">HW 01</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -165,10 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><strong>Exercises</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
-        <li>
-    <a class="dropdown-item" href="../exercises/using_git_with_projects_exercise.Rmd" rel="" target="">
- <span class="dropdown-text">using_git_with_projects_exercise.docx</span></a>
-  </li>  
+        <li class="dropdown-header">pending</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -187,6 +181,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
  <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example-files--other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Example Files &amp; Other</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-example-files--other">    
+        <li>
+    <a class="dropdown-item" href="../resources/tools.html" rel="" target="">
+ <span class="dropdown-text"><strong>Other Tools/Resources</strong></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-figure-script.R" rel="" target="">
+ <span class="dropdown-text">example-figure-script.R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-rmarkdown-file-with-fig-script.Rmd" rel="" target="">
+ <span class="dropdown-text">example-rmarkdown-file-with-fig-script.Rmd</span></a>
   </li>  
     </ul>
   </li>
@@ -233,10 +246,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../resources/tools.html" rel="" target="">
- <span class="menu-text"><strong>Other Tools</strong></span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -259,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/02_installing_and_setting_up_git_and_github.html"><em>Project Management 01: Installing and Setting Up Git and GitHub for R</em></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/02_1_installing_and_setting_up_git_and_github.html"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -277,42 +286,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../schedule/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a href="../modules_setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation &amp; Setup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
+  <a href="../modules_setup/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Installing R &amp; RStudio</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/01_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Introduction to RStudio and R Markdown</em></span></a>
+  <a href="../modules_setup/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><em>Project Management 01: Installing and Setting Up Git and GitHub for R</em></span></a>
+  <a href="../modules_setup/03_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Introduction to RStudio, R Markdown, &amp; Functions</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/02_using_git_and_github.html" class="sidebar-item-text sidebar-link">
+  <a href="../modules_setup/04_functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Functions, Arguments, and R scripts</em></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_1_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_2_using_git_and_github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Project Management 02: R Projects, Git, and GitHub</em></span></a>
   </div>
 </li>
@@ -337,7 +372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/08_ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>{<code>ggplot</code>} and the grammar of graphics</em></span></a>
+ <span class="menu-text"><em>{<code>ggplot2</code>}: The Grammar of Graphics</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -430,11 +465,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
@@ -504,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><em>Project Management 01: Installing and Setting Up Git and GitHub for R</em></h1>
+<h1 class="title"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></h1>
 </div>
 
 
@@ -521,7 +556,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 7, 2024</p>
+      <p class="date">July 20, 2024</p>
     </div>
   </div>
   
@@ -531,27 +566,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Under construction.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.</p>
-</div>
-</div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview"><strong>Overview</strong></h2>
-<p>We will perform all the necessary tasks for using Git with RStudio and managing files at the remote repository at GitHub.</p>
+<p>We will perform all the necessary tasks for using Git with RStudio and managing files at the remote repository at GitHub. You will create a GitHub account if you do not have one; install Git on your computer if needed; configure Git on RStudio; and create a RStudio project.</p>
 <section id="to-do-steps-of-the-task" class="level3">
 <h3 class="anchored" data-anchor-id="to-do-steps-of-the-task"><strong>To Do: Steps of the Task</strong></h3>
 <ol type="1">
 <li>Create a GitHub account</li>
-<li>Create GitHub repository: “fods-exercises”</li>
+<li>Create GitHub repository: “dataviz-exercises”</li>
 <li>Install Git on your computer (if not already installed)</li>
 <li>Configure Git for R, within R/RStudio (a familiar context)
 <ul>
@@ -603,7 +625,7 @@ Under construction.
 </div>
 </div>
 <ol start="2" type="1">
-<li>Name the repository <strong>fods-exercises</strong> and provide a description like <em>“for fods class exercises and homework”</em>.</li>
+<li>Name the repository <strong>dataviz-exercises</strong> and provide a description like <em>“for dataviz class exercises and homework”</em>.</li>
 </ol>
 <div class="cell">
 <div class="cell-output-display">
@@ -728,11 +750,11 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] digest_0.6.36     fastmap_1.2.0     xfun_0.45         knitr_1.47       
- [5] htmltools_0.5.8.1 png_0.1-8         rmarkdown_2.27    cli_3.6.3        
- [9] compiler_4.4.1    rprojroot_2.0.4   here_1.0.1        rstudioapi_0.16.0
-[13] tools_4.4.1       evaluate_0.24.0   yaml_2.3.9        rlang_1.1.4      
-[17] jsonlite_1.8.8    htmlwidgets_1.6.4</code></pre>
+ [1] digest_0.6.36     fastmap_1.2.0     xfun_0.45         glue_1.7.0       
+ [5] knitr_1.47        htmltools_0.5.8.1 png_0.1-8         rmarkdown_2.27   
+ [9] cli_3.6.3         compiler_4.4.1    rprojroot_2.0.4   here_1.0.1       
+[13] rstudioapi_0.16.0 tools_4.4.1       evaluate_0.24.0   yaml_2.3.9       
+[17] rlang_1.1.4       jsonlite_1.8.8    htmlwidgets_1.6.4</code></pre>
 </div>
 </div>
 

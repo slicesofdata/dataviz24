@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-07-01">
+<meta name="dcterms.date" content="2024-07-20">
 
-<title>Installing R &amp; RStudio</title>
+<title>Installing Git and Setting Up Git and GitHub for R Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -120,10 +154,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><strong>HW</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
-        <li>
-    <a class="dropdown-item" href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/homework/hw01.Rmd" rel="" target="">
- <span class="dropdown-text">HW 01</span></a>
-  </li>  
+        <li class="dropdown-header">HW 01</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -131,10 +162,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><strong>Exercises</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
-        <li>
-    <a class="dropdown-item" href="../exercises/using_git_with_projects_exercise.Rmd" rel="" target="">
- <span class="dropdown-text">using_git_with_projects_exercise.docx</span></a>
-  </li>  
+        <li class="dropdown-header">pending</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -153,6 +181,25 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
  <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example-files--other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Example Files &amp; Other</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-example-files--other">    
+        <li>
+    <a class="dropdown-item" href="../resources/tools.html" rel="" target="">
+ <span class="dropdown-text"><strong>Other Tools/Resources</strong></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-figure-script.R" rel="" target="">
+ <span class="dropdown-text">example-figure-script.R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-rmarkdown-file-with-fig-script.Rmd" rel="" target="">
+ <span class="dropdown-text">example-rmarkdown-file-with-fig-script.Rmd</span></a>
   </li>  
     </ul>
   </li>
@@ -199,10 +246,6 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../resources/tools.html" rel="" target="">
- <span class="menu-text"><strong>Other Tools</strong></span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -225,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/01_installing_r_and_rstudio.html"><em>Installing R &amp; RStudio</em></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules_setup/index.html">Installation &amp; Setup</a></li><li class="breadcrumb-item"><a href="../modules_setup/02_installing_and_setting_up_git_and_github.html"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -243,16 +286,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../schedule/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+            <a href="../modules_setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation &amp; Setup</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -260,25 +305,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link active">
+  <a href="../modules_setup/01_installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Installing R &amp; RStudio</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/01_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Introduction to RStudio and R Markdown</em></span></a>
+  <a href="../modules_setup/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/02_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Project Management 01: Installing and Setting Up Git and GitHub for R</em></span></a>
+  <a href="../modules_setup/03_introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Introduction to RStudio, R Markdown, &amp; Functions</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/02_using_git_and_github.html" class="sidebar-item-text sidebar-link">
+  <a href="../modules_setup/04_functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Functions, Arguments, and R scripts</em></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_1_installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/02_2_using_git_and_github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Project Management 02: R Projects, Git, and GitHub</em></span></a>
   </div>
 </li>
@@ -303,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/08_ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>{<code>ggplot</code>} and the grammar of graphics</em></span></a>
+ <span class="menu-text"><em>{<code>ggplot2</code>}: The Grammar of Graphics</em></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -396,11 +465,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Project</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
@@ -443,23 +512,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
-  <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
   <ul class="collapse">
-  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks"><strong>Tasks</strong></a></li>
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
+  <li><a href="#to-do-steps-of-the-task" id="toc-to-do-steps-of-the-task" class="nav-link" data-scroll-target="#to-do-steps-of-the-task"><strong>To Do: Steps of the Task</strong></a></li>
   </ul></li>
-  <li><a href="#determine-the-version-of-your-computers-operating-system" id="toc-determine-the-version-of-your-computers-operating-system" class="nav-link" data-scroll-target="#determine-the-version-of-your-computers-operating-system"><strong>Determine the version of your computer’s operating system</strong></a></li>
-  <li><a href="#download-r" id="toc-download-r" class="nav-link" data-scroll-target="#download-r"><strong>Download R</strong></a></li>
-  <li><a href="#download-rstudio" id="toc-download-rstudio" class="nav-link" data-scroll-target="#download-rstudio"><strong>Download RStudio</strong></a></li>
-  <li><a href="#install-r-and-rstudio-on-your-computer" id="toc-install-r-and-rstudio-on-your-computer" class="nav-link" data-scroll-target="#install-r-and-rstudio-on-your-computer"><strong>Install R and RStudio on your Computer</strong></a>
+  <li><a href="#libraries-used" id="toc-libraries-used" class="nav-link" data-scroll-target="#libraries-used"><strong>Libraries Used</strong></a></li>
+  <li><a href="#git-why-go-through-the-trouble" id="toc-git-why-go-through-the-trouble" class="nav-link" data-scroll-target="#git-why-go-through-the-trouble"><strong>Git: Why Go Through the Trouble?</strong></a></li>
+  <li><a href="#creating-a-github-account" id="toc-creating-a-github-account" class="nav-link" data-scroll-target="#creating-a-github-account"><strong>Creating a GitHub Account</strong></a></li>
+  <li><a href="#creating-a-repository-on-github" id="toc-creating-a-repository-on-github" class="nav-link" data-scroll-target="#creating-a-repository-on-github"><strong>Creating a Repository on GitHub</strong></a></li>
+  <li><a href="#installing-git" id="toc-installing-git" class="nav-link" data-scroll-target="#installing-git"><strong>Installing Git</strong></a></li>
+  <li><a href="#checking-git-setup-in-rstudio" id="toc-checking-git-setup-in-rstudio" class="nav-link" data-scroll-target="#checking-git-setup-in-rstudio"><strong>Checking Git Setup in RStudio</strong></a></li>
+  <li><a href="#configuring-git-and-github" id="toc-configuring-git-and-github" class="nav-link" data-scroll-target="#configuring-git-and-github"><strong>Configuring Git and GitHub</strong></a></li>
+  <li><a href="#creating-a-personal-access-token-pat-for-github" id="toc-creating-a-personal-access-token-pat-for-github" class="nav-link" data-scroll-target="#creating-a-personal-access-token-pat-for-github"><strong>Creating a Personal Access Token (PAT) for GitHub</strong></a></li>
+  <li><a href="#setting-your-git-credentials-using-pat" id="toc-setting-your-git-credentials-using-pat" class="nav-link" data-scroll-target="#setting-your-git-credentials-using-pat"><strong>Setting your Git Credentials (using PAT)</strong></a>
   <ul class="collapse">
-  <li><a href="#install-r-first-and-then-install-rstudio" id="toc-install-r-first-and-then-install-rstudio" class="nav-link" data-scroll-target="#install-r-first-and-then-install-rstudio"><em>Install R first and then install RStudio</em></a></li>
-  <li><a href="#additional-step-for-mac-users" id="toc-additional-step-for-mac-users" class="nav-link" data-scroll-target="#additional-step-for-mac-users"><em>Additional Step for Mac Users:</em></a></li>
+  <li><a href="#updating-your-personal-access-token-pat" id="toc-updating-your-personal-access-token-pat" class="nav-link" data-scroll-target="#updating-your-personal-access-token-pat"><strong>Updating your Personal Access Token (PAT)</strong></a></li>
   </ul></li>
-  <li><a href="#verify-that-rstudio-is-communicating-correctly-with-r" id="toc-verify-that-rstudio-is-communicating-correctly-with-r" class="nav-link" data-scroll-target="#verify-that-rstudio-is-communicating-correctly-with-r"><strong>Verify that RStudio is communicating correctly with R</strong></a></li>
-  <li><a href="#configure-rstudio" id="toc-configure-rstudio" class="nav-link" data-scroll-target="#configure-rstudio"><strong>Configure RStudio</strong></a></li>
-  <li><a href="#install-some-packages" id="toc-install-some-packages" class="nav-link" data-scroll-target="#install-some-packages"><strong>Install some packages</strong></a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
+  <li><a href="#optional-resources" id="toc-optional-resources" class="nav-link" data-scroll-target="#optional-resources"><strong>Optional Resources</strong></a></li>
+  <li><a href="#session-information" id="toc-session-information" class="nav-link" data-scroll-target="#session-information"><strong>Session Information</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -468,7 +539,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><em>Installing R &amp; RStudio</em></h1>
+<h1 class="title"><em>Installing Git and Setting Up Git and GitHub for R Projects</em></h1>
 </div>
 
 
@@ -485,7 +556,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 1, 2024</p>
+      <p class="date">July 20, 2024</p>
     </div>
   </div>
   
@@ -495,178 +566,197 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Under construction.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Do not install course software until this warning is removed.</p>
-</div>
-</div>
-<section id="overview" class="level1">
-<h1><strong>Overview</strong></h1>
-<p>For this course, we will use the <code>R</code> programming language and the <code>RStudio</code> IDE for manipulating data and creating data visualizations.</p>
-</section>
-<section id="to-do" class="level1">
-<h1><strong>To Do</strong></h1>
-<section id="tasks" class="level2">
-<h2 class="anchored" data-anchor-id="tasks"><strong>Tasks</strong></h2>
-<p>The first step is to install these pieces of software so that you can use them.</p>
-<ul>
-<li>Download and Install <code>R</code></li>
-<li>Download and Install <code>RStudio</code></li>
-<li>Configure <code>RStudio</code></li>
-</ul>
-</section>
-<section id="readings" class="level2">
-<h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
-<ul>
-<li><a href="https://psyteachr.github.io/ads-v2/01-intro.html">Intro to R</a></li>
-<li><a href="https://socviz.co/gettingstarted.html#work-in-plain-text-using-rmarkdown">Working with RMarkdown</a></li>
-</ul>
-</section>
-</section>
-<section id="determine-the-version-of-your-computers-operating-system" class="level1">
-<h1><strong>Determine the version of your computer’s operating system</strong></h1>
-<p>Your version of operating system will dictate which version of R to download and install. Make note of your computer’s operating system.</p>
-<p><strong><em>Windows</em></strong> systemsare easier and Windows 10 and 11 operating systems will both use the same R versions.</p>
-<p><strong><em>Macs</em></strong> are somewhat more complicated. The version depends on your cpu. Here is how you can determine:</p>
-<p><a href="https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/" class="uri">https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/</a> .</p>
-<p>There will be two cpu options, Intel 64-bit for macOS 10.13 or Apple silicon arm64 for macOS 11 and higher.</p>
-<p><strong>Cloud Options:</strong></p>
-<p>If you do not have a laptop (let me know) or do not have 5GB of hard drive space available on your computer, you might consider a cloud version of the software. One is maintained by Posit (formerly RStudio) and the other is maintained by CMC.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview"><strong>Overview</strong></h2>
+<p>We will perform all the necessary tasks for using Git with RStudio and managing files at the remote repository at GitHub. You will create a GitHub account if you do not have one; install Git on your computer if needed; configure Git on RStudio; and create a RStudio project.</p>
+<section id="to-do-steps-of-the-task" class="level3">
+<h3 class="anchored" data-anchor-id="to-do-steps-of-the-task"><strong>To Do: Steps of the Task</strong></h3>
 <ol type="1">
-<li><p><a href="https://posit.cloud/plans/free">Posit</a> (25 free compute hours a month – make time out)</p></li>
-<li><p>Remote Desktop Protocol (No limit on compute hours) (contact me if interested)</p></li>
+<li>Create a GitHub account</li>
+<li>Create GitHub repository: “dataviz-exercises”</li>
+<li>Install Git on your computer (if not already installed)</li>
+<li>Configure Git for R, within R/RStudio (a familiar context)
+<ul>
+<li>Create a Personal Access Token (PAT)</li>
+<li>Set your Git Credentials (using your PAT)</li>
+</ul></li>
 </ol>
 </section>
-<section id="download-r" class="level1">
-<h1><strong>Download R</strong></h1>
-<p>Once you know your processor, navigate to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> and in the “<strong>Download and Install R</strong>” section, select your operating system. You can also select from below and follow the indented sections that follow.</p>
+</section>
+<section id="libraries-used" class="level2">
+<h2 class="anchored" data-anchor-id="libraries-used"><strong>Libraries Used</strong></h2>
 <ul>
-<li><p><a href="https://cran.r-project.org/bin/linux/">Download R for Linux</a> (<a href="https://cran.r-project.org/bin/linux/debian">Debian</a>, <a href="https://cran.r-project.org/bin/linux/fedora">Fedora/Redhat</a>, <a href="https://cran.r-project.org/bin/linux/ubuntu">Ubuntu)</a></p></li>
-<li><p><a href="https://cran.r-project.org/bin/macosx/">Download R for macOS</a></p></li>
-<li><p><a href="https://cran.r-project.org/bin/windows/">Download R for Windows</a></p></li>
+<li><strong>{usethis}</strong>: 2.2.3: for project workflow automation</li>
+<li><strong>{gitcreds}</strong>: 0.1.2: for querying git credentials</li>
 </ul>
-<p><strong><em>Windows</em></strong> users should select the <strong>base</strong> version of <code>R</code> and download version <strong>4.3.1</strong> <strong>(no other version)</strong> to your computer. If this version is not on the main page, go to the “Other Builds” section and select “previous releases” and download the correct version.</p>
-<p><strong><em>Mac</em></strong> users should download either <strong>R-4.3.1.pkg</strong> or <strong>R-4.3.1x86_64.pkg</strong> version depending on the cpu noted earlier. <strong>Do not</strong> download any version other than 4.3.1 and please do not update throughout the semester.</p>
 </section>
-<section id="download-rstudio" class="level1">
-<h1><strong>Download RStudio</strong></h1>
-<p>Use the urls below to download <code>RStudio</code> and save it to the same directory location on your computer as you saved <code>R</code>.</p>
-<p><strong><em>Windows 10/11</em></strong>: <a href="https://download1.rstudio.org/electron/windows/RStudio-2024.04.2-764.exe" class="uri">https://download1.rstudio.org/electron/windows/RStudio-2024.04.2-764.exe</a></p>
-<p><strong><em>MacOS 12+:</em></strong> <a href="https://download1.rstudio.org/electron/macos/RStudio-2024.04.2-764.dmg" class="uri">https://download1.rstudio.org/electron/macos/RStudio-2024.04.2-764.dmg</a></p>
-<p><strong><em>MacOS 10.15-11:</em></strong> <a href="https://s3.amazonaws.com/rstudio-ide-build/electron/macos/RStudio-2023.09.1-494.dmg" class="uri">https://s3.amazonaws.com/rstudio-ide-build/electron/macos/RStudio-2023.09.1-494.dmg</a></p>
-<p><strong><em>Linux:</em></strong> go to <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p>
-<p><em>Note:</em> If you have a 32bit operating system, you will need to install an older version: <a href="https://www.rstudio.com/products/rstudio/older-versions/" class="uri">https://www.rstudio.com/products/rstudio/older-versions/</a></p>
+<section id="git-why-go-through-the-trouble" class="level2">
+<h2 class="anchored" data-anchor-id="git-why-go-through-the-trouble"><strong>Git: Why Go Through the Trouble?</strong></h2>
+<p>Projects are rarely done without collaborators. Teams collaborate, leveraging team members’ work and accomplishments. Using <code>R</code> in conjunction with the a distributed version control system, like Git, will facilitate that collaboration process. Writing flexible <code>R</code> code that does not hard-code objects will allow your research project to be reproducible, for example, when variables and data change (e.g., new data added, a new year added, etc.). Git long with GitHub will allow you to track your edits (the version control) and share your code with your collaborators or interested scholars.</p>
+<p>Some benefits of using version control:</p>
+<ul>
+<li>Facilitates project sharing (once it’s setup, you’ll get there)</li>
+<li>Facilitates collaboration. Others can also report errors or suggest features to your project.</li>
+<li>Makes reverting back to previous states easy. You can easily revert back to a previous version of your code in the event you discover errors or you delete critical details accidentally.</li>
+<li>Serves as a memory for edits when memory fails. All changes across different versions of your code or written content is available.</li>
+</ul>
+<p>RStudio integrates support for Git but this interface is a little clunky. You can use it but RStudio also allows for communication via the command line <em>Terminal</em>, which will be the preferred method shared here.</p>
 </section>
-<section id="install-r-and-rstudio-on-your-computer" class="level1">
-<h1><strong>Install R and RStudio on your Computer</strong></h1>
-<section id="install-r-first-and-then-install-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="install-r-first-and-then-install-rstudio"><em>Install R first and then install RStudio</em></h2>
-<p>Installing should be easy and you can accept all of the defaults although the desktop icons are not needed, especially for <code>R</code> because you will never need it; RStudio will find R for you. You can follow these videos for simple installing.</p>
-<p><em>PC</em>: <a href="https://www.youtube.com/watch?v=_2sewGCA0y4">How to Install R and R Studio on Windows 10/11</a></p>
-<p><em>Mac</em>: <a href="https://www.youtube.com/watch?v=H6Tfgt5gtWQ">Installing R and RStudio on a Mac</a></p>
-<p><strong>Note:</strong> If you leave the desktop icon for <code>R</code>, you can remove that later. You will never need it because RStudio will find <code>R</code> for you.</p>
+<section id="creating-a-github-account" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-github-account"><strong>Creating a GitHub Account</strong></h2>
+<ol type="1">
+<li><p>Go to <a href="https://github.com/">GitHub</a> and create a free GitHub account. Make note of your username and your associated e-mail as you will need those for configuring Git with R.</p>
+<ul>
+<li>Consider this brief 15-minute <a href="https://try.github.io/">TryGit Tutorial</a>.</li>
+</ul></li>
+<li><p>Stay logged in so that you can complete a later step.</p></li>
+<li><p>Send your PM your GitHub username. Your PM will send those to me and I will add you to a private repo. Once you are added to the repo, you can do the next step.</p></li>
+</ol>
 </section>
-<section id="additional-step-for-mac-users" class="level2">
-<h2 class="anchored" data-anchor-id="additional-step-for-mac-users"><em>Additional Step for Mac Users:</em></h2>
-<p><em>Download and Install XQuartz</em></p>
-<p>Some functions in R require an “X11 Server” and/or libraries associated with an X11 server. Apple does not provide this software with OS X anymore so unfortunately you have to do it on your own via a third-party application called XQuartz for <strong>OS X 10.9 or later</strong>.</p>
-<p>Use the url below to download the XQuartz file and save it to your computer. Follow the same install instructions as above for installing the XQuartz file.</p>
-<p><strong>For macOS 10.9 or later, download this XQuartz file and save it to your computer and install:</strong> <a href="https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.5/XQuartz-2.8.5.pkg" class="uri">https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.5/XQuartz-2.8.5.pkg</a></p>
+<section id="creating-a-repository-on-github" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-repository-on-github"><strong>Creating a Repository on GitHub</strong></h2>
+<p>You will need to create a repository by following the option to do so using the <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository#creating-a-new-repository-from-the-web-ui">GitHub UI</a>. Use that link if necessary but the images below should suffice.</p>
+<ol type="1">
+<li>Once logged into your GitHub account, you will see a <strong>+</strong> along the top of your account earn your profile icon. Click the option to create a <strong>“New Repository”</strong>.</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../images/create_github_repo_01.png" class="img-fluid" width="210"></p>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Name the repository <strong>dataviz-exercises</strong> and provide a description like <em>“for dataviz class exercises and homework”</em>.</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../images/create_github_repo_02.png" class="img-fluid" width="575"></p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Select the option to make the repository <strong>Private</strong>, check to <strong>add a README file</strong>, and add a <strong>.gitignore</strong> file by scrolling to find <code>R</code>:</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../images/create_github_repo_03.png" class="img-fluid" width="490"></p>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Click <strong>Create Repository</strong></li>
+</ol>
+</section>
+<section id="installing-git" class="level2">
+<h2 class="anchored" data-anchor-id="installing-git"><strong>Installing Git</strong></h2>
+<ol type="1">
+<li><p>Do I need to install Git?</p>
+<ul>
+<li><p>Mac OS Users can check whether Git is already installed by typing <code>git --version</code> at the Mac Terminal. If a version number is returned, then Git is installed.</p></li>
+<li><p>Windows Users can press the Windows key (or click the Start button) and type Git in the search bar. If you see Git or Git Bash listed, then Git is installed. At the R console, you can also type <code>system("git --version")</code> and if it is installed, the function should return the version number.</p></li>
+</ul></li>
+<li><p>Download and Install Git (if necessary)</p>
+<ul>
+<li>Mac OS Users may experience problems and see instructions at the <a href="https://git-scm.com/downloads">Git download site</a> to install Homebrew and then set the PATH variable. You don’t need to do that. Instead, I recommend downloading the <a href="https://sourceforge.net/projects/git-osx-installer/">binary version here</a> and download it to install.</li>
+<li>Windows Users can download the latest version of <a href="https://git-scm.com/download/win">Git here</a>. Download and install Git, making a note of where on your computer you are install it as you may need to locate the path for RStudio, especially if you use a portable version of Git.</li>
+</ul></li>
+</ol>
+</section>
+<section id="checking-git-setup-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="checking-git-setup-in-rstudio"><strong>Checking Git Setup in RStudio</strong></h2>
+<p>You will need to tell RStudio where to find the Git program as this may not be recognize automatically.</p>
+<ol type="1">
+<li><p>Find the path to the Git program executable that was installed in an earlier step.</p>
+<ul>
+<li>In the <em>Terminal</em> within <code>RStudio</code> (not the <code>R</code> console), type: <code>where git</code> on Windows and <code>which git</code> on Mac/Linux to find the path to the program. If there are more than one paths listed, just make note of one of them.</li>
+<li>If for some reason you don’t see a path listed using that approach, type: <code>Sys.which("git")</code> in your <code>R</code> console. The path here will likely be truncated so you will have to try to fill in the gaps when performing the step to set the path. See me for help.</li>
+</ul></li>
+<li><p>In 1RStudio1, go to <strong>Tools &gt; Global Options</strong> and click on left side bar menu item <em>Git/SVN</em>.</p></li>
+<li><p>Select the option at the top to <em>Enable version control interface for RStudio projects</em> if it is not selected.</p></li>
+<li><p>Set the path to the Git executable if it is not already there. Browse to the path to where Git.exe installed on your computer. Windows Users should make note that this path should be a path containing <code>Git.exe</code> and <strong>not</strong> a path containing <code>git-bash.exe</code>.</p></li>
+<li><p>Click <em>Apply</em> and then click <em>OK</em>.</p></li>
+</ol>
+</section>
+<section id="configuring-git-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="configuring-git-and-github"><strong>Configuring Git and GitHub</strong></h2>
+<p>There are two ways you can set up, either using <code>R</code> (console) or the command line (terminal). My recommendation is to use <code>R</code> because that is where you are likely most familiar, if even a small degree. We will use functions from the <strong>{usethis}</strong> library to help you. This library should be installed already as part of the class setup. If you get an error stating that the library is not installed when executing the steps below, just type <code>install.packages("usethis", dep = TRUE)</code> at your <code>R</code> console.</p>
+<p>The <strong>{usethis}</strong> library will make connecting your <code>R</code> project to your github account simple. You will use <code>usethis::use_git_config()</code> to configure your GitHub account with Git on your computer; if you did not create, see earlier step. In the below example, you will see that we need to provide two character strings as arguments to the function. The strings are used to set your <code>user.name</code> and your <code>user.email</code> (the e-mail attached to your GitHub account). Double check your GitHub e-mail and username.</p>
+<p><em>Edit the following code to include your username and email and then execute your modified <code>R</code> code:</em></p>
+<pre><code>usethis::use_git_config(user.name = "github_username", 
+                        user.email = "github_email@gitrdone.com"
+                        )</code></pre>
+<p>Done!</p>
+</section>
+<section id="creating-a-personal-access-token-pat-for-github" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-personal-access-token-pat-for-github"><strong>Creating a Personal Access Token (PAT) for GitHub</strong></h2>
+<p>Before completing this step, log into your GitHub account to facilitate the communication between RStudio and GitHub.</p>
+<p>You will need a personal access token (PAT) for making remote changes to GitHub. A first step then is to create a PAT using <code>usethis::create_github_token()</code>. Second, you will register your PAT with the Git credential manager used by your computers operating system using <code>gitcreds::gitcreds_set()</code>. Keep in mind that if you use a different computer (e.g., you get a new one), you’ll need to register the PAT on that computer following the same steps described here.</p>
+<p><em>To create your personal access token (PAT), type the following at your <code>R</code> console: </em></p>
+<pre><code>usethis::create_github_token()</code></pre>
+<p>After executing the code, you will be taken to your GitHub account (if you remained logged in). Go to the bottom of the page and click <em>generate token</em>. You should <strong>add a description</strong> for it so that you can understand its use case. For example, describe it based the computer you are using it on, “my computer make and model”. You may also describe it based on a project you are working on, “token-for-project-xyz”. If you do not add a description, you will likely become overwhelmed and/or confused when you have multiple tokens. When you need to regenerate or delete a token that expires, you will not be able to determine what they are for if you do not add a description.</p>
+<p>After creating your token, <strong>Copy it</strong> to your computer’s clipboard and <strong>save it someplace safe</strong>. Do not share your token with anyone because anyone who has it can access your public or private GitHub repositories.</p>
+<p><strong>Warning:</strong> Your PAT will expire after some duration, usually 30 days unless you change it. <strong>For this project, I suggest you change the expiration to a date after the semester ends</strong> to ensure you don’t have to go through this process again during the semester. Getting a new PAT is not difficult, however. If your PAT will soon expire, GitHub will send you an e-mail alerting you also. You can regenerate a PAT from a link in your e-mail, so make sure your associated e-mail is one you check.</p>
+</section>
+<section id="setting-your-git-credentials-using-pat" class="level2">
+<h2 class="anchored" data-anchor-id="setting-your-git-credentials-using-pat"><strong>Setting your Git Credentials (using PAT)</strong></h2>
+<p>Now that you have a PAT, we now need to set those credentials for RStudio to communicate with your GitHub account.</p>
+<p><em>Execute the following <code>R</code> code to set your credentials:</em></p>
+<pre><code>gitcreds::gitcreds_set()</code></pre>
+<p>You may see a set of number options with corresponding descriptions. If you see them, enter the number corresponding to the option that makes the most sense for what you are trying to accomplish, for example, something like “set or replace your credentials”.</p>
+<p>When should then see a prompt like <code>? Enter new password or token</code>. At this point, paste your PAT here and press return/enter. Then remove the PAT from your clipboard so that you don’t paste them someplace.</p>
+<p><em>You can check that your credentials are stored by typing the following <code>R</code> code in the console:</em></p>
+<pre><code>gh::gh_whoami()</code></pre>
+<section id="updating-your-personal-access-token-pat" class="level3">
+<h3 class="anchored" data-anchor-id="updating-your-personal-access-token-pat"><strong>Updating your Personal Access Token (PAT)</strong></h3>
+<p>At some point, even if you set your PAT to expire after the semester, it will expire and you will need to update it. When it’s about to expire, or if it has expired, you can go to <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> while logged into your <a href="www.github.com">GitHub</a> account and regenerate the token and change the expiration date. Then, copy the PAT to the clipboard and set your credentials again using <code>gitcreds::gitcreds_set()</code>.</p>
 </section>
 </section>
-<section id="verify-that-rstudio-is-communicating-correctly-with-r" class="level1">
-<h1><strong>Verify that RStudio is communicating correctly with R</strong></h1>
-<p><strong><em>Launch the RStudio application.</em></strong></p>
-<p>If <code>RStudio</code> and <code>R</code> are communicating correctly, you should see an <code>RStudio</code> window open with the <code>R</code> console opened which should look similar to that shown below. Your R version should be listed at the top of the console (<strong>4.3.1</strong>).</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="../images/RStudio1.png" class="img-fluid" width="599"></p>
-</div>
-</div>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary"><strong>Summary</strong></h2>
+<p>You have now created your GitHub account, created a repository, created a PAT, and installed and/or set up Git with RStudio. The next step will be to connect the remote GitHub repository with your R/RStudio setup.</p>
 </section>
-<section id="configure-rstudio" class="level1">
-<h1><strong>Configure RStudio</strong></h1>
-<p>A. Go to <strong><em>Tools &gt; Global Options</em></strong> under the <strong><em>General + Basic</em></strong> Tab</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="../images/RStudio12.png" class="img-fluid" width="599"></p>
-</div>
-</div>
-<p><strong>R Sessions &gt; R version:</strong> There should be a path to the installed <code>R</code> version listed if you installed <code>R</code> before <code>RStudio</code>. You should not need to change this unless you have another version installed on your system. If you do have multiple versions, browse to version <strong>4.3.1</strong>. Do not update <code>R</code> or any libraries during this course.</p>
-<p>Mac Users may not see an <code>R</code> version and may only see the following:</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="../images/RStudio13.png" class="img-fluid" width="400"></p>
-</div>
-</div>
-<p>If you are concerned that <code>R</code> may not be there, type 2 + 2 into the <code>R</code> console and press Enter/Return. If the solution is returned, then <code>R</code> is installed.</p>
-<p>B. <strong>Other options</strong>: Check the other check boxes as indicated in the images below.</p>
-<p><strong>GENERAL (basic):</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="../images/RStudio2.png" class="img-fluid" width="468"></p>
-</div>
-</div>
-<p><strong>CODE (editing):</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="../images/RStudio3.png" class="img-fluid" width="468"></p>
-</div>
-</div>
-<p><strong>CODE (display):</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="../images/RStudio4.png" class="img-fluid" width="468"></p>
-</div>
-</div>
-<p><strong>CODE (saving):</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="../images/RStudio5.png" class="img-fluid" width="468"></p>
-</div>
-</div>
-<p><strong>CODE (completing):</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="../images/RStudio6.png" class="img-fluid" width="468"></p>
-</div>
-</div>
-<p><strong>CODE (diagnostics):</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="../images/RStudio7.png" class="img-fluid" width="468"></p>
-</div>
-</div>
-<p><strong>CONSOLE:</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="../images/RStudio8.png" class="img-fluid" width="468"></p>
-</div>
-</div>
-<p><strong>APPEARANCE:</strong></p>
-<p>This one of preference. You can try out different RStudio Themes and Editor Themes to see what you like. You will see that I use the <em>Merbivore</em> Editor Theme with <em>Lucida Console</em> font.</p>
-<p><strong>OTHERS:</strong> We will address in class as appropriate.</p>
+<section id="optional-resources" class="level2">
+<h2 class="anchored" data-anchor-id="optional-resources"><strong>Optional Resources</strong></h2>
+<p>If you find yourself working on complicated projects, you might benefit from using a Git client or need to troubleshoot events. Although you won’t need to do this for this course, I’m providing some resources for your future. Feel free to come back to this course site to review content as I don’t intend to remove anything.</p>
+<ol type="1">
+<li><p><strong>Git Client:</strong> Git clients work like the RStudio Gui option described above but likely much better. If you find the <em>Terminal</em> command line daunting or limiting, I might recommend a Git Client to use as I am not a big fan of the RStudio interface.</p>
+<ul>
+<li><p><a href="https://www.gitkraken.com/">GitKraken</a> is a good option and they have lots of tutorials on their website. GitKraken is seamless to set up. Install, connect your GitHub account, select your repo to add, and voilà. You can stage, commit, and push from there.</p></li>
+<li><p><a href="https://desktop.github.com/">GitHub Desktop</a> is another common option. Install, connect your GitHub account and select your repo to add, and voilà. You can stage, commit, and push from there.</p></li>
+</ul></li>
+<li><p><strong>Troubleshooting:</strong> <a href="https://happygitwithr.com/">happygitwithr</a> is a resource for troubleshooting Git issues specifically with R.</p></li>
+</ol>
 </section>
-<section id="install-some-packages" class="level1">
-<h1><strong>Install some packages</strong></h1>
-<p>After you have set up the install, you should install different libraries that we will use a various times in the course. Rather than installing them manually, copy the code below, paste it into the RStudio Console window at the <code>&gt;</code> prompt (see image), and then press enter.</p>
-<p><strong>Copy this code:</strong></p>
-<pre><code>source("https://raw.githubusercontent.com/slicesofdata/fods24/main/r/psyc166_libraries.R")</code></pre>
-<p><strong>Paste code into your R console at the <code>&gt;</code> prompt:</strong></p>
+<section id="session-information" class="level1">
+<h1><strong>Session Information</strong></h1>
 <div class="cell">
-<div class="cell-output-display">
-<p><img src="../images/RStudio1.png" class="img-fluid" width="599"></p>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.4.1 (2024-06-14 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 22631)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/Los_Angeles
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] digest_0.6.36     fastmap_1.2.0     xfun_0.45         glue_1.7.0       
+ [5] knitr_1.47        htmltools_0.5.8.1 png_0.1-8         rmarkdown_2.27   
+ [9] cli_3.6.3         compiler_4.4.1    rprojroot_2.0.4   here_1.0.1       
+[13] rstudioapi_0.16.0 tools_4.4.1       evaluate_0.24.0   yaml_2.3.9       
+[17] rlang_1.1.4       jsonlite_1.8.8    htmlwidgets_1.6.4</code></pre>
 </div>
 </div>
-<p>The install process will take quite some time especially depending on your computer so do this at a time you do not want to use your system. Take a break and do something else.</p>
 
 
 </section>
