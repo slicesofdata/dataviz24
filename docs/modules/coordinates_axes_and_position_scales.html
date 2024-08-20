@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gabriel I. Cook">
+<meta name="dcterms.date" content="2024-08-19">
+
+<title>Coordinates, axes, and position scales</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/78ddb093ea.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text"><strong>Home</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../schedule/index.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><strong>Schedule</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../modules/index.html" rel="" target="">
+ <span class="menu-text"><strong>Modules</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../project/index.html" rel="" target="">
+ <span class="menu-text"><strong>Project</strong></span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Slides</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../slides/01_intro_rstudio_rmarkdown_slides.html" rel="" target="">
+ <span class="dropdown-text">R, RStudio, &amp; R Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/02_git_slides.html" rel="" target="">
+ <span class="dropdown-text">Git and GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/03_functions_slides.html" rel="" target="">
+ <span class="dropdown-text">Functions, Parameters, and Arguments</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hw" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>HW</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
+        <li class="dropdown-header">HW 01</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Exercises</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li class="dropdown-header">pending</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Data</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/slicesofdata/dataviz24/raw/main/data/cms-top-all-time-2023-swim.zip" rel="" target="">
+ <span class="dropdown-text">cms-top-all-time-2023-swim.xlsx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/rfordatascience/tidytuesday" rel="" target="">
+ <span class="dropdown-text">Fun Tidy Tuesday Data Sets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
+ <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example-files--other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Example Files &amp; Other</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-example-files--other">    
+        <li>
+    <a class="dropdown-item" href="../resources/tools.html" rel="" target="">
+ <span class="dropdown-text"><strong>Other Tools/Resources</strong></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-figure-script.R" rel="" target="">
+ <span class="dropdown-text">example-figure-script.R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-rmarkdown-file-with-fig-script.Rmd" rel="" target="">
+ <span class="dropdown-text">example-rmarkdown-file-with-fig-script.Rmd</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cheatsheets" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Cheatsheets</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cheatsheets">    
+        <li>
+    <a class="dropdown-item" href="../cheatsheets_and_tips/symbols.html" rel="" target="">
+ <span class="dropdown-text">Symbols</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/rmarkdown-2.0.pdf" rel="" target="">
+ <span class="dropdown-text">RMarkdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" rel="" target="">
+ <span class="dropdown-text">Data Wrangling with {dplyr} and {tidyr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/quarto.html" rel="" target="">
+ <span class="dropdown-text">Quarto (Publish and Share)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/strings.html" rel="" target="">
+ <span class="dropdown-text">String Manipulation with {stringr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/data-import.html" rel="" target="">
+ <span class="dropdown-text">Reading and Writing Data with {readr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/Data_Science_With_R_Workflow.pdf" rel="" target="">
+ <span class="dropdown-text">Data Science with RWorkflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/" rel="" target="">
+ <span class="dropdown-text">More Cheatsheets From RStudio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://images.datacamp.com/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf" rel="" target="">
+ <span class="dropdown-text">Quarto Cheat Sheet (what Quarto Files Look Like)</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/slicesofdata" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gabrielcook.xyz" rel="" target="">
+ <span class="menu-text">Me</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/coordinates_axes_and_position_scales.html">Coordinates, axes, and position scales</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules_setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation, Setup, &amp; R Basics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules_setup/Installation &amp; Setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation &amp; Setup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/Installation &amp; Setup/installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing R &amp; RStudio</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules_setup/R Basics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Basics and Refreshers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to RStudio, R Markdown, &amp; Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions, Arguments, and R scripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/vectors_and_data_frame_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vectors and data frame basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/reading_data_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading data files</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Management</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/project_management/installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Management 01</em>: Installing Git and Setting Up Git and GitHub for R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/project_management/using_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Management 02</em>: R Projects, Git, and GitHub</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/graphical_perception.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphical perception</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/data_frame_manipulation_and_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data frame manipulation and wrangling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/data_subsets_and_summaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data subsets and summaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/considerations_in_data_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Considerations in data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/designing_perceptually_efficient_visualizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Designing perceptually-efficient visualizations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">{<code>ggplot2</code>}: The Grammar of Graphics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_associations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing associations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/spatial_position_and_adjustment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial position and adjustment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/color_scales_and_palettes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Color scales and palettes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/coordinates_axes_and_position_scales.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Coordinates, axes, and position scales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/statistical_transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical transformations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_more_distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing more distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_trends.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing trends</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/legends_and_arrangement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Legends and arrangement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/multi_panel_plots_faceting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Multi-panel plots: Faceting</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/attentional_control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Attentional control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Figure design &amp; themes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../project/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Team membership and roles</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/02_project_midterm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Midterm presentation</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/03_project_final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Final Presentation</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/04_project_report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Final Report</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/05_project_tasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Tasks</em></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
+  <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
+  <ul class="collapse">
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
+  <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
+  <li><a href="#load-libraries" id="toc-load-libraries" class="nav-link" data-scroll-target="#load-libraries"><strong>Load libraries</strong></a></li>
+  </ul></li>
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><strong>Loading Data</strong></a></li>
+  <li><a href="#coordinates" id="toc-coordinates" class="nav-link" data-scroll-target="#coordinates"><strong>Coordinates</strong></a>
+  <ul class="collapse">
+  <li><a href="#the-cartesian-coordinate-system" id="toc-the-cartesian-coordinate-system" class="nav-link" data-scroll-target="#the-cartesian-coordinate-system"><strong>The Cartesian Coordinate System</strong></a></li>
+  <li><a href="#coordinate-functions-coord_" id="toc-coordinate-functions-coord_" class="nav-link" data-scroll-target="#coordinate-functions-coord_"><strong>Coordinate Functions: <code>coord_*()</code></strong></a>
+  <ul class="collapse">
+  <li><a href="#coord_flip" id="toc-coord_flip" class="nav-link" data-scroll-target="#coord_flip"><strong><code>coord_flip()</code></strong></a></li>
+  <li><a href="#coord_fixed" id="toc-coord_fixed" class="nav-link" data-scroll-target="#coord_fixed"><strong><code>coord_fixed()</code></strong></a></li>
+  <li><a href="#coord_equal" id="toc-coord_equal" class="nav-link" data-scroll-target="#coord_equal"><strong><code>coord_equal()</code></strong></a></li>
+  </ul></li>
+  <li><a href="#nonlinear-scales" id="toc-nonlinear-scales" class="nav-link" data-scroll-target="#nonlinear-scales"><strong>Nonlinear scales</strong></a></li>
+  <li><a href="#examples-of-plots-with-axis-problems" id="toc-examples-of-plots-with-axis-problems" class="nav-link" data-scroll-target="#examples-of-plots-with-axis-problems"><strong>Examples of Plots with Axis Problems</strong></a></li>
+  </ul></li>
+  <li><a href="#counts-proportions-and-percentages" id="toc-counts-proportions-and-percentages" class="nav-link" data-scroll-target="#counts-proportions-and-percentages"><strong>Counts, Proportions, and Percentages</strong></a>
+  <ul class="collapse">
+  <li><a href="#position-scale-types" id="toc-position-scale-types" class="nav-link" data-scroll-target="#position-scale-types"><strong>Position Scale Types</strong></a></li>
+  <li><a href="#position-scales-for-continuous-data-scale__continuous" id="toc-position-scales-for-continuous-data-scale__continuous" class="nav-link" data-scroll-target="#position-scales-for-continuous-data-scale__continuous"><strong>Position scales for continuous data: <code>scale_*_continuous()</code></strong></a>
+  <ul class="collapse">
+  <li><a href="#axis-limits" id="toc-axis-limits" class="nav-link" data-scroll-target="#axis-limits"><em>Axis <code>limits</code></em></a></li>
+  <li><a href="#tick-marks" id="toc-tick-marks" class="nav-link" data-scroll-target="#tick-marks"><em>Tick Marks</em></a></li>
+  </ul></li>
+  <li><a href="#breaks-as-a-sequence-using-seq" id="toc-breaks-as-a-sequence-using-seq" class="nav-link" data-scroll-target="#breaks-as-a-sequence-using-seq"><em>Breaks as a sequence using <code>seq()</code></em></a></li>
+  <li><a href="#break-labels" id="toc-break-labels" class="nav-link" data-scroll-target="#break-labels"><em>Break labels</em></a></li>
+  <li><a href="#position-scales-for-discrete-data-scale__discrete" id="toc-position-scales-for-discrete-data-scale__discrete" class="nav-link" data-scroll-target="#position-scales-for-discrete-data-scale__discrete"><strong>Position scales for discrete data: <code>scale_*_discrete()</code></strong></a>
+  <ul class="collapse">
+  <li><a href="#limits-and-breaks" id="toc-limits-and-breaks" class="nav-link" data-scroll-target="#limits-and-breaks"><em>Limits and Breaks</em></a></li>
+  </ul></li>
+  <li><a href="#other-scale-functions" id="toc-other-scale-functions" class="nav-link" data-scroll-target="#other-scale-functions"><strong>Other Scale Functions</strong></a></li>
+  <li><a href="#reverse-a-continuous-scale" id="toc-reverse-a-continuous-scale" class="nav-link" data-scroll-target="#reverse-a-continuous-scale"><strong>Reverse a Continuous Scale</strong></a></li>
+  <li><a href="#convert-to-log-scale" id="toc-convert-to-log-scale" class="nav-link" data-scroll-target="#convert-to-log-scale"><strong>Convert to Log Scale</strong></a></li>
+  <li><a href="#position-scales-for-datetime-data" id="toc-position-scales-for-datetime-data" class="nav-link" data-scroll-target="#position-scales-for-datetime-data"><strong>Position scales for date/time data</strong></a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
+  <li><a href="#session-info" id="toc-session-info" class="nav-link" data-scroll-target="#session-info"><strong>Session Info</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Coordinates, axes, and position scales</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gabriel I. Cook </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 19, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Under construction.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.</p>
+</div>
+</div>
+<section id="overview" class="level1">
+<h1><strong>Overview</strong></h1>
+<p>The focus of this module will be on plots visualized on a Cartesian Coordinate system. When you are dealing with other types of data, you may wish to plot on a different coordinate systems. When needed, you can check out <code>ggplot2::coord_polar()</code> or libraries like <strong>{sf}</strong> for plotting maps. Moreover, out-of-the-box plots present axes that are rarely visualized in a way suitable to your plot. The often, if not always, require some fine tuning. This module will focus on changes scale <code>limits</code>, <code>breaks</code>, and <code>labels</code>.</p>
+</section>
+<section id="to-do" class="level1">
+<h1><strong>To Do</strong></h1>
+<section id="readings" class="level2">
+<h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
+<p>Reading should take place in two parts:</p>
+<ul>
+<li><em>Prior to class</em>, the goal should be to familiarize yourself and bring questions to class. The readings from <a href="https://clauswilke.com/dataviz">TFDV</a> are conceptual and should facilitate readings from <a href="https://ggplot2-book.org/">EGDA</a> for code implementation.</li>
+<li><em>After class</em>, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.</li>
+</ul>
+<p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of <strong>{ggplot2}</strong>. I will assume that you attend class with some level of basic understanding of concepts.</p>
+<p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing <strong>{ggplot2}</strong> code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week’s readings.</p>
+<p><em>After Class</em>: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from <strong>Wickham, Navarro, &amp; Pedersen (under revision)</strong>. <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>.</p>
+<ul>
+<li><a href="https://clauswilke.com/dataviz/coordinate-systems-axes.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Coordinate Systems / Axes</a></li>
+<li><a href="https://ggplot2-book.org/scales-position">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Position scales and axes</a></li>
+</ul>
+</section>
+<section id="external-functions" class="level2">
+<h2 class="anchored" data-anchor-id="external-functions"><strong>External Functions</strong></h2>
+<p>Provided in class:</p>
+<p><code>view_html()</code>: for viewing data frames in html format, from <code>/src/my_functions.R</code></p>
+<p>You can use this in your own work space but I am having a challenge rendering this of the website, so I’ll default to <code>print()</code> on occasion.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.utils<span class="sc">::</span><span class="fu">sourceDirectory</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src"</span>, <span class="st">"functions"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="libraries" class="level2">
+<h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
+<ul>
+<li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
+<li><strong>{magrittr}</strong> 2.0.3: for code clarity and piping data frame objects</li>
+<li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
+</ul>
+</section>
+<section id="load-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="load-libraries"><strong>Load libraries</strong></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="loading-data" class="level1">
+<h1><strong>Loading Data</strong></h1>
+<p>For this exercise, we will use some data from a 2023 CMS swim meet located at: “https://github.com/slicesofdata/dataviz23/raw/main/data/swim/cleaned-2023-CMS-Invite.csv”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://github.com/slicesofdata/dataviz23/raw/main/data/swim/cleaned-2023-CMS-Invite.csv"</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">show_col_types =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="coordinates" class="level1">
+<h1><strong>Coordinates</strong></h1>
+<p>For any graphical data visualization to be created, it must fall within some defined position scales. The position scale is essential for defining where elements of the visualization are located in space. For two dimensional visualizations that appear in print or in electronic form, those positions are constrained by two axes, conventionally known as x and y. In print, those positions typically take the horizontal and vertical positions, respectively. Those axis names and their orientations are arbitrary but they provide a common language for all people creating visualizations to understand. Together, set of position scales (x and y here) and their relative geometric arrangement creates the coordinate system.</p>
+<p>To plot a single bar as narrow as a single pixel (technically a line), some position needs to be determined on the x-axis for the bar location and on the y-axis for its terminal height. That xy location for that specification is very much just a point until the bar (line) extends to some terminal location, typically at the x-axis. When the bar width is greater than a single pixel, then the thickness defines more positions but are needed nonetheless. When there are two or more bars, each likely needs its own position so that they are not stacked on top of each other. Similarly, points for scatter plots also need positions in space to represent their x and y positions.</p>
+<section id="the-cartesian-coordinate-system" class="level2">
+<h2 class="anchored" data-anchor-id="the-cartesian-coordinate-system"><strong>The Cartesian Coordinate System</strong></h2>
+<p>The coordinate system described above is that Cartesian coordinate system, within which locations are specified by positions on the x and y axis corresponding to specific values determined by x and y as single values or specified by sets of values belonging to x and y. Because axes themselves are lines and represent continuous position scales, they stretch in real numbers beyond 0 in both directions, resulting in four quadrants of the coordinate system. Thus, x and y axes can contain both positive and negative real numbers. The visualization, however, needs axis limits in order to define the space along x and y for the data to appear. As you are familiar, many plots limit x and y axes to a value of 0 on the low end and some other value on the upper end. Data that exist outside of the define plot axis limits will not be depicted in the plot.</p>
+<p>A plot depicting values from x and y variables from the same unit system should be visualized such that the interval between values along two axes is equivalent. For example, if x and y both represent quantities, the number of pixels separating 1 and 3 on the x axis should be equivalent on the y axis. In other words, the same number of data units along the x or y axis should correspond to the same distance on those axes. Violations of this representation occur and present perceptual distortions of the data. In some instances, for example, when the limits of the x and y axes are the same, the plot should take form as a square rather than rectangle with either the x or the y axis longer than the other.</p>
+<p>When the variables are on different scales, however, either x or y axis could be stretched or compressed for a different perspective depending on the goal so storytelling. As long as one is not trying to bias their audience in a way to mislead them, a favorable aspect ratio could be one with good aesthetics. A plot with balance is always appealing. Something too wide or too tall may just appear odd. In general, an aspect ratio should be chosen that communicates important aspects of differences in position are noticeable.</p>
+<p>When plots (e.g., <code>geom_()</code>s) use statistical transformations (e.g., jittering), you should consider carefully the influence of the data position relative to the actual data. Fine tuned these transformations to ensure the the visualize data are most true to the actual data to reduce bias.</p>
+</section>
+<section id="coordinate-functions-coord_" class="level2">
+<h2 class="anchored" data-anchor-id="coordinate-functions-coord_"><strong>Coordinate Functions: <code>coord_*()</code></strong></h2>
+<p>There are a variety of <code>coord_()</code> layer functions for . By default, plots already have a <code>coord_cartesian()</code> layer. Also, the x-axis is oriented horizontally and the y-axis is oriented vertically. By tradition, predictor variables assume the x-axis orientation, whereas outcome variables assume the y-axis.</p>
+<section id="coord_flip" class="level3">
+<h3 class="anchored" data-anchor-id="coord_flip"><strong><code>coord_flip()</code></strong></h3>
+<p><code>coord_flip()</code> is used to flip the Cartesian coordinate system such that the x and y axis swap positions. Flipping may facilitate plot perception, for example, when bar length rather than height either makes more sense or supports comparisons. Outcome variables that are natively perceived in terms of length rather than height may also benefit from plotting the outcome variable along the x axis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">==</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> .,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="coord_fixed" class="level3">
+<h3 class="anchored" data-anchor-id="coord_fixed"><strong><code>coord_fixed()</code></strong></h3>
+<p>When ensuring the aspect ratio of the coordinate system is important, <code>coord_fixed()</code> will prove helpful.</p>
+<p>The most important parameter of the function is <code>ratio</code>, which by default is set to <code>ratio = 1</code>. The ratio represents the aspect ratio, expressed as <code>y / x</code>. Thus, the number of units on the y-axis that are equivalent to one unit on the x-axis. Thus, <code>ratio = 1</code> ensures that one unit on the x-axis equates to 1 unit on the y-axis.</p>
+<p>You can easily modify this to a different value, for example, <code>1.5</code>, <code>2</code> or <code>10</code> to make the y axis longer than the x axis by this ratio. If you wish to make the y axis shorted, use a value or fraction to be less than 1 (e.g., <code>1/5</code>). In addition, <code>xlim</code> and <code>ylim</code> parameters can be set in this layer.</p>
+<p>To illustrate, let’s set the two axis limits to begin and end at the same values using <code>xlim()</code> and <code>ylim()</code>. Both require a two element vector. In addition, the default ratio is <code>ratio = 1</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">==</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> .,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Split50, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#coord_equal()</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 12 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Setting <code>ratio = 2</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">==</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> .,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Split50, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 12 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You see that the plot is now lengthened <code>2:1</code> in favor of the y-axis.</p>
+<p>But the function might not work exactly as you expect. For example, if you axis limits are not set to be the same, but rather x is twice that of y, then a ratio of <code>1</code> behaves perhaps a little different from what you might think.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>expand_plot <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">==</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> .,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Split50, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>noexpand_plot <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">==</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> .,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Split50, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># do not expand axis (no padding))</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(expand_plot, noexpand_plot, <span class="at">ncol =</span> <span class="dv">1</span>))</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Be careful:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>noexpand_plot2 <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">==</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> .,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Split50, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># do not expand axis (no padding))</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#coord_cartesian(expand = FALSE) +</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#coord_cartesian(expand = FALSE,</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                xlim = c(0, 40),</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                ylim = c(0, 80)</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#                ) +</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>, </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>), </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>              )</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">#scale_y_continuous(expand = c(0, 0))</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(expand_plot, </span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>                           noexpand_plot,</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>                           noexpand_plot2,</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>                           <span class="at">ncol =</span> <span class="dv">1</span>))</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="coord_equal" class="level3">
+<h3 class="anchored" data-anchor-id="coord_equal"><strong><code>coord_equal()</code></strong></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">==</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> .,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Split50, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 12 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="nonlinear-scales" class="level2">
+<h2 class="anchored" data-anchor-id="nonlinear-scales"><strong>Nonlinear scales</strong></h2>
+<p>In many cases, you will be trying to visualize data that are linear such that the numeric values of the variable map on to the same positions in space. The interval between numeric values is the same as the interval in physical space for the printed plot. In other cases, the interval between values may not be linear. For example, data that are converted to logarithms, square roots, cubes, etc. have one distance representing the actual numeric values (linear) and another distance corresponding to the values on the transformed scale (ordinal).</p>
+<p>Wilke discusses several issues related to linear and nonlinear scales is his chapter covering <a href="https://clauswilke.com/dataviz/coordinate-systems-axes.html">axes</a>. In particular, he discusses instances for presenting data as logarithms, how to plot the, and</p>
+<p>log-transformed data, we can get confused about whether the data were transformed using the natural logarithm or the logarithm to base 10. And it’s not uncommon for labeling to be ambiguous, e.g.&nbsp;“log(x)”, which doesn’t specify a base at all. I recommend that you always verify the base when working with log-transformed data. When plotting log-transformed data, always specify the base in the labeling of the axis.</p>
+</section>
+<section id="examples-of-plots-with-axis-problems" class="level2">
+<h2 class="anchored" data-anchor-id="examples-of-plots-with-axis-problems"><strong>Examples of Plots with Axis Problems</strong></h2>
+<p>As we have seen with some plots out-of-the-box, the tick marks along either the x or y axis are not suitable for favorable perceptual experiences. The user can be particularly strained with the height of the bar cannot be mapped to a value on the y-axis or a position along the x-axis cannot be mapped well to the bin. These problems are seen in these two simple examples.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"bins = 20"</span>,  </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"A"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"bins = 60"</span>,  </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"B"</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot1, plot2, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The previous modules are replete with plots containing this problem that compromises your ability to interpret the plot. At the time we introduced those plots, ways to address this problem were not introduced. This module addresses scale and axis adjustments.</p>
+</section>
+</section>
+<section id="counts-proportions-and-percentages" class="level1">
+<h1><strong>Counts, Proportions, and Percentages</strong></h1>
+<p>When plotting <code>geom_histogram()</code>, the default statistical transformation is to calculate frequency counts (Plot A).</p>
+<p>Counts, however, represent frequencies for specific instances of a larger set of instances, so proportions allow the user to understand the relative distribution of counts across the bins. Plot B illustrates this usage. As long at the data frame passed into the <code>geom_()</code> is what appears on the plot, the user could also discover (if they did not know) that the bins sum to 1.0 for proportions and 100% for percentages.</p>
+<p>But some users struggle with proportions and for them, percentages make more sense. Plot C makes an adjustment the position scaling of the y-axis. Because the y-axis is continuous, <code>scale_y_continuous(labels = scales::percent)</code>, will take the values and replace them with a percent rescaling from the <strong>{scales}</strong> library.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">300</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"counts"</span>,  </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"A"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"count"</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">300</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">after_stat</span>(count)))) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"proportions"</span>,  </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"B"</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"proportion"</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>plot3 <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">300</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">after_stat</span>(count)))) <span class="sc">+</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"percentages"</span>,  </span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"C"</span>,</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"percent"</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>plot4 <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">#filter(Time &lt; 500) %&gt;%</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">after_stat</span>(count)))) <span class="sc">+</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">300</span>)) <span class="sc">+</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"percentages with truncated x-axis"</span>,  </span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"D"</span>,</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">" "</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot1, plot2, plot3, plot4, <span class="at">ncol =</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_bar()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Notice that a labeling of the y-axis is also removed because the percent labeling makes this detail redundant. Only if your numbers omit a % would you need to include a major axis label. Do not burden your audience with details that do not facilitate plot consumption.</p>
+<section id="position-scale-types" class="level2">
+<h2 class="anchored" data-anchor-id="position-scale-types"><strong>Position Scale Types</strong></h2>
+<p>Although there are several types of scales, the two most common are scales for continuous data or discrete data. The focus will be on changing them.</p>
+<pre><code>scale_*_continuous()
+scale_*_discrete()</code></pre>
+</section>
+<section id="position-scales-for-continuous-data-scale__continuous" class="level2">
+<h2 class="anchored" data-anchor-id="position-scales-for-continuous-data-scale__continuous"><strong>Position scales for continuous data: <code>scale_*_continuous()</code></strong></h2>
+<p>The continuous scale:</p>
+<pre><code>scale_y_continuous(
+  name = waiver(),
+  breaks = waiver(),
+  minor_breaks = waiver(),
+  n.breaks = NULL,
+  labels = waiver(),
+  limits = NULL,
+  expand = waiver(),
+  oob = censor,
+  na.value = NA_real_,
+  trans = "identity",
+  guide = waiver(),
+  position = "left",
+  sec.axis = waiver()
+)</code></pre>
+<section id="axis-limits" class="level3">
+<h3 class="anchored" data-anchor-id="axis-limits"><em>Axis <code>limits</code></em></h3>
+<p>In general, axis limits specify where the axis should start and where is should end (what’s rendered is a little more complicated though).</p>
+<p>Notice there are four plots (e.g., A, B, C, and D). Examine them for differences in their bars. Plot D bars look different from the others beyond the obvious y-axis difference. The data passed to the geom for that plot are not what appear on the plot. After the plot was rendered, the x-axis was adjusted by adjusting its limits.</p>
+<p>A layer was added to the plot to set the limits <code>scale_x_continuous(limits = c(0, 300))</code>. Although there was no filtering of <code>Time</code> from the data frame, the limits were adjusted and the x-axis appears like Plots A, B, and C. Because the limits were adjusted after the statistical transformation took place in the geom, what you see is incorrect for the data. Whereas this approach presents no perceptual issue for most geoms, this approach will result in a misrepresentation of data for histogram plots displaying proportions or percentages. If you wish to present percentages, adjust the data frame a priori.</p>
+</section>
+<section id="tick-marks" class="level3">
+<h3 class="anchored" data-anchor-id="tick-marks"><em>Tick Marks</em></h3>
+<p>You can specify where ticks appear along an axis by passing break specifications to <code>breaks</code>. Breaks also need corresponding <code>labels</code>. We will address both together because a label needs to exist for each of the breaks.</p>
+<p>We can add <code>breaks</code> as a vector but remember that <code>labels = scales::percent</code> is just changing the rendering of the plot, not the actual values from the statistical transformation. You will need to pass a vector of proportions.</p>
+<pre><code>  scale_y_continuous(breaks = c(.05, .10, .15, .20, .30),
+                     labels = scales::percent
+                     )</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">300</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">after_stat</span>(count)))) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(.<span class="dv">05</span>, .<span class="dv">10</span>, .<span class="dv">15</span>, .<span class="dv">20</span>, .<span class="dv">30</span>),</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> scales<span class="sc">::</span>percent</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>                     ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Wait! Not all ticks are there. This is because <code>geom_histogram()</code> made adjustments to the plot by default. You will need to make sure the <code>limits</code> accommodate the <code>breaks</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">300</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">after_stat</span>(count)))) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(.<span class="dv">05</span>, .<span class="dv">10</span>, .<span class="dv">15</span>, .<span class="dv">20</span>, .<span class="dv">30</span>),</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> scales<span class="sc">::</span>percent,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">30</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>But notice also that only certain breaks were specified. Whether intentional or unintentional, there is a 10% jump from 20% to 30%. This looks odd but perhaps that was intentional.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">300</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">after_stat</span>(count)))) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(.<span class="dv">05</span>, .<span class="dv">10</span>, .<span class="dv">15</span>, .<span class="dv">20</span>, .<span class="dv">30</span>),</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> scales<span class="sc">::</span>percent,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">30</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="breaks-as-a-sequence-using-seq" class="level2">
+<h2 class="anchored" data-anchor-id="breaks-as-a-sequence-using-seq"><em>Breaks as a sequence using <code>seq()</code></em></h2>
+<p>Using <code>seq()</code> we can specify the starting point (from) the ending point (to) and the step by which to create the sequence.</p>
+<p>For example, <code>seq(from = 0, to = .3, by = .05)</code> will return 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3. We could also make the <code>breaks</code> sequence from 0 to 1 but if we truncate the <code>limits</code>, then you just won’t see them anyway. Just don’t truncate the bottom.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">300</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">after_stat</span>(count)))) <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> .<span class="dv">05</span>),</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> scales<span class="sc">::</span>percent,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">20</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="break-labels" class="level2">
+<h2 class="anchored" data-anchor-id="break-labels"><em>Break labels</em></h2>
+<p>You see that a <code>labels</code> adjustment has been added to the y-axis. This should suggest to you that you could pass your own break <code>labels</code> to either axis.</p>
+<p>For example, we can just add a couple labels on the x-axis. Keep in mind that specifying <code>labels</code> will override other labeling by default.</p>
+<pre><code>  scale_x_continuous(
+    breaks = c(100, 200),
+    label = c("100m", "Wow")
+    )</code></pre>
+<p>And we can make the labelling more clear along the y-axis but making the sequence step smaller.</p>
+<pre><code>  scale_y_continuous(breaks = seq(0, 1, by = .02),
+                     labels = scales::percent,
+                     limits = c(0, .2)
+                     )</code></pre>
+<p>Which gives us:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">300</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">after_stat</span>(count)))) <span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> .<span class="dv">02</span>),</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> scales<span class="sc">::</span>percent,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">2</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>                     ) <span class="sc">+</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">200</span>),</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"100m"</span>, <span class="st">"Wow"</span>)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>                     ) <span class="sc">+</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="position-scales-for-discrete-data-scale__discrete" class="level2">
+<h2 class="anchored" data-anchor-id="position-scales-for-discrete-data-scale__discrete"><strong>Position scales for discrete data: <code>scale_*_discrete()</code></strong></h2>
+<p>A <code>geom_*()</code> that plots data for a categorical variable, will have a discrete x-axis.</p>
+<pre><code>discrete_scale(
+  aesthetics,
+  scale_name,
+  palette,
+  name = waiver(),
+  breaks = waiver(),
+  labels = waiver(),
+  limits = NULL,
+  expand = waiver(),
+  na.translate = TRUE,
+  na.value = NA,
+  drop = TRUE,
+  guide = "legend",
+  position = "left",
+  super = ScaleDiscrete
+)
+</code></pre>
+<section id="limits-and-breaks" class="level3">
+<h3 class="anchored" data-anchor-id="limits-and-breaks"><em>Limits and Breaks</em></h3>
+<p>When adjusting discrete <code>limits</code>, the limits correspond to the levels.</p>
+<pre><code>scale_x_discrete(limits = c("Freestyle", "Butterfly"))</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"Freestyle"</span>, <span class="st">"Butterfly"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 72 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>If you try to adjust a discrete axis using <code>scale_*_continuous()</code>, you will get the following error.</p>
+<p><code>Error: Discrete value supplied to continuous scale</code></p>
+<p>And <code>breaks</code> operate the same way so we can specify as vector here too.</p>
+<pre><code>breaks = c("Freestyle", "Butterfly")</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"Freestyle"</span>, <span class="st">"Butterfly"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Then select a subset by level:</p>
+<pre><code>scale_x_discrete(limits = c("Freestyle", "Butterfly"))</code></pre>
+<p>Alternatively, if you don’t want to reference a long function like <code>scale_x_discrete()</code>, there are shorthand functions for limits which you could just add as layers to the plot.</p>
+<ul>
+<li><code>xlim()</code>: a two-element vector with the start and end values</li>
+<li><code>ylim()</code>: a two-element vector with the start and end values</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">600</span>) <span class="sc">+</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="st">"Backstroke"</span> , <span class="st">"Freestyle"</span>, <span class="st">"Butterfly"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 57 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#scale_x_discrete(breaks = c("Freestyle", "Butterfly"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can also expand plot limits to ensure you include a value. For more, see <code>expand_limits()</code>.</p>
+</section>
+</section>
+<section id="other-scale-functions" class="level2">
+<h2 class="anchored" data-anchor-id="other-scale-functions"><strong>Other Scale Functions</strong></h2>
+<p>There are many other <code>scale_*_()</code> functions you could apply.</p>
+<pre><code>scale_x_sqrt(...)
+scale_y_sqrt(...)</code></pre>
+</section>
+<section id="reverse-a-continuous-scale" class="level2">
+<h2 class="anchored" data-anchor-id="reverse-a-continuous-scale"><strong>Reverse a Continuous Scale</strong></h2>
+<pre><code>scale_x_reverse()
+scale_y_reverse()</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reverse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="convert-to-log-scale" class="level2">
+<h2 class="anchored" data-anchor-id="convert-to-log-scale"><strong>Convert to Log Scale</strong></h2>
+<p>Whenever you perform operations, you should know what the returned values with be. The default logging function, <code>log()</code>, calculates the natural log. Use <code>log10()</code> or <code>log(base = 10)</code> to calculate base 10 logs.</p>
+<pre><code>scale_x_log10(...)
+scale_y_log10(...)</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"default"</span>,</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"A"</span>,</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_y_log10()"</span>,</span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"B"</span>,</span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"log10(Time)"</span></span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot1, plot2, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Although the data have been transformed, one problem is that that the labels are not fixed to match the transformation.</p>
+<p>We can set <code>breaks</code> and <code>labels</code> in <code>scale_y_log10()</code> as we have done earlier. This steps is failry complicated. Just as we fixed labels for percents with <code>scales::percent</code>, the <strong>{scales}</strong> library offers assistance here as well. We can use <code>scales::trans_breaks()</code> and pass some arguments.</p>
+<pre><code>   breaks = scales::breaks_log(n = 6, base = 10)
+   labels = labels = scales::label_log(digits = 2)</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>plot3 <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create breaks and labels corresponding to the breaks </span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>   <span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_log</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">base =</span> <span class="dv">10</span>),</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_y_log10() "</span>,</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"with with scales::breaks_log() "</span>,</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"C"</span>,</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"log10(Time)"</span></span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>plot4 <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span></span>
+<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create breaks and labels corresponding to the breaks </span></span>
+<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(</span>
+<span id="cb49-21"><a href="#cb49-21" aria-hidden="true" tabindex="-1"></a>   <span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">breaks_log</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">base =</span> <span class="dv">10</span>),</span>
+<span id="cb49-22"><a href="#cb49-22" aria-hidden="true" tabindex="-1"></a>   <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_log</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb49-23"><a href="#cb49-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb49-24"><a href="#cb49-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_y_log10()  "</span>,</span>
+<span id="cb49-25"><a href="#cb49-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"with breaks and exponentiated labels"</span>,</span>
+<span id="cb49-26"><a href="#cb49-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"D"</span>,</span>
+<span id="cb49-27"><a href="#cb49-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"log10(Time)"</span></span>
+<span id="cb49-28"><a href="#cb49-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">coord_flip</span>()</span>
+<span id="cb49-29"><a href="#cb49-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-30"><a href="#cb49-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-31"><a href="#cb49-31" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb49-32"><a href="#cb49-32" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot3, plot4, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>But they still might not look right. We can control our axis breaks by creating a sequence of values that we pass to <code>scale_x_log10(breaks = ?)</code>. Starting at 10 seconds, we square to obtain 9 values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> <span class="dv">2</span><span class="sc">^</span><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">9</span>, <span class="at">by =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]   10   20   40   80  160  320  640 1280 2560 5120</code></pre>
+</div>
+</div>
+<p>We can create a starting point by creating a new data frame and defining an object to hold the fastest time and then plug that into <code>seq()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>SWIM_with_min <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#filter(Distance == 200) %&gt;%</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Distance =</span> <span class="fu">factor</span>(Distance)) </span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>minTime <span class="ot">&lt;-</span> <span class="fu">min</span>(SWIM_with_min<span class="sc">$</span>Time)</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>maxTime <span class="ot">&lt;-</span> <span class="fu">max</span>(SWIM_with_min<span class="sc">$</span>Time)</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>(plot5 <span class="ot">&lt;-</span> SWIM_with_min <span class="sc">%&gt;%</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Distance)) <span class="sc">+</span></span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span></span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create breaks starting at 10 and then doubling</span></span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(</span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>   <span class="at">breaks =</span> minTime <span class="sc">*</span> <span class="dv">2</span><span class="sc">^</span><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">9</span>, <span class="at">by =</span> <span class="dv">1</span>),</span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a>   <span class="co">#labels = scales::log_breaks(10)# label_log(digits = 2)</span></span>
+<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"scale_y_log10() with breaks sequence"</span>,</span>
+<span id="cb52-19"><a href="#cb52-19" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"adjusted to fastest time of: "</span>, minTime, <span class="st">"s"</span>),</span>
+<span id="cb52-20"><a href="#cb52-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"E"</span>,</span>
+<span id="cb52-21"><a href="#cb52-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"log10(Time)"</span>,</span>
+<span id="cb52-22"><a href="#cb52-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">""</span></span>
+<span id="cb52-23"><a href="#cb52-23" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb52-24"><a href="#cb52-24" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="coordinates_axes_and_position_scales_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="position-scales-for-datetime-data" class="level2">
+<h2 class="anchored" data-anchor-id="position-scales-for-datetime-data"><strong>Position scales for date/time data</strong></h2>
+<p>There area also scales for dealing with date and times. These can be used also in conjunction with <code>breaks_pretty()</code>.</p>
+<pre><code>scale_*_date()
+scale_*_time()</code></pre>
+</section>
+</section>
+<section id="summary" class="level1">
+<h1><strong>Summary</strong></h1>
+<p>We have seen that a lot of customization can be applied to our visualizations of data and have shown just a little bit of what can be done. Many more functions and parameters can be used to customize to greater extents.</p>
+</section>
+<section id="session-info" class="level1">
+<h1><strong>Session Info</strong></h1>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.4.1 (2024-06-14 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 22631)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/Los_Angeles
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] magrittr_2.0.3    htmltools_0.5.8.1 DT_0.33           vroom_1.6.5      
+ [5] lubridate_1.9.3   forcats_1.0.0     stringr_1.5.1     dplyr_1.1.4      
+ [9] purrr_1.0.2       readr_2.1.5       tidyr_1.3.1       tibble_3.2.1     
+[13] ggplot2_3.5.1     tidyverse_2.0.0  
+
+loaded via a namespace (and not attached):
+ [1] utf8_1.2.4        generics_0.1.3    stringi_1.8.4     hms_1.1.3        
+ [5] digest_0.6.36     evaluate_0.24.0   grid_4.4.1        timechange_0.3.0 
+ [9] fastmap_1.2.0     R.oo_1.26.0       rprojroot_2.0.4   jsonlite_1.8.8   
+[13] R.utils_2.12.3    gridExtra_2.3     fansi_1.0.6       scales_1.3.0     
+[17] cli_3.6.3         rlang_1.1.4       crayon_1.5.3      R.methodsS3_1.8.2
+[21] bit64_4.0.5       munsell_0.5.1     withr_3.0.1       yaml_2.3.10      
+[25] tools_4.4.1       parallel_4.4.1    tzdb_0.4.0        colorspace_2.1-0 
+[29] here_1.0.1        curl_5.2.1        vctrs_0.6.5       R6_2.5.1         
+[33] lifecycle_1.0.4   htmlwidgets_1.6.4 bit_4.0.5         pkgconfig_2.0.3  
+[37] pillar_1.9.0      gtable_0.3.5      glue_1.7.0        xfun_0.45        
+[41] tidyselect_1.2.1  rstudioapi_0.16.0 knitr_1.47        farver_2.1.2     
+[45] labeling_0.4.3    rmarkdown_2.27    compiler_4.4.1   </code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

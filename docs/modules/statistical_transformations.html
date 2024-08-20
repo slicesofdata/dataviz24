@@ -1,0 +1,2398 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gabriel I. Cook">
+<meta name="dcterms.date" content="2024-08-19">
+
+<title>Statistical transformations</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/78ddb093ea.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text"><strong>Home</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../schedule/index.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><strong>Schedule</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../modules/index.html" rel="" target="">
+ <span class="menu-text"><strong>Modules</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../project/index.html" rel="" target="">
+ <span class="menu-text"><strong>Project</strong></span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Slides</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../slides/01_intro_rstudio_rmarkdown_slides.html" rel="" target="">
+ <span class="dropdown-text">R, RStudio, &amp; R Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/02_git_slides.html" rel="" target="">
+ <span class="dropdown-text">Git and GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/03_functions_slides.html" rel="" target="">
+ <span class="dropdown-text">Functions, Parameters, and Arguments</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hw" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>HW</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
+        <li class="dropdown-header">HW 01</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Exercises</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li class="dropdown-header">pending</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Data</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/slicesofdata/dataviz24/raw/main/data/cms-top-all-time-2023-swim.zip" rel="" target="">
+ <span class="dropdown-text">cms-top-all-time-2023-swim.xlsx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/rfordatascience/tidytuesday" rel="" target="">
+ <span class="dropdown-text">Fun Tidy Tuesday Data Sets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
+ <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example-files--other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Example Files &amp; Other</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-example-files--other">    
+        <li>
+    <a class="dropdown-item" href="../resources/tools.html" rel="" target="">
+ <span class="dropdown-text"><strong>Other Tools/Resources</strong></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-figure-script.R" rel="" target="">
+ <span class="dropdown-text">example-figure-script.R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-rmarkdown-file-with-fig-script.Rmd" rel="" target="">
+ <span class="dropdown-text">example-rmarkdown-file-with-fig-script.Rmd</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cheatsheets" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Cheatsheets</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cheatsheets">    
+        <li>
+    <a class="dropdown-item" href="../cheatsheets_and_tips/symbols.html" rel="" target="">
+ <span class="dropdown-text">Symbols</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/rmarkdown-2.0.pdf" rel="" target="">
+ <span class="dropdown-text">RMarkdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" rel="" target="">
+ <span class="dropdown-text">Data Wrangling with {dplyr} and {tidyr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/quarto.html" rel="" target="">
+ <span class="dropdown-text">Quarto (Publish and Share)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/strings.html" rel="" target="">
+ <span class="dropdown-text">String Manipulation with {stringr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/data-import.html" rel="" target="">
+ <span class="dropdown-text">Reading and Writing Data with {readr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/Data_Science_With_R_Workflow.pdf" rel="" target="">
+ <span class="dropdown-text">Data Science with RWorkflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/" rel="" target="">
+ <span class="dropdown-text">More Cheatsheets From RStudio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://images.datacamp.com/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf" rel="" target="">
+ <span class="dropdown-text">Quarto Cheat Sheet (what Quarto Files Look Like)</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/slicesofdata" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gabrielcook.xyz" rel="" target="">
+ <span class="menu-text">Me</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/statistical_transformations.html">Statistical transformations</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules_setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation, Setup, &amp; R Basics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules_setup/Installation &amp; Setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation &amp; Setup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/Installation &amp; Setup/installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing R &amp; RStudio</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules_setup/R Basics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Basics and Refreshers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to RStudio, R Markdown, &amp; Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions, Arguments, and R scripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/vectors_and_data_frame_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vectors and data frame basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/reading_data_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading data files</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Management</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/project_management/installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Management 01</em>: Installing Git and Setting Up Git and GitHub for R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/project_management/using_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Management 02</em>: R Projects, Git, and GitHub</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/graphical_perception.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphical perception</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/data_frame_manipulation_and_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data frame manipulation and wrangling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/data_subsets_and_summaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data subsets and summaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/considerations_in_data_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Considerations in data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/designing_perceptually_efficient_visualizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Designing perceptually-efficient visualizations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">{<code>ggplot2</code>}: The Grammar of Graphics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_associations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing associations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/spatial_position_and_adjustment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial position and adjustment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/color_scales_and_palettes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Color scales and palettes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/coordinates_axes_and_position_scales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coordinates, axes, and position scales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/statistical_transformations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Statistical transformations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_more_distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing more distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_trends.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing trends</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/legends_and_arrangement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Legends and arrangement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/multi_panel_plots_faceting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Multi-panel plots: Faceting</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/attentional_control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Attentional control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Figure design &amp; themes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../project/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Team membership and roles</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/02_project_midterm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Midterm presentation</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/03_project_final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Final Presentation</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/04_project_report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Final Report</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/05_project_tasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Tasks</em></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
+  <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
+  <ul class="collapse">
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
+  <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
+  <li><a href="#load-libraries" id="toc-load-libraries" class="nav-link" data-scroll-target="#load-libraries"><strong>Load libraries</strong></a></li>
+  </ul></li>
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><strong>Loading Data</strong></a></li>
+  <li><a href="#flavors-of-data" id="toc-flavors-of-data" class="nav-link" data-scroll-target="#flavors-of-data"><strong>Flavors of Data</strong></a></li>
+  <li><a href="#data-organization-and-variability" id="toc-data-organization-and-variability" class="nav-link" data-scroll-target="#data-organization-and-variability"><strong>Data Organization and Variability</strong></a></li>
+  <li><a href="#aggregating-data" id="toc-aggregating-data" class="nav-link" data-scroll-target="#aggregating-data"><strong>Aggregating Data</strong></a></li>
+  <li><a href="#aggregating-data-using-group_by" id="toc-aggregating-data-using-group_by" class="nav-link" data-scroll-target="#aggregating-data-using-group_by"><strong>Aggregating Data using <code>group_by()</code></strong></a>
+  <ul class="collapse">
+  <li><a href="#data-aggregation-using-group_by" id="toc-data-aggregation-using-group_by" class="nav-link" data-scroll-target="#data-aggregation-using-group_by"><em>Data aggregation using <code>group_by()</code></em></a></li>
+  </ul></li>
+  <li><a href="#comparing-mutate-with-summarize" id="toc-comparing-mutate-with-summarize" class="nav-link" data-scroll-target="#comparing-mutate-with-summarize"><strong>Comparing mutate() with summarize()</strong></a>
+  <ul class="collapse">
+  <li><a href="#grouping-structure-of-group_by-and-mutate" id="toc-grouping-structure-of-group_by-and-mutate" class="nav-link" data-scroll-target="#grouping-structure-of-group_by-and-mutate"><em>Grouping structure of <code>group_by()</code> and <code>mutate()</code></em></a></li>
+  <li><a href="#grouping-structure-of-group_by-and-summarize" id="toc-grouping-structure-of-group_by-and-summarize" class="nav-link" data-scroll-target="#grouping-structure-of-group_by-and-summarize"><em>Grouping structure of <code>group_by()</code> and <code>summarize()</code></em></a>
+  <ul class="collapse">
+  <li><a href="#group_by-and-summarize-with-.groups" id="toc-group_by-and-summarize-with-.groups" class="nav-link" data-scroll-target="#group_by-and-summarize-with-.groups"><em><code>group_by()</code> and <code>summarize()</code> with <code>.groups</code></em></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#more-on-grouping-structure" id="toc-more-on-grouping-structure" class="nav-link" data-scroll-target="#more-on-grouping-structure"><strong>More on Grouping Structure</strong></a>
+  <ul class="collapse">
+  <li><a href="#new-variable-columns" id="toc-new-variable-columns" class="nav-link" data-scroll-target="#new-variable-columns"><strong>New Variable Columns</strong></a>
+  <ul class="collapse">
+  <li><a href="#group_by-using-a-function" id="toc-group_by-using-a-function" class="nav-link" data-scroll-target="#group_by-using-a-function"><strong><code>group_by()</code> using a function</strong></a></li>
+  </ul></li>
+  <li><a href="#adddrop-grouping-variable-columns" id="toc-adddrop-grouping-variable-columns" class="nav-link" data-scroll-target="#adddrop-grouping-variable-columns"><strong>Add/drop Grouping Variable Columns</strong></a>
+  <ul class="collapse">
+  <li><a href="#retain-grouping" id="toc-retain-grouping" class="nav-link" data-scroll-target="#retain-grouping"><strong>Retain Grouping</strong></a></li>
+  </ul></li>
+  <li><a href="#why-care-about-grouping-structure" id="toc-why-care-about-grouping-structure" class="nav-link" data-scroll-target="#why-care-about-grouping-structure"><strong>Why Care About Grouping Structure</strong></a></li>
+  </ul></li>
+  <li><a href="#ungroup" id="toc-ungroup" class="nav-link" data-scroll-target="#ungroup"><strong>ungroup()</strong></a>
+  <ul class="collapse">
+  <li><a href="#variable-loss-with-summarize" id="toc-variable-loss-with-summarize" class="nav-link" data-scroll-target="#variable-loss-with-summarize"><strong>Variable loss with <code>summarize()</code></strong></a></li>
+  <li><a href="#an-alternative-to-summarize-reframe" id="toc-an-alternative-to-summarize-reframe" class="nav-link" data-scroll-target="#an-alternative-to-summarize-reframe"><strong>An alternative to <code>summarize()</code>: <code>reframe()</code></strong></a></li>
+  <li><a href="#retaining-distinct-data-after-mutate-using-distinct" id="toc-retaining-distinct-data-after-mutate-using-distinct" class="nav-link" data-scroll-target="#retaining-distinct-data-after-mutate-using-distinct"><strong>Retaining distinct data after <code>mutate()</code> using distinct()`</strong></a></li>
+  </ul></li>
+  <li><a href="#visualizing-data" id="toc-visualizing-data" class="nav-link" data-scroll-target="#visualizing-data"><strong>Visualizing Data</strong></a></li>
+  <li><a href="#adding-data-summaries-to-plots" id="toc-adding-data-summaries-to-plots" class="nav-link" data-scroll-target="#adding-data-summaries-to-plots"><strong>Adding Data Summaries to Plots</strong></a></li>
+  <li><a href="#a-single-data-frame-using-mutate" id="toc-a-single-data-frame-using-mutate" class="nav-link" data-scroll-target="#a-single-data-frame-using-mutate"><strong>A Single Data Frame using <code>mutate()</code></strong></a>
+  <ul class="collapse">
+  <li><a href="#the-jitter-problem-with-full-data-frame" id="toc-the-jitter-problem-with-full-data-frame" class="nav-link" data-scroll-target="#the-jitter-problem-with-full-data-frame"><strong>The Jitter problem with full data frame</strong></a></li>
+  <li><a href="#examples-of-color-versions" id="toc-examples-of-color-versions" class="nav-link" data-scroll-target="#examples-of-color-versions"><strong>Examples of Color Versions</strong></a></li>
+  <li><a href="#a-note-on-size" id="toc-a-note-on-size" class="nav-link" data-scroll-target="#a-note-on-size"><strong>A note on <code>size</code></strong></a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
+  <li><a href="#session-info" id="toc-session-info" class="nav-link" data-scroll-target="#session-info"><strong>Session Info</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistical transformations</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gabriel I. Cook </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 19, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Under construction.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.</p>
+</div>
+</div>
+<section id="overview" class="level1">
+<h1><strong>Overview</strong></h1>
+<p>This module describes some differences in data summaries and operations of functions in <strong>{dplyr}</strong>. The way data are summarized will influence the way the data are communicated visually. Depending on the complexity of a data visualization, you may need to create multiple data frames as a single data frame may contain either too much or too little information. We will also discuss differences in grouping structure for <code>dplyr::mutate()</code> and <code>dplyr::summarize()</code> that will affect both variable computation and plot creation.</p>
+</section>
+<section id="to-do" class="level1">
+<h1><strong>To Do</strong></h1>
+<section id="readings" class="level2">
+<h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
+<p>Reading should take place in two parts:</p>
+<ul>
+<li><em>Prior to class</em>, the goal should be to familiarize yourself and bring questions to class. The readings from <a href="https://clauswilke.com/dataviz">TFDV</a> are conceptual and should facilitate readings from <a href="https://ggplot2-book.org/">EGDA</a> for code implementation.</li>
+<li><em>After class</em>, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.</li>
+</ul>
+<p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of <strong>{ggplot2}</strong>. I will assume that you attend class with some level of basic understanding of concepts.</p>
+<p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing <strong>{ggplot2}</strong> code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week’s readings.</p>
+<p><em>After Class</em>: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from <strong>Wickham, Navarro, &amp; Pedersen (under revision)</strong>. <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>.</p>
+<ul>
+<li><a href="https://ggplot2-book.org/statistical-summaries#sec-weighting">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Weighting data</a></li>
+<li><a href="https://ggplot2-book.org/layers#sec-stat">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Stats</a></li>
+</ul>
+</section>
+<section id="external-functions" class="level2">
+<h2 class="anchored" data-anchor-id="external-functions"><strong>External Functions</strong></h2>
+<p>Provided in class:</p>
+<p><code>view_html()</code>: for viewing data frames in html format, from <code>/src/functions_view_html.R</code></p>
+<p>You can use this in your own work space but I am having a challenge rendering this of the website, so I’ll default to <code>print()</code> on occasion.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.utils<span class="sc">::</span><span class="fu">sourceDirectory</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src"</span>, <span class="st">"functions"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="libraries" class="level2">
+<h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
+<ul>
+<li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
+<li><strong>{magrittr}</strong> 2.0.3: for code clarity and piping data frame objects</li>
+<li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
+</ul>
+</section>
+<section id="load-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="load-libraries"><strong>Load libraries</strong></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="loading-data" class="level1">
+<h1><strong>Loading Data</strong></h1>
+<p>For this exercise, we will use some data from a 2023 CMS swim meet located at: “https://github.com/slicesofdata/dataviz23/raw/main/data/swim/cleaned-2023-CMS-Invite.csv”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://github.com/slicesofdata/dataviz23/raw/main/data/swim/cleaned-2023-CMS-Invite.csv"</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">show_col_types =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="flavors-of-data" class="level1">
+<h1><strong>Flavors of Data</strong></h1>
+<p>Data come in many flavors. Data are collected on virtually everything you could think of. If there is a record of something, there is data. The stars, weather, television viewing, social media use, ocean currents, brand preference, parenting, symphonies, learning to code, graphical perceptual. When there is no record of something, you could collect data on it. For example, you could start logging the quantity of quality of advice your grandparents offer you. You may likely discover that advice changes based on their age. You may also consider logging the number to times you see your grandparents or your parents/guardians annually in order to determine approximately how many more times you will see them before they die, if they haven’t yet. In fact, some folks have already worked on this problem using actuarial tables. <a href="https://seeyourfolks.com/">Seeyourfolks</a> will provide a model estimate for you. See for yourself. Sure, it may be in error but all models have error. Nevertheless, prediction may change your life.</p>
+</section>
+<section id="data-organization-and-variability" class="level1">
+<h1><strong>Data Organization and Variability</strong></h1>
+<p>In some industries, data may be organized at a high level. For example, someone examining population growth may have data at a census level or an annual level. Someone who studies education may had data organized at a state level or county level. In other industries, data may be organized at a fine-grained level. For example, someone studying health outcomes may have data about individuals daily if daily health checks are part of a data-collection protocol. Someone who studies education may design a study to collect data, or obtain data, on daily-performance of students. Even further, their data may contain repeated measurements of specific topics (e.g., 10 different addition problems rather than one). Similarly, someone studying some aspect of human cognition may have high-level data like overall accuracy and total time needed to complete the task or they might have data at a low level containing trial-level accuracy and reaction timed data for each item.</p>
+<p>Depending the organization of data and its level of granularity, one may be limited to a set of statistical models to examine. Because variability in data plays a significant role in testing models, the absence of variability will prevent modeling using statistical techniques that require that variability. For example, if your data set contains only one value for a country, you are likely limited to models that allow for comparisons or associations across countries or across time. For example, you could examine data to understand how population growth for a single country changes over time or you could examine population growth in one country compares to one or more than one country. Using the educational example, one could examine changes in a state over time or one could examine states to one another. By contrast, if you have daily data per student for a variety of topics, you have variability in data to examine at a variety of levels. You could examine how an individual’s performance changes across time in general or specifically for a specific topic. You can also examine how the individual performs on one type of task relative to another. You could also examine changes over time in performance on one task compared with changes over time for other tasks. Stepping up the hierarchy, you could compare performance of individuals across teachers, teacher’s sections, schools, school districts, counties, states, etc. because there is variability in the data to try to understand.</p>
+<p>Although the data structure is typically conceived from top to bottom, which lower levels <em>nested</em> under higher levels, I will present the opposite order to prevent you reading from the bottom up.</p>
+<pre><code>Daily Performance
+- on an item type (e.g., 4 + 17)
+-- on a task (e.g., addition)
+--- for a person (e.g, Bill)
+---- in a teacher's class (e.g., Mrs. Collins, Section 1)
+----- in a school (e.g., Robert D. Wilson)
+------ in a district (e.g., Western Wayne)
+------- in a country (e.g., Wayne)
+-------- in a state (e.g., Pennsylvania)
+--------- in a country (e.g., United States of America)</code></pre>
+<p>The structure at all these levels means that you can perform more complex models like linear-mixed models/hierarchical linear modeling. The variability in the data at all these levels allows you to account for the variability in ways you cannot if you only have top-level data. When you have the variability, you can examine for effect like random effects or fixed effects, which are not applicable to simpler linear models. To the extent that teachers in District A teach differently or motivate students differently from those teachers in District B, you could examine the data for these differences and account for them statistically (hold them constant as if teachers were the same) at higher levels of the data. In fact, that repeated-measures ANOVA model you are taught in your statistics class is not be appropriate for data with repeated measurements under different conditions because two individuals who with the same average performance may differ in their variability. For example, two students answer the subtraction problem (14 - 7) on average in 10.0 seconds across 5 instances. Mildred is consistent and answers it between 8 and 12 seconds. Tilford, however, answers with a range of 5 to 20 seconds. Although performance time is equated, the variability represents something very different in ability.</p>
+</section>
+<section id="aggregating-data" class="level1">
+<h1><strong>Aggregating Data</strong></h1>
+<p>Data aggregation refers to how data are organized or compiled. When you have multiple levels of data as presented in the example above, data aggregation refers to the process of taking the raw data and gathering it in some way to summarize for statistical analysis or data visualization. For example, you could summarize data by individual, class, school, district, county, and state. Alternatively, you could summarize data by district, county, and state and ignore individuals, class, and school. The two types of data aggregation will result in different numbers of cases (rows) in a data frame most obviously but also in the actual numbers.</p>
+<p>The variability in individuals as well as in subgroups can be useful to answering your data question. Models like linear mixed models are beyond the scope of this course, however. Whether you look into those types of model or you don’t, you should realize that you are making a big assumption in your data when you aggregate at any level. That assumption is that the variability in the data that are aggregated is the same across all cases in the data. Specifically, by aggregating Tilford’s and Mildred’s individual data in order to obtain their average performance, you have lost the variability at the individual level and essentially arbitrarily set that variability to 0. At higher level, aggregating the data by <code>School</code> also means that you lose this information and make the assumption that there is no variability among individuals in each school (e.g., all individuals have the same value). Such assumptions are particularly relevant to repeated-measures models (e.g., repeated-measures ANOVA does not use this information) and are potentially not assumptions you want to make about your data.</p>
+<p>In the end, how you interpret a model or a data visualization will be dependent on that aggregation of the data, modeled or displayed. The take home message about aggregating data, then, is that you trade off a loss of information for some summary. Only you can weigh the costs and benefits of this trade off. That said, sometimes you have no choice because your client, your employer, or your data resource has only data an an aggregate level. In those situations, you cannot do much except acknowledge the information loss in the ability of the model to predict an outcome. If, however, that aggregated level can still be summarized or aggregated in some way, you are back to reflecting on issues of aggregation.</p>
+</section>
+<section id="aggregating-data-using-group_by" class="level1">
+<h1><strong>Aggregating Data using <code>group_by()</code></strong></h1>
+<p><strong>{dplyr}</strong> has one main verb function for grouping data. <code>group_by()</code> orders the groups in an ascending order so that functions performed on the subgroups will return a data frame that is ordered based on the grouping variable(s). Other functions like <code>group_map()</code>, <code>group_nest()</code>, <code>group_split()</code>, and <code>group_trim()</code> exist but they are experimental for <strong>{dplyr}</strong> <code>r</code>packageVersion(“dplyr”)`. Although they allow for fun tasks like passing data subsets to statistical models, their experimental life cycle suggests you might not get to comfortable with them.</p>
+<section id="data-aggregation-using-group_by" class="level2">
+<h2 class="anchored" data-anchor-id="data-aggregation-using-group_by"><em>Data aggregation using <code>group_by()</code></em></h2>
+<p>Let’s go through a simple example of data aggregation using <code>group_by()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Student =</span> <span class="fu">c</span>(<span class="st">"Jim"</span>, <span class="st">"Sally"</span>, <span class="st">"June"</span>, <span class="st">"Mildred"</span>, <span class="st">"Tilford"</span>, <span class="st">"Beavis"</span>, <span class="st">"Herman"</span>, <span class="st">"Peppa"</span>, <span class="st">"Kay"</span>, <span class="st">"Jake"</span>, <span class="st">"Name Missing"</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score  =</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">85</span>, <span class="dv">79</span>, <span class="dv">80</span>, <span class="dv">81</span>, <span class="dv">91</span>, <span class="dv">89</span>, <span class="dv">60</span>, <span class="dv">65</span>, <span class="dv">67</span>, <span class="dv">65</span>), </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">School =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"E"</span>), </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">District =</span> <span class="fu">c</span>(<span class="st">"West"</span>, <span class="st">"West"</span>, <span class="st">"West"</span>, <span class="st">"West"</span>, <span class="st">"East"</span>, <span class="st">"East"</span>, <span class="st">"East"</span>, <span class="st">"North"</span>, <span class="st">"North"</span> , <span class="st">"North"</span>, <span class="st">"North"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can see that the performance for all students is on average, for example, if you didn’t know where they went to school. We would take only the mean.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Score =</span> <span class="fu">mean</span>(Score))     <span class="co"># calculate average</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Score
+1 76.54545</code></pre>
+</div>
+</div>
+<p>Let’s say we try to determine average performance for “all students” if we had the data aggregated as the school level and not the individual level.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Score =</span> <span class="fu">mean</span>(Score)) <span class="sc">%&gt;%</span> <span class="co"># get the school level aggregated data</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Score =</span> <span class="fu">mean</span>(Score))     <span class="co"># then calculate average across all schools</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  Score
+  &lt;dbl&gt;
+1  75.5</code></pre>
+</div>
+</div>
+<p>Let’s say we try to determine average performance for “all students” if we had the data aggregated as the district level and not the individual level.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(District) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Score =</span> <span class="fu">mean</span>(Score)) <span class="sc">%&gt;%</span> <span class="co"># get the district level aggregated data</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Score =</span> <span class="fu">mean</span>(Score))     <span class="co"># then calculate average across all districts</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  Score
+  &lt;dbl&gt;
+1  77.4</code></pre>
+</div>
+</div>
+<p>So what’s the average performance for students? Well, that interpretation differs based on how values are treated. At the highest level, all students’ <code>Scores</code> are weighed equally. Each student contributes to the data in the same way. When aggregated by <code>School</code>, each school contributes to the calculation equally, even if the number of bodies per school differs. And finally, when data are aggregated at the <code>District</code> level, all districts are treated equally in the calculation independent on the number of schools in a district. Only with weighting means would you end up with the same average performance.</p>
+<p>Measures of variability in the data, however, reveal something else. Schools differ in variability and schools within districts vary as well. Depending on the level of aggregation, you may never notice interesting patterns in data that lead to questions to investigate and later policies to change. For example, addressing a school that is left behind others or a district that is left behind others. Aggregation can also lead to inefficient allocations of resources. If one school in a district needs help rather than all schools in the district needing help, the cost may differ substantially.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>std_error <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="fu">sd</span>(<span class="fu">na.omit</span>(x)) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(<span class="fu">na.omit</span>(x))) }</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School, District) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Var =</span> <span class="fu">var</span>(Score),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD  =</span> <span class="fu">sd</span>(Score),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">SEM =</span> <span class="fu">std_error</span>(Score),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">min =</span> <span class="fu">min</span>(Score),</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(Score)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">range =</span> max <span class="sc">-</span> min)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'School'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 8
+# Groups:   School [5]
+  School District   Var    SD   SEM   min   max range
+  &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 A      West      12.5 3.54   2.5     80    85     5
+2 B      West       0.5 0.707  0.5     79    80     1
+3 C      East      28   5.29   3.06    81    91    10
+4 D      North     12.5 3.54   2.5     60    65     5
+5 E      North      2   1.41   1       65    67     2</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="comparing-mutate-with-summarize" class="level1">
+<h1><strong>Comparing mutate() with summarize()</strong></h1>
+<p><strong>{dplyr}</strong> has two main verb functions for creating variables. They operate differently and their returned tibble also differ. If you have not been paying attention to the returned tibble post calculation, you might have overlooked the differences.</p>
+<section id="grouping-structure-of-group_by-and-mutate" class="level2">
+<h2 class="anchored" data-anchor-id="grouping-structure-of-group_by-and-mutate"><em>Grouping structure of <code>group_by()</code> and <code>mutate()</code></em></h2>
+<p>Let’s <code>mutate()</code> the mean for <code>Score</code> after sub-setting with <code>group_by()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School, District) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score =</span> <span class="fu">mean</span>(<span class="fu">na.omit</span>(Score)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 4
+# Groups:   School, District [5]
+   Student      Score School District
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   
+ 1 Jim           82.5 A      West    
+ 2 Sally         82.5 A      West    
+ 3 June          79.5 B      West    
+ 4 Mildred       79.5 B      West    
+ 5 Tilford       87   C      East    
+ 6 Beavis        87   C      East    
+ 7 Herman        87   C      East    
+ 8 Peppa         62.5 D      North   
+ 9 Kay           62.5 D      North   
+10 Jake          66   E      North   
+11 Name Missing  66   E      North   </code></pre>
+</div>
+</div>
+<p>There are two things to watch when using this <code>mutate()</code> following <code>group_by()</code>.</p>
+<p><strong>1.</strong> A <code>Score</code> will be assigned to each row/case or <code>Student</code> in the data frame.</p>
+<p>When schools and districts are grouped, each student in the same school will have the same assigned average value. All rows are maintained, none dropped.</p>
+<p><strong>2.</strong> The returned tibble takes on a new structure.</p>
+<p>Looking at the feedback in the console, you see the following report preceding the data.</p>
+<pre><code>A tibble: 11 × 3
+# Groups:   School, District [5]</code></pre>
+<p>You also see this structure using <code>glimpse()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School, District) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Score =</span> <span class="fu">mean</span>(<span class="fu">na.omit</span>(Score))) <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 11
+Columns: 4
+Groups: School, District [5]
+$ Student  &lt;chr&gt; "Jim", "Sally", "June", "Mildred", "Tilford", "Beavis", "Herm…
+$ Score    &lt;dbl&gt; 82.5, 82.5, 79.5, 79.5, 87.0, 87.0, 87.0, 62.5, 62.5, 66.0, 6…
+$ School   &lt;chr&gt; "A", "A", "B", "B", "C", "C", "C", "D", "D", "E", "E"
+$ District &lt;chr&gt; "West", "West", "West", "West", "East", "East", "East", "Nort…</code></pre>
+</div>
+</div>
+<pre><code>Rows: 11
+Columns: 3
+Groups: School, District [5]</code></pre>
+<p>What does the <code>[5]</code> mean? Well, before we answer this, let’s use <code>summarize()</code>.</p>
+</section>
+<section id="grouping-structure-of-group_by-and-summarize" class="level2">
+<h2 class="anchored" data-anchor-id="grouping-structure-of-group_by-and-summarize"><em>Grouping structure of <code>group_by()</code> and <code>summarize()</code></em></h2>
+<p>Let’s <code>summarize()</code> the mean for <code>Score</code> after sub-setting with <code>group_by()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School, District) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Score =</span> <span class="fu">mean</span>(Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'School'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+# Groups:   School [5]
+  School District Score
+  &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;
+1 A      West      82.5
+2 B      West      79.5
+3 C      East      87  
+4 D      North     62.5
+5 E      North     66  </code></pre>
+</div>
+</div>
+<p>There are two things to watch when using this <code>summarize()</code> following <code>group_by()</code>.</p>
+<p><strong>1.</strong> A <code>Score</code> average is assigned to each row/case or <code>School</code> in this aggregated data frame.</p>
+<p>When schools and districts are grouped, each school will have its own average value. Rows from the data frame are dropped as are columns that are not passed to <code>group_by()</code>. In this case, <code>School</code>, <code>District</code>, and the new variable, <code>Score</code> are returned.</p>
+<p><strong>2.</strong> The returned tibble takes on a new structure.</p>
+<p>The feedback in the console is a little more detailed here.</p>
+<pre><code>`summarise()` has grouped output by 'School'. You can override using the `.groups` argument.
+# A tibble: 5 × 3
+# Groups:   School [5]</code></pre>
+<p>You see reference to overriding the grouping using <code>.groups</code>. According to the <a href="https://dplyr.tidyverse.org/articles/grouping.html">tidyverse documentation for grouping</a>, this parameter <em>“controls the grouping structure of the output. The historical behaviour of removing the right hand side grouping variable corresponds to <code>.groups = "drop_last"</code> without a message or <code>.groups = NULL</code> with a message (the default)”</em>.</p>
+<p>You have most likely paid little attention to this message. By default <code>summarize()</code> keeps the first grouping variable passed to <code>group_by()</code> in the returned tibble. This is why you see <code>School</code> referenced and not <code>District</code> or both variables. So, do you want your data frame to contain groups or no groups? Stated differently, do you just want that data summarized by your grouping variables and have a simple nxm data frame or do you want something more complex?</p>
+<p>To see the structure better, let’s first look a the structure of <code>DATA</code> and then more closely at the summarized version.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DATA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   11 obs. of  4 variables:
+ $ Student : chr  "Jim" "Sally" "June" "Mildred" ...
+ $ Score   : num  80 85 79 80 81 91 89 60 65 67 ...
+ $ School  : chr  "A" "A" "B" "B" ...
+ $ District: chr  "West" "West" "West" "West" ...</code></pre>
+</div>
+</div>
+<p>Let’s assign the summarized data frame to an object for inspection.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>DSUM <span class="ot">&lt;-</span> DATA <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School, District) <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Score =</span> <span class="fu">mean</span>(Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'School'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+</div>
+<p>For <code>DSUM</code>, the structure is different. In particular, you see reference to <code>(S3: grouped_df/tbl_df/tbl/data.frame)</code>. This tells you that the data frame is not a simple nxm but contains groups. You could think of this as 3 nxm data frames organized together. For more details, see the <a href="https://dplyr.tidyverse.org/reference/grouped_df.html">dplyr</a> documentation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(DSUM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>gropd_df [5 × 3] (S3: grouped_df/tbl_df/tbl/data.frame)
+ $ School  : chr [1:5] "A" "B" "C" "D" ...
+ $ District: chr [1:5] "West" "West" "East" "North" ...
+ $ Score   : num [1:5] 82.5 79.5 87 62.5 66
+ - attr(*, "groups")= tibble [5 × 2] (S3: tbl_df/tbl/data.frame)
+  ..$ School: chr [1:5] "A" "B" "C" "D" ...
+  ..$ .rows : list&lt;int&gt; [1:5] 
+  .. ..$ : int 1
+  .. ..$ : int 2
+  .. ..$ : int 3
+  .. ..$ : int 4
+  .. ..$ : int 5
+  .. ..@ ptype: int(0) 
+  ..- attr(*, ".drop")= logi TRUE</code></pre>
+</div>
+</div>
+<section id="group_by-and-summarize-with-.groups" class="level3">
+<h3 class="anchored" data-anchor-id="group_by-and-summarize-with-.groups"><em><code>group_by()</code> and <code>summarize()</code> with <code>.groups</code></em></h3>
+<p>When you group data using <code>group_by()</code> and then <code>summarize()</code>, the summary variables (e.g., mean) will result in a single row for each level of a single grouping variable. If there are more than one grouping variable, the additional grouping variable will be introduced to the data frame as a second column. The total number of rows in the data frame will be equal to the <em>number of levels of group 1</em> x <em>number of levels of group 2</em> if an only if each levels of group 1 has a corresponding level for group 2,</p>
+<p>for example:</p>
+<pre><code>sex   age    mean
+men   young  x
+men   old    x
+women young  x
+women old    x</code></pre>
+<p>If there is no pairing of levels in the data (e.g., no men who are old), that row will be omitted from the returned data frame.</p>
+<p>for example:</p>
+<pre><code>sex   age    mean
+men   young  x
+women young  x
+women old    x</code></pre>
+<p>rather than:</p>
+<pre><code>sex   age    mean
+men   young  x
+men   old    NA
+women young  x
+women old    x</code></pre>
+<p>You really need to query <code>?dplyr::summarize</code> to understand <code>.groups</code>, which controls the grouping of the returned data frame. This is also experimental to <code>summarize()</code>, so it might not be available in the future.</p>
+<p>There are four argument options:</p>
+<ul>
+<li><code>"drop_last"</code>: dropping the last level of grouping. This was the only supported option before version 1.0.0.</li>
+<li><code>"drop"</code>: All levels of grouping are dropped.</li>
+<li><code>"keep"</code>: Same grouping structure as .data.</li>
+<li><code>"rowwise"</code>: Each row is its own group.</li>
+</ul>
+<section id="groups-drop_last" class="level4">
+<h4 class="anchored" data-anchor-id="groups-drop_last"><code>.groups = "drop_last"</code>:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, Distance) <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time),</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop_last"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 3
+# Groups:   Event [6]
+   Event        Distance   Time
+   &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Backstroke        100   59.8
+ 2 Backstroke        200  124. 
+ 3 Breaststroke      100   61.6
+ 4 Breaststroke      200  139. 
+ 5 Butterfly         100   55.3
+ 6 Butterfly         200  125. 
+ 7 Freestyle          50   23.6
+ 8 Freestyle         100   51.9
+ 9 Freestyle         200  107. 
+10 Freestyle         500  306. 
+11 Freestyle        1650 1143. 
+12 IM                200  126. 
+13 IM                400  269. 
+14 Medley            200  104. </code></pre>
+</div>
+</div>
+<p>You will see that the grouping for <code>Distance</code> is not in the grouping structure because it was the last grouping.</p>
+<pre><code># A tibble: 14 × 3
+# Groups:   Event [6]
+   Event        Distance   Time</code></pre>
+</section>
+<section id="groups-drop" class="level4">
+<h4 class="anchored" data-anchor-id="groups-drop"><code>.groups = "drop"</code>:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, Distance) <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time),</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 3
+   Event        Distance   Time
+   &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Backstroke        100   59.8
+ 2 Backstroke        200  124. 
+ 3 Breaststroke      100   61.6
+ 4 Breaststroke      200  139. 
+ 5 Butterfly         100   55.3
+ 6 Butterfly         200  125. 
+ 7 Freestyle          50   23.6
+ 8 Freestyle         100   51.9
+ 9 Freestyle         200  107. 
+10 Freestyle         500  306. 
+11 Freestyle        1650 1143. 
+12 IM                200  126. 
+13 IM                400  269. 
+14 Medley            200  104. </code></pre>
+</div>
+</div>
+<p>You will see that all group are <em>dropped</em> from the grouping structure.</p>
+<pre><code># A tibble: 14 × 3
+   Event        Distance   Time</code></pre>
+</section>
+<section id="groups-keep" class="level4">
+<h4 class="anchored" data-anchor-id="groups-keep"><code>.groups = "keep"</code>:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, Distance) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time),</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"keep"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 3
+# Groups:   Event, Distance [14]
+   Event        Distance   Time
+   &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Backstroke        100   59.8
+ 2 Backstroke        200  124. 
+ 3 Breaststroke      100   61.6
+ 4 Breaststroke      200  139. 
+ 5 Butterfly         100   55.3
+ 6 Butterfly         200  125. 
+ 7 Freestyle          50   23.6
+ 8 Freestyle         100   51.9
+ 9 Freestyle         200  107. 
+10 Freestyle         500  306. 
+11 Freestyle        1650 1143. 
+12 IM                200  126. 
+13 IM                400  269. 
+14 Medley            200  104. </code></pre>
+</div>
+</div>
+<p>You will see that all group are <em>kept</em> in the grouping structure.</p>
+<pre><code># A tibble: 14 × 3
+# Groups:   Event, Distance [14]
+   Event        Distance   Time</code></pre>
+</section>
+<section id="groups-rowwise" class="level4">
+<h4 class="anchored" data-anchor-id="groups-rowwise"><code>.groups = "rowwise"</code>:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, Distance) <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time),</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"rowwise"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 3
+# Rowwise:  Event, Distance
+   Event        Distance   Time
+   &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Backstroke        100   59.8
+ 2 Backstroke        200  124. 
+ 3 Breaststroke      100   61.6
+ 4 Breaststroke      200  139. 
+ 5 Butterfly         100   55.3
+ 6 Butterfly         200  125. 
+ 7 Freestyle          50   23.6
+ 8 Freestyle         100   51.9
+ 9 Freestyle         200  107. 
+10 Freestyle         500  306. 
+11 Freestyle        1650 1143. 
+12 IM                200  126. 
+13 IM                400  269. 
+14 Medley            200  104. </code></pre>
+</div>
+</div>
+<p>You will see that there groups but these are <em>not</em> based on the</p>
+<pre><code># A tibble: 14 × 3
+# Rowwise:  Event, Distance</code></pre>
+<p>The grouping structure always matters for subsequent computations. But with <code>"rowwise"</code> you will see this clearly. Following from above, let’s say we wanted to compute the mean across all of the <code>Events</code> in the data frame returned by <code>group_by()</code> then <code>summarize()</code>. We add <code>mutate(mean = mean(Time))</code> on a new line of our piped code block.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, Distance) <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time),</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"rowwise"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 4
+# Rowwise:  Event, Distance
+   Event        Distance   Time   mean
+   &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Backstroke        100   59.8   59.8
+ 2 Backstroke        200  124.   124. 
+ 3 Breaststroke      100   61.6   61.6
+ 4 Breaststroke      200  139.   139. 
+ 5 Butterfly         100   55.3   55.3
+ 6 Butterfly         200  125.   125. 
+ 7 Freestyle          50   23.6   23.6
+ 8 Freestyle         100   51.9   51.9
+ 9 Freestyle         200  107.   107. 
+10 Freestyle         500  306.   306. 
+11 Freestyle        1650 1143.  1143. 
+12 IM                200  126.   126. 
+13 IM                400  269.   269. 
+14 Medley            200  104.   104. </code></pre>
+</div>
+</div>
+<p>The <code>mean</code> column does not contain a single mean replicated for each row in the data frame. Rather the grouping was per row, so each row has its one mean. The mean of a single value is, of course, itself.</p>
+</section>
+<section id="revisiting-.groups-drop_last" class="level4">
+<h4 class="anchored" data-anchor-id="revisiting-.groups-drop_last">Revisiting <code>".groups = drop_last"</code>:</h4>
+<p>Returning to the default <code>.groups</code> structure, which is <code>"drop_last"</code>, we can add the same <code>mutate()</code> to see what happens.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, Distance) <span class="sc">%&gt;%</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time),</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop_last"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 4
+# Groups:   Event [6]
+   Event        Distance   Time  mean
+   &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1 Backstroke        100   59.8  92.1
+ 2 Backstroke        200  124.   92.1
+ 3 Breaststroke      100   61.6 100. 
+ 4 Breaststroke      200  139.  100. 
+ 5 Butterfly         100   55.3  90.4
+ 6 Butterfly         200  125.   90.4
+ 7 Freestyle          50   23.6 326. 
+ 8 Freestyle         100   51.9 326. 
+ 9 Freestyle         200  107.  326. 
+10 Freestyle         500  306.  326. 
+11 Freestyle        1650 1143.  326. 
+12 IM                200  126.  197. 
+13 IM                400  269.  197. 
+14 Medley            200  104.  104. </code></pre>
+</div>
+</div>
+<p>The <code>mean</code> column still has different values but they are replicated on rows with the same <code>Event</code> group. This is because the data are grouped that way.</p>
+</section>
+<section id="revisiting-.groups-drop" class="level4">
+<h4 class="anchored" data-anchor-id="revisiting-.groups-drop">Revisiting <code>.groups = "drop"</code>:</h4>
+<p>Let’s again add the same <code>mutate()</code> to see what happens.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, Distance) <span class="sc">%&gt;%</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time),</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 4
+   Event        Distance   Time  mean
+   &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1 Backstroke        100   59.8  193.
+ 2 Backstroke        200  124.   193.
+ 3 Breaststroke      100   61.6  193.
+ 4 Breaststroke      200  139.   193.
+ 5 Butterfly         100   55.3  193.
+ 6 Butterfly         200  125.   193.
+ 7 Freestyle          50   23.6  193.
+ 8 Freestyle         100   51.9  193.
+ 9 Freestyle         200  107.   193.
+10 Freestyle         500  306.   193.
+11 Freestyle        1650 1143.   193.
+12 IM                200  126.   193.
+13 IM                400  269.   193.
+14 Medley            200  104.   193.</code></pre>
+</div>
+</div>
+</section>
+<section id="consider-ungroup" class="level4">
+<h4 class="anchored" data-anchor-id="consider-ungroup">Consider <code>ungroup()</code>:</h4>
+<p><code>.groups = "drop"</code> in effect works the same as does <code>ungroup()</code>. The grouping structure is broken and all subsequent operations are based on the ungrouped data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, Distance) <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time)) <span class="sc">%&gt;%</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Event'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 4
+   Event        Distance   Time  mean
+   &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1 Backstroke        100   59.8  193.
+ 2 Backstroke        200  124.   193.
+ 3 Breaststroke      100   61.6  193.
+ 4 Breaststroke      200  139.   193.
+ 5 Butterfly         100   55.3  193.
+ 6 Butterfly         200  125.   193.
+ 7 Freestyle          50   23.6  193.
+ 8 Freestyle         100   51.9  193.
+ 9 Freestyle         200  107.   193.
+10 Freestyle         500  306.   193.
+11 Freestyle        1650 1143.   193.
+12 IM                200  126.   193.
+13 IM                400  269.   193.
+14 Medley            200  104.   193.</code></pre>
+</div>
+</div>
+<p>Keep in mind that functions work as they are programmed to work. Functions do not work like you think they work. You must understand the function and check our work to ensure your calculations are what you intend them to be.</p>
+</section>
+<section id="the-order-of-operations-matters" class="level4">
+<h4 class="anchored" data-anchor-id="the-order-of-operations-matters">The <em>order of operations</em> matters</h4>
+<p>To illustrate further, consider you want to calculate some summary statistics. You set out to obtain the mean and the standard deviation for your data. Those computations will be performed according to the grouping structure.</p>
+<p>When you compute standard deviation and the mean of <code>Time</code>, you assign the mean to <code>Time</code> because you want your plot to contain a clean name rather than one like <code>Time_Mean</code> that you will have to address in the plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, Distance) <span class="sc">%&gt;%</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time_sd =</span> <span class="fu">sd</span>(Time),  <span class="co"># get sd of Time</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">Time =</span> <span class="fu">mean</span>(Time)    <span class="co"># get mean, assign to same name</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Event'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 4
+# Groups:   Event [6]
+   Event        Distance Time_sd   Time
+   &lt;chr&gt;           &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Backstroke        100    4.47   59.8
+ 2 Backstroke        200    8.02  124. 
+ 3 Breaststroke      100    5.76   61.6
+ 4 Breaststroke      200   10.5   139. 
+ 5 Butterfly         100    4.32   55.3
+ 6 Butterfly         200    7.74  125. 
+ 7 Freestyle          50    1.99   23.6
+ 8 Freestyle         100    4.00   51.9
+ 9 Freestyle         200   10.8   107. 
+10 Freestyle         500   20.3   306. 
+11 Freestyle        1650   98.2  1143. 
+12 IM                200    8.13  126. 
+13 IM                400   22.2   269. 
+14 Medley            200    3.41  104. </code></pre>
+</div>
+</div>
+<p>Both variables use the same data because the standard deviation assigns the value to a different variable name <code>Time_sd</code>. The <code>mean()</code> is not based on some changed variable.</p>
+<p>The output is different from the one returned when the mean is computed before the standard deviation and in particular when the mean is assigned to <code>Time</code>. In this case, the standard deviation is based on this new <code>Time</code> variable. Because the standard deviation is a measure of variability, and <code>Time</code> does not vary based on the grouping structure, <code>NA</code> is returned.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, Distance) <span class="sc">%&gt;%</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time),   <span class="co"># get mean, assign to same name</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">Time_sd =</span> <span class="fu">sd</span>(Time)   <span class="co"># get sd of Time        </span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Event'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 4
+# Groups:   Event [6]
+   Event        Distance   Time Time_sd
+   &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+ 1 Backstroke        100   59.8      NA
+ 2 Backstroke        200  124.       NA
+ 3 Breaststroke      100   61.6      NA
+ 4 Breaststroke      200  139.       NA
+ 5 Butterfly         100   55.3      NA
+ 6 Butterfly         200  125.       NA
+ 7 Freestyle          50   23.6      NA
+ 8 Freestyle         100   51.9      NA
+ 9 Freestyle         200  107.       NA
+10 Freestyle         500  306.       NA
+11 Freestyle        1650 1143.       NA
+12 IM                200  126.       NA
+13 IM                400  269.       NA
+14 Medley            200  104.       NA</code></pre>
+</div>
+</div>
+<p>If you really wanted the standard deviation of all the means, consider ungrouping and then compute the standard deviation or use <code>.groups =  "drop"</code> in <code>summarize()</code>. Realize, however, this latter functionality is experimental and may not work sometime later. You are likely better off using <code>ungroup()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, Distance) <span class="sc">%&gt;%</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time)) <span class="sc">%&gt;%</span>  <span class="co"># get mean, assign to same name</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sd =</span> <span class="fu">sd</span>(Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Event'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 14 × 4
+   Event        Distance   Time    sd
+   &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1 Backstroke        100   59.8  285.
+ 2 Backstroke        200  124.   285.
+ 3 Breaststroke      100   61.6  285.
+ 4 Breaststroke      200  139.   285.
+ 5 Butterfly         100   55.3  285.
+ 6 Butterfly         200  125.   285.
+ 7 Freestyle          50   23.6  285.
+ 8 Freestyle         100   51.9  285.
+ 9 Freestyle         200  107.   285.
+10 Freestyle         500  306.   285.
+11 Freestyle        1650 1143.   285.
+12 IM                200  126.   285.
+13 IM                400  269.   285.
+14 Medley            200  104.   285.</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="more-on-grouping-structure" class="level1">
+<h1><strong>More on Grouping Structure</strong></h1>
+<p>We can now also consider ways to create column variables and a corresponding grouping structure within the <code>group_by()</code> verb.</p>
+<section id="new-variable-columns" class="level2">
+<h2 class="anchored" data-anchor-id="new-variable-columns"><strong>New Variable Columns</strong></h2>
+<p><code>group_by()</code> is not designed to create new variables but rather create groups. The function, however, does not require variables in a data frame in order to group based on their levels or differences in values.</p>
+<section id="group_by-using-a-function" class="level3">
+<h3 class="anchored" data-anchor-id="group_by-using-a-function"><strong><code>group_by()</code> using a function</strong></h3>
+<p>Heretofore, we have grouped by column variables in a data frame. But you can also group in other ways, for example, by a variable calculated by a function. For example, if you wanted to group by standard deviations, you could calculated the standard deviation <code>(Score-mean(Score)) / sd(Score)</code> for each student and then <code>cut()</code> that variable into groups. <code>cut</code> will take a numeric vector variable and turn it into a factor variable of <em>n</em> groups as determined by what you pass to <code>breaks</code>. There is also an argument to make the factor ordered if you wish, <code>ordered_result = TRUE</code> but the default behavior does not order the factor. You can also change the level labels if you inspect the function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(., <span class="at">z_factor =</span> <span class="fu">cut</span>( <span class="at">x =</span> ((Score <span class="sc">-</span> <span class="fu">mean</span>(Score)) <span class="sc">/</span> <span class="fu">sd</span>(Score) ), </span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">breaks =</span> <span class="dv">5</span>, </span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">ordered_result =</span> T</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>                          )</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 5
+# Groups:   z_factor [4]
+   Student      Score School District z_factor       
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;ord&gt;          
+ 1 Jim             80 A      West     (0.194,0.781]  
+ 2 Sally           85 A      West     (0.781,1.37]   
+ 3 June            79 B      West     (0.194,0.781]  
+ 4 Mildred         80 B      West     (0.194,0.781]  
+ 5 Tilford         81 C      East     (0.194,0.781]  
+ 6 Beavis          91 C      East     (0.781,1.37]   
+ 7 Herman          89 C      East     (0.781,1.37]   
+ 8 Peppa           60 D      North    (-1.57,-0.979] 
+ 9 Kay             65 D      North    (-1.57,-0.979] 
+10 Jake            67 E      North    (-0.979,-0.392]
+11 Name Missing    65 E      North    (-1.57,-0.979] </code></pre>
+</div>
+</div>
+<p>You can see that there are 4 different levels of the grouping variable. The tibble is grouped of course too.</p>
+<p>If you struggle with remembering the formula for a z score, <code>scale()</code> will to the same thing.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">z =</span> (Score <span class="sc">-</span> <span class="fu">mean</span>(Score))<span class="sc">/</span><span class="fu">sd</span>(Score),</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">scale =</span> <span class="fu">scale</span>(Score)</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>         )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Student Score School District          z      scale
+1           Jim    80      A     West  0.3269018  0.3269018
+2         Sally    85      A     West  0.8000492  0.8000492
+3          June    79      B     West  0.2322724  0.2322724
+4       Mildred    80      B     West  0.3269018  0.3269018
+5       Tilford    81      C     East  0.4215313  0.4215313
+6        Beavis    91      C     East  1.3678261  1.3678261
+7        Herman    89      C     East  1.1785671  1.1785671
+8         Peppa    60      D    North -1.5656877 -1.5656877
+9           Kay    65      D    North -1.0925403 -1.0925403
+10         Jake    67      E    North -0.9032814 -0.9032814
+11 Name Missing    65      E    North -1.0925403 -1.0925403</code></pre>
+</div>
+</div>
+<p>If you want <em>n</em> groups based on specific breaks, then pass a vector of those break units. For example, if we want levels to correspond to some meaningful standard-deviation cuts. For example, if you wanted to group those with z scores ranging from infinitely negative to -2, -2 to -1, - to 1, 1 to 2, and 2 to infinitely large, you could specify the breaks. If there are no values in those ranges, then there won’t be any data for those breaks.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="at">z_factor =</span> <span class="fu">cut</span>( <span class="fu">scale</span>(Score), </span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">Inf</span>),</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">ordered_result =</span> T</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>                          ), </span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>           ) <span class="sc">%&gt;%</span></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 5
+   Student      Score School District z_factor
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;ord&gt;   
+ 1 Jim             80 A      West     (-1,1]  
+ 2 Sally           85 A      West     (-1,1]  
+ 3 June            79 B      West     (-1,1]  
+ 4 Mildred         80 B      West     (-1,1]  
+ 5 Tilford         81 C      East     (-1,1]  
+ 6 Beavis          91 C      East     (1,2]   
+ 7 Herman          89 C      East     (1,2]   
+ 8 Peppa           60 D      North    (-2,-1] 
+ 9 Kay             65 D      North    (-2,-1] 
+10 Jake            67 E      North    (-1,1]  
+11 Name Missing    65 E      North    (-2,-1] </code></pre>
+</div>
+</div>
+<p>You can also just group by the function without using <code>cut()</code> if you wish to group by those with identical values on the variable. In this case, using <code>count()</code> or <code>tally()</code> reveals there are only two instances with the same score.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(., <span class="at">z_factor =</span> ((Score <span class="sc">-</span> <span class="fu">mean</span>(Score)) <span class="sc">/</span> <span class="fu">sd</span>(Score) )) <span class="sc">%&gt;%</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(<span class="at">sort =</span> <span class="cn">TRUE</span>)     <span class="co"># tally(sort = TRUE)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 2
+# Groups:   z_factor [9]
+  z_factor     n
+     &lt;dbl&gt; &lt;int&gt;
+1   -1.09      2
+2    0.327     2
+3   -1.57      1
+4   -0.903     1
+5    0.232     1
+6    0.422     1
+7    0.800     1
+8    1.18      1
+9    1.37      1</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="adddrop-grouping-variable-columns" class="level2">
+<h2 class="anchored" data-anchor-id="adddrop-grouping-variable-columns"><strong>Add/drop Grouping Variable Columns</strong></h2>
+<p>By default, <code>group_by()</code> on a data frame that is already grouped (see earlier on grouped data frame), the existing grouping structure will be replaced by new grouping structure.</p>
+<p>Let’s get an example. Please note that this example assigned the tibble to an object but whether you assign or not, the grouped structure exists. So functions that follow the <code>group_by()</code> keep that structure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>school_grouped <span class="ot">&lt;-</span> DATA <span class="sc">%&gt;%</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School) </span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>school_grouped</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 4
+# Groups:   School [5]
+   Student      Score School District
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   
+ 1 Jim             80 A      West    
+ 2 Sally           85 A      West    
+ 3 June            79 B      West    
+ 4 Mildred         80 B      West    
+ 5 Tilford         81 C      East    
+ 6 Beavis          91 C      East    
+ 7 Herman          89 C      East    
+ 8 Peppa           60 D      North   
+ 9 Kay             65 D      North   
+10 Jake            67 E      North   
+11 Name Missing    65 E      North   </code></pre>
+</div>
+</div>
+<p>Now group by a new column:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>school_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(District)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 4
+# Groups:   District [3]
+   Student      Score School District
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   
+ 1 Jim             80 A      West    
+ 2 Sally           85 A      West    
+ 3 June            79 B      West    
+ 4 Mildred         80 B      West    
+ 5 Tilford         81 C      East    
+ 6 Beavis          91 C      East    
+ 7 Herman          89 C      East    
+ 8 Peppa           60 D      North   
+ 9 Kay             65 D      North   
+10 Jake            67 E      North   
+11 Name Missing    65 E      North   </code></pre>
+</div>
+</div>
+<p>You will see the grouping structure has changed.</p>
+<pre><code># A tibble: 11 × 4
+# Groups:   District [3]</code></pre>
+<section id="retain-grouping" class="level3">
+<h3 class="anchored" data-anchor-id="retain-grouping"><strong>Retain Grouping</strong></h3>
+<p>If you want to retain the existing group, you would need to use <code>.add = TRUE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>school_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(District, <span class="at">.add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 4
+# Groups:   School, District [5]
+   Student      Score School District
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   
+ 1 Jim             80 A      West    
+ 2 Sally           85 A      West    
+ 3 June            79 B      West    
+ 4 Mildred         80 B      West    
+ 5 Tilford         81 C      East    
+ 6 Beavis          91 C      East    
+ 7 Herman          89 C      East    
+ 8 Peppa           60 D      North   
+ 9 Kay             65 D      North   
+10 Jake            67 E      North   
+11 Name Missing    65 E      North   </code></pre>
+</div>
+</div>
+<p>Notice in the console, that both <code>School</code> and <code>District</code> are included in the groups.</p>
+<pre><code># A tibble: 11 × 4
+# Groups:   School, District [5]</code></pre>
+</section>
+</section>
+<section id="why-care-about-grouping-structure" class="level2">
+<h2 class="anchored" data-anchor-id="why-care-about-grouping-structure"><strong>Why Care About Grouping Structure</strong></h2>
+<p>Well, the functions you apply to a grouped tibble will sometimes lead to calculations that are not what you intend. We provided some examples earlier but given the importance of the issue, we may benefit from another example.</p>
+<p>Let’s say you want to compute the average for each school and add that school average for each student. This would tell you how the student differs from their school performance. Then you want to obtain the mean of all the schools and see how the school differs from all the schools.</p>
+<p>You code it out:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group </span></span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School) <span class="sc">%&gt;%</span></span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate the mean of Score for each School</span></span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">School_Mean =</span> <span class="fu">mean</span>(Score)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate the mean of all values (think Grand Mean from stats)</span></span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Mean_of_all =</span> <span class="fu">mean</span>(School_Mean)) <span class="sc">%&gt;%</span></span>
+<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate the school performance relative to all</span></span>
+<span id="cb80-9"><a href="#cb80-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">School_Performance =</span> <span class="fu">factor</span>(<span class="fu">case_when</span>(</span>
+<span id="cb80-10"><a href="#cb80-10" aria-hidden="true" tabindex="-1"></a>    School_Mean <span class="sc">&lt;</span> Mean_of_all <span class="sc">~</span> <span class="st">"Below Average"</span>,</span>
+<span id="cb80-11"><a href="#cb80-11" aria-hidden="true" tabindex="-1"></a>    School_Mean <span class="sc">==</span> Mean_of_all <span class="sc">~</span> <span class="st">"Average"</span>,</span>
+<span id="cb80-12"><a href="#cb80-12" aria-hidden="true" tabindex="-1"></a>    School_Mean <span class="sc">&gt;</span> Mean_of_all <span class="sc">~</span> <span class="st">"Above Average"</span></span>
+<span id="cb80-13"><a href="#cb80-13" aria-hidden="true" tabindex="-1"></a>    ), <span class="at">ordered =</span> T)</span>
+<span id="cb80-14"><a href="#cb80-14" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 7
+# Groups:   School [5]
+   Student      Score School District School_Mean Mean_of_all School_Performance
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt; &lt;ord&gt;             
+ 1 Jim             80 A      West            82.5        82.5 Average           
+ 2 Sally           85 A      West            82.5        82.5 Average           
+ 3 June            79 B      West            79.5        79.5 Average           
+ 4 Mildred         80 B      West            79.5        79.5 Average           
+ 5 Tilford         81 C      East            87          87   Average           
+ 6 Beavis          91 C      East            87          87   Average           
+ 7 Herman          89 C      East            87          87   Average           
+ 8 Peppa           60 D      North           62.5        62.5 Average           
+ 9 Kay             65 D      North           62.5        62.5 Average           
+10 Jake            67 E      North           66          66   Average           
+11 Name Missing    65 E      North           66          66   Average           </code></pre>
+</div>
+</div>
+<p>Perfect. OK, let’s plot it. Oh but first let me inspect the data. Um, why is <code>School_Performance</code> the same for all <code>Students</code>? Schools are not performing the same so they cannot all be average. Check your <code>case_when()</code> for errors because that where the new variable was created. Then you spend 40 days and 40 nights trying to fix your code. No matter what you do with <code>case_when()</code>, you cannot fix the problem. So you try to create 42 data frames to solve your problem. Even grandma knows that is a ridiculous strategy. She suggests you read the documentation for all of the functions you used because one time her pot-luck cake flopped and she inspected the expiration date for all of her ingredients and found the baking soda was old.</p>
+<p>You discover that the grouping structure is retained on all operations until that grouping structure is removed or replaced.</p>
+</section>
+</section>
+<section id="ungroup" class="level1">
+<h1><strong>ungroup()</strong></h1>
+<p>Whereas summarize has a <code>.groups</code> functionality, <code>mutate()</code> does not. In order to have a simple data frame use follow <code>group_by()</code> and <code>mutate()</code> with <code>ungroup()</code>. But <code>ungroup()</code> can be used following both functions if that approach makes more sense to you.</p>
+<p>Let’s add an <code>ungroup()</code> directly after performing the operation that needed the grouping structure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group </span></span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School) <span class="sc">%&gt;%</span></span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate the mean of Score for each School</span></span>
+<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">School_Mean =</span> <span class="fu">mean</span>(Score)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># break that grouping structure</span></span>
+<span id="cb82-7"><a href="#cb82-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb82-8"><a href="#cb82-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate the mean of all values (think Grand Mean from stats)</span></span>
+<span id="cb82-9"><a href="#cb82-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Mean_of_all =</span> <span class="fu">mean</span>(School_Mean)) <span class="sc">%&gt;%</span></span>
+<span id="cb82-10"><a href="#cb82-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate the school performance relative to all</span></span>
+<span id="cb82-11"><a href="#cb82-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">School_Performance =</span> <span class="fu">factor</span>(<span class="fu">case_when</span>(</span>
+<span id="cb82-12"><a href="#cb82-12" aria-hidden="true" tabindex="-1"></a>    School_Mean <span class="sc">&lt;</span> Mean_of_all <span class="sc">~</span> <span class="st">"Below Average"</span>,</span>
+<span id="cb82-13"><a href="#cb82-13" aria-hidden="true" tabindex="-1"></a>    School_Mean <span class="sc">==</span> Mean_of_all <span class="sc">~</span> <span class="st">"Average"</span>,</span>
+<span id="cb82-14"><a href="#cb82-14" aria-hidden="true" tabindex="-1"></a>    School_Mean <span class="sc">&gt;</span> Mean_of_all <span class="sc">~</span> <span class="st">"Above Average"</span></span>
+<span id="cb82-15"><a href="#cb82-15" aria-hidden="true" tabindex="-1"></a>    ), <span class="at">ordered =</span> T)</span>
+<span id="cb82-16"><a href="#cb82-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 7
+   Student      Score School District School_Mean Mean_of_all School_Performance
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;       &lt;dbl&gt; &lt;ord&gt;             
+ 1 Jim             80 A      West            82.5        76.5 Above Average     
+ 2 Sally           85 A      West            82.5        76.5 Above Average     
+ 3 June            79 B      West            79.5        76.5 Above Average     
+ 4 Mildred         80 B      West            79.5        76.5 Above Average     
+ 5 Tilford         81 C      East            87          76.5 Above Average     
+ 6 Beavis          91 C      East            87          76.5 Above Average     
+ 7 Herman          89 C      East            87          76.5 Above Average     
+ 8 Peppa           60 D      North           62.5        76.5 Below Average     
+ 9 Kay             65 D      North           62.5        76.5 Below Average     
+10 Jake            67 E      North           66          76.5 Below Average     
+11 Name Missing    65 E      North           66          76.5 Below Average     </code></pre>
+</div>
+</div>
+<p>Yes! <code>Mean_of_all</code> is now a true grand mean based on all of the data with no grouping at all. Comparing <code>Mean_of_all</code> to <code>School_Mean</code> provides two classifications.</p>
+<section id="variable-loss-with-summarize" class="level2">
+<h2 class="anchored" data-anchor-id="variable-loss-with-summarize"><strong>Variable loss with <code>summarize()</code></strong></h2>
+<p>Because <code>summarize()</code> returns a tibble based on the grouping structure, you will lose all variables that are not in the grouping structure. By design, it no longer allows you to return a data frame with duplicated rows based on the variables passed to <code>group_by()</code>.</p>
+<p>Returning to the school data, what this means, is that you cannot retain the <code>School</code> if you group by the <code>District</code> in order to obtain averages by district.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(District) <span class="sc">%&gt;%</span></span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  District  Mean
+  &lt;chr&gt;    &lt;dbl&gt;
+1 East      87  
+2 North     64.2
+3 West      81  </code></pre>
+</div>
+</div>
+<p>If you try to add <code>School</code> to <code>group_by()</code>, then you will only obtain the averages by schools within districts.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School, District) <span class="sc">%&gt;%</span></span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(Score)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'School'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+# Groups:   School [5]
+  School District  Mean
+  &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;
+1 A      West      82.5
+2 B      West      79.5
+3 C      East      87  
+4 D      North     62.5
+5 E      North     66  </code></pre>
+</div>
+</div>
+<p>You can try to summarize based on a variable without assign it to a function but that is no longer allowed with <code>summarize()</code>. The following code block will throw an error.</p>
+<pre><code>DATA %&gt;%
+  group_by(District) %&gt;%
+  summarize(Mean = mean(Score),
+          School               # add school 
+          )</code></pre>
+</section>
+<section id="an-alternative-to-summarize-reframe" class="level2">
+<h2 class="anchored" data-anchor-id="an-alternative-to-summarize-reframe"><strong>An alternative to <code>summarize()</code>: <code>reframe()</code></strong></h2>
+<p>Instead, you can use <code>reframe()</code>, which allows for previous functionality of <code>summarize()</code> that is now deprecated.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(District) <span class="sc">%&gt;%</span></span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reframe</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(Score),</span>
+<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>          School,</span>
+<span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a>          Student</span>
+<span id="cb90-6"><a href="#cb90-6" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 4
+   District  Mean School Student     
+   &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;       
+ 1 East      87   C      Tilford     
+ 2 East      87   C      Beavis      
+ 3 East      87   C      Herman      
+ 4 North     64.2 D      Peppa       
+ 5 North     64.2 D      Kay         
+ 6 North     64.2 E      Jake        
+ 7 North     64.2 E      Name Missing
+ 8 West      81   A      Jim         
+ 9 West      81   A      Sally       
+10 West      81   B      June        
+11 West      81   B      Mildred     </code></pre>
+</div>
+</div>
+<p>Remember that the operations in <code>summarize()</code>, <code>mutate()</code>, and <code>reframe()</code> all depend on the grouping structure. If you wanted to add variables, you would need to group a different way and you would need to add all variables into <code>summarize()</code> every step of the way.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(District) <span class="sc">%&gt;%</span></span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reframe</span>(<span class="at">District_Mean =</span> <span class="fu">mean</span>(Score),</span>
+<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a>          School, </span>
+<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a>          Student,</span>
+<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a>          Score</span>
+<span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a>          ) <span class="sc">%&gt;%</span></span>
+<span id="cb92-8"><a href="#cb92-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb92-9"><a href="#cb92-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School) <span class="sc">%&gt;%</span></span>
+<span id="cb92-10"><a href="#cb92-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">reframe</span>(<span class="at">School_Mean =</span> <span class="fu">mean</span>(Score),</span>
+<span id="cb92-11"><a href="#cb92-11" aria-hidden="true" tabindex="-1"></a>          School, </span>
+<span id="cb92-12"><a href="#cb92-12" aria-hidden="true" tabindex="-1"></a>          Student,</span>
+<span id="cb92-13"><a href="#cb92-13" aria-hidden="true" tabindex="-1"></a>          Score,</span>
+<span id="cb92-14"><a href="#cb92-14" aria-hidden="true" tabindex="-1"></a>          District_Mean</span>
+<span id="cb92-15"><a href="#cb92-15" aria-hidden="true" tabindex="-1"></a>          ) <span class="sc">%&gt;%</span></span>
+<span id="cb92-16"><a href="#cb92-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 5
+   School School_Mean Student      Score District_Mean
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;         &lt;dbl&gt;
+ 1 A             82.5 Jim             80          81  
+ 2 A             82.5 Sally           85          81  
+ 3 B             79.5 June            79          81  
+ 4 B             79.5 Mildred         80          81  
+ 5 C             87   Tilford         81          87  
+ 6 C             87   Beavis          91          87  
+ 7 C             87   Herman          89          87  
+ 8 D             62.5 Peppa           60          64.2
+ 9 D             62.5 Kay             65          64.2
+10 E             66   Jake            67          64.2
+11 E             66   Name Missing    65          64.2</code></pre>
+</div>
+</div>
+</section>
+<section id="retaining-distinct-data-after-mutate-using-distinct" class="level2">
+<h2 class="anchored" data-anchor-id="retaining-distinct-data-after-mutate-using-distinct"><strong>Retaining distinct data after <code>mutate()</code> using distinct()`</strong></h2>
+<p>This is just too tedious. Your better option is <code>mutate()</code> as all variables will be added to the full data frame. All variables are neatly and logically appended to the right hand side of the data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(District) <span class="sc">%&gt;%</span></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">District_Mean =</span> <span class="fu">mean</span>(Score)) <span class="sc">%&gt;%</span></span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School) <span class="sc">%&gt;%</span></span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">School_Mean =</span> <span class="fu">mean</span>(Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 6
+# Groups:   School [5]
+   Student      Score School District District_Mean School_Mean
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Jim             80 A      West              81          82.5
+ 2 Sally           85 A      West              81          82.5
+ 3 June            79 B      West              81          79.5
+ 4 Mildred         80 B      West              81          79.5
+ 5 Tilford         81 C      East              87          87  
+ 6 Beavis          91 C      East              87          87  
+ 7 Herman          89 C      East              87          87  
+ 8 Peppa           60 D      North             64.2        62.5
+ 9 Kay             65 D      North             64.2        62.5
+10 Jake            67 E      North             64.2        66  
+11 Name Missing    65 E      North             64.2        66  </code></pre>
+</div>
+</div>
+<p>Also, when you use a new <code>group_by()</code>, it will replace previous grouping structure by default. The following two code blocks return the same data frame.</p>
+<pre><code>DATA %&gt;%
+  group_by(District) %&gt;%
+  mutate(District_Mean = mean(Score)) %&gt;%
+  group_by(School) %&gt;%
+  mutate(School_Mean = mean(Score))
+  
+DATA %&gt;%
+  group_by(District) %&gt;%
+  mutate(District_Mean = mean(Score)) %&gt;%
+  ungroup() %&gt;%                   # ungroup
+  group_by(School) %&gt;%
+  mutate(School_Mean = mean(Score))</code></pre>
+<p>If you wish those variables to remain, you have a couple of options. The first would be to use <code>mutate()</code>.</p>
+<p>Notice, however, that if you want to extract the summaries from the large data frame as you would have had you used <code>summarize()</code> , you cannot just <code>select()</code> your column of interest because the repetitions will exist for each row in the data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(District) <span class="sc">%&gt;%</span></span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">District_Mean =</span> <span class="fu">mean</span>(Score)) <span class="sc">%&gt;%</span></span>
+<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">"School"</span>, <span class="st">"District_Mean"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Adding missing grouping variables: `District`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 3
+# Groups:   District [3]
+   District School District_Mean
+   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+ 1 West     A               81  
+ 2 West     A               81  
+ 3 West     B               81  
+ 4 West     B               81  
+ 5 East     C               87  
+ 6 East     C               87  
+ 7 East     C               87  
+ 8 North    D               64.2
+ 9 North    D               64.2
+10 North    E               64.2
+11 North    E               64.2</code></pre>
+</div>
+</div>
+<p>You can obtain the rows that are <code>distinct()</code> (unique) and then <code>pick()</code> the ones to keep.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(District) <span class="sc">%&gt;%</span></span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">District_Mean =</span> <span class="fu">mean</span>(Score)) <span class="sc">%&gt;%</span></span>
+<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(., <span class="fu">pick</span>(<span class="fu">c</span>(<span class="st">"District"</span>, <span class="st">"District_Mean"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+# Groups:   District [3]
+  District District_Mean
+  &lt;chr&gt;            &lt;dbl&gt;
+1 West              81  
+2 East              87  
+3 North             64.2</code></pre>
+</div>
+</div>
+<p>But you will need to <code>ungroup()</code> before <code>distinct()</code> because, as we have mentioned before, all subsequent functions other than <code>group_by()</code> will maintain the previous grouping structure by default.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>DATA <span class="sc">%&gt;%</span></span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School) <span class="sc">%&gt;%</span></span>
+<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">School_Mean =</span> <span class="fu">mean</span>(Score)) <span class="sc">%&gt;%</span></span>
+<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 5
+   Student      Score School District School_Mean
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;
+ 1 Jim             80 A      West            82.5
+ 2 Sally           85 A      West            82.5
+ 3 June            79 B      West            79.5
+ 4 Mildred         80 B      West            79.5
+ 5 Tilford         81 C      East            87  
+ 6 Beavis          91 C      East            87  
+ 7 Herman          89 C      East            87  
+ 8 Peppa           60 D      North           62.5
+ 9 Kay             65 D      North           62.5
+10 Jake            67 E      North           66  
+11 Name Missing    65 E      North           66  </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-data" class="level1">
+<h1><strong>Visualizing Data</strong></h1>
+<p>Visualizations of data aggregated differently will also convey information differently. The four variants of the data presented as bars communicate</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Note: When you create <code>geom_bar()</code> or <code>geom_col()</code> plots, the bar <code>width</code> will change depending on the number of the bars in the plot. A legend position will also affect bar width. Thus, the four resulting visualizations will contain different bar widths even if set to the same value.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>avg_plot <span class="ot">&lt;-</span> DATA <span class="sc">%&gt;%</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(., <span class="at">Score =</span> <span class="fu">mean</span>(Score)) <span class="sc">%&gt;%</span> </span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Average =</span> <span class="st">"Average"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Average, Score)) <span class="sc">+</span></span>
+<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb104-6"><a href="#cb104-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span></span>
+<span id="cb104-7"><a href="#cb104-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),  </span>
+<span id="cb104-8"><a href="#cb104-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">tag =</span> <span class="st">"A"</span>)</span>
+<span id="cb104-9"><a href="#cb104-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-10"><a href="#cb104-10" aria-hidden="true" tabindex="-1"></a>district_plot <span class="ot">&lt;-</span> DATA <span class="sc">%&gt;%</span></span>
+<span id="cb104-11"><a href="#cb104-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(District, Score)) <span class="sc">+</span></span>
+<span id="cb104-12"><a href="#cb104-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> .<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb104-13"><a href="#cb104-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span></span>
+<span id="cb104-14"><a href="#cb104-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">tag =</span> <span class="st">"B"</span>)</span>
+<span id="cb104-15"><a href="#cb104-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-16"><a href="#cb104-16" aria-hidden="true" tabindex="-1"></a>school_plot <span class="ot">&lt;-</span> DATA <span class="sc">%&gt;%</span></span>
+<span id="cb104-17"><a href="#cb104-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(School, Score)) <span class="sc">+</span></span>
+<span id="cb104-18"><a href="#cb104-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> .<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb104-19"><a href="#cb104-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span></span>
+<span id="cb104-20"><a href="#cb104-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">tag =</span> <span class="st">"C"</span>) </span>
+<span id="cb104-21"><a href="#cb104-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-22"><a href="#cb104-22" aria-hidden="true" tabindex="-1"></a>school_district_plot <span class="ot">&lt;-</span> DATA <span class="sc">%&gt;%</span></span>
+<span id="cb104-23"><a href="#cb104-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(School, Score, <span class="at">col =</span> District)) <span class="sc">+</span></span>
+<span id="cb104-24"><a href="#cb104-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> .<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb104-25"><a href="#cb104-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">100</span>) <span class="sc">+</span></span>
+<span id="cb104-26"><a href="#cb104-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb104-27"><a href="#cb104-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">tag =</span> <span class="st">"D"</span>)  </span>
+<span id="cb104-28"><a href="#cb104-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-29"><a href="#cb104-29" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(</span>
+<span id="cb104-30"><a href="#cb104-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(avg_plot, </span>
+<span id="cb104-31"><a href="#cb104-31" aria-hidden="true" tabindex="-1"></a>                            district_plot, </span>
+<span id="cb104-32"><a href="#cb104-32" aria-hidden="true" tabindex="-1"></a>                            school_plot, </span>
+<span id="cb104-33"><a href="#cb104-33" aria-hidden="true" tabindex="-1"></a>                            school_district_plot, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb104-34"><a href="#cb104-34" aria-hidden="true" tabindex="-1"></a>     )</span>
+<span id="cb104-35"><a href="#cb104-35" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="adding-data-summaries-to-plots" class="level1">
+<h1><strong>Adding Data Summaries to Plots</strong></h1>
+<p>But, let’s consider you don’t want to use color for your plot because the printing fees costs too much. Or perhaps, you are giving a talk to an audience of people who have achromatopsia. Whatever the reason, you need shapes. There are different ways to map shapes to variables. One way is with <code>aes(shape = variable)</code>. Just like with mapping <code>col</code> or <code>fill</code> to variables results in a palette assignment, a set of shapes are used by default as well. If you don’t like those shapes, you can pass a name vector to <code>scale_shape_manual(values = my_name_vector)</code>. Shapes, however, can also be mapped by variables as their <em>identity</em>. We have discussed identity values before. For shape, you need to find the shape values to assign a variable and then add a <code>scale_shape_identity()</code> layer.</p>
+<p>For this example, we will add two new variables to the data frame and then map each to the full data and the group data, respectively.</p>
+<p>First, let’s look at different shapes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>ggpubr<span class="sc">::</span><span class="fu">show_point_shapes</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Scale for y is already present.
+Adding another scale for y, which will replace the existing scale.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="a-single-data-frame-using-mutate" class="level1">
+<h1><strong>A Single Data Frame using <code>mutate()</code></strong></h1>
+<p>Let’s say that we want a plot that contains all of the data points jittered as well as the group means jittered so they don’t overlap. If we want one data frame to handle it, we will need to <code>mutate()</code> the group means following <code>group_by(Event, School)</code>. In the event that there happen to be exact or very similar means for the Schools, we will want to jitter the group means using <code>position = position_jitter(height = 0, width = .1)</code>.</p>
+<p>Let’s see what happens. But to lead into another step, we will just assign a new data frame to <code>SWIM_NEW</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>SWIM_NEW <span class="ot">&lt;-</span> SWIM <span class="sc">%&gt;%</span></span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">School =</span> <span class="fu">ifelse</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(School, <span class="st">"Clare"</span>), <span class="st">"CMS"</span>, <span class="st">"PP"</span>),</span>
+<span id="cb107-5"><a href="#cb107-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Shape  =</span> <span class="fu">ifelse</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(School, <span class="st">"CMS"</span>), <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb107-6"><a href="#cb107-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Shape2 =</span> <span class="fu">ifelse</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(School, <span class="st">"CMS"</span>), <span class="dv">21</span>, <span class="dv">24</span>),</span>
+<span id="cb107-7"><a href="#cb107-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb107-8"><a href="#cb107-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group both (creates nxm subsets)</span></span>
+<span id="cb107-9"><a href="#cb107-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, School) <span class="sc">%&gt;%</span> </span>
+<span id="cb107-10"><a href="#cb107-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(Time)) <span class="sc">%&gt;%</span></span>
+<span id="cb107-11"><a href="#cb107-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then pass to <code>ggplot()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>full_identity_plot <span class="ot">&lt;-</span> SWIM_NEW <span class="sc">%&gt;%</span></span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event)</span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plot all data (y = Time)</span></span>
+<span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> Time, </span>
+<span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">shape =</span> Shape</span>
+<span id="cb108-7"><a href="#cb108-7" aria-hidden="true" tabindex="-1"></a>                           ),</span>
+<span id="cb108-8"><a href="#cb108-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">stroke =</span> <span class="fl">1.2</span>, <span class="co"># make a little thinker</span></span>
+<span id="cb108-9"><a href="#cb108-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">4</span>,   <span class="co"># a little transparent</span></span>
+<span id="cb108-10"><a href="#cb108-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">seed =</span> <span class="dv">167</span>, </span>
+<span id="cb108-11"><a href="#cb108-11" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">height =</span> <span class="dv">0</span>, </span>
+<span id="cb108-12"><a href="#cb108-12" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">width =</span> .<span class="dv">2</span>)</span>
+<span id="cb108-13"><a href="#cb108-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb108-14"><a href="#cb108-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a layer using the grouped data (y = Mean)</span></span>
+<span id="cb108-15"><a href="#cb108-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> Mean, </span>
+<span id="cb108-16"><a href="#cb108-16" aria-hidden="true" tabindex="-1"></a>                           <span class="at">shape =</span> Shape2   <span class="co"># filled </span></span>
+<span id="cb108-17"><a href="#cb108-17" aria-hidden="true" tabindex="-1"></a>                           ), </span>
+<span id="cb108-18"><a href="#cb108-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"grey50"</span>,   <span class="co"># fill color</span></span>
+<span id="cb108-19"><a href="#cb108-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>,          <span class="co"># larger size</span></span>
+<span id="cb108-20"><a href="#cb108-20" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="dv">1</span>,         <span class="co"># opaque</span></span>
+<span id="cb108-21"><a href="#cb108-21" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">seed =</span> <span class="dv">167</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">width =</span> .<span class="dv">1</span>)</span>
+<span id="cb108-22"><a href="#cb108-22" aria-hidden="true" tabindex="-1"></a>             ) <span class="sc">+</span></span>
+<span id="cb108-23"><a href="#cb108-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb108-24"><a href="#cb108-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_identity</span>() <span class="sc">+</span>    <span class="co"># use the actual values in the mapped variable</span></span>
+<span id="cb108-25"><a href="#cb108-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">"Caption illustration:</span><span class="sc">\n</span><span class="st">CMS (cicle),  PP (triangle); Mean (filled)"</span>)</span>
+<span id="cb108-26"><a href="#cb108-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-27"><a href="#cb108-27" aria-hidden="true" tabindex="-1"></a>full_identity_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="the-jitter-problem-with-full-data-frame" class="level2">
+<h2 class="anchored" data-anchor-id="the-jitter-problem-with-full-data-frame"><strong>The Jitter problem with full data frame</strong></h2>
+<p>Jittering takes place at the row level. Because the full data frame is used, each row plotted gets jitter. This means that the group mean that is on each row (redundant per group) is plotted. In such cases, you might be better off using one data frame for the full plot and a summarized data frame for the other plot. You can define the data frame in <code>ggplot()</code> or in the specific <code>geom_point()</code>. In this example, we will define it in <code>ggplot()</code> along with aesthetics. This will be inherited by default for the first <code>geom_point()</code> and then we can specify for the second <code>geom_point()</code>.</p>
+<p>Because there are different data frames, <code>Time</code> can be used in both data sets. There is no need to have two different variables as there is for the full data set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>SWIMMEAN <span class="ot">&lt;-</span> SWIM_NEW <span class="sc">%&gt;%</span></span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group both (creates nxm subsets)</span></span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, School) <span class="sc">%&gt;%</span> </span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Time =</span> <span class="fu">mean</span>(Time)) <span class="sc">%&gt;%</span></span>
+<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># and we need to add a shape too</span></span>
+<span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb109-8"><a href="#cb109-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Shape  =</span> <span class="fu">ifelse</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(School, <span class="st">"CMS"</span>), <span class="dv">21</span>, <span class="dv">24</span>) <span class="co"># filled</span></span>
+<span id="cb109-9"><a href="#cb109-9" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Event'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>SWIMMEAN</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   Event        School  Time Shape
+   &lt;chr&gt;        &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1 Backstroke   CMS     97.8    21
+ 2 Backstroke   PP     100.     24
+ 3 Breaststroke CMS    105.     21
+ 4 Breaststroke PP      89.3    24
+ 5 Butterfly    CMS     73.9    21
+ 6 Butterfly    PP      80.5    24
+ 7 Freestyle    CMS     81.2    21
+ 8 Freestyle    PP     102.     24
+ 9 IM           CMS    162.     21
+10 IM           PP     126.     24
+11 Medley       CMS    104.     21
+12 Medley       PP     104.     24</code></pre>
+</div>
+</div>
+<p>Notice that this data frame contains only four variables: <code>Event</code>, <code>School</code>, <code>Time</code>, and <code>Shape</code>. All aesthetics for a plot using that data set will be constrained to those variables. Because both data frames contain them, we can just add the aesthetics to the plot object rather than the geom.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>subset_identity_plot <span class="ot">&lt;-</span> SWIM_NEW <span class="sc">%&gt;%</span></span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> ., </span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event,</span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> Time, </span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">shape =</span> Shape</span>
+<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a>                       )</span>
+<span id="cb113-7"><a href="#cb113-7" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb113-8"><a href="#cb113-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plot all data (y = Time) from SWIM</span></span>
+<span id="cb113-9"><a href="#cb113-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">seed =</span> <span class="dv">167</span>, </span>
+<span id="cb113-10"><a href="#cb113-10" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">height =</span> <span class="dv">0</span>, </span>
+<span id="cb113-11"><a href="#cb113-11" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">width =</span> .<span class="dv">2</span>),</span>
+<span id="cb113-12"><a href="#cb113-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">8</span>,</span>
+<span id="cb113-13"><a href="#cb113-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">2</span></span>
+<span id="cb113-14"><a href="#cb113-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb113-15"><a href="#cb113-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a layer using the grouped data (y = Time) from SWIMMEAN</span></span>
+<span id="cb113-16"><a href="#cb113-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> SWIMMEAN,</span>
+<span id="cb113-17"><a href="#cb113-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb113-18"><a href="#cb113-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"grey60"</span>,</span>
+<span id="cb113-19"><a href="#cb113-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">stroke =</span> <span class="dv">1</span>,</span>
+<span id="cb113-20"><a href="#cb113-20" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="dv">1</span>,</span>
+<span id="cb113-21"><a href="#cb113-21" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">seed =</span> <span class="dv">167</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">width =</span> .<span class="dv">3</span>)</span>
+<span id="cb113-22"><a href="#cb113-22" aria-hidden="true" tabindex="-1"></a>             ) <span class="sc">+</span></span>
+<span id="cb113-23"><a href="#cb113-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb113-24"><a href="#cb113-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_identity</span>() <span class="sc">+</span></span>
+<span id="cb113-25"><a href="#cb113-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">"Caption illustration:</span><span class="sc">\n</span><span class="st">CMS (cicle),  PP (triangle); Mean (filled)"</span>)</span>
+<span id="cb113-26"><a href="#cb113-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-27"><a href="#cb113-27" aria-hidden="true" tabindex="-1"></a>subset_identity_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Both plots together:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(</span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(full_identity_plot, </span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>                       subset_identity_plot, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>What you see in the second plot is what you might expect. Remember, that if you want to pass a grouping variable summary as an additional layer of a plot, you might be better off creating a separate data frame and pass it separately.</p>
+</section>
+<section id="examples-of-color-versions" class="level2">
+<h2 class="anchored" data-anchor-id="examples-of-color-versions"><strong>Examples of Color Versions</strong></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>color_plot1 <span class="ot">&lt;-</span> SWIM_NEW <span class="sc">%&gt;%</span></span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group both (creates nxm subsets)</span></span>
+<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, School) <span class="sc">%&gt;%</span></span>
+<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MeanTime =</span> <span class="fu">mean</span>(Time)) <span class="sc">%&gt;%</span></span>
+<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, </span>
+<span id="cb115-7"><a href="#cb115-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> Time, </span>
+<span id="cb115-8"><a href="#cb115-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> School, </span>
+<span id="cb115-9"><a href="#cb115-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">fill =</span> School</span>
+<span id="cb115-10"><a href="#cb115-10" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb115-11"><a href="#cb115-11" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb115-12"><a href="#cb115-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plot all data (y = Time)</span></span>
+<span id="cb115-13"><a href="#cb115-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">seed =</span> <span class="dv">167</span>, </span>
+<span id="cb115-14"><a href="#cb115-14" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">height =</span> <span class="dv">0</span>, </span>
+<span id="cb115-15"><a href="#cb115-15" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">width =</span> .<span class="dv">2</span>),</span>
+<span id="cb115-16"><a href="#cb115-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">pch =</span> <span class="dv">1</span>,</span>
+<span id="cb115-17"><a href="#cb115-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">7</span>,</span>
+<span id="cb115-18"><a href="#cb115-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">stroke =</span> <span class="dv">1</span>,</span>
+<span id="cb115-19"><a href="#cb115-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">2</span></span>
+<span id="cb115-20"><a href="#cb115-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb115-21"><a href="#cb115-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a layer using the grouped data (y = MeanTime)</span></span>
+<span id="cb115-22"><a href="#cb115-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> MeanTime), </span>
+<span id="cb115-23"><a href="#cb115-23" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">2</span>,</span>
+<span id="cb115-24"><a href="#cb115-24" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">4</span></span>
+<span id="cb115-25"><a href="#cb115-25" aria-hidden="true" tabindex="-1"></a>             ) <span class="sc">+</span></span>
+<span id="cb115-26"><a href="#cb115-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb115-27"><a href="#cb115-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">"Caption illustration:</span><span class="sc">\n</span><span class="st">Means are closed circles"</span>)</span>
+<span id="cb115-28"><a href="#cb115-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-29"><a href="#cb115-29" aria-hidden="true" tabindex="-1"></a>color_plot2 <span class="ot">&lt;-</span> SWIM_NEW <span class="sc">%&gt;%</span></span>
+<span id="cb115-30"><a href="#cb115-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># group both (creates nxm subsets)</span></span>
+<span id="cb115-31"><a href="#cb115-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, School) <span class="sc">%&gt;%</span> </span>
+<span id="cb115-32"><a href="#cb115-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">MeanTime =</span> <span class="fu">mean</span>(Time)) <span class="sc">%&gt;%</span></span>
+<span id="cb115-33"><a href="#cb115-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb115-34"><a href="#cb115-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, </span>
+<span id="cb115-35"><a href="#cb115-35" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> Time, </span>
+<span id="cb115-36"><a href="#cb115-36" aria-hidden="true" tabindex="-1"></a>                <span class="at">col =</span> School, </span>
+<span id="cb115-37"><a href="#cb115-37" aria-hidden="true" tabindex="-1"></a>                <span class="at">fill =</span> School</span>
+<span id="cb115-38"><a href="#cb115-38" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb115-39"><a href="#cb115-39" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb115-40"><a href="#cb115-40" aria-hidden="true" tabindex="-1"></a>  <span class="co"># plot all data (y = Time)</span></span>
+<span id="cb115-41"><a href="#cb115-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">seed =</span> <span class="dv">167</span>, </span>
+<span id="cb115-42"><a href="#cb115-42" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">height =</span> <span class="dv">0</span>, </span>
+<span id="cb115-43"><a href="#cb115-43" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">width =</span> .<span class="dv">2</span>),</span>
+<span id="cb115-44"><a href="#cb115-44" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">7</span>,</span>
+<span id="cb115-45"><a href="#cb115-45" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">2</span></span>
+<span id="cb115-46"><a href="#cb115-46" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb115-47"><a href="#cb115-47" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a layer using the grouped data (y = MeanTime)</span></span>
+<span id="cb115-48"><a href="#cb115-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> MeanTime), </span>
+<span id="cb115-49"><a href="#cb115-49" aria-hidden="true" tabindex="-1"></a>             <span class="at">pch =</span> <span class="dv">1</span>,</span>
+<span id="cb115-50"><a href="#cb115-50" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">2</span>,</span>
+<span id="cb115-51"><a href="#cb115-51" aria-hidden="true" tabindex="-1"></a>             <span class="at">stroke =</span> <span class="dv">1</span>,</span>
+<span id="cb115-52"><a href="#cb115-52" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">4</span></span>
+<span id="cb115-53"><a href="#cb115-53" aria-hidden="true" tabindex="-1"></a>             ) <span class="sc">+</span></span>
+<span id="cb115-54"><a href="#cb115-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb115-55"><a href="#cb115-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">"Caption illustration:</span><span class="sc">\n</span><span class="st">Means are open circles"</span>)</span>
+<span id="cb115-56"><a href="#cb115-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-57"><a href="#cb115-57" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(color_plot1, color_plot2, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="a-note-on-size" class="level2">
+<h2 class="anchored" data-anchor-id="a-note-on-size"><strong>A note on <code>size</code></strong></h2>
+<p>For <code>geom_point()</code>, you should understand what is happening when you pass an argument (e.g., <code>size = 2</code>) to the parameter because of its implications for bias in data visualizations. The size parameter scales on both the x and y dimensions proportionately which means that for any circle that doubles the size of the point, its radius will also double. When the radius doubles, however, the diameter and circumference also double. You might guess where this discussion is going.</p>
+<p>If size is a constant, this likely will not be a problem. If, however, size is mapped to a variable, then then you have a perceptual challenge related to difficulty with comparing area. See <a href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080">Cleveland &amp; McGill (1984)</a>. Moreover, because the area of a circle is proportional to the square of its radius, doubling the point size increases area fourfold.</p>
+<p>Here is an example.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> </span>
+<span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a>         <span class="fu">data.frame</span>(<span class="at">x     =</span> <span class="dv">0</span>, </span>
+<span id="cb116-3"><a href="#cb116-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">y     =</span> <span class="dv">0</span>, </span>
+<span id="cb116-4"><a href="#cb116-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">panel =</span> <span class="fu">c</span>(<span class="st">"Size = 13"</span>, <span class="st">"Size = 26"</span>), </span>
+<span id="cb116-5"><a href="#cb116-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">size =</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">26</span>)),</span>
+<span id="cb116-6"><a href="#cb116-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(x, y, <span class="at">size =</span> size)</span>
+<span id="cb116-7"><a href="#cb116-7" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span> </span>
+<span id="cb116-8"><a href="#cb116-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb116-9"><a href="#cb116-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>),</span>
+<span id="cb116-10"><a href="#cb116-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb116-11"><a href="#cb116-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>),</span>
+<span id="cb116-12"><a href="#cb116-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb116-13"><a href="#cb116-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_identity</span>() <span class="sc">+</span></span>
+<span id="cb116-14"><a href="#cb116-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(.<span class="sc">~</span>panel) <span class="sc">+</span> </span>
+<span id="cb116-15"><a href="#cb116-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="summary" class="level1">
+<h1><strong>Summary</strong></h1>
+<p>How data are aggregated will affect both summary statistics and data visualizations. With each level of aggregation, fine-grained or case-level data are lost and not available for plotting. That fine-grained detail may be computed with measures like variability and confidence levels but those measures are summaries themselves. Including them is not the same as including all data. That said, including all data may influence visual attention and interpretation of plots to the extent that outlying points or grouping characteristics (point proximity) drive attention to physical locations of plots at the cost of attending to other locations.</p>
+<p>A main workhorse of adding variables and creating aggregated data in the <code>R</code> language is the <strong>{dplyr}</strong> library. You must, however, be sensitive to the way its functions work so that the variables you create in either a full or summarized data frame represent your intentions and goals.</p>
+<p>We have seen that a lot of customization can be applied to our visualizations of data and have shown just a little bit of what can be done. Many more functions and parameters can be used to customize to greater extents.</p>
+</section>
+<section id="session-info" class="level1">
+<h1><strong>Session Info</strong></h1>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.4.1 (2024-06-14 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 22631)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/Los_Angeles
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] magrittr_2.0.3    htmltools_0.5.8.1 DT_0.33           vroom_1.6.5      
+ [5] lubridate_1.9.3   forcats_1.0.0     stringr_1.5.1     dplyr_1.1.4      
+ [9] purrr_1.0.2       readr_2.1.5       tidyr_1.3.1       tibble_3.2.1     
+[13] ggplot2_3.5.1     tidyverse_2.0.0  
+
+loaded via a namespace (and not attached):
+ [1] utf8_1.2.4        generics_0.1.3    rstatix_0.7.2     stringi_1.8.4    
+ [5] hms_1.1.3         digest_0.6.36     evaluate_0.24.0   grid_4.4.1       
+ [9] timechange_0.3.0  fastmap_1.2.0     R.oo_1.26.0       rprojroot_2.0.4  
+[13] jsonlite_1.8.8    R.utils_2.12.3    backports_1.5.0   gridExtra_2.3    
+[17] fansi_1.0.6       scales_1.3.0      abind_1.4-5       cli_3.6.3        
+[21] rlang_1.1.4       crayon_1.5.3      R.methodsS3_1.8.2 bit64_4.0.5      
+[25] munsell_0.5.1     withr_3.0.1       yaml_2.3.10       tools_4.4.1      
+[29] parallel_4.4.1    tzdb_0.4.0        ggsignif_0.6.4    colorspace_2.1-0 
+[33] ggpubr_0.6.0      here_1.0.1        broom_1.0.6       curl_5.2.1       
+[37] vctrs_0.6.5       R6_2.5.1          lifecycle_1.0.4   car_3.1-2        
+[41] htmlwidgets_1.6.4 bit_4.0.5         pkgconfig_2.0.3   pillar_1.9.0     
+[45] gtable_0.3.5      glue_1.7.0        xfun_0.45         tidyselect_1.2.1 
+[49] rstudioapi_0.16.0 knitr_1.47        farver_2.1.2      carData_3.0-5    
+[53] labeling_0.4.3    rmarkdown_2.27    compiler_4.4.1   </code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

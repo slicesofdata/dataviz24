@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gabriel I. Cook">
+<meta name="dcterms.date" content="2024-08-20">
+
+<title>Installing R &amp; RStudio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/78ddb093ea.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="../../css/nav.css">
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text"><strong>Home</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../schedule/index.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><strong>Schedule</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../modules/index.html" rel="" target="">
+ <span class="menu-text"><strong>Modules</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../project/index.html" rel="" target="">
+ <span class="menu-text"><strong>Project</strong></span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Slides</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../../slides/01_intro_rstudio_rmarkdown_slides.html" rel="" target="">
+ <span class="dropdown-text">R, RStudio, &amp; R Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../slides/02_git_slides.html" rel="" target="">
+ <span class="dropdown-text">Git and GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../slides/03_functions_slides.html" rel="" target="">
+ <span class="dropdown-text">Functions, Parameters, and Arguments</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hw" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>HW</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
+        <li class="dropdown-header">HW 01</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Exercises</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li class="dropdown-header">pending</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Data</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/slicesofdata/dataviz24/raw/main/data/cms-top-all-time-2023-swim.zip" rel="" target="">
+ <span class="dropdown-text">cms-top-all-time-2023-swim.xlsx</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/rfordatascience/tidytuesday" rel="" target="">
+ <span class="dropdown-text">Fun Tidy Tuesday Data Sets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
+ <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example-files--other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Example Files &amp; Other</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-example-files--other">    
+        <li>
+    <a class="dropdown-item" href="../../resources/tools.html" rel="" target="">
+ <span class="dropdown-text"><strong>Other Tools/Resources</strong></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/example-figure-script.R" rel="" target="">
+ <span class="dropdown-text">example-figure-script.R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../examples/example-rmarkdown-file-with-fig-script.Rmd" rel="" target="">
+ <span class="dropdown-text">example-rmarkdown-file-with-fig-script.Rmd</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cheatsheets" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Cheatsheets</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cheatsheets">    
+        <li>
+    <a class="dropdown-item" href="../../cheatsheets_and_tips/symbols.html" rel="" target="">
+ <span class="dropdown-text">Symbols</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../cheatsheets/rmarkdown-2.0.pdf" rel="" target="">
+ <span class="dropdown-text">RMarkdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" rel="" target="">
+ <span class="dropdown-text">Data Wrangling with {dplyr} and {tidyr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/quarto.html" rel="" target="">
+ <span class="dropdown-text">Quarto (Publish and Share)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/strings.html" rel="" target="">
+ <span class="dropdown-text">String Manipulation with {stringr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/data-import.html" rel="" target="">
+ <span class="dropdown-text">Reading and Writing Data with {readr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../cheatsheets/Data_Science_With_R_Workflow.pdf" rel="" target="">
+ <span class="dropdown-text">Data Science with RWorkflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/" rel="" target="">
+ <span class="dropdown-text">More Cheatsheets From RStudio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://images.datacamp.com/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf" rel="" target="">
+ <span class="dropdown-text">Quarto Cheat Sheet (what Quarto Files Look Like)</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/slicesofdata" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gabrielcook.xyz" rel="" target="">
+ <span class="menu-text">Me</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules_setup/index.html">Installation, Setup, &amp; R Basics</a></li><li class="breadcrumb-item"><a href="../../modules_setup/Installation &amp; Setup/index.html">Installation &amp; Setup</a></li><li class="breadcrumb-item"><a href="../../modules_setup/Installation &amp; Setup/installing_r_and_rstudio.html">Installing R &amp; RStudio</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../schedule/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../modules_setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation, Setup, &amp; R Basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../modules_setup/Installation &amp; Setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation &amp; Setup</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules_setup/Installation &amp; Setup/installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Installing R &amp; RStudio</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../modules_setup/R Basics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Basics and Refreshers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules_setup/R Basics/introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to RStudio, R Markdown, &amp; Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules_setup/R Basics/functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions, Arguments, and R scripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules_setup/R Basics/vectors_and_data_frame_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vectors and data frame basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules_setup/R Basics/reading_data_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading data files</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Management</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/project_management/installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Management 01</em>: Installing Git and Setting Up Git and GitHub for R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/project_management/using_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Management 02</em>: R Projects, Git, and GitHub</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/graphical_perception.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphical perception</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/data_frame_manipulation_and_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data frame manipulation and wrangling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/data_subsets_and_summaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data subsets and summaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/considerations_in_data_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Considerations in data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/designing_perceptually_efficient_visualizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Designing perceptually-efficient visualizations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">{<code>ggplot2</code>}: The Grammar of Graphics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/visualizing_associations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing associations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/spatial_position_and_adjustment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial position and adjustment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/color_scales_and_palettes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Color scales and palettes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/coordinates_axes_and_position_scales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coordinates, axes, and position scales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/statistical_transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical transformations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/visualizing_more_distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing more distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/visualizing_trends.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing trends</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/legends_and_arrangement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Legends and arrangement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/multi_panel_plots_faceting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Multi-panel plots: Faceting</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/attentional_control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Attentional control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules/themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Figure design &amp; themes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../project/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Team membership and roles</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/02_project_midterm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Midterm presentation</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/03_project_final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Final Presentation</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/04_project_report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Final Report</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project/05_project_tasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Tasks</em></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
+  <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
+  <ul class="collapse">
+  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks"><strong>Tasks</strong></a></li>
+  <li><a href="#optional-readings" id="toc-optional-readings" class="nav-link" data-scroll-target="#optional-readings"><strong>Optional Readings</strong></a></li>
+  </ul></li>
+  <li><a href="#downloading-software" id="toc-downloading-software" class="nav-link" data-scroll-target="#downloading-software"><strong>Downloading Software</strong></a>
+  <ul class="collapse">
+  <li><a href="#determine-the-version-of-your-computers-operating-system" id="toc-determine-the-version-of-your-computers-operating-system" class="nav-link" data-scroll-target="#determine-the-version-of-your-computers-operating-system"><strong>Determine the version of your computer’s operating system</strong></a></li>
+  <li><a href="#download-r" id="toc-download-r" class="nav-link" data-scroll-target="#download-r"><strong>Download R</strong></a></li>
+  <li><a href="#download-rstudio" id="toc-download-rstudio" class="nav-link" data-scroll-target="#download-rstudio"><strong>Download RStudio</strong></a></li>
+  </ul></li>
+  <li><a href="#installing-r-and-rstudio-on-your-computer" id="toc-installing-r-and-rstudio-on-your-computer" class="nav-link" data-scroll-target="#installing-r-and-rstudio-on-your-computer"><strong>Installing R and RStudio on your Computer</strong></a>
+  <ul class="collapse">
+  <li><a href="#install-r-then-install-rstudio" id="toc-install-r-then-install-rstudio" class="nav-link" data-scroll-target="#install-r-then-install-rstudio"><em>Install R (then install RStudio)</em></a></li>
+  <li><a href="#additional-step-for-mac-users" id="toc-additional-step-for-mac-users" class="nav-link" data-scroll-target="#additional-step-for-mac-users"><em>Additional Step for Mac Users:</em></a></li>
+  </ul></li>
+  <li><a href="#verify-that-rstudio-is-communicating-correctly-with-r" id="toc-verify-that-rstudio-is-communicating-correctly-with-r" class="nav-link" data-scroll-target="#verify-that-rstudio-is-communicating-correctly-with-r"><strong>Verify that RStudio is communicating correctly with R</strong></a></li>
+  <li><a href="#configuring-rstudio" id="toc-configuring-rstudio" class="nav-link" data-scroll-target="#configuring-rstudio"><strong>Configuring RStudio</strong></a></li>
+  <li><a href="#installing-some-packages" id="toc-installing-some-packages" class="nav-link" data-scroll-target="#installing-some-packages"><strong>Installing some packages</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Installing R &amp; RStudio</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gabriel I. Cook </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 20, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not install course software until this warning is removed.</p>
+</div>
+</div>
+<section id="overview" class="level1">
+<h1><strong>Overview</strong></h1>
+<p>For this course, we will use the <code>R</code> programming language and the <code>RStudio</code> IDE for manipulating data and creating data visualizations.</p>
+</section>
+<section id="to-do" class="level1">
+<h1><strong>To Do</strong></h1>
+<p><strong><em>Due by class time on the first day of class.</em></strong></p>
+<section id="tasks" class="level2">
+<h2 class="anchored" data-anchor-id="tasks"><strong>Tasks</strong></h2>
+<p>The first step for this course is to install and configure some software. If you have these installed on your computer, you will need to ensure you have the correct versions of software and libraries installed.</p>
+<ul>
+<li>Download and Install <code>R</code></li>
+<li>Download and Install <code>RStudio</code></li>
+<li>Configure <code>RStudio</code></li>
+<li>Install <code>R</code> libraries/packages needed</li>
+</ul>
+</section>
+<section id="optional-readings" class="level2">
+<h2 class="anchored" data-anchor-id="optional-readings"><strong>Optional Readings</strong></h2>
+<p>If you need a refresher on the RStudio IDE, consider:</p>
+<ul>
+<li><a href="https://psyteachr.github.io/ads-v2/01-intro.html">Intro to R</a></li>
+</ul>
+<p>If you need a refresher on R Markdown, consider:</p>
+<ul>
+<li><a href="https://socviz.co/gettingstarted.html#work-in-plain-text-using-rmarkdown">Working with RMarkdown</a></li>
+</ul>
+</section>
+</section>
+<section id="downloading-software" class="level1">
+<h1><strong>Downloading Software</strong></h1>
+<section id="determine-the-version-of-your-computers-operating-system" class="level2">
+<h2 class="anchored" data-anchor-id="determine-the-version-of-your-computers-operating-system"><strong>Determine the version of your computer’s operating system</strong></h2>
+<p>Your version of operating system will dictate which version of R to download and install. Make note of your computer’s operating system.</p>
+<p><strong><em>Windows</em></strong> systems are easier and Windows 10 and 11 operating systems will both use the same R versions.</p>
+<p><strong><em>Macs</em></strong> are somewhat more complicated. The version depends on your cpu. <a href="https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/">Visit this link</a> to determine.</p>
+<p>There will be two cpu options, Intel 64-bit for macOS 10.13 or Apple silicon arm64 for macOS 11 and higher.</p>
+<p><strong>Cloud Options:</strong></p>
+<p>If you do not have a laptop (let me know) or do not have 5GB of hard drive space available on your computer, you might consider a cloud version of the software. One is maintained by Posit (formerly RStudio) and the other is maintained by CMC.</p>
+<ol type="1">
+<li><p><a href="https://posit.cloud/plans/free">Posit</a> (25 free compute hours a month – make time out)</p></li>
+<li><p>Remote Desktop Protocol (No limit on compute hours) (contact me if interested). This is managed by CMC but may not be reliable.</p></li>
+</ol>
+</section>
+<section id="download-r" class="level2">
+<h2 class="anchored" data-anchor-id="download-r"><strong>Download R</strong></h2>
+<p>Once you know your processor, navigate to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> and in the “<strong>Download and Install R</strong>” section, select your operating system. You can also select from below and follow the indented sections that follow.</p>
+<ul>
+<li><p><a href="https://cran.r-project.org/bin/linux/">Download R for Linux</a> (<a href="https://cran.r-project.org/bin/linux/debian">Debian</a>, <a href="https://cran.r-project.org/bin/linux/fedora">Fedora/Redhat</a>, <a href="https://cran.r-project.org/bin/linux/ubuntu">Ubuntu)</a></p></li>
+<li><p><a href="https://cran.r-project.org/bin/macosx/">Download R for macOS</a></p></li>
+<li><p><a href="https://cran.r-project.org/bin/windows/">Download R for Windows</a></p></li>
+</ul>
+<p><strong><em>Windows</em></strong> users should select the <strong>base</strong> version of <code>R</code> and download version <strong>4.4.1</strong> <strong>(no other version)</strong> to your computer. If this version is not on the main page, go to the “Other Builds” section and select “previous releases” and download the correct version.</p>
+<p><strong><em>Mac</em></strong> users should download either <strong>R-4.4.1.pkg</strong> or <strong>R-4.4.1x86_64.pkg</strong> version depending on the cpu noted earlier. <strong>Do not</strong> download any version other than 4.4.1 and please do not update throughout the semester.</p>
+</section>
+<section id="download-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="download-rstudio"><strong>Download RStudio</strong></h2>
+<p>Use the urls below to download <code>RStudio</code> and save it to the same directory location on your computer as you saved <code>R</code>.</p>
+<p><strong><em>Windows 10/11</em></strong>: <a href="https://download1.rstudio.org/electron/windows/RStudio-2024.04.2-764.exe" class="uri">https://download1.rstudio.org/electron/windows/RStudio-2024.04.2-764.exe</a></p>
+<p><strong><em>MacOS 12+:</em></strong> <a href="https://download1.rstudio.org/electron/macos/RStudio-2024.04.2-764.dmg" class="uri">https://download1.rstudio.org/electron/macos/RStudio-2024.04.2-764.dmg</a></p>
+<p><strong><em>MacOS 10.15-11:</em></strong> <a href="https://s3.amazonaws.com/rstudio-ide-build/electron/macos/RStudio-2023.09.1-494.dmg" class="uri">https://s3.amazonaws.com/rstudio-ide-build/electron/macos/RStudio-2023.09.1-494.dmg</a></p>
+<p><strong><em>Linux:</em></strong> go to <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p>
+<p><em>Note:</em> If you have a 32bit operating system, you will need to install an older version: <a href="https://www.rstudio.com/products/rstudio/older-versions/" class="uri">https://www.rstudio.com/products/rstudio/older-versions/</a></p>
+</section>
+</section>
+<section id="installing-r-and-rstudio-on-your-computer" class="level1">
+<h1><strong>Installing R and RStudio on your Computer</strong></h1>
+<section id="install-r-then-install-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="install-r-then-install-rstudio"><em>Install R (then install RStudio)</em></h2>
+<p>Installing should be easy and you can accept all of the defaults although the desktop icons are not needed, especially for <code>R</code> because you will never need it; RStudio will find R for you. You can follow these videos for simple installing.</p>
+<p><em>PC</em>: <a href="https://www.youtube.com/watch?v=_2sewGCA0y4">How to Install R and R Studio on Windows 10/11</a></p>
+<p><em>Mac</em>: <a href="https://www.youtube.com/watch?v=H6Tfgt5gtWQ">Installing R and RStudio on a Mac</a></p>
+<p><strong>Note:</strong> If you leave the desktop icon for <code>R</code>, you can remove that later. You will never need it because RStudio will find <code>R</code> for you.</p>
+</section>
+<section id="additional-step-for-mac-users" class="level2">
+<h2 class="anchored" data-anchor-id="additional-step-for-mac-users"><em>Additional Step for Mac Users:</em></h2>
+<p><em>Download and Install XQuartz</em></p>
+<p>Some functions in R require an “X11 Server” and/or libraries associated with an X11 server. Apple does not provide this software with OS X anymore so unfortunately you have to do it on your own via a third-party application called XQuartz for <strong>OS X 10.9 or later</strong>.</p>
+<p>Use the url below to download the XQuartz file and save it to your computer. Follow the same install instructions as above for installing the XQuartz file.</p>
+<p><strong>For macOS 10.9 or later, download this XQuartz file and save it to your computer and install:</strong> <a href="https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.5/XQuartz-2.8.5.pkg" class="uri">https://github.com/XQuartz/XQuartz/releases/download/XQuartz-2.8.5/XQuartz-2.8.5.pkg</a></p>
+</section>
+</section>
+<section id="verify-that-rstudio-is-communicating-correctly-with-r" class="level1">
+<h1><strong>Verify that RStudio is communicating correctly with R</strong></h1>
+<p><strong><em>Launch the RStudio application.</em></strong></p>
+<p>If <code>RStudio</code> and <code>R</code> are communicating correctly, you should see an <code>RStudio</code> window open with the <code>R</code> console opened which should look similar to that shown below. Your R version should be listed at the top of the console (<strong>4.4.1</strong>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/RStudio1.png" class="img-fluid" width="599"></p>
+</div>
+</div>
+</section>
+<section id="configuring-rstudio" class="level1">
+<h1><strong>Configuring RStudio</strong></h1>
+<p>A. Go to <strong><em>Tools &gt; Global Options</em></strong> under the <strong><em>General + Basic</em></strong> Tab</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/RStudio12.png" class="img-fluid" width="599"></p>
+</div>
+</div>
+<p><strong>R Sessions &gt; R version:</strong> There should be a path to the installed <code>R</code> version listed if you installed <code>R</code> before <code>RStudio</code>. You should not need to change this unless you have another version installed on your system. If you do have multiple versions, browse to version <strong>4.4.1</strong>. Do not update <code>R</code> or any libraries during this course.</p>
+<p>Mac Users may not see an <code>R</code> version and may only see the following:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/RStudio13.png" class="img-fluid" width="400"></p>
+</div>
+</div>
+<p>If you are concerned that <code>R</code> may not be there, type 2 + 2 into the <code>R</code> console and press Enter/Return. If the solution is returned, then <code>R</code> is installed.</p>
+<p>B. <strong>Other options</strong>: Check the other check boxes as indicated in the images below.</p>
+<p><strong>GENERAL (basic):</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/RStudio2.png" class="img-fluid" width="468"></p>
+</div>
+</div>
+<p><strong>CODE (editing):</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/RStudio3.png" class="img-fluid" width="468"></p>
+</div>
+</div>
+<p><strong>CODE (display):</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/RStudio4.png" class="img-fluid" width="468"></p>
+</div>
+</div>
+<p><strong>CODE (saving):</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/RStudio5.png" class="img-fluid" width="468"></p>
+</div>
+</div>
+<p><strong>CODE (completing):</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/RStudio6.png" class="img-fluid" width="468"></p>
+</div>
+</div>
+<p><strong>CODE (diagnostics):</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/RStudio7.png" class="img-fluid" width="468"></p>
+</div>
+</div>
+<p><strong>CONSOLE:</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/RStudio8.png" class="img-fluid" width="468"></p>
+</div>
+</div>
+<p><strong>APPEARANCE:</strong></p>
+<p>Appearance is one of preference. You can try out different RStudio Themes and Editor Themes to see what you like. Due to a degenerative eye disease which includes <a href="https://en.wikipedia.org/wiki/Photophobia">photophobia</a> as a symptom, I am able to use only dark-mode editor themes. In order to help you with your code, if a dark-mode theme does not affect you negatively, please use one. Videos will use the editor theme called <em>Made of Code</em> because this theme appears to provide me with the best visual contrast among functions and objects and does not cause me any discomfort. This theme is available in the <a href="https://github.com/slicesofdata/start-project">start-project repository</a> which is used in the module on <a href="https://gabrielcook.xyz/dataviz24/modules/project_management/installing_and_setting_up_git_and_github.html">Project Management</a>. The Theme can also be found <a href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/src/utils/Made%20of%20Code.tmTheme">here</a>. A native RStudio theme that I have used in the past is <em>Merbivore</em>. The font I use is <em>Lucida Console</em>.</p>
+<p>Please use a theme that you find most comfortable using. Please just understand that my disability may prevent me from your screen in class if your theme is not dark. You may just have to verbatim explain what is on your screen so that I can best help you.</p>
+<p><strong>OTHERS:</strong> We will address in class as appropriate.</p>
+</section>
+<section id="installing-some-packages" class="level1">
+<h1><strong>Installing some packages</strong></h1>
+<p>After you have completed installation, you will need to install different libraries that we will use a various times over the course of the semetser. Rather than installing the libraries manually, copy the code below, paste it into the RStudio Console window at the <code>&gt;</code> prompt (see image), and then press enter.</p>
+<p><strong>Copy this code:</strong></p>
+<p><code>source(https://raw.githubusercontent.com/slicesofdata/dataviz24/main/src/psyc167_libraries.R)</code></p>
+<p><strong>Paste code into your R console at the <code>&gt;</code> prompt:</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/RStudio1.png" class="img-fluid" width="599"></p>
+</div>
+</div>
+<p>The install process will take quite some time especially depending on your computer so do this at a time you do not want to use your system. Take a break and do something else.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
