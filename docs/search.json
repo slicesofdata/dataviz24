@@ -690,7 +690,7 @@
     "href": "modules_setup/Installation & Setup/installing_r_and_rstudio.html",
     "title": "Installing R & RStudio",
     "section": "",
-    "text": "Warning\n\n\n\nDo not install course software until this warning is removed."
+    "text": "For this course, we will use the R programming language and the RStudio IDE for manipulating data and creating data visualizations."
   },
   {
     "objectID": "modules_setup/Installation & Setup/installing_r_and_rstudio.html#tasks",
@@ -2496,14 +2496,14 @@
     "href": "modules_setup/Installation & Setup/installing_git.html",
     "title": "Installing Git",
     "section": "",
-    "text": "Important\n\n\n\nFALSE"
+    "text": "The goal is to install Git on your system, if necessary. We will perform all the necessary tasks for using Git with RStudio and managing files at the remote repository at GitHub.\n\n\nComplete by the start of the first day of class.\n\nDownload Git (if not already installed)\nInstall Git on your computer (if not already installed)\nMake note of where you installed it. If RStudio does not recognize Git.exe on its own, you will need to supply the directory path.\n\nFollow steps below to complete."
   },
   {
     "objectID": "modules_setup/Installation & Setup/installing_git.html#overview",
     "href": "modules_setup/Installation & Setup/installing_git.html#overview",
     "title": "Installing Git",
-    "section": "Overview",
-    "text": "Overview\nThe goal is to install Git on your system, if necessary. We will perform all the necessary tasks for using Git with RStudio and managing files at the remote repository at GitHub.\n\nTo Do\nComplete by the start of the first day of class.\n\nDownload Git (if not already installed)\nInstall Git on your computer (if not already installed)\nMake note of where you installed it. If RStudio does not recognize Git.exe on its own, you will need to supply the directory path.\n\nFollow steps below to complete."
+    "section": "",
+    "text": "The goal is to install Git on your system, if necessary. We will perform all the necessary tasks for using Git with RStudio and managing files at the remote repository at GitHub.\n\n\nComplete by the start of the first day of class.\n\nDownload Git (if not already installed)\nInstall Git on your computer (if not already installed)\nMake note of where you installed it. If RStudio does not recognize Git.exe on its own, you will need to supply the directory path.\n\nFollow steps below to complete."
   },
   {
     "objectID": "modules_setup/Installation & Setup/installing_git.html#installing-git",
