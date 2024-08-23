@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Gabriel I. Cook">
+<meta name="dcterms.date" content="2024-08-23">
 
-<title>Project Management</title>
+<title>Project Management 01: Setting Up Git and GitHub for R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -232,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../../modules/project_management/index.html">Project Management</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../../modules/project_management/index.html">Project Management</a></li><li class="breadcrumb-item"><a href="../../modules/project_management/setting_up_git_and_github.html"><em>Project Management 01</em>: Setting Up Git and GitHub for R</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -339,7 +375,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../modules/project_management/index.html" class="sidebar-item-text sidebar-link active">
+            <a href="../../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Project Management</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -348,7 +384,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../modules/project_management/setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+  <a href="../../modules/project_management/setting_up_git_and_github.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><em>Project Management 01</em>: Setting Up Git and GitHub for R</span></a>
   </div>
 </li>
@@ -512,21 +548,55 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
+  <ul class="collapse">
+  <li><a href="#to-do-steps-of-the-task" id="toc-to-do-steps-of-the-task" class="nav-link" data-scroll-target="#to-do-steps-of-the-task"><strong>To Do: Steps of the Task</strong></a></li>
+  </ul></li>
+  <li><a href="#libraries-used" id="toc-libraries-used" class="nav-link" data-scroll-target="#libraries-used"><strong>Libraries Used</strong></a></li>
+  <li><a href="#creating-a-github-account" id="toc-creating-a-github-account" class="nav-link" data-scroll-target="#creating-a-github-account"><strong>Creating a GitHub Account</strong></a></li>
+  <li><a href="#creating-a-repository-on-github-using-a-template" id="toc-creating-a-repository-on-github-using-a-template" class="nav-link" data-scroll-target="#creating-a-repository-on-github-using-a-template"><strong>Creating a Repository on GitHub Using a Template</strong></a></li>
+  <li><a href="#checking-git-setup-in-rstudio" id="toc-checking-git-setup-in-rstudio" class="nav-link" data-scroll-target="#checking-git-setup-in-rstudio"><strong>Checking Git Setup in RStudio</strong></a></li>
+  <li><a href="#configuring-git-and-github-for-rstudio" id="toc-configuring-git-and-github-for-rstudio" class="nav-link" data-scroll-target="#configuring-git-and-github-for-rstudio"><strong>Configuring Git and GitHub for RStudio</strong></a></li>
+  <li><a href="#creating-a-personal-access-token-pat-for-github" id="toc-creating-a-personal-access-token-pat-for-github" class="nav-link" data-scroll-target="#creating-a-personal-access-token-pat-for-github"><strong>Creating a Personal Access Token (PAT) for GitHub</strong></a></li>
+  <li><a href="#setting-your-git-credentials-using-pat" id="toc-setting-your-git-credentials-using-pat" class="nav-link" data-scroll-target="#setting-your-git-credentials-using-pat"><strong>Setting your Git Credentials (using PAT)</strong></a>
+  <ul class="collapse">
+  <li><a href="#updating-your-personal-access-token-pat" id="toc-updating-your-personal-access-token-pat" class="nav-link" data-scroll-target="#updating-your-personal-access-token-pat"><strong>Updating your Personal Access Token (PAT)</strong></a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
+  <li><a href="#optional-resources" id="toc-optional-resources" class="nav-link" data-scroll-target="#optional-resources"><strong>Optional Resources</strong></a></li>
+  <li><a href="#session-information" id="toc-session-information" class="nav-link" data-scroll-target="#session-information"><strong>Session Information</strong></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project Management</h1>
+<h1 class="title"><em>Project Management 01</em>: Setting Up Git and GitHub for R</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gabriel I. Cook </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 23, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -534,8 +604,195 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>TRUE</p>
+</div>
+</div>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview"><strong>Overview</strong></h2>
+<p>We will perform all the necessary tasks for using Git with RStudio and managing files at the remote repository at GitHub.</p>
+<section id="to-do-steps-of-the-task" class="level3">
+<h3 class="anchored" data-anchor-id="to-do-steps-of-the-task"><strong>To Do: Steps of the Task</strong></h3>
+<ol type="1">
+<li>Create a GitHub account</li>
+<li>Create GitHub repository named <code>"dataviz-exercises"</code> from a template repository</li>
+<li>Configure Git for R, within R/RStudio (a familiar context)
+<ul>
+<li>Create a Personal Access Token (PAT)</li>
+<li>Set your Git Credentials (using your PAT)</li>
+</ul></li>
+</ol>
+<p>Follow steps below to complete.</p>
+</section>
+</section>
+<section id="libraries-used" class="level2">
+<h2 class="anchored" data-anchor-id="libraries-used"><strong>Libraries Used</strong></h2>
+<ul>
+<li><strong>{usethis}</strong>: 2.2.3: for project workflow automation</li>
+<li><strong>{gitcreds}</strong>: 0.1.2: for querying git credentials</li>
+</ul>
+</section>
+<section id="creating-a-github-account" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-github-account"><strong>Creating a GitHub Account</strong></h2>
+<ol type="1">
+<li><p>Go to <a href="https://github.com/">GitHub</a> and create a free GitHub account. Make note of your username and your associated e-mail as you will need those for configuring Git with R.</p>
+<ul>
+<li>Consider this brief 15-minute <a href="https://try.github.io/">TryGit Tutorial</a>.</li>
+</ul></li>
+<li><p>Stay logged in so that you can complete a later step.</p></li>
+<li><p>Send your PM your GitHub username once you are assigned to a team project. Your PM will send those to me and I will add you as a collaborator to a private repo.</p></li>
+</ol>
+</section>
+<section id="creating-a-repository-on-github-using-a-template" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-repository-on-github-using-a-template"><strong>Creating a Repository on GitHub Using a Template</strong></h2>
+<p>You will need to create a personal repository for class exercises. You can create it by building the directory structure for it yourself. This, however, may lead to errors. Creating a project from a template will ensure all students have they same repository with the same directory structure.</p>
+<ol type="1">
+<li><p>Once logged into your GitHub account, go to this <a href="https://github.com/slicesofdata/start-project">template repository</a>.</p></li>
+<li><p>On the top right, you will see an option to create a <strong>Use this template</strong>. Click it an select <em>“Create a new repository”</em>.</p></li>
+<li><p>Name the repository <strong>dataviz-exercises</strong> and provide a description like <em>“for data viz class exercises and homework”</em>.</p></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/create_github_repo_02.png" class="img-fluid" width="575"></p>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Select the option to make the repository <strong>Private</strong>, check to <strong>add a README file</strong>, and add a <strong>.gitignore</strong> file by scrolling to find <code>R</code>:</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../../images/create_github_repo_03.png" class="img-fluid" width="490"></p>
+</div>
+</div>
+<ol start="4" type="1">
+<li><p>Click <strong>Create Repository</strong></p></li>
+<li><p>Watch the course video if you have not already so that you know how to unpack the files for the repository as well as checking that Git is configured for RStudio.</p></li>
+</ol>
+<p><strong>Note:</strong> Git manages files only, not directories. Directories will not populate in a repository unless they contain files. You will not see empty directories. For this reason, you may see empty files in the directory structure.</p>
+</section>
+<section id="checking-git-setup-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="checking-git-setup-in-rstudio"><strong>Checking Git Setup in RStudio</strong></h2>
+<p>You will need to tell RStudio where to find the Git program as this may not be recognize automatically.</p>
+<ol type="1">
+<li><p>Find the path to the Git program executable that was installed in an earlier step.</p>
+<ul>
+<li>In the <em>Terminal</em> within <code>RStudio</code> (not the <code>R</code> console), type: <code>where git</code> on Windows and <code>which git</code> on Mac/Linux to find the path to the program. If there are more than one paths listed, just make note of one of them.</li>
+<li>If for some reason you don’t see a path listed using that approach, type: <code>Sys.which("git")</code> in your <code>R</code> console. The path here will likely be truncated so you will have to try to fill in the gaps when performing the step to set the path. See me for help.</li>
+</ul></li>
+<li><p>In RStudio, go to <strong>Tools &gt; Global Options</strong> and click on left side bar menu item <em>Git/SVN</em>.</p></li>
+<li><p>Select the option at the top to <em>Enable version control interface for RStudio projects</em> if it is not selected.</p></li>
+<li><p>Set the path to the Git executable if it is not already there. Browse to the path to where Git.exe installed on your computer. Windows Users should make note that this path should be a path containing <code>Git.exe</code> and <strong>not</strong> a path containing <code>git-bash.exe</code>.</p></li>
+<li><p>Click <em>Apply</em> and then click <em>OK</em>.</p></li>
+</ol>
+</section>
+<section id="configuring-git-and-github-for-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="configuring-git-and-github-for-rstudio"><strong>Configuring Git and GitHub for RStudio</strong></h2>
+<p>There are two ways you can set up, either using <code>R</code> (console) or the command line (terminal). My recommendation is to use <code>R</code> because that is where you are likely most familiar, if even a small degree. We will use functions from the <strong>{usethis}</strong> library to help you. This library should be installed already as part of the class setup. If you get an error stating that the library is not installed when executing the steps below, just type <code>install.packages("usethis", dep = TRUE)</code> at your <code>R</code> console.</p>
+<p>The <strong>{usethis}</strong> library will make connecting your <code>R</code> project to your github account simple. You will use <code>usethis::use_git_config()</code> to configure your GitHub account with Git on your computer; if you did not create, see earlier step. In the below example, you will see that we need to provide two character strings as arguments to the function. The strings are used to set your <code>user.name</code> and your <code>user.email</code> (the e-mail attached to your GitHub account). Double check your GitHub e-mail and username.</p>
+<p><em>Edit the following code to include your username and email and then execute your modified <code>R</code> code:</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"github_username"</span>, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">user.email =</span> <span class="st">"github_email@gitrdone.com"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Done!</p>
+</section>
+<section id="creating-a-personal-access-token-pat-for-github" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-personal-access-token-pat-for-github"><strong>Creating a Personal Access Token (PAT) for GitHub</strong></h2>
+<p>Before completing this step, log into your GitHub account to facilitate the communication between RStudio and GitHub.</p>
+<p>You will need a personal access token (PAT) for making remote changes to GitHub. A first step then is to create a PAT using <code>usethis::create_github_token()</code>. Second, you will register your PAT with the Git credential manager used by your computers operating system using <code>gitcreds::gitcreds_set()</code>. Keep in mind that if you use a different computer (e.g., you get a new one), you’ll need to register the PAT on that computer following the same steps described here.</p>
+<p><em>To create your personal access token (PAT), type the following at your <code>R</code> console: </em></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After executing the code, you will be taken to your GitHub account (if you remained logged in). Go to the bottom of the page and click <em>generate token</em>. You should <strong>add a description</strong> for it so that you can understand its use case. For example, describe it based the computer you are using it on, “my computer make and model”. You may also describe it based on a project you are working on, “token-for-project-xyz”. If you do not add a description, you will likely become overwhelmed and/or confused when you have multiple tokens. When you need to regenerate or delete a token that expires, you will not be able to determine what they are for if you do not add a description.</p>
+<p>After creating your token, <strong>Copy it</strong> to your computer’s clipboard and <strong>save it someplace safe</strong>. Do not share your token with anyone because anyone who has it can access your public or private GitHub repositories.</p>
+<p><strong>Warning:</strong> Your PAT will expire after some duration, usually 30 days unless you change it. <strong>For this project, I suggest you change the expiration to a date after the semester ends</strong> to ensure you don’t have to go through this process again during the semester. Getting a new PAT is not difficult, however. If your PAT will soon expire, GitHub will send you an e-mail alerting you also. You can regenerate a PAT from a link in your e-mail, so make sure your associated e-mail is one you check.</p>
+</section>
+<section id="setting-your-git-credentials-using-pat" class="level2">
+<h2 class="anchored" data-anchor-id="setting-your-git-credentials-using-pat"><strong>Setting your Git Credentials (using PAT)</strong></h2>
+<p>Now that you have a PAT, we now need to set those credentials for RStudio to communicate with your GitHub account.</p>
+<p><em>Execute the following <code>R</code> code to set your credentials:</em></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You may see a set of number options with corresponding descriptions. If you see them, enter the number corresponding to the option that makes the most sense for what you are trying to accomplish, for example, something like “set or replace your credentials”.</p>
+<p>When should then see a prompt like <code>? Enter new password or token</code>. At this point, paste your PAT here and press return/enter. Then remove the PAT from your clipboard so that you don’t paste them someplace.</p>
+<p><em>You can check that your credentials are stored by typing the following <code>R</code> code in the console:</em></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gh<span class="sc">::</span><span class="fu">gh_whoami</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="updating-your-personal-access-token-pat" class="level3">
+<h3 class="anchored" data-anchor-id="updating-your-personal-access-token-pat"><strong>Updating your Personal Access Token (PAT)</strong></h3>
+<p>At some point, even if you set your PAT to expire after the semester, it will expire and you will need to update it. When it’s about to expire, or if it has expired, you can go to <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> while logged into your <a href="www.github.com">GitHub</a> account and regenerate the token and change the expiration date. Then, copy the PAT to the clipboard and set your credentials again using</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary"><strong>Summary</strong></h2>
+<p>You have now created your GitHub account, created a repository, created a PAT, and installed and/or set up Git with RStudio. The next step will be to connect the remote GitHub repository with your RStudio setup.</p>
+</section>
+<section id="optional-resources" class="level2">
+<h2 class="anchored" data-anchor-id="optional-resources"><strong>Optional Resources</strong></h2>
+<p>If you find yourself working on complicated projects, you might benefit from using a Git client or need to troubleshoot events. Although you won’t need to do this for this course, I’m providing some resources for your future. Feel free to come back to this course site to review content as I don’t intend to remove anything.</p>
+<ol type="1">
+<li><p><strong>Git Client:</strong> Git clients work like the RStudio Gui option described above but likely much better. If you find the <em>Terminal</em> command line daunting or limiting, I might recommend a Git Client to use as I am not a big fan of the RStudio interface.</p>
+<ul>
+<li><p><a href="https://www.gitkraken.com/">GitKraken</a> is a good option and they have lots of tutorials on their website. GitKraken is seamless to set up. Install, connect your GitHub account, select your repo to add, and voilà. You can stage, commit, and push from there.</p></li>
+<li><p><a href="https://desktop.github.com/">GitHub Desktop</a> is another common option. Install, connect your GitHub account and select your repo to add, and voilà. You can stage, commit, and push from there.</p></li>
+</ul></li>
+<li><p><strong>Troubleshooting:</strong> <a href="https://happygitwithr.com/">happygitwithr</a> is a resource for troubleshooting Git issues specifically with R.</p></li>
+</ol>
+</section>
+<section id="session-information" class="level1">
+<h1><strong>Session Information</strong></h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.4.1 (2024-06-14 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 11 x64 (build 22631)
+
+Matrix products: default
 
 
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/Los_Angeles
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] htmltools_0.5.8.1 DT_0.33           vroom_1.6.5       lubridate_1.9.3  
+ [5] forcats_1.0.0     stringr_1.5.1     dplyr_1.1.4       purrr_1.0.2      
+ [9] readr_2.1.5       tidyr_1.3.1       tibble_3.2.1      ggplot2_3.5.1    
+[13] tidyverse_2.0.0  
+
+loaded via a namespace (and not attached):
+ [1] utf8_1.2.4        generics_0.1.3    stringi_1.8.4     hms_1.1.3        
+ [5] digest_0.6.36     magrittr_2.0.3    evaluate_0.24.0   grid_4.4.1       
+ [9] timechange_0.3.0  fastmap_1.2.0     R.oo_1.26.0       rprojroot_2.0.4  
+[13] jsonlite_1.8.8    R.utils_2.12.3    fansi_1.0.6       scales_1.3.0     
+[17] cli_3.6.3         rlang_1.1.4       crayon_1.5.3      R.methodsS3_1.8.2
+[21] bit64_4.0.5       munsell_0.5.1     withr_3.0.1       yaml_2.3.10      
+[25] tools_4.4.1       tzdb_0.4.0        colorspace_2.1-0  here_1.0.1       
+[29] vctrs_0.6.5       R6_2.5.1          png_0.1-8         lifecycle_1.0.4  
+[33] htmlwidgets_1.6.4 bit_4.0.5         pkgconfig_2.0.3   pillar_1.9.0     
+[37] gtable_0.3.5      glue_1.7.0        xfun_0.45         tidyselect_1.2.1 
+[41] rstudioapi_0.16.0 knitr_1.47        rmarkdown_2.27    compiler_4.4.1   </code></pre>
+</div>
+</div>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

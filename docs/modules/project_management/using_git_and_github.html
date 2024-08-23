@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-08-20">
+<meta name="dcterms.date" content="2024-08-23">
 
 <title>Project Management 02: R Projects, Git, and GitHub</title>
 <style>
@@ -318,6 +318,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Installing R &amp; RStudio</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules_setup/Installation &amp; Setup/installing_git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing Git</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -378,8 +384,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../modules/project_management/installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Project Management 01</em>: Installing Git and Setting Up Git and GitHub for R</span></a>
+  <a href="../../modules/project_management/setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Management 01</em>: Setting Up Git and GitHub for R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -554,15 +560,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#creating-a-local-directory-for-class" id="toc-creating-a-local-directory-for-class" class="nav-link" data-scroll-target="#creating-a-local-directory-for-class"><strong>Creating a Local Directory for Class</strong></a></li>
   <li><a href="#connecting-the-repository-to-an-rstudio-project" id="toc-connecting-the-repository-to-an-rstudio-project" class="nav-link" data-scroll-target="#connecting-the-repository-to-an-rstudio-project"><strong>Connecting the Repository to an RStudio Project</strong></a></li>
-  <li><a href="#creating-project-relevant-directories" id="toc-creating-project-relevant-directories" class="nav-link" data-scroll-target="#creating-project-relevant-directories"><strong>Creating Project Relevant Directories</strong></a></li>
-  <li><a href="#understanding-git-workflow-basics" id="toc-understanding-git-workflow-basics" class="nav-link" data-scroll-target="#understanding-git-workflow-basics"><strong>Understanding Git Workflow Basics</strong></a></li>
-  <li><a href="#making-local-file-changes-committing-and-pushing-to-github" id="toc-making-local-file-changes-committing-and-pushing-to-github" class="nav-link" data-scroll-target="#making-local-file-changes-committing-and-pushing-to-github"><strong>Making Local File Changes, Committing, and Pushing to GitHub</strong></a></li>
-  <li><a href="#using-the-git-tab-in-your-rstudio-pane" id="toc-using-the-git-tab-in-your-rstudio-pane" class="nav-link" data-scroll-target="#using-the-git-tab-in-your-rstudio-pane"><strong>Using the Git Tab in your RStudio Pane</strong></a>
+  <li><a href="#unzipping-the-directory-structure" id="toc-unzipping-the-directory-structure" class="nav-link" data-scroll-target="#unzipping-the-directory-structure"><strong>Unzipping the Directory Structure</strong></a></li>
+  <li><a href="#understanding-the-directory-structure" id="toc-understanding-the-directory-structure" class="nav-link" data-scroll-target="#understanding-the-directory-structure"><strong>Understanding the Directory Structure</strong></a>
   <ul class="collapse">
-  <li><a href="#the-gert-library-approach" id="toc-the-gert-library-approach" class="nav-link" data-scroll-target="#the-gert-library-approach"><strong>The <code>{gert}</code> Library Approach</strong></a></li>
-  <li><a href="#rstudio-pane" id="toc-rstudio-pane" class="nav-link" data-scroll-target="#rstudio-pane"><strong>RStudio Pane</strong></a></li>
+  <li><a href="#directory-and-sub-directory-purpose" id="toc-directory-and-sub-directory-purpose" class="nav-link" data-scroll-target="#directory-and-sub-directory-purpose"><strong>Directory and Sub-Directory Purpose</strong></a></li>
   </ul></li>
-  <li><a href="#creating-a-version-control-project-in-rstudio-for-the-team-project" id="toc-creating-a-version-control-project-in-rstudio-for-the-team-project" class="nav-link" data-scroll-target="#creating-a-version-control-project-in-rstudio-for-the-team-project"><strong>Creating a Version Control Project in RStudio for the Team Project</strong></a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
   <li><a href="#other-resources" id="toc-other-resources" class="nav-link" data-scroll-target="#other-resources"><strong>Other Resources</strong></a></li>
   <li><a href="#session-information" id="toc-session-information" class="nav-link" data-scroll-target="#session-information"><strong>Session Information</strong></a></li>
@@ -591,7 +593,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 20, 2024</p>
+      <p class="date">August 23, 2024</p>
     </div>
   </div>
   
@@ -616,8 +618,9 @@ Important
 </div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview"><strong>Overview</strong></h2>
-<p>This module focuses on getting organized. Rather than save files in a haphazard way that will just introduce stress to your life, we will focus on creating order. The best way to create order and stay organized is to 1) create <em>projects</em> in RStudio, 2) create directories and sub-directories that leave no ambiguity about where your files are, and 3) manage all directory paths and file paths simply using the <code>{here}</code> library. Another way is to connect that project with a remote repository saved someplace like GitHub for collaboration. In certain classes (and for your team project), you will use Git to interact with remote repositories connected to Projects in RStudio.</p>
-<p>In order to maintain organization for this class and the project, you will set up a class folder (aka directory) on your computer. You will then create an RStudio project and connect it to a remote private repository on your GitHub account. The reason for its privacy is because of data related to certain exercises. You will use this RStudio project for <strong>all class exercises and homework</strong> so that there is no ambiguity about where your files are saved. Finally, you will create directories within your new project directory so that you have an organized directory structure for storing your files. Systems paths for project files and directories will be manage using the <strong><code>{here}</code></strong> library. This process will also ensure that each student’s computer is configured in the same manner.</p>
+<p>This module focuses on getting organized. Rather than save files in a haphazard way that will just introduce stress to your life, we will focus on creating order. The best way to create order and stay organized is to <strong>1)</strong> create <em>projects</em> in RStudio, <strong>2)</strong> create directories and sub-directories that leave no ambiguity about where your files are, and <strong>3)</strong> manage all directory paths and file paths simply using the <strong><code>{here}</code></strong> library. Another way is to connect that project with a remote repository saved someplace like GitHub for collaboration. In certain classes (and for your team project), you will use Git to interact with remote repositories connected to Projects in RStudio.</p>
+<p>In order to maintain organization for this class and the project, you will set up a class folder (aka directory) on your computer. You will then create an RStudio project and connect it to a remote private repository on your GitHub account. The reason for its privacy is because of data related to certain exercises.</p>
+<p>You will use this RStudio project for <strong>all class exercises and homework</strong> so that there is no ambiguity about where your files are saved. Finally, you will create directories within your new project directory so that you have an organized directory structure for storing your files. Systems paths for project files and directories will be manage using the <strong><code>{here}</code></strong> library. This process will also ensure that each student’s computer is configured in the same manner.</p>
 <p>Reading through these steps, however, will facilitate your ability to apply the concepts and run the associated functions in class. Thus, all students will gain some basic experience with Git commands and a remote repository. Students will be collaborators of a repository for their team project. Coding leads will carry the responsibility of maintaining the organization of the team’s private repository.</p>
 </section>
 <section id="libraries-used" class="level2">
@@ -629,7 +632,7 @@ Important
 </ul>
 <section id="readings-and-preparation" class="level3">
 <h3 class="anchored" data-anchor-id="readings-and-preparation"><strong>Readings and Preparation</strong></h3>
-<p><em>Before Class</em>: First, read (and/or watch course videos) to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.</p>
+<p><em>Before Class</em>: First, watch course videos (and/or read) to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.</p>
 <p>Complete the items in the <strong>To Do: Steps of the Task</strong> section.</p>
 <p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing code through exercises.</p>
 </section>
@@ -637,22 +640,16 @@ Important
 <h3 class="anchored" data-anchor-id="to-do-steps-of-the-task"><strong>To Do: Steps of the Task</strong></h3>
 <p>Following the sections below, you will:</p>
 <ol type="1">
-<li>Set up your class space</li>
-</ol>
-<ul>
-<li>Create top-level directory anywhere on your computer</li>
-<li>Name it <code>dataviz</code> (heretofore referred to at <code>/dataviz</code>)</li>
-</ul>
-<ol start="2" type="1">
 <li>Create a <em>Version-Control Project</em> with RStudio</li>
 </ol>
 <ul>
 <li>Name it <code>dataviz-exercises</code> (for class exercises and your homework)</li>
 </ul>
-<ol start="3" type="1">
+<ol start="2" type="1">
 <li>Make file edits, stage those edits, and commit them</li>
 <li>Push commits to GitHub</li>
 </ol>
+<p>In class, we will practice using RStudio along with some simple Git commands for adding, committing, and pushing files.</p>
 </section>
 </section>
 <section id="creating-a-local-directory-for-class" class="level2">
@@ -661,6 +658,7 @@ Important
 </section>
 <section id="connecting-the-repository-to-an-rstudio-project" class="level2">
 <h2 class="anchored" data-anchor-id="connecting-the-repository-to-an-rstudio-project"><strong>Connecting the Repository to an RStudio Project</strong></h2>
+<p>You should already have a repository on GitHub named “dataviz-exercises” which you created from <a href="https://github.com/slicesofdata/start-project">this template repository</a>. You will now create an RStudio project and connect it to that remote repository on your GitHub account.</p>
 <ol type="1">
 <li><p>In RStudio, <strong>File &gt; New Project &gt; Version Control &gt; Git</strong>.</p></li>
 <li><p>In the pop-up, you will see a request for the “repository URL”. Paste the URL of the GitHub repository. This URL will be the same as what you see on your GitHub account. However, we need to add <code>.git</code> to the end of it.</p></li>
@@ -681,9 +679,15 @@ Important
 </ol>
 <p>If the repository already exists on GitHub (and it does in this instance) you should see RStudio flash a connection to GitHub and likely <em>pull</em> the repo contents down to your newly-created project directory. In this case, however, your local Git repository on RStudio will contain few files.</p>
 </section>
-<section id="creating-project-relevant-directories" class="level2">
-<h2 class="anchored" data-anchor-id="creating-project-relevant-directories"><strong>Creating Project Relevant Directories</strong></h2>
-<p>Inside the <code>/dataviz/dataviz-exercises</code> directory your full project directory structure should look like the one below. The purpose of each directory and sub-directory is explained following the structure.</p>
+<section id="unzipping-the-directory-structure" class="level2">
+<h2 class="anchored" data-anchor-id="unzipping-the-directory-structure"><strong>Unzipping the Directory Structure</strong></h2>
+<p>Although building the directory structure on your own is possible, the repository has a <code>.zip</code> file which contains all of the directories needed for the project. You can unzip them manually or do this in RStudio with the <code>"unzip_compressed_file.R"</code> script. The script has not been tested on a Mac so there may be an error.</p>
+</section>
+<section id="understanding-the-directory-structure" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-the-directory-structure"><strong>Understanding the Directory Structure</strong></h2>
+<p>Directory structures are used for organization. Each directory and sub directory has a purpose, which is to contain files of a certain type. As long as you know what the goal of the file is, you know where to save it. When working with teams, this common language avoids many problems.</p>
+<p>Although there are different ways to create project directory structures and different ways to name those directories, we will use the following structure. Not all directories will be used for all types of projects.</p>
+<p>Inside your <code>/dataviz/dataviz-exercises</code> directory your full project directory structure should look like the one below.</p>
 <pre><code>└── data
 │   └── interim 
 │   ├── processed
@@ -701,14 +705,17 @@ Important
 │   ├── figs
 │   ├── functions
 │   └── utils</code></pre>
-<p>Thus, you will create the following directories.</p>
+<section id="directory-and-sub-directory-purpose" class="level3">
+<h3 class="anchored" data-anchor-id="directory-and-sub-directory-purpose"><strong>Directory and Sub-Directory Purpose</strong></h3>
+<p>The purpose of each directory and sub-directory is explained following the structure.</p>
 <ul>
 <li><code>/data</code>: for raw/virgin data files and modified data files</li>
 <li><code>/docs</code>: for document files like the project description, any dictionary of variable names, etc.</li>
 <li><code>/refs</code>: for references, papers, reading materials, and other document</li>
 <li><code>/report</code>: for R Markdown (e.g., <code>.Rmd</code>) report files and their output file types (e.g., <code>.docx</code>, <code>.pdf</code>, <code>.html</code>)</li>
-<li><code>/src</code>: for all source code related files (e.g., <code>.R</code> scripts, functions, <code>.py</code> files, etc.). General scripts can be saved in the top level <code>/src</code> but most of your script files will be saved in <code>/src/figs</code> because you will create figures</li>
+<li><code>/src</code>: for all source <em>code</em> related files (e.g., <code>.R</code> scripts, functions, <code>.py</code> files, etc.). General scripts can be saved in the top level <code>/src</code> but most of your script files will be saved in <code>/src/figs</code> because you will create figures</li>
 </ul>
+<p>More directory descriptions are provided below.</p>
 <p><strong>Data Files</strong></p>
 <p>Inside <code>/data</code>, add the following sub-directories:</p>
 <ul>
@@ -717,12 +724,12 @@ Important
 <li><code>/processed</code>, for <code>/data/processed/</code>; <code>.Rds</code> (highly recommended) files containing finalized data (e.g., aggregated, summaries, and data frames ready for plotting</li>
 </ul>
 <p><strong>NOTE:</strong> For this course, you will see me write data as <code>.Rds</code> files using the <code>saveRDS()</code> function because this format will preserve variable formatting which will affect plots.</p>
-<p><strong>WARNING:</strong> If you process and save those data files as <code>.csv</code>, <code>.xlsx</code>, or similar, you will likely find yourself working harder by recoding solutions you have already performed.</p>
+<p><strong>WARNING:</strong> If you process and save those data files as <code>.csv</code>, <code>.xlsx</code>, or similar, you will likely find yourself working harder by recoding solutions you have already performed. I do not recommend this except for final versions that no longer require processing.</p>
 <p><strong>Source/Code Files</strong></p>
 <p>Inside <code>/src</code>, add the following sub-directories:</p>
 <ul>
-<li><code>/data</code>, for <code>/src/data/</code>: containing .R scripts needed to download or generate data</li>
-<li><code>/figs</code>, for <code>/src/figs/</code>: containing .R scripts needed to create visualizations</li>
+<li><code>/data</code>, for <code>/src/data/</code>: containing <code>.R</code> scripts needed to download or generate data</li>
+<li><code>/figs</code>, for <code>/src/figs/</code>: containing <code>.R</code> scripts needed to create visualizations</li>
 <li><code>/functions</code>, for <code>/src/functions/</code>: containing all <code>.R</code> functions needed that do not belong to libraries</li>
 </ul>
 <p><strong>Files for Reports</strong></p>
@@ -737,168 +744,12 @@ Important
 <li><a href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/exmaples/example-rmarkdown-file-with-fig-script.Rmd">example-rmarkdown-file-with-fig-script.Rmd</a></li>
 <li><a href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/exmaples/example-figure-script.R">example-figure-script.R</a></li>
 </ul>
-<p>You will now see the directory structure, though all your directories will be empty. Moving forward, save all data to their relevant directories within <code>/data</code>; create all <code>.R</code> code files and scripts in files in <code>/src</code>, including scripts use to create your visualizations and .png plot files; create all exercise or homework R Markdown files (e.g., <code>.Rmd</code>) in <code>/report</code>. Finally, any readings or references can can saved in <code>/refs</code> and any other document files can be saved in <code>/docs</code>. Reserve <code>/report/figs</code> for writing/saving plots or figures. All paths to directories and files for reading and writing files will be managed using the <code>{here}</code> library.</p>
+<p>Moving forward, save all data to their relevant sub-directories within <code>/data</code>; create all <code>.R</code> code files and scripts in files in <code>/src</code>, including scripts use to create your visualizations and .png plot files; create all exercise or homework R Markdown files (e.g., <code>.Rmd</code>) in <code>/report</code>. Finally, any readings or references can can saved in <code>/refs</code> and any other document files can be saved in <code>/docs</code>. Reserve <code>/report/figs</code> for writing/saving plots or figures. All paths to directories and files for reading and writing files will be managed using the <code>{here}</code> library.</p>
 </section>
-<section id="understanding-git-workflow-basics" class="level2">
-<h2 class="anchored" data-anchor-id="understanding-git-workflow-basics"><strong>Understanding Git Workflow Basics</strong></h2>
-<p>There are three main parts to Git Workflow:</p>
-<ul>
-<li>Make local changes (in your working directory)</li>
-<li>Stage changes (in your staging directory)</li>
-<li>Commit changes (to apply them for pushing to your remote repository)</li>
-</ul>
-</section>
-<section id="making-local-file-changes-committing-and-pushing-to-github" class="level2">
-<h2 class="anchored" data-anchor-id="making-local-file-changes-committing-and-pushing-to-github"><strong>Making Local File Changes, Committing, and Pushing to GitHub</strong></h2>
-<ol type="1">
-<li><strong>Making a local change</strong>
-<ul>
-<li>Create a <code>.R</code> script and name it something like <code>yourname.R</code>. Always name files in lowercase font. Where should you save it? You guessed it: <code>/src</code>.</li>
-</ul></li>
-<li><strong>Checking the status of local file changes</strong>
-<ul>
-<li>Check for the local changes you have made at the <em>Terminal</em> by typing <code>git status</code> and press return/enter
-<ul>
-<li><code>$ git status</code></li>
-</ul></li>
-<li>If you made changes, Git will tell you what those changes are. For example, there will be a new file, a deleted file, a modified file, etc.</li>
-</ul></li>
-<li><strong>Staging Changes (Add Changes)</strong>
-<ol type="a">
-<li><em>Stage a specific change</em>: If you made multiple changes and all you want to do is commit a single change and no others, you can specify the change you want to add. For example, if you want only to add a specific file, like <code>yourname.R</code>, you will use <code>git add &lt;file&gt;...</code> such that <code>&lt;file&gt;</code> refers to the file name.
-<ul>
-<li>At the <em>Terminal</em> prompt, type <code>git add</code> followed by <code>&lt;file&gt;</code> to include in what will be committed)</li>
-<li><code>$ git add scr/yourname.R</code></li>
-</ul></li>
-<li><em>Stage all change(s)</em>: When you make numerous changes, you may wish not to specify each file individually as that could be tedious. In this case, you may wish to stage all of your changes. Assuming everything you are doing is relevant to the project, one of the easiest ways to add changes is to just add all of your file changes. Note, your changes should not be done inside data files (e.g., <code>.csv</code>, <code>.xlsx</code>). Changes should only be done using R code. If not, your project will not be reproducible.
-<ul>
-<li>At the <em>Terminal</em>, you can type <code>git add .</code> which tells Git that you are adding all of those changes to commit them.</li>
-<li><code>$ git add .</code></li>
-</ul></li>
-</ol></li>
-<li><strong>Committing the change(s)</strong>
-<ul>
-<li>Now that you made a change, you will commit it and assign a useful message to remind your future self and collaborators what you just did.
-<ul>
-<li>At the <em>Terminal</em>, type <code>git commit</code> to commit the changes, add <code>-m</code> to tell git you want a message, and then type the message as a string, <code>"my message here"</code> and then press enter/return to commit the changes.</li>
-<li><code>$ git commit -m "added my first .R file"</code></li>
-</ul></li>
-</ul></li>
-<li><strong>Push the change to the remote repository</strong>
-<ul>
-<li>We need to push the changes to the remote GitHub repository for version control and for collaborators to access
-<ul>
-<li>At the <em>Terminal</em>, you will push those changes using <code>git push</code> and press enter/return to push.</li>
-<li><code>$ git push</code></li>
-</ul></li>
-<li>If you navigate to your GitHub account in your web browser, you will see the changes there as soon as they arrive. Congrats!</li>
-</ul></li>
-<li><strong>Practice (Yes, seriously): Changing, Committing, and Pushing Again</strong>
-<ul>
-<li>You know that file with your name is not needed for the project. Delete it from the project as you normally would delete a file (no need to use the Terminal) and then <em>add</em> the change, <em>commit</em> the change with message “deleted my silly file”, and <em>push</em> that change.</li>
-<li>If for some reason, your push did not work, you may need to specify the project branch. Branching is beyond the scope of this course. If team members are working on separate tasks, their code will be compartmentalized so you can use the main branch.
-<ul>
-<li>You can set the branch to the main branch at the <em>Terminal</em> using <code>git branch -M main</code>.</li>
-<li><code>$ git branch -M main</code></li>
-</ul></li>
-</ul></li>
-<li><strong>Pushing Specific File Changes</strong>
-<ul>
-<li>You should <strong>not</strong> push <em>all</em> of your edits. For example, if you edit a file and save it but it is incomplete (e.g., it contains errors) that will create problems for your team members. You do not want to share these edits with your coding lead (or push these edits to the repo). If you do push them, your team member’s code will also break if they are sourcing (e.g., <code>source()</code>) your script file. Similarly, if the data file you write out contains errors, a teammate cannot read that file in successfully. So make sure that what you push is correct and accurate before pushing.</li>
-</ul></li>
-<li><strong>Pulling Changes from the Remote</strong>
-<ul>
-<li>The opposite of push is <em>pull</em>. When your teammates push their changes (e.g., data cleaning, file creation, etc.) to the repo and your code depends on those files, you will want to make sure their edits are in your local project so that you can use them.
-<ul>
-<li>To pull the changes down to your project, at the <em>Terminal</em>, type <code>git pull</code>.</li>
-<li><code>$ git pull</code></li>
-</ul></li>
-<li>You should find the changes appear in your local project directory.</li>
-</ul></li>
-</ol>
-</section>
-<section id="using-the-git-tab-in-your-rstudio-pane" class="level2">
-<h2 class="anchored" data-anchor-id="using-the-git-tab-in-your-rstudio-pane"><strong>Using the Git Tab in your RStudio Pane</strong></h2>
-<p>If you do not use the Terminal to run Git commands (e.g., add, commit, and push), you can also use Git with RStudio, though I tend to find this process creates an annoying lag when there are many files.</p>
-<section id="the-gert-library-approach" class="level3">
-<h3 class="anchored" data-anchor-id="the-gert-library-approach"><strong>The <code>{gert}</code> Library Approach</strong></h3>
-<p>If you want to try <strong><code>{gert}</code></strong>, load the library to gain access the functions. You also can find more details at the <a href="https://github.com/r-lib/gert">gert github page</a>.</p>
-<ol type="1">
-<li>Load the library: <code>library(gert)</code></li>
-</ol>
-<p>When you load the library, configuration details for the user will be returned in the R console and look something like you see below.</p>
-<pre><code>Linking to libgit2 v1.7.1, ssh support: YES
-Global config: C:\Users\yourusername\.gitconfig
-System config: C:/Users/yourusername/AppData/Local/Programs/Git/etc/gitconfig
-Default user: beavis &lt;yourusername@domain.com&gt;</code></pre>
-<p>In the following steps, you will see that the function names are similar to those for Git.</p>
-<ol start="2" type="1">
-<li><em>Staging/Adding a file, making sure to specify a directory</em>:</li>
-</ol>
-<p>If the file you wish to add is in a sub-directory like <code>/src</code>, use <code>gert::git_add('src/newfile.R')</code> rather than <code>gert::git_add('newfile.R')</code></p>
-<ol start="3" type="1">
-<li><em>Committing the added file(s) with a message</em>:</li>
-</ol>
-<p>Once you staged the change, you will commit it to the repo.</p>
-<ol start="4" type="1">
-<li><em>Pushing commits:</em></li>
-</ol>
-<p>After your commits have useful messages, push them to the remote repository.</p>
-<p><code>gert::git_push()</code></p>
-<ol start="5" type="1">
-<li><em>Checking the status of the repo:</em></li>
-</ol>
-<p>To check the status of the <code>gert::git_status()</code></p>
-</section>
-<section id="rstudio-pane" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio-pane"><strong>RStudio Pane</strong></h3>
-<p>When you edit files (e.g., made changes and saved the file), the file will be detected in the project if you have set up Git. The changes detected will be listed in the window for this tab. You can then stage, commit the changes, push the changes using this RStudio GUI.</p>
-<ol type="1">
-<li><p>Click the Git tab</p></li>
-<li><p>Check the box under <em>Staged</em> next to the file</p>
-<ul>
-<li>Note: There may be a delay.</li>
-</ul></li>
-<li><p>Click the <em>Commit</em> icon on the toolbar directly above <em>Status</em></p>
-<ul>
-<li>A window will pop up showing some of the edits to the file</li>
-<li>A window for <em>Commit message</em> will also appear for adding your message. This window is where you want to be.</li>
-</ul></li>
-<li><p>Type your commit message in that window</p>
-<ul>
-<li>Your message should be clear and useful to remind your future self or colleagues of the edits but not be overly wordy.</li>
-</ul></li>
-<li><p>Click Commit to commit the change</p></li>
-<li><p>Click the <font color="lime">Green</font> Arrow to <em>Push</em> your committed change <em>up</em> to the remote repository.</p></li>
-</ol>
-<p>Note: You will click the <font color="blue">Blue</font> Arrow to <em>Pull</em> the changes <em>down</em> from the remote repository what were pushed there by your collaborators</p>
-</section>
-</section>
-<section id="creating-a-version-control-project-in-rstudio-for-the-team-project" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-version-control-project-in-rstudio-for-the-team-project"><strong>Creating a Version Control Project in RStudio for the Team Project</strong></h2>
-<ol type="1">
-<li><p>In RStudio, <strong>File &gt; New Project &gt; Version Control &gt; Git</strong>.</p></li>
-<li><p>In the pop-up, you will see a request for the “repository URL”. Paste the URL of the GitHub repository based on your liaison name. This URL will be the same as what you see on your GitHub account. However, we need to add <code>.git</code> to the end.</p></li>
-</ol>
-<pre><code>    https://github.com/slicesofdata/dataviz-&lt;to_be_announced&gt;.git</code></pre>
-<ol start="3" type="1">
-<li><p>When you create the project, a directory will be created, a name will auto populate (e.g., ‘dataviz-liaison’). Although I don’t recommend this, if you desire to change the name, name it something that you will know as your team project. In order to keep the class organized, I might suggest you create the tem project also in your <code>/dataviz</code> course directory. You should already have an <code>/dataviz-exercises</code> R project directory for your exercises and homework in that course directory. Adding the team project will simply add a <code>/dataviz-&lt;to_be_announced&gt;</code> directory there as well. <em>WARNING:</em> Do not create the project inside of an existing project’s directory.</p>
-<ul>
-<li>Note: I recommend that you also select <em>“Open in new session”</em> in order to compartmentalize projects. When you work on the team project, open that project in a new sessions. When you work on your homework or other class exercises, open your that project in a new session. Alternatively, close a project and open the one you are working on.</li>
-</ul></li>
-<li><p>Click <em>“Create Project”</em> to create the new project directory, which will create:</p>
-<ul>
-<li>a project directory on your computer</li>
-<li>a project file of the same name with file extension <code>.Rproj</code> inside that directory</li>
-<li>a Git repository or link to the remote GitHub repository for the project (also an RStudio Project)</li>
-</ul></li>
-</ol>
-<p>If the repository already exists (and it does in this instance) you should see RStudio flash a connection to GitHub and likely clone the repo by <em>pull</em>ing the repo contents down to your newly-created project directory. You will see the directory structure and corresponding files. Your code files should be saved to <code>/src</code>, the data you read or save to <code>/data</code>, your R Markdown report files to <code>/report</code>, etc.</p>
-<p>These directories are there for project management purposes. Also, to maintain a clean project, create sub-directories within those directories as needed; create new directories <em>if and only if</em> its contents differ qualitatively from what is in the existing directories. Because the project report will need to be reproduced, don’t complicate your code by creating RMarkdown files for code used to perform some task when only code is needed. In those cases, use <code>.R</code> code script files. Use <code>.Rmd</code> files only for a report containing text and minor code. You cannot easily <code>source()</code> <code>.Rmd</code> files and creating them will be a a hassle to deal with later. Project organization is an element of the project.</p>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary"><strong>Summary</strong></h2>
-<p>You now understand how to create projects in R, how to connect projects to remote GitHub repositories, and how to use Git to track your work in your local repository and a remote one. These simple commands are basic but provide you some exposure to and confidence with using Git for version control.</p>
+<p>You now understand how to create projects in R, how to connect projects to remote GitHub repositories, and how to use directories intentionally.</p>
 </section>
 <section id="other-resources" class="level2">
 <h2 class="anchored" data-anchor-id="other-resources"><strong>Other Resources</strong></h2>
@@ -913,7 +764,7 @@ Default user: beavis &lt;yourusername@domain.com&gt;</code></pre>
 <section id="session-information" class="level1">
 <h1><strong>Session Information</strong></h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.4.1 (2024-06-14 ucrt)
 Platform: x86_64-w64-mingw32/x64

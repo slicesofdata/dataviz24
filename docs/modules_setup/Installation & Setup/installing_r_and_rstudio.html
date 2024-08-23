@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-08-20">
+<meta name="dcterms.date" content="2024-08-23">
 
 <title>Installing R &amp; RStudio</title>
 <style>
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -284,6 +318,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Installing R &amp; RStudio</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../modules_setup/Installation &amp; Setup/installing_git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing Git</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -344,8 +384,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../modules/project_management/installing_and_setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><em>Project Management 01</em>: Installing Git and Setting Up Git and GitHub for R</span></a>
+  <a href="../../modules/project_management/setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Management 01</em>: Setting Up Git and GitHub for R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -520,18 +560,18 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#downloading-software" id="toc-downloading-software" class="nav-link" data-scroll-target="#downloading-software"><strong>Downloading Software</strong></a>
   <ul class="collapse">
-  <li><a href="#determine-the-version-of-your-computers-operating-system" id="toc-determine-the-version-of-your-computers-operating-system" class="nav-link" data-scroll-target="#determine-the-version-of-your-computers-operating-system"><strong>Determine the version of your computer’s operating system</strong></a></li>
-  <li><a href="#download-r" id="toc-download-r" class="nav-link" data-scroll-target="#download-r"><strong>Download R</strong></a></li>
-  <li><a href="#download-rstudio" id="toc-download-rstudio" class="nav-link" data-scroll-target="#download-rstudio"><strong>Download RStudio</strong></a></li>
+  <li><a href="#determining-the-version-of-your-computers-operating-system" id="toc-determining-the-version-of-your-computers-operating-system" class="nav-link" data-scroll-target="#determining-the-version-of-your-computers-operating-system"><strong>Determining the version of your computer’s operating system</strong></a></li>
+  <li><a href="#downloading-r" id="toc-downloading-r" class="nav-link" data-scroll-target="#downloading-r"><strong>Downloading R</strong></a></li>
+  <li><a href="#downloading-rstudio" id="toc-downloading-rstudio" class="nav-link" data-scroll-target="#downloading-rstudio"><strong>Downloading RStudio</strong></a></li>
   </ul></li>
   <li><a href="#installing-r-and-rstudio-on-your-computer" id="toc-installing-r-and-rstudio-on-your-computer" class="nav-link" data-scroll-target="#installing-r-and-rstudio-on-your-computer"><strong>Installing R and RStudio on your Computer</strong></a>
   <ul class="collapse">
-  <li><a href="#install-r-then-install-rstudio" id="toc-install-r-then-install-rstudio" class="nav-link" data-scroll-target="#install-r-then-install-rstudio"><em>Install R (then install RStudio)</em></a></li>
+  <li><a href="#installing-r-then-install-rstudio" id="toc-installing-r-then-install-rstudio" class="nav-link" data-scroll-target="#installing-r-then-install-rstudio"><em>Installing R (then install RStudio)</em></a></li>
   <li><a href="#additional-step-for-mac-users" id="toc-additional-step-for-mac-users" class="nav-link" data-scroll-target="#additional-step-for-mac-users"><em>Additional Step for Mac Users:</em></a></li>
   </ul></li>
   <li><a href="#verify-that-rstudio-is-communicating-correctly-with-r" id="toc-verify-that-rstudio-is-communicating-correctly-with-r" class="nav-link" data-scroll-target="#verify-that-rstudio-is-communicating-correctly-with-r"><strong>Verify that RStudio is communicating correctly with R</strong></a></li>
   <li><a href="#configuring-rstudio" id="toc-configuring-rstudio" class="nav-link" data-scroll-target="#configuring-rstudio"><strong>Configuring RStudio</strong></a></li>
-  <li><a href="#installing-some-packages" id="toc-installing-some-packages" class="nav-link" data-scroll-target="#installing-some-packages"><strong>Installing some packages</strong></a></li>
+  <li><a href="#installing-r-librariespackages" id="toc-installing-r-librariespackages" class="nav-link" data-scroll-target="#installing-r-librariespackages"><strong>Installing R libraries/packages</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -557,7 +597,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 20, 2024</p>
+      <p class="date">August 23, 2024</p>
     </div>
   </div>
   
@@ -599,20 +639,14 @@ Warning
 </section>
 <section id="optional-readings" class="level2">
 <h2 class="anchored" data-anchor-id="optional-readings"><strong>Optional Readings</strong></h2>
-<p>If you need a refresher on the RStudio IDE, consider:</p>
-<ul>
-<li><a href="https://psyteachr.github.io/ads-v2/01-intro.html">Intro to R</a></li>
-</ul>
-<p>If you need a refresher on R Markdown, consider:</p>
-<ul>
-<li><a href="https://socviz.co/gettingstarted.html#work-in-plain-text-using-rmarkdown">Working with RMarkdown</a></li>
-</ul>
+<p>If you need a refresher on the RStudio IDE, consider this <a href="https://psyteachr.github.io/ads-v2/01-intro.html">intro to R</a>.</p>
+<p>If you need a refresher on R Markdown, consider this link on <a href="https://socviz.co/gettingstarted.html#work-in-plain-text-using-rmarkdown">working with RMarkdown</a>.</p>
 </section>
 </section>
 <section id="downloading-software" class="level1">
 <h1><strong>Downloading Software</strong></h1>
-<section id="determine-the-version-of-your-computers-operating-system" class="level2">
-<h2 class="anchored" data-anchor-id="determine-the-version-of-your-computers-operating-system"><strong>Determine the version of your computer’s operating system</strong></h2>
+<section id="determining-the-version-of-your-computers-operating-system" class="level2">
+<h2 class="anchored" data-anchor-id="determining-the-version-of-your-computers-operating-system"><strong>Determining the version of your computer’s operating system</strong></h2>
 <p>Your version of operating system will dictate which version of R to download and install. Make note of your computer’s operating system.</p>
 <p><strong><em>Windows</em></strong> systems are easier and Windows 10 and 11 operating systems will both use the same R versions.</p>
 <p><strong><em>Macs</em></strong> are somewhat more complicated. The version depends on your cpu. <a href="https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/">Visit this link</a> to determine.</p>
@@ -624,8 +658,8 @@ Warning
 <li><p>Remote Desktop Protocol (No limit on compute hours) (contact me if interested). This is managed by CMC but may not be reliable.</p></li>
 </ol>
 </section>
-<section id="download-r" class="level2">
-<h2 class="anchored" data-anchor-id="download-r"><strong>Download R</strong></h2>
+<section id="downloading-r" class="level2">
+<h2 class="anchored" data-anchor-id="downloading-r"><strong>Downloading R</strong></h2>
 <p>Once you know your processor, navigate to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> and in the “<strong>Download and Install R</strong>” section, select your operating system. You can also select from below and follow the indented sections that follow.</p>
 <ul>
 <li><p><a href="https://cran.r-project.org/bin/linux/">Download R for Linux</a> (<a href="https://cran.r-project.org/bin/linux/debian">Debian</a>, <a href="https://cran.r-project.org/bin/linux/fedora">Fedora/Redhat</a>, <a href="https://cran.r-project.org/bin/linux/ubuntu">Ubuntu)</a></p></li>
@@ -635,8 +669,8 @@ Warning
 <p><strong><em>Windows</em></strong> users should select the <strong>base</strong> version of <code>R</code> and download version <strong>4.4.1</strong> <strong>(no other version)</strong> to your computer. If this version is not on the main page, go to the “Other Builds” section and select “previous releases” and download the correct version.</p>
 <p><strong><em>Mac</em></strong> users should download either <strong>R-4.4.1.pkg</strong> or <strong>R-4.4.1x86_64.pkg</strong> version depending on the cpu noted earlier. <strong>Do not</strong> download any version other than 4.4.1 and please do not update throughout the semester.</p>
 </section>
-<section id="download-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="download-rstudio"><strong>Download RStudio</strong></h2>
+<section id="downloading-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="downloading-rstudio"><strong>Downloading RStudio</strong></h2>
 <p>Use the urls below to download <code>RStudio</code> and save it to the same directory location on your computer as you saved <code>R</code>.</p>
 <p><strong><em>Windows 10/11</em></strong>: <a href="https://download1.rstudio.org/electron/windows/RStudio-2024.04.2-764.exe" class="uri">https://download1.rstudio.org/electron/windows/RStudio-2024.04.2-764.exe</a></p>
 <p><strong><em>MacOS 12+:</em></strong> <a href="https://download1.rstudio.org/electron/macos/RStudio-2024.04.2-764.dmg" class="uri">https://download1.rstudio.org/electron/macos/RStudio-2024.04.2-764.dmg</a></p>
@@ -647,8 +681,8 @@ Warning
 </section>
 <section id="installing-r-and-rstudio-on-your-computer" class="level1">
 <h1><strong>Installing R and RStudio on your Computer</strong></h1>
-<section id="install-r-then-install-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="install-r-then-install-rstudio"><em>Install R (then install RStudio)</em></h2>
+<section id="installing-r-then-install-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="installing-r-then-install-rstudio"><em>Installing R (then install RStudio)</em></h2>
 <p>Installing should be easy and you can accept all of the defaults although the desktop icons are not needed, especially for <code>R</code> because you will never need it; RStudio will find R for you. You can follow these videos for simple installing.</p>
 <p><em>PC</em>: <a href="https://www.youtube.com/watch?v=_2sewGCA0y4">How to Install R and R Studio on Windows 10/11</a></p>
 <p><em>Mac</em>: <a href="https://www.youtube.com/watch?v=H6Tfgt5gtWQ">Installing R and RStudio on a Mac</a></p>
@@ -664,7 +698,7 @@ Warning
 </section>
 <section id="verify-that-rstudio-is-communicating-correctly-with-r" class="level1">
 <h1><strong>Verify that RStudio is communicating correctly with R</strong></h1>
-<p><strong><em>Launch the RStudio application.</em></strong></p>
+<p><strong><em>Launching the RStudio application.</em></strong></p>
 <p>If <code>RStudio</code> and <code>R</code> are communicating correctly, you should see an <code>RStudio</code> window open with the <code>R</code> console opened which should look similar to that shown below. Your R version should be listed at the top of the console (<strong>4.4.1</strong>).</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -732,22 +766,28 @@ Warning
 </div>
 </div>
 <p><strong>APPEARANCE:</strong></p>
-<p>Appearance is one of preference. You can try out different RStudio Themes and Editor Themes to see what you like. Due to a degenerative eye disease which includes <a href="https://en.wikipedia.org/wiki/Photophobia">photophobia</a> as a symptom, I am able to use only dark-mode editor themes. In order to help you with your code, if a dark-mode theme does not affect you negatively, please use one. Videos will use the editor theme called <em>Made of Code</em> because this theme appears to provide me with the best visual contrast among functions and objects and does not cause me any discomfort. This theme is available in the <a href="https://github.com/slicesofdata/start-project">start-project repository</a> which is used in the module on <a href="https://gabrielcook.xyz/dataviz24/modules/project_management/installing_and_setting_up_git_and_github.html">Project Management</a>. The Theme can also be found <a href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/src/utils/Made%20of%20Code.tmTheme">here</a>. A native RStudio theme that I have used in the past is <em>Merbivore</em>. The font I use is <em>Lucida Console</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get_url_for_module("modules/project_management/setting_up_git_and_github", recursive = T)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>the_url1 <span class="ot">&lt;-</span> <span class="fu">paste</span>(the_course_site, <span class="st">"modules/project_management/setting_up_git_and_github.html"</span>, <span class="at">sep =</span> <span class="st">"/"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>the_url2 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">gsub</span>(<span class="st">"modules/"</span>, <span class="st">""</span>, <span class="fu">github_raw_link</span>()),<span class="st">"src/utils/Made%20of%20Code.tmTheme"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Appearance is one of preference. You can try out different RStudio Themes and Editor Themes to see what you like. Due to a degenerative eye disease which includes <a href="https://en.wikipedia.org/wiki/Photophobia">photophobia</a> as a symptom, I am able to use only dark-mode editor themes. In order to help you with your code, if a dark-mode theme does not affect you negatively, please use one. Videos will use the editor theme called <em>Made of Code</em> because this theme appears to provide me with the best visual contrast among functions and objects and does not cause me any discomfort. This theme is available in the <a href="https://github.com/slicesofdata/start-project">start-project repository</a> which is used in the module on <a href="https://gabrielcook.xyz/dataviz24/modules/project_management/setting_up_git_and_github.html">Project Management</a>. The Theme can also be found <a href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/src/utils/Made%20of%20Code.tmTheme">here</a>. A native RStudio theme that I have used in the past is <em>Merbivore</em>. The font I use is <em>Lucida Console</em>.</p>
 <p>Please use a theme that you find most comfortable using. Please just understand that my disability may prevent me from your screen in class if your theme is not dark. You may just have to verbatim explain what is on your screen so that I can best help you.</p>
+<p>The installation process will take quite some time (15 minutes) especially depending on your computer so do this at a time you do not want to use your system. Plug in your computer and take a break.Take a break and do something else.</p>
 <p><strong>OTHERS:</strong> We will address in class as appropriate.</p>
 </section>
-<section id="installing-some-packages" class="level1">
-<h1><strong>Installing some packages</strong></h1>
-<p>After you have completed installation, you will need to install different libraries that we will use a various times over the course of the semetser. Rather than installing the libraries manually, copy the code below, paste it into the RStudio Console window at the <code>&gt;</code> prompt (see image), and then press enter.</p>
+<section id="installing-r-librariespackages" class="level1">
+<h1><strong>Installing R libraries/packages</strong></h1>
+<p>After you have completed installation, you will need to install different libraries that we will use a various times over the course of the semester. Rather than installing the libraries manually, (1) copy the code below, (2) paste it into the RStudio Console window at the <code>&gt;</code> prompt (see image), and then (3) press enter to execute.</p>
 <p><strong>Copy this code:</strong></p>
 <p><code>source(https://raw.githubusercontent.com/slicesofdata/dataviz24/main/src/psyc167_libraries.R)</code></p>
-<p><strong>Paste code into your R console at the <code>&gt;</code> prompt:</strong></p>
+<p><strong>Paste the code into your R console at the <code>&gt;</code> prompt:</strong></p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="../../images/RStudio1.png" class="img-fluid" width="599"></p>
 </div>
 </div>
-<p>The install process will take quite some time especially depending on your computer so do this at a time you do not want to use your system. Take a break and do something else.</p>
+<p><strong>Press return/enter</strong></p>
 
 
 </section>
