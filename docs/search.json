@@ -550,7 +550,7 @@
     "href": "modules_setup/R Basics/reading_data_files.html",
     "title": "Reading data files",
     "section": "",
-    "text": "Under construction.\n\n\n\nThis page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you."
+    "text": "In this module, you will learn how to read and write data files in different formats. Depending how you access data, the process may change so this topic is discussed in a general way with different approaches described. If you find yourself in a bind with reading data, one of these approaches will likely work. In many instances, however, readr::read_csv() will be your friend when reading files and readr::write_csv() will be for writing files.\nIn addition, concepts related to reading files and managing workflow are discussed. By doing so, my goal is to make you aware of some key issues that could cause some problems with data science projects. When reading files,"
   },
   {
     "objectID": "modules_setup/R Basics/reading_data_files.html#readings",
@@ -2524,35 +2524,35 @@
     "href": "modules_setup/R Basics/functions_and_scripts.html",
     "title": "Functions, Arguments, and R scripts",
     "section": "",
-    "text": "Under construction.\n\n\n\nThis page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you."
+    "text": "A good friend of mine was once tried using R to summarize data. He couldn’t figure out why he could not use a function called mean() to calculate the mean of variables in his data set. Yes, mean() does compute a mean but he did not understand the object for which he was trying to compute a mean. When I explained the issue to him, he told me that he would often try to ‘brute force’ his way into obtaining results. He did not understand how the function worked and was not very concerned with learning. Without knowing how functions work, you limit yourself to troubleshoot answers and you spend a lot of time troubleshooting errors. You cannot just brute force yourself into data science or running models without getting yourself into trouble.\nAlthough the R language differs from other languages like Python, JavaScript, or HTML, the concepts covered is this section may be redundant for student who have taken a computer-science class. For beginners, the concepts may initially be challenging or confusing. You may even question why we cannot just jump into data manipulation and why all of this matters. In order to code in R so that you can be comfortable using it and with communicating with other users, a very basic understanding of programming concepts is important. This way, when someone asks you about an object, function, or assignment, you will know what they are taking about. And, well, you cannot communicate with R without knowing how functions work at a basic level.\n\n\nBefore Class: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.\nClass: In class, some functions and concepts will be introduced and we will practice implementing code through exercises.\n\n\n\n\nR Workflow Basics\nHuber: Functions\n\n\n\nRead through the module. You can use the R console or open up an R Markdown (e.g., .Rmd) file to follow along interactively. If you instead prefer to simply read through the content so that you can understand the concepts without coding, that is fine too. Concepts will be applied in class in order to complete activities, however. Reading the module will provide you with confidence working on those activities and prevent you from feeling lost while completing activities. Testing out some code may provide you more confidence.\n\n\n\n\n\n{here} 1.0.1: for file path management\n\n\n\n\nview_html(): for viewing data frames in html format\nYou can access remotely using this code, though you do not need to do so now.\nsource(https://raw.githubusercontent.com/slicesofdata/dataviz24/main/modules/src/functions/view_html.R)"
   },
   {
     "objectID": "modules_setup/R Basics/functions_and_scripts.html#readings-and-preparation",
     "href": "modules_setup/R Basics/functions_and_scripts.html#readings-and-preparation",
     "title": "Functions, Arguments, and R scripts",
-    "section": "Readings and Preparation",
-    "text": "Readings and Preparation\nBefore Class: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.\nClass: In class, some functions and concepts will be introduced and we will practice implementing code through exercises."
+    "section": "",
+    "text": "Before Class: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.\nClass: In class, some functions and concepts will be introduced and we will practice implementing code through exercises."
   },
   {
     "objectID": "modules_setup/R Basics/functions_and_scripts.html#supplementary-readings",
     "href": "modules_setup/R Basics/functions_and_scripts.html#supplementary-readings",
     "title": "Functions, Arguments, and R scripts",
-    "section": "Supplementary Readings",
-    "text": "Supplementary Readings\n\nR Workflow Basics\nHuber: Functions\n\n\nTo Do\nRead through the module. You can use the R console or open up an R Markdown (e.g., .Rmd) file to follow along interactively. If you instead prefer to simply read through the content so that you can understand the concepts without coding, that is fine too. Concepts will be applied in class in order to complete activities, however. Reading the module will provide you with confidence working on those activities and prevent you from feeling lost while completing activities. Testing out some code may provide you more confidence."
+    "section": "",
+    "text": "R Workflow Basics\nHuber: Functions\n\n\n\nRead through the module. You can use the R console or open up an R Markdown (e.g., .Rmd) file to follow along interactively. If you instead prefer to simply read through the content so that you can understand the concepts without coding, that is fine too. Concepts will be applied in class in order to complete activities, however. Reading the module will provide you with confidence working on those activities and prevent you from feeling lost while completing activities. Testing out some code may provide you more confidence."
   },
   {
     "objectID": "modules_setup/R Basics/functions_and_scripts.html#libraries",
     "href": "modules_setup/R Basics/functions_and_scripts.html#libraries",
     "title": "Functions, Arguments, and R scripts",
-    "section": "Libraries",
-    "text": "Libraries\n\n{here} 1.0.1: for file path management"
+    "section": "",
+    "text": "{here} 1.0.1: for file path management"
   },
   {
     "objectID": "modules_setup/R Basics/functions_and_scripts.html#external-functions",
     "href": "modules_setup/R Basics/functions_and_scripts.html#external-functions",
     "title": "Functions, Arguments, and R scripts",
-    "section": "External Functions",
-    "text": "External Functions\nview_html(): for viewing data frames in html format\nYou can access remotely using this code, though you do not need to do so now.\nsource(https://raw.githubusercontent.com/slicesofdata/dataviz24/main/modules/src/functions/view_html.R)"
+    "section": "",
+    "text": "view_html(): for viewing data frames in html format\nYou can access remotely using this code, though you do not need to do so now.\nsource(https://raw.githubusercontent.com/slicesofdata/dataviz24/main/modules/src/functions/view_html.R)"
   },
   {
     "objectID": "modules_setup/R Basics/functions_and_scripts.html#examples-of-objects",
@@ -2769,21 +2769,21 @@
     "href": "modules_setup/R Basics/vectors_and_data_frame_basics.html",
     "title": "Vectors and data frame basics",
     "section": "",
-    "text": "Under construction.\n\n\n\nThis page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you."
+    "text": "In this module, we will address some basic building blocks of data frames in R. Having a basic understanding of objects, we can extend that to experience to some of the most important objects to understand when working with data, vectors and data frames. We will cover different examples of vector objects, their elements, and how they are organized into larger objects like data frames. Many functions we will use to clean and wrangle data will involve understanding and recognizing these two different object types so that you can apply a function correctly. For example, if a function accepts a vector in order to modify it, you cannot pass a data frame to it. You cannot try to brute force this approach and if you do, you will forever be frustrated. So, let’s jump deeper into some basic concepts.\nNote: By design, concepts in modules will often be redundant with concepts in other modules. If you understand the concepts, just read along or skip through the content. The redundancy, however, is built in purposefully to provide additional scaffolding to those who need it and because droves or literature on cognition and memory support the importance of repetition.\n\n\nBefore Class: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.\nClass: In class, some functions and concepts will be introduced and we will practice implementing code through exercises.\n\n\n\n\n{here} 1.0.1: for file path management\n\n\n\nRead through the module. You can use the R console or open up an R Markdown (e.g., .Rmd) file to follow along interactively. If you instead prefer to simply read through the content so that you can understand the concepts without coding, that is fine too. Concepts will be applied in class in order to complete activities, however. Reading the module will provide you with confidence working on those activities and prevent you from feeling lost while completing activities. Testing out some code may provide you more confidence."
   },
   {
     "objectID": "modules_setup/R Basics/vectors_and_data_frame_basics.html#readings-and-preparation",
     "href": "modules_setup/R Basics/vectors_and_data_frame_basics.html#readings-and-preparation",
     "title": "Vectors and data frame basics",
-    "section": "Readings and Preparation",
-    "text": "Readings and Preparation\nBefore Class: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.\nClass: In class, some functions and concepts will be introduced and we will practice implementing code through exercises."
+    "section": "",
+    "text": "Before Class: First, read to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.\nClass: In class, some functions and concepts will be introduced and we will practice implementing code through exercises."
   },
   {
     "objectID": "modules_setup/R Basics/vectors_and_data_frame_basics.html#libraries",
     "href": "modules_setup/R Basics/vectors_and_data_frame_basics.html#libraries",
     "title": "Vectors and data frame basics",
-    "section": "Libraries",
-    "text": "Libraries\n\n{here} 1.0.1: for file path management\n\n\nTo Do\nRead through the module. You can use the R console or open up an R Markdown (e.g., .Rmd) file to follow along interactively. If you instead prefer to simply read through the content so that you can understand the concepts without coding, that is fine too. Concepts will be applied in class in order to complete activities, however. Reading the module will provide you with confidence working on those activities and prevent you from feeling lost while completing activities. Testing out some code may provide you more confidence."
+    "section": "",
+    "text": "{here} 1.0.1: for file path management\n\n\n\nRead through the module. You can use the R console or open up an R Markdown (e.g., .Rmd) file to follow along interactively. If you instead prefer to simply read through the content so that you can understand the concepts without coding, that is fine too. Concepts will be applied in class in order to complete activities, however. Reading the module will provide you with confidence working on those activities and prevent you from feeling lost while completing activities. Testing out some code may provide you more confidence."
   },
   {
     "objectID": "modules_setup/R Basics/vectors_and_data_frame_basics.html#combining-elements-into-vectors-using-c",
@@ -2797,7 +2797,7 @@
     "href": "modules_setup/R Basics/vectors_and_data_frame_basics.html#creating-vectors-using-rnorm",
     "title": "Vectors and data frame basics",
     "section": "Creating vectors using rnorm()",
-    "text": "Creating vectors using rnorm()\nLet’s use rnorm() to create a numeric vector object that will represent sampling from a random normal distribution. The distribution will have a certain number of observations, n, a mean, mean, and a standard deviation, sd. We will need to pass arguments to create the data.\nParameters/Arguments:\n\nn: the number of elements in the vector\nmean: the mean of the elements\nsd: the standard deviation of the elements\n\nLet’s create a random normal distribution with a length of 1000 values. The mean should be 100 and standard deviation 15 (e.g., IQ distribution).\n\niq &lt;- rnorm(n = 1000, mean = 100, sd = 15)  \n\nRemember, as long as the order is correct, you do not have to specify the parameter names. You only need to specify the arguments for the parameters.\n\niq &lt;- rnorm(1000, 100, 15)      \n\nLook at the object’s head using head() in order to inspect the first 6 elements:\n\nhead(iq)                        \n\n[1]  87.95572 122.92601  79.90642 103.19509  95.20604  86.62527\n\n\nOr inspect the first 10 elements by setting n = 10.\n\nhead(iq, n = 10)\n\n [1]  87.95572 122.92601  79.90642 103.19509  95.20604  86.62527  84.58631\n [8]  81.23062 122.84600  88.41795"
+    "text": "Creating vectors using rnorm()\nLet’s use rnorm() to create a numeric vector object that will represent sampling from a random normal distribution. The distribution will have a certain number of observations, n, a mean, mean, and a standard deviation, sd. We will need to pass arguments to create the data.\nParameters/Arguments:\n\nn: the number of elements in the vector\nmean: the mean of the elements\nsd: the standard deviation of the elements\n\nLet’s create a random normal distribution with a length of 1000 values. The mean should be 100 and standard deviation 15 (e.g., IQ distribution).\n\niq &lt;- rnorm(n = 1000, mean = 100, sd = 15)  \n\nRemember, as long as the order is correct, you do not have to specify the parameter names. You only need to specify the arguments for the parameters.\n\niq &lt;- rnorm(1000, 100, 15)      \n\nLook at the object’s head using head() in order to inspect the first 6 elements:\n\nhead(iq)                        \n\n[1] 110.22894 109.83263 114.79909  83.75904  92.19158  96.23692\n\n\nOr inspect the first 10 elements by setting n = 10.\n\nhead(iq, n = 10)\n\n [1] 110.22894 109.83263 114.79909  83.75904  92.19158  96.23692 130.32179\n [8] 102.59679 139.71121 106.92473"
   },
   {
     "objectID": "modules_setup/R Basics/vectors_and_data_frame_basics.html#creating-number-sequences-using-seq",
@@ -2811,21 +2811,21 @@
     "href": "modules_setup/R Basics/vectors_and_data_frame_basics.html#converting-numeric-or-characters-containing-numbers-to-integer",
     "title": "Vectors and data frame basics",
     "section": "Converting numeric or characters containing numbers to integer",
-    "text": "Converting numeric or characters containing numbers to integer\nConvert to integer:\n\niq &lt;- as.integer(iq)\n\nNow they are integers:\n\nhead(iq)\n\n[1]  87 122  79 103  95  86"
+    "text": "Converting numeric or characters containing numbers to integer\nConvert to integer:\n\niq &lt;- as.integer(iq)\n\nNow they are integers:\n\nhead(iq)\n\n[1] 110 109 114  83  92  96"
   },
   {
     "objectID": "modules_setup/R Basics/vectors_and_data_frame_basics.html#converting-numeric-vectors-to-character",
     "href": "modules_setup/R Basics/vectors_and_data_frame_basics.html#converting-numeric-vectors-to-character",
     "title": "Vectors and data frame basics",
     "section": "Converting numeric vectors to character",
-    "text": "Converting numeric vectors to character\nIf the characters are numbers, pass an existing vector into as.character() to convert\n\niq &lt;- as.character(iq)                # make is a character vector  \n\nNow the numbers are in quotes representing strings.\n\nhead(iq)               \n\n[1] \"87\"  \"122\" \"79\"  \"103\" \"95\"  \"86\""
+    "text": "Converting numeric vectors to character\nIf the characters are numbers, pass an existing vector into as.character() to convert\n\niq &lt;- as.character(iq)                # make is a character vector  \n\nNow the numbers are in quotes representing strings.\n\nhead(iq)               \n\n[1] \"110\" \"109\" \"114\" \"83\"  \"92\"  \"96\""
   },
   {
     "objectID": "modules_setup/R Basics/vectors_and_data_frame_basics.html#converting-character-vectors-to-numeric",
     "href": "modules_setup/R Basics/vectors_and_data_frame_basics.html#converting-character-vectors-to-numeric",
     "title": "Vectors and data frame basics",
     "section": "Converting character vectors to numeric",
-    "text": "Converting character vectors to numeric\nIf the elements are characters, pass an existing vector into as.integer() to convert.\n\niq &lt;- as.integer(iq)  \n\nNow elements are integers, not floats.\n\nhead(iq)\n\n[1]  87 122  79 103  95  86\n\n\nYou can also wrap a function in another function when the initial object is created. Here, as.integer() converts the vector returned by rnorm() into an integer.\n\niq &lt;- as.integer(rnorm(1000, 100, 15))                 # create initially by wrapping as.integer() around rnorm()"
+    "text": "Converting character vectors to numeric\nIf the elements are characters, pass an existing vector into as.integer() to convert.\n\niq &lt;- as.integer(iq)  \n\nNow elements are integers, not floats.\n\nhead(iq)\n\n[1] 110 109 114  83  92  96\n\n\nYou can also wrap a function in another function when the initial object is created. Here, as.integer() converts the vector returned by rnorm() into an integer.\n\niq &lt;- as.integer(rnorm(1000, 100, 15))                 # create initially by wrapping as.integer() around rnorm()"
   },
   {
     "objectID": "modules_setup/R Basics/vectors_and_data_frame_basics.html#using-piping-operators-and",
@@ -2839,7 +2839,7 @@
     "href": "modules_setup/R Basics/vectors_and_data_frame_basics.html#examine-the-head-of-the-object",
     "title": "Vectors and data frame basics",
     "section": "Examine the head() of the object",
-    "text": "Examine the head() of the object\nHowever you create the vector, we can examine the head of the vector using head():\n\nhead(iq)\n\n[1] 109  86  64  98 118  99\n\n\nA note about pipes: If you did not pipe the object from one function to another, you would need to wrap the functions as layers. The the function in the inner layer would be executed first and the function of the outer layer would be executed last.\nas.integer(rnorm(1000, 100, 15))\nAlthough there is nothing incorrect with this code, readability is compromised because you have to read the functions from the inside out. Piping objects to functions allows for reading functions from top to bottom."
+    "text": "Examine the head() of the object\nHowever you create the vector, we can examine the head of the vector using head():\n\nhead(iq)\n\n[1] 113  96  86 103 102  69\n\n\nA note about pipes: If you did not pipe the object from one function to another, you would need to wrap the functions as layers. The the function in the inner layer would be executed first and the function of the outer layer would be executed last.\nas.integer(rnorm(1000, 100, 15))\nAlthough there is nothing incorrect with this code, readability is compromised because you have to read the functions from the inside out. Piping objects to functions allows for reading functions from top to bottom."
   },
   {
     "objectID": "modules_setup/R Basics/vectors_and_data_frame_basics.html#plotting-the-vector-using-hist",
