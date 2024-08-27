@@ -17,7 +17,8 @@ dataviz167_packages <- c(
   "devtools", "remotes",
 
   # COLORS
-  "colorblindr", "monochromeR", "viridis", "viridisLite",
+  #"colorblindr",
+  "monochromeR", "viridis", "viridisLite",
 
   # FONTS and TEXT
   "extrafont", "glue", "showtext", "utf8", "systemfonts",
@@ -49,7 +50,7 @@ dataviz167_packages <- c(
   "gridExtra", "grid", "ggdark",
   "prismatic", "patchwork", "scico", "highcharter", "corrr",
   "gt", "gtsummary", "ggstatsplot",
-  "plotly", "cowplot",
+  "plotly", "cowplot", "colorspace",
 
   # PROJECTS AND MANAGEMENT
   "usethis", "here", "gitr", "gh",  "gitcreds", "gert", "renv", # "gitcreds",
@@ -58,19 +59,19 @@ dataviz167_packages <- c(
   "foreign", "haven", "vroom", "xlsx", "readr", "openxlsx", "rio",
 
   # REFERENCES AND REPORTING
-  "bibtex", "knitr", "pandoc", "rstudioapi", "rmarkdown", "quarto",
-  "shiny", "shinydashboard", "shinydashboardPlus",
+  "bibtex", "knitr", "pandoc", "rstudioapi", "rmarkdown", "quarto", "shiny",
+  #"shinydashboard", "shinydashboardPlus",
 
   # STRING MANIPULATION
   "stringr",
 
   # TABLES
-  "DT", "htmlwidgets", "htmlTable", "kable", "kableExtra", "htmltools",
+  "DT", "htmlwidgets", "htmlTable", "kableExtra", "htmltools",
 
   # OTHER
-  "coin", "fs", "zoom", "webshot", "sjPlot", "sqldf"
+  "coin", "fs", "zoom", "webshot", "sjPlot", "sqldf", "remotes"
 )
 
 install_if_not_installed(dataviz167_packages)
 
-remotes::install_github("clauswilke/colorblindr")
+remotes::install_github("clauswilke/colorblindr", force = TRUE)
