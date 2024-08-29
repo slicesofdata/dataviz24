@@ -1708,13 +1708,6 @@
     "text": "PSYC 167: Data Visualization\nThis is the course website for PSYC 167: Data Visualization, taught by Prof. Gabriel I. Cook; 1 credit\nDescription\nData visualization is the science and art of creating graphical representations of information and data. Visual representations provide accessible ways to see patterns, trends, and outliers in data. Variables like position, size, and orientation can focus attention and guide perception but can also bias interpretation of data. Students will learn how well-designed visualizations can reduce bias and improve comprehension for data thereby facilitating data-driven decision-making. Students will explore techniques for creating effective visualizations based on principles from cognitive and perceptual psychology, art, and design. Students will gain hands-on experience coding real-world data visualizations for local offices, organizations, and industry participants.\nThe course is targeted toward students interested in using visualizations to communicate their own messages, and students interested in creating better visualization tools and systems, and students with expressed interest in cognition and cognitive biases related to data communication. Students will engage in discussions of the readings, complete programming and data analysis assignments, and prepare a final project involving storytelling with data visualizations."
   },
   {
-    "objectID": "cheatsheets_and_tips/symbols.html",
-    "href": "cheatsheets_and_tips/symbols.html",
-    "title": "Symbols",
-    "section": "",
-    "text": "Symbol\nTerm\n\n\n\n\n&lt;-\nassignment operator\n\n\n()\n(round) brackets / parentheses\n\n\n[]\nsquare brackets\n\n\n{}\ncurly brackets\n\n\n&lt;&gt;\nchevrons/angled brackets\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n#\nhash/pound\n\n\n/\nforward slash\n\n\n\\\nbackslash\n\n\n-\ndash/hyphen/minus\n\n\n_\nunderscore\n\n\n*\nasterisk/star\n\n\n^\ncaret/power symbol\n\n\n~\ntilde/twiddle\n\n\n=\nequal sign\n\n\n==\ndouble equal sign (logical equivalence)\n\n\n.\nfull stop/period/point\n\n\n|&gt;\npipe (see also %&gt;% for {magrittr})\n\n\n&\nampersand/and (“and” operator)\n\n\n|\nvertical bar/pipe (“or” operator)\n\n\n!\nexclamation mark/bang (“not” operator)\n\n\n?\nquestion mark\n\n\n’\nsingle quote/apostrophe"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -1722,25 +1715,11 @@
     "text": "Nothing to see here"
   },
   {
-    "objectID": "homework/homework.html",
-    "href": "homework/homework.html",
-    "title": "Homework",
+    "objectID": "cheatsheets_and_tips/symbols.html",
+    "href": "cheatsheets_and_tips/symbols.html",
+    "title": "Symbols",
     "section": "",
-    "text": "Under construction\n\n\n\nThis syllabus is under construction until Fall 2023"
-  },
-  {
-    "objectID": "homework/homework.html#exercises",
-    "href": "homework/homework.html#exercises",
-    "title": "Homework",
-    "section": "Exercises",
-    "text": "Exercises\nVarious tasks and exercises will be found here.\nThe exercise list will be updated as the semester progresses."
-  },
-  {
-    "objectID": "homework/homework.html#download",
-    "href": "homework/homework.html#download",
-    "title": "Homework",
-    "section": "Download",
-    "text": "Download\nHomework Exercise 01"
+    "text": "Symbol\nTerm\n\n\n\n\n&lt;-\nassignment operator\n\n\n()\n(round) brackets / parentheses\n\n\n[]\nsquare brackets\n\n\n{}\ncurly brackets\n\n\n&lt;&gt;\nchevrons/angled brackets\n\n\n&lt;\nless than\n\n\n&gt;\ngreater than\n\n\n#\nhash/pound\n\n\n/\nforward slash\n\n\n\\\nbackslash\n\n\n-\ndash/hyphen/minus\n\n\n_\nunderscore\n\n\n*\nasterisk/star\n\n\n^\ncaret/power symbol\n\n\n~\ntilde/twiddle\n\n\n=\nequal sign\n\n\n==\ndouble equal sign (logical equivalence)\n\n\n.\nfull stop/period/point\n\n\n|&gt;\npipe (see also %&gt;% for {magrittr})\n\n\n&\nampersand/and (“and” operator)\n\n\n|\nvertical bar/pipe (“or” operator)\n\n\n!\nexclamation mark/bang (“not” operator)\n\n\n?\nquestion mark\n\n\n’\nsingle quote/apostrophe"
   },
   {
     "objectID": "modules/attentional_control.html",
@@ -2056,13 +2035,6 @@
     "title": "Graphical perception",
     "section": "Readings",
     "text": "Readings\n\nLooking at Data, from Data Visualization: A Practical Introduction. Healy, K. (2018)"
-  },
-  {
-    "objectID": "modules/graphical_perception.html#content-pending",
-    "href": "modules/graphical_perception.html#content-pending",
-    "title": "Graphical perception",
-    "section": "Content Pending",
-    "text": "Content Pending"
   },
   {
     "objectID": "modules/legends_and_arrangement.html",
