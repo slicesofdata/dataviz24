@@ -2048,14 +2048,14 @@
     "href": "modules/graphical_perception.html",
     "title": "Graphical perception",
     "section": "",
-    "text": "In this module, we will address some aspects of how people perceive elements of data visualizations. You will likely learn that you are not as accurate as you might have thought at extracting data from visual representations."
+    "text": "In this module, we will address some aspects of how people perceive elements of data visualizations. We will briefly cover some concepts you may have been exposed to in a Cognitive Psychology or Perception course as they are applied to processing data visualizations. You will likely learn that you are not as accurate as you might have thought at extracting data from visual representations.\nAfter Project Management involving RStudio and Git, there is no coding for this this topic. Take a break, practice with Git, or review some details about the team project start considering what the team needs to do for the project."
   },
   {
     "objectID": "modules/graphical_perception.html#readings",
     "href": "modules/graphical_perception.html#readings",
     "title": "Graphical perception",
     "section": "Readings",
-    "text": "Readings\n\nLooking at Data\n\nAfter RStudio and Git, there is no coding for this this topic. Take a break, practice with Git, or review some details about the team project start considering what the team needs to do for the project."
+    "text": "Readings\n\nLooking at Data, from Data Visualization: A Practical Introduction. Healy, K. (2018)"
   },
   {
     "objectID": "modules/graphical_perception.html#content-pending",
