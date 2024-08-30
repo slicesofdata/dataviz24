@@ -563,6 +563,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#libraries-used" id="toc-libraries-used" class="nav-link" data-scroll-target="#libraries-used"><strong>Libraries Used</strong></a>
   <ul class="collapse">
   <li><a href="#readings-and-preparation" id="toc-readings-and-preparation" class="nav-link" data-scroll-target="#readings-and-preparation"><strong>Readings and Preparation</strong></a></li>
+  <li><a href="#warning" id="toc-warning" class="nav-link" data-scroll-target="#warning"><strong>Warning</strong></a></li>
   <li><a href="#to-do-steps-of-the-task" id="toc-to-do-steps-of-the-task" class="nav-link" data-scroll-target="#to-do-steps-of-the-task"><strong>To Do: Steps of the Task</strong></a></li>
   </ul></li>
   <li><a href="#creating-a-local-directory-for-class" id="toc-creating-a-local-directory-for-class" class="nav-link" data-scroll-target="#creating-a-local-directory-for-class"><strong>Creating a Local Directory for Class</strong></a></li>
@@ -622,6 +623,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>{usethis}</strong>: 2.2.3: for project workflow automation</li>
 <li><strong>{gitcreds}</strong>: 0.1.2: for querying git credentials</li>
+<li><strong>{gh}</strong>: 1.4.1: for querying the github api</li>
 <li><strong>{gert}</strong>: 2.0.1: optional R library approach for git commands</li>
 </ul>
 <section id="readings-and-preparation" class="level3">
@@ -629,6 +631,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>Before Class</em>: First, watch course videos (and/or read) to familiarize yourself with the concepts rather than master them. I will assume that you attend class with some level of basic understanding of concepts and working of functions. The goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. This cannot happen if you just read the content without interacting with it, however reading is absolutely essential to being successful during class time.</p>
 <p>Complete the items in the <strong>To Do: Steps of the Task</strong> section.</p>
 <p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing code through exercises.</p>
+</section>
+<section id="warning" class="level3">
+<h3 class="anchored" data-anchor-id="warning"><strong>Warning</strong></h3>
+<p><strong>Do not try to cheat the system and jump ahead</strong>. If you do, just like playing the <em>Monopoly</em> board game, your <a href="https://www.monopolyland.com/passing-go-rules/">chance card</a> may read <em>“Go to jail. Go directly to jail. Do not pass go. Do not collect $200.”</em> In other words, you cannot complete these steps without ensuring that your credentials are set. You will run into errors and try to contact me. If the following code does not return information for your login, your github account, scopes, and a token, you will be unable to proceed. If it does but your token is expired, you cannot proceed. <strong>Ensure you have set your credentials.</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gh<span class="sc">::</span><span class="fu">gh_whoami</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="to-do-steps-of-the-task" class="level3">
 <h3 class="anchored" data-anchor-id="to-do-steps-of-the-task"><strong>To Do: Steps of the Task</strong></h3>
@@ -648,11 +655,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="creating-a-local-directory-for-class" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-local-directory-for-class"><strong>Creating a Local Directory for Class</strong></h2>
-<p>Create a folder (aka directory) named <code>"dataviz"</code> on your computer. I recommend creating the directory someplace where you might not accidentally delete it.</p>
+<p>Create a folder (aka directory) named <code>"dataviz"</code> (yes, all lowercase) on your computer. I recommend creating the directory someplace where you might not accidentally delete it. Create only one so as not to confuse yourself.</p>
 </section>
 <section id="connecting-the-repository-to-an-rstudio-project" class="level2">
 <h2 class="anchored" data-anchor-id="connecting-the-repository-to-an-rstudio-project"><strong>Connecting the Repository to an RStudio Project</strong></h2>
-<p>You should already have a repository on GitHub named “dataviz-exercises” which you created from <a href="https://github.com/slicesofdata/start-project">this template repository</a>. You will now create an RStudio project and connect it to that remote repository on your GitHub account.</p>
+<p>You should already have a repository on GitHub named <em>“dataviz-exercises”</em> which you created from <a href="https://github.com/slicesofdata/start-project">this template repository</a>. You will now create an RStudio project and connect it to that remote repository on your GitHub account.</p>
+<p>When you create the project inside your class directory, your directory structure will look like this:</p>
+<pre><code>└── dataviz
+│   └── dataviz-exercises </code></pre>
 <ol type="1">
 <li><p>In RStudio, <strong>File &gt; New Project &gt; Version Control &gt; Git</strong>.</p></li>
 <li><p>In the pop-up, you will see a request for the “repository URL”. Paste the URL of the GitHub repository. This URL will be the same as what you see on your GitHub account. However, we need to add <code>.git</code> to the end of it.</p></li>
@@ -758,7 +768,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="session-information" class="level1">
 <h1><strong>Session Information</strong></h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.4.1 (2024-06-14 ucrt)
 Platform: x86_64-w64-mingw32/x64
