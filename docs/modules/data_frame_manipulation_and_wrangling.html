@@ -1143,7 +1143,7 @@ California    9.0     276
 Colorado      7.9     204</code></pre>
 </div>
 </div>
-<p>But this could be problematic if a variable in your vector does not exists. Let’s add some variables that are not in the data frame and then pass that vector.</p>
+<p>Using <code>all_of()</code> could be problematic if even <em>one</em> variable in your vector does not exist. Let’s add some variables that are not in the data frame and then pass that vector.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>keep_vars_more <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Murder"</span>, <span class="st">"Assault"</span>, <span class="st">"Var_x"</span>, <span class="st">"Var_y"</span>, <span class="st">"Var_z"</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>USArrests <span class="sc">|&gt;</span></span>
