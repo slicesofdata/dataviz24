@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-08-31">
+<meta name="dcterms.date" content="2024-09-03">
 
-<title>Data frame manipulation and wrangling</title>
+<title>Data Visualization - Data frame manipulation and wrangling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,6 +108,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title"><strong>Data Visualization</strong></span>
+    </a>
+  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -650,7 +655,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 31, 2024</p>
+      <p class="date">September 3, 2024</p>
     </div>
   </div>
   
@@ -660,7 +665,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>#::: callout-important #FALSE #:::</p>
+<!--
+::: callout-important
+FALSE
+:::
+-->
 <section id="overview" class="level1">
 <h1><strong>Overview</strong></h1>
 <p>In this module, we will start manipulating data frames. Data frames are composed of column variables and row observations/cases and we will address how to perform operations on both. We will learn how to use <strong>{dplyr}</strong>, rather than <code>base R</code> to select, remove, add, and modify vectors in data frames. In addition, we will address how to filter and arrange rows in various ways. The focus will be on cleaning or wrangling data. Helper functions from libraries like <strong>{tidyr}</strong>, <strong>{stringr}</strong>, and <strong>{tidyselect}</strong> are also used in conjunction with <strong>{dplyr}</strong>.</p>
@@ -1140,7 +1149,7 @@ Colorado      7.9     204</code></pre>
 <pre><code>Error in `all_of()`:
 ! Can't subset columns that don't exist.
 ✖ Columns `Var_x`, `Var_y`, and `Var_z` don't exist.</code></pre>
-<p><strong>Tip:</strong> Rather than using <code>all_of()</code>, use <code>any_of()</code>. In this instance, <em>any of</em> the variables that exist in the data frame will be selection. Those variables that are not in the data frame will be ignored. With this approach, your code will not break if there something changes.</p>
+<p><strong>Tip:</strong> Rather than using <code>tidyselect::all_of()</code>, use <code>tidyselect::any_of()</code>. In this instance, <em>any of</em> the variables that exist in the data frame will be selection. Those variables that are not in the data frame will be ignored. With this approach, your code will not break if there something changes.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>USArrests <span class="sc">|&gt;</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(keep_vars_more)) <span class="sc">|&gt;</span> </span>
