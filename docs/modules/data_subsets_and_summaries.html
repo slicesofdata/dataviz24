@@ -583,8 +583,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#reading-and-looking-at-data" id="toc-reading-and-looking-at-data" class="nav-link" data-scroll-target="#reading-and-looking-at-data"><strong>Reading and Looking at Data</strong></a>
   <ul class="collapse">
+  <li><a href="#reading-.csv-files" id="toc-reading-.csv-files" class="nav-link" data-scroll-target="#reading-.csv-files"><strong>Reading <code>.csv</code> files</strong></a></li>
   <li><a href="#reading-.xlsx-files" id="toc-reading-.xlsx-files" class="nav-link" data-scroll-target="#reading-.xlsx-files"><strong>Reading <code>.xlsx</code> files</strong></a></li>
-  <li><a href="#reading-.xlsx-files-1" id="toc-reading-.xlsx-files-1" class="nav-link" data-scroll-target="#reading-.xlsx-files-1"><strong>Reading <code>.xlsx</code> files</strong></a></li>
   <li><a href="#looking-at-data" id="toc-looking-at-data" class="nav-link" data-scroll-target="#looking-at-data"><strong>Looking at Data</strong></a></li>
   </ul></li>
   <li><a href="#modifying-a-data-frame-or-tibble-using-dplyr" id="toc-modifying-a-data-frame-or-tibble-using-dplyr" class="nav-link" data-scroll-target="#modifying-a-data-frame-or-tibble-using-dplyr"><strong>Modifying a Data Frame or Tibble Using {dplyr}</strong></a>
@@ -718,18 +718,17 @@ Revisions are being made to this module to make it shorter. This message will be
 </section>
 <section id="reading-and-looking-at-data" class="level1">
 <h1><strong>Reading and Looking at Data</strong></h1>
-<p>In order to perform any data summary, you need data. We will use the file name <code>"cms-top-all-time-2023-swim.xlsx"</code> that is located at a URL. We could just access the file from the full URL path but we will later want to save a <em>cleaned</em> version of the file for later use. Modifying the file name will be easier than hard coding the path in both places. Thus, we will use <code>here()</code> to build the file path and pass that string to <code>openxlsx::read.xlsx()</code> and assign the returned data frame to an object named <code>DAT</code>.</p>
-<p>There is additional content involving <code>mutate()</code> in order to prepare the data file for summarizing.</p>
-<section id="reading-.xlsx-files" class="level2">
-<h2 class="anchored" data-anchor-id="reading-.xlsx-files"><strong>Reading <code>.xlsx</code> files</strong></h2>
+<p>In order to perform any data summary, you need data. We will use <em>raw</em> data files named <code>"cms-top-all-time-2023-swim.csv"</code> and <code>"cms-top-all-time-2023-swim.xlsx"</code> which can be located and downloaded from the <strong>Data</strong> tab above. You should download these to <code>/data/raw</code>. We could just access the file from the full URL path but we will later want to save a <em>cleaned</em> version of the file for later use. Modifying the file name will be easier than hard coding the path in both places. Thus, we will use <code>here()</code> to build the file path and pass to the relevant functions. There is also additional content involving <code>mutate()</code> in order to prepare the data file for summarizing.</p>
+<section id="reading-.csv-files" class="level2">
+<h2 class="anchored" data-anchor-id="reading-.csv-files"><strong>Reading <code>.csv</code> files</strong></h2>
 <p>This example is a walk through using the <em>raw</em> data file.</p>
 <p>We will use <code>here()</code> to build and pass the file string as the argument to <code>file</code> and assign to an object named <code>DAT</code>. If column names are not in the file, modify the <code>header</code> argument. You could use <code>dplyr::read_csv()</code> also if you desire.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DAT <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"raw"</span>, <span class="st">"cms-top-all-time-2023-swim.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="reading-.xlsx-files-1" class="level2">
-<h2 class="anchored" data-anchor-id="reading-.xlsx-files-1"><strong>Reading <code>.xlsx</code> files</strong></h2>
+<section id="reading-.xlsx-files" class="level2">
+<h2 class="anchored" data-anchor-id="reading-.xlsx-files"><strong>Reading <code>.xlsx</code> files</strong></h2>
 <p>This example is a walk through using the <em>raw</em> data file.</p>
 <!--
 
