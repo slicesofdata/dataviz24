@@ -537,12 +537,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#needs-editing-to-reflect-new-projects" id="toc-needs-editing-to-reflect-new-projects" class="nav-link active" data-scroll-target="#needs-editing-to-reflect-new-projects"><strong>NEEDS EDITING TO REFLECT NEW PROJECTS</strong></a></li>
-  <li><a href="#needs-editing-to-reflect-new-projects-1" id="toc-needs-editing-to-reflect-new-projects-1" class="nav-link" data-scroll-target="#needs-editing-to-reflect-new-projects-1"><strong>NEEDS EDITING TO REFLECT NEW PROJECTS</strong></a></li>
-  <li><a href="#needs-editing-to-reflect-new-projects-2" id="toc-needs-editing-to-reflect-new-projects-2" class="nav-link" data-scroll-target="#needs-editing-to-reflect-new-projects-2"><strong>NEEDS EDITING TO REFLECT NEW PROJECTS</strong></a></li>
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><strong>Overview</strong></a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#large-scale-tasks" id="toc-large-scale-tasks" class="nav-link" data-scroll-target="#large-scale-tasks"><strong>Large-Scale Tasks</strong></a></li>
-  <li><a href="#smaller-scale-tasks-a-suggested-process-for-working-with-cognitive-taskssurvey-questions" id="toc-smaller-scale-tasks-a-suggested-process-for-working-with-cognitive-taskssurvey-questions" class="nav-link" data-scroll-target="#smaller-scale-tasks-a-suggested-process-for-working-with-cognitive-taskssurvey-questions"><strong>Smaller-Scale Tasks: A Suggested Process for working with Cognitive Tasks/Survey Questions</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -572,15 +568,25 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="needs-editing-to-reflect-new-projects" class="level1">
-<h1><strong>NEEDS EDITING TO REFLECT NEW PROJECTS</strong></h1>
-</section>
-<section id="needs-editing-to-reflect-new-projects-1" class="level1">
-<h1><strong>NEEDS EDITING TO REFLECT NEW PROJECTS</strong></h1>
-</section>
-<section id="needs-editing-to-reflect-new-projects-2" class="level1">
-<h1><strong>NEEDS EDITING TO REFLECT NEW PROJECTS</strong></h1>
-</section>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not proceed. I need to edit this for PSYC167. If you see this message, feel free to remind me that the edits are not on the website.</p>
+</div>
+</div>
+<!--
+
+# **NEEDS EDITING TO REFLECT NEW PROJECTS**
+# **NEEDS EDITING TO REFLECT NEW PROJECTS**
+# **NEEDS EDITING TO REFLECT NEW PROJECTS**
+-->
 <section id="overview" class="level1">
 <h1><strong>Overview</strong></h1>
 <p>In order to complete the project, there are different components that can be easily broken up and delegated among team members. During weekly team meetings, team members can discuss accomplishments and progress, and check off tasks. Provided many of you have never taken on such tasks and thought about how to break tasks into smaller bite-sized pieces, a general framework maybe be helpful for you.</p>
@@ -599,39 +605,49 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Finalize report</p></li>
 </ol>
 <p><em>Report drafting</em>. This tasks can get integrated within the other tasks. For example, delegating tasks, setting deadlines for rough drafts, etc.). Relevant references in <code>/refs</code> can be disseminated, read, and used to prepare the theoretical and conceptual motivation for the project.</p>
-</section>
-<section id="smaller-scale-tasks-a-suggested-process-for-working-with-cognitive-taskssurvey-questions" class="level1">
-<h1><strong>Smaller-Scale Tasks: A Suggested Process for working with Cognitive Tasks/Survey Questions</strong></h1>
-<p>Teams will be working with the symmetry span task, the go/no-go task, and other demographic and response variables. Some variables (viz., tasks or survey) will need to be parceled out and transformed (pivoted) in order to work with in a manageable way. Other response variables may contain only a single question and may require recoding (e.g., response options to numbers) but would not require transformation in the form of pivoting. When there are multiple response options (data columns) as there are with the cognitive tasks, a recommendation is the break the task into pieces.</p>
-<p>A recommended sub-goal process is described below</p>
-<p><strong>A. Break full data into task/survey data</strong></p>
-<ol type="1">
-<li>Import master data file</li>
-<li>Select variables of interest for that Task/Survey</li>
-<li>Write out wide <code>&lt;task&gt;_wide.rds</code> data file containing ids and variables for that task</li>
-<li>Ensure all files are lowercase with no spaces; use - or _</li>
-</ol>
-<p><strong>B. Clean the task/survey data</strong></p>
-<ol type="1">
-<li>Transform Data: Pivot wide to long</li>
-<li>Write out long <code>&lt;task&gt;_long.rds</code> data file</li>
-<li>Clean, create, etc. relevant variables (not aggregated)</li>
-</ol>
-<p><strong>C. Aggregate/Summarize task/survey data</strong></p>
-<ol type="1">
-<li>Write out long <code>task_long_clean.rds</code> data file</li>
-<li>Aggregate/Summarize Data: Create participant level relevant data (e.g., average accuracy, average response time, etc.)</li>
-<li>Write out long <code>&lt;task&gt;_long_agg.rds</code> data file</li>
-</ol>
-<p><strong>D. Prepare aggregated task/survey data for statistical description</strong></p>
-<ol type="1">
-<li>If doing correlation with other variables, sometimes need to transform the data frame. If so:</li>
-<li>Pivot long to wide</li>
-<li>Write out long <code>&lt;task&gt;_wide_agg.rds</code> data file</li>
-</ol>
-<p><strong>E. Produce Data Summaries: Descriptive Statistics</strong></p>
-<p><strong>F. Generate any relevant visualizations</strong> * using either data that are aggregated or are not aggregated</p>
-<p><strong>G. Modeling: Test relevant prediction(s)</strong></p>
+<!--
+
+# **Smaller-Scale Tasks: A Suggested Process for working with Cognitive Tasks/Survey Questions**
+
+Teams will be working with the symmetry span task, the go/no-go task, and other demographic and response variables. Some variables (viz., tasks or survey) will need to be parceled out and transformed (pivoted) in order to work with in a manageable way. Other response variables may contain only a single question and may require recoding (e.g., response options to numbers) but would not require transformation in the form of pivoting. When there are multiple response options (data columns) as there are with the cognitive tasks, a recommendation is the break the task into pieces. 
+
+A recommended sub-goal process is described below:
+
+-->
+<!--
+**A. Break full data into task/survey data**
+
+  1. Import master data file
+  2. Select variables of interest for that Task/Survey 
+  3. Write out wide `<task>_wide.rds` data file containing ids and variables for that task
+  4. Ensure all files are lowercase with no spaces; use - or _ 
+
+**B. Clean the task/survey data**    
+
+   1. Transform Data: Pivot wide to long
+   2. Write out long `<task>_long.rds` data file
+   3. Clean, create, etc. relevant variables (not aggregated)
+
+**C. Aggregate/Summarize task/survey data**    
+
+   1. Write out  long `task_long_clean.rds` data file
+   2. Aggregate/Summarize Data: Create participant level relevant data (e.g., average accuracy, average response time, etc.) 
+   3. Write out  long `<task>_long_agg.rds` data file
+
+**D. Prepare aggregated task/survey data for statistical description**
+
+   1. If doing correlation with other variables, sometimes need to transform the data frame. If so:
+   2. Pivot long to wide 
+   3. Write out long `<task>_wide_agg.rds` data file
+
+**E. Produce Data Summaries: Descriptive Statistics**
+
+**F. Generate any relevant visualizations**
+   * using either data that are aggregated or are not aggregated 
+
+**G. Modeling: Test relevant prediction(s)**
+
+-->
 
 
 </section>
