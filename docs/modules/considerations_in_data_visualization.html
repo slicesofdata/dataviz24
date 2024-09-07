@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-08-19">
+<meta name="dcterms.date" content="2024-09-06">
 
 <title>Data Visualization - Considerations in data visualization</title>
 <style>
@@ -544,11 +544,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#prior-to-class" id="toc-prior-to-class" class="nav-link" data-scroll-target="#prior-to-class"><strong>Prior to class</strong></a>
   <ul class="collapse">
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><em>Readings</em></a></li>
-  <li><a href="#videos" id="toc-videos" class="nav-link" data-scroll-target="#videos"><em>Video(s)</em></a></li>
   </ul></li>
-  <li><a href="#after-class" id="toc-after-class" class="nav-link" data-scroll-target="#after-class"><em>After class</em></a></li>
   </ul></li>
-  <li><a href="#under-construction-content-pending" id="toc-under-construction-content-pending" class="nav-link" data-scroll-target="#under-construction-content-pending"><strong>Under construction, content pending</strong></a></li>
+  <li><a href="#in-class" id="toc-in-class" class="nav-link" data-scroll-target="#in-class"><strong>In class</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -574,7 +572,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 19, 2024</p>
+      <p class="date">September 6, 2024</p>
     </div>
   </div>
   
@@ -584,54 +582,81 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Under construction.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.</p>
-</div>
-</div>
 <section id="overview" class="level1">
 <h1><strong>Overview</strong></h1>
-<p>The focus of this module is to raise considerations for creating data visualizations to tell a story about data. Anyone can code a bar plot, scatterplot, line plot any other visualization whether simple or complex. Out of the box, <strong>{ggplot2}</strong> allows you to produce some reasonable but it does not evaluate items like (a) the appropriateness of your plot to the specific story you are trying to tell, (b) the appropriateness of the color scheme used for a client project, or (c) the appropriateness of the colors for your client’s internal team or their public audience. Function libraries also do not consider whether your plot takes on perceptual properties that may bias your readership.</p>
+<p>The focus of this module is to raise considerations for creating data visualizations to tell a story about data. Anyone can code a bar plot, scatterplot, line plot or any other visualization whether simple or complex. Out of the box, <strong>{ggplot2}</strong> allows you to produce some reasonable but the library does not evaluate items like:</p>
+<ul>
+<li>the appropriateness of your plot to the specific story you are trying to tell,</li>
+<li>the appropriateness of the color scheme used for a client project, or</li>
+<li>the appropriateness of the colors for your client’s internal team or their public audience. Function libraries also do not consider whether your plot takes on perceptual properties <em>that may bias</em> your readership.</li>
+</ul>
 <p>Issues arise when you accept the default performance of functions and produce plots that contain elements that are not appropriate to a specific audience or perceptually problematic to the general human audience. You should not consider a coded plot complete without considering its elements thoroughly. This module introduces some of these issues.</p>
 </section>
 <section id="to-do" class="level1">
 <h1><strong>To Do</strong></h1>
 <section id="prior-to-class" class="level2">
 <h2 class="anchored" data-anchor-id="prior-to-class"><strong>Prior to class</strong></h2>
+<p>Complete the brief readings below. There is no coding video corresponding to this module.</p>
 <section id="readings" class="level3">
 <h3 class="anchored" data-anchor-id="readings"><em>Readings</em></h3>
-<p>The goal should be to familiarize yourself and bring questions to class. The online readings are taken from <a href="https://clauswilke.com/dataviz">TFDV</a>.</p>
-<p>The goal should be to familiarize yourself and bring questions to class. The online readings are taken from <a href="https://clauswilke.com/dataviz">TFDV</a>.</p>
+<!-- The goal should be to familiarize yourself and bring questions
+to class. The online readings are taken from [TFDV](https://clauswilke.com/dataviz).
+-->
+<p>The goal should be to familiarize yourself and bring questions to class. The online readings are taken from <a href="https://clauswilke.com/dataviz">Fundamentals of Data Visualization</a>, a great book by <a href="https://integrativebio.utexas.edu/component/cobalt/item/7-integrative-biology/237-wilke-claus-o?Itemid=1224">Clause Wilke</a>, a professor of molecular evolution at <a href="https://www.utexas.edu/">The University of Texas at Austin</a>.</p>
 <ul>
 <li><a href="https://clauswilke.com/dataviz/proportional-ink.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. The principle of proportional ink</a></li>
 <li><a href="https://clauswilke.com/dataviz/color-pitfalls.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Common pitfalls of color use</a></li>
 <li><a href="https://clauswilke.com/dataviz/telling-a-story.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Telling a story</a></li>
 </ul>
-<p><strong>Optional:</strong></p>
-<p>For more detailed content on code implementation, see <a href="https://ggplot2-book.org/">Wickham, Navarro, &amp; Pedersen. <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em></a>.</p>
+<!--
+**Optional:**
+
+For more detailed content on code implementation, see [Wickham, Navarro, & Pedersen. *ggplot2: Elegant Graphics for Data Analysis (3e)*](https://ggplot2-book.org/).
+-->
+<!-- 
+### *Video(s)*
+
+R code implementation of functions from various libraries will
+be illustrated through video examples. This video content is designed to familiarize
+you with some key functions used to address data visualization issues related to this
+module. The video content will not, however, address all details nor will they discuss
+many of the  common issues that you might experience while working on associated
+with The module content below. 
+-->
 </section>
-<section id="videos" class="level3">
-<h3 class="anchored" data-anchor-id="videos"><em>Video(s)</em></h3>
-<p>R code implementation of functions from various libraries will be illustrated through video examples. This video content is designed to familiarize you with some key functions used to address data visualization issues related to this module. The video content will not, however, address all details nor will they discuss many of the common issues that you might experience while working on associated with The module content below.</p>
 </section>
 </section>
-<section id="after-class" class="level2">
-<h2 class="anchored" data-anchor-id="after-class"><em>After class</em></h2>
-<p>The module text, code, and plots on this page expand upon the video content associated with this module. Because the video content introduces you to key functions and functions related to the module, the text is designed to explain the concepts and step associated with creating a plot in greater detail. For example, common issues, problems, or pitfalls are addressed and various solutions are presented to you. Your choice of a solution may depending on your plot goals, coding experience and/or abiliy, time, or desire to write flexible and reproducible code.</p>
-<p>After having some hands-on experience with coding exercises in class, homework problems will be more complex, will involving problem solving, and may be open ended. In many instances you will also work with your team-project data for these homework assignments. In order to complete some homework problems, you wil need to review this text and/or reference it when writing your code.</p>
-<p>You should realize that the plots you create for homework problems may or may not be the type you use for your specific team project nor will they take on a final form acceptable for a final</p>
-</section>
-</section>
-<section id="under-construction-content-pending" class="level1">
-<h1><strong>Under construction, content pending</strong></h1>
+<section id="in-class" class="level1">
+<h1><strong>In class</strong></h1>
+<p>Class time will be allocated to discussing elements from the readings and addressing other elements relevant to building a successful project.</p>
+
+<!-- 
+## *After class*
+
+The module text, code, and plots on this page expand upon
+the video content associated with this module. Because the video content introduces
+you to key functions and functions related to the module, the text is designed to
+explain the concepts and step associated with creating a plot in greater detail.
+For example, common issues, problems, or pitfalls are addressed and various solutions
+are presented to you. Your choice of a solution may depending on your plot goals,
+coding experience and/or abiliy, time, or desire to write flexible and reproducible code.
+
+
+
+After having some hands-on experience with coding exercises in class, homework problems
+will be more complex, will involving problem solving, and may be open ended. In many
+instances you will also work with your team-project data for these homework assignments.
+In order to complete some homework problems, you wil need to review this text and/or
+reference it when writing your code.
+
+
+
+You should realize that the plots you create for homework problems may or may not be the type you use for your
+specific team project nor will they take on a final form acceptable for a final 
+-->
+<!--
+# **Under construction, content pending**
+-->
 
 
 </section>
