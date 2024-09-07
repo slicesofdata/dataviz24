@@ -1379,6 +1379,27 @@
     "text": "Libraries\nWe will work with a few different libraries for data manipulation. Let’s load them into our work space using library().\n\nlibrary(dplyr)\nlibrary(stringr)\nlibrary(lubridate)"
   },
   {
+    "objectID": "modules/data_subsets_and_summaries.html#reading-.csv-files",
+    "href": "modules/data_subsets_and_summaries.html#reading-.csv-files",
+    "title": "Data subsets and summaries",
+    "section": "Reading .csv files",
+    "text": "Reading .csv files\nThis example is a walk through using the raw data file.\nWe will use here() to build and pass the file string as the argument to file and assign to an object named DAT. If column names are not in the file, modify the header argument. You could use dplyr::read_csv() also if you desire.\n\nDAT &lt;- read.csv(file = here::here(\"data\", \"raw\", \"cms-top-all-time-2023-swim.csv\"))"
+  },
+  {
+    "objectID": "modules/data_subsets_and_summaries.html#reading-.xlsx-files",
+    "href": "modules/data_subsets_and_summaries.html#reading-.xlsx-files",
+    "title": "Data subsets and summaries",
+    "section": "Reading .xlsx files",
+    "text": "Reading .xlsx files\nThis example is a walk through using the raw data file.\n\nWe will use here() to build and pass the file string to the xlxsFile argument and also pass sheet = \"swim\" so the swim worksheet is read from the file. If {openxlsx} is not loaded, call the function with reference to the library and assign to an object named DAT.\n\nDAT &lt;- openxlsx::read.xlsx(\n  xlsxFile = here::here(\"data\", \"raw\", \"cms-top-all-time-2023-swim.xlsx\"),\n  sheet = \"swim\"\n  )"
+  },
+  {
+    "objectID": "modules/data_subsets_and_summaries.html#looking-at-data",
+    "href": "modules/data_subsets_and_summaries.html#looking-at-data",
+    "title": "Data subsets and summaries",
+    "section": "Looking at Data",
+    "text": "Looking at Data\nIf data wrangling and cleaning skills are not needed, jump to summarizing. In order to prepare a data frame for summarizing, however, you need to ensure it is cleaned and saved.\nView its contents:\n\nhead(DAT)    # or view_html(DAT)\n\n   time             name year   event   team\n1 23.29 Jocelyn Crawford 2019 50 FREE Athena\n2 23.31    Ava Sealander 2022 50 FREE Athena\n3 23.49        Kelly Ngo 2016 50 FREE Athena\n4 23.71        Helen Liu 2014 50 FREE Athena\n5 23.76      Michele Kee 2014 50 FREE Athena\n6 23.77 Natalia Orbach-M 2020 50 FREE Athena\n\n\nWe have several variables: time, name, year, event, team. Some appear to be numeric and some are characters. Passing the data frame to dplyr::glimpse() will provide more detail (see also str()).\n\ndplyr::glimpse(DAT) # or DAT |&gt; dplyr::glimpse()\n\nRows: 440\nColumns: 5\n$ time  &lt;chr&gt; \"23.29\", \"23.31\", \"23.49\", \"23.71\", \"23.76\", \"23.77\", \"23.77\", \"…\n$ name  &lt;chr&gt; \"Jocelyn Crawford\", \"Ava Sealander\", \"Kelly Ngo\", \"Helen Liu\", \"…\n$ year  &lt;chr&gt; \"2019\", \"2022\", \"2016\", \"2014\", \"2014\", \"2020\", \"2020\", \"2010\", …\n$ event &lt;chr&gt; \"50 FREE\", \"50 FREE\", \"50 FREE\", \"50 FREE\", \"50 FREE\", \"50 FREE\"…\n$ team  &lt;chr&gt; \"Athena\", \"Athena\", \"Athena\", \"Athena\", \"Athena\", \"Athena\", \"Ath…\n\n\nHmm, looks like there are &lt;chr&gt; and &lt;dbl&gt; variables and some numbers are in quotes. Objects in quotes are strings. So we need to clean up the file before we can even get a summary. Other than looking at the structure of data frame using glimpse() or str(), you can examine vectors individually.\nWhen vectors are in data frames, you can reference them using the $ notation: my_dataframe$my_variable. Passing this to is.numeric() will also tell you whether the vector is numeric by returning either TRUE or FALSE.\n\nis.numeric(DAT$time)\n\n[1] FALSE\n\n\nOK, so this variable is definitely not numeric. Looking at the file, we need to convert at least one variable that should be numbers from character to numeric."
+  },
+  {
     "objectID": "modules/data_subsets_and_summaries.html#creating-a-new-variable",
     "href": "modules/data_subsets_and_summaries.html#creating-a-new-variable",
     "title": "Data subsets and summaries",
@@ -1860,13 +1881,6 @@
     "title": "Considerations in data visualization",
     "section": "Prior to class",
     "text": "Prior to class\nComplete the brief readings below. There is no coding video corresponding to this module.\n\nReadings\n\nThe goal should be to familiarize yourself and bring questions to class. The online readings are taken from Fundamentals of Data Visualization, a great book by Clause Wilke, a professor of molecular evolution at The University of Texas at Austin.\n\nWilke (2019). Fundamentals of Data Visualization. The principle of proportional ink\nWilke (2019). Fundamentals of Data Visualization. Common pitfalls of color use\nWilke (2019). Fundamentals of Data Visualization. Telling a story"
-  },
-  {
-    "objectID": "modules/considerations_in_data_visualization.html#after-class",
-    "href": "modules/considerations_in_data_visualization.html#after-class",
-    "title": "Considerations in data visualization",
-    "section": "After class",
-    "text": "After class\nThe module text, code, and plots on this page expand upon the video content associated with this module. Because the video content introduces you to key functions and functions related to the module, the text is designed to explain the concepts and step associated with creating a plot in greater detail. For example, common issues, problems, or pitfalls are addressed and various solutions are presented to you. Your choice of a solution may depending on your plot goals, coding experience and/or abiliy, time, or desire to write flexible and reproducible code.\nAfter having some hands-on experience with coding exercises in class, homework problems will be more complex, will involving problem solving, and may be open ended. In many instances you will also work with your team-project data for these homework assignments. In order to complete some homework problems, you wil need to review this text and/or reference it when writing your code.\nYou should realize that the plots you create for homework problems may or may not be the type you use for your specific team project nor will they take on a final form acceptable for a final"
   },
   {
     "objectID": "modules/data_frame_manipulation_and_wrangling.html",
@@ -3274,40 +3288,5 @@
     "title": "Functions, Parameters, and Arguments",
     "section": "Calling Functions from Libraries",
     "text": "Calling Functions from Libraries\n\n\nIf loaded:\n\nmutate() (from {dplyr})\n\nIf not loaded:\n\neeptools::age_calc(): for calculating age based on a date\n:: calls ensures choice (duplicate function names in different libraries)"
-  },
-  {
-    "objectID": "modules/data_subsets_and_summaries.html#reading-.xlsx-files",
-    "href": "modules/data_subsets_and_summaries.html#reading-.xlsx-files",
-    "title": "Data subsets and summaries",
-    "section": "Reading .xlsx files",
-    "text": "Reading .xlsx files\nThis example is a walk through using the raw data file.\n\nWe will use here() to build and pass the file string to the xlxsFile argument and also pass sheet = \"swim\" so the swim worksheet is read from the file. If {openxlsx} is not loaded, call the function with reference to the library and assign to an object named DAT.\n\nDAT &lt;- openxlsx::read.xlsx(\n  xlsxFile = here::here(\"data\", \"raw\", \"cms-top-all-time-2023-swim.xlsx\"),\n  sheet = \"swim\"\n  )"
-  },
-  {
-    "objectID": "modules/data_subsets_and_summaries.html#reading-.xlsx-files-1",
-    "href": "modules/data_subsets_and_summaries.html#reading-.xlsx-files-1",
-    "title": "Data subsets and summaries",
-    "section": "Reading .xlsx files",
-    "text": "Reading .xlsx files\nThis example is a walk through using the raw data file.\n\nWe will use here() to build and pass the file string to the xlxsFile argument and also pass sheet = \"swim\" so the swim worksheet is read from the file. If {openxlsx} is not loaded, call the function with reference to the library and assign to an object named DAT.\n\nDAT &lt;- openxlsx::read.xlsx(\n  xlsxFile = here::here(\"data\", \"raw\", \"cms-top-all-time-2023-swim.xlsx\"),\n  sheet = \"swim\"\n  )"
-  },
-  {
-    "objectID": "modules/data_subsets_and_summaries.html#looking-at-data",
-    "href": "modules/data_subsets_and_summaries.html#looking-at-data",
-    "title": "Data subsets and summaries",
-    "section": "Looking at Data",
-    "text": "Looking at Data\nIf data wrangling and cleaning skills are not needed, jump to summarizing. In order to prepare a data frame for summarizing, however, you need to ensure it is cleaned and saved.\nView its contents:\n\nhead(DAT)    # or view_html(DAT)\n\n   time             name year   event   team\n1 23.29 Jocelyn Crawford 2019 50 FREE Athena\n2 23.31    Ava Sealander 2022 50 FREE Athena\n3 23.49        Kelly Ngo 2016 50 FREE Athena\n4 23.71        Helen Liu 2014 50 FREE Athena\n5 23.76      Michele Kee 2014 50 FREE Athena\n6 23.77 Natalia Orbach-M 2020 50 FREE Athena\n\n\nWe have several variables: time, name, year, event, team. Some appear to be numeric and some are characters. Passing the data frame to dplyr::glimpse() will provide more detail (see also str()).\n\ndplyr::glimpse(DAT) # or DAT |&gt; dplyr::glimpse()\n\nRows: 440\nColumns: 5\n$ time  &lt;chr&gt; \"23.29\", \"23.31\", \"23.49\", \"23.71\", \"23.76\", \"23.77\", \"23.77\", \"…\n$ name  &lt;chr&gt; \"Jocelyn Crawford\", \"Ava Sealander\", \"Kelly Ngo\", \"Helen Liu\", \"…\n$ year  &lt;chr&gt; \"2019\", \"2022\", \"2016\", \"2014\", \"2014\", \"2020\", \"2020\", \"2010\", …\n$ event &lt;chr&gt; \"50 FREE\", \"50 FREE\", \"50 FREE\", \"50 FREE\", \"50 FREE\", \"50 FREE\"…\n$ team  &lt;chr&gt; \"Athena\", \"Athena\", \"Athena\", \"Athena\", \"Athena\", \"Athena\", \"Ath…\n\n\nHmm, looks like there are &lt;chr&gt; and &lt;dbl&gt; variables and some numbers are in quotes. Objects in quotes are strings. So we need to clean up the file before we can even get a summary. Other than looking at the structure of data frame using glimpse() or str(), you can examine vectors individually.\nWhen vectors are in data frames, you can reference them using the $ notation: my_dataframe$my_variable. Passing this to is.numeric() will also tell you whether the vector is numeric by returning either TRUE or FALSE.\n\nis.numeric(DAT$time)\n\n[1] FALSE\n\n\nOK, so this variable is definitely not numeric. Looking at the file, we need to convert at least one variable that should be numbers from character to numeric."
-  },
-  {
-    "objectID": "modules/data_subsets_and_summaries.html#reading-.csv-files",
-    "href": "modules/data_subsets_and_summaries.html#reading-.csv-files",
-    "title": "Data subsets and summaries",
-    "section": "Reading .csv files",
-    "text": "Reading .csv files\nThis example is a walk through using the raw data file.\nWe will use here() to build and pass the file string as the argument to file and assign to an object named DAT. If column names are not in the file, modify the header argument. You could use dplyr::read_csv() also if you desire.\n\nDAT &lt;- read.csv(file = here::here(\"data\", \"raw\", \"cms-top-all-time-2023-swim.csv\"))"
-  },
-  {
-    "objectID": "modules/considerations_in_data_visualization.html#in-class",
-    "href": "modules/considerations_in_data_visualization.html#in-class",
-    "title": "Considerations in data visualization",
-    "section": "In class",
-    "text": "In class\nClass time will be allocated to discussing elements from the readings and addressing other elements relevant to building a successful project."
   }
 ]
