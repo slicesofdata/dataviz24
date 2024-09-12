@@ -12,18 +12,18 @@ execute:
 
 ## **Project Description**
 
-For the project, your team will write code in order to prepare, model, and visualize data in order to communicate a story that would address the question(s) proposed by the participating body (viz., liaison) about cognitive functioning. Given the constraints of data to inform this specific question, the project may involve data exploration to tell a story about relationships between variables. 
+For the project, your team will write code in order to prepare, model, and visualize data in order to communicate a story that would address the question(s) proposed by the participating body (viz., liaison). Each project will differ but there will be similarities across projects, for example, cleaning data, managing variables, creating data summaries, creating  visualizations, telling a coherent story, etc.  
 
-Any exploratory component allows for a healthy dose of flexibility in team creativity. This open element will also allow teams to develop ideas independently, thereby producing stories that will likely diverge wildly from each other, making the project an exciting foray into data storytelling for many students.
+Each project has a primary goal which is necessary to include for the final deliverable. If the team can adequately deliver the primary goal, additional goals can be worked on by eager teams. There may be exploratory components, which would allow for a healthy dose of flexibility in team creativity. Exploratory elements, however, should be discussed carefully with project liaisons.
 
 
 ## **Team Membership and Roles**
 
-A team of students will work with a project liaison to develop the project and work together to produce the midterm and final deliverables. Rather than having all students in charge of all duties, team members should consider delegating tasks and various types of workloads to students who are best equipped to handle them either because of ability or because of interest and desire. Teams are to meet weekly and members are to complete individual worklog reports, which are used for final grading.
+A team of students will work with a project liaison to develop the project and work together to produce the midterm and final deliverables. Rather than having all students in charge of all duties, team members should consider delegating tasks and various types of workloads to students who are best equipped to handle them either because of ability or because of interest and desire. Teams are to meet weekly and members are to complete individual work log reports, which are used for final grading.
 
 ## **Team Meetings**
 
-Team meetings will be weekly and in-person. The team will determine when all members can meet at the same time each week to discuss their weekly accomplishments, upcoming goals, setbacks, etc. The PM will share with me the time and the location of the meeting.
+**Team meetings will be weekly and in-person**. The team will determine when all members can meet at the same time each week to discuss their weekly accomplishments, upcoming goals, setbacks, etc. The PM will share with me the time and the location of the meeting.
 
 
 ## **Deliverables**
@@ -31,7 +31,7 @@ Team meetings will be weekly and in-person. The team will determine when all mem
 * Midterm Presentation
 * Final Presentation
 * Final `R Markdown` Report and pdf
-* Worklogs/GitHub commits
+* Work logs/GitHub commits
 
 
 ## **Project Evaluation**
@@ -39,7 +39,7 @@ Team meetings will be weekly and in-person. The team will determine when all mem
 The project has different components representing it at various stages (e.g., midterm presentation, final presentation and report). See those sections specifically but the following general items will be important to consider.
 
 -   Quality of project deliverable documents (e.g., organization, coherence, story, coding clarity/organization, plots, etc.)
--   Professionalism (e.g., liaison meeting etiquette and responsibility, timely discord communication, non-tardy attendance at weekly team meeting, weekly worklogs, feedback from liaison, etc.)
+-   Professionalism (e.g., liaison meeting etiquette and responsibility, timely discord communication, non-tardy attendance at weekly team meeting, weekly work logs, feedback from liaison, etc.)
 -   Peer evaluation (e.g., contributions, team player, etc.)
 
 Note: Liaison's will also participate in evaluating all teams. The team with the most impressive project (e.g., most clear, most useful and actionable, most interesting, most thought provoking, etc.) will receive bonus points.
@@ -58,21 +58,25 @@ See the midterm and final presentation guidelines for more detail and rubric but
 4.  *Presentation Style*: degree of preparedness and polish in presentation; smooth and rehearsed; minimum of reading; well-paced; slide quality
 
 
-## **Weekly Worklog/Report**
+## **Weekly Work log/Report**
 
 Tracking individual and team goals weekly ensures progress toward the goal, commitment to the project, accountability for oneself, and a record of accomplishments.
 
-The Project Manager should inquire with the team about the best way to submit worklogs or transparency and review. This could be a Google Doc File, a spreadsheet, or even a Google From that contains questions to answer, which then get dumped into a Google Spreadsheet for all to review.
+The Project Manager should inquire with the team about the best way to submit work logs or transparency and review. This could be a Google Doc File, a spreadsheet, or even a Google From that contains questions to answer, which then get dumped into a Google Spreadsheet for all to review.
 
 
-### **Frequency of Worklog**
-
-Worklogs are to be completed by *end-of-day following the team meeting*, after communicating future goals (distributed equally) to other team members. Please make public for me to review. Meetings should be physical to facilitate team cohesion and conversation, and limit silly technical issues that just waste meeting time.
 
 
-### **Contents of Worklog**
+### **Frequency of Work log**
 
-Worklogs should contain information about the reporting date, the team member reporting, that member's previous week accomplishments, and that member's future week goals
+Work logs are to be completed by *end-of-day following the team meeting*, after communicating future goals (distributed equally) to other team members. Please make public for me to review. Meetings should be physical to facilitate team cohesion and conversation, and limit silly technical issues that just waste meeting time.
 
-The recommended worklog is accessible [here](https://docs.google.com/spreadsheets/d/1NV5ZIJJoWvN8ueuzaMqe6e1VUvWcvlX78SaRe-5COng/edit?usp=sharing). There is a worksheet for each team. This is a worklog file distributed to DS180 Capstone Faculty to share with their teams. 
+
+### **Contents of Work log**
+
+Work logs should contain information about the reporting date (or be interactive as needed daily as with a Kanban), the team member reporting, that member's previous week accomplishments, and that member's future week goals. A recurring week Kanban spreadsheet would take care of this for each week of the project.
+
+A [Kanban](https://en.wikipedia.org/wiki/Kanban_(development)) template for projects is located [here](https://docs.google.com/spreadsheets/d/1WCFVRIFW5SBHvGfnAJ-sR2go87StsGUPSfdbg_n4Ab0/edit?usp=sharing). You are not required to use this form of work log but some teams have found it useful in the past so I have created one based on the nature of the class project. I have added fields that are relevant to your project so that team members can log work by week. You can certainly modify or add more fields on the Key sheet. 
+
+Another recommended work log is accessible [here](https://docs.google.com/spreadsheets/d/1NV5ZIJJoWvN8ueuzaMqe6e1VUvWcvlX78SaRe-5COng/edit?usp=sharing). This is a work log file distributed to DS180 Capstone Faculty to share with their teams but I find it a little more clunky than than Kanban. 
 
