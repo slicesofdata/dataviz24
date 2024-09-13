@@ -72,5 +72,5 @@ A subsequent homework will involve you working in a Git branch, staging a file, 
 
 
 
-Finally, knit an `html` file containing that image file and upload to:
+Finally, knit an `html` file and upload to:
 https://ln5.sync.com/dl/a038628f0/wwfifjxk-f7rfshin-rkedi3y8-77f9zaii
