@@ -1236,7 +1236,7 @@
     "href": "modules/designing_perceptually_efficient_visualizations.html#reading-options",
     "title": "Designing perceptually-efficient visualizations",
     "section": "Reading Options",
-    "text": "Reading Options\n\n\nBorkin et al. (2015). Beyond memorability: Visualization recognition and recall  \nMatlen, Genter, & Franceroni (2020). Spatial alignment facilitates visual comparison\nNothelfer et al. (2017). Redundant encoding strengthens segmentation and grouping in visual displays of data \nSarikaya & Gleicher (2018). Scatterplots: Tasks, Data, and Designs\nShah & Carpenter (1995). Conceptual limitations in comprehending line graphs \nXiong, Franconeri (2022). Visual arrangements of bar charts influence comparisons in viewer takeaways\nXiong, Franconeri et al. (2023). Seeing what you believe or believing what you see: Belief biases correlation estimation\n\nAnother great but very lengthy reading is Franceroni et al. (2012). The Science of Visual Data Communication: What Works."
+    "text": "Reading Options\n\n\nBorkin et al. (2015). Beyond memorability: Visualization recognition and recall  \nMatlen, Genter, & Franceroni (2020). Spatial alignment facilitates visual comparison\nNothelfer et al. (2017). Redundant encoding strengthens segmentation and grouping in visual displays of data \nSarikaya & Gleicher (2018). Scatterplots: Tasks, Data, and Designs\nShah & Carpenter (1995). Conceptual limitations in comprehending line graphs \nXiong, Franconeri (2022). Visual arrangements of bar charts influence comparisons in viewer takeaways\nXiong, Franconeri et al. (2023). Seeing what you believe or believing what you see: Belief biases correlation estimation"
   },
   {
     "objectID": "modules/data_frame_manipulation_and_wrangling.html",
@@ -3393,5 +3393,12 @@
     "title": "Functions, Parameters, and Arguments",
     "section": "Calling Functions from Libraries",
     "text": "Calling Functions from Libraries\n\n\nIf loaded:\n\nmutate() (from {dplyr})\n\nIf not loaded:\n\neeptools::age_calc(): for calculating age based on a date\n:: calls ensures choice (duplicate function names in different libraries)"
+  },
+  {
+    "objectID": "modules/designing_perceptually_efficient_visualizations.html#extended-reading-resources",
+    "href": "modules/designing_perceptually_efficient_visualizations.html#extended-reading-resources",
+    "title": "Designing perceptually-efficient visualizations",
+    "section": "Extended Reading Resources",
+    "text": "Extended Reading Resources\nAnother great but very lengthy reading is Franceroni et al. (2012). The Science of Visual Data Communication: What Works."
   }
 ]
