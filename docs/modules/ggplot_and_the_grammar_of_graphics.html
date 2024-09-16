@@ -331,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/ggplot_and_the_grammar_of_graphics.html">{<code>ggplot2</code>}: The Grammar of Graphics</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/ggplot_and_the_grammar_of_graphics.html"><code>{ggplot2}</code>: The Grammar of Graphics</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -492,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">{<code>ggplot2</code>}: The Grammar of Graphics</span></a>
+ <span class="menu-text"><code>{ggplot2}</code>: The Grammar of Graphics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -630,7 +630,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-grammar-of-graphics" id="toc-the-grammar-of-graphics" class="nav-link" data-scroll-target="#the-grammar-of-graphics"><strong>The Grammar of Graphics</strong></a></li>
   <li><a href="#ggplot2-plot-basics" id="toc-ggplot2-plot-basics" class="nav-link" data-scroll-target="#ggplot2-plot-basics"><strong><code>{ggplot2}</code> Plot Basics</strong></a>
   <ul class="collapse">
-  <li><a href="#ggplot-plot-composition" id="toc-ggplot-plot-composition" class="nav-link" data-scroll-target="#ggplot-plot-composition"><strong>{ggplot} Plot Composition</strong></a></li>
+  <li><a href="#ggplot2-plot-composition" id="toc-ggplot2-plot-composition" class="nav-link" data-scroll-target="#ggplot2-plot-composition"><strong><code>{ggplot2}</code> Plot Composition</strong></a></li>
   </ul></li>
   <li><a href="#lets-make-a-plot" id="toc-lets-make-a-plot" class="nav-link" data-scroll-target="#lets-make-a-plot"><strong>Let’s Make a Plot</strong></a>
   <ul class="collapse">
@@ -668,7 +668,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">{<code>ggplot2</code>}: The Grammar of Graphics</h1>
+<h1 class="title"><code>{ggplot2}</code>: The Grammar of Graphics</h1>
 </div>
 
 
@@ -757,8 +757,8 @@ Reading should take place in two parts:
 <p>As the authors point out in <a href="https://ggplot2-book.org/">Elegant Graphics for Data Analysis</a>, that the original Grammar of Graphics put forth by Wilkinson and later on the layered grammar of graphics, a statistical graphic represents a <em>mapping from data to aesthetic attributes</em> (e.g., color, size, shape, etc.) of <em>geometric objects</em> (e.g., points, lines, bars, etc.) plotted on a specific <em>coordinate system</em> (e.g., Cartesian, Polar). Plots may include <em>statistical information</em> or text. <em>Faceting</em> methods can be used to produce the same plots for different subsets of data (e.g., variations in another variable). All of these individual components ultimately create the final graphic.</p>
 <p>Applying a set of rules, or a grammar, allows for creating plot of all different types. Just like understanding a language grammar allows you to create new sentences that have never been spoken before, knowing the grammar of graphics allows you to create plots that have not been created before. Without a grammar, you may be limited to choose a sentence structure from a database that matches most closely to what you want to say. Unfortunately, there may not be an appropriate sentence in that database to capture what you would like to communicate. Similarly, if you are programming visualizations, you may be limited need to use a function (like a sentence) that someone has written to plot some data even if the plot is not what you really want to create to facilitate telling your story. A grammar will free you of these limitations. That’s where <strong>{ggplot}</strong> comes in. All plots will follow a set of rules but applying the rules in different ways allows you to create unique visualizations that may have never been seen before.</p>
 <p>Note: Using a grammar needs to be correct even if the sentence is nonsensical. If you do not follow the grammar, <strong>{ggplot2}</strong> will not understand you and will return no plot or something that does not make sense.</p>
-<section id="ggplot-plot-composition" class="level2">
-<h2 class="anchored" data-anchor-id="ggplot-plot-composition"><strong>{ggplot} Plot Composition</strong></h2>
+<section id="ggplot2-plot-composition" class="level2">
+<h2 class="anchored" data-anchor-id="ggplot2-plot-composition"><strong><code>{ggplot2}</code> Plot Composition</strong></h2>
 <p>There are five mapping components:</p>
 <ol type="1">
 <li><strong>Layer</strong> containing geometric elements and statistical transformations:</li>

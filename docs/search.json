@@ -3407,5 +3407,12 @@
     "title": "{ggplot2}: The Grammar of Graphics",
     "section": "The ggplot() Function",
     "text": "The ggplot() Function\nWhat is a ?ggplot object? Review the docs first. Let’s apply the base layer using ggplot().\nParameters/Arguments:\n\ndata: a data frame\nmapping: for mapping data or values to aesthetic properties of a geom_*\n\nThis function takes a data set and simply initializes the plot object so that you can build other components on top of it. By default, data = NULL so, you will need to pass some data argument. The mapping parameter is essential for mapping the aesthetics of the plot, by default, mapping = aes()."
+  },
+  {
+    "objectID": "modules/ggplot_and_the_grammar_of_graphics.html#ggplot2-plot-composition",
+    "href": "modules/ggplot_and_the_grammar_of_graphics.html#ggplot2-plot-composition",
+    "title": "{ggplot2}: The Grammar of Graphics",
+    "section": "{ggplot2} Plot Composition",
+    "text": "{ggplot2} Plot Composition\nThere are five mapping components:\n\nLayer containing geometric elements and statistical transformations:\n\n\nData a tidy data frame, most typically in long/narrow format\nMapping defining how vector variables are visualized (e.g., aesthetics like shape, color, position, hue, etc.)\nStatistical Transformation (stat) representing some summarizing of data (e.g., sums, fitted curves, etc.)\nGeometric object (geom) controlling the type of visualization\nPosition Adjustment (position) controlling where visual elements are positioned\n\n\nScales that map values in the data space to values in aesthetic space\nA Coordinate System for mapping coordinates to the plane of a graphic\nA Facet for arranging the data into a grid; plotting subsets of data\nA Theme controlling the niceties of the plot, like font, background, grids, axes, typeface etc.\n\nThe grammar does not:\n\nMake suggestions about what graphics to use\nDescribe interactivity with a graphic; {ggplot2} graphics are static images, though they can be animated"
   }
 ]
