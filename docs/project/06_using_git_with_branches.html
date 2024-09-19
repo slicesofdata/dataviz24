@@ -8,7 +8,7 @@
 
 <meta name="author" content="Gabriel I. Cook">
 
-<title>Data Visualization - Final Report</title>
+<title>Data Visualization - Git Branch Merging Tutorial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -304,7 +304,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/index.html">Project</a></li><li class="breadcrumb-item"><a href="../project/04_project_report.html"><em>Final Report</em></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/index.html">Project</a></li><li class="breadcrumb-item"><a href="../project/06_using_git_with_branches.html">Git Branch Merging Tutorial</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -572,7 +572,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/04_project_report.html" class="sidebar-item-text sidebar-link active">
+  <a href="../project/04_project_report.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Final Report</em></span></a>
   </div>
 </li>
@@ -584,7 +584,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/06_using_git_with_branches.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/06_using_git_with_branches.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Git Branch Merging Tutorial</span></a>
   </div>
 </li>
@@ -600,31 +600,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
-  <li><a href="#keeping-the-repository-up-to-date" id="toc-keeping-the-repository-up-to-date" class="nav-link" data-scroll-target="#keeping-the-repository-up-to-date"><strong>Keeping the Repository up to Date</strong></a></li>
-  <li><a href="#sections-of-final-report" id="toc-sections-of-final-report" class="nav-link" data-scroll-target="#sections-of-final-report"><strong>Sections of Final Report</strong></a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#feature-branches" id="toc-feature-branches" class="nav-link" data-scroll-target="#feature-branches">Feature Branches</a>
   <ul class="collapse">
-  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract"><strong>Abstract</strong></a></li>
+  <li><a href="#creating-a-feature-branch" id="toc-creating-a-feature-branch" class="nav-link" data-scroll-target="#creating-a-feature-branch">Creating a Feature Branch</a></li>
+  <li><a href="#setting-the-upstream-for-pushing-local-files-to-the-remote-repsitory" id="toc-setting-the-upstream-for-pushing-local-files-to-the-remote-repsitory" class="nav-link" data-scroll-target="#setting-the-upstream-for-pushing-local-files-to-the-remote-repsitory">Setting the Upstream for Pushing Local Files to the Remote Repsitory</a></li>
   </ul></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments"><strong>Acknowledgments</strong></a>
+  <li><a href="#the-git-command-process" id="toc-the-git-command-process" class="nav-link" data-scroll-target="#the-git-command-process">The Git Command Process</a>
   <ul class="collapse">
-  <li><a href="#contents" id="toc-contents" class="nav-link" data-scroll-target="#contents"><strong>Contents</strong></a></li>
+  <li><a href="#staging-files" id="toc-staging-files" class="nav-link" data-scroll-target="#staging-files">Staging Files</a></li>
+  <li><a href="#committing-files-with-messages-for-you-and-others" id="toc-committing-files-with-messages-for-you-and-others" class="nav-link" data-scroll-target="#committing-files-with-messages-for-you-and-others">Committing Files with Messages (for you and others)</a></li>
+  <li><a href="#pushing-changes-from-your-local-branch-to-your-remote-branch-on-github" id="toc-pushing-changes-from-your-local-branch-to-your-remote-branch-on-github" class="nav-link" data-scroll-target="#pushing-changes-from-your-local-branch-to-your-remote-branch-on-github">Pushing Changes from your Local Branch to your Remote Branch on GitHub</a></li>
   </ul></li>
-  <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents"><strong>Table of Contents</strong></a></li>
-  <li><a href="#chapter-1-introduction" id="toc-chapter-1-introduction" class="nav-link" data-scroll-target="#chapter-1-introduction"><strong>Chapter 1: Introduction</strong></a></li>
-  <li><a href="#chapter-2-data" id="toc-chapter-2-data" class="nav-link" data-scroll-target="#chapter-2-data"><strong>Chapter 2: Data</strong></a>
+  <li><a href="#a-collaboration-example" id="toc-a-collaboration-example" class="nav-link" data-scroll-target="#a-collaboration-example">A collaboration Example</a></li>
+  <li><a href="#scenario-overview" id="toc-scenario-overview" class="nav-link" data-scroll-target="#scenario-overview">Scenario Overview</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a>
   <ul class="collapse">
-  <li><a href="#sources-of-data" id="toc-sources-of-data" class="nav-link" data-scroll-target="#sources-of-data"><strong>Sources of Data</strong></a></li>
-  <li><a href="#data-characteristics" id="toc-data-characteristics" class="nav-link" data-scroll-target="#data-characteristics"><strong>Data Characteristics</strong></a></li>
-  <li><a href="#data-quality-and-data-preprocessing" id="toc-data-quality-and-data-preprocessing" class="nav-link" data-scroll-target="#data-quality-and-data-preprocessing"><strong>Data Quality and Data Preprocessing</strong></a></li>
-  <li><a href="#data-limitations" id="toc-data-limitations" class="nav-link" data-scroll-target="#data-limitations"><strong>Data Limitations</strong></a></li>
+  <li><a href="#steps-for-merging-a-remote-branch-into-a-local-branch" id="toc-steps-for-merging-a-remote-branch-into-a-local-branch" class="nav-link" data-scroll-target="#steps-for-merging-a-remote-branch-into-a-local-branch">Steps for Merging a Remote Branch into a Local Branch</a></li>
+  <li><a href="#routine-merging-into-the-main-branch" id="toc-routine-merging-into-the-main-branch" class="nav-link" data-scroll-target="#routine-merging-into-the-main-branch">Routine Merging into the Main Branch</a></li>
   </ul></li>
-  <li><a href="#chapter-3-resultsfindings" id="toc-chapter-3-resultsfindings" class="nav-link" data-scroll-target="#chapter-3-resultsfindings"><strong>Chapter 3: Results/Findings</strong></a></li>
-  <li><a href="#chapter-4-discussion" id="toc-chapter-4-discussion" class="nav-link" data-scroll-target="#chapter-4-discussion"><strong>Chapter 4: Discussion</strong></a></li>
-  <li><a href="#chapter-5-conclusion" id="toc-chapter-5-conclusion" class="nav-link" data-scroll-target="#chapter-5-conclusion"><strong>Chapter 5: Conclusion</strong></a></li>
-  <li><a href="#chapter-5-challenges-and-limitations" id="toc-chapter-5-challenges-and-limitations" class="nav-link" data-scroll-target="#chapter-5-challenges-and-limitations"><strong>Chapter 5: Challenges and Limitations</strong></a></li>
-  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><strong>Appendix</strong></a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><strong>References</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -633,7 +627,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><em>Final Report</em></h1>
+<h1 class="title">Git Branch Merging Tutorial</h1>
 </div>
 
 
@@ -647,6 +641,12 @@ ul.task-list li input[type="checkbox"] {
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Invalid Date</p>
+    </div>
+  </div>
   
     
   </div>
@@ -654,144 +654,126 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="overview" class="level1">
-<h1><strong>Overview</strong></h1>
-<p>The final written report for the project will be delivered to me and to your liaison. I can provide a color-printed copy for you to distribute to the liaison and for their offices. The final report is to be created in <code>R Markdown</code> and knit as a Pdf or Word document. An example starter file can be found <a href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/project/psyc167_final_project_to_word.Rmd">here</a>. <strong>You are not to write the document in GoogleDocs</strong>, or other sharing platforms. <strong>The course is designed for you to acquire new skills and build confidence in those skills.</strong> Investing in yourself is what will get you internships, jobs, and leadership roles in labs and lab manager roles in graduate school. Thus, the report is to be created in <code>R Markdown</code> and maintained in the remote repository. Because <code>RStudio</code> does not have grammar check capability, you are free to create your own personal content in a Word Processing software like <strong>MS Word</strong> before you add the content to <code>R Markdown</code>. However, I advise you change the font in that working file to sans serif font because <code>R Markdown</code> may get confused with certain characters (e.g., serif font apostrophes, etc.) and you may need to fix these issues later. After running your grammar and spelling check, then add the content to the <code>.Rmd</code> file. If you do work in a separate file, you will need to make sure to save this file to the project <code>/report</code> directory and ensure you push that file to the remote repository. Also, make sure you use your initials in the file name so that team members don’t all have the same file names.</p>
-<p>A <strong>code lead</strong> should take on the responsibility to save the file to <code>/report</code> in the team project, <code>add</code>, <code>commit</code>, and <code>push</code> the file to the remote repo on GitHub. Some team members will not be familiar with using Git and the code lead is responsible for ensuring the report file is in the final project repo. Therefore, when team members work on their respective report content, I recommend an easy approach:</p>
-<ol type="1">
-<li><p>The <strong>team decides to work independently</strong> in their own RStudio project (e.g., <code>"dataviz-exercises"</code>) and perhaps make a copy of the main <code>.Rmd</code> document that include team member’s initials as a suffix to the filename). The team delegates the sections to be written by specific team members. Each member edits their file, saves it, and ensures they can knit an <code>HTML</code> (or Word) version of the file. If successful without error, then send the the sections to the team member responsible for integrating the work into a team report. That team member integrates the content and ensures they can can knit it. That file is then sent to all team members for review before is it sent to the code lead for adding to the team’s official RStudio project (and remote repo). There are certainly limitations with this approach if executed in haste. As long as the team plans accordingly, this approach should be fine.</p></li>
-<li><p>The <strong>team work collaboratively</strong> using Box Edit, Docs in <a href="https://proton.me/blog/docs-proton-drive">Proton Drive</a> which is free and private, or GoogleDocs. <strong>However, due to Google Privacy Issues, you cannot use GoogleDocs without a written approval from your team’s liaison.</strong> All team members can see the written content and make edits. A limitation is that R code blocks, R in-line code, and plots would not be visible unless added to the document.</p></li>
-</ol>
-<p><strong>Note:</strong> Remember that with a version control system like Git, you always have access to all versions of the files pushed to GitHub. You can always revert to a prior version. I can help you with this if you get to this point. Good messages in your <code>commit</code>s will be helpful here.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This tutorial covers how to merge a remote Git branch (one on the remote repository at GitHub.com) into a local branch (one on your local computer) without creating a local copy of that remote branch. This approach is especially useful when collaborating on a project where each team member is working on separate branches. Moreover, this approach limits temptation of working on the main branch and/or forgetting to switch off that main branch.</p>
+<p>For this reference guide, you will work only on your personl feature branch. This of course, involves creating your branch locally on your computer inside your RStudio project for your team’s project.</p>
+<p>Your team’s final R Markdown report file (<code>.Rmd</code>) will be lightweight and not visually bulky. You and your team members will write text mostly in that file and use relevant inline commands when necessary but primarily add few lines of code that will call <code>.R</code> script files (think <code>starter_script.R</code>) to perform the heavy lifting of the project report. By doing so, your report will be reproducible from beginning to end especially if you write your code flexibly to handle any new <code>NA</code>s in vectors that do not currently exist in the data set. In order to achieve this goal, you will need a lean <code>.Rmd</code> report file that leverages more complicated code manipulation. This approach will also force you to think intentionally about the goad of each script your write and in the end you will have clean, readable code files that are clear to others about their specific goals.</p>
+<p>For example, your team will <code>source()</code> many script files and embed your desired data visualizations into the report using <code>knitr::include_graphics()</code>. When you wish not to include something, you can comment out those lines easily.</p>
+<p>In order for you to utilize the script files, data files, and other files created by your team members, you will manage them using Git. Your commit history and files created by you will become part of the repository record and will be used to evaluate your contributions to the overall project. To achieve this, you will <strong>work on your own branch</strong> and integrate/merge other team member’s branch history into your own branch. The final step is to merge the branches (or more easily, the <strong>Code Lead’s branch</strong>) into the main branch for the final product deliverable package.</p>
 </section>
-<section id="keeping-the-repository-up-to-date" class="level1">
-<h1><strong>Keeping the Repository up to Date</strong></h1>
-<p>Whatever your approach to managing versions of the report, you will need to update the repo weekly with your contributions. Updates should be done as part of you weekly team meeting to ensure it’s completed.</p>
+<section id="feature-branches" class="level2">
+<h2 class="anchored" data-anchor-id="feature-branches">Feature Branches</h2>
+<section id="creating-a-feature-branch" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-feature-branch">Creating a Feature Branch</h3>
+<p><code>git branch -b &lt;branch-name&gt;</code></p>
 </section>
-<section id="sections-of-final-report" class="level1">
-<h1><strong>Sections of Final Report</strong></h1>
+<section id="setting-the-upstream-for-pushing-local-files-to-the-remote-repsitory" class="level3">
+<h3 class="anchored" data-anchor-id="setting-the-upstream-for-pushing-local-files-to-the-remote-repsitory">Setting the Upstream for Pushing Local Files to the Remote Repsitory</h3>
+</section>
+</section>
+<section id="the-git-command-process" class="level2">
+<h2 class="anchored" data-anchor-id="the-git-command-process">The Git Command Process</h2>
+<p>Although have files created on your <em>local branch</em> (on your computer) of the repository, those files do not exist on the <em>remote branch</em> (on GitHub) until you put them there. Moreover, your team members cannot access them unless you put them on GitHub. Sorry, there is no using flash drives and emailing files. Data Science teams stage, commit, and push files, fetch and merge branches, and live happily ever after if you practice.</p>
+<section id="staging-files" class="level3">
+<h3 class="anchored" data-anchor-id="staging-files">Staging Files</h3>
+<p><code>git add &lt;file-name&gt;</code></p>
+</section>
+<section id="committing-files-with-messages-for-you-and-others" class="level3">
+<h3 class="anchored" data-anchor-id="committing-files-with-messages-for-you-and-others">Committing Files with Messages (for you and others)</h3>
+<p><code>git commit -m "clear message"file-name"</code></p>
+</section>
+<section id="pushing-changes-from-your-local-branch-to-your-remote-branch-on-github" class="level3">
+<h3 class="anchored" data-anchor-id="pushing-changes-from-your-local-branch-to-your-remote-branch-on-github">Pushing Changes from your Local Branch to your Remote Branch on GitHub</h3>
+<p><code>git push</code></p>
+</section>
+</section>
+<section id="a-collaboration-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-collaboration-example">A collaboration Example</h2>
+<p><strong>Bill</strong> and <strong>Jane</strong> are collaborating on a project hosted on GitHub. Bill is working on a branch named <code>bill</code>, and Jane is working on a branch named <code>jane</code>. Jane has made changes to her branch and pushed them to the remote repository. Bill wants to incorporate Jane’s changes into his local <code>bill</code> branch without checking out or creating a local version of the <code>jane</code> branch.</p>
+</section>
+<section id="scenario-overview" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-overview">Scenario Overview</h2>
 <ul>
-<li>Title Page (page 1)</li>
-<li>Abstract (page 2)</li>
-<li>Table of Contents (page 3)</li>
-<li>Acknowledgments (page 4)</li>
-<li>Introduction (approximately 1-2 pages)</li>
-<li>Data (approximately 1-2 pages)</li>
-<li>Results/Findings (approximately 8-10 pages including visualizations)</li>
-<li>Discussion (approximately 1/2 to 1 pages)</li>
-<li>Conclusion (approximately 1/2 of page)</li>
-<li>References (last page)</li>
-</ul>
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract"><strong>Abstract</strong></h2>
-<p>The abstract provides a main summary of data, problem, methods, and key findings.</p>
-</section>
-</section>
-<section id="acknowledgments" class="level1">
-<h1><strong>Acknowledgments</strong></h1>
-<p>People to acknowledge for the project. Certainly acknowledge the liaisons, the organization for whom the liaison represents, the college you represent for the opportunity, etc.</p>
-<section id="contents" class="level2">
-<h2 class="anchored" data-anchor-id="contents"><strong>Contents</strong></h2>
-<p>A contents pages, or table of contents, provides a listing of the document sections and subsections as we as a page for location.</p>
-<ul>
-<li>Title Page</li>
-<li>Abstract</li>
-<li>Table of Contents</li>
-<li>Acknowledgments</li>
-</ul>
-<p>Chapters:</p>
-<ul>
-<li>Introduction</li>
-<li>Data</li>
-<li>Results/Findings</li>
-<li>Discussion</li>
-<li>Conclusion</li>
-<li>References</li>
+<li>The remote repository is hosted on GitHub.com.</li>
+<li>Jane is working on her local branch named <code>jane</code>.</li>
+<li>Bill is working on his local branch named <code>bill</code>.</li>
+<li>Jane pushes her changes from her local <code>jane</code> branch to the remote <code>jane</code> branch on GitHub.</li>
+<li>Bill needs Jane’s changes in order to work on his feature but Bill does not have a local branch <code>jane</code>, nor does he want to touch her branch.</li>
+<li>Bill does not touch, edit, modify, delete, or do anything with Jane’s files.</li>
 </ul>
 </section>
+<section id="solution" class="level2">
+<h2 class="anchored" data-anchor-id="solution">Solution</h2>
+<p>Bill will use Git commands to <code>fetch</code> Jane’s remote branch, <code>merge</code> those changes into his local <code>bill</code> branch, and update the remote <code>bill</code> branch on GitHub.</p>
+<section id="steps-for-merging-a-remote-branch-into-a-local-branch" class="level3">
+<h3 class="anchored" data-anchor-id="steps-for-merging-a-remote-branch-into-a-local-branch">Steps for Merging a Remote Branch into a Local Branch</h3>
+<p>These steps assume that Jane has informed Bill and other team members that she has completed her feature (e.g., <code>.R</code> script file, <code>.Rds</code> processed data file or aggregated/summarized data frame (no <code>.csv</code>’s), <code>.png</code> plot, or something else) and she has pushed them to her remote branch on GitHub.</p>
+<section id="step-1-fetch-the-remote-branch" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-fetch-the-remote-branch">Step 1: Fetch the Remote Branch</h4>
+<p>The first step is for Bill to fetch Jane’s remote branch. This downloads the changes in <code>jane</code> from the remote repository to Bill’s local machine without creating a local branch for <code>jane</code>.</p>
+<p><code>git fetch origin jane</code></p>
 </section>
-<section id="table-of-contents" class="level1">
-<h1><strong>Table of Contents</strong></h1>
-<p>Insert a table of contents for the chapters and sections.</p>
+<section id="step-2-ensure-youre-on-the-correct-local-branch" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-ensure-youre-on-the-correct-local-branch">Step 2: Ensure You’re on the Correct Local Branch</h4>
+<p>Before merging any changes, Bill needs to ensure he’s on his local branch bill. He can check the current branch with:</p>
+<p><code>git branch</code></p>
+<p>This will show a list of local branches, and the current branch will be highlighted with an asterisk (*).</p>
+<p>If Bill is not on the <code>bill</code> branch, he can switch to it with:</p>
+<p><code>git checkout bill</code></p>
 </section>
-<section id="chapter-1-introduction" class="level1">
-<h1><strong>Chapter 1: Introduction</strong></h1>
-<p>This chapter would be approximately 1 to 2 single-spaced pages. Here, you will describe both the organization and the project. Respectfully, start with the organization for whom you are completing the work and only after discuss the project.</p>
-<p>Some key details to address include:</p>
+<section id="step-3-merge-the-remote-branch-into-the-local-branch" class="level4">
+<h4 class="anchored" data-anchor-id="step-3-merge-the-remote-branch-into-the-local-branch">Step 3: Merge the Remote Branch into the Local Branch</h4>
+<p>Once Bill is on his local <code>bill</code> branch, he can merge the changes from the remote <code>jane</code> branch into his local branch:</p>
+<p><code>git merge origin/jane</code></p>
+<p>This command merges the changes from <code>origin/jane</code> (the remote version of Jane’s branch) into the current branch (Bill’s local <code>bill</code> branch).</p>
+</section>
+<section id="step-4-handle-merge-conflicts" class="level4">
+<h4 class="anchored" data-anchor-id="step-4-handle-merge-conflicts">Step 4: Handle Merge Conflicts</h4>
+<p>As mentioned before, naming your files will intention will reduce naming files with the same name. If you have duplicate name files, you will likely have merge conflicts. You do not want to deal with these as they will cause you and I extra time and headaches.</p>
+<p><strong>Tips for inexperienced Git users to avoid merge conflicts: </strong></p>
 <ul>
-<li><p><em>Client Context:</em> Provide an overview of the client’s business and emphasize how data visualization will assist in addressing their challenges or needs. Who are they? What do they do? What is their relevance/importance?</p></li>
-<li><p><em>Project Description</em>: Next, provide a description of the problem that you worked out with your liaison. Make sure that the problem is stated clearly and is detailed enough to be evaluated and replicated. Why is the problem important to address? Clearly define the project’s goals, emphasizing the utilization of data visualization techniques to extract insights and patterns from the data.</p></li>
-<li><p><em>Scope</em>: The project scope defines the boundaries, objectives, deliverables, and tasks that need to be accomplished to successfully complete a project. The scope helps define what content will and will not be included in the project. Detail the project’s boundaries, specifically highlighting the use of data visualization methods for analysis and understanding.</p></li>
-<li><p><em>Methodology and Approach</em>: After describing the nature of the problem, explain how you set out to address the problem. Explain the key sporting event of interest, time period of interest, athletes of interest, etc. Explain the variables of interest used to help answer problem. If the problem was broken down into smaller parts or sub-goals, describe them in the order you plan to discuss the data in the data chapter.What are the means by which you are solving the problem. For this project, you are not fitting mathematical models to data but focusing on visualizing data to communicate your findings in a descriptive sense so make sure you are clear about this detail.</p></li>
-<li><p><em>Tools and Techniques</em>: Highlight the specific visualization tools, software, or libraries used and explain their relevance in uncovering insights from the data.</p></li>
+<li>name your files with your initials (e.g., <code>gc-revenue-by-quarter-bar-plot.R</code>), and</li>
+<li>do not touch another team member’s files</li>
 </ul>
+<p>If there are any merge conflicts (i.e., changes in Jane’s branch that conflict with Bill’s local changes), Git will pause the merge and prompt Bill to resolve the conflicts manually.</p>
+<!--
+To check which files are conflicting, Bill can use:
+
+`git status`
+
+Bill can then open the conflicting files, resolve the conflicts, and stage the resolved files with:
+
+`git add <file>`
+-->
 </section>
-<section id="chapter-2-data" class="level1">
-<h1><strong>Chapter 2: Data</strong></h1>
-<p>This chapter would be approximately 1 or 2 single-spaced pages. In this section, you would provide a description of the data, its source, format, etc.</p>
-<section id="sources-of-data" class="level2">
-<h2 class="anchored" data-anchor-id="sources-of-data"><strong>Sources of Data</strong></h2>
-<p>What was the data source/where did you obtain it from? Include the source URL of the website from which you accessed the data. Include information about where and how the data were collected or obtained. Specify whether the data were obtained from internal databases, external sources, or gathered through specific methods (surveys, sensors, web scraping, etc.).</p>
+<section id="step-5-commit-the-merge" class="level4">
+<h4 class="anchored" data-anchor-id="step-5-commit-the-merge">Step 5: Commit the Merge</h4>
+<p>The merge using <code>git merge origin/jane</code> also automatically stages/adds the changes that occurred as part of the merge. Thus, they need to be committed.</p>
+<p>Bill can not commit the merge (assuming there are no conflicts or they have been resolved): <!-- and the changes are staged):--></p>
+<p><code>git commit -m "merged remote jane into local bill"</code></p>
 </section>
-<section id="data-characteristics" class="level2">
-<h2 class="anchored" data-anchor-id="data-characteristics"><strong>Data Characteristics</strong></h2>
-<p>Discuss the data in detail. In which format was the data stored? How many cases were there in total? How many variables were contained? What variables were contained? What were the key variables you used?</p>
-<p>Describe the types of variables present in the data set (numerical, categorical, text, etc.). When discussing variables of the visualization in the results chapter, make sure to provide clarity about the variable, its metric, and reason for using that variable (e.g., mean, max, median, mean of max values, median of max values, dispersion measures, etc.).</p>
-<p>List and briefly describe each attribute, feature, or variable in the data set, paying special attention to those used for the project.</p>
-</section>
-<section id="data-quality-and-data-preprocessing" class="level2">
-<h2 class="anchored" data-anchor-id="data-quality-and-data-preprocessing"><strong>Data Quality and Data Preprocessing</strong></h2>
-<p>Describe the steps taken to clean and prepare the data for investigation. This description may include removing duplicates, standardizing formats, trimming, correcting inconsistencies, etc. Explain any criteria used to select variables or features for visualization, focusing on those with the greatest impact or insight for the organization’s understanding.</p>
-<p>Some key details to address include:</p>
-<ul>
-<li><p><em>Missing Values</em>: Explain the presence and treatment of any missing data. Explain how missing values were handled during analysis (removal, replacement, etc.).</p></li>
-<li><p><em>Outliers and Anomalies</em>: Mention any identified outliers or anomalies and how they were addressed (treatment or exclusion).</p></li>
-<li><p><em>Variables Created</em>: Describe the variables created, their units of measurement, etc. Explain if any normalization or scaling procedures applied to create the variables and to ensure data consistency and comparability across measures.</p></li>
-</ul>
-<p>Also, specify where the cleaned data may be obtained.</p>
-</section>
-<section id="data-limitations" class="level2">
-<h2 class="anchored" data-anchor-id="data-limitations"><strong>Data Limitations</strong></h2>
-<p>Highlight any limitations or constraints of the data set that affected the team’s ability to address the initial problem. Similarly, describe how any limitations might affect the interpretation of the findings.</p>
+<section id="step-6-push-the-updated-local-branch-to-the-remote-repository" class="level4">
+<h4 class="anchored" data-anchor-id="step-6-push-the-updated-local-branch-to-the-remote-repository">Step 6: Push the Updated Local Branch to the Remote Repository</h4>
+<p>Once committed, Bill needs to push his updated local <code>bill</code> branch (now with Jane’s changes) to the remote repository:</p>
+<p><code>git push origin bill</code></p>
+<p>Although <code>git push</code> would work just fine, adding <code>origin bill</code> leaves no ambiguity about the command’s behavior and ensures that the remote <code>bill</code> branch on GitHub is updated with the changes from (now) both Bill’s and Jane’s work.</p>
 </section>
 </section>
-<section id="chapter-3-resultsfindings" class="level1">
-<h1><strong>Chapter 3: Results/Findings</strong></h1>
-<p>This chapter would be approximately 8 or 10 single-spaced pages, including data visualizations. In this section, you will tell your story about what you have discovered in the data, making sure that the findings are relevant to the project description/proposal. You will summarize the insights and patterns discovered through data visualization, emphasizing key visual representations that reveal significant information. Your goal is to communicate relevant patterns, trends, relationships or or anomalies within the data set.</p>
-<p>This section should be organized logically for telling your story about data. Consider the parts of the story and how to organize those sections appropriately. The organizational structure can be based on importance, hierarchy, impact, etc. To address this organization issue, first, outline your subsections. Second, outline the written and visual content relevant for each subsection. If some findings depend on other findings, unpack the subsections in an order that facilitates understanding. Similarly, do so within sections. Construct the message and then discuss ways to organize more effectively to: (1) state the facts; (2) build up a hierarchy of elements (e.g., athletes to teams; meets in a season, quarters in a season, season within career); (3) break down elements (e.g., teams to athletes; years, quarters or seasons, meets in season); (4) address from least controllable aspects to most controllable aspects (e.g., admission, coaching strategies, etc.); (5) create excitement with rising tension or significance. In other words, this section’s organization should serve a purpose but the organization is up to you. You should not just present the data in an order based on order of authorship. Related to authorship, consider a way to organize authors. You may even wish to explain why the order what chosen as some people may infer something from the order.</p>
-<p>Create subsections where relevant. For each section, introduce the topic or problem and then unpack it.</p>
-<p>Example:</p>
-<p>3.1 Topic/Question A</p>
-<p>Introduce the topic or question of interest. Describe the data used to answer this question. Be clear about the metrics used and why those metrics were chosen to answer the question. For example, why the mean? Why the max? Why the median? Why a z-score? If the story involves a comparison of metrics, explain why they are needed and then determine the order to present them. Although the data visualizations should be able to stand along, provide some description of it and direct your audience to particular comparisons or areas of importance within that description. Make reference to the figure (the data visualization) in this text. Insert data visualizations at appropriate locations (trying to ensure that a visualization is referenced and appears on the same page).</p>
-<p>When discussing the visualization, organize sentences such that the predictor precedes the outcome variable as the outcome is contingent on the other variables anyway; order in terms of cause and then effect. Interpret data in terms of the direction of comparisons. Do not state that there appears to be a “difference” when that difference is due to an ordering of data. Just describe the finding in terms of the direction of the data. Don’t make your reader work more than necessary. Write using the active voice. Avoid the passive voice and remove references to “it”, “this”, “these”, etc. that otherwise provide ambiguity to the reader trying to resolve the sentence. “It has been shown” lacks clarity. What does “it” refer to? Sure, the reader may be able to infer what you mean if there is only one noun in the previous sentence. Your writing, however, should not require them to work harder than you did when you wrote the sentence; just state the reference “the increase in variable x …”. Don’t make your audience guess what you mean and potentially infer erroneously. Such errors are a consequence of your lack of clarity, not the consequence of them interpreting incorrectly. To avoid these errors, read you work aloud after sufficient distraction or have peers who don’t understand the project read your writing aloud and see where they stumble or where they are unable to explain what you are talking about.</p>
-<p>Make sure that your figures have titles, captions, a reference to your social profile and the course PSYC167: Data Visualization. The data source may not necessary if you explain this in the report but if the image is placed elsewhere, like on the Internet, then having the source would also be relevant in the caption.</p>
-<p>3.2 Topic/Question B</p>
-<p>3.3 Topic/Question C</p>
-<p>3.4 Topic/Question D</p>
-<p>If you have exploratory findings that are worth sharing that are beyond the scope of the main project goal, you can add then in a sub-section.</p>
-</section>
-<section id="chapter-4-discussion" class="level1">
-<h1><strong>Chapter 4: Discussion</strong></h1>
-<p>This chapter would be approximately .5 or 1 single-spaced page. In this section, remind the audience of the problem that the project set out to address and the approach by which you addressed it. The previous section on research findings provided a description of the findings. In this section, you explain those findings more broadly and explain how they may relate to the entire problem.</p>
-</section>
-<section id="chapter-5-conclusion" class="level1">
-<h1><strong>Chapter 5: Conclusion</strong></h1>
-<p>This chapter would be approximately .5 to 2 single-spaced pages.</p>
-<p>Your project report should contain some messaging of a conclusion which summarizes the results you have discovered. Recap the main achievements and the value derived from the use of data visualization in understanding the data. Highlight the most significant visual findings or insights that hold relevance and importance for the client. Propose potential actions or strategies based on the insights obtained through data visualization for further exploration or implementation. The conclusion should provide some action for moving forward. What should your client, organization, or liaison consider moving forward? Should they focus on further development of their current trajectory or direction? Should they consider aspects that have been ignored or that that differ from current current trajectory or direction? Should the organization consider whether to triage or abort some program, direction, venture, or experiment? Consider discussing other methods, statistical perhaps, to further address the problem in the future. When doing so, however, make sure to explain why those statistical methods are relevant and what they might inform.</p>
-</section>
-<section id="chapter-5-challenges-and-limitations" class="level1">
-<h1><strong>Chapter 5: Challenges and Limitations</strong></h1>
-<p>Present any important challenges or limitation in this optional section. Discuss any limitations or challenges encountered during the project that may affect the interpretation or application of the findings. Propose potential ways to address or mitigate these limitations in the future.</p>
-</section>
-<section id="appendix" class="level1">
-<h1><strong>Appendix</strong></h1>
-<p>If necessary.</p>
-</section>
-<section id="references" class="level1">
-<h1><strong>References</strong></h1>
-<p>A list of references.</p>
+<section id="routine-merging-into-the-main-branch" class="level3">
+<h3 class="anchored" data-anchor-id="routine-merging-into-the-main-branch">Routine Merging into the Main Branch</h3>
+<p>As a best practice, the <strong>Code Lead should routinely merge feature branches</strong> into their own branch (thus similar to the main branch) in order to ensure the all files are working correctly. Adding them to the team report <code>.Rmd</code> file will also ensure that they can be <code>source()</code>’d and the file can be produced without error.</p>
+<p>Here are the steps to merge both Bill’s and Jane’s branches into the main branch:</p>
+<p>Switch to the main branch:</p>
+<p><code>git checkout main</code></p>
+<p>Pull the latest changes from the remote main branch:</p>
+<p><code>git pull</code></p>
+<p>Fetch Jane’s changes and merge them into the main branch:</p>
+<p>bash Copy code git fetch origin jane git merge origin/jane git commit -m “Merged jane into main” git push Fetch Bill’s changes and merge them into the main branch:</p>
+<p>bash Copy code git fetch origin bill git merge origin/bill git commit -m “Merged bill into main” git push</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
