@@ -1358,18 +1358,11 @@
     "text": "Module structure\nIn general, modules will contain readings, additional resources, and weekly assignments.\nThe modules will be updated across the semester as needed. There are more modules on this course site because some modules provide other useful information. The names of the modules listed in the syllabus, however, do match the names in the module listing."
   },
   {
-    "objectID": "modules/ggplot_and_the_grammar_of_graphics.html",
-    "href": "modules/ggplot_and_the_grammar_of_graphics.html",
-    "title": "{ggplot2}: The Grammar of Graphics",
-    "section": "",
-    "text": "Complete the Corresponding Canvas Video.\n\nOptional Readings about {ggplot}:\n\nWilke (2019). Fundamentals of Data Visualization. Introduction to Vizualization\nWilke (2019). Fundamentals of Data Visualization. Aesthetic Mapping\nWickham, Navarro, & Pedersen (under revision). ggplot2: Elegant Graphics for Data Analysis (3e). Introduction\nWickham, Navarro, & Pedersen (under revision). ggplot2: Elegant Graphics for Data Analysis (3e). Understanding the Grammar\n\nOptional (more on the grammar):\n\nWickham, Navarro, & Pedersen (under revision). ggplot2: Elegant Graphics for Data Analysis (3e). Build a plot layer by layer"
-  },
-  {
     "objectID": "modules/ggplot_and_the_grammar_of_graphics.html#readings",
     "href": "modules/ggplot_and_the_grammar_of_graphics.html#readings",
     "title": "{ggplot2}: The Grammar of Graphics",
-    "section": "",
-    "text": "Complete the Corresponding Canvas Video.\n\nOptional Readings about {ggplot}:\n\nWilke (2019). Fundamentals of Data Visualization. Introduction to Vizualization\nWilke (2019). Fundamentals of Data Visualization. Aesthetic Mapping\nWickham, Navarro, & Pedersen (under revision). ggplot2: Elegant Graphics for Data Analysis (3e). Introduction\nWickham, Navarro, & Pedersen (under revision). ggplot2: Elegant Graphics for Data Analysis (3e). Understanding the Grammar\n\nOptional (more on the grammar):\n\nWickham, Navarro, & Pedersen (under revision). ggplot2: Elegant Graphics for Data Analysis (3e). Build a plot layer by layer"
+    "section": "Readings",
+    "text": "Readings\nComplete the Corresponding Canvas Video.\n\nOptional Readings about {ggplot}:\n\nWilke (2019). Fundamentals of Data Visualization. Introduction to Vizualization\nWilke (2019). Fundamentals of Data Visualization. Aesthetic Mapping\nWickham, Navarro, & Pedersen (under revision). ggplot2: Elegant Graphics for Data Analysis (3e). Introduction\nWickham, Navarro, & Pedersen (under revision). ggplot2: Elegant Graphics for Data Analysis (3e). Understanding the Grammar\n\nOptional (more on the grammar):\n\nWickham, Navarro, & Pedersen (under revision). ggplot2: Elegant Graphics for Data Analysis (3e). Build a plot layer by layer"
   },
   {
     "objectID": "modules/ggplot_and_the_grammar_of_graphics.html#load-libraries",
@@ -2590,11 +2583,11 @@
     "text": "The goal of this module is to introduce some ways to visualize associations among variables. Simple scatterplots containing x and y variables that are numeric or factor/character variables will be created as well as multiclass scatterplots. Some plot aesthetics will be set and mapped to create different types of plots."
   },
   {
-    "objectID": "modules/visualizing_associations.html#readings",
-    "href": "modules/visualizing_associations.html#readings",
+    "objectID": "modules/visualizing_associations.html#optional-readings",
+    "href": "modules/visualizing_associations.html#optional-readings",
     "title": "Visualizing associations",
-    "section": "Readings",
-    "text": "Readings\n\n\nWilke (2019). Fundamentals of Data Visualization. Visualizing associations"
+    "section": "Optional Readings",
+    "text": "Optional Readings\n\n\nWilke (2019). Fundamentals of Data Visualization. Visualizing associations"
   },
   {
     "objectID": "modules/visualizing_associations.html#external-functions",
@@ -3456,12 +3449,5 @@
     "title": "Functions, Parameters, and Arguments",
     "section": "Calling Functions from Libraries",
     "text": "Calling Functions from Libraries\n\n\nIf loaded:\n\nmutate() (from {dplyr})\n\nIf not loaded:\n\neeptools::age_calc(): for calculating age based on a date\n:: calls ensures choice (duplicate function names in different libraries)"
-  },
-  {
-    "objectID": "modules/visualizing_associations.html#optional-readings",
-    "href": "modules/visualizing_associations.html#optional-readings",
-    "title": "Visualizing associations",
-    "section": "Optional Readings",
-    "text": "Optional Readings\n\n\nWilke (2019). Fundamentals of Data Visualization. Visualizing associations"
   }
 ]
