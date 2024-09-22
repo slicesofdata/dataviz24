@@ -669,6 +669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#creating-a-stacked-bar-plot" id="toc-creating-a-stacked-bar-plot" class="nav-link" data-scroll-target="#creating-a-stacked-bar-plot"><em>Creating a stacked bar plot</em></a></li>
   <li><a href="#stacking-with-position-fill" id="toc-stacking-with-position-fill" class="nav-link" data-scroll-target="#stacking-with-position-fill"><em>Stacking with <code>position = "fill"</code></em></a></li>
+  <li><a href="#arranging-the-plots-for-comparison" id="toc-arranging-the-plots-for-comparison" class="nav-link" data-scroll-target="#arranging-the-plots-for-comparison"><em>Arranging the plots for comparison</em></a></li>
   <li><a href="#creating-a-grouped-bar-plot" id="toc-creating-a-grouped-bar-plot" class="nav-link" data-scroll-target="#creating-a-grouped-bar-plot"><em>Creating a grouped bar plot</em></a></li>
   <li><a href="#plotting-a-grid-grob-graphic-object" id="toc-plotting-a-grid-grob-graphic-object" class="nav-link" data-scroll-target="#plotting-a-grid-grob-graphic-object"><em>Plotting a Grid Grob (<strong>Gr</strong>aphic <strong>Ob</strong>ject)</em></a></li>
   </ul></li>
@@ -708,19 +709,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Under construction.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.</p>
-</div>
-</div>
 <section id="overview" class="level1">
 <h1><strong>Overview</strong></h1>
 <p>This module focuses on understanding spatial positioning and adjustment. All <code>geom_*()</code>s take some spatial position in some coordinate space (e.g., Cartesian, Polar, etc.). We have seen that data mapped to aesthetics for <code>geom_point()</code> result in data being plotted in particular locations in plotting space based on the default behavior of <code>geom_point()</code>. The same is true for other <code>geom_*()</code>s. For many <code>geom_*()</code>s, the default behavior controlled by the <code>position</code> parameter is the data “identity”, <code>position = "identity"</code>. <!-- Whether the data identity represents what you see in the data frame or what is returned based on the statistical transformation of the data performed by the function. --></p>
@@ -839,7 +827,7 @@ Reading should take place in two parts:
 <p>Your goal would be to ameliorate this problem and attempt to unbiased the visualization. We will address how to modify plots containing this issue in about 3 ways.</p>
 <ol type="1">
 <li><p>First, we can <strong>adjust the spatial position of the points</strong> along x, y, or both so that the position does not match the data identity. This approach, of, course means that spatial positions of the data visualized do not map directly onto the data identity. This approach presents its own biasing problem, which increased as a function to the point displacement.</p></li>
-<li><p>Second, we can adjust the opacity of the points in the plot. By default points using <code>geom_point()</code> will be opaque. Making points more transparent will allow the user to see visibly points that share a spatial position, to the extent anyway that the cumulative degree of transparency of <em>n</em> points is distinguishable. Thus, the creator should be mindful of the degree of overlapping points no longer being distinguishable by changing their transparency.</p></li>
+<li><p>Second, we can <strong>adjust the opacity of the points</strong> in the plot. By default points using <code>geom_point()</code> will be opaque. Making points more transparent will allow the user to see visibly points that share a spatial position, to the extent anyway that the cumulative degree of transparency of <em>n</em> points is distinguishable. Thus, the creator should be mindful of the degree of overlapping points no longer being distinguishable by changing their transparency.</p></li>
 <li><p>Third, if points are made smaller by adjusting a <code>size</code> aesthetic, you will need to <strong>adjust the spatial position</strong> less than you will for larger points. Of course, you cannot make points too small.</p></li>
 <li><p>Fourth, we can create a <em>counts chart</em> or <em>counts plot</em> for which we can adjust the size of the points based on the frequency or the count of instances taking that position. This approach would essentially create a <em>bubble chart</em> but realize the visual system is designed to favor larger points, which can result in attention allocated to them differently from other points.</p></li>
 </ol>
@@ -1333,20 +1321,35 @@ Reading should take place in two parts:
 </section>
 <section id="stacking-with-position-fill" class="level2">
 <h2 class="anchored" data-anchor-id="stacking-with-position-fill"><em>Stacking with <code>position = "fill"</code></em></h2>
-<p>A problem with stacking is that the counts are raw and are not conditionalized on all the</p>
+<p>A problem with stacking is that the counts are raw and are not conditionalized relative to the total counts.</p>
 <p>Using <code>position = "fill"</code> will stretch the bars so that the counts are relative to the distribution.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, <span class="at">fill =</span> Event)) <span class="sc">+</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() </span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, <span class="at">fill =</span> Event)) <span class="sc">+</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) </span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot1, plot2, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fill =</span> Event</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                       )</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="spatial_position_and_adjustment_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="arranging-the-plots-for-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="arranging-the-plots-for-comparison"><em>Arranging the plots for comparison</em></h2>
+<p>Assign both plots as objects and pass those to <code>gridExtra::arrangeGrob()</code> for which the number of columns is 1 <code>ncol = 1</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, <span class="at">fill =</span> Event)) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, <span class="at">fill =</span> Event)) <span class="sc">+</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) </span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot1, plot2, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="spatial_position_and_adjustment_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1355,56 +1358,57 @@ Reading should take place in two parts:
 <p>Stacking is not always the desired outcome. We often want to see the bars for the subgroups. We will need to override the default position. Dodging is a general way to correct for overlapping objects, whether points, bars, box plots, etc. You can practice using it with <code>geom_point()</code> but we will use it here for bars. Specifically, we will override the default position argument, <code>position = "stacked"</code> and make is <code>position = "dodge"</code> so that the bar positions dodge each other.</p>
 <p>Dodging a <code>geom_*()</code> like bars, points, or rectangles, will preserve their vertical position while also adjusting their horizontal position.</p>
 <p>Besides the examples illustrated below, you can find more examples in the <a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">tidyverse documentation</a>.</p>
-<p><strong>Position Arguments</strong></p>
+<p><strong>Various <code>geom_bar()</code> and <code>geom_col()</code> Position Arguments</strong></p>
 <p><code>geom_bar(position = "dodge")</code></p>
 <ul>
 <li><code>position = "dodge"</code>: adds padding to bars</li>
 <li><code>position = "dodge2"</code>: adds padding to bars</li>
 <li><code>position = position_dodge()</code>: with padding control etc.</li>
-<li><code>position = position_dodge2()</code>: with padding control etc.</li>
+<li><code>position = position_dodge2()</code>: with padding control etc. <strong>preferred</strong></li>
 </ul>
 <p>Default behavior of <code>position_dodge()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>d1_plot <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, </span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fill =</span> School)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(), </span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>           )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>d1_plot <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fill =</span> School)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(), </span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>           )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You will need a grouping variable specified in the global or local <code>geom_*()</code> for <code>position_dodge()</code> whereas this is not a requirement for <code>position_dodge2()</code>. Moreover, <code>position_dodge2()</code> differs from <code>position_dodge()</code> insofar as it does not need a grouping variable in a layer and works with bars and rectangles. It it likely your go-to function for positioning box plots because you can adjust their widths.</p>
 <p>Default behavior of <code>position_dodge2()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>d2_plot <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, </span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fill =</span> School)</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge2</span>(), </span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>           )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Adding a padding to <code>position_dodge2()</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>d3_plot <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>d2_plot <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, </span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fill =</span> School)</span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge2</span>(<span class="at">padding =</span> .<span class="dv">5</span>), </span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge2</span>(), </span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>           )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Adding a padding to <code>position_dodge2()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>d3_plot <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">fill =</span> School)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">+</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge2</span>(<span class="at">padding =</span> .<span class="dv">5</span>), </span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>           )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="plotting-a-grid-grob-graphic-object" class="level2">
 <h2 class="anchored" data-anchor-id="plotting-a-grid-grob-graphic-object"><em>Plotting a Grid Grob (<strong>Gr</strong>aphic <strong>Ob</strong>ject)</em></h2>
 <p>We can take the three objects and arrange them in a grid using <code>gridExtra::arrangeGrob()</code>. We can specify the number of colons and or rows as well. In this case, we can plot them all as a single column and they will appear in the order the plots are added in <code>arrangeGrob()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(d1_plot, </span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                            d2_plot,</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                            d3_plot,</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">ncol =</span> <span class="dv">1</span>)</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>     )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(d1_plot, </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>                            d2_plot,</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>                            d3_plot,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>     )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="spatial_position_and_adjustment_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
+<p><img src="spatial_position_and_adjustment_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
