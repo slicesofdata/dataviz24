@@ -304,7 +304,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/index.html">Project</a></li><li class="breadcrumb-item"><a href="../project/06_using_git_with_branches.html">Git Branch Merging Tutorial</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/index.html">Project</a></li><li class="breadcrumb-item"><a href="../project/06_using_git_with_branches.html"><em>Git Branch Merging Tutorial</em></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -585,7 +585,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/06_using_git_with_branches.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Git Branch Merging Tutorial</span></a>
+ <span class="menu-text"><em>Git Branch Merging Tutorial</em></span></a>
   </div>
 </li>
       </ul>
@@ -600,25 +600,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#feature-branches" id="toc-feature-branches" class="nav-link" data-scroll-target="#feature-branches">Feature Branches</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
+  <li><a href="#feature-branches" id="toc-feature-branches" class="nav-link" data-scroll-target="#feature-branches"><strong>Feature Branches</strong></a>
   <ul class="collapse">
-  <li><a href="#creating-a-feature-branch" id="toc-creating-a-feature-branch" class="nav-link" data-scroll-target="#creating-a-feature-branch">Creating a Feature Branch</a></li>
-  <li><a href="#setting-the-upstream-for-pushing-local-files-to-the-remote-repsitory" id="toc-setting-the-upstream-for-pushing-local-files-to-the-remote-repsitory" class="nav-link" data-scroll-target="#setting-the-upstream-for-pushing-local-files-to-the-remote-repsitory">Setting the Upstream for Pushing Local Files to the Remote Repsitory</a></li>
+  <li><a href="#creating-and-checking-out-a-feature-branch" id="toc-creating-and-checking-out-a-feature-branch" class="nav-link" data-scroll-target="#creating-and-checking-out-a-feature-branch"><strong>Creating and Checking Out a Feature Branch</strong></a></li>
+  <li><a href="#setting-the-upstream-for-pushing-local-files-to-the-remote-repository" id="toc-setting-the-upstream-for-pushing-local-files-to-the-remote-repository" class="nav-link" data-scroll-target="#setting-the-upstream-for-pushing-local-files-to-the-remote-repository"><strong>Setting the Upstream for Pushing Local Files to the Remote Repository</strong></a></li>
   </ul></li>
-  <li><a href="#the-git-command-process" id="toc-the-git-command-process" class="nav-link" data-scroll-target="#the-git-command-process">The Git Command Process</a>
+  <li><a href="#the-git-command-process" id="toc-the-git-command-process" class="nav-link" data-scroll-target="#the-git-command-process"><strong>The Git Command Process</strong></a>
   <ul class="collapse">
-  <li><a href="#staging-files" id="toc-staging-files" class="nav-link" data-scroll-target="#staging-files">Staging Files</a></li>
-  <li><a href="#committing-files-with-messages-for-you-and-others" id="toc-committing-files-with-messages-for-you-and-others" class="nav-link" data-scroll-target="#committing-files-with-messages-for-you-and-others">Committing Files with Messages (for you and others)</a></li>
-  <li><a href="#pushing-changes-from-your-local-branch-to-your-remote-branch-on-github" id="toc-pushing-changes-from-your-local-branch-to-your-remote-branch-on-github" class="nav-link" data-scroll-target="#pushing-changes-from-your-local-branch-to-your-remote-branch-on-github">Pushing Changes from your Local Branch to your Remote Branch on GitHub</a></li>
+  <li><a href="#staging-files" id="toc-staging-files" class="nav-link" data-scroll-target="#staging-files"><strong>Staging Files </strong></a></li>
+  <li><a href="#committing-files-with-messages-for-you-and-others" id="toc-committing-files-with-messages-for-you-and-others" class="nav-link" data-scroll-target="#committing-files-with-messages-for-you-and-others"><strong>Committing Files with Messages (for you and others)</strong></a></li>
+  <li><a href="#pushing-changes-from-your-local-branch-to-your-remote-branch-on-github" id="toc-pushing-changes-from-your-local-branch-to-your-remote-branch-on-github" class="nav-link" data-scroll-target="#pushing-changes-from-your-local-branch-to-your-remote-branch-on-github"><strong>Pushing Changes from your Local Branch to your Remote Branch on GitHub </strong></a></li>
   </ul></li>
-  <li><a href="#a-collaboration-example" id="toc-a-collaboration-example" class="nav-link" data-scroll-target="#a-collaboration-example">A collaboration Example</a></li>
-  <li><a href="#scenario-overview" id="toc-scenario-overview" class="nav-link" data-scroll-target="#scenario-overview">Scenario Overview</a></li>
-  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a>
+  <li><a href="#a-collaboration-example" id="toc-a-collaboration-example" class="nav-link" data-scroll-target="#a-collaboration-example"><strong>A collaboration Example</strong></a></li>
+  <li><a href="#scenario-overview" id="toc-scenario-overview" class="nav-link" data-scroll-target="#scenario-overview"><strong>Scenario Overview</strong></a></li>
+  <li><a href="#verify-remote-repository" id="toc-verify-remote-repository" class="nav-link" data-scroll-target="#verify-remote-repository"><strong>Verify Remote Repository</strong></a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution"><strong>Solution </strong></a>
   <ul class="collapse">
-  <li><a href="#steps-for-merging-a-remote-branch-into-a-local-branch" id="toc-steps-for-merging-a-remote-branch-into-a-local-branch" class="nav-link" data-scroll-target="#steps-for-merging-a-remote-branch-into-a-local-branch">Steps for Merging a Remote Branch into a Local Branch</a></li>
-  <li><a href="#routine-merging-into-the-main-branch" id="toc-routine-merging-into-the-main-branch" class="nav-link" data-scroll-target="#routine-merging-into-the-main-branch">Routine Merging into the Main Branch</a></li>
+  <li><a href="#steps-for-merging-a-remote-branch-into-a-local-branch" id="toc-steps-for-merging-a-remote-branch-into-a-local-branch" class="nav-link" data-scroll-target="#steps-for-merging-a-remote-branch-into-a-local-branch"><strong>Steps for Merging a Remote Branch into a Local Branch</strong></a></li>
   </ul></li>
+  <li><a href="#more-than-2-collaborators-more-than-2-branches" id="toc-more-than-2-collaborators-more-than-2-branches" class="nav-link" data-scroll-target="#more-than-2-collaborators-more-than-2-branches"><strong>More than 2 Collaborators, More than 2 Branches </strong></a></li>
   </ul>
 </nav>
     </div>
@@ -627,7 +628,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git Branch Merging Tutorial</h1>
+<h1 class="title"><em>Git Branch Merging Tutorial</em></h1>
 </div>
 
 
@@ -655,45 +656,49 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<h2 class="anchored" data-anchor-id="overview"><strong>Overview</strong></h2>
 <p>This tutorial covers how to merge a remote Git branch (one on the remote repository at GitHub.com) into a local branch (one on your local computer) without creating a local copy of that remote branch. This approach is especially useful when collaborating on a project where each team member is working on separate branches. Moreover, this approach limits temptation of working on the main branch and/or forgetting to switch off that main branch.</p>
-<p>For this reference guide, you will work only on your personl feature branch. This of course, involves creating your branch locally on your computer inside your RStudio project for your team’s project.</p>
+<p>For this reference guide, you will work only on your personal feature branch. This of course, involves creating your branch locally on your computer inside your RStudio project for your team’s project.</p>
 <p>Your team’s final R Markdown report file (<code>.Rmd</code>) will be lightweight and not visually bulky. You and your team members will write text mostly in that file and use relevant inline commands when necessary but primarily add few lines of code that will call <code>.R</code> script files (think <code>starter_script.R</code>) to perform the heavy lifting of the project report. By doing so, your report will be reproducible from beginning to end especially if you write your code flexibly to handle any new <code>NA</code>s in vectors that do not currently exist in the data set. In order to achieve this goal, you will need a lean <code>.Rmd</code> report file that leverages more complicated code manipulation. This approach will also force you to think intentionally about the goad of each script your write and in the end you will have clean, readable code files that are clear to others about their specific goals.</p>
 <p>For example, your team will <code>source()</code> many script files and embed your desired data visualizations into the report using <code>knitr::include_graphics()</code>. When you wish not to include something, you can comment out those lines easily.</p>
 <p>In order for you to utilize the script files, data files, and other files created by your team members, you will manage them using Git. Your commit history and files created by you will become part of the repository record and will be used to evaluate your contributions to the overall project. To achieve this, you will <strong>work on your own branch</strong> and integrate/merge other team member’s branch history into your own branch. The final step is to merge the branches (or more easily, the <strong>Code Lead’s branch</strong>) into the main branch for the final product deliverable package.</p>
 </section>
 <section id="feature-branches" class="level2">
-<h2 class="anchored" data-anchor-id="feature-branches">Feature Branches</h2>
-<section id="creating-a-feature-branch" class="level3">
-<h3 class="anchored" data-anchor-id="creating-a-feature-branch">Creating a Feature Branch</h3>
-<p><code>git branch -b &lt;branch-name&gt;</code></p>
+<h2 class="anchored" data-anchor-id="feature-branches"><strong>Feature Branches</strong></h2>
+<p>Feature branches are used to manage and create separate elements of development projects. Typically, separate branches are created for <em>each specific feature</em> or task a specific developer is coding. Using individual branches allows developers to work independently on new <em>features</em> without affecting the main codebase until the feature is complete and ready to be integrated. Once the feature in created, a new branch would be created for developing a new feature.</p>
+<p>For your team project, rather than create a new branch for each feature (e.g., data wrangling task, plot tasks, etc.), each team member can code all of their <em>features</em> in a single branch. If, however, you prefer to separate all tasks into branches, you may do so. For, example, create a <code>jane-data-cleaning</code> branch for cleaning data, a <code>jane-data-summary-by-year</code> branch for creating a specific data summary, and a <code>jane-bar-plot-revenue</code> branch for creating visualizations for revenue. The down side is that there will be multiple branches for you to manage. Thu upside is that you use branches as developers would use them.</p>
+<section id="creating-and-checking-out-a-feature-branch" class="level3">
+<h3 class="anchored" data-anchor-id="creating-and-checking-out-a-feature-branch"><strong>Creating and Checking Out a Feature Branch</strong></h3>
+<p>You can create and checkout a branch in one step.</p>
+<p><code>git checkout -b &lt;branch-name&gt;</code></p>
 </section>
-<section id="setting-the-upstream-for-pushing-local-files-to-the-remote-repsitory" class="level3">
-<h3 class="anchored" data-anchor-id="setting-the-upstream-for-pushing-local-files-to-the-remote-repsitory">Setting the Upstream for Pushing Local Files to the Remote Repsitory</h3>
+<section id="setting-the-upstream-for-pushing-local-files-to-the-remote-repository" class="level3">
+<h3 class="anchored" data-anchor-id="setting-the-upstream-for-pushing-local-files-to-the-remote-repository"><strong>Setting the Upstream for Pushing Local Files to the Remote Repository</strong></h3>
+<p><code>git push --set-upstream &lt;branch-name&gt;</code></p>
 </section>
 </section>
 <section id="the-git-command-process" class="level2">
-<h2 class="anchored" data-anchor-id="the-git-command-process">The Git Command Process</h2>
+<h2 class="anchored" data-anchor-id="the-git-command-process"><strong>The Git Command Process</strong></h2>
 <p>Although have files created on your <em>local branch</em> (on your computer) of the repository, those files do not exist on the <em>remote branch</em> (on GitHub) until you put them there. Moreover, your team members cannot access them unless you put them on GitHub. Sorry, there is no using flash drives and emailing files. Data Science teams stage, commit, and push files, fetch and merge branches, and live happily ever after if you practice.</p>
 <section id="staging-files" class="level3">
-<h3 class="anchored" data-anchor-id="staging-files">Staging Files</h3>
+<h3 class="anchored" data-anchor-id="staging-files"><strong>Staging Files </strong></h3>
 <p><code>git add &lt;file-name&gt;</code></p>
 </section>
 <section id="committing-files-with-messages-for-you-and-others" class="level3">
-<h3 class="anchored" data-anchor-id="committing-files-with-messages-for-you-and-others">Committing Files with Messages (for you and others)</h3>
+<h3 class="anchored" data-anchor-id="committing-files-with-messages-for-you-and-others"><strong>Committing Files with Messages (for you and others)</strong></h3>
 <p><code>git commit -m "clear message"file-name"</code></p>
 </section>
 <section id="pushing-changes-from-your-local-branch-to-your-remote-branch-on-github" class="level3">
-<h3 class="anchored" data-anchor-id="pushing-changes-from-your-local-branch-to-your-remote-branch-on-github">Pushing Changes from your Local Branch to your Remote Branch on GitHub</h3>
+<h3 class="anchored" data-anchor-id="pushing-changes-from-your-local-branch-to-your-remote-branch-on-github"><strong>Pushing Changes from your Local Branch to your Remote Branch on GitHub </strong></h3>
 <p><code>git push</code></p>
 </section>
 </section>
 <section id="a-collaboration-example" class="level2">
-<h2 class="anchored" data-anchor-id="a-collaboration-example">A collaboration Example</h2>
+<h2 class="anchored" data-anchor-id="a-collaboration-example"><strong>A collaboration Example</strong></h2>
 <p><strong>Bill</strong> and <strong>Jane</strong> are collaborating on a project hosted on GitHub. Bill is working on a branch named <code>bill</code>, and Jane is working on a branch named <code>jane</code>. Jane has made changes to her branch and pushed them to the remote repository. Bill wants to incorporate Jane’s changes into his local <code>bill</code> branch without checking out or creating a local version of the <code>jane</code> branch.</p>
 </section>
 <section id="scenario-overview" class="level2">
-<h2 class="anchored" data-anchor-id="scenario-overview">Scenario Overview</h2>
+<h2 class="anchored" data-anchor-id="scenario-overview"><strong>Scenario Overview</strong></h2>
 <ul>
 <li>The remote repository is hosted on GitHub.com.</li>
 <li>Jane is working on her local branch named <code>jane</code>.</li>
@@ -701,21 +706,31 @@ ul.task-list li input[type="checkbox"] {
 <li>Jane pushes her changes from her local <code>jane</code> branch to the remote <code>jane</code> branch on GitHub.</li>
 <li>Bill needs Jane’s changes in order to work on his feature but Bill does not have a local branch <code>jane</code>, nor does he want to touch her branch.</li>
 <li>Bill does not touch, edit, modify, delete, or do anything with Jane’s files.</li>
+<li>Sam enters the collaboration space</li>
 </ul>
 </section>
+<section id="verify-remote-repository" class="level2">
+<h2 class="anchored" data-anchor-id="verify-remote-repository"><strong>Verify Remote Repository</strong></h2>
+<p>The only way for collaboration to work is to ensure everyone is connected properly to the remote repository. You can check the location with <code>git remote -v</code>. You will see the url for fetching and pushing.</p>
+<p><code>git remote -v</code></p>
+</section>
 <section id="solution" class="level2">
-<h2 class="anchored" data-anchor-id="solution">Solution</h2>
+<h2 class="anchored" data-anchor-id="solution"><strong>Solution </strong></h2>
 <p>Bill will use Git commands to <code>fetch</code> Jane’s remote branch, <code>merge</code> those changes into his local <code>bill</code> branch, and update the remote <code>bill</code> branch on GitHub.</p>
 <section id="steps-for-merging-a-remote-branch-into-a-local-branch" class="level3">
-<h3 class="anchored" data-anchor-id="steps-for-merging-a-remote-branch-into-a-local-branch">Steps for Merging a Remote Branch into a Local Branch</h3>
+<h3 class="anchored" data-anchor-id="steps-for-merging-a-remote-branch-into-a-local-branch"><strong>Steps for Merging a Remote Branch into a Local Branch</strong></h3>
 <p>These steps assume that Jane has informed Bill and other team members that she has completed her feature (e.g., <code>.R</code> script file, <code>.Rds</code> processed data file or aggregated/summarized data frame (no <code>.csv</code>’s), <code>.png</code> plot, or something else) and she has pushed them to her remote branch on GitHub.</p>
 <section id="step-1-fetch-the-remote-branch" class="level4">
-<h4 class="anchored" data-anchor-id="step-1-fetch-the-remote-branch">Step 1: Fetch the Remote Branch</h4>
+<h4 class="anchored" data-anchor-id="step-1-fetch-the-remote-branch"><strong>Step 1: Fetch the Remote Branch</strong></h4>
 <p>The first step is for Bill to fetch Jane’s remote branch. This downloads the changes in <code>jane</code> from the remote repository to Bill’s local machine without creating a local branch for <code>jane</code>.</p>
 <p><code>git fetch origin jane</code></p>
+<p>You should see a terminal message like:</p>
+<pre><code>From https://github.com/slicesofdata/&lt;your-team-repo&gt;
+ * branch            jane      -&gt; FETCH_HEAD</code></pre>
+<p><strong>Warning:</strong> Once you <code>fetch</code> a teammate’s branch, you will see files that you have already fetched and merged and the date corresponding to the file will update accordingly. The file you see, however, will not reflect the changes. Similarly, new files that you have not fetched previously will not appear in the Files tab in RStudio. In order changes to these files, you need to perform the <code>merge</code> for the content update to take effect.</p>
 </section>
 <section id="step-2-ensure-youre-on-the-correct-local-branch" class="level4">
-<h4 class="anchored" data-anchor-id="step-2-ensure-youre-on-the-correct-local-branch">Step 2: Ensure You’re on the Correct Local Branch</h4>
+<h4 class="anchored" data-anchor-id="step-2-ensure-youre-on-the-correct-local-branch"><strong>Step 2: Ensure You’re on the Correct Local Branch</strong></h4>
 <p>Before merging any changes, Bill needs to ensure he’s on his local branch bill. He can check the current branch with:</p>
 <p><code>git branch</code></p>
 <p>This will show a list of local branches, and the current branch will be highlighted with an asterisk (*).</p>
@@ -723,20 +738,40 @@ ul.task-list li input[type="checkbox"] {
 <p><code>git checkout bill</code></p>
 </section>
 <section id="step-3-merge-the-remote-branch-into-the-local-branch" class="level4">
-<h4 class="anchored" data-anchor-id="step-3-merge-the-remote-branch-into-the-local-branch">Step 3: Merge the Remote Branch into the Local Branch</h4>
+<h4 class="anchored" data-anchor-id="step-3-merge-the-remote-branch-into-the-local-branch"><strong>Step 3: Merge the Remote Branch into the Local Branch</strong></h4>
 <p>Once Bill is on his local <code>bill</code> branch, he can merge the changes from the remote <code>jane</code> branch into his local branch:</p>
 <p><code>git merge origin/jane</code></p>
-<p>This command merges the changes from <code>origin/jane</code> (the remote version of Jane’s branch) into the current branch (Bill’s local <code>bill</code> branch).</p>
+<p>This command merges the changes from <code>origin jane</code> (the remote version of Jane’s branch) into the current branch (Bill’s local <code>bill</code> branch).</p>
+<pre><code>$ git merge origin/jane
+Merge made by the 'ort' strategy.
+ src/figs/jane-revenue-by-quarter-bar-plot.R | 8 ++
+ 1 file changed, 8 insertions(+)
+ create mode 100644 src/figs/jane-revenue-by-quarter-bar-plot.R</code></pre>
+<p>Also, as long as Bill does not create a <code>jane</code> branch locally, he will follow the same steps next time he needs to <code>fetch</code> and <code>merge</code> Jane’s pushes to the remote branch.</p>
+<p><code>git fetch origin jane</code></p>
+<p><code>git merge origin/jane</code></p>
+<p><strong>Warning:</strong> Do not create a local branch for your teammate’s branches and the above steps will remain the same.</p>
 </section>
 <section id="step-4-handle-merge-conflicts" class="level4">
-<h4 class="anchored" data-anchor-id="step-4-handle-merge-conflicts">Step 4: Handle Merge Conflicts</h4>
-<p>As mentioned before, naming your files will intention will reduce naming files with the same name. If you have duplicate name files, you will likely have merge conflicts. You do not want to deal with these as they will cause you and I extra time and headaches.</p>
+<h4 class="anchored" data-anchor-id="step-4-handle-merge-conflicts"><strong>Step 4: Handle Merge Conflicts</strong></h4>
+<p>As mentioned previously, naming your files with intention will reduce naming files with the same name. If you have duplicate name files, you will likely have merge conflicts. You do not want to deal with these as they will cause you and I extra time and headaches.</p>
 <p><strong>Tips for inexperienced Git users to avoid merge conflicts: </strong></p>
 <ul>
-<li>name your files with your initials (e.g., <code>gc-revenue-by-quarter-bar-plot.R</code>), and</li>
-<li>do not touch another team member’s files</li>
+<li>Name your files with your initials (e.g., <code>gc-revenue-by-quarter-bar-plot.R</code>), and; this will limit confusion about who created the file</li>
+<li>Do not create another team member’s branch on your local system</li>
+<li>Do not touch another team member’s files; no editing, no overwriting</li>
+<li>Read/Source files by</li>
 </ul>
 <p>If there are any merge conflicts (i.e., changes in Jane’s branch that conflict with Bill’s local changes), Git will pause the merge and prompt Bill to resolve the conflicts manually.</p>
+<!--
+To get their timestamp
+If you merge
+
+` ls -l .git/objects/path/to/conflicted/file`
+- `git checkout --theirs path/to/conflicted/file`
+
+
+-->
 <!--
 To check which files are conflicting, Bill can use:
 
@@ -748,32 +783,62 @@ Bill can then open the conflicting files, resolve the conflicts, and stage the r
 -->
 </section>
 <section id="step-5-commit-the-merge" class="level4">
-<h4 class="anchored" data-anchor-id="step-5-commit-the-merge">Step 5: Commit the Merge</h4>
+<h4 class="anchored" data-anchor-id="step-5-commit-the-merge"><strong>Step 5: Commit the Merge</strong></h4>
 <p>The merge using <code>git merge origin/jane</code> also automatically stages/adds the changes that occurred as part of the merge. Thus, they need to be committed.</p>
 <p>Bill can not commit the merge (assuming there are no conflicts or they have been resolved): <!-- and the changes are staged):--></p>
 <p><code>git commit -m "merged remote jane into local bill"</code></p>
 </section>
 <section id="step-6-push-the-updated-local-branch-to-the-remote-repository" class="level4">
-<h4 class="anchored" data-anchor-id="step-6-push-the-updated-local-branch-to-the-remote-repository">Step 6: Push the Updated Local Branch to the Remote Repository</h4>
+<h4 class="anchored" data-anchor-id="step-6-push-the-updated-local-branch-to-the-remote-repository"><strong>Step 6: Push the Updated Local Branch to the Remote Repository</strong></h4>
 <p>Once committed, Bill needs to push his updated local <code>bill</code> branch (now with Jane’s changes) to the remote repository:</p>
 <p><code>git push origin bill</code></p>
-<p>Although <code>git push</code> would work just fine, adding <code>origin bill</code> leaves no ambiguity about the command’s behavior and ensures that the remote <code>bill</code> branch on GitHub is updated with the changes from (now) both Bill’s and Jane’s work.</p>
-</section>
-</section>
-<section id="routine-merging-into-the-main-branch" class="level3">
-<h3 class="anchored" data-anchor-id="routine-merging-into-the-main-branch">Routine Merging into the Main Branch</h3>
-<p>As a best practice, the <strong>Code Lead should routinely merge feature branches</strong> into their own branch (thus similar to the main branch) in order to ensure the all files are working correctly. Adding them to the team report <code>.Rmd</code> file will also ensure that they can be <code>source()</code>’d and the file can be produced without error.</p>
-<p>Here are the steps to merge both Bill’s and Jane’s branches into the main branch:</p>
-<p>Switch to the main branch:</p>
-<p><code>git checkout main</code></p>
-<p>Pull the latest changes from the remote main branch:</p>
-<p><code>git pull</code></p>
-<p>Fetch Jane’s changes and merge them into the main branch:</p>
-<p>bash Copy code git fetch origin jane git merge origin/jane git commit -m “Merged jane into main” git push Fetch Bill’s changes and merge them into the main branch:</p>
-<p>bash Copy code git fetch origin bill git merge origin/bill git commit -m “Merged bill into main” git push</p>
+<p>Although <code>git push</code> would work just fine, <strong>adding <code>origin bill</code> leaves no ambiguity about the command’s behavior and ensures that the remote <code>bill</code> branch on GitHub</strong> is updated with the changes from (now) both Bill’s and Jane’s work.</p>
+<!--
+### **Routine Merging into the Main Branch**
+
+As a best practice, the **Code Lead should routinely merge feature branches** into their own branch (thus similar to the main branch) in order to ensure the all files are working correctly. Adding them to the team report `.Rmd` file will also ensure that they can be `source()`'d and the file can be produced without error.  
 
 
+Here are the steps to merge both Bill's and Jane's branches into the main branch:
+
+Switch to the main branch:
+
+`git checkout main`
+
+Pull the latest changes from the remote main branch:
+
+`git pull`
+
+Fetch Jane's changes and merge them into the main branch:
+
+bash
+Copy code
+git fetch origin jane
+git merge origin/jane
+git commit -m "Merged jane into main"
+git push
+Fetch Bill's changes and merge them into the main branch:
+
+bash
+Copy code
+git fetch origin bill
+git merge origin/bill
+git commit -m "Merged bill into main"
+git push
+
+-->
 </section>
+</section>
+</section>
+<section id="more-than-2-collaborators-more-than-2-branches" class="level2">
+<h2 class="anchored" data-anchor-id="more-than-2-collaborators-more-than-2-branches"><strong>More than 2 Collaborators, More than 2 Branches </strong></h2>
+<p>Jane is excited about the project and is making great progress. She updates a current code file, creates two more files, stages, commits, and pushes the changes to the remote repo.</p>
+<p>Sam enters the collaboration with a <code>sam</code> branch. After Jane has made these recent changes, Sam performs a <code>fetch</code> and <code>merge</code> of Jane’s branch exactly as did Bill. The difference is that Sam has a more recent version of one file and has two more files from Jane’s branch than does Bill.</p>
+<p>Sam now wants to <code>fetch</code> and <code>merge</code> Bill’s remote branch. Although Bill has older versions of Jane’s files in his branch, Sam will retain version of the files fetched from Jane’s remote branch.</p>
+<p>This occurs because Git uses a three-way merge algorithm for comparing the common ancestor of both branches and applies the most recent changes based on commit timestamps.</p>
+<p><strong>Warning:</strong> If you are not vigilant and you modify a teammate’s file on your branch, you may experience problems. For example, If Bill modifies code on the same lines in Jane’s file, Git will flag a merge conflict. Git will not automatically choose which version of the file to keep. You will need to do this manually.</p>
+
+
 </section>
 
 </main> <!-- /main -->
