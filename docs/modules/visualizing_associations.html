@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-09-21">
+<meta name="dcterms.date" content="2024-09-22">
 
 <title>Data Visualization - Visualizing associations</title>
 <style>
@@ -620,7 +620,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../project/06_using_git_with_branches.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Git Branch Merging Tutorial</span></a>
+ <span class="menu-text"><em>Git Branch Merging Tutorial</em></span></a>
   </div>
 </li>
       </ul>
@@ -693,7 +693,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 21, 2024</p>
+      <p class="date">September 22, 2024</p>
     </div>
   </div>
   
@@ -764,9 +764,7 @@ Reading should take place in two parts:
 <p>To access the data, either read the file directly from the url using <code>read.csv()</code> and assign the data frame a name like <code>SWIM</code>:</p>
 <p><code>read.csv("https://raw.githubusercontent.com/slicesofdata/dataviz24/main/data/processed/cleaned-2023-cms-invite.csv")</code></p>
 <p>Or <a href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/data/processed/cleaned-2023-cms-invite.csv">download it</a> and save to the <code>/data/processed</code> directory and read from there.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"processed"</span>, <span class="st">"cleaned-2023-cms-invite.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"processed"</span>, <span class="st">"cleaned-2023-cms-invite.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--
 For this exercise, we will use some data from a 2023 CMS swim meet located at: "https://github.com/slicesofdata/dataviz24/raw/main/data/swim/cleaned-2023-CMS-Invite.csv".
 
@@ -827,7 +825,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Distance, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Your first point plot! You see small black points, axis labels, tick marks for intervals, and some apparent clustering of points around certain distances. You also see the association between distances and time, a positive association.</p>
@@ -838,7 +836,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Distance, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The association is still apparent in the plot. The tick marks along the x-axis changed but the clustering of points is still present. We will reserve discussion of axes for a later topic but the clustering is still present. This issue will often present itself when plotting a continuous variable like time against a discrete variable like event distance.</p>
@@ -869,7 +867,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>You see the function curving in blue through the data and a gray shading around it.</p>
@@ -884,7 +882,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Now you see a <em>line of best fit</em> along with that gray shading again. That shading represents error variance in the model, which we will address in a topic on <em>visualizing uncertainty</em>. We can turn it off by setting <code>se = FALSE</code>.</p>
@@ -899,7 +897,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>For some plots, you may also not see the fit line through the entire plot. For example, changing the limits on the x axis, from 0 to 800 by adding plot layer, <code>xlim(0, 800)</code>, will demonstrate a problem that you might experience and wish to fix.</p>
@@ -914,7 +912,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We can change the default behavior using <code>fullrange = T</code>:</p>
@@ -930,7 +928,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The line now extends to the limits. <code>geom_smooth()</code> has many options but for now you see how we can plot points and add various fits to them.</p>
@@ -945,7 +943,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Distance), <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We see that something has changed? What exactly? Do you notice it?</p>
@@ -957,7 +955,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Distance, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>What do you see? You see now that <code>geom_point()</code> will plot <em>only</em> the existing levels of <code>Distance</code> in the data set and provides the level label at each tick mark. If your goal is to change your tick marks for numeric data, this is not the solution because the scale will violate rules of mathematics. The intervals are all the same. This is a misrepresentation of the data.</p>
@@ -976,7 +974,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">3</span></span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>             )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The procedure of mapping aesthetics introduces other variables from the data set into the plot. We do not need to change the color or shape of points for each event distance for the viewer to understand the plot. Position along x already communicates the distance. Mapping aesthetics of variables already present would confound the data and result in a plot that manipulates both position and color to communicate one variable, distance. This is not needed. By contrast, mapping variables that are not already present in the data introduces new information and complexity. These represent a different class of plots altogether.</p>
@@ -1002,7 +1000,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">"jitter"</span></span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We are not encoding a third variable in this plot but rather confounding color with an existing variable in the point plot. This approach can bias attention to particular subsets of the data unintentionally especially when some colors share properties with some colors used in the plot but not others.</p>
@@ -1018,7 +1016,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> .<span class="dv">3</span></span>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The darker blue points are now associated with shorter distances, which itself may be conceptually difficult but the point here is that a data element can be mapped to an aesthetic.</p>
@@ -1039,7 +1037,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>And for men and women, using <code>Team</code>:</p>
@@ -1056,7 +1054,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1086,7 +1084,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We will see that a line is fit through ALL of the data illustrating of course that time increases as a function of distance. Yes, this is silly but the main goal here is to understand how <strong>{ggplot}</strong> works.</p>
@@ -1116,7 +1114,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>You see that the linear fits are almost identical for the two schools. You can comment out <code>show.legend = F</code> to see the school names.</p>
@@ -1143,7 +1141,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The visualization now shows that the slope differs by subgroup, in particular that the slope is steeper for female swimmers. Again, comment out <code>show.legend = F</code> to see. We can add confidence intervals or error to the fit line on the plot but doing so is something we will deal with in the topic on visualizing uncertainty. That being said, the astute student of statistics should also know there is uncertainty to the lint-of-best-fit because it represents a fit of the current data, which may have sampling error. Bootstrapping the model fit will allow or visualization of uncertainty of the model fit.</p>
@@ -1167,7 +1165,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> .<span class="dv">2</span></span>
 <span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The bubbles here simply represent the y variable mapped to the <code>size</code> aesthetic. We are not conveying a third variable in this plot but rather confounding size with an existing variable in the point plot. One thing to know is that the visual system loves size and to shading (e.g,. contrast). Both are present here, so be mindful of any bias such a plot has on visual attention and perception. We will address such issues when we address concepts of attentional control.</p>
@@ -1188,7 +1186,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>You can see that the split times for the first 50 meters seems to increase as the distance of the event increases. Swimmers are pacing differently.</p>
@@ -1205,7 +1203,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Longer split times are associated with overall longer event times.</p>
@@ -1224,7 +1222,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We can see that the point diameter increases with distance. Although this bubble plot introduces a new variable, <code>Distance</code>, to the plot which was not visualized before, it really fails to communicate something useful in the data that was not already presented.</p>
@@ -1243,7 +1241,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>This bubble plot now illustrates that the split times vary within the event distance and is associate with longer event times.</p>
@@ -1263,7 +1261,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We can see that the larger point sizes reflecting longer split times also appears to be associated with the event participated in. Notice the color palette used and the size of the points in the legend. Some color are difficult to differentiate when the alpha is dialed down. But without lowering alpha, the points would have a different problem. If this were a plot we wanted to share, we would need to fix it a lot. Later on, we will cover ways to change colors, the size of the points in the legend later, change the scale and tick marks on the axes, etc.</p>
@@ -1294,7 +1292,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>A <code>geom_path()</code>:</p>
@@ -1303,7 +1301,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Adding labels as text (and changing their color and size):</p>
@@ -1319,7 +1317,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <pre><code>Warning: Using size for a discrete variable is not advised.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Note that <code>geom_line()</code> does not work well with the existing swim data. Points will be connected.</p>
@@ -1328,7 +1326,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Distance, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>And <code>geom_path()</code> will connect the based on the order of the date but this type of plot is not relevant here as there is no order or time course.</p>
@@ -1337,7 +1335,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Distance, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
+<p><img src="visualizing_associations_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>

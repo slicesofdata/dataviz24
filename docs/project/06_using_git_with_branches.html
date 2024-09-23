@@ -682,6 +682,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Although have files created on your <em>local branch</em> (on your computer) of the repository, those files do not exist on the <em>remote branch</em> (on GitHub) until you put them there. Moreover, your team members cannot access them unless you put them on GitHub. Sorry, there is no using flash drives and emailing files. Data Science teams stage, commit, and push files, fetch and merge branches, and live happily ever after if you practice.</p>
 <section id="staging-files" class="level3">
 <h3 class="anchored" data-anchor-id="staging-files"><strong>Staging Files </strong></h3>
+<p>Stage the path to the file and file, spelled correclty.</p>
 <p><code>git add &lt;file-name&gt;</code></p>
 </section>
 <section id="committing-files-with-messages-for-you-and-others" class="level3">
@@ -834,8 +835,7 @@ git push
 <h2 class="anchored" data-anchor-id="more-than-2-collaborators-more-than-2-branches"><strong>More than 2 Collaborators, More than 2 Branches </strong></h2>
 <p>Jane is excited about the project and is making great progress. She updates a current code file, creates two more files, stages, commits, and pushes the changes to the remote repo.</p>
 <p>Sam enters the collaboration with a <code>sam</code> branch. After Jane has made these recent changes, Sam performs a <code>fetch</code> and <code>merge</code> of Jane’s branch exactly as did Bill. The difference is that Sam has a more recent version of one file and has two more files from Jane’s branch than does Bill.</p>
-<p>Sam now wants to <code>fetch</code> and <code>merge</code> Bill’s remote branch. Although Bill has older versions of Jane’s files in his branch, Sam will retain version of the files fetched from Jane’s remote branch.</p>
-<p>This occurs because Git uses a three-way merge algorithm for comparing the common ancestor of both branches and applies the most recent changes based on commit timestamps.</p>
+<p>Sam now wants to <code>fetch</code> and <code>merge</code> Bill’s remote branch with his local branch. Although Bill has older versions of Jane’s files in his branch, Sam will retain versions of the files fetched from Jane’s remote branch. This occurs because Git uses a three-way merge algorithm for comparing the common ancestor of both branches and applies the most recent changes based on commit timestamps.</p>
 <p><strong>Warning:</strong> If you are not vigilant and you modify a teammate’s file on your branch, you may experience problems. For example, If Bill modifies code on the same lines in Jane’s file, Git will flag a merge conflict. Git will not automatically choose which version of the file to keep. You will need to do this manually.</p>
 
 
