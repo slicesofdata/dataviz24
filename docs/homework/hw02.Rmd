@@ -1,0 +1,205 @@
+---
+title: "Homework 02"
+author: "your-name(s)"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  #word_document:
+  #  toc: yes
+  #  number_sections: yes
+  html_document:
+    toc: no
+    number_sections: yes
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include=FALSE}
+suppressMessages(library(dplyr))
+```
+
+For this homework, you will save the `R Markdown` (e.g., `.Rmd`) homework document and save it to your `/report` project directory on your computer. Save a new copy of this file so that its name has the prefix `hw02-Lastname-FirstInitial`. Full name example: `hw02-cookg.Rmd`. 
+
+The homework is also designed to help you work through the process of organizing files for your project. 
+
+Feel free to work with a partner (add both names) but understand that the work submitted should be your contributions. 
+
+**The homework utilizes the modules listed below. My assumption is that you are completing readings and reading/referring to modules before consulting outside sources. Grading will be based on that assumption and solutions provided in course materials.**
+
+Relevant Modules:
+
+- data frame manipulation and wrangling
+- data subsets and summaries   
+
+**Do not** create any variables outside of **{dplyr}** functions. Do not create objects not needed. All problems can be answered using functions from the listed modules.
+
+*Enter your author name in the YAML code*   
+
+
+
+
+
+**Questions:**
+
+# *Read a Local Data File*
+
+In the code block write code using `read.csv()` to read the data file named `"cleaned-2023-cms-invite.csv"` which is in `/data/processed` or on the course site data tab. Do not hard code the path, use {here}. Assign the data to an object named something like `SWIM`.
+
+
+```{r echo = TRUE, results = 'hide'}
+
+
+```
+
+
+# *Create `.R` script*
+
+Now that you have the code to read and assign that data file, use the starter script to create an `.R` script file that reads your data file. Name the file `your-initials-cleaned-2023-cms-invite.R` and save it to `/src/data` because the script is for reading data.  
+
+
+# *Sourcing the `.R` script*
+
+Your team report will require you to source your code files. In the code block, modify and add this code `source(<the-path-to-your-file-name.R>)` in order to source your file that reads a data file.
+
+```{r echo = TRUE, results = 'hide'}
+
+```
+
+
+# *Viewing A Data Frame*
+
+Use a function of your choice to view the data frame. If you want to use the `view_html()` function, source it from it's location. 
+
+```{r}
+
+```
+
+After viewing, comment out your above code block so that the output will not appear in your knitted output file. Alternatively, select the gear icon from in your code block and change the output option to "show nothing (run code)".  
+
+
+# *Manipulating Data Frames*
+
+## *Getting Data Frame Column Names* 
+
+Use a function to return a vector containing only the *names* of the columns in the data frame. 
+
+```{r echo = TRUE, results = 'hide'}
+
+
+```
+
+
+
+
+## *Selecting Columns from a Data Frame*
+
+There are many ways to select data from a data frame. You don't know how you might want to select variables, so get some practice by reviewing some options as presented in the module on data frame manipulation. 
+
+Take your data frame and using **{dplyr}**, subset it so that your functions return columns according to the following approaches. 
+
+
+Two columns by their names:
+
+```{r echo = TRUE, results = 'hide'}
+
+
+```
+
+
+All columns that are numeric:
+
+```{r echo = TRUE, results = 'hide'}
+
+
+```
+
+
+All columns that have a name that contains, starts with, or ends with some letter:
+
+```{r echo = TRUE, results = 'hide'}
+
+  
+```
+
+
+## *Filtering Rows of a Data Frame*
+
+There are many ways to filter data. You don't know how you will need to filter, so review some options as presented in the module on data frame manipulation.
+
+Take your data frame and using **{dplyr}**, filter so that your function returns rows according to the following approaches. 
+
+`Time` is less than 22:
+
+```{r echo = TRUE, results = 'hide'}
+
+
+```
+
+**Who had the fastest time for the event?:**
+
+
+
+Using **{dplyr}**, filter to return times under 60 seconds, for the Butterfly event, and use `arrange()` to sort the data frame so that the fastest times are at the top: 
+
+```{r echo = TRUE, results = 'hide'}
+
+
+```
+
+
+Using **{dplyr}**, filter by times that are faster than the mean of all times: 
+
+```{r echo = TRUE, results = 'hide'}
+
+
+```
+
+
+## *Mutating Variables of a Data Frame*
+
+Using **{dplyr}**, create a new variable that represents the mean of all times in the data frame, then filter the data frame to include only times that are faster than the mean time and only for Butterfly events.
+
+```{r echo = TRUE, results = 'hide'}
+
+
+```
+
+Note: You could also perform this all within `filter()`.
+
+
+
+# *Summarizing A Data Frame*
+
+## Summarize Overall
+
+Summarize the data using **{dplyr}** so that you have the mean of `Time` across all event times. You should have a 1x1 tibble. 
+
+```{r echo = TRUE}
+
+
+```
+
+
+
+## Summarize by Grouping
+
+Summarize the data so that you have the mean event time for each Event type. Then  arrange the data frame by the *slowest* meet locations:
+
+```{r echo = TRUE}
+SWIM |>
+  group_by(Event) |>
+  summarize(mean = mean(Time)) |>
+  arrange(desc(mean))
+```
+
+
+Other Notes:
+
+y/n: Did you read the modules for the topic?
+y/n: Did you use ChatGPT or similar LLM to help you?
+
+
+Finally, knit an `html` file and upload to:
+https://ln5.sync.com/dl/a038628f0/wwfifjxk-f7rfshin-rkedi3y8-77f9zaii
