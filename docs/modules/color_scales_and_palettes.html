@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-08-19">
+<meta name="dcterms.date" content="2024-09-26">
 
 <title>Data Visualization - Color scales and palettes</title>
 <style>
@@ -221,6 +221,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../exercises/visualizing-associations-exercise.pdf" rel="" target="">
  <span class="dropdown-text">visualizing-associations-exercise.pdf</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/spatial-position-exercise.pdf" rel="" target="">
+ <span class="dropdown-text">spatial-position-exercise.pdf</span></a>
   </li>  
     </ul>
   </li>
@@ -641,7 +645,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
   <ul class="collapse">
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   <li><a href="#load-libraries" id="toc-load-libraries" class="nav-link" data-scroll-target="#load-libraries"><strong>Load libraries</strong></a></li>
@@ -655,9 +658,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#what-is-a-color-palette" id="toc-what-is-a-color-palette" class="nav-link" data-scroll-target="#what-is-a-color-palette"><strong>What is a Color Palette?</strong></a>
   <ul class="collapse">
-  <li><a href="#color-scales-built-into-ggplot2" id="toc-color-scales-built-into-ggplot2" class="nav-link" data-scroll-target="#color-scales-built-into-ggplot2"><strong>Color Scales Built into {ggplot2}</strong></a></li>
+  <li><a href="#color-scales-built-into-ggplot2" id="toc-color-scales-built-into-ggplot2" class="nav-link" data-scroll-target="#color-scales-built-into-ggplot2"><strong>Color Scales Built into <code>{ggplot2}</code></strong></a></li>
   </ul></li>
-  <li><a href="#colorspace" id="toc-colorspace" class="nav-link" data-scroll-target="#colorspace"><strong>{colorspace}</strong></a>
+  <li><a href="#the-colorspace-library" id="toc-the-colorspace-library" class="nav-link" data-scroll-target="#the-colorspace-library"><strong>The {colorspace}</strong> Library**</a>
   <ul class="collapse">
   <li><a href="#colorspace-color-palettes" id="toc-colorspace-color-palettes" class="nav-link" data-scroll-target="#colorspace-color-palettes"><strong>{colorspace}</strong> Color Palettes</a></li>
   <li><a href="#example-plots" id="toc-example-plots" class="nav-link" data-scroll-target="#example-plots"><strong>Example plots</strong></a></li>
@@ -705,7 +708,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 19, 2024</p>
+      <p class="date">September 26, 2024</p>
     </div>
   </div>
   
@@ -730,26 +733,28 @@ Under construction.
 </div>
 <section id="overview" class="level1">
 <h1><strong>Overview</strong></h1>
-<section id="readings" class="level2">
-<h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
-<p>Reading should take place in two parts:</p>
-<ul>
-<li><em>Prior to class</em>, the goal should be to familiarize yourself and bring questions to class. The readings from <a href="https://clauswilke.com/dataviz">TFDV</a> are conceptual and should facilitate readings from <a href="https://ggplot2-book.org/">EGDA</a> for code implementation.</li>
-<li><em>After class</em>, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.</li>
-</ul>
-<p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of <strong>{ggplot2}</strong>. I will assume that you attend class with some level of basic understanding of concepts.</p>
-<p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing <strong>{ggplot2}</strong> code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week’s readings.</p>
-<p><em>After Class</em>: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from <strong>Wickham, Navarro, &amp; Pedersen (under revision)</strong>. <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>.</p>
-<ul>
-<li><a href="https://clauswilke.com/dataviz/color-basics.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Color basics</a></li>
-<li><a href="https://ggplot2-book.org/scales-colour">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Color scales</a></li>
-</ul>
-</section>
+<!--
+## **Readings**
+
+Reading should take place in two parts:
+
+ - *Prior to class*, the goal should be to familiarize yourself and bring questions to class. The readings from [TFDV](https://clauswilke.com/dataviz) are conceptual and should facilitate readings from [EGDA](https://ggplot2-book.org/) for code implementation.
+ - *After class*, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.  
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of **{ggplot2}**. I will assume that you attend class with some level of basic understanding of concepts.
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing **{ggplot2}** code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week's readings. 
+
+*After Class*: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from **Wickham, Navarro, & Pedersen (under revision)**. *ggplot2: Elegant Graphics for Data Analysis (3e)*.
+
+- [Wilke (2019). *Fundamentals of Data Visualization*. Color basics](https://clauswilke.com/dataviz/color-basics.html)
+- [Wickham, Navarro, & Pedersen (under revision). *ggplot2: Elegant Graphics for Data Analysis (3e)*. Color scales](https://ggplot2-book.org/scales-colour)
+
+-->
 <section id="external-functions" class="level2">
 <h2 class="anchored" data-anchor-id="external-functions"><strong>External Functions</strong></h2>
-<p>Provided in class:</p>
-<p><code>view_html()</code>: for viewing data frames in html format, from <code>/src/my_functions.R</code></p>
-<p>You can use this in your own workspace but I am having a challenge rendering this of the website, so I’ll default to <code>print()</code> on occasion.</p>
+<p>Provided:</p>
+<p><code>view_html()</code>: for viewing data frames in html format, from <code>/src/functions/view_html.R</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.utils<span class="sc">::</span><span class="fu">sourceDirectory</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src"</span>, <span class="st">"functions"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -764,127 +769,139 @@ Under construction.
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
 <li><strong>{ggthemes}</strong> 5.1.0: for palettes and themes</li>
-<li><strong>{magrittr}</strong> 2.0.3: for code clarity and piping data frame objects</li>
 <li><strong>{patchwork}</strong> 1.2.0: for plotting on grids</li>
 <li><strong>{RColorBrewer}</strong> 1.1.3: for color palettes</li>
 </ul>
 </section>
 <section id="load-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="load-libraries"><strong>Load libraries</strong></h2>
+<p>The libraries below should be installed as part of the setup proecess at the beginning of the semester.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorspace)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)  <span class="co"># for scale_color_colorblind()</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorblindr)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(khroma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorspace)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)  <span class="co"># for ggthemes::scale_color_colorblind()</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorblindr)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(khroma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="loading-data" class="level1">
 <h1><strong>Loading Data</strong></h1>
-<p>For this exercise, we will use some data from a 2023 CMS swim meet located at: “https://github.com/slicesofdata/dataviz24/raw/main/data/swim/cleaned-2023-CMS-Invite.csv”.</p>
+<p>To examine some associations, we will use some swimming event times which can be accessed from:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://github.com/slicesofdata/dataviz24/raw/main/data/swim/cleaned-2023-CMS-Invite.csv"</span>, <span class="at">show_col_types =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>https://raw.githubusercontent.com/slicesofdata/dataviz24/main/data/processed/cleaned-2023-cms-invite.csv</code></pre>
 </div>
+</div>
+<p>To access the data, either read the file directly from the url using <code>read.csv()</code> and assign the data frame a name like <code>SWIM</code>:</p>
+<p><code>read.csv("https://raw.githubusercontent.com/slicesofdata/dataviz24/main/data/processed/cleaned-2023-cms-invite.csv")</code></p>
+<p>Or <a href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/data/processed/cleaned-2023-cms-invite.csv">download it</a> and save to the <code>/data/processed</code> directory and read from there.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"processed"</span>, <span class="st">"cleaned-2023-cms-invite.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="color-uses-in-data-visualization" class="level1">
 <h1><strong>Color Uses in Data Visualization</strong></h1>
 <section id="to-distinguish-categories-qualitative" class="level2">
 <h2 class="anchored" data-anchor-id="to-distinguish-categories-qualitative">To distinguish categories (qualitative)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> School, <span class="at">fill =</span> Event)) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, <span class="at">fill =</span> Event)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
 <section id="to-represent-numeric-values-sequential" class="level2">
 <h2 class="anchored" data-anchor-id="to-represent-numeric-values-sequential">To represent numeric values (sequential)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Time)) <span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>When no fill scale is defined, default is <code>scale_fill_gradient()</code>, which we can change to something else.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Time)) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>But the function won’t change anything if we don’t use the proper <code>scale_*_()</code> function.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Time)) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">color =</span> Time)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Or:</p>
+<p>When no fill scale is defined, default is <code>scale_fill_gradient()</code>, which we can change to something else.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Time)) <span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">option =</span> <span class="st">"B"</span>, <span class="at">begin =</span> <span class="fl">0.15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">color =</span> Time)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="to-represent-numeric-values-diverging" class="level2">
-<h2 class="anchored" data-anchor-id="to-represent-numeric-values-diverging">To represent numeric values (diverging):</h2>
+<p>But the function won’t change anything if we don’t use the proper <code>scale_*_()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(., <span class="at">Diff =</span> (Time <span class="sc">-</span> <span class="fu">mean</span>(Time, <span class="at">na.rm =</span> T))) <span class="sc">%&gt;%</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Diff)) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">color =</span> Time)) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Or:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(., <span class="at">Diff =</span> (Time <span class="sc">-</span> <span class="fu">mean</span>(Time, <span class="at">na.rm =</span> T))) <span class="sc">%&gt;%</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Diff)) <span class="sc">+</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_continuous_diverging</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">color =</span> Time)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">option =</span> <span class="st">"B"</span>, <span class="at">begin =</span> <span class="fl">0.15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="to-represent-numeric-values-diverging" class="level2">
+<h2 class="anchored" data-anchor-id="to-represent-numeric-values-diverging">To represent numeric values (diverging):</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(., <span class="at">Diff =</span> (Time <span class="sc">-</span> <span class="fu">mean</span>(Time, <span class="at">na.rm =</span> T))) <span class="sc">%&gt;%</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Diff)) <span class="sc">+</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">type =</span> <span class="st">"div"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diff =</span> (Time <span class="sc">-</span> <span class="fu">mean</span>(Time, <span class="at">na.rm =</span> T))) <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Diff)) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient2</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Or:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diff =</span> (Time <span class="sc">-</span> <span class="fu">mean</span>(Time, <span class="at">na.rm =</span> T))) <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Diff)) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_continuous_diverging</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Or:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diff =</span> (Time <span class="sc">-</span> <span class="fu">mean</span>(Time, <span class="at">na.rm =</span> T))) <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Diff)) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">type =</span> <span class="st">"div"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>There are other applications too but we cannot get into them all here.</p>
@@ -894,34 +911,32 @@ Under construction.
 <h1><strong>What is a Color Palette?</strong></h1>
 <p>First, just in base R, there are 657 colors, which you can check out using <code>colors()</code> and <code>demo("colors")</code>.</p>
 <p>Well, let’s see:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#?palette</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">palette</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "black"   "#DF536B" "#61D04F" "#2297E6" "#28E2E5" "#CD0BBC" "#F5C710"
-[8] "gray62" </code></pre>
-</div>
-</div>
-<p>We see <code>palette()</code> returns a character vector of 8 color elements. We can plot these to see the colors.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>?palette</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">palette</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We see <code>palette()</code> returns a character vector of 8 color elements. If you wanted a better view, plot the palette to see the colors by using <code>geom_tile()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">y =</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">8</span>),</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">names =</span> <span class="fu">sort</span>(<span class="fu">palette</span>())),</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(names, y)) <span class="sc">+</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">fill =</span> <span class="fu">palette</span>(),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">6</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(names, y)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">fill =</span> <span class="fu">palette</span>(),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">6</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span> </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>You can also</p>
+<p>You can also use different palettes and/or create a function for creating them.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">palette.colors</span>(<span class="at">n =</span> <span class="dv">5</span>, </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">palette =</span> <span class="st">"Okabe-Ito"</span>, </span>
@@ -931,6 +946,9 @@ Under construction.
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "#00000080" "#E69F0080" "#56B4E980" "#009E7380" "#F0E44280"</code></pre>
 </div>
+</div>
+<p>If you want to use the <code>"Okabe-Ito"</code> palette but use a function that will generate the number of palette colors needed. Here is an example of creating a function named <code>get_palette()</code>.</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>get_palette <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">5</span>, </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">palette =</span> <span class="st">"Okabe-Ito"</span>, </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">alpha =</span> <span class="dv">1</span>, </span>
@@ -943,48 +961,57 @@ Under construction.
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">recycle =</span> <span class="cn">FALSE</span></span>
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>               )</span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (plot) {</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    (p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span>n, </span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (plot <span class="sc">==</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    (<span class="at">p =</span> <span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span>n, </span>
 <span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> <span class="fu">rep</span>(<span class="dv">1</span>, n), </span>
 <span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>                             <span class="at">names =</span> pal),</span>
 <span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>           <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> names, <span class="at">y =</span> y)</span>
 <span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>           ) <span class="sc">+</span></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> pal, <span class="at">size =</span> tile_size),</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> alpha, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> </span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>()) </span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">#print(pal); </span></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pal)</span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>       <span class="fu">geom_tile</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">fill =</span> pal, <span class="at">size =</span> tile_size),</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> alpha, <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>                 ) <span class="sc">+</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>       <span class="fu">coord_flip</span>() <span class="sc">+</span> </span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>       <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>       <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>       <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>       <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>()) </span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># print(pal); </span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pal)</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<!--
+#two critical conditions for designing sequential color scales that can represent data values: 
+#1 - The colors need to clearly indicate which data values are larger or smaller than which other ones, 
+#2 - the differences between colors need to visualize the corresponding differences between data values. 
+#Unfortunately, several existing color scales—including very popular ones—violate one or both of these conditions. 
+-->
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_palette</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">palette =</span> <span class="st">"Okabe-Ito"</span>, <span class="at">alpha =</span> .<span class="dv">4</span>, <span class="at">plot =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_palette</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">palette =</span> <span class="st">"Okabe-Ito"</span>, <span class="at">alpha =</span> .<span class="dv">4</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "#00000066" "#E69F0066" "#56B4E966" "#009E7366" "#F0E44266"</code></pre>
 </div>
 </div>
 <p>The colors will change if you change the alpha.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_palette</span>(<span class="at">n =</span> <span class="dv">8</span>, <span class="at">palette =</span> <span class="st">"Okabe-Ito"</span>, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">plot =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_palette</span>(<span class="at">n =</span> <span class="dv">8</span>, <span class="at">palette =</span> <span class="st">"Okabe-Ito"</span>, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "#00000080" "#E69F0080" "#56B4E980" "#009E7380" "#F0E44280" "#0072B280"
 [7] "#D55E0080" "#CC79A780"</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_palette</span>(<span class="at">n =</span> <span class="dv">8</span>, <span class="at">palette =</span> <span class="st">"Okabe-Ito"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">plot =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_palette</span>(<span class="at">n =</span> <span class="dv">8</span>, <span class="at">palette =</span> <span class="st">"Okabe-Ito"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "#00000033" "#E69F0033" "#56B4E933" "#009E7333" "#F0E44233" "#0072B233"
 [7] "#D55E0033" "#CC79A733"</code></pre>
 </div>
 </div>
 <section id="color-scales-built-into-ggplot2" class="level2">
-<h2 class="anchored" data-anchor-id="color-scales-built-into-ggplot2"><strong>Color Scales Built into {ggplot2}</strong></h2>
-<p>There are colors built into <strong>{ggplot2}</strong>. The <code>scale_*()</code> functions will also following the naming conventions <code>scale_color_*()</code> or <code>scale_fill_*()</code>. When you have bars, remember that you are changing <code>fill</code> color and with solid circle points you are changing <code>col</code> so your go-to functions should adhere to those naming conventions (e.g., <code>scale_fill_*()</code> and <code>scale_color_*()</code>). Some examples include: <code>scale_color_brewer()</code> or <code>scale_color_distiller()</code> for discrete or continuous scales, respectively.</p>
-<p><strong>{ggplot}</strong> functions:</p>
+<h2 class="anchored" data-anchor-id="color-scales-built-into-ggplot2"><strong>Color Scales Built into <code>{ggplot2}</code></strong></h2>
+<p>There are colors built into <strong>{ggplot2}</strong>. The <code>scale_*()</code> functions will follow the naming conventions <code>scale_color_*()</code> or <code>scale_fill_*()</code>. When you have bars or open circles, you are changing the <code>fill</code> color and with solid circle points you are changing <code>color</code> or <code>col</code>. This is somewhat confusing but your go-to functions should adhere to the naming conventions (e.g., <code>scale_fill_*()</code> and <code>scale_color_*()</code>). Some examples include: <code>scale_color_brewer()</code> or <code>scale_color_distiller()</code> for discrete or continuous scales, respectively.</p>
+<p><strong>{ggplot}</strong> functions for colors:</p>
 <ul>
 <li><code>scale_color_hue()</code>: color, <em>data</em>: discrete, <em>palette</em>: qualitative</li>
 <li><code>scale_fill_hue()</code>: fill, <em>data</em>: discrete, <em>palette</em>: qualitative</li>
@@ -998,12 +1025,17 @@ Under construction.
 </ul>
 </section>
 </section>
-<section id="colorspace" class="level1">
-<h1><strong>{colorspace}</strong></h1>
+<section id="the-colorspace-library" class="level1">
+<h1><strong>The {colorspace}</strong> Library**</h1>
 <p>The <strong>{colorspace}</strong> library written by Claus Wilke, Reto Stauffer, and Achim Zeileis brings some really useful color functionality to <strong>{ggplot2}</strong> and creates some order to an otherwise messing set of functions.</p>
-<p>Function naming convention: <code>scale_&lt;aesthetic&gt;_&lt;datatype&gt;_&lt;colorscale&gt;()</code></p>
-<p><code>&lt;aesthetic&gt;</code>: name of the aesthetic (fill, color, colour) <code>&lt;datatype&gt;</code>: type of variable plotted (discrete, continuous, binned) <code>&lt;colorscale&gt;</code>: type of the color scale (qualitative, sequential, diverging, divergingx)</p>
-<p>Scale function Aesthetic Data type Palette type</p>
+<p><strong>Four</strong> components of the naming convention: <code>scale_&lt;aesthetic&gt;_&lt;datatype&gt;_&lt;colorscale/palette-type&gt;()</code></p>
+<ul>
+<li><code>scale_*()&gt;</code>: the base scale function, <strong>plus</strong></li>
+<li><code>&lt;aesthetic&gt;</code>: name of the aesthetic (fill, color, colour)</li>
+<li><code>&lt;datatype&gt;</code>: type of variable plotted (discrete, continuous, binned)</li>
+<li><code>&lt;colorscale&gt;</code>: type of the color scale (qualitative, sequential, diverging, divergingx)</li>
+</ul>
+<p>Examples:</p>
 <ul>
 <li><code>scale_color_discrete_qualitative()</code> color, discrete, qualitative</li>
 <li><code>scale_fill_continuous_sequential()</code> fill, continuous, sequential</li>
@@ -1014,65 +1046,66 @@ Under construction.
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>colorspace<span class="sc">::</span><span class="fu">hcl_palettes</span>(<span class="at">type =</span> <span class="st">"sequential"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>) <span class="co"># all sequential palettes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>colorspace<span class="sc">::</span><span class="fu">hcl_palettes</span>(<span class="at">type =</span> <span class="st">"diverging"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>, <span class="at">n =</span> <span class="dv">9</span>) <span class="co"># all diverging palettes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>colorspace<span class="sc">::</span><span class="fu">divergingx_palettes</span>(<span class="at">plot =</span> <span class="cn">TRUE</span>, <span class="at">n =</span> <span class="dv">9</span>) <span class="co"># all divergingx palettes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
 <section id="example-plots" class="level2">
 <h2 class="anchored" data-anchor-id="example-plots"><strong>Example plots</strong></h2>
 <p>We can then specify the function according to our goal using: <code>scale_&lt;aesthetic&gt;_&lt;datatype&gt;_&lt;colorscale&gt;()</code>. We can see an example with <code>fill</code>ing points.</p>
-<p>Continuous:</p>
+<p><strong>Continuous:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(., <span class="at">Diff =</span> (Time <span class="sc">-</span> <span class="fu">mean</span>(Time, <span class="at">na.rm =</span> T))) <span class="sc">%&gt;%</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Diff)) <span class="sc">+</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_continuous</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Continuous and Sequential:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  mutate(., Diff = (Time - mean(Time, na.rm = T))) %&gt;%</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> Time)) <span class="sc">+</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_continuous_sequential</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Diff =</span> (Time <span class="sc">-</span> <span class="fu">mean</span>(Time, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">color =</span> Diff)) <span class="sc">+</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> </span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_continuous</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Discrete and Sequential:</p>
+<p><strong>Continuous and Sequential:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(., <span class="at">Diff =</span> (Time <span class="sc">-</span> <span class="fu">mean</span>(Time, <span class="at">na.rm =</span> T))) <span class="sc">%&gt;%</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">col =</span> School)) <span class="sc">+</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete_sequential</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">color =</span> Time)) <span class="sc">+</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_continuous_sequential</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>A specific palette added: <code>palette = "Inferno"</code></p>
+<p><strong>Discrete and Sequential: </strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Event <span class="sc">==</span> <span class="st">"Freestyle"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(., <span class="at">Diff =</span> (Time <span class="sc">-</span> <span class="fu">mean</span>(Time, <span class="at">na.rm =</span> T))) <span class="sc">%&gt;%</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time, <span class="at">color =</span> School)) <span class="sc">+</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete_sequential</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>A <strong>specific palette</strong> added: <code>palette = "Inferno"</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
@@ -1082,10 +1115,10 @@ Under construction.
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_continuous_sequential</span>(<span class="at">palette =</span> <span class="st">"Inferno"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Continuous and Diverging:</p>
+<p><strong>Continuous and Diverging:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(., Distance <span class="sc">&lt;</span> <span class="dv">1000</span>, Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
@@ -1095,7 +1128,7 @@ Under construction.
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_continuous_diverging</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1121,7 +1154,7 @@ Under construction.
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span></span>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_hue</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Now consider the following plot.</p>
@@ -1178,13 +1211,13 @@ scale_fill_manual(
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 201
 Columns: 10
-$ Year     &lt;dbl&gt; 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2…
+$ Year     &lt;int&gt; 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2…
 $ School   &lt;chr&gt; "Pomona-Pitzer-CA", "Claremont-Mudd-Scripps-CA", "Claremont-M…
 $ Team     &lt;chr&gt; "Mixed", "Mixed", "Mixed", "Mixed", "Mixed", "Mixed", "Mixed"…
 $ Relay    &lt;chr&gt; "Relay", "Relay", "Relay", "Relay", "Relay", "Relay", "Relay"…
-$ Distance &lt;dbl&gt; 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 2…
+$ Distance &lt;int&gt; 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 2…
 $ Name     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "…
-$ Age      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2…
+$ Age      &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2…
 $ Event    &lt;chr&gt; "Medley", "Medley", "Medley", "Medley", "Medley", "Medley", "…
 $ Time     &lt;dbl&gt; 97.74, 101.34, 101.64, 102.21, 102.83, 102.93, 103.55, 103.63…
 $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 25.77…</code></pre>
@@ -1201,27 +1234,23 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span> <span class="fu">select</span>(., Event) <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 1
-  Event       
-  &lt;chr&gt;       
-1 Medley      
-2 Freestyle   
-3 IM          
-4 Butterfly   
-5 Breaststroke
-6 Backstroke  </code></pre>
+<pre><code>           Event
+1         Medley
+16     Freestyle
+22            IM
+59     Butterfly
+112 Breaststroke
+123   Backstroke</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(., <span class="fu">desc</span>(Event)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(., Event) <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 1
-  Event       
-  &lt;chr&gt;       
-1 Medley      
-2 IM          
-3 Freestyle   
-4 Butterfly   
-5 Breaststroke
-6 Backstroke  </code></pre>
+<pre><code>           Event
+1         Medley
+16            IM
+39     Freestyle
+141    Butterfly
+168 Breaststroke
+187   Backstroke</code></pre>
 </div>
 </div>
 <p>So how you sort the data frame matters, right? No.&nbsp;</p>
@@ -1237,13 +1266,13 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 201
 Columns: 10
-$ Year     &lt;dbl&gt; 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2…
+$ Year     &lt;int&gt; 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2…
 $ School   &lt;chr&gt; "Pomona-Pitzer-CA", "Claremont-Mudd-Scripps-CA", "Claremont-M…
 $ Team     &lt;chr&gt; "Mixed", "Mixed", "Mixed", "Mixed", "Mixed", "Mixed", "Mixed"…
 $ Relay    &lt;chr&gt; "Relay", "Relay", "Relay", "Relay", "Relay", "Relay", "Relay"…
-$ Distance &lt;dbl&gt; 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 2…
+$ Distance &lt;int&gt; 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 2…
 $ Name     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "…
-$ Age      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2…
+$ Age      &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2…
 $ Event    &lt;chr&gt; "Medley", "Medley", "Medley", "Medley", "Medley", "Medley", "…
 $ Time     &lt;dbl&gt; 97.74, 101.34, 101.64, 102.21, 102.83, 102.93, 103.55, 103.63…
 $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 25.77…</code></pre>
@@ -1291,7 +1320,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1311,7 +1340,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Something is wrong. Double check your data and labels.</p>
@@ -1338,7 +1367,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>OK, so we see that the color changes because the order of the levels changed. They are reordered in the plot legend.</p>
@@ -1367,7 +1396,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1396,7 +1425,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Colors didn’t change but labels did.</p>
@@ -1428,7 +1457,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1450,7 +1479,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <section id="vectors-containing-additional-name-elements" class="level3">
@@ -1474,7 +1503,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1499,7 +1528,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>First, and most obviously, the missing pair is dropped from the legend. So the data points are stripped from the plot too, right? Look closer. No! They are in a there but plotting as <code>"grey50"</code>. This happens because the default setting <code>na.value = "grey50"</code>.</p>
@@ -1516,7 +1545,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>color_vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1575,7 +1604,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>And if you wanted more than one event, evaluate with <code>%in%</code> rather than <code>==</code>. For example, <code>names(color_vector) %in% c("Freestyle", "Butterfly")</code>.</p>
@@ -1592,7 +1621,7 @@ $ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 2
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" width="672"></p>
+<p><img src="color_scales_and_palettes_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
