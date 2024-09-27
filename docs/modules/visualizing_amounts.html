@@ -539,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/histograms_and_density_plots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Histograms and density plots</strong></span></a>
+ <span class="menu-text">Histograms and density plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -563,7 +563,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/visualizing_uncertainty.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Visualizing uncertainty</strong></span></a>
+ <span class="menu-text">Visualizing uncertainty</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -692,7 +692,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#dot-plotpoint-plot" id="toc-dot-plotpoint-plot" class="nav-link" data-scroll-target="#dot-plotpoint-plot"><strong>Dot Plot/Point Plot</strong></a></li>
   <li><a href="#sub-setting-for-separate-plots" id="toc-sub-setting-for-separate-plots" class="nav-link" data-scroll-target="#sub-setting-for-separate-plots"><strong>Sub-setting for Separate Plots</strong></a></li>
   <li><a href="#getting-counts-by-summary" id="toc-getting-counts-by-summary" class="nav-link" data-scroll-target="#getting-counts-by-summary"><strong>Getting Counts by Summary</strong></a></li>
-  <li><a href="#year-with-most-best-times" id="toc-year-with-most-best-times" class="nav-link" data-scroll-target="#year-with-most-best-times"><strong>Year with Most Best Times</strong></a></li>
   <li><a href="#lollipop-plot" id="toc-lollipop-plot" class="nav-link" data-scroll-target="#lollipop-plot"><strong>Lollipop Plot</strong></a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
   <li><a href="#session-information" id="toc-session-information" class="nav-link" data-scroll-target="#session-information"><strong>Session Information</strong></a></li>
@@ -1618,41 +1617,67 @@ $ Split50  &lt;dbl&gt; 25.48, 27.08, 27.59, 26.15, 23.80, 23.19, NA, NA, 25.26, 
 <p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="year-with-most-best-times" class="level1">
-<h1><strong>Year with Most Best Times</strong></h1>
-<p>Let’s work through a more complicated example for which you might group differently at different stages. Let’s work from the top using the full <code>SWIM</code> data in order to see the full workflow.</p>
-<ol type="1">
-<li><code>group_by()</code> <code>School</code>, <code>Team</code>, and <code>Event</code> type</li>
-<li><code>slice()</code> the data to obtain fastest values (<em>by grouping variables</em>) using <code>which.min()</code></li>
-<li>Then <code>group_by()</code> this data frame by <code>School</code> and <code>Event</code></li>
-<li><code>summarize()</code> by counting the rows (<em>by the new grouping variables</em>)</li>
-<li><code>arrange()</code> the data frame in descending order of the <code>Count</code></li>
-<li>Create the plot object and map some aesthetics</li>
-<li>Add a <code>geom_*()</code> layer</li>
-</ol>
-<p>Steps 1 and 2:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 10
+<!--
+# **Year with Most Best Times**
+
+Let's work through a more complicated example for which you might require different grouping at different stages. We can use the full `SWIM` data in order to see the full workflow. The goal would be to obtain which years contained the most (in terms of counts) of the fastest times across Athenas or Stags.  
+
+1. `group_by()` `School`, `Team`, and `Event` type (for all groups)
+2. `slice()` the data to obtain fastest values (*across grouping variables*) using `which.min()`
+3. Then `group_by()` this data frame by `School` and `Event` (to ignore teams now/pool over them)
+4. `summarize()` by counting the rows (*across the new grouping variables*)
+5. `arrange()` the data frame in descending order of the `Count`
+6. Create the plot object and map some aesthetics 
+7. Add a `geom_*()` layer
+
+Steps 1 and 2:
+
+
+::: {.cell}
+
+```{.r .cell-code}
+SWIM |> 
+  group_by(School, Team, Event) |> 
+  slice(which.min(Time)) |> 
+  head()
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 6 × 10
 # Groups:   School, Team, Event [6]
    Year School              Team  Relay Distance Name    Age Event  Time Split50
-  &lt;int&gt; &lt;chr&gt;               &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;
+  <int> <chr>               <chr> <chr>    <int> <chr> <int> <chr> <dbl>   <dbl>
 1  2023 Claremont-Mudd-Scr… Men   Sing…      100 Tan,…    19 Back…  54.0    25.5
 2  2023 Claremont-Mudd-Scr… Men   Sing…      100 Smit…    20 Brea…  58.9    27.6
 3  2023 Claremont-Mudd-Scr… Men   Sing…      100 Smit…    20 Butt…  51.1    23.8
 4  2023 Claremont-Mudd-Scr… Men   Sing…       50 Work…    20 Free…  21.3    NA  
 5  2023 Claremont-Mudd-Scr… Men   Sing…      200 Tran…    18 IM    115      25.3
-6  2023 Claremont-Mudd-Scr… Mixed Relay      200 &lt;NA&gt;     NA Free…  91.1    21.1</code></pre>
-</div>
-</div>
-<p>Adding Steps 3 and 4 to narrow down a :</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 3
+6  2023 Claremont-Mudd-Scr… Mixed Relay      200 <NA>     NA Free…  91.1    21.1
+```
+:::
+:::
+
+
+Adding Steps 3 and 4:
+
+
+::: {.cell}
+
+```{.r .cell-code}
+SWIM |> 
+  group_by(School, Team, Event) |> 
+  slice(which.min(Time)) |> 
+  group_by(School, Event) |>
+  summarize(Count = dplyr::n())
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 12 × 3
 # Groups:   School [2]
    School                    Event        Count
-   &lt;chr&gt;                     &lt;chr&gt;        &lt;int&gt;
+   <chr>                     <chr>        <int>
  1 Claremont-Mudd-Scripps-CA Backstroke       2
  2 Claremont-Mudd-Scripps-CA Breaststroke     2
  3 Claremont-Mudd-Scripps-CA Butterfly        2
@@ -1664,16 +1689,32 @@ $ Split50  &lt;dbl&gt; 25.48, 27.08, 27.59, 26.15, 23.80, 23.19, NA, NA, 25.26, 
  9 Pomona-Pitzer-CA          Butterfly        2
 10 Pomona-Pitzer-CA          Freestyle        3
 11 Pomona-Pitzer-CA          IM               2
-12 Pomona-Pitzer-CA          Medley           1</code></pre>
-</div>
-</div>
-<p>Adding Step 5:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 3
+12 Pomona-Pitzer-CA          Medley           1
+```
+:::
+:::
+
+
+Adding Step 5:
+
+
+::: {.cell}
+
+```{.r .cell-code}
+SWIM |> 
+  group_by(School, Team, Event) |> 
+  slice(which.min(Time)) |> 
+  group_by(School, Event) |>
+  summarize(Count = dplyr::n()) |>
+  arrange(desc(Count))
+```
+
+::: {.cell-output .cell-output-stdout}
+```
+# A tibble: 12 × 3
 # Groups:   School [2]
    School                    Event        Count
-   &lt;chr&gt;                     &lt;chr&gt;        &lt;int&gt;
+   <chr>                     <chr>        <int>
  1 Claremont-Mudd-Scripps-CA Freestyle        3
  2 Pomona-Pitzer-CA          Freestyle        3
  3 Claremont-Mudd-Scripps-CA Backstroke       2
@@ -1685,52 +1726,80 @@ $ Split50  &lt;dbl&gt; 25.48, 27.08, 27.59, 26.15, 23.80, 23.19, NA, NA, 25.26, 
  9 Pomona-Pitzer-CA          Butterfly        2
 10 Pomona-Pitzer-CA          IM               2
 11 Claremont-Mudd-Scripps-CA Medley           1
-12 Pomona-Pitzer-CA          Medley           1</code></pre>
-</div>
-</div>
-<p>Adding the plot layer:</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>If you are wondering what plot will look like without the initial <code>group_by(School, Team, Event)</code>, it is here. The important detail to keep in mind is that grouping data in different ways will be creating different plots. Make sure that you think through your approach before plotting.</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Adding the plot layer:</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+12 Pomona-Pitzer-CA          Medley           1
+```
+:::
+:::
+
+
+Adding the plot layer:
+
+
+::: {.cell}
+
+```{.r .cell-code}
+SWIM |> 
+  group_by(School, Team, Event) |> 
+  slice(which.min(Time)) |> 
+  group_by(School, Event) |>
+  summarize(Count = dplyr::n()) |>
+  arrange(desc(Count)) |>
+  ggplot(mapping = aes(x = Event, y = Count)) +
+  geom_col()
+```
+
+::: {.cell-output-display}
+![](visualizing_amounts_files/figure-html/unnamed-chunk-45-1.png){width=672}
+:::
+:::
+
+
+If you are wondering what plot will look like without the initial `group_by(School, Team, Event)`, it is here. The important detail to keep in mind is that grouping data in different ways will be creating different plots. Make sure that you think through your approach before plotting. This is because there would be only one fastest time for each event, for each team. If you wanted to obtain the fastest times for 
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](visualizing_amounts_files/figure-html/unnamed-chunk-46-1.png){width=672}
+:::
+:::
+
+
+
+Adding the plot layer:
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](visualizing_amounts_files/figure-html/unnamed-chunk-47-1.png){width=672}
+:::
+:::
+
+-->
 </section>
 <section id="lollipop-plot" class="level1">
 <h1><strong>Lollipop Plot</strong></h1>
 <p>A <strong>lollipop plot</strong> is like a bar plot but has less ink information. It will encode the point position as height.</p>
 <p>In order to see the variables in the data frame, let’s create it and then assign it to an object first.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>DAT <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span> </span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event) <span class="sc">|&gt;</span> </span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">which.min</span>(Time)) <span class="sc">|&gt;</span> </span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School) <span class="sc">|&gt;</span></span>
-<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> dplyr<span class="sc">::</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Count)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>DAT <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span> </span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event) <span class="sc">|&gt;</span> </span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">which.min</span>(Time)) <span class="sc">|&gt;</span> </span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School) <span class="sc">|&gt;</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> dplyr<span class="sc">::</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Count)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can use <code>geom_segment()</code> to create a line segment from a starting x and y position to an ending x and y position. We can add a <code>geom_point()</code> layer and also flip the coordinates if you want horizontal lines.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>DAT <span class="sc">|&gt;</span></span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, </span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">xend =</span> School, </span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> <span class="dv">0</span>, </span>
-<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">yend =</span> Count)</span>
-<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>               ) <span class="sc">+</span></span>
-<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, </span>
-<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>DAT <span class="sc">|&gt;</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, </span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">xend =</span> School, </span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">yend =</span> Count)</span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>               ) <span class="sc">+</span></span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, </span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1743,7 +1812,7 @@ $ Split50  &lt;dbl&gt; 25.48, 27.08, 27.59, 26.15, 23.80, 23.19, NA, NA, 25.26, 
 <section id="session-information" class="level1">
 <h1><strong>Session Information</strong></h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
