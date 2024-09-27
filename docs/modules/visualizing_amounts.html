@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gabriel I. Cook">
+<meta name="dcterms.date" content="2024-09-26">
+
+<title>Data Visualization - Visualizing amounts</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/78ddb093ea.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title"><strong>Data Visualization</strong></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text"><strong>Home</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../schedule/index.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><strong>Schedule</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../modules/index.html" rel="" target="">
+ <span class="menu-text"><strong>Modules</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../project/index.html" rel="" target="">
+ <span class="menu-text"><strong>Project</strong></span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Slides</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="../slides/01_intro_rstudio_rmarkdown_slides.html" rel="" target="">
+ <span class="dropdown-text">R, RStudio, &amp; R Markdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/02_git_slides.html" rel="" target="">
+ <span class="dropdown-text">Git and GitHub</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/03_functions_slides.html" rel="" target="">
+ <span class="dropdown-text">Functions, Parameters, and Arguments</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hw" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>HW</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
+        <li>
+    <a class="dropdown-item" href="../homework/hw01.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../homework/hw02.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../homework/hw03.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../homework/hw04.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../homework/hw05.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../homework/hw06.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 06</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../homework/hw07.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../homework/hw08.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../homework/hw09.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 09</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../homework/hw10.Rmd" rel="" target="">
+ <span class="dropdown-text">HW 10</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Exercises</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
+        <li>
+    <a class="dropdown-item" href="../exercises/example-project-management-and-git.pdf" rel="" target="">
+ <span class="dropdown-text">project-management-and-git.pdf</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/grouping_and_summarizing_exercise.pdf" rel="" target="">
+ <span class="dropdown-text">grouping_and_summarizing_exercise.pdf</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/grouping-summarizing-and-plotting-exercise.pdf" rel="" target="">
+ <span class="dropdown-text">grouping-summarizing-and-plotting-exercise.pdf</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/visualizing-associations-exercise.pdf" rel="" target="">
+ <span class="dropdown-text">visualizing-associations-exercise.pdf</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/spatial-position-exercise.pdf" rel="" target="">
+ <span class="dropdown-text">spatial-position-exercise.pdf</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Data</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="../data/baby-names-2008.csv" rel="" target="">
+ <span class="dropdown-text">baby-names-2008.csv</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../data/cms-top-all-time-2023-swim.xlsx" rel="" target="">
+ <span class="dropdown-text">cms-top-all-time-2023-swim.xlsx (/data/raw)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../data/cms-top-all-time-2023-swim.csv" rel="" target="">
+ <span class="dropdown-text">cms-top-all-time-2023-swim.csv (/data/raw)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../data/processed/cleaned-cms-top-all-time-2023-swim.csv" rel="" target="">
+ <span class="dropdown-text">cleaned-cms-top-all-time-2023-swim.csv (/data/processed)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../data/processed/cleaned-2023-cms-invite.csv" rel="" target="">
+ <span class="dropdown-text">cleaned-2023-cms-invite.csv (/data/processed)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/rfordatascience/tidytuesday" rel="" target="">
+ <span class="dropdown-text">Fun Tidy Tuesday Data Sets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
+ <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example-files--other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Example Files &amp; Other</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-example-files--other">    
+        <li>
+    <a class="dropdown-item" href="../resources/tools.html" rel="" target="">
+ <span class="dropdown-text"><strong>Other Tools/Resources</strong></span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-figure-script.R" rel="" target="">
+ <span class="dropdown-text">example-figure-script.R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../examples/example-rmarkdown-file-with-fig-script.Rmd" rel="" target="">
+ <span class="dropdown-text">example-rmarkdown-file-with-fig-script.Rmd</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cheatsheets" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><strong>Cheatsheets</strong></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-cheatsheets">    
+        <li>
+    <a class="dropdown-item" href="../cheatsheets_and_tips/symbols.html" rel="" target="">
+ <span class="dropdown-text">Symbols</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/rmarkdown-2.0.pdf" rel="" target="">
+ <span class="dropdown-text">RMarkdown</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" rel="" target="">
+ <span class="dropdown-text">Data Wrangling with {dplyr} and {tidyr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/quarto.html" rel="" target="">
+ <span class="dropdown-text">Quarto (Publish and Share)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/strings.html" rel="" target="">
+ <span class="dropdown-text">String Manipulation with {stringr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/data-import.html" rel="" target="">
+ <span class="dropdown-text">Reading and Writing Data with {readr}</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cheatsheets/Data_Science_With_R_Workflow.pdf" rel="" target="">
+ <span class="dropdown-text">Data Science with RWorkflow</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/" rel="" target="">
+ <span class="dropdown-text">More Cheatsheets From RStudio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://images.datacamp.com/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf" rel="" target="">
+ <span class="dropdown-text">Quarto Cheat Sheet (what Quarto Files Look Like)</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/slicesofdata" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gabrielcook.xyz" rel="" target="">
+ <span class="menu-text">Me</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/visualizing_amounts.html">Visualizing amounts</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus/syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules_setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation, Setup, &amp; R Basics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules_setup/Installation &amp; Setup/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installation &amp; Setup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/Installation &amp; Setup/installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing R &amp; RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/Installation &amp; Setup/installing_git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing Git</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules_setup/R Basics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Basics and Refreshers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to RStudio, R Markdown, &amp; Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/functions_and_scripts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions, Arguments, and R scripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/vectors_and_data_frame_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vectors and data frame basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules_setup/R Basics/reading_data_files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading data files</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project Management</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/project_management/setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Management 01</em>: Setting Up Git and GitHub for R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/project_management/using_git_and_github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Management 02</em>: R Projects, Git, and GitHub</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/graphical_perception.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphical perception</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/data_frame_manipulation_and_wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data frame manipulation and wrangling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/data_subsets_and_summaries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data subsets and summaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/considerations_in_data_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Considerations in data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/designing_perceptually_efficient_visualizations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Designing perceptually-efficient visualizations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><code>{ggplot2}</code>: The Grammar of Graphics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_associations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing associations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/spatial_position_and_adjustment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial position and adjustment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/color_scales_and_palettes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Color scales and palettes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_amounts.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Visualizing amounts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/histograms_and_density_plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Histograms and density plots</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/coordinates_axes_and_position_scales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coordinates, axes, and position scales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/statistical_transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical transformations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_more_distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing more distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_uncertainty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Visualizing uncertainty</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/legends_and_arrangement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Legends and arrangement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_trends.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing trends</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/multi_panel_plots_faceting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Multi-panel plots: Faceting</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/annotation_and_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Annotation and text</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/attentional_control.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Attentional control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/themes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Figure design &amp; themes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/titles_captions_and_tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Title, Captions, and Tables</strong></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../project/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Project</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Team membership and roles</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/02_project_midterm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Midterm presentation</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/03_project_final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Final Presentation</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/04_project_report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Final Report</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/05_project_tasks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Project Tasks</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../project/06_using_git_with_branches.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><em>Git Branch Merging Tutorial</em></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
+  <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
+  <ul class="collapse">
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
+  <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
+  </ul></li>
+  <li><a href="#loading-libraries" id="toc-loading-libraries" class="nav-link" data-scroll-target="#loading-libraries"><strong>Loading Libraries</strong></a></li>
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><strong>Loading Data</strong></a></li>
+  <li><a href="#making-some-plots" id="toc-making-some-plots" class="nav-link" data-scroll-target="#making-some-plots"><strong>Making some plots</strong></a></li>
+  <li><a href="#plotting-counts" id="toc-plotting-counts" class="nav-link" data-scroll-target="#plotting-counts"><strong>Plotting Counts</strong></a>
+  <ul class="collapse">
+  <li><a href="#reduce-the-data-frame-to-contain-the-bests" id="toc-reduce-the-data-frame-to-contain-the-bests" class="nav-link" data-scroll-target="#reduce-the-data-frame-to-contain-the-bests"><strong>Reduce the data frame to contain the bests</strong></a></li>
+  <li><a href="#data-in-tabular-form" id="toc-data-in-tabular-form" class="nav-link" data-scroll-target="#data-in-tabular-form"><strong>Data in Tabular Form</strong></a></li>
+  <li><a href="#bar-charts" id="toc-bar-charts" class="nav-link" data-scroll-target="#bar-charts"><strong>Bar Charts</strong></a>
+  <ul class="collapse">
+  <li><a href="#geom_bar" id="toc-geom_bar" class="nav-link" data-scroll-target="#geom_bar"><strong><code>geom_bar()</code></strong></a></li>
+  <li><a href="#geom_col" id="toc-geom_col" class="nav-link" data-scroll-target="#geom_col"><strong><code>geom_col()</code></strong></a></li>
+  </ul></li>
+  <li><a href="#adding-layers" id="toc-adding-layers" class="nav-link" data-scroll-target="#adding-layers"><strong>Adding Layers</strong></a></li>
+  </ul></li>
+  <li><a href="#dot-plotpoint-plot" id="toc-dot-plotpoint-plot" class="nav-link" data-scroll-target="#dot-plotpoint-plot"><strong>Dot Plot/Point Plot</strong></a></li>
+  <li><a href="#sub-setting-for-separate-plots" id="toc-sub-setting-for-separate-plots" class="nav-link" data-scroll-target="#sub-setting-for-separate-plots"><strong>Sub-setting for Separate Plots</strong></a></li>
+  <li><a href="#getting-counts-by-summary" id="toc-getting-counts-by-summary" class="nav-link" data-scroll-target="#getting-counts-by-summary"><strong>Getting Counts by Summary</strong></a></li>
+  <li><a href="#year-with-most-best-times" id="toc-year-with-most-best-times" class="nav-link" data-scroll-target="#year-with-most-best-times"><strong>Year with Most Best Times</strong></a></li>
+  <li><a href="#lollipop-plot" id="toc-lollipop-plot" class="nav-link" data-scroll-target="#lollipop-plot"><strong>Lollipop Plot</strong></a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><strong>Summary</strong></a></li>
+  <li><a href="#session-information" id="toc-session-information" class="nav-link" data-scroll-target="#session-information"><strong>Session Information</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Visualizing amounts</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gabriel I. Cook </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 26, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="overview" class="level1">
+<h1><strong>Overview</strong></h1>
+<p>This module demonstrates some ways to visualize amounts or quantities.</p>
+<p>There are a few key concerns for any data presentation. First, you need to determine what data you want to present. Second, you must to determine how the user will use that information presented. For example, will they make comparisons and if so, what kind of comparisons will they make? The more complicated the data presented, the more comparisons can be made of course. Third, you must consider the interaction between the two, in essence how the data visualization may affect the goal the user has in mind. If you intend users to make a particular comparison, you want to present your data in a way that facilitates that process rather than hinder that process.</p>
+<p>Amounts could be presented in tabular form for instance when actual values are essential. Amounts could also be presented in visual form as a graphic of some form. Depending on the goals or the use of the data, creating separate plots that facilitate the interpretation process may be most optimal when the bias of the user competes with the aesthetic elements of the visualization (e.g., Gestalt principles).</p>
+<p>A sub goal of the module is also to understand how to map variables in a data frame to geoms and corresponding aesthetics using <strong>{ggplot2}</strong>.</p>
+</section>
+<section id="to-do" class="level1">
+<h1><strong>To Do</strong></h1>
+<section id="readings" class="level2">
+<h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
+<!--
+Reading should take place in two parts:
+
+ - *Prior to class*, the goal should be to familiarize yourself and bring questions to class. The readings from [FoDV](https://clauswilke.com/dataviz) are conceptual and should facilitate readings from [EGDA](https://ggplot2-book.org/) for code implementation.
+ - *After class*, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems. 
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of **{ggplot2}**. I will assume that you attend class with some level of basic understanding of concepts.
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing **{ggplot2}** code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week's readings. 
+
+*After Class*: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from **Wickham, Navarro, & Pedersen (under revision)**. *ggplot2: Elegant Graphics for Data Analysis (3e)*.
+
+- [Wilke (2019). *Fundamentals of Data Visualization*. Directory of visualizations](https://clauswilke.com/dataviz/directory-of-visualizations.html)
+- [Wilke (2019). *Fundamentals of Data Visualization*. Visualizing Amounts](https://clauswilke.com/dataviz/visualizing-amounts.html)
+
+-->
+</section>
+<section id="libraries" class="level2">
+<h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
+<ul>
+<li><strong>{here}</strong>: 1.0.1: for path management</li>
+<li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating <!--- **{magrittr}** 2.0.3: for code clarity and piping data frame objects--></li>
+<li><strong>{ggplot2}</strong>: 3.5.1: for creating data visualization</li>
+<li><strong>{SwimmeR}</strong>: 0.14.2: for processing swim meet data</li>
+</ul>
+</section>
+<section id="external-functions" class="level2">
+<h2 class="anchored" data-anchor-id="external-functions"><strong>External Functions</strong></h2>
+<p>Provided in class:</p>
+<p><code>view_html()</code>: for viewing data frames in html format, from <code>/src/functions/view_html.R</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.utils<span class="sc">::</span><span class="fu">sourceDirectory</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src"</span>, <span class="st">"functions"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="loading-libraries" class="level1">
+<h1><strong>Loading Libraries</strong></h1>
+<p>We will work with a few different libraries for data manipulation. Let’s load them into our work space using <code>library()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SwimmeR) <span class="co"># was used to clean times</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Note:</em> Make note of any warnings that appear when loading libraries. There are some libraries that contain functions with the same names. Be aware that the most recently loaded library function will take precedence. You can avoid confusion using <code>::</code> to call a function from a particular library (e.g., <code>libraryname::functionname()</code>).</p>
+</section>
+<section id="loading-data" class="level1">
+<h1><strong>Loading Data</strong></h1>
+<p>To examine some associations, we will use some swimming event times which can be accessed from:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>https://raw.githubusercontent.com/slicesofdata/dataviz24/main/data/processed/cleaned-2023-cms-invite.csv</code></pre>
+</div>
+</div>
+<p>To access the data, either read the file directly from the url using <code>read.csv()</code> and assign the data frame a name like <code>SWIM</code>:</p>
+<p><code>read.csv("https://raw.githubusercontent.com/slicesofdata/dataviz24/main/data/processed/cleaned-2023-cms-invite.csv")</code></p>
+<p>Or <a href="https://raw.githubusercontent.com/slicesofdata/dataviz24/main/data/processed/cleaned-2023-cms-invite.csv">download it</a> and save to the <code>/data/processed</code> directory and read from there.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"processed"</span>, <span class="st">"cleaned-2023-cms-invite.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Take a glimpse:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 201
+Columns: 10
+$ Year     &lt;int&gt; 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2…
+$ School   &lt;chr&gt; "Pomona-Pitzer-CA", "Claremont-Mudd-Scripps-CA", "Claremont-M…
+$ Team     &lt;chr&gt; "Mixed", "Mixed", "Mixed", "Mixed", "Mixed", "Mixed", "Mixed"…
+$ Relay    &lt;chr&gt; "Relay", "Relay", "Relay", "Relay", "Relay", "Relay", "Relay"…
+$ Distance &lt;int&gt; 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 2…
+$ Name     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "…
+$ Age      &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2…
+$ Event    &lt;chr&gt; "Medley", "Medley", "Medley", "Medley", "Medley", "Medley", "…
+$ Time     &lt;dbl&gt; 97.74, 101.34, 101.64, 102.21, 102.83, 102.93, 103.55, 103.63…
+$ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 25.77…</code></pre>
+</div>
+</div>
+<p>Group by <code>Event</code> and take a glimpse:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 201
+Columns: 10
+Groups: Event [6]
+$ Year     &lt;int&gt; 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2…
+$ School   &lt;chr&gt; "Pomona-Pitzer-CA", "Claremont-Mudd-Scripps-CA", "Claremont-M…
+$ Team     &lt;chr&gt; "Mixed", "Mixed", "Mixed", "Mixed", "Mixed", "Mixed", "Mixed"…
+$ Relay    &lt;chr&gt; "Relay", "Relay", "Relay", "Relay", "Relay", "Relay", "Relay"…
+$ Distance &lt;int&gt; 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 2…
+$ Name     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "…
+$ Age      &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 2…
+$ Event    &lt;chr&gt; "Medley", "Medley", "Medley", "Medley", "Medley", "Medley", "…
+$ Time     &lt;dbl&gt; 97.74, 101.34, 101.64, 102.21, 102.83, 102.93, 103.55, 103.63…
+$ Split50  &lt;dbl&gt; 26.35, 24.40, 24.06, 24.99, 24.37, 27.46, 28.54, 26.75, 25.77…</code></pre>
+</div>
+</div>
+</section>
+<section id="making-some-plots" class="level1">
+<h1><strong>Making some plots</strong></h1>
+<p>Based on the data, there are all different types of way to plot amounts even when there are limited variables. More complex data frames will offer more possibilities. Nevertheless, we can create plots bars based on a single metric or bars that stack based on multiple metrics, bars that are not stacked, points, etc. Amounts could be based on variables visibly present in the data frame or involve creating new variables or statistical transformations. For example, amounts to be time, counts, percentages, etc.</p>
+</section>
+<section id="plotting-counts" class="level1">
+<h1><strong>Plotting Counts</strong></h1>
+<p>We can take the count of various events in order to plot the amount of something. But what fun would an initial example be if it did not introduce a new function? <code>dplyr::slice()</code> is a function that allows you to index rows so that you can select, remove, or duplicate rows. For more information, see <code>?slice</code>.</p>
+<p>Let’s say we want to plot the number of instances for which an ultimate best occurred in a given year. The data set contains bests for each year rather than best times across history. So for each event, we can figure out which year had the fastest time and count the number of instances per year. Then, using that data frame, we can create a data visualization that communicates the number of all-time-bests across the years.</p>
+<p>How many events are in the data?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(Event) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">length</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 201</code></pre>
+</div>
+</div>
+<p>Um, that’s too many events. Let’s get <code>unique()</code> instances.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(Event) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Medley"       "Freestyle"    "IM"           "Butterfly"    "Breaststroke"
+[6] "Backstroke"  </code></pre>
+</div>
+</div>
+<p>OK, so we are dealing with a total number of 6 events for Stag and Athena data. We could also examine the number of events per year but that involves more wrangling, so let’s make the assumption that the number of swim <code>Events</code> is constant. Let’s also assume that the <code>Time</code> variable is cleaned up correctly or the plots will be inaccurate given the data. We will not wrangle here but you should make note of whether everything looks accurate.</p>
+<section id="reduce-the-data-frame-to-contain-the-bests" class="level2">
+<h2 class="anchored" data-anchor-id="reduce-the-data-frame-to-contain-the-bests"><strong>Reduce the data frame to contain the bests</strong></h2>
+<p>We will group the data by <code>Event</code> and <code>slice()</code> the data so that the data frame contains rows that represent the fastest <code>Time</code> per event. The <code>which.min()</code> function will return the row in an <code>Event</code> that contains the lowest value for the variable, <code>Time</code>.</p>
+<p>We start with 201 rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(SWIM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 201  10</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">which.min</span>(Time)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 10
+# Groups:   Event [6]
+   Year School              Team  Relay Distance Name    Age Event  Time Split50
+  &lt;int&gt; &lt;chr&gt;               &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;
+1  2023 Claremont-Mudd-Scr… Men   Sing…      100 Tan,…    19 Back…  54.0    25.5
+2  2023 Pomona-Pitzer-CA    Men   Sing…      100 Yu, …    20 Brea…  55.2    26.2
+3  2023 Pomona-Pitzer-CA    Men   Sing…      100 Clem…    19 Butt…  49.7    23.2
+4  2023 Claremont-Mudd-Scr… Men   Sing…       50 Work…    20 Free…  21.3    NA  
+5  2023 Pomona-Pitzer-CA    Men   Sing…      200 Pan,…    21 IM    112.     23.8
+6  2023 Pomona-Pitzer-CA    Mixed Relay      200 &lt;NA&gt;     NA Medl…  97.7    26.4</code></pre>
+</div>
+</div>
+<p>Let’s assign the new data frame to an object:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event, School) <span class="sc">|&gt;</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">which.min</span>(Time)) </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span> </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 12
+Columns: 10
+Groups: Event, School [12]
+$ Year     &lt;int&gt; 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2…
+$ School   &lt;chr&gt; "Claremont-Mudd-Scripps-CA", "Pomona-Pitzer-CA", "Claremont-M…
+$ Team     &lt;chr&gt; "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men", "Men"…
+$ Relay    &lt;chr&gt; "Single", "Single", "Single", "Single", "Single", "Single", "…
+$ Distance &lt;int&gt; 100, 100, 100, 100, 100, 100, 50, 50, 200, 200, 200, 200
+$ Name     &lt;chr&gt; "Tan, Jeremy Y", "Harandi, Matteen J", "Smith, Ben J", "Yu, L…
+$ Age      &lt;int&gt; 19, 19, 20, 20, 20, 19, 20, 18, 18, 21, NA, NA
+$ Event    &lt;chr&gt; "Backstroke", "Backstroke", "Breaststroke", "Breaststroke", "…
+$ Time     &lt;dbl&gt; 53.95, 56.40, 58.93, 55.17, 51.09, 49.66, 21.34, 21.64, 115.0…
+$ Split50  &lt;dbl&gt; 25.48, 27.08, 27.59, 26.15, 23.80, 23.19, NA, NA, 25.26, 23.8…</code></pre>
+</div>
+</div>
+<p>We now have a data frame containing 12 rows.</p>
+</section>
+<section id="data-in-tabular-form" class="level2">
+<h2 class="anchored" data-anchor-id="data-in-tabular-form"><strong>Data in Tabular Form</strong></h2>
+<p>There are many ways to present tabular data. <strong>{htmlTable}</strong> and <strong>{knitr}</strong> as well as other make this easy. For now, we will pass the data frame to <code>htmlTable::htmlTable()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 25%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 18%">
+<col style="width: 3%">
+<col style="width: 12%">
+<col style="width: 6%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Year</th>
+<th style="text-align: left;">School</th>
+<th style="text-align: left;">Team</th>
+<th style="text-align: left;">Relay</th>
+<th style="text-align: right;">Distance</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: right;">Age</th>
+<th style="text-align: left;">Event</th>
+<th style="text-align: right;">Time</th>
+<th style="text-align: right;">Split50</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Men</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">Tan, Jeremy Y</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">Backstroke</td>
+<td style="text-align: right;">53.95</td>
+<td style="text-align: right;">25.48</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Men</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">Harandi, Matteen J</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">Backstroke</td>
+<td style="text-align: right;">56.40</td>
+<td style="text-align: right;">27.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Men</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">Smith, Ben J</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">Breaststroke</td>
+<td style="text-align: right;">58.93</td>
+<td style="text-align: right;">27.59</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Men</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">Yu, Larry</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">Breaststroke</td>
+<td style="text-align: right;">55.17</td>
+<td style="text-align: right;">26.15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Men</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">Smith, Ben J</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">Butterfly</td>
+<td style="text-align: right;">51.09</td>
+<td style="text-align: right;">23.80</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Men</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">Clement, Adrian W</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">Butterfly</td>
+<td style="text-align: right;">49.66</td>
+<td style="text-align: right;">23.19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Men</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">Workman, Eric D</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">Freestyle</td>
+<td style="text-align: right;">21.34</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Men</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">Raybukh, Lenny</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Freestyle</td>
+<td style="text-align: right;">21.64</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Men</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: left;">Tran, Steven</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">IM</td>
+<td style="text-align: right;">115.00</td>
+<td style="text-align: right;">25.26</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Men</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: left;">Pan, Isaac S</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;">IM</td>
+<td style="text-align: right;">112.33</td>
+<td style="text-align: right;">23.84</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Mixed</td>
+<td style="text-align: left;">Relay</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">Medley</td>
+<td style="text-align: right;">101.34</td>
+<td style="text-align: right;">24.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2023</td>
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Mixed</td>
+<td style="text-align: left;">Relay</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">Medley</td>
+<td style="text-align: right;">97.74</td>
+<td style="text-align: right;">26.35</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Selecting only the <code>Event</code> and the <code>Team</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Event, Team) <span class="sc">|&gt;</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Adding missing grouping variables: `School`</code></pre>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">School</th>
+<th style="text-align: left;">Event</th>
+<th style="text-align: left;">Team</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Backstroke</td>
+<td style="text-align: left;">Men</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Backstroke</td>
+<td style="text-align: left;">Men</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Breaststroke</td>
+<td style="text-align: left;">Men</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Breaststroke</td>
+<td style="text-align: left;">Men</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Butterfly</td>
+<td style="text-align: left;">Men</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Butterfly</td>
+<td style="text-align: left;">Men</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Freestyle</td>
+<td style="text-align: left;">Men</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Freestyle</td>
+<td style="text-align: left;">Men</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">IM</td>
+<td style="text-align: left;">Men</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">IM</td>
+<td style="text-align: left;">Men</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Medley</td>
+<td style="text-align: left;">Mixed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Medley</td>
+<td style="text-align: left;">Mixed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># or htmlTable::htmlTable()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Selecting only the <code>Event</code> and the <code>Name</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Event, Name) <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>() <span class="co">#|&gt; </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Adding missing grouping variables: `School`</code></pre>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">School</th>
+<th style="text-align: left;">Event</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Backstroke</td>
+<td style="text-align: left;">Tan, Jeremy Y</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Backstroke</td>
+<td style="text-align: left;">Harandi, Matteen J</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Breaststroke</td>
+<td style="text-align: left;">Smith, Ben J</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Breaststroke</td>
+<td style="text-align: left;">Yu, Larry</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Butterfly</td>
+<td style="text-align: left;">Smith, Ben J</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Butterfly</td>
+<td style="text-align: left;">Clement, Adrian W</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Freestyle</td>
+<td style="text-align: left;">Workman, Eric D</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Freestyle</td>
+<td style="text-align: left;">Raybukh, Lenny</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">IM</td>
+<td style="text-align: left;">Tran, Steven</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">IM</td>
+<td style="text-align: left;">Pan, Isaac S</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claremont-Mudd-Scripps-CA</td>
+<td style="text-align: left;">Medley</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pomona-Pitzer-CA</td>
+<td style="text-align: left;">Medley</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#or htmlTable::htmlTable()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The tables show the best <code>Year</code> and the best athlete per event.</p>
+</section>
+<section id="bar-charts" class="level2">
+<h2 class="anchored" data-anchor-id="bar-charts"><strong>Bar Charts</strong></h2>
+<p>Perhaps a table is not what you want. Perhaps you want to present data as bars. There are two types of bar chart geometry functions: <code>geom_bar()</code> and <code>geom_col()</code>. <code>geom_bar()</code> takes either an x or a y (not both) and produces a plot for which the height of the bar is proportional to the count/frequency of cases in the vector. By contrast, <code>geom_col()</code> takes both an x and a y and plots the height of each x variable bar relative to the value of the y variable. If you want the heights of the bars to represent values in the data (e.g., “identity”), use <code>geom_col()</code>.</p>
+<section id="geom_bar" class="level3">
+<h3 class="anchored" data-anchor-id="geom_bar"><strong><code>geom_bar()</code></strong></h3>
+<pre><code>geom_bar(
+  mapping = NULL,
+  data = NULL,
+  stat = "count",
+  position = "stack",
+  ...,
+  just = 0.5,
+  width = NULL,
+  na.rm = FALSE,
+  orientation = NA,
+  show.legend = NA,
+  inherit.aes = TRUE
+)</code></pre>
+<p>Trying out <code>geom_bar()</code>, we need an either an x or a y aesthetic mapping but not both. When passing a variable to x, the bar will be vertical and when passing the variable to y, the bar will be horizontal. Because the mapping is inherited from <code>ggplot()</code> if specified there, you will throw an error like the following because both x and y will be inherited.</p>
+<p>Using <code>|&gt;</code>, we will pass the data frame to <code>ggplot()</code>:</p>
+<pre><code>SWIM |&gt;
+  ggplot(mapping = aes(x = Year, y = Time)) +
+  geom_bar()</code></pre>
+<pre><code>Error in f(): ! stat_count() can only have an x or y aesthetic.</code></pre>
+<p>We can change the mapping in the base <code>ggplot()</code> layer, which will plot bars corresponding to the unique levels of the variable passed to x at a height relative to the frequency of occurrence of those unique levels.</p>
+<p>Checking <code>?geom_bar</code>, you will notice that <code>geom_bar()</code> has a default <code>stat = "count"</code>. This means that the default bar plot will plot the “count”, or frequency, of elements in a vector variable. When the count or frequency of a value is 1, the bar height will be 1 on the y axis and if an element appears 5 times in the vector, the bar height will be 5. For a horizontal bar, the bar length, rather than height, will be 5. Looking at <code>FAST_BY_EVENT$Age</code>, you will see different ages. Based on the previous discussion, what might you expect the bar to look like? Answer before seeing the plot or explain why after seeing the plot.</p>
+<p>Let’s pass a variable to x:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
+(`stat_count()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You will notice that the y-axis variable in the plot is <em>count</em>. This variable is not in the data frame. <strong>{ggplot}</strong> calculated the count as the default behavior of <code>geom_bar()</code> using the <code>stat_*()</code> function associated with <code>geom_bar()</code>, with is <code>stat_count()</code>. That is where the count comes from. If you pass <code>stat = "count"</code>, you will get the same plot because this is the default behavior calling <code>stat_count()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
+(`stat_count()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Makes sense.</p>
+<p>Mapping <code>Team</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Team)) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Makes sense.</p>
+<p>Mapping <code>Event</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event)) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Ugly. The bars are all the same height. That’s because the counts are the same for all events. This might not be what you expected to see but this is what <code>geom_bar()</code> is doing. It operates differently from <code>geom_col()</code>.</p>
+<p>Let’s map a variable to y:</p>
+<p>Start with <code>Team</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> Team)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Now <code>Age</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> Age)) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
+(`stat_count()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Mapping for an x and a y like this will fail. Try for yourself.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> School)) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>IMPORTANT:</strong> Becuase <code>geom_bar()</code> inherits both x and y from <code>ggplot()</code>, you will want the heights of the bars to represent values in the data (e.g., their <code>"identity"</code> as shown in the data frame), use <code>geom_bar()</code> and pass <code>stat = "identity")</code>. You should see the same plot as shown with passing only <code>x = Year</code> except for the inclusion of <code>Team</code> information.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> School)) <span class="sc">+</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_bar()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This plot is ugly. We will work on fixing this later but or now understand that <strong><code>geom_bar()</code> and <code>geom_col()</code> differ in how they process data but they both can be used to create the same plot.</strong></p>
+</section>
+<section id="geom_col" class="level3">
+<h3 class="anchored" data-anchor-id="geom_col"><strong><code>geom_col()</code></strong></h3>
+<p>Remember that <code>geom_col()</code> takes <strong>both an x and a y</strong> and plots the height of each x variable bar relative to the value of the y variable. The default position behavior also <code>position = "stack"</code> when another another variable is mapped to another aesthetic.</p>
+<pre><code>geom_col(
+  mapping = NULL,
+  data = NULL,
+  position = "stack",
+  ...,
+  just = 0.5,
+  width = NULL,
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE
+)</code></pre>
+<p>Mapping only x and y:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Switching x and y:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> Name)) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="adding-layers" class="level2">
+<h2 class="anchored" data-anchor-id="adding-layers"><strong>Adding Layers</strong></h2>
+<p>We can take a plot object and add layers that will override defaults. Let’s assign the plot to an object to make adding some layers easier, though not necessary.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>(fast_by_event_col <span class="ot">&lt;-</span> FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Add a <code>coord_*()</code> layer, specifically <code>coord_flip()</code> to flip the coordinates. Take object, and add layer using <code>+</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>fast_by_event_col <span class="sc">+</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Add a <code>theme()</code> layer:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fast_by_event_col <span class="sc">+</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Add label layers:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>fast_by_event_col <span class="sc">+</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="dot-plotpoint-plot" class="level1">
+<h1><strong>Dot Plot/Point Plot</strong></h1>
+<p>You can also plot amounts as points. We will add an aesthetic here to color code the points by <code>Team</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>(fast_by_event_point <span class="ot">&lt;-</span> FAST_BY_EVENT <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Team)) <span class="sc">+</span>  </span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Seconds"</span>)</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="sub-setting-for-separate-plots" class="level1">
+<h1><strong>Sub-setting for Separate Plots</strong></h1>
+<p>Let’s create a data summary for <code>Team</code>s and <code>Event</code>s. just do this for each each team by changing the data frame. There are other ways to address this problem but we will cover those topics later.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span> </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Team, Event) <span class="sc">|&gt;</span> </span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">which.min</span>(Time)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 10
+# Groups:   Team, Event [12]
+    Year School             Team  Relay Distance Name    Age Event  Time Split50
+   &lt;int&gt; &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;
+ 1  2023 Claremont-Mudd-Sc… Men   Sing…      100 Tan,…    19 Back…  54.0    25.5
+ 2  2023 Pomona-Pitzer-CA   Men   Sing…      100 Yu, …    20 Brea…  55.2    26.2
+ 3  2023 Pomona-Pitzer-CA   Men   Sing…      100 Clem…    19 Butt…  49.7    23.2
+ 4  2023 Claremont-Mudd-Sc… Men   Sing…       50 Work…    20 Free…  21.3    NA  
+ 5  2023 Pomona-Pitzer-CA   Men   Sing…      200 Pan,…    21 IM    112.     23.8
+ 6  2023 Pomona-Pitzer-CA   Mixed Relay      200 &lt;NA&gt;     NA Free…  88.1    23.9
+ 7  2023 Pomona-Pitzer-CA   Mixed Relay      200 &lt;NA&gt;     NA Medl…  97.7    26.4
+ 8  2023 Claremont-Mudd-Sc… Women Sing…      100 Towe…    20 Back…  62.8    30.3
+ 9  2023 Pomona-Pitzer-CA   Women Sing…      100 Gill…    22 Brea…  62.4    29.7
+10  2023 Claremont-Mudd-Sc… Women Sing…      100 Shar…    19 Butt…  57.3    26.7
+11  2023 Pomona-Pitzer-CA   Women Sing…       50 Wang…    18 Free…  24.2    NA  
+12  2023 Pomona-Pitzer-CA   Women Sing…      200 Jone…    19 IM    128.     27.9</code></pre>
+</div>
+</div>
+<p>Let’s assign this to an object so that we can use the grouping data in a plot layer. You might also write this out as an <code>.Rds</code> file if such a data frame is used for a variately of plots.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>FAST_BY_EVENT_TEAM <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span> </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Team, Event) <span class="sc">|&gt;</span> </span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">which.min</span>(Time)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Take the grouped data frame and filter by <code>Team</code> and <code>School</code> and create a <code>geom_col()</code>.</p>
+<p>For <code>Team == "Men"</code> and <code>School == "Claremont-Mudd-Scripps-CA"</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>(fast_be_event_team_col_men <span class="ot">&lt;-</span> </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  FAST_BY_EVENT_TEAM <span class="sc">|&gt;</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Team <span class="sc">==</span> <span class="st">"Men"</span>,</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>         School <span class="sc">==</span> <span class="st">"Claremont-Mudd-Scripps-CA"</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span>  </span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Seconds"</span>) <span class="sc">+</span></span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Fastest Stags"</span>)</span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>And for <code>Team == "Women"</code> and <code>School == "Claremont-Mudd-Scripps-CA"</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>(fast_be_event_team_col_women <span class="ot">&lt;-</span> </span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    FAST_BY_EVENT_TEAM <span class="sc">|&gt;</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Team <span class="sc">==</span> <span class="st">"Women"</span>,</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>           School <span class="sc">==</span> <span class="st">"Claremont-Mudd-Scripps-CA"</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>           ) <span class="sc">|&gt;</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Team <span class="sc">==</span> <span class="st">"Women"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Name, <span class="at">y =</span> Time))  <span class="sc">+</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span>  </span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Seconds"</span>) <span class="sc">+</span></span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Fastest Athenas"</span>)</span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Notice what happens if you plotted <code>Event</code> along with with <code>Name</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>(fast_be_event_team_col_women <span class="ot">&lt;-</span> </span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    FAST_BY_EVENT_TEAM <span class="sc">|&gt;</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Team <span class="sc">==</span> <span class="st">"Women"</span>,</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>           School <span class="sc">==</span> <span class="st">"Claremont-Mudd-Scripps-CA"</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>           ) <span class="sc">|&gt;</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Team <span class="sc">==</span> <span class="st">"Women"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Name))  <span class="sc">+</span></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span>  </span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">" "</span>) <span class="sc">+</span></span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">"Seconds"</span>) <span class="sc">+</span></span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Fastest Athenas"</span>)</span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This probably looks different from your expectation. Although names and events are in the plot, the plot seems nonsensical. The function is working as it was designed because the default positioning behavior of <code>geom_col()</code> is <code>position = "identity"</code>. What you see is what you get. Indeed the fastest backstroke butterfly athletes are represented in the plot.</p>
+</section>
+<section id="getting-counts-by-summary" class="level1">
+<h1><strong>Getting Counts by Summary</strong></h1>
+<p>Let’s use <strong>{dplyr}</strong> to help us obtain subgroups.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>COUNT_BY_SCHOOL <span class="ot">&lt;-</span> </span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  SWIM <span class="sc">|&gt;</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event) <span class="sc">|&gt;</span>             <span class="co"># group by event</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">which.min</span>(Time)) <span class="sc">|&gt;</span>      <span class="co"># get fastest times per event</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School) <span class="sc">|&gt;</span>            <span class="co"># group by school</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> dplyr<span class="sc">::</span><span class="fu">n</span>())  <span class="co"># get the row count for each school</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Look at the data frame head.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(COUNT_BY_SCHOOL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  School                    Count
+  &lt;chr&gt;                     &lt;int&gt;
+1 Claremont-Mudd-Scripps-CA     2
+2 Pomona-Pitzer-CA              4</code></pre>
+</div>
+</div>
+<p>Using <code>geom_bar(stat = "identity")</code> we will plot the actual counts in the data set as you see them WYSIWYG. Remember, <code>geom_bar()</code> will not allow an x and a y mapping, so we need this argument.</p>
+<p>Using <code>geom_col()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>COUNT_BY_SCHOOL <span class="sc">|&gt;</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> School, <span class="at">x =</span> Count)) <span class="sc">+</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Using <code>geom_bar()</code> along with <code>stat = "identity"</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>COUNT_BY_SCHOOL <span class="sc">|&gt;</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> School, <span class="at">x =</span> Count)) <span class="sc">+</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="year-with-most-best-times" class="level1">
+<h1><strong>Year with Most Best Times</strong></h1>
+<p>Let’s work through a more complicated example for which you might group differently at different stages. Let’s work from the top using the full <code>SWIM</code> data in order to see the full workflow.</p>
+<ol type="1">
+<li><code>group_by()</code> <code>School</code>, <code>Team</code>, and <code>Event</code> type</li>
+<li><code>slice()</code> the data to obtain fastest values (<em>by grouping variables</em>) using <code>which.min()</code></li>
+<li>Then <code>group_by()</code> this data frame by <code>School</code> and <code>Event</code></li>
+<li><code>summarize()</code> by counting the rows (<em>by the new grouping variables</em>)</li>
+<li><code>arrange()</code> the data frame in descending order of the <code>Count</code></li>
+<li>Create the plot object and map some aesthetics</li>
+<li>Add a <code>geom_*()</code> layer</li>
+</ol>
+<p>Steps 1 and 2:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 10
+# Groups:   School, Team, Event [6]
+   Year School              Team  Relay Distance Name    Age Event  Time Split50
+  &lt;int&gt; &lt;chr&gt;               &lt;chr&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;
+1  2023 Claremont-Mudd-Scr… Men   Sing…      100 Tan,…    19 Back…  54.0    25.5
+2  2023 Claremont-Mudd-Scr… Men   Sing…      100 Smit…    20 Brea…  58.9    27.6
+3  2023 Claremont-Mudd-Scr… Men   Sing…      100 Smit…    20 Butt…  51.1    23.8
+4  2023 Claremont-Mudd-Scr… Men   Sing…       50 Work…    20 Free…  21.3    NA  
+5  2023 Claremont-Mudd-Scr… Men   Sing…      200 Tran…    18 IM    115      25.3
+6  2023 Claremont-Mudd-Scr… Mixed Relay      200 &lt;NA&gt;     NA Free…  91.1    21.1</code></pre>
+</div>
+</div>
+<p>Adding Steps 3 and 4 to narrow down a :</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+# Groups:   School [2]
+   School                    Event        Count
+   &lt;chr&gt;                     &lt;chr&gt;        &lt;int&gt;
+ 1 Claremont-Mudd-Scripps-CA Backstroke       2
+ 2 Claremont-Mudd-Scripps-CA Breaststroke     2
+ 3 Claremont-Mudd-Scripps-CA Butterfly        2
+ 4 Claremont-Mudd-Scripps-CA Freestyle        3
+ 5 Claremont-Mudd-Scripps-CA IM               2
+ 6 Claremont-Mudd-Scripps-CA Medley           1
+ 7 Pomona-Pitzer-CA          Backstroke       2
+ 8 Pomona-Pitzer-CA          Breaststroke     2
+ 9 Pomona-Pitzer-CA          Butterfly        2
+10 Pomona-Pitzer-CA          Freestyle        3
+11 Pomona-Pitzer-CA          IM               2
+12 Pomona-Pitzer-CA          Medley           1</code></pre>
+</div>
+</div>
+<p>Adding Step 5:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+# Groups:   School [2]
+   School                    Event        Count
+   &lt;chr&gt;                     &lt;chr&gt;        &lt;int&gt;
+ 1 Claremont-Mudd-Scripps-CA Freestyle        3
+ 2 Pomona-Pitzer-CA          Freestyle        3
+ 3 Claremont-Mudd-Scripps-CA Backstroke       2
+ 4 Claremont-Mudd-Scripps-CA Breaststroke     2
+ 5 Claremont-Mudd-Scripps-CA Butterfly        2
+ 6 Claremont-Mudd-Scripps-CA IM               2
+ 7 Pomona-Pitzer-CA          Backstroke       2
+ 8 Pomona-Pitzer-CA          Breaststroke     2
+ 9 Pomona-Pitzer-CA          Butterfly        2
+10 Pomona-Pitzer-CA          IM               2
+11 Claremont-Mudd-Scripps-CA Medley           1
+12 Pomona-Pitzer-CA          Medley           1</code></pre>
+</div>
+</div>
+<p>Adding the plot layer:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>If you are wondering what plot will look like without the initial <code>group_by(School, Team, Event)</code>, it is here. The important detail to keep in mind is that grouping data in different ways will be creating different plots. Make sure that you think through your approach before plotting.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Adding the plot layer:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="lollipop-plot" class="level1">
+<h1><strong>Lollipop Plot</strong></h1>
+<p>A <strong>lollipop plot</strong> is like a bar plot but has less ink information. It will encode the point position as height.</p>
+<p>In order to see the variables in the data frame, let’s create it and then assign it to an object first.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>DAT <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span> </span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Event) <span class="sc">|&gt;</span> </span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">which.min</span>(Time)) <span class="sc">|&gt;</span> </span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(School) <span class="sc">|&gt;</span></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> dplyr<span class="sc">::</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Count)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can use <code>geom_segment()</code> to create a line segment from a starting x and y position to an ending x and y position. We can add a <code>geom_point()</code> layer and also flip the coordinates if you want horizontal lines.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>DAT <span class="sc">|&gt;</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> School, </span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">xend =</span> School, </span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>                             <span class="at">yend =</span> Count)</span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>               ) <span class="sc">+</span></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, </span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="visualizing_amounts_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="summary" class="level1">
+<h1><strong>Summary</strong></h1>
+<p>This module was used to help demonstrate a subset of ways to visualize amounts using <code>ggplot()*</code> objects. The examples represent only subset of different plots one could create to communicate amounts visually. In addition, the rendered plots certainly have problems and fixing those problems will be goals of future modules.</p>
+</section>
+<section id="session-information" class="level1">
+<h1><strong>Session Information</strong></h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>sessioninfo<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.4.1 (2024-06-14 ucrt)
+ os       Windows 11 x64 (build 22631)
+ system   x86_64, mingw32
+ ui       RTerm
+ language (EN)
+ collate  English_United States.utf8
+ ctype    English_United States.utf8
+ tz       America/Los_Angeles
+ date     2024-09-26
+ pandoc   3.1.5 @ C:/PROGRA~1/Pandoc/ (via rmarkdown)
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ askpass       1.2.0   2023-09-03 [1] CRAN (R 4.4.1)
+ bit           4.0.5   2022-11-15 [1] CRAN (R 4.4.1)
+ bit64         4.0.5   2020-08-30 [1] CRAN (R 4.4.1)
+ chromote      0.2.0   2024-02-12 [1] CRAN (R 4.4.1)
+ cli           3.6.3   2024-06-21 [1] CRAN (R 4.4.1)
+ colorspace    2.1-0   2023-01-23 [1] CRAN (R 4.4.1)
+ crayon        1.5.3   2024-06-20 [1] CRAN (R 4.4.1)
+ digest        0.6.36  2024-06-23 [1] CRAN (R 4.4.1)
+ dplyr       * 1.1.4   2023-11-17 [1] CRAN (R 4.4.1)
+ DT          * 0.33    2024-04-04 [1] CRAN (R 4.4.1)
+ evaluate      0.24.0  2024-06-10 [1] CRAN (R 4.4.1)
+ fansi         1.0.6   2023-12-08 [1] CRAN (R 4.4.1)
+ farver        2.1.2   2024-05-13 [1] CRAN (R 4.4.1)
+ fastmap       1.2.0   2024-05-15 [1] CRAN (R 4.4.1)
+ forcats     * 1.0.0   2023-01-29 [1] CRAN (R 4.4.1)
+ generics      0.1.3   2022-07-05 [1] CRAN (R 4.4.1)
+ ggplot2     * 3.5.1   2024-04-23 [1] CRAN (R 4.4.1)
+ glue          1.7.0   2024-01-09 [1] CRAN (R 4.4.1)
+ gtable        0.3.5   2024-04-22 [1] CRAN (R 4.4.1)
+ here          1.0.1   2020-12-13 [1] CRAN (R 4.4.1)
+ hms           1.1.3   2023-03-21 [1] CRAN (R 4.4.1)
+ htmltools   * 0.5.8.1 2024-04-04 [1] CRAN (R 4.4.1)
+ htmlwidgets   1.6.4   2023-12-06 [1] CRAN (R 4.4.1)
+ httr          1.4.7   2023-08-15 [1] CRAN (R 4.4.1)
+ jsonlite      1.8.8   2023-12-04 [1] CRAN (R 4.4.1)
+ knitr         1.47    2024-05-29 [1] CRAN (R 4.4.1)
+ labeling      0.4.3   2023-08-29 [1] CRAN (R 4.4.0)
+ later         1.3.2   2023-12-06 [1] CRAN (R 4.4.1)
+ lifecycle     1.0.4   2023-11-07 [1] CRAN (R 4.4.1)
+ lubridate   * 1.9.3   2023-09-27 [1] CRAN (R 4.4.1)
+ magrittr      2.0.3   2022-03-30 [1] CRAN (R 4.4.1)
+ munsell       0.5.1   2024-04-01 [1] CRAN (R 4.4.1)
+ pdftools      3.4.0   2023-09-25 [1] CRAN (R 4.4.1)
+ pillar        1.9.0   2023-03-22 [1] CRAN (R 4.4.1)
+ pkgconfig     2.0.3   2019-09-22 [1] CRAN (R 4.4.1)
+ processx      3.8.4   2024-03-16 [1] CRAN (R 4.4.1)
+ promises      1.3.0   2024-04-05 [1] CRAN (R 4.4.1)
+ ps            1.7.7   2024-07-02 [1] CRAN (R 4.4.1)
+ purrr       * 1.0.2   2023-08-10 [1] CRAN (R 4.4.1)
+ qpdf          1.3.3   2024-03-25 [1] CRAN (R 4.4.1)
+ R.methodsS3   1.8.2   2022-06-13 [1] CRAN (R 4.4.0)
+ R.oo          1.26.0  2024-01-24 [1] CRAN (R 4.4.0)
+ R.utils       2.12.3  2023-11-18 [1] CRAN (R 4.4.1)
+ R6            2.5.1   2021-08-19 [1] CRAN (R 4.4.1)
+ Rcpp          1.0.12  2024-01-09 [1] CRAN (R 4.4.1)
+ readr       * 2.1.5   2024-01-10 [1] CRAN (R 4.4.1)
+ rlang         1.1.4   2024-06-04 [1] CRAN (R 4.4.1)
+ rmarkdown     2.27    2024-05-17 [1] CRAN (R 4.4.1)
+ rprojroot     2.0.4   2023-11-05 [1] CRAN (R 4.4.1)
+ rstudioapi    0.16.0  2024-03-24 [1] CRAN (R 4.4.1)
+ rvest         1.0.4   2024-02-12 [1] CRAN (R 4.4.1)
+ scales        1.3.0   2023-11-28 [1] CRAN (R 4.4.1)
+ sessioninfo   1.2.2   2021-12-06 [1] CRAN (R 4.4.1)
+ stringi       1.8.4   2024-05-06 [1] CRAN (R 4.4.0)
+ stringr     * 1.5.1   2023-11-14 [1] CRAN (R 4.4.1)
+ SwimmeR     * 0.14.2  2023-03-24 [1] CRAN (R 4.4.1)
+ tibble      * 3.2.1   2023-03-20 [1] CRAN (R 4.4.1)
+ tidyr       * 1.3.1   2024-01-24 [1] CRAN (R 4.4.1)
+ tidyselect    1.2.1   2024-03-11 [1] CRAN (R 4.4.1)
+ tidyverse   * 2.0.0   2023-02-22 [1] CRAN (R 4.4.1)
+ timechange    0.3.0   2024-01-18 [1] CRAN (R 4.4.1)
+ tzdb          0.4.0   2023-05-12 [1] CRAN (R 4.4.1)
+ utf8          1.2.4   2023-10-22 [1] CRAN (R 4.4.1)
+ vctrs         0.6.5   2023-12-01 [1] CRAN (R 4.4.1)
+ vroom       * 1.6.5   2023-12-05 [1] CRAN (R 4.4.1)
+ websocket     1.4.1   2021-08-18 [1] CRAN (R 4.4.1)
+ withr         3.0.1   2024-07-31 [1] CRAN (R 4.4.1)
+ xfun          0.45    2024-06-16 [1] CRAN (R 4.4.1)
+ xml2          1.3.6   2023-12-04 [1] CRAN (R 4.4.1)
+ yaml          2.3.10  2024-07-26 [1] CRAN (R 4.4.1)
+
+ [1] C:/Users/gcook/_portable_apps/R/R-4.4.1/library
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

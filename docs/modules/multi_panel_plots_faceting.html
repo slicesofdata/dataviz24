@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-08-23">
+<meta name="dcterms.date" content="2024-09-26">
 
 <title>Data Visualization - Multi-panel plots: Faceting</title>
 <style>
@@ -103,6 +103,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -531,6 +532,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_amounts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing amounts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/histograms_and_density_plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Histograms and density plots</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../modules/coordinates_axes_and_position_scales.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Coordinates, axes, and position scales</span></a>
   </div>
@@ -555,20 +568,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/visualizing_trends.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Visualizing trends</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../modules/legends_and_arrangement.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Legends and arrangement</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_trends.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing trends</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../modules/multi_panel_plots_faceting.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><em>Multi-panel plots: Faceting</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/annotation_and_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Annotation and text</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -581,6 +600,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../modules/themes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bonus: Figure design &amp; themes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/titles_captions_and_tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Title, Captions, and Tables</strong></span></a>
   </div>
 </li>
       </ul>
@@ -707,7 +732,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 23, 2024</p>
+      <p class="date">September 26, 2024</p>
     </div>
   </div>
   
@@ -738,14 +763,19 @@ Under construction.
 <h1><strong>To Do</strong></h1>
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
-<p>Reading should take place in two parts:</p>
-<ul>
-<li><em>Prior to class</em>, the goal should be to familiarize yourself and bring questions to class. The readings from <a href="https://clauswilke.com/dataviz">TFDV</a> are conceptual and should facilitate readings from <a href="https://ggplot2-book.org/">EGDA</a> for code implementation.</li>
-<li><em>After class</em>, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.</li>
-</ul>
-<p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of <strong>{ggplot2}</strong>. I will assume that you attend class with some level of basic understanding of concepts.</p>
-<p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing <strong>{ggplot2}</strong> code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week’s readings.</p>
-<p><em>After Class</em>: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from <strong>Wickham, Navarro, &amp; Pedersen (under revision)</strong>. <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>.</p>
+<!--
+Reading should take place in two parts:
+
+ - *Prior to class*, the goal should be to familiarize yourself and bring questions to class. The readings from [TFDV](https://clauswilke.com/dataviz) are conceptual and should facilitate readings from [EGDA](https://ggplot2-book.org/) for code implementation.
+ - *After class*, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of **{ggplot2}**. I will assume that you attend class with some level of basic understanding of concepts.
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing **{ggplot2}** code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week's readings. 
+
+*After Class*: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from **Wickham, Navarro, & Pedersen (under revision)**. *ggplot2: Elegant Graphics for Data Analysis (3e)*.
+
+-->
 <ul>
 <li><a href="https://clauswilke.com/dataviz/multi-panel-figures.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Multi-panel figures</a></li>
 <li><a href="https://ggplot2-book.org/facet">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Faceting</a></li>
@@ -753,9 +783,8 @@ Under construction.
 </section>
 <section id="external-functions" class="level2">
 <h2 class="anchored" data-anchor-id="external-functions"><strong>External Functions</strong></h2>
-<p>Provided in class:</p>
+<p>Provided:</p>
 <p><code>view_html()</code>: for viewing data frames in html format, from <code>/src/functions/view_html.R</code></p>
-<p>You can use this in your own work space but I am having a challenge rendering this of the website, so I’ll default to <code>print()</code> on occasion.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.utils<span class="sc">::</span><span class="fu">sourceDirectory</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src"</span>, <span class="st">"functions"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -765,7 +794,6 @@ Under construction.
 <ul>
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{forcats}</strong> 1.0.0: for creating and ordering factors</li>
-<li><strong>{magrittr}</strong> 2.0.3: for code clarity and piping data frame objects</li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
 </ul>
 </section>
@@ -805,7 +833,7 @@ Attaching package: 'magrittr'</code></pre>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>()) <span class="sc">+</span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">col =</span> Team),</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">"lm"</span>, </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">fullrange =</span> T</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">fullrange =</span> <span class="cn">TRUE</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>              ) <span class="sc">+</span></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

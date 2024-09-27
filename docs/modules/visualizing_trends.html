@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-08-19">
+<meta name="dcterms.date" content="2024-09-26">
 
 <title>Data Visualization - Visualizing trends</title>
 <style>
@@ -69,6 +69,7 @@ ul.task-list li input[type="checkbox"] {
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -497,6 +498,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_amounts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizing amounts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/histograms_and_density_plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Histograms and density plots</strong></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../modules/coordinates_axes_and_position_scales.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Coordinates, axes, and position scales</span></a>
   </div>
@@ -521,20 +534,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/visualizing_trends.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Visualizing trends</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../modules/legends_and_arrangement.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Legends and arrangement</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../modules/visualizing_trends.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Visualizing trends</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../modules/multi_panel_plots_faceting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><em>Multi-panel plots: Faceting</em></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/annotation_and_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Annotation and text</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -547,6 +566,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../modules/themes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bonus: Figure design &amp; themes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/titles_captions_and_tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Title, Captions, and Tables</strong></span></a>
   </div>
 </li>
       </ul>
@@ -640,7 +665,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 19, 2024</p>
+      <p class="date">September 26, 2024</p>
     </div>
   </div>
   
@@ -670,14 +695,19 @@ Under construction.
 <h1><strong>To Do</strong></h1>
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
-<p>Reading should take place in two parts:</p>
-<ul>
-<li><em>Prior to class</em>, the goal should be to familiarize yourself and bring questions to class. The readings from <a href="https://clauswilke.com/dataviz">TFDV</a> are conceptual and should facilitate readings from <a href="https://ggplot2-book.org/">EGDA</a> for code implementation.</li>
-<li><em>After class</em>, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.</li>
-</ul>
-<p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of <strong>{ggplot2}</strong>. I will assume that you attend class with some level of basic understanding of concepts.</p>
-<p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing <strong>{ggplot2}</strong> code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week’s readings.</p>
-<p><em>After Class</em>: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from <strong>Wickham, Navarro, &amp; Pedersen (under revision)</strong>. <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>.</p>
+<!--
+Reading should take place in two parts:
+
+ - *Prior to class*, the goal should be to familiarize yourself and bring questions to class. The readings from [TFDV](https://clauswilke.com/dataviz) are conceptual and should facilitate readings from [EGDA](https://ggplot2-book.org/) for code implementation.
+ - *After class*, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.
+
+*Before Class*: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of **{ggplot2}**. I will assume that you attend class with some level of basic understanding of concepts.
+
+*Class*: In class, some functions and concepts will be introduced and we will practice implementing **{ggplot2}** code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week's readings. 
+
+*After Class*: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from **Wickham, Navarro, & Pedersen (under revision)**. *ggplot2: Elegant Graphics for Data Analysis (3e)*.
+
+-->
 <ul>
 <li><a href="https://clauswilke.com/dataviz/visualizing-trends.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Visualizing Trends</a></li>
 <li><a href="https://clauswilke.com/dataviz/time-series.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Visualizing Time Series</a></li>
