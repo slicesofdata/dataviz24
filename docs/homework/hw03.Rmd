@@ -1,2 +1,159 @@
-File not yet available. Check back later.
+---
+title: "Homework 03"
+author: "your-name(s)"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  #word_document:
+  #  toc: yes
+  #  number_sections: yes
+  html_document:
+    toc: no
+    number_sections: no
+    code_folding: hide
+---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include=FALSE}
+
+
+
+```
+
+For this homework, you will save the `R Markdown` (e.g., `.Rmd`) homework document and save it to your `/report` project directory on your computer. Save a new copy of this file so that its name has the prefix `hw03-Lastname-FirstInitial`. Full name example: `hw03-cookg.Rmd`. 
+
+The homework is also designed to help you work through the process of organizing files for your project. 
+
+Feel free to work with a partner (add both names) but understand that the work submitted should be your contributions. 
+
+**The homework utilizes the modules listed below. My assumption is that you are completing readings and reading/referring to modules before consulting outside sources. Grading will be based on that assumption and solutions provided in course materials.**
+
+Relevant Modules:
+
+- data frame manipulation and wrangling
+- the grammar of graphics
+- visualizing associations
+
+**Do not** create any variables outside of **{dplyr}** functions. Do not create objects not needed. All problems can be answered using functions from the listed modules and any other routine functions for data reading and manipulation.
+
+*Make sure to enter your author name in the YAML code*   
+
+
+
+# **Questions:**
+
+## **Load libraries**
+
+Load the libraries that you will need to answer the questions. Do not load extras. 
+
+```{r message=FALSE, warning=FALSE}
+
+```
+
+
+## **Read a Local Data File**
+
+In the code block, write code using `read.csv()` to read the data file named `"cleaned-2023-cms-invite.csv"` which is in `/data/processed` or on the course site data tab. Do not hard code the path, use {here}. Assign the data to an object named something like `SWIM`. For all questions, pipe the data frame to relevant functions. Do not explicitly pass the data frame to a `.data` parameter.
+
+```{r message=FALSE, warning=FALSE}
+
+
+```
+
+## **Make a scatter plot using a numeric and a non-numeric variable**
+
+Filter the data to include *all events except for the IM and Medley*. Create a plot that plots the event time as a function of the event type.
+
+```{r message=FALSE, warning=FALSE}
+
+
+
+
+```
+
+## **Make a scatter plot using numeric variables**
+
+(a) Filter the data to include all events except for the IM and Medley. Create a point plot that plots the event time as a function of the split time.
+
+```{r message=FALSE, warning=FALSE}
+
+
+
+```
+
+(b) Provide a Loess fit to your split time and event time plot so that you have a different fit for each event. Different fits should be in different colors.
+
+```{r message=FALSE, warning=FALSE}
+
+
+
+```
+
+(c) After looking at the plot, remove any values that you might interpret as extreme. Modify the plot with them removed.
+
+```{r message=FALSE, warning=FALSE}
+
+
+
+
+```
+
+(d) Provide a linear model fit to your split time and event time plot so that you have a different fit for each event type. Different fits should be in different colors. Keep the extreme values removed, extend the fit lines to cover the full range, and remove the error shading for the fit (just so that you can see fits somewhat better).
+
+```{r message=FALSE, warning=FALSE}
+
+
+
+
+```
+
+## **Interpret data**
+
+Explain any relationships or patterns that you see in the previous plot.
+
+**EXPLAIN:**
+
+
+# **Multiclass scatterplots**
+
+(a) Create a multiclass scatter plot to explore the data in a new way. If you plot the same boring variables used in class examples or other questions presented here, don't expect full credit. If there are NAs in the legend, filter them out. 
+
+```{r message=FALSE, warning=FALSE}
+
+
+
+```
+
+
+(b) Explain why you created this plot.
+
+
+
+
+(c) Explain what you see in the data.
+
+
+
+
+## **Bonus Challenge:**
+
+Filter out any times that are greater than 3 standard deviations above the mean. Feel free to filter the data using the IQR if you are familiar with the concept but do not use ChatGPT. Think through the problem. Read the documentation.
+
+```{r message=FALSE, warning=FALSE}
+
+
+
+
+```
+
+
+Other Notes:
+
+y/n: Did you read the modules for the topic?
+y/n: Did you use ChatGPT or similar LLM to help you?
+
+
+Finally, knit an `html` file and upload to:
+https://ln5.sync.com/dl/a038628f0/wwfifjxk-f7rfshin-rkedi3y8-77f9zaii
