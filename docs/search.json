@@ -2027,7 +2027,7 @@
     "href": "modules/coordinates_axes_and_position_scales.html#load-libraries",
     "title": "Coordinates, axes, and position scales",
     "section": "Load libraries",
-    "text": "Load libraries\n\nlibrary(dplyr)\nlibrary(magrittr)\nlibrary(ggplot2)"
+    "text": "Load libraries\n\nlibrary(dplyr)\nlibrary(ggplot2)"
   },
   {
     "objectID": "modules/coordinates_axes_and_position_scales.html#the-cartesian-coordinate-system",
