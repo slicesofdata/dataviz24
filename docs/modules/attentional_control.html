@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Attentional control</title>
+<title>Attentional control</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,11 +120,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -359,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/attentional_control.html"><strong>Attentional control</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/attentional_control.html"><strong>Attentional control</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -458,7 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -467,7 +462,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -625,7 +620,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -678,28 +673,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   </ul></li>
   <li><a href="#loading-libraries" id="toc-loading-libraries" class="nav-link" data-scroll-target="#loading-libraries"><strong>Loading Libraries</strong></a></li>
   <li><a href="#sizing-up-plot-elements" id="toc-sizing-up-plot-elements" class="nav-link" data-scroll-target="#sizing-up-plot-elements"><strong>Sizing up plot elements</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#increase-the-size-of-axis-labels" id="toc-increase-the-size-of-axis-labels" class="nav-link" data-scroll-target="#increase-the-size-of-axis-labels"><strong>Increase the size of axis labels</strong></a></li>
   <li><a href="#increase-the-size-of-the-legend-labels" id="toc-increase-the-size-of-the-legend-labels" class="nav-link" data-scroll-target="#increase-the-size-of-the-legend-labels"><strong>Increase the size of the legend labels</strong></a></li>
   <li><a href="#increase-the-size-of-the-legend-shapes" id="toc-increase-the-size-of-the-legend-shapes" class="nav-link" data-scroll-target="#increase-the-size-of-the-legend-shapes"><strong>Increase the size of the legend ‘shapes’</strong></a></li>
   <li><a href="#passing-objects-for-adjustments" id="toc-passing-objects-for-adjustments" class="nav-link" data-scroll-target="#passing-objects-for-adjustments"><strong>Passing objects for adjustments</strong></a></li>
   </ul></li>
   <li><a href="#identifying-points-of-interest" id="toc-identifying-points-of-interest" class="nav-link" data-scroll-target="#identifying-points-of-interest"><strong>Identifying points of interest</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#adding-reference-points" id="toc-adding-reference-points" class="nav-link" data-scroll-target="#adding-reference-points"><strong>Adding reference points</strong></a></li>
   <li><a href="#adding-reference-line" id="toc-adding-reference-line" class="nav-link" data-scroll-target="#adding-reference-line"><strong>Adding reference line</strong></a></li>
   <li><a href="#adding-reference-point-with-annotation" id="toc-adding-reference-point-with-annotation" class="nav-link" data-scroll-target="#adding-reference-point-with-annotation"><strong>Adding reference point with annotation</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#annotategeom-point" id="toc-annotategeom-point" class="nav-link" data-scroll-target="#annotategeom-point"><code>annotate(geom = "point")</code></a></li>
   <li><a href="#annotategeom-point-and-annotategeom-text" id="toc-annotategeom-point-and-annotategeom-text" class="nav-link" data-scroll-target="#annotategeom-point-and-annotategeom-text"><code>annotate(geom = "point")</code> and <code>annotate(geom = "text")</code></a></li>
   <li><a href="#geom_curve-with-arrow" id="toc-geom_curve-with-arrow" class="nav-link" data-scroll-target="#geom_curve-with-arrow"><code>geom_curve()</code> with <code>arrow()</code></a></li>
@@ -712,21 +707,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   </ul></li>
   <li><a href="#drawing-attention-to-plot-elements" id="toc-drawing-attention-to-plot-elements" class="nav-link" data-scroll-target="#drawing-attention-to-plot-elements"><strong>Drawing attention to plot elements</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#drawing-attention-to-a-bar" id="toc-drawing-attention-to-a-bar" class="nav-link" data-scroll-target="#drawing-attention-to-a-bar"><strong>Drawing attention to a bar</strong></a></li>
   <li><a href="#drawing-attention-to-a-bar-using-gghighlight" id="toc-drawing-attention-to-a-bar-using-gghighlight" class="nav-link" data-scroll-target="#drawing-attention-to-a-bar-using-gghighlight"><strong>Drawing attention to a bar using {gghighlight}</strong></a></li>
   <li><a href="#fading-out-bars-by-mapping-a-variable-to-alpha" id="toc-fading-out-bars-by-mapping-a-variable-to-alpha" class="nav-link" data-scroll-target="#fading-out-bars-by-mapping-a-variable-to-alpha"><strong>Fading out bars by mapping a variable to <code>alpha</code></strong></a></li>
   </ul></li>
   <li><a href="#drawing-attention-to-points" id="toc-drawing-attention-to-points" class="nav-link" data-scroll-target="#drawing-attention-to-points"><strong>Drawing attention to points</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#highlighting-lines" id="toc-highlighting-lines" class="nav-link" data-scroll-target="#highlighting-lines"><strong>Highlighting lines</strong></a></li>
   <li><a href="#highlighting-with-gghighlight" id="toc-highlighting-with-gghighlight" class="nav-link" data-scroll-target="#highlighting-with-gghighlight"><strong>Highlighting with {gghighlight}</strong></a></li>
   <li><a href="#highlighting-specific-data-with-gghighlight" id="toc-highlighting-specific-data-with-gghighlight" class="nav-link" data-scroll-target="#highlighting-specific-data-with-gghighlight"><strong>Highlighting specific data with {gghighlight}</strong></a></li>
   </ul></li>
   <li><a href="#drawing-attention-to-a-plot-region" id="toc-drawing-attention-to-a-plot-region" class="nav-link" data-scroll-target="#drawing-attention-to-a-plot-region"><strong>Drawing attention to a plot region</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#highlighting-a-region-using-annotate" id="toc-highlighting-a-region-using-annotate" class="nav-link" data-scroll-target="#highlighting-a-region-using-annotate"><strong>Highlighting a region using <code>annotate()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#highlighting-a-slice-of-the-x-axis-using-annotate" id="toc-highlighting-a-slice-of-the-x-axis-using-annotate" class="nav-link" data-scroll-target="#highlighting-a-slice-of-the-x-axis-using-annotate"><strong>Highlighting a slice of the x-axis using <code>annotate()</code></strong></a></li>
   <li><a href="#highlighting-a-slice-of-the-y-axis-using-annotate" id="toc-highlighting-a-slice-of-the-y-axis-using-annotate" class="nav-link" data-scroll-target="#highlighting-a-slice-of-the-y-axis-using-annotate"><strong>Highlighting a slice of the y-axis using <code>annotate()</code></strong></a></li>
   <li><a href="#highlighting-a-slice-of-the-y-axis-using-geom_rect" id="toc-highlighting-a-slice-of-the-y-axis-using-geom_rect" class="nav-link" data-scroll-target="#highlighting-a-slice-of-the-y-axis-using-geom_rect"><strong>Highlighting a slice of the y-axis using <code>geom_rect()</code></strong></a></li>
@@ -806,7 +801,7 @@ Reading should take place in two parts:
 *After Class*: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from **Wickham, Navarro, & Pedersen (under revision)**. *ggplot2: Elegant Graphics for Data Analysis (3e)*.
 
 -->
-<ul>
+<ul class="incremental">
 <li><a href="https://clauswilke.com/dataviz/balance-data-context.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Balance the data and the context</a></li>
 <li><a href="https://clauswilke.com/dataviz/small-axis-labels.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Use larger axis labels</a></li>
 <li><a href="https://ieeexplore.ieee.org/document/9385921">Ajani et al.&nbsp;(2022). Declutter and Focus: Empirically Evaluating Design Guidelines for Effective Data Communication</a></li>
@@ -832,7 +827,7 @@ source("https://raw.githubusercontent.com/slicesofdata/dataviz24/main/src/functi
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
 <li><strong>{ggrepel}</strong> 0.9.5: for repelling labels from points and lines</li>
@@ -924,7 +919,7 @@ Attaching package: 'magrittr'</code></pre>
 <section id="increase-the-size-of-axis-labels" class="level2">
 <h2 class="anchored" data-anchor-id="increase-the-size-of-axis-labels"><strong>Increase the size of axis labels</strong></h2>
 <p>For each <code>axis.text.&lt;axis&gt;</code>, you can adjust the <code>element_text()</code>.</p>
-<ul>
+<ul class="incremental">
 <li><code>axis.text.x = element_text(size = 12)</code></li>
 <li><code>axis.text.y = element_text(size = 12)</code></li>
 </ul>
@@ -953,7 +948,7 @@ Attaching package: 'magrittr'</code></pre>
 </section>
 <section id="increase-the-size-of-the-legend-labels" class="level2">
 <h2 class="anchored" data-anchor-id="increase-the-size-of-the-legend-labels"><strong>Increase the size of the legend labels</strong></h2>
-<ul>
+<ul class="incremental">
 <li><code>legend.text = element_text(size = 12)</code></li>
 </ul>
 <div class="cell">
@@ -970,15 +965,15 @@ Attaching package: 'magrittr'</code></pre>
 <section id="increase-the-size-of-the-legend-shapes" class="level2">
 <h2 class="anchored" data-anchor-id="increase-the-size-of-the-legend-shapes"><strong>Increase the size of the legend ‘shapes’</strong></h2>
 <p>We have already addressed how to make legend shape elements larger too. This adjustment is in the <code>guides()</code> and requires overriding aesthetics. We need to add a <code>guides()</code> layer. Importantly, you need to be careful to specify the aesthetic mapped, in this case <code>col</code>. If you mapped a variable to a discrete color, then you will need to change the size of the <code>col</code> aesthetics. If you mapped a variable to a shape, and you want to increase the size of the shapes, then you will need to change the size of the <code>shape</code> aesthetics.</p>
-<ul>
+<ul class="incremental">
 <li><code>guides(&lt;aesthetic mapped&gt; = guide_legend(override.aes = list(size = 3)))</code></li>
 </ul>
 <p>In this example, <code>col</code> was mapped and the goal is to change the size of the color ‘shape’ so the solution is:</p>
-<ul>
+<ul class="incremental">
 <li><code>guides(col = guide_legend(override.aes = list(size = 3)))</code></li>
 </ul>
 <p>There is no <code>shape</code> mapping, so changing the size of the shape will not work:</p>
-<ul>
+<ul class="incremental">
 <li><code>guides(shape = guide_legend(override.aes = list(size = 3)))</code></li>
 </ul>
 <div class="cell">
@@ -1786,7 +1781,7 @@ filter(Count == 4) </code></pre>
 <h2 class="anchored" data-anchor-id="highlighting-specific-data-with-gghighlight"><strong>Highlighting specific data with {gghighlight}</strong></h2>
 <p><code>gghighlight::gghighlight()</code> will take expressions for filtering the data. We can highlight subsets of the data based on a function we pass.</p>
 <p>For example, <code>mean(Mean_Score) &gt; 45</code> will highlight lines for which the condition is met.</p>
-<ul>
+<ul class="incremental">
 <li><code>gghighlight::gghighlight(mean(Mean_Score) &gt; 45)</code></li>
 </ul>
 <div class="cell">
@@ -1834,7 +1829,7 @@ filter(Count == 4) </code></pre>
 <section id="highlighting-a-region-using-annotate" class="level2">
 <h2 class="anchored" data-anchor-id="highlighting-a-region-using-annotate"><strong>Highlighting a region using <code>annotate()</code></strong></h2>
 <p>Using <code>geom = "text"</code>, you can annotate the plot with a rectangle to represent an area of interest. You can think of To draw a rectangle to highlight an area of interest in three useful ways.</p>
-<ol type="1">
+<ol class="incremental" type="1">
 <li>To highlight a vertical band stretching the entire y-axis, beginning and ending at x-axis locations.</li>
 <li>To highlight a horizontal band stretching the entire x-axis, beginning and ending y-axis locations.</li>
 <li>To highlight a rectangle, beginning and ending x-axis and y-axis locations</li>
@@ -1843,7 +1838,7 @@ filter(Count == 4) </code></pre>
 <section id="highlighting-a-slice-of-the-x-axis-using-annotate" class="level3">
 <h3 class="anchored" data-anchor-id="highlighting-a-slice-of-the-x-axis-using-annotate"><strong>Highlighting a slice of the x-axis using <code>annotate()</code></strong></h3>
 <p>For this, we will specify:</p>
-<ul>
+<ul class="incremental">
 <li><code>xmin</code>: beginning point of x</li>
 <li><code>xmax</code>: ending point of x</li>
 <li><code>ymin</code>: beginning point of y<br>

@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-08-23">
 
-<title>Data Visualization - Vectors and data frame basics</title>
+<title>Vectors and data frame basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,11 +120,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -458,7 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -467,7 +462,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -625,7 +620,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -678,19 +673,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#readings-and-preparation" id="toc-readings-and-preparation" class="nav-link" data-scroll-target="#readings-and-preparation"><strong>Readings and Preparation</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#variablesvectors-are-uni-dimensional" id="toc-variablesvectors-are-uni-dimensional" class="nav-link" data-scroll-target="#variablesvectors-are-uni-dimensional"><strong>Variables/Vectors are Uni-dimensional</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#combining-elements-into-vectors-using-c" id="toc-combining-elements-into-vectors-using-c" class="nav-link" data-scroll-target="#combining-elements-into-vectors-using-c"><strong>Combining elements into vectors using <code>c()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#numeric-vector" id="toc-numeric-vector" class="nav-link" data-scroll-target="#numeric-vector"><strong><em>Numeric vector:</em></strong></a></li>
   <li><a href="#character-vector" id="toc-character-vector" class="nav-link" data-scroll-target="#character-vector"><strong><em>Character vector:</em></strong></a></li>
   <li><a href="#numeric-values-as-a-character" id="toc-numeric-values-as-a-character" class="nav-link" data-scroll-target="#numeric-values-as-a-character"><strong><em>Numeric values as a character:</em></strong></a></li>
@@ -699,9 +694,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#creating-vectors-using-rnorm" id="toc-creating-vectors-using-rnorm" class="nav-link" data-scroll-target="#creating-vectors-using-rnorm"><strong>Creating vectors using <code>rnorm()</code></strong></a></li>
   </ul></li>
   <li><a href="#creating-vectors-as-repetitions-or-sequences" id="toc-creating-vectors-as-repetitions-or-sequences" class="nav-link" data-scroll-target="#creating-vectors-as-repetitions-or-sequences"><strong>Creating Vectors as Repetitions or Sequences</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#creating-number-sequences-using-seq" id="toc-creating-number-sequences-using-seq" class="nav-link" data-scroll-target="#creating-number-sequences-using-seq"><strong>Creating number sequences using <code>seq()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#sequences-from-one-value-to-another" id="toc-sequences-from-one-value-to-another" class="nav-link" data-scroll-target="#sequences-from-one-value-to-another"><strong>Sequences <code>from</code> one value <code>to</code> another</strong></a></li>
   <li><a href="#sequences-with-increments-using-the-by-argument" id="toc-sequences-with-increments-using-the-by-argument" class="nav-link" data-scroll-target="#sequences-with-increments-using-the-by-argument"><strong>Sequences with increments using the <code>by</code> argument</strong></a></li>
   <li><a href="#obtaining-the-number-of-elements-using-length" id="toc-obtaining-the-number-of-elements-using-length" class="nav-link" data-scroll-target="#obtaining-the-number-of-elements-using-length"><strong>Obtaining the number of elements using <code>length()</code></strong></a></li>
@@ -710,7 +705,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#vectors-can-be-different-types" id="toc-vectors-can-be-different-types" class="nav-link" data-scroll-target="#vectors-can-be-different-types"><strong>Vectors Can be Different Types</strong></a></li>
   <li><a href="#changing-vector-types" id="toc-changing-vector-types" class="nav-link" data-scroll-target="#changing-vector-types"><strong>Changing Vector Types</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#converting-numeric-or-characters-containing-numbers-to-integer" id="toc-converting-numeric-or-characters-containing-numbers-to-integer" class="nav-link" data-scroll-target="#converting-numeric-or-characters-containing-numbers-to-integer"><strong><em>Converting numeric or characters containing numbers to integer</em></strong></a></li>
   <li><a href="#converting-numeric-vectors-to-character" id="toc-converting-numeric-vectors-to-character" class="nav-link" data-scroll-target="#converting-numeric-vectors-to-character"><strong><em>Converting numeric vectors to character</em></strong></a></li>
   <li><a href="#converting-character-vectors-to-numeric" id="toc-converting-character-vectors-to-numeric" class="nav-link" data-scroll-target="#converting-character-vectors-to-numeric"><strong><em>Converting character vectors to numeric</em></strong></a></li>
@@ -719,7 +714,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#plotting-the-vector-using-hist" id="toc-plotting-the-vector-using-hist" class="nav-link" data-scroll-target="#plotting-the-vector-using-hist"><strong><em>Plotting the vector using <code>hist()</code></em></strong></a></li>
   <li><a href="#adding-a-title-to-the-plot" id="toc-adding-a-title-to-the-plot" class="nav-link" data-scroll-target="#adding-a-title-to-the-plot"><strong><em>Adding a title to the plot</em></strong></a></li>
   <li><a href="#recoding-vectors" id="toc-recoding-vectors" class="nav-link" data-scroll-target="#recoding-vectors"><strong><em>Recoding vectors</em></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#performing-a-logical-test" id="toc-performing-a-logical-test" class="nav-link" data-scroll-target="#performing-a-logical-test"><strong><em>Performing a logical test</em></strong></a></li>
   <li><a href="#recoding-using-ifelse" id="toc-recoding-using-ifelse" class="nav-link" data-scroll-target="#recoding-using-ifelse"><strong><em>Recoding using <code>ifelse()</code></em></strong></a></li>
   <li><a href="#recoding-using-dplyrcase_when" id="toc-recoding-using-dplyrcase_when" class="nav-link" data-scroll-target="#recoding-using-dplyrcase_when"><strong><em>Recoding using <code>dplyr::case_when()</code></em></strong></a></li>
@@ -790,7 +785,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{here}</strong> 1.0.1: for file path management</li>
 </ul>
 <section id="to-do" class="level3">
@@ -867,7 +862,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="creating-vectors-using-rnorm"><strong>Creating vectors using <code>rnorm()</code></strong></h2>
 <p>Let’s use <code>rnorm()</code> to create a numeric vector object that will represent sampling from a <strong><em>r</em></strong>andom <strong><em>norm</em></strong>al distribution. The distribution will have a certain number of observations, <code>n</code>, a mean, <code>mean</code>, and a standard deviation, <code>sd</code>. We will need to pass arguments to create the data.</p>
 <p><strong>Parameters/Arguments:</strong></p>
-<ul>
+<ul class="incremental">
 <li><code>n</code>: the number of elements in the vector</li>
 <li><code>mean</code>: the mean of the elements</li>
 <li><code>sd</code>: the standard deviation of the elements</li>
@@ -968,7 +963,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="creating-number-sequences-using-seq"><strong>Creating number sequences using <code>seq()</code></strong></h2>
 <p>You can dig a little more deeply into the functionality of <code>seq()</code> by looking at the help documentation, <code>help(seq)</code> or <code>?seq</code>.</p>
 <p><strong>Parameters/Arguments:</strong></p>
-<ul>
+<ul class="incremental">
 <li><code>from, to</code>: the starting and (maximal) end values of the sequence. Of length 1 unless just from is supplied as an unnamed argument.</li>
 <li><code>by</code>: number: increment of the sequence.</li>
 <li><code>length.out</code>: desired length of the sequence. A non-negative number, which for seq and seq.int will be rounded up if fractional.</li>
@@ -1218,7 +1213,7 @@ Attaching package: 'magrittr'</code></pre>
 <h2 class="anchored" data-anchor-id="recoding-vectors"><strong><em>Recoding vectors</em></strong></h2>
 <p>Sometimes elements of vectors are messy and need to be fixed. In general, this process is referred to as recoding. There are various ways to recode in <code>R</code> and there are special libraries dedicated to recoding. Now, we will perform some simple recoding.</p>
 <p>You can use <code>ifelse()</code> or <code>dplyr::case_when()</code> to test whether the elements of a vector match some condition and <em>if</em> yes (do one thing), <em>otherwise</em> no (do something else). In order to understand how these functions and many others work we need to understand a logical test.</p>
-<ul>
+<ul class="incremental">
 <li><code>ifelse()</code></li>
 <li><code>dplyr::case_when()</code></li>
 </ul>
@@ -1645,7 +1640,7 @@ $ Iq  &lt;int&gt; 113, 96, 86, 103, 102, 69, 95, 77, 94, 93, 112, 92, 107, 103, 
 <section id="changing-order-of-variables-in-a-data-frame" class="level1">
 <h1><strong>Changing Order of Variables in a Data Frame</strong></h1>
 <p>If you want to rearrange the order of columns, one easy way to do this is using <code>dplyr::relocate()</code>. But rather than calling <code>library::function()</code>, just load the library. The first parameter in <code>relocate()</code> is <code>.data</code>, representing the data frame. We will omit naming this parameter because we know we are passing a data frame.</p>
-<ul>
+<ul class="incremental">
 <li><code>dplyr::relocate()</code>: returns a new order</li>
 </ul>
 <p>Load the library:</p>
@@ -2069,7 +2064,7 @@ Levels: F M</code></pre>
 <p>When you wish to perform the same type of function or operation across a set of variables, mutating each individually is unnecessary unless you like working harder and not smarter. For such cases, <code>dplyr::across()</code> will serve you well. However, given each new variable needs it’s own name (if it’s not obvious, column variables cannot be redundant), you’ll need to pass some special code as the argument for <code>.names</code> so that your variable names are unique and are meaningful to your goal.</p>
 <p>Note that the argument for <code>.names</code> operates in way a similar to how <code>paste()</code> concatenates character strings. The new names will be the result of gluing together the column names by passing <code>{.col}</code> along with other characters.</p>
 <p>A couple key arguments will need to be passed for <code>.cols</code>, <code>.fns</code>, and <code>.names</code>.</p>
-<ul>
+<ul class="incremental">
 <li><code>across(.cols = the_columns, .fns = the_funtion_to_apply, .names = the_new_var_names)</code></li>
 </ul>
 <p>The examples below use <code>across()</code> within <code>mutate()</code> but you can also pair it with <code>summarise()</code>. Here are some examples for creating z-scores for numeric variables by passing variables to <code>.cols</code> by their names with a character vector using <code>c()</code>, by their starting characters using <code>starts_with()</code>, by their contained characters using <code>contains()</code>, and by their numeric type using <code>where()</code>.</p>
@@ -2125,7 +2120,7 @@ Levels: F M</code></pre>
 </div>
 <p>If your data frame or tibble contains only numeric variables, however, you can use <code>mutate_all()</code>. Similarly, you can subset your data frame to include only the numeric variable and use <code>mutate_all()</code> but the previous function approaches would likely be better to use if you want the other variables retained in the data frame.</p>
 <p>Here are two examples of sub-setting and then creating by selecting using <code>select_if(is.numeric)</code> or <code>select(where(is.numeric))</code>:</p>
-<ul>
+<ul class="incremental">
 <li><code>select_if(is.numeric)</code> : selects columns IF they are numeric</li>
 <li><code>select(where(is.numeric))</code>: selects columns where there are numeric variables</li>
 </ul>
@@ -2165,12 +2160,12 @@ Levels: F M</code></pre>
 <section id="arrangingsorting-a-data-frame-using-dplyr" class="level1">
 <h1><strong>Arranging/Sorting a Data Frame using <code>dplyr</code></strong></h1>
 <p>For arranging using <code>dplyr</code>, you will use <code>arrange()</code> and at very least pass arguments for the data frame (first) followed by the variables (what the documentation refers to as <code>...</code>. You can add other arguments as well, however, but R will need to know what to arrange and how to arrange it.</p>
-<ul>
+<ul class="incremental">
 <li><code>arrange(.data, ..., .by_group = FALSE)</code></li>
 </ul>
 <p>Note, the variables can be represented as separated arguments in the function separated by commas or they can be passed as a single argument as a single vector containing the variable.</p>
 <p><strong>Examples:</strong></p>
-<ul>
+<ul class="incremental">
 <li><code>arrange(var1, var2)</code>: the variables by their names</li>
 <li><code>arrange_at(c("var1", "var2"))</code>: the variables as a combined vector</li>
 </ul>

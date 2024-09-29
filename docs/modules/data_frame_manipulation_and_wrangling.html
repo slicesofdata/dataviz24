@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Data frame manipulation and wrangling</title>
+<title>Data frame manipulation and wrangling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/data_frame_manipulation_and_wrangling.html"><strong>Data frame manipulation and wrangling</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/data_frame_manipulation_and_wrangling.html"><strong>Data frame manipulation and wrangling</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,9 +662,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#readings-and-preparation" id="toc-readings-and-preparation" class="nav-link" data-scroll-target="#readings-and-preparation"><strong>Readings and Preparation</strong></a></li>
   <li><a href="#supplementary-readings-optional" id="toc-supplementary-readings-optional" class="nav-link" data-scroll-target="#supplementary-readings-optional"><strong>Supplementary Readings (Optional)</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
@@ -678,9 +673,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#loading-libraries" id="toc-loading-libraries" class="nav-link" data-scroll-target="#loading-libraries"><strong>Loading Libraries</strong></a></li>
   <li><a href="#a-grammar-for-data-wrangling" id="toc-a-grammar-for-data-wrangling" class="nav-link" data-scroll-target="#a-grammar-for-data-wrangling"><strong>A Grammar for Data Wrangling</strong></a></li>
   <li><a href="#some-common-ways-for-selecting-variables-using-dplyr" id="toc-some-common-ways-for-selecting-variables-using-dplyr" class="nav-link" data-scroll-target="#some-common-ways-for-selecting-variables-using-dplyr"><strong>Some Common Ways for Selecting Variables Using <code>{dplyr}</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#selecting-variables-using-dplyrselect" id="toc-selecting-variables-using-dplyrselect" class="nav-link" data-scroll-target="#selecting-variables-using-dplyrselect"><strong>Selecting Variables using <code>dplyr::select()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#selecting-variables-by-column-position" id="toc-selecting-variables-by-column-position" class="nav-link" data-scroll-target="#selecting-variables-by-column-position"><strong>Selecting Variables by Column Position</strong></a></li>
   <li><a href="#selecting-variables-by-column-name" id="toc-selecting-variables-by-column-name" class="nav-link" data-scroll-target="#selecting-variables-by-column-name"><strong>Selecting Variables by Column Name</strong></a></li>
   <li><a href="#selecting-and-selecting-out-variables-bybetween-index" id="toc-selecting-and-selecting-out-variables-bybetween-index" class="nav-link" data-scroll-target="#selecting-and-selecting-out-variables-bybetween-index"><strong>Selecting and Selecting Out Variables By/Between Index</strong></a></li>
@@ -690,17 +685,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   </ul></li>
   <li><a href="#creatingmutating-variables" id="toc-creatingmutating-variables" class="nav-link" data-scroll-target="#creatingmutating-variables"><strong>Creating/Mutating Variables</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#creatingmutating-a-constant-value" id="toc-creatingmutating-a-constant-value" class="nav-link" data-scroll-target="#creatingmutating-a-constant-value"><strong>Creating/Mutating A Constant Value</strong></a></li>
   <li><a href="#creatingmutating-a-constant-character" id="toc-creatingmutating-a-constant-character" class="nav-link" data-scroll-target="#creatingmutating-a-constant-character"><strong>Creating/Mutating A Constant Character</strong></a></li>
   <li><a href="#creatingmutating-a-logical-object" id="toc-creatingmutating-a-logical-object" class="nav-link" data-scroll-target="#creatingmutating-a-logical-object"><strong>Creating/Mutating A Logical Object</strong></a></li>
   <li><a href="#creatingmutating-based-on-function" id="toc-creatingmutating-based-on-function" class="nav-link" data-scroll-target="#creatingmutating-based-on-function"><strong>Creating/Mutating Based on Function</strong></a></li>
   </ul></li>
   <li><a href="#filtering-rows" id="toc-filtering-rows" class="nav-link" data-scroll-target="#filtering-rows"><strong>Filtering Rows</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#understanding-filtering-operators" id="toc-understanding-filtering-operators" class="nav-link" data-scroll-target="#understanding-filtering-operators"><strong>Understanding Filtering Operators</strong></a></li>
   <li><a href="#filtering-using-filter" id="toc-filtering-using-filter" class="nav-link" data-scroll-target="#filtering-using-filter"><strong>Filtering Using <code>filter()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#filtering-matches-to-a-specific-character-value" id="toc-filtering-matches-to-a-specific-character-value" class="nav-link" data-scroll-target="#filtering-matches-to-a-specific-character-value"><strong>Filtering Matches to a Specific Character Value</strong></a></li>
   <li><a href="#filtering-by-a-relative-value" id="toc-filtering-by-a-relative-value" class="nav-link" data-scroll-target="#filtering-by-a-relative-value"><strong>Filtering by a Relative Value</strong></a></li>
   <li><a href="#filtering-by-a-specific-value" id="toc-filtering-by-a-specific-value" class="nav-link" data-scroll-target="#filtering-by-a-specific-value"><strong>Filtering by a Specific Value</strong></a></li>
@@ -708,23 +703,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   </ul></li>
   <li><a href="#filtering-missing-data-nas" id="toc-filtering-missing-data-nas" class="nav-link" data-scroll-target="#filtering-missing-data-nas"><strong>Filtering Missing Data (<code>NAs</code>)</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#filter-using-na.omit" id="toc-filter-using-na.omit" class="nav-link" data-scroll-target="#filter-using-na.omit"><strong>Filter using <code>na.omit()</code></strong></a></li>
   <li><a href="#filter-using-is.na-and-is.na" id="toc-filter-using-is.na-and-is.na" class="nav-link" data-scroll-target="#filter-using-is.na-and-is.na"><strong>Filter using <code>is.na()</code> and <code>!is.na()</code></strong></a></li>
   <li><a href="#filter-using-complete.cases" id="toc-filter-using-complete.cases" class="nav-link" data-scroll-target="#filter-using-complete.cases"><strong>Filter using <code>complete.cases()</code></strong></a></li>
   <li><a href="#removing-duplicate-rows-using-distinct" id="toc-removing-duplicate-rows-using-distinct" class="nav-link" data-scroll-target="#removing-duplicate-rows-using-distinct"><strong>Removing duplicate rows using <code>distinct()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#removing-duplicates-across-all-variables" id="toc-removing-duplicates-across-all-variables" class="nav-link" data-scroll-target="#removing-duplicates-across-all-variables"><strong>Removing Duplicates Across All Variables</strong></a></li>
   <li><a href="#removing-duplicates-based-on-a-variable" id="toc-removing-duplicates-based-on-a-variable" class="nav-link" data-scroll-target="#removing-duplicates-based-on-a-variable"><strong>Removing Duplicates Based on a Variable</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#the-data-manipulation-workflow-putting-it-all-together" id="toc-the-data-manipulation-workflow-putting-it-all-together" class="nav-link" data-scroll-target="#the-data-manipulation-workflow-putting-it-all-together"><strong>The Data Manipulation Workflow: Putting It All Together</strong></a></li>
   <li><a href="#many-more-use-case-examples-optional" id="toc-many-more-use-case-examples-optional" class="nav-link" data-scroll-target="#many-more-use-case-examples-optional"><strong>Many More Use-Case Examples (Optional)</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#filter-cases-using" id="toc-filter-cases-using" class="nav-link" data-scroll-target="#filter-cases-using"><em>Filter Cases using <code>==</code></em></a></li>
   </ul></li>
   <li><a href="#filtering-cases-by-value" id="toc-filtering-cases-by-value" class="nav-link" data-scroll-target="#filtering-cases-by-value"><strong>Filtering Cases by Value</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#filter-by-and-or-or" id="toc-filter-by-and-or-or" class="nav-link" data-scroll-target="#filter-by-and-or-or"><strong>Filter by <code>&lt;</code> and <code>&gt;</code> or <code>&lt;=</code> or <code>&gt;=</code></strong></a></li>
   <li><a href="#filter-cases-by-conditional-x-or-y-using-operator" id="toc-filter-cases-by-conditional-x-or-y-using-operator" class="nav-link" data-scroll-target="#filter-cases-by-conditional-x-or-y-using-operator"><strong>Filter Cases by Conditional X <em>or</em> Y Using <code>|</code> Operator…</strong></a></li>
   <li><a href="#filter-cases-between-values-with-between" id="toc-filter-cases-between-values-with-between" class="nav-link" data-scroll-target="#filter-cases-between-values-with-between"><strong>Filter Cases Between Values with <code>between()</code></strong></a></li>
@@ -784,14 +779,14 @@ FALSE
 </section>
 <section id="supplementary-readings-optional" class="level2">
 <h2 class="anchored" data-anchor-id="supplementary-readings-optional"><strong>Supplementary Readings (Optional)</strong></h2>
-<ul>
+<ul class="incremental">
 <li><a href="https://r4ds.hadley.nz/data-transform">Data Transformation</a></li>
 <li><a href="https://www.markhuberdatascience.org/_files/ugd/c2b9b6_543ea42a1ea64e32b4440b34ffd71635.pdf#page=69">Huber: Transforming Data</a></li>
 </ul>
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{here}</strong>: 1.0.1: for path management</li>
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{stringr}</strong>: 1.5.1: for working with strings</li>
@@ -827,7 +822,7 @@ If for some reason, you do not have the function saved, you can get it from the 
 <p>The <a href="https://dplyr.tidyverse.org/"><strong>{dplyr}</strong></a> package presents a type of grammar for wrangling data (<a href="https://www.researchgate.net/publication/275646200_dplyr_A_Grammar_of_Data_Manipulation">Wickham <em>and</em> Francois 2014</a>). <strong>{dplyr}</strong> is part of the <a href="https://www.tidyverse.org/"><strong>{tidyverse}</strong></a> ecosystem which loads using <code>library(tidyverse)</code>, or specifically using <code>library(dplyr)</code>. <strong>{dplyr}</strong> also imports functions from <strong>{tidyselect}</strong>, which is also part of the <strong>{tidyverse}</strong> ecosystem.</p>
 <p>The functions from any <code>R</code> package can be called after loading the package library. One does not need to reference the package explicitly when calling a function but to avoid confusion, we will often reference the package/library and the function together (e.g., <code>package::function()</code>).</p>
 <p>Working with data involves creating new column variables, removing or renaming column variables, removing or deleting row observations, sorting, and summarizing data (often by groups/factors). etc. Consequently, there are five main function verbs for working with data in a data frame: <code>select</code>, <code>filter</code>, <code>mutate</code>, <code>arange</code>, and <code>summarize</code>. Their corresponding functions are:</p>
-<ul>
+<ul class="incremental">
 <li><code>select(dataframe, variables_to_select)</code>: select columns to retain</li>
 <li><code>mutate(dataframe, variables_to_create)</code> and <code>dplyr::rename()</code>: add or modify existing columns</li>
 <li><code>filter(dataframe, rows_to_select)</code>: subset by rows</li>
@@ -848,13 +843,13 @@ If for some reason, you do not have the function saved, you can get it from the 
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>?dplyr<span class="sc">::</span>select</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You can see that <code>select()</code> is used for <strong><em>selecting variables</em></strong> from a data frame and there are many selection features for accomplishing such tasks.</p>
 <p><strong>Parameters/Arguments:</strong></p>
-<ul>
+<ul class="incremental">
 <li><code>.data</code>: a data frame</li>
 <li><code>...</code>: one ore more expressions separated by commas</li>
 </ul>
 <p>We will definitely need a data frame and we will need variables to select.</p>
 <p>Let’s start with a data frame. The <code>USAressts</code> data is built into <code>R</code> so let’s just use that for now. Let’s use <code>select()</code> to subset a data frame in two ways, first without piping and then with piping (preferred method).</p>
-<ol type="1">
+<ol class="incremental" type="1">
 <li>Without piping</li>
 </ol>
 <p>At a bare minimum, we will need to pass a data frame to <code>select()</code> at very least. But what happens if we don’t pass variables to select?</p>
@@ -865,7 +860,7 @@ If for some reason, you do not have the function saved, you can get it from the 
 </div>
 </div>
 <p><code>select()</code> is designed to take a data frame and select column variables from that data frame. If you do not specify what to select, you will see the that the returned data frame has 0 columns and 50 rows.</p>
-<ol start="2" type="1">
+<ol class="incremental" start="2" type="1">
 <li>Piping using <code>|&gt;</code></li>
 </ol>
 <p>If you pipe the data frame into the function, <code>.data = USArrests</code> is inherited and you do not need to declare it within <code>select()</code>.</p>
@@ -1286,7 +1281,7 @@ Colorado      7.9     204</code></pre>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">vars =</span> <span class="cn">NULL</span></span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>            )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Parameters/Arguments:</strong></p>
-<ul>
+<ul class="incremental">
 <li><code>match</code>: a character vector</li>
 <li><code>ignore.case</code>: if <code>TRUE</code>, the default, ignores case when matching names. This is most flexible.</li>
 <li><code>vars</code>: a character vector of variable names. If not supplied, the variables are taken from the current selection context (as established by functions like <code>select()</code> or <code>pivot_longer()</code>).</li>
@@ -1365,7 +1360,7 @@ Colorado      7.9     204</code></pre>
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>                   )</span>
 <span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>      )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Let’s provide two use cases:</p>
-<ol type="1">
+<ol class="incremental" type="1">
 <li>Without Piping</li>
 </ol>
 <p>You can pass the <code>data frame</code> as the first argument to <code>select()</code>. You can then pass that (now modified) data frame using a second <code>|&gt;</code> pipe to the <code>head()</code> in order to see the first 6 rows only.</p>
@@ -1401,7 +1396,7 @@ Colorado      7.9</code></pre>
 </div>
 </div>
 <p>Notice that the only column variable that is returned is Murder.</p>
-<ol start="2" type="1">
+<ol class="incremental" start="2" type="1">
 <li>With Piping</li>
 </ol>
 <p>A better approach, and one used more commonly, is to start with the data frame and then <code>|&gt;</code> it to your functions. Such an approach also makes code editing easier.</p>
@@ -1452,7 +1447,7 @@ Colorado       204</code></pre>
 <h3 class="anchored" data-anchor-id="selecting-and-selecting-out-variables-bybetween-index"><strong>Selecting and Selecting Out Variables By/Between Index</strong></h3>
 <p>So far, we have address selecting variables. There are, however, many approaches for <em>selecting</em> but also <em>selecting out</em> or omitting column variables. In other words, rather than including 14 out of 15 variables, you could simply exclude 1 of the 15 variables to achieve the same result.</p>
 <p>You can pass multiple arguments for each specification or you can pass a single vector that contains all specifications.</p>
-<ul>
+<ul class="incremental">
 <li><p><code>select(1, 2)</code>: select first and second columns</p></li>
 <li><p><code>select(c(1, 2))</code>: select first and second columns</p></li>
 <li><p><code>select(-c(1, 2))</code> or <code>select(!c(1, 2))</code>: select out first and second columns</p></li>
@@ -1581,7 +1576,7 @@ Colorado       204</code></pre>
 <h3 class="anchored" data-anchor-id="selecting-and-selecting-out-variables-by-or-between-character-name"><strong>Selecting and Selecting Out Variables By or Between Character Name</strong></h3>
 <p>These approaches are similar to those offered earlier except that some involve passing variables by their name (e.g., character names). Whereas the order of the variables in a data frame may move around, the names may be more stable or permanent, at least after you have cleaned up the names. Consequently, passing variables by name may be more foolproof.</p>
 <p>You don’t have to be familiar with all approaches and you may settle on using one that makes the most sense to you.</p>
-<ul>
+<ul class="incremental">
 <li><p><code>select("var1", "var2")</code></p></li>
 <li><p><code>select(c("var1", "var2"))</code></p></li>
 <li><p><code>select(-c("var1", "var2"))</code></p></li>
@@ -1593,7 +1588,7 @@ Colorado       204</code></pre>
 </ul>
 <p><strong>Recommendation:</strong> use options utilizing <code>c()</code> as this will be more versatile with <code>base R</code> functionality.</p>
 <p>These function approaches also work but they may lead to some confusion regarding usage of quotes:</p>
-<ul>
+<ul class="incremental">
 <li><code>select(var1, var2)</code></li>
 <li><code>select(c(var1, var2))</code></li>
 <li><code>select(-c(var1, var2))</code></li>
@@ -1679,7 +1674,7 @@ Colorado       204</code></pre>
 </section>
 <section id="selecting-and-selecting-out-variables-characters-in-their-names" class="level3">
 <h3 class="anchored" data-anchor-id="selecting-and-selecting-out-variables-characters-in-their-names"><strong>Selecting and Selecting Out Variables Characters in Their Names</strong></h3>
-<ul>
+<ul class="incremental">
 <li><code>select(starts_with("some character or set of characters"))</code></li>
 <li><code>select(ends_with("some character or set of characters"))</code></li>
 <li><code>select(contains("some character or set of characters"))</code></li>
@@ -2033,7 +2028,7 @@ Colorado       204</code></pre>
   .after = NULL
 )</code></pre>
 <p><strong>Parameters/Arguments:</strong></p>
-<ul>
+<ul class="incremental">
 <li><code>.data</code>: a data frame</li>
 <li><code>...</code>: name-value pairs; name is the name of the column and the value would be the value or function used</li>
 </ul>
@@ -2775,7 +2770,7 @@ Wyoming           6.8     161       60 15.6           Below</code></pre>
 <span id="cb154-2"><a href="#cb154-2" aria-hidden="true" tabindex="-1"></a>       ...</span>
 <span id="cb154-3"><a href="#cb154-3" aria-hidden="true" tabindex="-1"></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Parameters/Arguments:</strong></p>
-<ul>
+<ul class="incremental">
 <li><code>.data</code>: a data frame</li>
 <li><code>...</code>: expressions that return a logical value (<code>TRUE</code> or <code>FALSE</code>)</li>
 </ul>
@@ -3064,7 +3059,7 @@ Virginia          8.5     156       63 20.7</code></pre>
 </div>
 <p>You can see that some columns contain cases/rows with <code>TRUE</code> indicating the cell contains <code>NA</code>.</p>
 <p>WE will use the negation operator, <code>!</code>, to illustrate some filtering approaches. Because <code>filter()</code> will filter out <code>FALSE</code> cases and retain <code>TRUE</code> ones, so you may sometimes need to negate a function so that you keep the rows you want to keep.</p>
-<ul>
+<ul class="incremental">
 <li><code>na.omit()</code>: removes rows with NAs</li>
 <li><code>filter(is.na(column_name))</code>: keep rows with NA in specific variable</li>
 <li><code>filter(!is.na(column_name))</code>: remove (don’t keep) rows with NA in specific variable</li>
@@ -3192,7 +3187,7 @@ Caused by warning:
 <section id="removing-duplicate-rows-using-distinct" class="level2">
 <h2 class="anchored" data-anchor-id="removing-duplicate-rows-using-distinct"><strong>Removing duplicate rows using <code>distinct()</code></strong></h2>
 <p>We will examine some other filtering methods that do not use <code>filter()</code> specifically but that which perform filtering operations.</p>
-<ul>
+<ul class="incremental">
 <li><code>dplyr::distinct()</code>: remove duplicate rows</li>
 <li><code>dplyr::distinct(., column)</code>: remove duplicate rows by specific column</li>
 <li><code>na.omit()</code>: remove any row with <code>NA</code>’s (missing values)</li>
@@ -3543,7 +3538,7 @@ Caused by warning:
 <section id="filter-cases-containing-characters-using-stringrstr_detect-and-in" class="level1">
 <h1><strong>Filter Cases Containing Characters Using <code>stringr::str_detect()</code> and <code>%in%</code>:</strong></h1>
 <p>If you want to filter cases that contain certain characters, unfortunately, you cannot use <code>contains()</code> as you would for variable names. For matching characters in levels of variables, you’ll need something like <code>stringr::str_detect()</code> or <code>grepl()</code>.</p>
-<ul>
+<ul class="incremental">
 <li><code>stringr::str_detect()</code>: returns matching conditions</li>
 </ul>
 <p>The example below uses <code>str_detect()</code> to detect the presence of a character match and returns a logic vector with <code>TRUE</code>s for matching cases. When paired with <code>filter()</code>, the data frame is filtered by to contains cases that match the pattern for the variable.</p>
@@ -3562,13 +3557,13 @@ Caused by warning:
 </div>
 <p>But the case for which <code>Sex = Male</code> is now missing. This is because <code>stringr::str_detect()</code> is a case-sensitive pattern match.</p>
 <p>You can fix this is a couple ways:</p>
-<ol type="1">
+<ol class="incremental" type="1">
 <li>make the cases in <code>Sex</code> all lower case to <code>mutate()</code> the fix or</li>
 <li>to wrap <code>Sex</code> in <code>tolower()</code> to make cases lowercase.</li>
 </ol>
 <p>The first option might be better if you want to fix the problem in the data frame.</p>
 <p>Other casing functions are:</p>
-<ul>
+<ul class="incremental">
 <li><code>tolower()</code>: returns lower case of string; see also <code>stringr::str_to_lower()</code></li>
 <li><code>toupper()</code>: returns upper case of string; see also <code>stringr::str_to_upper()</code></li>
 <li><code>tools::toTitleCase()</code>: returns Title Case (capitalize first letter of string)</li>

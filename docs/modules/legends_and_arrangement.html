@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Legends and arrangement</title>
+<title>Legends and arrangement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/legends_and_arrangement.html"><strong>Legends and arrangement</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/legends_and_arrangement.html"><strong>Legends and arrangement</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,10 +662,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
@@ -678,19 +673,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><strong>Loading Data</strong></a></li>
   <li><a href="#legend-related-functions" id="toc-legend-related-functions" class="nav-link" data-scroll-target="#legend-related-functions"><strong>Legend-Related Functions</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#ggplot2guide_legend" id="toc-ggplot2guide_legend" class="nav-link" data-scroll-target="#ggplot2guide_legend"><code>ggplot2::guide_legend()</code></a></li>
   <li><a href="#ggplot2guides" id="toc-ggplot2guides" class="nav-link" data-scroll-target="#ggplot2guides"><code>ggplot2::guides()</code></a></li>
   <li><a href="#scale_aesthetic_type-functions" id="toc-scale_aesthetic_type-functions" class="nav-link" data-scroll-target="#scale_aesthetic_type-functions"><code>scale_&lt;aesthetic&gt;_&lt;type&gt;()</code> functions</a></li>
   </ul></li>
   <li><a href="#creating-some-base-plots" id="toc-creating-some-base-plots" class="nav-link" data-scroll-target="#creating-some-base-plots"><strong>Creating Some Base Plots</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#examining-base-plots-legend-elements" id="toc-examining-base-plots-legend-elements" class="nav-link" data-scroll-target="#examining-base-plots-legend-elements"><strong>Examining Base Plots: Legend Elements</strong></a></li>
   </ul></li>
   <li><a href="#changing-legend-spatial-positioning" id="toc-changing-legend-spatial-positioning" class="nav-link" data-scroll-target="#changing-legend-spatial-positioning"><strong>Changing Legend Spatial Positioning</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#removing-a-legend" id="toc-removing-a-legend" class="nav-link" data-scroll-target="#removing-a-legend"><strong>Removing a Legend</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#using-theme-with-a-single-legend" id="toc-using-theme-with-a-single-legend" class="nav-link" data-scroll-target="#using-theme-with-a-single-legend">Using <code>theme()</code> with a single legend:</a></li>
   <li><a href="#using-theme-with-multiple-legends" id="toc-using-theme-with-multiple-legends" class="nav-link" data-scroll-target="#using-theme-with-multiple-legends">Using <code>theme()</code> with multiple legends:</a></li>
   <li><a href="#using-guides-with-a-single-legend" id="toc-using-guides-with-a-single-legend" class="nav-link" data-scroll-target="#using-guides-with-a-single-legend">Using <code>guides()</code> with a single legend:</a></li>
@@ -698,7 +693,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#using-scale_aesthetic_type-with-a-single-legend" id="toc-using-scale_aesthetic_type-with-a-single-legend" class="nav-link" data-scroll-target="#using-scale_aesthetic_type-with-a-single-legend"><em>Using <code>scale_&lt;aesthetic&gt;_&lt;type&gt;()</code> with a single legend</em>:</a></li>
   </ul></li>
   <li><a href="#repositioning-legends-right-left-top-bottom" id="toc-repositioning-legends-right-left-top-bottom" class="nav-link" data-scroll-target="#repositioning-legends-right-left-top-bottom"><strong>Repositioning Legends (Right, Left, Top, Bottom)</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#using-theme-with-a-single-legend-1" id="toc-using-theme-with-a-single-legend-1" class="nav-link" data-scroll-target="#using-theme-with-a-single-legend-1">Using <code>theme()</code> with a single legend:</a></li>
   <li><a href="#using-theme-with-multiple-legends-1" id="toc-using-theme-with-multiple-legends-1" class="nav-link" data-scroll-target="#using-theme-with-multiple-legends-1">Using <code>theme()</code> with multiple legends:</a></li>
   </ul></li>
@@ -707,9 +702,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#repositioning-legends-xy-coordinates" id="toc-repositioning-legends-xy-coordinates" class="nav-link" data-scroll-target="#repositioning-legends-xy-coordinates"><strong>Repositioning Legends (xy Coordinates)</strong></a></li>
   </ul></li>
   <li><a href="#legend-keys-and-labels" id="toc-legend-keys-and-labels" class="nav-link" data-scroll-target="#legend-keys-and-labels"><strong>Legend Keys and Labels</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#adjusting-legend-label-position" id="toc-adjusting-legend-label-position" class="nav-link" data-scroll-target="#adjusting-legend-label-position"><strong>Adjusting Legend Label Position</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#removing-a-legend-labels" id="toc-removing-a-legend-labels" class="nav-link" data-scroll-target="#removing-a-legend-labels"><strong>Removing a Legend Labels</strong></a></li>
   <li><a href="#changing-legend-label-position" id="toc-changing-legend-label-position" class="nav-link" data-scroll-target="#changing-legend-label-position"><strong>Changing Legend Label Position</strong></a></li>
   <li><a href="#changing-the-labels-directionorientation" id="toc-changing-the-labels-directionorientation" class="nav-link" data-scroll-target="#changing-the-labels-directionorientation"><strong>Changing the Labels Direction/Orientation</strong></a></li>
@@ -717,10 +712,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#finer-tuning-of-legends" id="toc-finer-tuning-of-legends" class="nav-link" data-scroll-target="#finer-tuning-of-legends"><strong>Finer Tuning of Legends</strong></a></li>
   <li><a href="#changing-legend-point-size-using-guides" id="toc-changing-legend-point-size-using-guides" class="nav-link" data-scroll-target="#changing-legend-point-size-using-guides"><strong>Changing Legend Point Size using <code>guides()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#comparing-legend-point-size-in-plots" id="toc-comparing-legend-point-size-in-plots" class="nav-link" data-scroll-target="#comparing-legend-point-size-in-plots"><strong>Comparing Legend Point Size in Plots</strong></a></li>
   <li><a href="#adjusting-keys-in-legends" id="toc-adjusting-keys-in-legends" class="nav-link" data-scroll-target="#adjusting-keys-in-legends"><strong>Adjusting Keys in Legends</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#reversing-the-legend-keys" id="toc-reversing-the-legend-keys" class="nav-link" data-scroll-target="#reversing-the-legend-keys"><strong>Reversing the Legend Keys</strong></a></li>
   <li><a href="#overriding-key-size-in-legends" id="toc-overriding-key-size-in-legends" class="nav-link" data-scroll-target="#overriding-key-size-in-legends"><strong>Overriding Key <code>size</code> in Legends</strong></a></li>
   <li><a href="#dealing-with-a-constant-key-size" id="toc-dealing-with-a-constant-key-size" class="nav-link" data-scroll-target="#dealing-with-a-constant-key-size"><strong>Dealing with a Constant Key Size</strong></a></li>
@@ -729,10 +724,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overriding-other-aesthetics-of-legend-keys" id="toc-overriding-other-aesthetics-of-legend-keys" class="nav-link" data-scroll-target="#overriding-other-aesthetics-of-legend-keys"><strong>Overriding other aesthetics of Legend Keys</strong></a></li>
   </ul></li>
   <li><a href="#reordering-legend-labels-using-scale_aesthetic_manual" id="toc-reordering-legend-labels-using-scale_aesthetic_manual" class="nav-link" data-scroll-target="#reordering-legend-labels-using-scale_aesthetic_manual"><strong>Reordering Legend Labels using <code>scale_&lt;aesthetic&gt;_manual()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#reordering-legend-labels" id="toc-reordering-legend-labels" class="nav-link" data-scroll-target="#reordering-legend-labels"><strong>Reordering Legend Labels</strong></a></li>
   <li><a href="#reordering-factor-levels-using-forcats" id="toc-reordering-factor-levels-using-forcats" class="nav-link" data-scroll-target="#reordering-factor-levels-using-forcats"><strong>Reordering Factor Levels using {forcats}</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#comparing-plots-with-fct_reorder-and-fct_reorder2" id="toc-comparing-plots-with-fct_reorder-and-fct_reorder2" class="nav-link" data-scroll-target="#comparing-plots-with-fct_reorder-and-fct_reorder2"><strong>Comparing Plots with <code>fct_reorder()</code> and <code>fct_reorder2()</code></strong></a></li>
   <li><a href="#plotting-and-comparing-reordering-using-fct_reorder-and-fct_reorder2" id="toc-plotting-and-comparing-reordering-using-fct_reorder-and-fct_reorder2" class="nav-link" data-scroll-target="#plotting-and-comparing-reordering-using-fct_reorder-and-fct_reorder2"><strong>Plotting and Comparing Reordering using <code>fct_reorder()</code> and <code>fct_reorder2()</code></strong></a></li>
   <li><a href="#plotting-with-a-reordering-by-forcatsfct_reorder" id="toc-plotting-with-a-reordering-by-forcatsfct_reorder" class="nav-link" data-scroll-target="#plotting-with-a-reordering-by-forcatsfct_reorder"><strong>Plotting with a Reordering by <code>forcats::fct_reorder()</code></strong>:</a></li>
@@ -740,7 +735,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reordering-the-labels-in-a-legend" id="toc-reordering-the-labels-in-a-legend" class="nav-link" data-scroll-target="#reordering-the-labels-in-a-legend"><strong>Reordering the Labels in a Legend</strong></a></li>
   </ul></li>
   <li><a href="#changing-title-characteristics" id="toc-changing-title-characteristics" class="nav-link" data-scroll-target="#changing-title-characteristics"><strong>Changing Title Characteristics</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#changing-legend-title-guides" id="toc-changing-legend-title-guides" class="nav-link" data-scroll-target="#changing-legend-title-guides"><strong>Changing Legend Title <code>guides()</code></strong></a></li>
   <li><a href="#changing-legend-title-position" id="toc-changing-legend-title-position" class="nav-link" data-scroll-target="#changing-legend-title-position"><strong>Changing Legend Title Position</strong></a></li>
   <li><a href="#changing-legend-direction-and-label-position" id="toc-changing-legend-direction-and-label-position" class="nav-link" data-scroll-target="#changing-legend-direction-and-label-position"><strong>Changing Legend Direction and Label Position</strong></a></li>
@@ -815,7 +810,7 @@ Reading should take place in two parts:
 
 *After Class*: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from **Wickham, Navarro, & Pedersen (under revision)**. *ggplot2: Elegant Graphics for Data Analysis (3e)*.
 -->
-<ul>
+<ul class="incremental">
 <li><a href="https://clauswilke.com/dataviz/redundant-coding.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Redundant coding</a></li>
 </ul>
 </section>
@@ -829,7 +824,7 @@ Reading should take place in two parts:
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
 <li><strong>{forcats}</strong> 1.0.0: for factor reordering</li>
@@ -1634,7 +1629,7 @@ Removed 14 rows containing missing values or values outside the scale range
 </div>
 <p>We want to order the keys and labels in the legend. This is a legend that has two parts, <code>col</code> and <code>shape</code>. There are three key-label pairs to order. In general, the blue squares appear to be higher in the plot than the red circles or green triangles. The legend should at least try to match that order.</p>
 <p>We will need to manually adjust:</p>
-<ul>
+<ul class="incremental">
 <li><code>color</code> using <code>scale_color_manual()</code></li>
 <li><code>shape</code> using <code>scale_shape_manual()</code></li>
 </ul>
@@ -1664,7 +1659,7 @@ Removed 14 rows containing missing values or values outside the scale range
 </div>
 <p>OK great, we have manually set our colors and shapes but the order is still off. The labels are not ordered in a way to facilitate perception. The named vector is not always going to work and sometimes you have to manipulation the <code>values</code>, <code>breaks</code>, and text <code>labels</code> independently.</p>
 <p>We will:</p>
-<ul>
+<ul class="incremental">
 <li>add labels and breaks to <code>scale_color_manual()</code></li>
 <li>add labels and breaks to <code>scale_shape_manual()</code></li>
 </ul>

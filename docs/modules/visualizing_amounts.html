@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Visualizing amounts</title>
+<title>Visualizing amounts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/visualizing_amounts.html"><strong>Visualizing amounts</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/visualizing_amounts.html"><strong>Visualizing amounts</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,10 +662,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#optional-readings" id="toc-optional-readings" class="nav-link" data-scroll-target="#optional-readings"><strong>Optional Readings</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
@@ -679,11 +674,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><strong>Loading Data</strong></a></li>
   <li><a href="#making-some-plots" id="toc-making-some-plots" class="nav-link" data-scroll-target="#making-some-plots"><strong>Making some plots</strong></a></li>
   <li><a href="#plotting-counts" id="toc-plotting-counts" class="nav-link" data-scroll-target="#plotting-counts"><strong>Plotting Counts</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#reduce-the-data-frame-to-contain-the-bests" id="toc-reduce-the-data-frame-to-contain-the-bests" class="nav-link" data-scroll-target="#reduce-the-data-frame-to-contain-the-bests"><strong>Reduce the data frame to contain the bests</strong></a></li>
   <li><a href="#data-in-tabular-form" id="toc-data-in-tabular-form" class="nav-link" data-scroll-target="#data-in-tabular-form"><strong>Data in Tabular Form</strong></a></li>
   <li><a href="#bar-charts" id="toc-bar-charts" class="nav-link" data-scroll-target="#bar-charts"><strong>Bar Charts</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#geom_bar" id="toc-geom_bar" class="nav-link" data-scroll-target="#geom_bar"><strong><code>geom_bar()</code></strong></a></li>
   <li><a href="#geom_col" id="toc-geom_col" class="nav-link" data-scroll-target="#geom_col"><strong><code>geom_col()</code></strong></a></li>
   </ul></li>
@@ -755,14 +750,14 @@ Reading should take place in two parts:
 -->
 <section id="optional-readings" class="level2">
 <h2 class="anchored" data-anchor-id="optional-readings"><strong>Optional Readings</strong></h2>
-<ul>
+<ul class="incremental">
 <li><a href="https://clauswilke.com/dataviz/directory-of-visualizations.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Directory of visualizations</a></li>
 <li><a href="https://clauswilke.com/dataviz/visualizing-amounts.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Visualizing Amounts</a></li>
 </ul>
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{here}</strong>: 1.0.1: for path management</li>
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating <!--- **{magrittr}** 2.0.3: for code clarity and piping data frame objects--></li>
 <li><strong>{ggplot2}</strong>: 3.5.1: for creating data visualization</li>

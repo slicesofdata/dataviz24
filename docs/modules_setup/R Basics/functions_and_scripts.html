@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-08-23">
 
-<title>Data Visualization - Functions, Arguments, and R scripts</title>
+<title>Functions, Arguments, and R scripts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,27 +662,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#readings-and-preparation" id="toc-readings-and-preparation" class="nav-link" data-scroll-target="#readings-and-preparation"><strong>Readings and Preparation</strong></a></li>
   <li><a href="#supplementary-readings" id="toc-supplementary-readings" class="nav-link" data-scroll-target="#supplementary-readings"><strong>Supplementary Readings</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a></li>
   </ul></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   </ul></li>
   <li><a href="#simple-overview-of-objects" id="toc-simple-overview-of-objects" class="nav-link" data-scroll-target="#simple-overview-of-objects"><strong>Simple Overview of Objects</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#examples-of-objects" id="toc-examples-of-objects" class="nav-link" data-scroll-target="#examples-of-objects"><strong>Examples of objects</strong></a></li>
   <li><a href="#a-character-example" id="toc-a-character-example" class="nav-link" data-scroll-target="#a-character-example"><strong>A character example</strong></a></li>
   </ul></li>
   <li><a href="#object-assignment-using--" id="toc-object-assignment-using--" class="nav-link" data-scroll-target="#object-assignment-using--"><strong>Object Assignment using <code>&lt;-</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#assignment-provides-meaning-or-definition" id="toc-assignment-provides-meaning-or-definition" class="nav-link" data-scroll-target="#assignment-provides-meaning-or-definition"><strong>Assignment provides meaning or definition</strong></a></li>
   <li><a href="#a-character-object-a-silly-example" id="toc-a-character-object-a-silly-example" class="nav-link" data-scroll-target="#a-character-object-a-silly-example"><strong>A character object: A silly example</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#being-mindful-of-case-sensitivity" id="toc-being-mindful-of-case-sensitivity" class="nav-link" data-scroll-target="#being-mindful-of-case-sensitivity"><strong>Being mindful of case sensitivity</strong></a></li>
   </ul></li>
   <li><a href="#a-numeric-object" id="toc-a-numeric-object" class="nav-link" data-scroll-target="#a-numeric-object"><strong>A numeric object</strong></a></li>
@@ -708,9 +703,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#functions-with-default-arguments" id="toc-functions-with-default-arguments" class="nav-link" data-scroll-target="#functions-with-default-arguments"><strong>Functions with Default Arguments</strong></a></li>
   <li><a href="#functions-with-multiple-parametersarguments" id="toc-functions-with-multiple-parametersarguments" class="nav-link" data-scroll-target="#functions-with-multiple-parametersarguments"><strong>Functions with Multiple Parameters/Arguments</strong></a></li>
   <li><a href="#sourcing-code-with-source" id="toc-sourcing-code-with-source" class="nav-link" data-scroll-target="#sourcing-code-with-source"><strong>Sourcing code with <code>source()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#creating-a-.r-script-file-to-source" id="toc-creating-a-.r-script-file-to-source" class="nav-link" data-scroll-target="#creating-a-.r-script-file-to-source"><strong>Creating a <code>.R</code> script file to <code>source()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#creating-a-.r-script-using-rstudio" id="toc-creating-a-.r-script-using-rstudio" class="nav-link" data-scroll-target="#creating-a-.r-script-using-rstudio"><strong>Creating a <code>.R</code> script using <code>RStudio</code></strong></a></li>
   <li><a href="#creating-a-.r-script-file-using-the-terminal" id="toc-creating-a-.r-script-file-using-the-terminal" class="nav-link" data-scroll-target="#creating-a-.r-script-file-using-the-terminal"><strong>Creating a <code>.R</code> script file using the <code>Terminal</code></strong></a></li>
   </ul></li>
@@ -720,7 +715,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sourcing-all-files-in-a-directory" id="toc-sourcing-all-files-in-a-directory" class="nav-link" data-scroll-target="#sourcing-all-files-in-a-directory"><strong>Sourcing <em>all</em> files in a directory</strong></a></li>
   </ul></li>
   <li><a href="#using-functions-from-libraries" id="toc-using-functions-from-libraries" class="nav-link" data-scroll-target="#using-functions-from-libraries"><strong>Using Functions from Libraries</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#an-alternative-to-view" id="toc-an-alternative-to-view" class="nav-link" data-scroll-target="#an-alternative-to-view"><strong>An alternative to <code>View()</code></strong></a></li>
   <li><a href="#getting-the-head-of-a-data-frame" id="toc-getting-the-head-of-a-data-frame" class="nav-link" data-scroll-target="#getting-the-head-of-a-data-frame"><strong>Getting the <code>head()</code> of a data frame`</strong></a></li>
   <li><a href="#checking-whether-an-object-is-a-data-frame-using-is.data.frame" id="toc-checking-whether-an-object-is-a-data-frame-using-is.data.frame" class="nav-link" data-scroll-target="#checking-whether-an-object-is-a-data-frame-using-is.data.frame"><strong>Checking whether an object is a data frame using <code>is.data.frame()</code></strong></a></li>
@@ -775,7 +770,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="supplementary-readings" class="level2">
 <h2 class="anchored" data-anchor-id="supplementary-readings"><strong>Supplementary Readings</strong></h2>
-<ul>
+<ul class="incremental">
 <li><a href="https://r4ds.hadley.nz/workflow-basics">R Workflow Basics</a></li>
 <li><a href="https://www.markhuberdatascience.org/_files/ugd/c2b9b6_543ea42a1ea64e32b4440b34ffd71635.pdf#page=242">Huber: Functions</a></li>
 </ul>
@@ -786,7 +781,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{here}</strong> 1.0.1: for file path management</li>
 </ul>
 </section>
@@ -805,7 +800,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="examples-of-objects"><strong>Examples of objects</strong></h2>
 <p>You can also think of an <em>object</em> as a sort of container that holds something. Containers of different types hold different things and so is true in computer programming. A container for holding water may look different from a container for holding books. In computer speak, one type of container can hold numbers, another can hold characters, another can hold a data frame, etc. The container object is holding whatever you have assigned it to hold.</p>
 <p>We will deal with different types of objects in data science. Without providing too complicated or technical of descriptions, some are described below.</p>
-<ul>
+<ul class="incremental">
 <li><strong>numeric</strong> objects: representing numeric information (e.g., one’s age)</li>
 <li><strong>character</strong> objects: representing character information (e.g., one’s name or race)</li>
 <li><strong>vector</strong> objects: representing more than one numeric object (e.g., ages of participants)</li>
@@ -827,7 +822,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Before we can create any objects, however, we need to understand a little about <em>assignment</em>. In computer programming, an assignment statement sets (or re-sets) an object denoted by a name. An assignment statement symbolically associates a specific piece of information (e.g., an object) with a name. For example, you can assign the numeric value <code>22</code> representing Caleb’s age to the name <code>caleb_age</code>. The assignment statement is what allows you to call the object <code>caleb_age</code> and get the returned value of <code>22</code>. Because we assign objects to names, the objects can be single values as with <code>22</code> or be something more complex like a <em>vector</em> of values, a <em>data frame</em>, a <em>list</em>, a <em>list of data frames</em>, a <em>plot</em>, a <em>function</em>, or any other object. The name is simply the container to which the object is assigned. Because assignment is the association between an object and a name, I may sometimes refer to the process as <em>assigning a name to an object</em> or the reverse, <em>assigning a name to an object</em>.</p>
 <p>Assignment requires using an <em>assignment operator</em>. The most common assignment operator used by computer programming is <code>=</code> (e.g., <code>caleb_age = 22</code> or less commonly <code>22 = caleb_age</code>). Programming languages can utilize more than one operator for assignment, however.</p>
 <p>In fact, R has three:</p>
-<ul>
+<ul class="incremental">
 <li><code>=</code></li>
 <li><code>&lt;-</code> or less commonly <code>-&gt;</code></li>
 <li><code>&lt;&lt;-</code> or less commonly <code>-&gt;&gt;</code></li>
@@ -845,7 +840,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>"things"</code></p>
 <p>When dealing with data, you will encounter many character objects as they often represent factor variables (e.g., race, ethnicity, favorite game, etc.) but you will also see lots of objects that are numeric in some form (e.g., age, rating, cognitive performance, etc.).</p>
 <p>Silly Example:</p>
-<ul>
+<ul class="incremental">
 <li><code>"something"</code> <code>assigned</code> to <code>container</code></li>
 <li><code>container &lt;- "something"</code></li>
 </ul>
@@ -943,7 +938,7 @@ NAME &lt;- "Jim"         # then change it again</code></pre>
 <section id="inspecting-vectors-with-some-functions" class="level2">
 <h2 class="anchored" data-anchor-id="inspecting-vectors-with-some-functions"><strong>Inspecting vectors with some functions</strong></h2>
 <p><code>name</code> and <code>year</code> are very simple objects. <code>name</code> is a simple character/string object we created, which contains only the name of 1 person and <code>year</code> only holds the current year. There is something else important about how R treats them that you cannot see on the surface. Both of these objects are also <strong>vectors</strong>. Vectors are <em>one-dimensional arrays</em> containing <em>n</em> pieces of information. You might also think of a vector so a variable (e.g., IQs of people). Both the <code>name</code> and <code>year</code> vectors contain only one piece of information, however. If you don’t believe me, we can use some functions that will answer this for us.</p>
-<ul>
+<ul class="incremental">
 <li><code>is.vector()</code> is a function that returns a logical (T or F) about whether the object is a vector</li>
 <li><code>length()</code> is a function that returns a non-negative numeric integer representing the number of elements contained</li>
 <li><code>typeof()</code> is a function that returns the object’s type</li>
@@ -1034,7 +1029,7 @@ NAME &lt;- "Jim"         # then change it again</code></pre>
 <h1><strong>Function Characteristics</strong></h1>
 <p>We have used some functions like <code>is.vector()</code> and <code>length()</code> to inspect some objects above. Given our reliance on function in this course, there is some terminology to understand how to work with functions.</p>
 <p>Here are 5 terms/concepts to know:</p>
-<ul>
+<ul class="incremental">
 <li><em>name</em> (created by assignment operator <code>&lt;-</code>)</li>
 <li><em>definition</em> (code statements or instructions for its usage)</li>
 <li><em>function arguments</em> (optional variables that specify the function’s operation)</li>
@@ -1052,7 +1047,7 @@ NAME &lt;- "Jim"         # then change it again</code></pre>
 <section id="objects-and-function-objects" class="level1">
 <h1><strong>Objects and Function Objects</strong></h1>
 <p>Now that you have a basic idea of objects and assignment, there are different types of objects. Unlike the example of assigning a value to an object, functions like <code>mean()</code>, <code>c()</code>, <code>data.frame()</code> and <code>mutate()</code> are objects that contain statements for carrying out operations. As you might imagine, calculating the mean of a set of values using the <code>mean()</code> function would involve statements to carry out operations like summation and division.</p>
-<ul>
+<ul class="incremental">
 <li><code>mean()</code>: to compute the mean of a numeric vector</li>
 <li><code>c()</code>: to combine elements into a vector</li>
 <li><code>data.frame()</code>: to create a data frame</li>
@@ -1129,7 +1124,7 @@ NAME &lt;- "Jim"         # then change it again</code></pre>
 <p>Notice that you didn’t need to include any of your own instructions for these functions to perform their operations. Although some functions in R operate this way, many will require some additional values or variables. Functions that have <code>parameters</code> as part of their code statements will require you to pass <code>arguments</code> to be used in those statements.</p>
 <p>In many context, people will not differentiate between parameters and arguments. There is a difference, which I will point out briefly here.</p>
 <p>Parameters versus arguments</p>
-<ul>
+<ul class="incremental">
 <li>A function’s parameters are the names listed in the function’s definition.</li>
 <li>A function’s arguments are the actual values passed to the function.</li>
 </ul>
@@ -1137,7 +1132,7 @@ NAME &lt;- "Jim"         # then change it again</code></pre>
 <section id="an-example-with-length" class="level1">
 <h1><strong>An example with <code>length()</code></strong></h1>
 <p>Example:</p>
-<ul>
+<ul class="incremental">
 <li><code>length</code> is a function; see <code>help(length)</code></li>
 <li><code>length</code> has one <em>parameter</em>, <code>x</code>, which needs to be a vector or factor</li>
 </ul>
@@ -1306,7 +1301,7 @@ NAME &lt;- "Jim"         # then change it again</code></pre>
 <h1><strong>Sourcing code with <code>source()</code></strong></h1>
 <p><code>source()</code> is a function that will read and execute R code. One benefit of this function relates to having files of code. Although there are several parameters for this function, the one you will use to pass a file name is <code>file</code>. The other parameters you are unlikely to use, so I will not discuss them.</p>
 <p><strong>Parameters/Arguments:</strong></p>
-<ul>
+<ul class="incremental">
 <li><code>file</code>: a connection or a character string giving the pathname of the file or URL to read from</li>
 </ul>
 <p>Let’s say you create an R script file with extension <code>.R</code> and that file contains <code>R</code> code to read a data file, or clean up variables in a data frame, or create plot objects. All of the code in that <code>.R</code> file can be executed from the <code>R</code> console, from within another <code>.R</code> file, or from a <code>.Rmd</code> file. As result, <code>source()</code> can be used to compartmentalize code that is used to serve different purposes. Moreover, writing code in individual files focuses you (and the script) on a goal and prevents it from from becoming too busy or too complicated. Let’s try.</p>
@@ -1376,14 +1371,14 @@ source(here::here("src", "create_plots.R"))</code></pre>
 <section id="using-functions-from-libraries" class="level1">
 <h1><strong>Using Functions from Libraries</strong></h1>
 <p>Functions in base <code>R</code> are easy to operate on data right out of the box; they don’t require special installation or loading. For example, <code>head()</code> will look a the first few rows (or cases) of data frame. A data frame contains <em>n</em> rows and <em>m</em> columns. In order to demonstrate this, we will use the <code>USArrests</code> data set that is part of base R. Then, we will use <code>mean()</code> to calculate the mean of a vector of data. A column of a data frame is a vector of some type (e.g., numbers or characters).</p>
-<ul>
+<ul class="incremental">
 <li><code>head()</code> returns the top of the data frame; compare to <code>tail()</code></li>
 <li><code>View()</code> (uppercase V): returns a table of the data frame; built into <code>R</code>, looks crappy, steals focus</li>
 </ul>
 <section id="an-alternative-to-view" class="level2">
 <h2 class="anchored" data-anchor-id="an-alternative-to-view"><strong>An alternative to <code>View()</code></strong></h2>
 <p>As an alternative to <code>View()</code>, a function that I wrote using the <strong>{DT}</strong> library to display the data in an <code>HTML</code> table that allows you to sort the data.</p>
-<ul>
+<ul class="incremental">
 <li><code>view_html()</code> (lowercase v): returns an filterable html table of the data frame; my alternative to <code>View()</code></li>
 </ul>
 <p>If you want to use this function, you can <code>source()</code> the raw code from the course site using the code below. Because I use this function often, you might wish to add it to your <code>/src/functions/</code> directory and simply source all of the files in that directory as describe above.</p>
@@ -1393,7 +1388,7 @@ source(here::here("src", "create_plots.R"))</code></pre>
 <h2 class="anchored" data-anchor-id="getting-the-head-of-a-data-frame"><strong>Getting the <code>head()</code> of a data frame`</strong></h2>
 <p>If you query the function in the console by typing using <code>?head</code> or <code>help(head)</code>, you will see in there are two main parameters.</p>
 <p><strong>Parameters/Arguments:</strong></p>
-<ul>
+<ul class="incremental">
 <li><code>x</code>: a vector or data frame object</li>
 <li><code>n</code>: a value of the indices to be selected (e.g., elements of vector, rows in data frame)</li>
 </ul>
@@ -1438,21 +1433,21 @@ Colorado      7.9     204       78 38.7</code></pre>
 <section id="checking-whether-an-object-is-a-data-frame-using-is.data.frame" class="level2">
 <h2 class="anchored" data-anchor-id="checking-whether-an-object-is-a-data-frame-using-is.data.frame"><strong>Checking whether an object is a data frame using <code>is.data.frame()</code></strong></h2>
 <p>You can also check whether the <code>USArrests</code> data file is a data frame using <code>is.data.frame()</code>, which will return <code>TRUE</code> indicating that it is indeed a data frame.</p>
-<ul>
+<ul class="incremental">
 <li><code>is.data.frame()</code> returns logical ( T or F) about data frame as two-dimensional array</li>
 </ul>
 </section>
 <section id="checking-the-structure-of-a-data-frame-using-str" class="level2">
 <h2 class="anchored" data-anchor-id="checking-the-structure-of-a-data-frame-using-str"><strong>Checking the structure of a data frame using <code>str()</code></strong></h2>
 <p>That seems tedious, however. You can learn a lot more about the data frame by examining its structure using <code>str()</code>. The <code>USArrests</code> object is a data frame, contains 50 observations (e.g., rows) and 4 variables (columns). All column variables appear to contains numbers, with two of them being numeric, abbreviated <code>num</code> and two are integers, abbreviated <code>int</code>.</p>
-<ul>
+<ul class="incremental">
 <li><code>str()</code> returns the structure of a data frame</li>
 </ul>
 </section>
 <section id="using-other-functions" class="level2">
 <h2 class="anchored" data-anchor-id="using-other-functions"><strong>Using other functions`</strong></h2>
 <p>And you can check the names of the columns using <code>names()</code>. What is actually returned to you is a character vector, or a vector whose elements are of character type. You can test whether the column names is a vector by <em>wrapping</em> <code>names()</code> with the <code>is.vector()</code> function. Similarly, wrapping <code>names()</code> in <code>typeof()</code> will tell you the type is <code>character</code>.</p>
-<ul>
+<ul class="incremental">
 <li><code>names()</code>: returns names of data frame</li>
 <li><code>is.vector()</code>: returns logical if/if not a vector (see other <code>is.</code> functions)</li>
 <li><code>typeof()</code>: returns the type of the object</li>

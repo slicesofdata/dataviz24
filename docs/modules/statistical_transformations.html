@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Statistical transformations</title>
+<title>Statistical transformations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/statistical_transformations.html"><strong>Statistical transformations</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/statistical_transformations.html"><strong>Statistical transformations</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,10 +662,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
@@ -681,31 +676,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data-organization-and-variability" id="toc-data-organization-and-variability" class="nav-link" data-scroll-target="#data-organization-and-variability"><strong>Data Organization and Variability</strong></a></li>
   <li><a href="#aggregating-data" id="toc-aggregating-data" class="nav-link" data-scroll-target="#aggregating-data"><strong>Aggregating Data</strong></a></li>
   <li><a href="#aggregating-data-using-group_by" id="toc-aggregating-data-using-group_by" class="nav-link" data-scroll-target="#aggregating-data-using-group_by"><strong>Aggregating Data using <code>group_by()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#data-aggregation-using-group_by" id="toc-data-aggregation-using-group_by" class="nav-link" data-scroll-target="#data-aggregation-using-group_by"><em>Data aggregation using <code>group_by()</code></em></a></li>
   </ul></li>
   <li><a href="#comparing-mutate-with-summarize" id="toc-comparing-mutate-with-summarize" class="nav-link" data-scroll-target="#comparing-mutate-with-summarize"><strong>Comparing mutate() with summarize()</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#grouping-structure-of-group_by-and-mutate" id="toc-grouping-structure-of-group_by-and-mutate" class="nav-link" data-scroll-target="#grouping-structure-of-group_by-and-mutate"><em>Grouping structure of <code>group_by()</code> and <code>mutate()</code></em></a></li>
   <li><a href="#grouping-structure-of-group_by-and-summarize" id="toc-grouping-structure-of-group_by-and-summarize" class="nav-link" data-scroll-target="#grouping-structure-of-group_by-and-summarize"><em>Grouping structure of <code>group_by()</code> and <code>summarize()</code></em></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#group_by-and-summarize-with-.groups" id="toc-group_by-and-summarize-with-.groups" class="nav-link" data-scroll-target="#group_by-and-summarize-with-.groups"><em><code>group_by()</code> and <code>summarize()</code> with <code>.groups</code></em></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#more-on-grouping-structure" id="toc-more-on-grouping-structure" class="nav-link" data-scroll-target="#more-on-grouping-structure"><strong>More on Grouping Structure</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#new-variable-columns" id="toc-new-variable-columns" class="nav-link" data-scroll-target="#new-variable-columns"><strong>New Variable Columns</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#group_by-using-a-function" id="toc-group_by-using-a-function" class="nav-link" data-scroll-target="#group_by-using-a-function"><strong><code>group_by()</code> using a function</strong></a></li>
   </ul></li>
   <li><a href="#adddrop-grouping-variable-columns" id="toc-adddrop-grouping-variable-columns" class="nav-link" data-scroll-target="#adddrop-grouping-variable-columns"><strong>Add/drop Grouping Variable Columns</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#retain-grouping" id="toc-retain-grouping" class="nav-link" data-scroll-target="#retain-grouping"><strong>Retain Grouping</strong></a></li>
   </ul></li>
   <li><a href="#why-care-about-grouping-structure" id="toc-why-care-about-grouping-structure" class="nav-link" data-scroll-target="#why-care-about-grouping-structure"><strong>Why Care About Grouping Structure</strong></a></li>
   </ul></li>
   <li><a href="#ungroup" id="toc-ungroup" class="nav-link" data-scroll-target="#ungroup"><strong>ungroup()</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#variable-loss-with-summarize" id="toc-variable-loss-with-summarize" class="nav-link" data-scroll-target="#variable-loss-with-summarize"><strong>Variable loss with <code>summarize()</code></strong></a></li>
   <li><a href="#an-alternative-to-summarize-reframe" id="toc-an-alternative-to-summarize-reframe" class="nav-link" data-scroll-target="#an-alternative-to-summarize-reframe"><strong>An alternative to <code>summarize()</code>: <code>reframe()</code></strong></a></li>
   <li><a href="#retaining-distinct-data-after-mutate-using-distinct" id="toc-retaining-distinct-data-after-mutate-using-distinct" class="nav-link" data-scroll-target="#retaining-distinct-data-after-mutate-using-distinct"><strong>Retaining distinct data after <code>mutate()</code> using distinct()`</strong></a></li>
@@ -713,7 +708,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#visualizing-data" id="toc-visualizing-data" class="nav-link" data-scroll-target="#visualizing-data"><strong>Visualizing Data</strong></a></li>
   <li><a href="#adding-data-summaries-to-plots" id="toc-adding-data-summaries-to-plots" class="nav-link" data-scroll-target="#adding-data-summaries-to-plots"><strong>Adding Data Summaries to Plots</strong></a></li>
   <li><a href="#a-single-data-frame-using-mutate" id="toc-a-single-data-frame-using-mutate" class="nav-link" data-scroll-target="#a-single-data-frame-using-mutate"><strong>A Single Data Frame using <code>mutate()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#the-jitter-problem-with-full-data-frame" id="toc-the-jitter-problem-with-full-data-frame" class="nav-link" data-scroll-target="#the-jitter-problem-with-full-data-frame"><strong>The Jitter problem with full data frame</strong></a></li>
   <li><a href="#examples-of-color-versions" id="toc-examples-of-color-versions" class="nav-link" data-scroll-target="#examples-of-color-versions"><strong>Examples of Color Versions</strong></a></li>
   <li><a href="#a-note-on-size" id="toc-a-note-on-size" class="nav-link" data-scroll-target="#a-note-on-size"><strong>A note on <code>size</code></strong></a></li>
@@ -777,14 +772,14 @@ Under construction.
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
 <p>Reading should take place in two parts:</p>
-<ul>
+<ul class="incremental">
 <li><em>Prior to class</em>, the goal should be to familiarize yourself and bring questions to class. The readings from <a href="https://clauswilke.com/dataviz">TFDV</a> are conceptual and should facilitate readings from <a href="https://ggplot2-book.org/">EGDA</a> for code implementation.</li>
 <li><em>After class</em>, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.</li>
 </ul>
 <p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of <strong>{ggplot2}</strong>. I will assume that you attend class with some level of basic understanding of concepts.</p>
 <p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing <strong>{ggplot2}</strong> code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week’s readings.</p>
 <p><em>After Class</em>: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from <strong>Wickham, Navarro, &amp; Pedersen (under revision)</strong>. <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>.</p>
-<ul>
+<ul class="incremental">
 <li><a href="https://ggplot2-book.org/statistical-summaries#sec-weighting">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Weighting data</a></li>
 <li><a href="https://ggplot2-book.org/layers#sec-stat">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Stats</a></li>
 </ul>
@@ -800,7 +795,7 @@ Under construction.
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{magrittr}</strong> 2.0.3: for code clarity and piping data frame objects</li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
@@ -1083,7 +1078,7 @@ women young  x
 women old    x</code></pre>
 <p>You really need to query <code>?dplyr::summarize</code> to understand <code>.groups</code>, which controls the grouping of the returned data frame. This is also experimental to <code>summarize()</code>, so it might not be available in the future.</p>
 <p>There are four argument options:</p>
-<ul>
+<ul class="incremental">
 <li><code>"drop_last"</code>: dropping the last level of grouping. This was the only supported option before version 1.0.0.</li>
 <li><code>"drop"</code>: All levels of grouping are dropped.</li>
 <li><code>"keep"</code>: Same grouping structure as .data.</li>

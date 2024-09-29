@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Installing R &amp; RStudio</title>
+<title>Installing R &amp; RStudio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,11 +75,6 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -413,7 +408,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -422,7 +417,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -580,7 +575,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -633,21 +628,21 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks"><strong>Tasks</strong></a></li>
   <li><a href="#optional-readings" id="toc-optional-readings" class="nav-link" data-scroll-target="#optional-readings"><strong>Optional Readings</strong></a></li>
   </ul></li>
   <li><a href="#downloading-software" id="toc-downloading-software" class="nav-link" data-scroll-target="#downloading-software"><strong>Downloading Software</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#determining-the-version-of-your-computers-operating-system" id="toc-determining-the-version-of-your-computers-operating-system" class="nav-link" data-scroll-target="#determining-the-version-of-your-computers-operating-system"><strong>Determining the version of your computer’s operating system</strong></a></li>
   <li><a href="#downloading-r" id="toc-downloading-r" class="nav-link" data-scroll-target="#downloading-r"><strong>Downloading R</strong></a></li>
   <li><a href="#downloading-rstudio" id="toc-downloading-rstudio" class="nav-link" data-scroll-target="#downloading-rstudio"><strong>Downloading RStudio</strong></a></li>
   </ul></li>
   <li><a href="#installing-r-and-rstudio-on-your-computer" id="toc-installing-r-and-rstudio-on-your-computer" class="nav-link" data-scroll-target="#installing-r-and-rstudio-on-your-computer"><strong>Installing R and RStudio on your Computer</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#installing-r-then-install-rstudio" id="toc-installing-r-then-install-rstudio" class="nav-link" data-scroll-target="#installing-r-then-install-rstudio"><em>Installing R (then install RStudio)</em></a></li>
   <li><a href="#additional-step-for-mac-users" id="toc-additional-step-for-mac-users" class="nav-link" data-scroll-target="#additional-step-for-mac-users"><em>Additional Step for Mac Users:</em></a></li>
   </ul></li>
@@ -699,7 +694,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="tasks" class="level2">
 <h2 class="anchored" data-anchor-id="tasks"><strong>Tasks</strong></h2>
 <p>The first step for this course is to install and configure some software. If you have these installed on your computer, you will need to ensure you have the correct versions of software and libraries installed.</p>
-<ul>
+<ul class="incremental">
 <li>Download and Install <code>R</code></li>
 <li>Download and Install <code>RStudio</code></li>
 <li>Configure <code>RStudio</code></li>
@@ -722,7 +717,7 @@ ul.task-list li input[type="checkbox"] {
 <p>There will be two cpu options, Intel 64-bit for macOS 10.13 or Apple silicon arm64 for macOS 11 and higher.</p>
 <p><strong>Cloud Options:</strong></p>
 <p>If you do not have a laptop (let me know) or do not have 5GB of hard drive space available on your computer, you might consider a cloud version of the software. One is maintained by Posit (formerly RStudio) and the other is maintained by CMC.</p>
-<ol type="1">
+<ol class="incremental" type="1">
 <li><p><a href="https://posit.cloud/plans/free">Posit</a> (25 free compute hours a month – make time out)</p></li>
 <li><p>Remote Desktop Protocol (No limit on compute hours) (contact me if interested). This is managed by CMC but may not be reliable.</p></li>
 </ol>
@@ -730,7 +725,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="downloading-r" class="level2">
 <h2 class="anchored" data-anchor-id="downloading-r"><strong>Downloading R</strong></h2>
 <p>Once you know your processor, navigate to <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> and in the “<strong>Download and Install R</strong>” section, select your operating system. You can also select from below and follow the indented sections that follow.</p>
-<ul>
+<ul class="incremental">
 <li><p><a href="https://cran.r-project.org/bin/linux/">Download R for Linux</a> (<a href="https://cran.r-project.org/bin/linux/debian">Debian</a>, <a href="https://cran.r-project.org/bin/linux/fedora">Fedora/Redhat</a>, <a href="https://cran.r-project.org/bin/linux/ubuntu">Ubuntu)</a></p></li>
 <li><p><a href="https://cran.r-project.org/bin/macosx/">Download R for macOS</a></p></li>
 <li><p><a href="https://cran.r-project.org/bin/windows/">Download R for Windows</a></p></li>

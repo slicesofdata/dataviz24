@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Coordinates, axes, and position scales</title>
+<title>Coordinates, axes, and position scales</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/coordinates_axes_and_position_scales.html"><strong>Coordinates, axes, and position scales</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/coordinates_axes_and_position_scales.html"><strong>Coordinates, axes, and position scales</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,10 +662,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#optional-readings" id="toc-optional-readings" class="nav-link" data-scroll-target="#optional-readings"><strong>Optional Readings</strong></a></li>
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
@@ -678,10 +673,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><strong>Loading Data</strong></a></li>
   <li><a href="#coordinates" id="toc-coordinates" class="nav-link" data-scroll-target="#coordinates"><strong>Coordinates</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#the-cartesian-coordinate-system" id="toc-the-cartesian-coordinate-system" class="nav-link" data-scroll-target="#the-cartesian-coordinate-system"><strong>The Cartesian Coordinate System</strong></a></li>
   <li><a href="#coordinate-functions-coord_" id="toc-coordinate-functions-coord_" class="nav-link" data-scroll-target="#coordinate-functions-coord_"><strong>Coordinate Functions: <code>coord_*()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#coord_flip" id="toc-coord_flip" class="nav-link" data-scroll-target="#coord_flip"><strong><code>coord_flip()</code></strong></a></li>
   <li><a href="#coord_fixed" id="toc-coord_fixed" class="nav-link" data-scroll-target="#coord_fixed"><strong><code>coord_fixed()</code></strong></a></li>
   <li><a href="#coord_equal" id="toc-coord_equal" class="nav-link" data-scroll-target="#coord_equal"><strong><code>coord_equal()</code></strong></a></li>
@@ -690,17 +685,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#examples-of-plots-with-axis-problems" id="toc-examples-of-plots-with-axis-problems" class="nav-link" data-scroll-target="#examples-of-plots-with-axis-problems"><strong>Examples of Plots with Axis Problems</strong></a></li>
   </ul></li>
   <li><a href="#counts-proportions-and-percentages" id="toc-counts-proportions-and-percentages" class="nav-link" data-scroll-target="#counts-proportions-and-percentages"><strong>Counts, Proportions, and Percentages</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#position-scale-types" id="toc-position-scale-types" class="nav-link" data-scroll-target="#position-scale-types"><strong>Position Scale Types</strong></a></li>
   <li><a href="#position-scales-for-continuous-data-scale__continuous" id="toc-position-scales-for-continuous-data-scale__continuous" class="nav-link" data-scroll-target="#position-scales-for-continuous-data-scale__continuous"><strong>Position scales for continuous data: <code>scale_*_continuous()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#axis-limits" id="toc-axis-limits" class="nav-link" data-scroll-target="#axis-limits"><em>Axis <code>limits</code></em></a></li>
   <li><a href="#tick-marks" id="toc-tick-marks" class="nav-link" data-scroll-target="#tick-marks"><em>Tick Marks</em></a></li>
   </ul></li>
   <li><a href="#breaks-as-a-sequence-using-seq" id="toc-breaks-as-a-sequence-using-seq" class="nav-link" data-scroll-target="#breaks-as-a-sequence-using-seq"><em>Breaks as a sequence using <code>seq()</code></em></a></li>
   <li><a href="#break-labels" id="toc-break-labels" class="nav-link" data-scroll-target="#break-labels"><em>Break labels</em></a></li>
   <li><a href="#position-scales-for-discrete-data-scale__discrete" id="toc-position-scales-for-discrete-data-scale__discrete" class="nav-link" data-scroll-target="#position-scales-for-discrete-data-scale__discrete"><strong>Position scales for discrete data: <code>scale_*_discrete()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#limits-and-breaks" id="toc-limits-and-breaks" class="nav-link" data-scroll-target="#limits-and-breaks"><em>Limits and Breaks</em></a></li>
   </ul></li>
   <li><a href="#other-scale-functions" id="toc-other-scale-functions" class="nav-link" data-scroll-target="#other-scale-functions"><strong>Other Scale Functions</strong></a></li>
@@ -778,7 +773,7 @@ Reading should take place in two parts:
 -->
 <section id="optional-readings" class="level2">
 <h2 class="anchored" data-anchor-id="optional-readings"><strong>Optional Readings</strong></h2>
-<ul>
+<ul class="incremental">
 <li><a href="https://clauswilke.com/dataviz/coordinate-systems-axes.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Coordinate Systems / Axes</a></li>
 <li><a href="https://ggplot2-book.org/scales-position">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Position scales and axes</a></li>
 </ul>
@@ -794,7 +789,7 @@ Reading should take place in two parts:
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
 </ul>
@@ -1272,7 +1267,7 @@ scale_*_discrete()</code></pre>
 <p>Then select a subset by level:</p>
 <pre><code>scale_x_discrete(limits = c("Freestyle", "Butterfly"))</code></pre>
 <p>Alternatively, if you don’t want to reference a long function like <code>scale_x_discrete()</code>, there are shorthand functions for limits which you could just add as layers to the plot.</p>
-<ul>
+<ul class="incremental">
 <li><code>xlim()</code>: a two-element vector with the start and end values</li>
 <li><code>ylim()</code>: a two-element vector with the start and end values</li>
 </ul>

@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Bonus: Figure design &amp; themes</title>
+<title>Bonus: Figure design &amp; themes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/themes.html"><strong>Bonus: Figure design &amp; themes</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/themes.html"><strong>Bonus: Figure design &amp; themes</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,17 +662,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   </ul></li>
   <li><a href="#loading-libraries" id="toc-loading-libraries" class="nav-link" data-scroll-target="#loading-libraries"><strong>Loading Libraries</strong></a></li>
   <li><a href="#built-in-themes" id="toc-built-in-themes" class="nav-link" data-scroll-target="#built-in-themes"><strong>Built-in Themes</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#cowplottheme_minimal_vgrid" id="toc-cowplottheme_minimal_vgrid" class="nav-link" data-scroll-target="#cowplottheme_minimal_vgrid"><strong><code>cowplot::theme_minimal_vgrid()</code></strong></a></li>
   <li><a href="#theme_classic" id="toc-theme_classic" class="nav-link" data-scroll-target="#theme_classic"><strong><code>theme_classic()</code></strong></a></li>
   <li><a href="#theme_minimal" id="toc-theme_minimal" class="nav-link" data-scroll-target="#theme_minimal"><strong><code>theme_minimal()</code></strong></a></li>
@@ -685,11 +680,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#the-glory-of-a-theme" id="toc-the-glory-of-a-theme" class="nav-link" data-scroll-target="#the-glory-of-a-theme"><strong>The Glory of a Theme</strong></a></li>
   <li><a href="#setting-themes-for-plot-consistency" id="toc-setting-themes-for-plot-consistency" class="nav-link" data-scroll-target="#setting-themes-for-plot-consistency"><strong>Setting Themes for Plot Consistency</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#setting-a-theme-with-theme_set" id="toc-setting-a-theme-with-theme_set" class="nav-link" data-scroll-target="#setting-a-theme-with-theme_set"><strong>Setting a theme with <code>theme_set()</code></strong></a></li>
   </ul></li>
   <li><a href="#creating-custom-themes" id="toc-creating-custom-themes" class="nav-link" data-scroll-target="#creating-custom-themes"><strong>Creating Custom Themes</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#an-example" id="toc-an-example" class="nav-link" data-scroll-target="#an-example"><strong>An example</strong></a></li>
   <li><a href="#getting-a-theme-with-themeget" id="toc-getting-a-theme-with-themeget" class="nav-link" data-scroll-target="#getting-a-theme-with-themeget"><strong>Getting a theme with <code>theme(get)</code></strong></a></li>
   <li><a href="#creating-a-custom-theme-from-another-theme" id="toc-creating-a-custom-theme-from-another-theme" class="nav-link" data-scroll-target="#creating-a-custom-theme-from-another-theme"><strong>Creating a custom theme from another theme`</strong></a></li>
@@ -753,14 +748,14 @@ Under construction.
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
 <p>Reading should take place in two parts:</p>
-<ul>
+<ul class="incremental">
 <li><em>Prior to class</em>, the goal should be to familiarize yourself and bring questions to class. The readings from <a href="https://clauswilke.com/dataviz">TFDV</a> are conceptual and should facilitate readings from <a href="https://ggplot2-book.org/">EGDA</a> for code implementation.</li>
 <li><em>After class</em>, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.</li>
 </ul>
 <p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of <strong>{ggplot2}</strong>. I will assume that you attend class with some level of basic understanding of concepts.</p>
 <p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing <strong>{ggplot2}</strong> code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week’s readings.</p>
 <p><em>After Class</em>: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from <strong>Wickham, Navarro, &amp; Pedersen (under revision)</strong>. <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>.</p>
-<ul>
+<ul class="incremental">
 <li><a href="https://ggplot2-book.org/statistical-summaries#sec-uncertainty">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Themes</a>(https://ggplot2-book.org/themes)</li>
 <li><a href="https://ggplot2-book.org/statistical-summaries#sec-uncertainty">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Extensions</a>(https://ggplot2-book.org/extensions)</li>
 </ul>
@@ -776,7 +771,7 @@ Under construction.
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{here}</strong> 1.0.1: for path management</li>
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{magrittr}</strong> 2.0.3: for code clarity and piping data frame objects</li>
@@ -813,7 +808,7 @@ Attaching package: 'magrittr'</code></pre>
 <section id="built-in-themes" class="level1">
 <h1><strong>Built-in Themes</strong></h1>
 <p>There are several simple functions as your fingertips for changing the theme.</p>
-<ul>
+<ul class="incremental">
 <li><code>theme_gray()</code>: Gray background color and white grid lines</li>
 <li><code>theme_bw()</code>: White background and gray grid line</li>
 <li><code>theme_minimal()</code>: A minimal theme containing no background annotations</li>
@@ -1028,13 +1023,13 @@ Attaching package: 'magrittr'</code></pre>
 <p>To set new theme components use <code>theme_set()</code>. Modifying a theme is not too difficult. You will need to remember that changes to a theme will need to be loaded at the top of your R Markdown file so that the theme is applied to all plots. If you are working with collaborators, consider putting your theme in file names something like <code>/src/theme.R</code> (or add it to a library call file). Then, source the code where you load libraries. All team members can source the same file and modifications to the theme will occur everywhere.</p>
 <p>Modify the default theme using <code>theme_set()</code> and passing it a theme object. You can add a new layer to plots but calling the theme when you load your libraries is likely a more foolproof approach.</p>
 <p>In this example, <code>src/theme.R</code> defines two new themes. <code>theme_classic_167()</code> is based on <code>theme_classic()</code> and <code>theme_minimal_167()</code> is based on <code>theme_minimal()</code>. Both functions can take two arguments for adjusting the base font size and family (font type). You should try to set the font <code>family</code> to match the font of your document or website within which your visualization will appear.</p>
-<ul>
+<ul class="incremental">
 <li><code>base_size = 14</code></li>
 <li><code>base_family = "Book Antiqua"</code></li>
 </ul>
 <p>As part of the function, you will also see the addition of the <code>...</code> argument in the third position. This special argument indicates a <em>variable number of arguments</em> to pass to other functions. Use the <code>...</code> argument when you want to extend a function without being so verbose that you list the exhaustive list of arguments in your function. Besides, even if you do list them all by name, their names may change or new arguments will be added to other function, thus causing your function (which relies upon the other function) to break.</p>
 <p>You will add <code>...</code> in two places, which you will see in <code>src/theme.R</code>, <code>...</code> appears:</p>
-<ol type="1">
+<ol class="incremental" type="1">
 <li>In the definition: <code>function(base_size = 14, base_family = "Book Antiqua", ...)</code></li>
 <li>On the last line of <code>ggplot2::theme(&lt;other arguments&gt;, ...)</code></li>
 </ol>

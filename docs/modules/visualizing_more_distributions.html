@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Visualizing more distributions</title>
+<title>Visualizing more distributions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/visualizing_more_distributions.html"><strong>Visualizing more distributions</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/visualizing_more_distributions.html"><strong>Visualizing more distributions</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,10 +662,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
@@ -679,22 +674,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><strong>Loading Data</strong></a></li>
   <li><a href="#strip-chart" id="toc-strip-chart" class="nav-link" data-scroll-target="#strip-chart"><strong>Strip Chart</strong></a></li>
   <li><a href="#violin-charts-using-geom_violin" id="toc-violin-charts-using-geom_violin" class="nav-link" data-scroll-target="#violin-charts-using-geom_violin"><strong>Violin Charts using <code>geom_violin()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#remove-the-outline" id="toc-remove-the-outline" class="nav-link" data-scroll-target="#remove-the-outline"><strong>Remove the outline</strong></a></li>
   </ul></li>
   <li><a href="#sina-plot" id="toc-sina-plot" class="nav-link" data-scroll-target="#sina-plot"><strong>Sina Plot</strong></a></li>
   <li><a href="#box-and-whisker-plots" id="toc-box-and-whisker-plots" class="nav-link" data-scroll-target="#box-and-whisker-plots"><strong>Box-and-Whisker plots</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#five-number-summary" id="toc-five-number-summary" class="nav-link" data-scroll-target="#five-number-summary"><strong>Five-Number Summary</strong></a></li>
   <li><a href="#distributional-information" id="toc-distributional-information" class="nav-link" data-scroll-target="#distributional-information"><strong>Distributional Information</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#box-plot-density" id="toc-box-plot-density" class="nav-link" data-scroll-target="#box-plot-density"><strong>Box plot Density</strong></a></li>
   <li><a href="#interquartile-range-iqr" id="toc-interquartile-range-iqr" class="nav-link" data-scroll-target="#interquartile-range-iqr"><strong>Interquartile range (IQR)</strong></a></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><strong>Examples</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#ridgeline-plots-with-ggridgesgeom_density_ridges" id="toc-ridgeline-plots-with-ggridgesgeom_density_ridges" class="nav-link" data-scroll-target="#ridgeline-plots-with-ggridgesgeom_density_ridges"><strong>Ridgeline Plots with <code>ggridges::geom_density_ridges()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#geom_density_ridges-vs.-geom_density_ridges2" id="toc-geom_density_ridges-vs.-geom_density_ridges2" class="nav-link" data-scroll-target="#geom_density_ridges-vs.-geom_density_ridges2"><code>geom_density_ridges()</code> vs.&nbsp;<code>geom_density_ridges2()</code></a></li>
   <li><a href="#other-aesthetics" id="toc-other-aesthetics" class="nav-link" data-scroll-target="#other-aesthetics"><strong>Other Aesthetics</strong></a></li>
   </ul></li>
@@ -758,14 +753,14 @@ Under construction.
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
 <p>Reading should take place in two parts:</p>
-<ul>
+<ul class="incremental">
 <li><em>Prior to class</em>, the goal should be to familiarize yourself and bring questions to class. The readings from <a href="https://clauswilke.com/dataviz">TFDV</a> are conceptual and should facilitate readings from <a href="https://ggplot2-book.org/">EGDA</a> for code implementation.</li>
 <li><em>After class</em>, the goal of reading should be to understand and implement code functions as well as support your understanding and help your troubleshooting of problems.</li>
 </ul>
 <p><em>Before Class</em>: First, read to familiarize yourself with the concepts rather than master them. Understand why one would want to visualize data in a particular way and also understand some of the functionality of <strong>{ggplot2}</strong>. I will assume that you attend class with some level of basic understanding of concepts.</p>
 <p><em>Class</em>: In class, some functions and concepts will be introduced and we will practice implementing <strong>{ggplot2}</strong> code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week’s readings.</p>
 <p><em>After Class</em>: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from <strong>Wickham, Navarro, &amp; Pedersen (under revision)</strong>. <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>.</p>
-<ul>
+<ul class="incremental">
 <li><a href="https://clauswilke.com/dataviz/boxplots-violins.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Visualizing distributions: Visualizing many distributions at once</a></li>
 </ul>
 </section>
@@ -780,7 +775,7 @@ Under construction.
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{magrittr}</strong> 2.0.3: for code clarity and piping data frame objects</li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
@@ -975,7 +970,7 @@ Under construction.
 <section id="five-number-summary" class="level2">
 <h2 class="anchored" data-anchor-id="five-number-summary"><strong>Five-Number Summary</strong></h2>
 <p>Tukey wanted box plots to visualize high-level summary information as a <a href="https://en.wikipedia.org/wiki/Five-number_summary">Five-number Summary</a>.</p>
-<ol type="1">
+<ol class="incremental" type="1">
 <li>minimum point: 0th percentile point excluding any outliers</li>
 <li>first quartile: 25th percentile</li>
 <li>second quartile 50th percentile (median)</li>

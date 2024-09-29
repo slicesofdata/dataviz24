@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Color scales and palettes</title>
+<title>Color scales and palettes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/color_scales_and_palettes.html"><strong>Color scales and palettes</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/color_scales_and_palettes.html"><strong>Color scales and palettes</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,35 +662,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   <li><a href="#load-libraries" id="toc-load-libraries" class="nav-link" data-scroll-target="#load-libraries"><strong>Load libraries</strong></a></li>
   </ul></li>
   <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><strong>Loading Data</strong></a></li>
   <li><a href="#color-uses-in-data-visualization" id="toc-color-uses-in-data-visualization" class="nav-link" data-scroll-target="#color-uses-in-data-visualization"><strong>Color Uses in Data Visualization</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#to-distinguish-categories-qualitative" id="toc-to-distinguish-categories-qualitative" class="nav-link" data-scroll-target="#to-distinguish-categories-qualitative">To distinguish categories (qualitative)</a></li>
   <li><a href="#to-represent-numeric-values-sequential" id="toc-to-represent-numeric-values-sequential" class="nav-link" data-scroll-target="#to-represent-numeric-values-sequential">To represent numeric values (sequential)</a></li>
   <li><a href="#to-represent-numeric-values-diverging" id="toc-to-represent-numeric-values-diverging" class="nav-link" data-scroll-target="#to-represent-numeric-values-diverging">To represent numeric values (diverging):</a></li>
   </ul></li>
   <li><a href="#what-is-a-color-palette" id="toc-what-is-a-color-palette" class="nav-link" data-scroll-target="#what-is-a-color-palette"><strong>What is a Color Palette?</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#color-scales-built-into-ggplot2" id="toc-color-scales-built-into-ggplot2" class="nav-link" data-scroll-target="#color-scales-built-into-ggplot2"><strong>Color Scales Built into <code>{ggplot2}</code></strong></a></li>
   </ul></li>
   <li><a href="#the-colorspace-library" id="toc-the-colorspace-library" class="nav-link" data-scroll-target="#the-colorspace-library"><strong>The {colorspace}</strong> Library**</a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#colorspace-color-palettes" id="toc-colorspace-color-palettes" class="nav-link" data-scroll-target="#colorspace-color-palettes"><strong>{colorspace}</strong> Color Palettes</a></li>
   <li><a href="#example-plots" id="toc-example-plots" class="nav-link" data-scroll-target="#example-plots"><strong>Example plots</strong></a></li>
   <li><a href="#exploring-colorspace" id="toc-exploring-colorspace" class="nav-link" data-scroll-target="#exploring-colorspace"><strong>Exploring {colorspace}</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#color-picker" id="toc-color-picker" class="nav-link" data-scroll-target="#color-picker"><strong>Color Picker</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#setting-colors-manually" id="toc-setting-colors-manually" class="nav-link" data-scroll-target="#setting-colors-manually"><strong>Setting Colors Manually</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#discrete-qualitative-scales" id="toc-discrete-qualitative-scales" class="nav-link" data-scroll-target="#discrete-qualitative-scales"><em>Discrete, qualitative scales</em></a></li>
   <li><a href="#reverse-the-using-rev" id="toc-reverse-the-using-rev" class="nav-link" data-scroll-target="#reverse-the-using-rev"><em>Reverse the using <code>rev()</code></em></a></li>
   <li><a href="#mutate-to-change-the-order-of-levels" id="toc-mutate-to-change-the-order-of-levels" class="nav-link" data-scroll-target="#mutate-to-change-the-order-of-levels"><em><code>mutate()</code> to change the order of <code>levels</code></em></a></li>
@@ -703,7 +698,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#change-the-labels-for-the-levels" id="toc-change-the-labels-for-the-levels" class="nav-link" data-scroll-target="#change-the-labels-for-the-levels"><em>Change the <code>labels</code> for the <code>levels</code></em></a></li>
   <li><a href="#pair-a-color-with-a-level" id="toc-pair-a-color-with-a-level" class="nav-link" data-scroll-target="#pair-a-color-with-a-level"><em>Pair a Color with a Level</em></a></li>
   <li><a href="#pass-a-vector-of-colors" id="toc-pass-a-vector-of-colors" class="nav-link" data-scroll-target="#pass-a-vector-of-colors"><em>Pass a vector of colors</em></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#vectors-containing-additional-name-elements" id="toc-vectors-containing-additional-name-elements" class="nav-link" data-scroll-target="#vectors-containing-additional-name-elements"><em>Vectors containing additional name elements</em></a></li>
   <li><a href="#vectors-missing-name-elements" id="toc-vectors-missing-name-elements" class="nav-link" data-scroll-target="#vectors-missing-name-elements"><em>Vectors missing name elements</em></a></li>
   </ul></li>
@@ -786,7 +781,7 @@ Reading should take place in two parts:
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{colorblindr}</strong> 0.1.0: for simulations of color vision deficiencies to ggplot2 objects; post-hoc color editing</li>
 <li><strong>{colorspace}</strong> 2.1.0: for manipulating and assessing colors and color palettes</li>
 <li><strong>{cowplot}</strong> 1.1.3: for ggplot add-ons; object management</li>
@@ -1037,7 +1032,7 @@ Reading should take place in two parts:
 <h2 class="anchored" data-anchor-id="color-scales-built-into-ggplot2"><strong>Color Scales Built into <code>{ggplot2}</code></strong></h2>
 <p>There are colors built into <strong>{ggplot2}</strong>. The <code>scale_*()</code> functions will follow the naming conventions <code>scale_color_*()</code> or <code>scale_fill_*()</code>. When you have bars or open circles, you are changing the <code>fill</code> color and with solid circle points you are changing <code>color</code> or <code>col</code>. This is somewhat confusing but your go-to functions should adhere to the naming conventions (e.g., <code>scale_fill_*()</code> and <code>scale_color_*()</code>). Some examples include: <code>scale_color_brewer()</code> or <code>scale_color_distiller()</code> for discrete or continuous scales, respectively.</p>
 <p><strong>{ggplot}</strong> functions for colors:</p>
-<ul>
+<ul class="incremental">
 <li><code>scale_color_hue()</code>: color, <em>data</em>: discrete, <em>palette</em>: qualitative</li>
 <li><code>scale_fill_hue()</code>: fill, <em>data</em>: discrete, <em>palette</em>: qualitative</li>
 <li><code>scale_color_gradient()</code>: color, <em>data</em>: continuous, <em>palette</em>: sequential</li>
@@ -1054,14 +1049,14 @@ Reading should take place in two parts:
 <h1><strong>The {colorspace}</strong> Library**</h1>
 <p>The <strong>{colorspace}</strong> library written by Claus Wilke, Reto Stauffer, and Achim Zeileis brings some really useful color functionality to <strong>{ggplot2}</strong> and creates some order to an otherwise messing set of functions.</p>
 <p><strong>Four</strong> components of the naming convention: <code>scale_&lt;aesthetic&gt;_&lt;datatype&gt;_&lt;colorscale/palette-type&gt;()</code></p>
-<ul>
+<ul class="incremental">
 <li><code>scale_*()&gt;</code>: the base scale function, <strong>plus</strong></li>
 <li><code>&lt;aesthetic&gt;</code>: name of the aesthetic (fill, color, colour)</li>
 <li><code>&lt;datatype&gt;</code>: type of variable plotted (discrete, continuous, binned)</li>
 <li><code>&lt;colorscale&gt;</code>: type of the color scale (qualitative, sequential, diverging, divergingx)</li>
 </ul>
 <p>Examples:</p>
-<ul>
+<ul class="incremental">
 <li><code>scale_color_discrete_qualitative()</code> color, discrete, qualitative</li>
 <li><code>scale_fill_continuous_sequential()</code> fill, continuous, sequential</li>
 <li><code>scale_colour_continous_divergingx()</code> color, continuous, diverging</li>

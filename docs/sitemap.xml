@@ -2,214 +2,214 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gabrielcook.xyz/syllabus/syllabus.html</loc>
-    <lastmod>2024-09-29T17:59:09.050Z</lastmod>
+    <lastmod>2024-09-29T18:09:19.320Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/slides/02_git_slides.html</loc>
-    <lastmod>2024-09-29T17:59:00.798Z</lastmod>
+    <lastmod>2024-09-29T18:09:10.113Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/slides/023_git.html</loc>
-    <lastmod>2024-09-29T17:58:51.888Z</lastmod>
+    <lastmod>2024-09-29T18:09:01.263Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/schedule/index.html</loc>
-    <lastmod>2024-09-29T17:58:45.570Z</lastmod>
+    <lastmod>2024-09-29T18:08:54.010Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/project/index.html</loc>
-    <lastmod>2024-09-29T18:00:58.719Z</lastmod>
+    <lastmod>2024-09-29T18:08:47.453Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/project/05_project_tasks.html</loc>
-    <lastmod>2024-09-29T17:58:37.152Z</lastmod>
+    <lastmod>2024-09-29T18:08:44.497Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/project/03_project_final.html</loc>
-    <lastmod>2024-09-29T17:58:34.306Z</lastmod>
+    <lastmod>2024-09-29T18:08:41.170Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/project/01_project_team_roles.html</loc>
-    <lastmod>2024-09-29T17:58:31.487Z</lastmod>
+    <lastmod>2024-09-29T18:08:37.639Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules_setup/R Basics/vectors_and_data_frame_basics.html</loc>
-    <lastmod>2024-09-29T17:58:29.061Z</lastmod>
+    <lastmod>2024-09-29T18:08:34.971Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules_setup/R Basics/introduction_to_r_rstudio_and_rmarkdown.html</loc>
-    <lastmod>2024-09-29T17:58:20.227Z</lastmod>
+    <lastmod>2024-09-29T18:08:26.051Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules_setup/R Basics/functions_and_scripts.html</loc>
-    <lastmod>2024-09-29T17:58:17.192Z</lastmod>
+    <lastmod>2024-09-29T18:08:23.088Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules_setup/Installation & Setup/installing_git.html</loc>
-    <lastmod>2024-09-29T17:58:11.483Z</lastmod>
+    <lastmod>2024-09-29T18:08:17.231Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/visualizing_uncertainty.html</loc>
-    <lastmod>2024-09-29T17:58:09.385Z</lastmod>
+    <lastmod>2024-09-29T18:08:13.658Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/visualizing_more_distributions.html</loc>
-    <lastmod>2024-09-29T17:58:07.086Z</lastmod>
+    <lastmod>2024-09-29T18:08:11.537Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/visualizing_amounts.html</loc>
-    <lastmod>2024-09-29T17:58:02.198Z</lastmod>
+    <lastmod>2024-09-29T18:08:06.802Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/themes.html</loc>
-    <lastmod>2024-09-29T17:57:57.220Z</lastmod>
+    <lastmod>2024-09-29T18:08:01.772Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/spatial_position_and_adjustment.html</loc>
-    <lastmod>2024-09-29T17:57:50.294Z</lastmod>
+    <lastmod>2024-09-29T18:07:55.371Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/project_management/setting_up_git_and_github.html</loc>
-    <lastmod>2024-09-29T17:57:45.431Z</lastmod>
+    <lastmod>2024-09-29T18:07:51.194Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/multi_panel_plots_faceting.html</loc>
-    <lastmod>2024-09-29T17:57:42.578Z</lastmod>
+    <lastmod>2024-09-29T18:07:48.712Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/index.html</loc>
-    <lastmod>2024-09-29T18:01:26.123Z</lastmod>
+    <lastmod>2024-09-29T18:07:41.760Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/graphical_perception.html</loc>
-    <lastmod>2024-09-29T17:57:33.229Z</lastmod>
+    <lastmod>2024-09-29T18:07:39.036Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/designing_perceptually_efficient_visualizations.html</loc>
-    <lastmod>2024-09-29T17:57:29.277Z</lastmod>
+    <lastmod>2024-09-29T18:07:35.687Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/data_frame_manipulation_and_wrangling.html</loc>
-    <lastmod>2024-09-29T17:57:23.522Z</lastmod>
+    <lastmod>2024-09-29T18:07:30.867Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/considerations_in_data_visualization.html</loc>
-    <lastmod>2024-09-29T17:57:16.039Z</lastmod>
+    <lastmod>2024-09-29T18:07:23.822Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/attentional_control.html</loc>
-    <lastmod>2024-09-29T17:57:12.623Z</lastmod>
+    <lastmod>2024-09-29T18:07:20.773Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/index.html</loc>
-    <lastmod>2024-09-29T17:57:06.507Z</lastmod>
+    <lastmod>2024-09-29T18:07:15.498Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/about.html</loc>
-    <lastmod>2024-09-29T17:57:04.776Z</lastmod>
+    <lastmod>2024-09-29T18:07:14.069Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/cheatsheets_and_tips/symbols.html</loc>
-    <lastmod>2024-09-29T17:57:05.819Z</lastmod>
+    <lastmod>2024-09-29T18:07:14.879Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/annotation_and_text.html</loc>
-    <lastmod>2024-09-29T17:57:09.116Z</lastmod>
+    <lastmod>2024-09-29T18:07:17.678Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/color_scales_and_palettes.html</loc>
-    <lastmod>2024-09-29T17:57:15.164Z</lastmod>
+    <lastmod>2024-09-29T18:07:23.021Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/coordinates_axes_and_position_scales.html</loc>
-    <lastmod>2024-09-29T17:57:18.238Z</lastmod>
+    <lastmod>2024-09-29T18:07:25.970Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/data_subsets_and_summaries.html</loc>
-    <lastmod>2024-09-29T17:57:28.118Z</lastmod>
+    <lastmod>2024-09-29T18:07:34.773Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/ggplot_and_the_grammar_of_graphics.html</loc>
-    <lastmod>2024-09-29T17:57:32.361Z</lastmod>
+    <lastmod>2024-09-29T18:07:38.146Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/histograms_and_density_plots.html</loc>
-    <lastmod>2024-09-29T17:57:35.148Z</lastmod>
+    <lastmod>2024-09-29T18:07:41.099Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/legends_and_arrangement.html</loc>
-    <lastmod>2024-09-29T17:57:40.546Z</lastmod>
+    <lastmod>2024-09-29T18:07:45.874Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/project_management/index.html</loc>
-    <lastmod>2024-09-29T18:01:53.272Z</lastmod>
+    <lastmod>2024-09-29T18:07:49.477Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/project_management/using_git_and_github.html</loc>
-    <lastmod>2024-09-29T17:57:47.049Z</lastmod>
+    <lastmod>2024-09-29T18:07:52.758Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/statistical_transformations.html</loc>
-    <lastmod>2024-09-29T17:57:55.247Z</lastmod>
+    <lastmod>2024-09-29T18:07:59.965Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/titles_captions_and_tables.html</loc>
-    <lastmod>2024-09-29T17:57:59.381Z</lastmod>
+    <lastmod>2024-09-29T18:08:03.781Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/visualizing_associations.html</loc>
-    <lastmod>2024-09-29T17:58:05.018Z</lastmod>
+    <lastmod>2024-09-29T18:08:09.528Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules/visualizing_trends.html</loc>
-    <lastmod>2024-09-29T17:58:08.219Z</lastmod>
+    <lastmod>2024-09-29T18:08:12.472Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules_setup/Installation & Setup/index.html</loc>
-    <lastmod>2024-09-29T17:58:10.293Z</lastmod>
+    <lastmod>2024-09-29T18:08:15.160Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules_setup/Installation & Setup/installing_r_and_rstudio.html</loc>
-    <lastmod>2024-09-29T17:58:13.132Z</lastmod>
+    <lastmod>2024-09-29T18:08:19.059Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules_setup/R Basics/index.html</loc>
-    <lastmod>2024-09-29T17:58:18.337Z</lastmod>
+    <lastmod>2024-09-29T18:08:24.118Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules_setup/R Basics/reading_data_files.html</loc>
-    <lastmod>2024-09-29T17:58:23.066Z</lastmod>
+    <lastmod>2024-09-29T18:08:29.522Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/modules_setup/index.html</loc>
-    <lastmod>2024-09-29T17:58:30.133Z</lastmod>
+    <lastmod>2024-09-29T18:08:36.236Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/project/02_project_midterm.html</loc>
-    <lastmod>2024-09-29T17:58:33.217Z</lastmod>
+    <lastmod>2024-09-29T18:08:40.023Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/project/04_project_report.html</loc>
-    <lastmod>2024-09-29T17:58:36.090Z</lastmod>
+    <lastmod>2024-09-29T18:08:43.317Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/project/06_using_git_with_branches.html</loc>
-    <lastmod>2024-09-29T17:58:38.566Z</lastmod>
+    <lastmod>2024-09-29T18:08:46.242Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/resources/tools.html</loc>
-    <lastmod>2024-09-29T17:58:40.722Z</lastmod>
+    <lastmod>2024-09-29T18:08:48.487Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/slides/01_intro_rstudio_rmarkdown_slides.html</loc>
-    <lastmod>2024-09-29T17:58:49.102Z</lastmod>
+    <lastmod>2024-09-29T18:08:57.765Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/slides/02_git.html</loc>
-    <lastmod>2024-09-29T17:58:55.955Z</lastmod>
+    <lastmod>2024-09-29T18:09:05.455Z</lastmod>
   </url>
   <url>
     <loc>https://gabrielcook.xyz/slides/03_functions_slides.html</loc>
-    <lastmod>2024-09-29T17:59:05.063Z</lastmod>
+    <lastmod>2024-09-29T18:09:15.856Z</lastmod>
   </url>
 </urlset>

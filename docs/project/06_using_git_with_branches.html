@@ -8,7 +8,7 @@
 
 <meta name="author" content="Gabriel I. Cook">
 
-<title>Data Visualization - Git Branch Merging Tutorial</title>
+<title>Git Branch Merging Tutorial</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,11 +74,6 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -313,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/index.html"><b>Project</b>**</a></li><li class="breadcrumb-item"><a href="../project/06_using_git_with_branches.html"><em>Git Branch Merging Tutorial</em></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../project/index.html"><b>Project</b></a></li><li class="breadcrumb-item"><a href="../project/06_using_git_with_branches.html"><em>Git Branch Merging Tutorial</em></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -412,7 +407,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -421,7 +416,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -579,7 +574,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -632,15 +627,15 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#feature-branches" id="toc-feature-branches" class="nav-link" data-scroll-target="#feature-branches"><strong>Feature Branches</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#creating-and-checking-out-a-feature-branch" id="toc-creating-and-checking-out-a-feature-branch" class="nav-link" data-scroll-target="#creating-and-checking-out-a-feature-branch"><strong>Creating and Checking Out a Feature Branch</strong></a></li>
   <li><a href="#setting-the-upstream-for-pushing-local-files-to-the-remote-repository" id="toc-setting-the-upstream-for-pushing-local-files-to-the-remote-repository" class="nav-link" data-scroll-target="#setting-the-upstream-for-pushing-local-files-to-the-remote-repository"><strong>Setting the Upstream for Pushing Local Files to the Remote Repository</strong></a></li>
   </ul></li>
   <li><a href="#the-git-command-process" id="toc-the-git-command-process" class="nav-link" data-scroll-target="#the-git-command-process"><strong>The Git Command Process</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#staging-files" id="toc-staging-files" class="nav-link" data-scroll-target="#staging-files"><strong>Staging Files</strong></a></li>
   <li><a href="#committing-files-with-messages-for-you-and-others" id="toc-committing-files-with-messages-for-you-and-others" class="nav-link" data-scroll-target="#committing-files-with-messages-for-you-and-others"><strong>Committing Files with Messages (for you and others)</strong></a></li>
   <li><a href="#pushing-changes-from-your-local-branch-to-your-remote-branch-on-github" id="toc-pushing-changes-from-your-local-branch-to-your-remote-branch-on-github" class="nav-link" data-scroll-target="#pushing-changes-from-your-local-branch-to-your-remote-branch-on-github"><strong>Pushing Changes from your Local Branch to your Remote Branch on GitHub</strong></a></li>
@@ -649,7 +644,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#scenario-overview" id="toc-scenario-overview" class="nav-link" data-scroll-target="#scenario-overview"><strong>Scenario Overview</strong></a></li>
   <li><a href="#verify-remote-repository" id="toc-verify-remote-repository" class="nav-link" data-scroll-target="#verify-remote-repository"><strong>Verify Remote Repository</strong></a></li>
   <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution"><strong>Solution</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#steps-for-merging-a-remote-branch-into-a-local-branch" id="toc-steps-for-merging-a-remote-branch-into-a-local-branch" class="nav-link" data-scroll-target="#steps-for-merging-a-remote-branch-into-a-local-branch"><strong>Steps for Merging a Remote Branch into a Local Branch</strong></a></li>
   </ul></li>
   <li><a href="#more-than-2-collaborators-more-than-2-branches" id="toc-more-than-2-collaborators-more-than-2-branches" class="nav-link" data-scroll-target="#more-than-2-collaborators-more-than-2-branches"><strong>More than 2 Collaborators, More than 2 Branches</strong></a></li>
@@ -727,7 +722,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="scenario-overview" class="level2">
 <h2 class="anchored" data-anchor-id="scenario-overview"><strong>Scenario Overview</strong></h2>
-<ul>
+<ul class="incremental">
 <li>The remote repository is hosted on GitHub.com.</li>
 <li>Jane is working on her local branch named <code>jane</code>.</li>
 <li>Bill is working on his local branch named <code>bill</code>.</li>
@@ -784,7 +779,7 @@ Merge made by the 'ort' strategy.
 <h4 class="anchored" data-anchor-id="step-4-handle-merge-conflicts"><strong>Step 4: Handle Merge Conflicts</strong></h4>
 <p>As mentioned previously, naming your files with intention will reduce naming files with the same name. If you have duplicate name files, you will likely have merge conflicts. You do not want to deal with these as they will cause you and I extra time and headaches.</p>
 <p><strong>Tips for inexperienced Git users to avoid merge conflicts:</strong></p>
-<ul>
+<ul class="incremental">
 <li>Name your files with your initials (e.g., <code>gc-revenue-by-quarter-bar-plot.R</code>), and; this will limit confusion about who created the file</li>
 <li>Do not create another team member’s branch on your local system</li>
 <li>Do not touch another team member’s files; no editing, no overwriting</li>

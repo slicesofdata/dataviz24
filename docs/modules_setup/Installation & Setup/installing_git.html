@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Installing Git</title>
+<title>Installing Git</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,11 +75,6 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -413,7 +408,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -422,7 +417,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -580,7 +575,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -633,9 +628,9 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a></li>
   </ul></li>
   <li><a href="#installing-git" id="toc-installing-git" class="nav-link" data-scroll-target="#installing-git"><strong>Installing Git</strong></a></li>
@@ -681,7 +676,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="to-do" class="level3">
 <h3 class="anchored" data-anchor-id="to-do"><strong>To Do</strong></h3>
 <p>Complete by the start of the first day of class.</p>
-<ol type="1">
+<ol class="incremental" type="1">
 <li>Download Git (if not already installed)</li>
 <li>Install Git on your computer (if not already installed)</li>
 <li>Make note of where you installed it. If RStudio does not recognize <code>Git.exe</code> on its own, you will need to supply the directory path.</li>
@@ -691,14 +686,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="installing-git" class="level2">
 <h2 class="anchored" data-anchor-id="installing-git"><strong>Installing Git</strong></h2>
-<ol type="1">
+<ol class="incremental" type="1">
 <li><p>Do I need to install Git?</p>
-<ul>
+<ul class="incremental">
 <li><p>Mac OS Users can check whether Git is already installed by typing <code>git --version</code> at the Mac Terminal. If a version number is returned, then Git is installed.</p></li>
 <li><p>Windows Users can press the Windows key (or click the Start button) and type Git in the search bar. If you see Git or Git Bash listed, then Git is installed. At the R console, you can also type <code>system("git --version")</code> and if it is installed, the function should return the version number.</p></li>
 </ul></li>
 <li><p>Download and Install Git (if necessary)</p>
-<ul>
+<ul class="incremental">
 <li>Mac OS Users can open their Terminal and type <code>xcode-select --install</code>. If you do not know how to open a terminal, see <a href="https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac">this link</a>. If that approach does not work, you can visit the <a href="https://git-scm.com/downloads">Git download site</a> and follow instructions. If you try the Homebrew approach and experience problems, you may need to set a PATH variable. Students have reported to me that you do not need to do that. Instead, you can follow instructions to download the <em>binary version</em> referenced on the Git page.</li>
 <li>Windows Users can download the latest version of <a href="https://git-scm.com/download/win">Git here</a>. Download and install Git, making a note of where on your computer you are install it as you may need to locate the path for RStudio, especially if you use a portable version of Git.</li>
 </ul></li>
@@ -708,7 +703,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="git-what-is-git-why-go-through-the-trouble"><strong>Git: What is Git? Why Go Through the Trouble?</strong></h2>
 <p>Projects are rarely done without collaborators. Teams collaborate, leveraging team members’ work and accomplishments. Using <code>R</code> in conjunction with the a distributed version control system, like Git, will facilitate that collaboration process. Writing flexible <code>R</code> code that does not hard-code objects will allow your research project to be reproducible, for example, when variables and data change (e.g., new data added, a new year added, etc.). Git long with GitHub will allow you to track your edits (the version control) and share your code with your collaborators or interested scholars.</p>
 <p>Some benefits of using version control:</p>
-<ul>
+<ul class="incremental">
 <li>Makes reverting back to previous states easy. You can easily revert back to a previous version of your code in the event you discover errors or you delete critical details accidentally.</li>
 <li>Serves as a memory for edits when memory fails. All changes across different versions of your code or written content is available.<br>
 </li>

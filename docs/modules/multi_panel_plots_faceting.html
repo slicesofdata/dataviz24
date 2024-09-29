@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-27">
 
-<title>Data Visualization - Multi-panel plots: Faceting</title>
+<title>Multi-panel plots: Faceting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/multi_panel_plots_faceting.html"><strong>Multi-panel plots: Faceting</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/multi_panel_plots_faceting.html"><strong>Multi-panel plots: Faceting</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,32 +662,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   </ul></li>
   <li><a href="#loading-libraries" id="toc-loading-libraries" class="nav-link" data-scroll-target="#loading-libraries"><strong>Loading Libraries</strong></a></li>
   <li><a href="#small-multiples-faceting-and-multiple-panels" id="toc-small-multiples-faceting-and-multiple-panels" class="nav-link" data-scroll-target="#small-multiples-faceting-and-multiple-panels"><strong>Small Multiples, Faceting, and Multiple Panels</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#creating-facets-using-facet_wrap" id="toc-creating-facets-using-facet_wrap" class="nav-link" data-scroll-target="#creating-facets-using-facet_wrap"><strong>Creating facets using <code>facet_wrap()</code></strong></a></li>
   <li><a href="#creating-facets-using-facet_wrapfacets-vars" id="toc-creating-facets-using-facet_wrapfacets-vars" class="nav-link" data-scroll-target="#creating-facets-using-facet_wrapfacets-vars"><strong>Creating facets using <code>facet_wrap(facets = vars())</code></strong></a></li>
   <li><a href="#controlling-columns" id="toc-controlling-columns" class="nav-link" data-scroll-target="#controlling-columns"><strong>Controlling columns</strong></a></li>
   <li><a href="#controlling-direction-of-arrangement" id="toc-controlling-direction-of-arrangement" class="nav-link" data-scroll-target="#controlling-direction-of-arrangement"><strong>Controlling direction of arrangement</strong></a></li>
   <li><a href="#controlling-the-scales" id="toc-controlling-the-scales" class="nav-link" data-scroll-target="#controlling-the-scales"><strong>Controlling the scales</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#allow-scales-free_y" id="toc-allow-scales-free_y" class="nav-link" data-scroll-target="#allow-scales-free_y">Allow <code>scales = free_y</code>:</a></li>
   <li><a href="#allow-both-scales-free" id="toc-allow-both-scales-free" class="nav-link" data-scroll-target="#allow-both-scales-free">Allow both <code>scales = free</code>:</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#ordering-facets" id="toc-ordering-facets" class="nav-link" data-scroll-target="#ordering-facets"><strong>Ordering facets</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#change-the-order-by-ordering-the-factor" id="toc-change-the-order-by-ordering-the-factor" class="nav-link" data-scroll-target="#change-the-order-by-ordering-the-factor"><strong>Change the order by ordering the <code>factor()</code></strong></a></li>
   <li><a href="#change-the-order-by-ordering-of-the-data-using-forcatsfct_reorder" id="toc-change-the-order-by-ordering-of-the-data-using-forcatsfct_reorder" class="nav-link" data-scroll-target="#change-the-order-by-ordering-of-the-data-using-forcatsfct_reorder"><strong>Change the order by ordering of the data using <code>forcats::fct_reorder()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#order-by-the-default-behavior" id="toc-order-by-the-default-behavior" class="nav-link" data-scroll-target="#order-by-the-default-behavior"><em>Order by the default behavior</em></a></li>
   <li><a href="#order-by-the-mean-and-sort-from-highest-to-lowest" id="toc-order-by-the-mean-and-sort-from-highest-to-lowest" class="nav-link" data-scroll-target="#order-by-the-mean-and-sort-from-highest-to-lowest"><em>Order by the <code>mean()</code> and sort from highest to lowest</em></a></li>
   <li><a href="#order-by-a-function" id="toc-order-by-a-function" class="nav-link" data-scroll-target="#order-by-a-function"><em>Order by a function</em></a></li>
@@ -701,7 +696,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#faceting-bars" id="toc-faceting-bars" class="nav-link" data-scroll-target="#faceting-bars"><strong>Faceting bars</strong></a></li>
   <li><a href="#facet-grid" id="toc-facet-grid" class="nav-link" data-scroll-target="#facet-grid"><strong>Facet Grid</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#facet_gridrows-vars" id="toc-facet_gridrows-vars" class="nav-link" data-scroll-target="#facet_gridrows-vars"><code>facet_grid(rows = vars())</code></a></li>
   <li><a href="#facet_gridcols-vars" id="toc-facet_gridcols-vars" class="nav-link" data-scroll-target="#facet_gridcols-vars"><code>facet_grid(cols = vars())</code></a></li>
   <li><a href="#rows-and-columns-facet_gridcols-vars" id="toc-rows-and-columns-facet_gridcols-vars" class="nav-link" data-scroll-target="#rows-and-columns-facet_gridcols-vars">Rows and columns <code>facet_grid(cols = vars())</code></a></li>
@@ -776,7 +771,7 @@ Reading should take place in two parts:
 *After Class*: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from **Wickham, Navarro, & Pedersen (under revision)**. *ggplot2: Elegant Graphics for Data Analysis (3e)*.
 
 -->
-<ul>
+<ul class="incremental">
 <li><a href="https://clauswilke.com/dataviz/multi-panel-figures.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Multi-panel figures</a></li>
 <li><a href="https://ggplot2-book.org/facet">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Faceting</a></li>
 </ul>
@@ -791,7 +786,7 @@ Reading should take place in two parts:
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{forcats}</strong> 1.0.0: for creating and ordering factors</li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
@@ -1183,7 +1178,7 @@ Attaching package: 'magrittr'</code></pre>
 <section id="order-by-a-function" class="level3">
 <h3 class="anchored" data-anchor-id="order-by-a-function"><em>Order by a function</em></h3>
 <p>We can pass a function that determines the difference between the <code>mean()</code> and the <code>median()</code>. If we can about the difference being positive or negative, the order of these computations will matter. If we want to order based on the size of the difference between the two metrics, we can take the absolute value of the difference using <code>abs()</code>.</p>
-<ul>
+<ul class="incremental">
 <li><code>abs(med(x) - mean(x))</code>: a difference between median and mean</li>
 <li><code>mean(x, trim = 0.1)</code>: the mean that is based on trimming the outlying 10%</li>
 <li><code>max(x) - min(x))</code>: the range</li>

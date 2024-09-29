@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Spatial position and adjustment</title>
+<title>Spatial position and adjustment</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/spatial_position_and_adjustment.html"><strong>Spatial position and adjustment</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/spatial_position_and_adjustment.html"><strong>Spatial position and adjustment</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,24 +662,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   <li><a href="#loading-libraries" id="toc-loading-libraries" class="nav-link" data-scroll-target="#loading-libraries"><strong>Loading libraries</strong></a></li>
   </ul></li>
   <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><strong>Loading Data</strong></a></li>
   <li><a href="#understanding-geom_point" id="toc-understanding-geom_point" class="nav-link" data-scroll-target="#understanding-geom_point"><strong>Understanding <code>geom_point()</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#point-position-in-geom_point" id="toc-point-position-in-geom_point" class="nav-link" data-scroll-target="#point-position-in-geom_point"><strong>Point Position in <code>geom_point()</code></strong></a></li>
   </ul></li>
   <li><a href="#addressing-overplotting-making-overlapping-points-visible" id="toc-addressing-overplotting-making-overlapping-points-visible" class="nav-link" data-scroll-target="#addressing-overplotting-making-overlapping-points-visible"><strong>Addressing Overplotting: Making overlapping points visible</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#default-point-position" id="toc-default-point-position" class="nav-link" data-scroll-target="#default-point-position"><strong>Default Point Position</strong></a></li>
   <li><a href="#adjusting-point-position" id="toc-adjusting-point-position" class="nav-link" data-scroll-target="#adjusting-point-position"><strong>Adjusting Point Position</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#changing-the-position-argument-of-geom_point" id="toc-changing-the-position-argument-of-geom_point" class="nav-link" data-scroll-target="#changing-the-position-argument-of-geom_point"><em>Changing the position argument of <code>geom_point()</code></em></a></li>
   <li><a href="#using-geom_jitter" id="toc-using-geom_jitter" class="nav-link" data-scroll-target="#using-geom_jitter"><em>Using <code>geom_jitter()</code></em></a></li>
   <li><a href="#changing-the-position-of-a-categorical-variable" id="toc-changing-the-position-of-a-categorical-variable" class="nav-link" data-scroll-target="#changing-the-position-of-a-categorical-variable"><em>Changing the position of a categorical variable</em></a></li>
@@ -695,11 +690,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#adding-group-level-data" id="toc-adding-group-level-data" class="nav-link" data-scroll-target="#adding-group-level-data"><strong>Adding Group Level Data</strong></a></li>
   </ul></li>
   <li><a href="#other-options" id="toc-other-options" class="nav-link" data-scroll-target="#other-options"><strong>Other Options</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#adjusting-point-size" id="toc-adjusting-point-size" class="nav-link" data-scroll-target="#adjusting-point-size"><strong>Adjusting Point Size</strong></a></li>
   </ul></li>
   <li><a href="#bar-position" id="toc-bar-position" class="nav-link" data-scroll-target="#bar-position"><strong>Bar Position</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#creating-a-stacked-bar-plot" id="toc-creating-a-stacked-bar-plot" class="nav-link" data-scroll-target="#creating-a-stacked-bar-plot"><em>Creating a stacked bar plot</em></a></li>
   <li><a href="#stacking-with-position-fill" id="toc-stacking-with-position-fill" class="nav-link" data-scroll-target="#stacking-with-position-fill"><em>Stacking with <code>position = "fill"</code></em></a></li>
   <li><a href="#arranging-the-plots-for-comparison" id="toc-arranging-the-plots-for-comparison" class="nav-link" data-scroll-target="#arranging-the-plots-for-comparison"><em>Arranging the plots for comparison</em></a></li>
@@ -763,7 +758,7 @@ Reading should take place in two parts:
 *Class*: In class, some functions and concepts will be introduced and we will practice implementing **{ggplot2}** code. On occasion, there will be an assessment involving code identification, correction, explanation, etc. of concepts addressed in previous modules and perhaps some conceptual elements from this week's readings. 
 -->
 <p><em>After Class</em>: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from <strong>Wickham, Navarro, &amp; Pedersen (under revision)</strong>. <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>.</p>
-<ul>
+<ul class="incremental">
 <li><a href="https://clauswilke.com/dataviz/overlapping-points.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Overlapping points</a></li>
 <li><a href="https://ggplot2-book.org/statistical-summaries.html#sec-overplotting">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Overplotting</a></li>
 </ul>
@@ -777,7 +772,7 @@ Reading should take place in two parts:
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
 </ul>
@@ -817,7 +812,7 @@ Reading should take place in two parts:
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">inherit.aes =</span> <span class="cn">TRUE</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Main Parameters/Arguments:</strong></p>
-<ul>
+<ul class="incremental">
 <li><code>mapping = NULL</code>: the aesthetic mappings created by <code>aes()</code>; x and y are required</li>
 <li><code>data = NULL</code>: the data to be displayed in the layer</li>
 <li><code>stat = "identity"</code>: the statistical transformation to use on the data for this layer; modify with different arguments</li>
@@ -858,7 +853,7 @@ Reading should take place in two parts:
 </div>
 </div>
 <p>Your goal would be to ameliorate this problem and attempt to unbiased the visualization. We will address how to modify plots containing this issue in about 3 ways.</p>
-<ol type="1">
+<ol class="incremental" type="1">
 <li><p>First, we can <strong>adjust the spatial position of the points</strong> along x, y, or both so that the position does not match the data identity. This approach, of, course means that spatial positions of the data visualized do not map directly onto the data identity. This approach presents its own biasing problem, which increased as a function to the point displacement.</p></li>
 <li><p>Second, we can <strong>adjust the opacity of the points</strong> in the plot. By default points using <code>geom_point()</code> will be opaque. Making points more transparent will allow the user to see visibly points that share a spatial position, to the extent anyway that the cumulative degree of transparency of <em>n</em> points is distinguishable. Thus, the creator should be mindful of the degree of overlapping points no longer being distinguishable by changing their transparency.</p></li>
 <li><p>Third, if points are made smaller by adjusting a <code>size</code> aesthetic, you will need to <strong>adjust the spatial position</strong> less than you will for larger points. Of course, you cannot make points too small.</p></li>
@@ -886,7 +881,7 @@ Reading should take place in two parts:
 <section id="adjusting-point-position" class="level2">
 <h2 class="anchored" data-anchor-id="adjusting-point-position"><strong>Adjusting Point Position</strong></h2>
 <p>There are <strong>two main ways of adjusting the spatial position</strong> for point plots. One solution is to adjust the <code>position</code> argument within <code>geom_point()</code> and the other is to use a sister function <code>geom_jitter()</code>. I will share my advice for which to use as we progress. However you decide to adjust your data, you must acknowledge that you are the creator of the graphic and that are are making the decision to change those point positioning. The adjustment will influence how users perceive, attend to, and interpret the visualization you produce and distribute. You must consider the degree of the adjustment and weigh the costs and benefits of “massaging” the data visualized. You also much assume responsibility and accountability for doing so.</p>
-<ul>
+<ul class="incremental">
 <li><code>geom_point(position = "jitter")</code></li>
 <li><code>geom_jitter()</code></li>
 <li><code>geom_point(position = position_jitter())</code> <strong>the most flexible</strong></li>
@@ -938,7 +933,7 @@ Reading should take place in two parts:
 <h4 class="anchored" data-anchor-id="customizing-jitter-spread"><em>Customizing jitter spread</em></h4>
 <p>On the back-end, <code>position = "jitter"</code> will call <code>position_jitter()</code> but not do anything other than apply a random jitter process to the points. Therefore, you can use <code>position = position_jitter()</code>. Yes, this is more typing but there are trade-offs. Looking specifically at the function, we can see <strong>three key parameters</strong> of <code>position_jitter()</code>.</p>
 <p><strong>Key Parameters/Arguments</strong>:</p>
-<ul>
+<ul class="incremental">
 <li><code>width = NULL</code>: the amount of horizontal jitter</li>
 <li><code>height = NULL</code>: the amount of vertical jitter</li>
 <li><code>seed = NA</code>: a seed to make the jitter reproducible</li>
@@ -1419,7 +1414,7 @@ Reading should take place in two parts:
 <p>Besides the examples illustrated below, you can find more examples in the <a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">tidyverse documentation</a>.</p>
 <p><strong>Various <code>geom_bar()</code> and <code>geom_col()</code> Position Arguments</strong></p>
 <p><code>geom_bar(position = "dodge")</code></p>
-<ul>
+<ul class="incremental">
 <li><code>position = "dodge"</code>: adds padding to bars</li>
 <li><code>position = "dodge2"</code>: adds padding to bars</li>
 <li><code>position = position_dodge()</code>: with padding control etc.</li>

@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-08-19">
 
-<title>Data Visualization - Introduction to RStudio, R Markdown, &amp; Functions</title>
+<title>Introduction to RStudio, R Markdown, &amp; Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,28 +662,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#readings-and-preparation" id="toc-readings-and-preparation" class="nav-link" data-scroll-target="#readings-and-preparation"><strong>Readings and Preparation</strong></a></li>
   <li><a href="#supplementary-readings" id="toc-supplementary-readings" class="nav-link" data-scroll-target="#supplementary-readings"><strong>Supplementary Readings</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   </ul></li>
   <li><a href="#some-things-about-the-r-language" id="toc-some-things-about-the-r-language" class="nav-link" data-scroll-target="#some-things-about-the-r-language"><strong>Some things about the R Language</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#r-is-an-interpreted-language" id="toc-r-is-an-interpreted-language" class="nav-link" data-scroll-target="#r-is-an-interpreted-language"><strong><code>R</code> is an Interpreted Language</strong></a></li>
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><strong>Functions</strong></a></li>
   <li><a href="#a-function-example" id="toc-a-function-example" class="nav-link" data-scroll-target="#a-function-example"><strong>A Function Example</strong></a></li>
   </ul></li>
   <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><strong>Getting Help</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#internal-help" id="toc-internal-help" class="nav-link" data-scroll-target="#internal-help"><strong>Internal Help</strong></a></li>
   <li><a href="#external-help" id="toc-external-help" class="nav-link" data-scroll-target="#external-help"><strong>External Help</strong></a></li>
   </ul></li>
   <li><a href="#r-coding-style-guide" id="toc-r-coding-style-guide" class="nav-link" data-scroll-target="#r-coding-style-guide"><strong>R Coding Style Guide</strong></a></li>
   <li><a href="#setting-up-rstudio" id="toc-setting-up-rstudio" class="nav-link" data-scroll-target="#setting-up-rstudio"><strong>Setting Up RStudio</strong></a></li>
   <li><a href="#understanding-r-markdown" id="toc-understanding-r-markdown" class="nav-link" data-scroll-target="#understanding-r-markdown"><strong>Understanding R Markdown</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#r-markdown-code-execution" id="toc-r-markdown-code-execution" class="nav-link" data-scroll-target="#r-markdown-code-execution"><strong>R Markdown: Code Execution</strong></a></li>
   <li><a href="#r-markdown-cheat-sheet" id="toc-r-markdown-cheat-sheet" class="nav-link" data-scroll-target="#r-markdown-cheat-sheet"><strong>R Markdown: Cheat Sheet</strong></a></li>
   <li><a href="#r-markdown-the-definitive-guide" id="toc-r-markdown-the-definitive-guide" class="nav-link" data-scroll-target="#r-markdown-the-definitive-guide"><strong>R Markdown: The Definitive Guide</strong></a></li>
@@ -757,7 +752,7 @@ Under construction.
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{here}</strong> 1.0.1: for file path management</li>
 <li><strong>{rmarkdown}</strong> 2.27: for creating markdown files</li>
 </ul>
@@ -787,7 +782,7 @@ Under construction.
 <p><code>?install.packages</code></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>?install.packages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Alternatively, you can use the <code>help()</code> function:</p>
-<ul>
+<ul class="incremental">
 <li><code>help("install.packages")</code></li>
 <li><code>help("install.packages", package = "utils")</code></li>
 </ul>
@@ -812,7 +807,7 @@ Under construction.
 <section id="setting-up-rstudio" class="level1">
 <h1><strong>Setting Up RStudio</strong></h1>
 <p>You will use <code>RStudio</code> for most coding for this course. In order to simplify troubleshooting and errors, we will customize some settings together.</p>
-<ul>
+<ul class="incremental">
 <li>Getting on the same <code>RStudio</code> page</li>
 <li>Global Options</li>
 <li>Other Settings</li>

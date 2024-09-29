@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-08-23">
 
-<title>Data Visualization - Reading data files</title>
+<title>Reading data files</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,41 +662,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
   <li><a href="#task" id="toc-task" class="nav-link" data-scroll-target="#task"><strong>Task</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   </ul></li>
   <li><a href="#downloading-a-.zip-file-from-a-url" id="toc-downloading-a-.zip-file-from-a-url" class="nav-link" data-scroll-target="#downloading-a-.zip-file-from-a-url"><strong>Downloading a <code>.zip</code> File from a URL</strong></a></li>
   <li><a href="#readingimporting-data-files" id="toc-readingimporting-data-files" class="nav-link" data-scroll-target="#readingimporting-data-files"><strong>Reading/Importing Data Files</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#excel-files-from-a-url" id="toc-excel-files-from-a-url" class="nav-link" data-scroll-target="#excel-files-from-a-url"><strong>Excel files from a URL</strong></a></li>
   <li><a href="#reading-excel-spreadsheets-with-readxl" id="toc-reading-excel-spreadsheets-with-readxl" class="nav-link" data-scroll-target="#reading-excel-spreadsheets-with-readxl"><strong>Reading Excel Spreadsheets with <code>{readxl}</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#getting-sheet-names" id="toc-getting-sheet-names" class="nav-link" data-scroll-target="#getting-sheet-names"><strong>Getting Sheet Names</strong></a></li>
   <li><a href="#reading-a-sheet" id="toc-reading-a-sheet" class="nav-link" data-scroll-target="#reading-a-sheet"><strong>Reading a Sheet</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#writingexporting-data-files" id="toc-writingexporting-data-files" class="nav-link" data-scroll-target="#writingexporting-data-files"><strong>Writing/Exporting Data Files</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#managing-file-paths-with-here" id="toc-managing-file-paths-with-here" class="nav-link" data-scroll-target="#managing-file-paths-with-here"><strong>Managing file paths with {here}</strong></a></li>
   </ul></li>
   <li><a href="#writing-with-readr" id="toc-writing-with-readr" class="nav-link" data-scroll-target="#writing-with-readr"><strong>Writing with {readr}</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#a-workflow-side-note-on-strings" id="toc-a-workflow-side-note-on-strings" class="nav-link" data-scroll-target="#a-workflow-side-note-on-strings"><strong>A Workflow Side Note on Strings</strong></a></li>
   </ul></li>
   <li><a href="#reading-.csv-files-with-readr" id="toc-reading-.csv-files-with-readr" class="nav-link" data-scroll-target="#reading-.csv-files-with-readr"><strong>Reading <code>.csv</code> files with {readr}</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#reading-a-.csv-file-stored-on-a-website" id="toc-reading-a-.csv-file-stored-on-a-website" class="nav-link" data-scroll-target="#reading-a-.csv-file-stored-on-a-website"><strong>Reading a <code>.csv</code> File Stored on a Website</strong></a></li>
   <li><a href="#reading-a-.csv-file-stored-locally-on-your-computer" id="toc-reading-a-.csv-file-stored-locally-on-your-computer" class="nav-link" data-scroll-target="#reading-a-.csv-file-stored-locally-on-your-computer"><strong>Reading a <code>.csv</code> File Stored Locally on your Computer</strong></a></li>
   <li><a href="#reading-raw-data-that-is-comma-separated-e.g.-.csv" id="toc-reading-raw-data-that-is-comma-separated-e.g.-.csv" class="nav-link" data-scroll-target="#reading-raw-data-that-is-comma-separated-e.g.-.csv"><strong>Reading Raw Data that is Comma-Separated (e.g., <code>.csv</code>)</strong></a></li>
   <li><a href="#reading-data-from-a-librarypackage" id="toc-reading-data-from-a-librarypackage" class="nav-link" data-scroll-target="#reading-data-from-a-librarypackage"><strong>Reading Data from a Library/Package</strong></a></li>
   </ul></li>
   <li><a href="#assigning-a-data-frame-to-an-object" id="toc-assigning-a-data-frame-to-an-object" class="nav-link" data-scroll-target="#assigning-a-data-frame-to-an-object"><strong>Assigning a Data Frame to an Object</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#object-assignment-using--" id="toc-object-assignment-using--" class="nav-link" data-scroll-target="#object-assignment-using--"><strong>Object Assignment using <code>&lt;-</code></strong></a></li>
   <li><a href="#using-read.table" id="toc-using-read.table" class="nav-link" data-scroll-target="#using-read.table">Using <code>read.table()</code>:</a></li>
   <li><a href="#using-read_csv-from-readr" id="toc-using-read_csv-from-readr" class="nav-link" data-scroll-target="#using-read_csv-from-readr">Using <code>read_csv()</code> from <strong>{readr}</strong>:</a></li>
@@ -754,20 +749,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1><strong>To Do</strong></h1>
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
-<ul>
+<ul class="incremental">
 <li><a href="https://r4ds.had.co.nz/workflow-basics.html">R Workflow Basics</a></li>
 <li><a href="https://r4ds.had.co.nz/transform.html#introduction-2">General Wrangling: Sections 5.1 up through 5.5</a></li>
 </ul>
 </section>
 <section id="task" class="level2">
 <h2 class="anchored" data-anchor-id="task"><strong>Task</strong></h2>
-<ul>
+<ul class="incremental">
 <li><a href="https://github.com/">Create a GitHub account</a> if you don’t have one (this may come in handy for projects and a blog if you want)</li>
 </ul>
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{openxlsx}</strong> 4.2.5.2: for reading Excel spreadsheets from a URL</li>
 <li><strong>{readxl}</strong> 1.4.3: for reading Excel spreadsheets</li>
 <li><strong>{readr}</strong> 2.1.5: for reading <code>.csv</code>, <code>.tsv</code>, and <code>.fwf</code> files</li>
@@ -779,7 +774,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1><strong>Downloading a <code>.zip</code> File from a URL</strong></h1>
 <p>GitHub handles Excel files in a way that makes downloading them challenging, so we will first download a <code>.zip</code> file containing the <code>.xlxs</code> file.</p>
 <p>You can accomplish this in two ways:</p>
-<ul>
+<ul class="incremental">
 <li><p>Download from <a href="https://github.com/slicesofdata/dataviz24/raw/main/data/cms-top-all-time-2023-swim.zip">here</a>, save in your project <code>/data</code> directory, and unzip</p></li>
 <li><p>Use the URL to a zip file and download to the project <code>/data</code> directory, unzip the contents, and remove the <code>.zip</code> file using the code below</p></li>
 </ul>
@@ -845,7 +840,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="reading-excel-spreadsheets-with-readxl"><strong>Reading Excel Spreadsheets with <code>{readxl}</code></strong></h2>
 <p>We will use the <strong>{readxl}</strong> library to handing reading of Excel files. Because Excel files can contain multiple sheets, one goal would be to find out the sheet names using <code>readxl::excel_sheets</code> (see <code>?readxl::excel_sheets</code>). This function takes one argument, which is the path to the file. Passing the path will return the sheet names in that file. We can pass the path string directly into the function or if the file path is already saved as a object, pass that.</p>
 <p>In order to read an Excel spreadsheet file, you will need to specify at very least <code>file</code> and if you want to read a specific sheet other than the first one, then you will need to specify <code>sheet</code>.</p>
-<ul>
+<ul class="incremental">
 <li><code>file</code>: a path to the file, including the file name</li>
 <li><code>sheet</code>: the sheet name to read</li>
 </ul>
@@ -981,13 +976,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The <code>base R</code> functions for reading/importing and writing/exporting data can be slow and may cause issues on different operating systems. By contrast, <strong>{readr}</strong> functions operate independently of the OS. As a result, we will generally use the <strong>{readr}</strong> equivalent to <code>read.csv</code> files is <code>readr::read_csv()</code> (note the library reference and function name).</p>
 <p>If you query <code>R</code> using <code>?readr::read_csv</code> or <code>read_csv</code> having already loaded the <strong>{readr}</strong> library using <code>library(readr)</code>, you will see how to use the function.</p>
 <p>In order to read a data file, you will need to specify at very least <code>file</code>, which could be a physical file or a remote file. We will address a few ways of reading data.</p>
-<ul>
+<ul class="incremental">
 <li><code>file</code>: a path to a file, a connection, or literal data (either a single string or a raw vector)</li>
 <li><code>delim = " "</code>: the delimiter used to separate values; this is <code>","</code> for <code>.csv</code> files</li>
 <li><code>col_names = !append</code>: the names of columns/variables</li>
 </ul>
 <p>Some examples:</p>
-<ul>
+<ul class="incremental">
 <li>Reading a <code>.csv</code> file from a website</li>
 <li>Reading a locale <code>.csv</code> file</li>
 <li>Reading raw data that is comma-separated</li>

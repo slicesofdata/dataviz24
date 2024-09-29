@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - Histograms and density plots</title>
+<title>Histograms and density plots</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/histograms_and_density_plots.html"><strong>Histograms and density plots</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/histograms_and_density_plots.html"><strong>Histograms and density plots</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,17 +662,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   <li><a href="#load-libraries" id="toc-load-libraries" class="nav-link" data-scroll-target="#load-libraries"><strong>Load libraries</strong></a></li>
   </ul></li>
   <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><strong>Loading Data</strong></a></li>
   <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"><strong>Histograms</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#geom_histogram" id="toc-geom_histogram" class="nav-link" data-scroll-target="#geom_histogram"><code>geom_histogram()</code></a></li>
   <li><a href="#histograms-depend-on-the-chosen-bin-width" id="toc-histograms-depend-on-the-chosen-bin-width" class="nav-link" data-scroll-target="#histograms-depend-on-the-chosen-bin-width"><em>Histograms depend on the chosen bin width</em></a></li>
   <li><a href="#setting-bins-number" id="toc-setting-bins-number" class="nav-link" data-scroll-target="#setting-bins-number"><em>Setting <code>bins</code> Number</em></a></li>
@@ -686,19 +681,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#color-and-other-aesthetics" id="toc-color-and-other-aesthetics" class="nav-link" data-scroll-target="#color-and-other-aesthetics"><em>Color and other Aesthetics</em></a></li>
   <li><a href="#stacked-histograms" id="toc-stacked-histograms" class="nav-link" data-scroll-target="#stacked-histograms"><em>Stacked histograms</em></a></li>
   <li><a href="#histograms-with-y-as-density" id="toc-histograms-with-y-as-density" class="nav-link" data-scroll-target="#histograms-with-y-as-density"><em>Histograms with y as Density</em></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#after_statcount" id="toc-after_statcount" class="nav-link" data-scroll-target="#after_statcount"><code>after_stat(count)</code></a></li>
   <li><a href="#after_statdensity" id="toc-after_statdensity" class="nav-link" data-scroll-target="#after_statdensity"><code>after_stat(density)</code></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#histogram-as-proportion-of-counts" id="toc-histogram-as-proportion-of-counts" class="nav-link" data-scroll-target="#histogram-as-proportion-of-counts"><strong>Histogram as Proportion of Counts</strong></a></li>
   <li><a href="#creating-geom_s-with-stat_bin" id="toc-creating-geom_s-with-stat_bin" class="nav-link" data-scroll-target="#creating-geom_s-with-stat_bin"><strong>Creating <code>geom_*()</code>s with <code>stat_bin</code></strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#histograms-using-stat_bin" id="toc-histograms-using-stat_bin" class="nav-link" data-scroll-target="#histograms-using-stat_bin"><strong>Histograms using <code>stat_bin</code></strong></a></li>
   <li><a href="#densities-or-area-plots-using-stat_bin" id="toc-densities-or-area-plots-using-stat_bin" class="nav-link" data-scroll-target="#densities-or-area-plots-using-stat_bin"><strong>Densities or Area Plots using <code>stat_bin</code></strong></a></li>
   </ul></li>
   <li><a href="#kernel-density-estimate-kde-plots" id="toc-kernel-density-estimate-kde-plots" class="nav-link" data-scroll-target="#kernel-density-estimate-kde-plots"><strong>Kernel Density Estimate (KDE) Plots</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#geom_density" id="toc-geom_density" class="nav-link" data-scroll-target="#geom_density"><code>geom_density()</code></a></li>
   </ul></li>
   <li><a href="#mapping-a-fill-variable" id="toc-mapping-a-fill-variable" class="nav-link" data-scroll-target="#mapping-a-fill-variable"><em>Mapping a <code>fill</code> variable</em></a></li>
@@ -785,7 +780,7 @@ Reading should take place in two parts:
 </section>
 <section id="libraries" class="level2">
 <h2 class="anchored" data-anchor-id="libraries"><strong>Libraries</strong></h2>
-<ul>
+<ul class="incremental">
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating <!--- **{magrittr}** 2.0.3: for code clarity and piping data frame objects --></li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
 </ul>

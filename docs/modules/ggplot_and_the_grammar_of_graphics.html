@@ -9,7 +9,7 @@
 <meta name="author" content="Gabriel I. Cook">
 <meta name="dcterms.date" content="2024-09-29">
 
-<title>Data Visualization - {ggplot2}: The Grammar of Graphics</title>
+<title>{ggplot2}: The Grammar of Graphics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,11 +109,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title"><strong>Data Visualization</strong></span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -348,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html">Modules</a></li><li class="breadcrumb-item"><a href="../modules/ggplot_and_the_grammar_of_graphics.html"><strong><code>{ggplot2}</code>: The Grammar of Graphics</strong></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/ggplot_and_the_grammar_of_graphics.html"><strong><code>{ggplot2}</code>: The Grammar of Graphics</strong></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -447,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Modules</span></a>
+ <span class="menu-text"><b>Modules</b></span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -456,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b>**</span></a>
+ <span class="menu-text"><b>Project Management</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -614,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b>**</span></a>
+ <span class="menu-text"><b>Project</b></span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -667,21 +662,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
+  <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
   <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><strong>Readings</strong></a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#load-libraries" id="toc-load-libraries" class="nav-link" data-scroll-target="#load-libraries"><strong>Load libraries</strong></a></li>
   <li><a href="#external-functions" id="toc-external-functions" class="nav-link" data-scroll-target="#external-functions"><strong>External Functions</strong></a></li>
   </ul></li>
   <li><a href="#the-grammar-of-graphics" id="toc-the-grammar-of-graphics" class="nav-link" data-scroll-target="#the-grammar-of-graphics"><strong>The Grammar of Graphics</strong></a></li>
   <li><a href="#ggplot2-plot-basics" id="toc-ggplot2-plot-basics" class="nav-link" data-scroll-target="#ggplot2-plot-basics"><strong><code>{ggplot2}</code> Plot Basics</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#ggplot2-plot-composition" id="toc-ggplot2-plot-composition" class="nav-link" data-scroll-target="#ggplot2-plot-composition"><strong><code>{ggplot2}</code> Plot Composition</strong></a></li>
   </ul></li>
   <li><a href="#lets-make-a-plot" id="toc-lets-make-a-plot" class="nav-link" data-scroll-target="#lets-make-a-plot"><strong>Let’s Make a Plot</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#the-ggplot-function" id="toc-the-ggplot-function" class="nav-link" data-scroll-target="#the-ggplot-function"><strong>The <code>ggplot()</code> Function</strong></a></li>
   <li><a href="#initializing-the-plot-object" id="toc-initializing-the-plot-object" class="nav-link" data-scroll-target="#initializing-the-plot-object"><strong>Initializing the Plot Object</strong></a></li>
   <li><a href="#passing-the-data-to-ggplot" id="toc-passing-the-data-to-ggplot" class="nav-link" data-scroll-target="#passing-the-data-to-ggplot"><strong>Passing the Data to <code>ggplot()</code></strong></a></li>
@@ -691,7 +686,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#adding-plot-geometries" id="toc-adding-plot-geometries" class="nav-link" data-scroll-target="#adding-plot-geometries"><strong>Adding Plot Geometries</strong></a></li>
   </ul></li>
   <li><a href="#geometries-have-aesthetics" id="toc-geometries-have-aesthetics" class="nav-link" data-scroll-target="#geometries-have-aesthetics"><strong>Geometries have aesthetics</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#how-and-where-to-map-aesthetics" id="toc-how-and-where-to-map-aesthetics" class="nav-link" data-scroll-target="#how-and-where-to-map-aesthetics"><strong>How and Where to Map Aesthetics?</strong></a></li>
   </ul></li>
   <li><a href="#add-labels-a-coordinate-system-scaling-and-a-theme" id="toc-add-labels-a-coordinate-system-scaling-and-a-theme" class="nav-link" data-scroll-target="#add-labels-a-coordinate-system-scaling-and-a-theme"><strong>Add labels, a coordinate system, scaling, and a theme</strong></a></li>
@@ -699,7 +694,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#some-geometries-and-their-aesthetics" id="toc-some-geometries-and-their-aesthetics" class="nav-link" data-scroll-target="#some-geometries-and-their-aesthetics"><strong>Some Geometries and Their Aesthetics</strong></a></li>
   <li><a href="#adding-aesthetics-that-a-geometry-does-not-understand" id="toc-adding-aesthetics-that-a-geometry-does-not-understand" class="nav-link" data-scroll-target="#adding-aesthetics-that-a-geometry-does-not-understand"><strong>Adding Aesthetics That A Geometry Does not Understand</strong></a></li>
   <li><a href="#aesthetic-mapping-versus-setting" id="toc-aesthetic-mapping-versus-setting" class="nav-link" data-scroll-target="#aesthetic-mapping-versus-setting"><strong>Aesthetic Mapping Versus Setting</strong></a>
-  <ul class="collapse">
+  <ul class="incremental collapse">
   <li><a href="#mapping-a-variable-as-is-from-the-data-frame" id="toc-mapping-a-variable-as-is-from-the-data-frame" class="nav-link" data-scroll-target="#mapping-a-variable-as-is-from-the-data-frame"><strong>Mapping a variable as-is from the data frame`</strong></a></li>
   <li><a href="#mapping-a-variable-that-differs-from-whats-in-the-data-frame" id="toc-mapping-a-variable-that-differs-from-whats-in-the-data-frame" class="nav-link" data-scroll-target="#mapping-a-variable-that-differs-from-whats-in-the-data-frame"><strong>Mapping a variable that differs from what’s in the data frame</strong></a></li>
   <li><a href="#mapping-a-variable-that-is-not-defined-in-the-aes-mapping-of-ggplot" id="toc-mapping-a-variable-that-is-not-defined-in-the-aes-mapping-of-ggplot" class="nav-link" data-scroll-target="#mapping-a-variable-that-is-not-defined-in-the-aes-mapping-of-ggplot"><strong>Mapping a variable that is not defined in the <code>aes()</code> mapping of <code>ggplot()</code></strong></a></li>
@@ -762,20 +757,20 @@ Reading should take place in two parts:
 *After Class*: After having some hands-on experience with coding in class, homework assignments will involve writing your own code to address some problem. These problems will be more complex, will involving problem solving, and may be open ended. This is where the second pass at reading with come in for you to reference when writing your code. The module content presented below is designed to offer you some assistance working through various coding problems but may not always suffice as a replacement for the readings from **Wickham, Navarro, & Pedersen (under revision)**. *ggplot2: Elegant Graphics for Data Analysis (3e)*.
 --></p>
 <p>Optional Readings about <strong><code>{ggplot}</code></strong>:</p>
-<ul>
+<ul class="incremental">
 <li><a href="https://clauswilke.com/dataviz/introduction.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Introduction to Vizualization</a></li>
 <li><a href="https://clauswilke.com/dataviz/aesthetic-mapping.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Aesthetic Mapping</a></li>
 <li><a href="https://ggplot2-book.org/introduction">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Introduction</a></li>
 <li><a href="https://ggplot2-book.org/mastery">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Understanding the Grammar</a></li>
 </ul>
 <p>Optional (more on the grammar):</p>
-<ul>
+<ul class="incremental">
 <li><a href="https://ggplot2-book.org/layers">Wickham, Navarro, &amp; Pedersen (under revision). <em>ggplot2: Elegant Graphics for Data Analysis (3e)</em>. Build a plot layer by layer</a></li>
 </ul>
 </section>
 <section id="libraries" class="level1">
 <h1><strong>Libraries</strong></h1>
-<ul>
+<ul class="incremental">
 <li><strong>{here}</strong>: 1.0.1: for path management</li>
 <li><strong>{dplyr}</strong> 1.1.4: for selecting, filtering, and mutating</li>
 <li><strong>{ggplot2}</strong> 3.5.1: for plotting</li>
@@ -811,24 +806,24 @@ Reading should take place in two parts:
 <section id="ggplot2-plot-composition" class="level2">
 <h2 class="anchored" data-anchor-id="ggplot2-plot-composition"><strong><code>{ggplot2}</code> Plot Composition</strong></h2>
 <p>There are five mapping components:</p>
-<ol type="1">
+<ol class="incremental" type="1">
 <li><strong>Layer</strong> containing geometric elements and statistical transformations:</li>
 </ol>
-<ul>
+<ul class="incremental">
 <li><em>Data</em> a tidy data frame, most typically in <a href="https://en.wikipedia.org/wiki/Wide_and_narrow_data">long/narrow format</a></li>
 <li><em>Mapping</em> defining how vector variables are visualized (e.g., aesthetics like shape, color, position, hue, etc.)</li>
 <li><em>Statistical Transformation (stat)</em> representing some summarizing of data (e.g., sums, fitted curves, etc.)</li>
 <li><em>Geometric object (geom)</em> controlling the type of visualization</li>
 <li><em>Position Adjustment (position)</em> controlling where visual elements are positioned</li>
 </ul>
-<ol start="2" type="1">
+<ol class="incremental" start="2" type="1">
 <li><p><strong>Scales</strong> that map values in the data space to values in aesthetic space</p></li>
 <li><p><strong>A Coordinate System</strong> for mapping coordinates to the plane of a graphic</p></li>
 <li><p><strong>A Facet</strong> for arranging the data into a grid; plotting subsets of data</p></li>
 <li><p><strong>A Theme</strong> controlling the niceties of the plot, like font, background, grids, axes, typeface etc.</p></li>
 </ol>
 <p>The grammar does not:</p>
-<ul>
+<ul class="incremental">
 <li>Make suggestions about what graphics to use</li>
 <li>Describe interactivity with a graphic; <strong>{ggplot2}</strong> graphics are static images, though they can be animated</li>
 </ul>
@@ -841,7 +836,7 @@ Reading should take place in two parts:
 <h2 class="anchored" data-anchor-id="the-ggplot-function"><strong>The <code>ggplot()</code> Function</strong></h2>
 <p>What is a <code>?ggplot</code> object? Review the <a href="https://ggplot2.tidyverse.org/reference/ggplot.html">docs</a> first. Let’s apply the base layer using <code>ggplot()</code>.</p>
 <p><strong>Parameters/Arguments:</strong></p>
-<ul>
+<ul class="incremental">
 <li><code>data</code>: a data frame</li>
 <li><code>mapping</code>: for mapping data or values to aesthetic properties of a <code>geom_*</code></li>
 </ul>
@@ -1053,11 +1048,11 @@ DATA <- data.frame(
 <h2 class="anchored" data-anchor-id="how-and-where-to-map-aesthetics"><strong>How and Where to Map Aesthetics?</strong></h2>
 <p>You might be wondering how you map these aesthetic properties so that when you attempt to do so, you don’t get a bunch of errors. There are <strong>two places</strong> you can map aesthetics:</p>
 <p>Either in the initialized plot object:</p>
-<ul>
+<ul class="incremental">
 <li><strong><code>ggplot(data = data, mapping = aes(x, y))</code></strong> <code>+ geom_point()</code></li>
 </ul>
 <p>Or in the geometry:</p>
-<ul>
+<ul class="incremental">
 <li><code>ggplot() +</code><strong><code>geom_point(data = data, mapping = aes(x, y))</code></strong></li>
 </ul>
 <p>We can map aesthetics in the initialized plot object by also assigning this to an object named <code>base_plot</code> just so we can reference it as need.</p>
@@ -1171,7 +1166,7 @@ DATA <- data.frame(
 <h1><strong>Some Geometries and Their Aesthetics</strong></h1>
 <p>Not all geometries are the same. Although many <code>geom_*()</code>s share most aesthetics, they do not always have the same aesthetics and many aesthetics have been added or change since the first implementation of <strong>{ggplot}</strong>. For example, a point plot doesn’t have aesthetics for a line but a line plot does. You can only add aesthetics to <code>geom_*()</code>s that are understood by them; adding those that are not understood will, of course, throw errors.</p>
 <p><code>geom_point()</code> understands these aesthetics:</p>
-<ul>
+<ul class="incremental">
 <li>x</li>
 <li>y</li>
 <li>alpha</li>
@@ -1183,7 +1178,7 @@ DATA <- data.frame(
 <li>stroke</li>
 </ul>
 <p><code>geom_line()</code> understands these aesthetics:</p>
-<ul>
+<ul class="incremental">
 <li>x</li>
 <li>y</li>
 <li>alpha</li>
@@ -1194,7 +1189,7 @@ DATA <- data.frame(
 <li>size</li>
 </ul>
 <p><code>geom_bar()</code> understands these aesthetics:</p>
-<ul>
+<ul class="incremental">
 <li>x</li>
 <li>y</li>
 <li>alpha</li>
@@ -1204,7 +1199,7 @@ DATA <- data.frame(
 <li>size</li>
 </ul>
 <p><code>geom_col()</code> understands these aesthetics:</p>
-<ul>
+<ul class="incremental">
 <li>x</li>
 <li>y</li>
 <li>alpha</li>
@@ -1233,7 +1228,7 @@ DATA <- data.frame(
 <section id="aesthetic-mapping-versus-setting" class="level1">
 <h1><strong>Aesthetic Mapping Versus Setting</strong></h1>
 <p>When adding aesthetics to a <code>geom_*()</code>, you may wish to make an aesthetic property like color a particular color such that all points in the point plot are the same color or you may wish the point color to vary in some way across the observations of the variable (e.g., change from cold to hot color depending on the value). Similarly, you may wish to vary the shape property with the value. You may even with the property to vary corresponding to a different variable.</p>
-<ul>
+<ul class="incremental">
 <li><em>setting</em> an aesthetic to a constant</li>
 <li><em>mapping</em> an aesthetic to a variable</li>
 </ul>
