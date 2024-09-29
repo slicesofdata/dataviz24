@@ -1,5 +1,5 @@
 ---
-title: "Homework 03-key"
+title: "Homework 03"
 author: "your-name(s)"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -17,8 +17,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r include=FALSE}
-suppressMessages(library(dplyr))
-suppressMessages(library(ggplot2))
+
+
+
 ```
 
 For this homework, you will save the `R Markdown` (e.g., `.Rmd`) homework document and save it to your `/report` project directory on your computer. Save a new copy of this file so that its name has the prefix `hw03-Lastname-FirstInitial`. Full name example: `hw03-cookg.Rmd`. 
@@ -57,7 +58,8 @@ Load the libraries that you will need to answer the questions. Do not load extra
 In the code block, write code using `read.csv()` to read the data file named `"cleaned-2023-cms-invite.csv"` which is in `/data/processed` or on the course site data tab. Do not hard code the path, use {here}. Assign the data to an object named something like `SWIM`. For all questions, pipe the data frame to relevant functions. Do not explicitly pass the data frame to a `.data` parameter.
 
 ```{r echo = TRUE, results = 'hide'}
-SWIM <- read.csv(here::here("data", "processed", "cleaned-2023-cms-invite.csv"))
+
+
 ```
 
 ## **Make a scatter plot using a numeric and a non-numeric variable**
