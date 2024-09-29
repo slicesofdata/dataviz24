@@ -57,7 +57,7 @@ Load the libraries that you will need to answer the questions. Do not load extra
 
 In the code block, write code using `read.csv()` to read the data file named `"cleaned-2023-cms-invite.csv"` which is in `/data/processed` or on the course site data tab. Do not hard code the path, use {here}. Assign the data to an object named something like `SWIM`. For all questions, pipe the data frame to relevant functions. Do not explicitly pass the data frame to a `.data` parameter.
 
-```{r echo = TRUE, results = 'hide'}
+```{r message=FALSE, warning=FALSE}
 
 
 ```
