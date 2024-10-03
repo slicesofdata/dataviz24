@@ -1929,7 +1929,7 @@
     "href": "modules/color_scales_and_palettes.html#colorspace-color-palettes",
     "title": "Color scales and palettes",
     "section": "{colorspace} Color Palettes",
-    "text": "{colorspace} Color Palettes\n\ncolorspace::hcl_palettes(type = \"sequential\", plot = TRUE) # all sequential palettes\n\n\n\n\n\ncolorspace::hcl_palettes(type = \"diverging\", plot = TRUE, n = 9) # all diverging palettes\n\n\n\n\n\ncolorspace::divergingx_palettes(plot = TRUE, n = 9) # all divergingx palettes"
+    "text": "{colorspace} Color Palettes\n\ncolorspace::hcl_palettes(type = \"sequential\", plot = TRUE) # all sequential palettes\n\n\n\n\nFor 9 colors:\n\ncolorspace::hcl_palettes(type = \"diverging\", plot = TRUE, n = 9) # all diverging palettes\n\n\n\ncolorspace::hcl_palettes(type = \"diverging\", plot = TRUE, n = ) # all diverging palettes\n\n\n\n\nFor 3 colors:\n\ncolorspace::hcl_palettes(type = \"diverging\", plot = TRUE, n = 3)\n\n\n\n\n\ncolorspace::divergingx_palettes(plot = TRUE, n = 9) # all divergingx palettes"
   },
   {
     "objectID": "modules/color_scales_and_palettes.html#example-plots",
