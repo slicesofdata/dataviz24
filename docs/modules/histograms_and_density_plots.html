@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-09-29">
+<meta name="dcterms.date" content="2024-10-01">
 
 <title>Histograms and density plots</title>
 <style>
@@ -225,6 +225,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li>
     <a class="dropdown-item" href="../exercises/visualizing-amounts-exercise.pdf" rel="" target="">
  <span class="dropdown-text">visualizing-amounts-exercise.pdf</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/color-scales-exercise.pdf" rel="" target="">
+ <span class="dropdown-text">color-scales-exercise.pdf</span></a>
   </li>  
     </ul>
   </li>
@@ -681,7 +685,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#histograms-depend-on-the-chosen-bin-width" id="toc-histograms-depend-on-the-chosen-bin-width" class="nav-link" data-scroll-target="#histograms-depend-on-the-chosen-bin-width"><em>Histograms depend on the chosen bin width</em></a></li>
   <li><a href="#setting-bins-number" id="toc-setting-bins-number" class="nav-link" data-scroll-target="#setting-bins-number"><em>Setting <code>bins</code> Number</em></a></li>
   <li><a href="#setting-binwidth" id="toc-setting-binwidth" class="nav-link" data-scroll-target="#setting-binwidth"><em>Setting <code>binwidth</code></em></a></li>
-  <li><a href="#center-the-bin" id="toc-center-the-bin" class="nav-link" data-scroll-target="#center-the-bin"><em>Center the bin</em></a></li>
+  <li><a href="#centering-the-bin" id="toc-centering-the-bin" class="nav-link" data-scroll-target="#centering-the-bin"><em>Centering the bin</em></a></li>
   <li><a href="#color-and-other-aesthetics" id="toc-color-and-other-aesthetics" class="nav-link" data-scroll-target="#color-and-other-aesthetics"><em>Color and other Aesthetics</em></a></li>
   <li><a href="#stacked-histograms" id="toc-stacked-histograms" class="nav-link" data-scroll-target="#stacked-histograms"><em>Stacked histograms</em></a></li>
   <li><a href="#histograms-with-y-as-density" id="toc-histograms-with-y-as-density" class="nav-link" data-scroll-target="#histograms-with-y-as-density"><em>Histograms with y as Density</em></a>
@@ -727,7 +731,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 29, 2024</p>
+      <p class="date">October 1, 2024</p>
     </div>
   </div>
   
@@ -737,19 +741,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Under construction.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.</p>
-</div>
-</div>
 <section id="overview" class="level1">
 <h1><strong>Overview</strong></h1>
 <p>This module focuses on the Cartesian Coordinate system and visualizing data distributions using <strong>{ggplot2}</strong> <code>geom_histogram()</code> and <code>geom_density()</code>. This module demonstrates some ways to visualize the distribution of a single variable along either the x or y axis. When adding another aesthetic (e.g., <code>fill</code>), this distribution could be visualized along the x axis but for different groupings for a second, <code>fill</code> variable. Visualizations containing multiple levels of a second variable create problems for <code>geom_histogram()</code> out-of-the-box which can be addressed with <code>geom_density()</code> but this approach too can create perceptual problems for more complicated plots. We will also address ways to solve the limitations of visualizing more complex data arrangement in a later section and introduce the <strong>{ggridges}</strong> library to produce <code>geom_ridgeline()</code> plots.</p>
@@ -851,6 +842,7 @@ Caused by error in `setup_params()`:
 </section>
 <section id="histograms-depend-on-the-chosen-bin-width" class="level2">
 <h2 class="anchored" data-anchor-id="histograms-depend-on-the-chosen-bin-width"><em>Histograms depend on the chosen bin width</em></h2>
+<p>Histograms are data representations typically use to display counts, frequencies, or instances of events falling within some upper and lower bound range for numeric or continuous variables. For example, counts of salaries for every $5k, weights for every 5 pounds, etc. Histogram functions will typically determine these ranges on their own, which may or may not be suitable for your visualization. All of these elements can be customized.</p>
 </section>
 <section id="setting-bins-number" class="level2">
 <h2 class="anchored" data-anchor-id="setting-bins-number"><em>Setting <code>bins</code> Number</em></h2>
@@ -884,7 +876,7 @@ Caused by error in `setup_params()`:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"binwidth = .1"</span>, <span class="at">tag =</span> <span class="st">"A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -892,7 +884,7 @@ Caused by error in `setup_params()`:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"binwidth = 30"</span>, <span class="at">tag =</span> <span class="st">"B"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -902,7 +894,7 @@ Caused by error in `setup_params()`:
 <p><img src="histograms_and_density_plots_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Is this better?</p>
+<p>Is this plot better?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plot3 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
@@ -917,9 +909,9 @@ Caused by error in `setup_params()`:
 </div>
 </div>
 </section>
-<section id="center-the-bin" class="level2">
-<h2 class="anchored" data-anchor-id="center-the-bin"><em>Center the bin</em></h2>
-<p>Once you are happy with the width, you can think about centering them. <code>center</code> will be used to specify the center of the bin containing the bin value. For now, there is some adjustment, though not perfect, to the scale to see the differences.</p>
+<section id="centering-the-bin" class="level2">
+<h2 class="anchored" data-anchor-id="centering-the-bin"><em>Centering the bin</em></h2>
+<p>Once you are happy with the bin width, you can think about centering them. <code>center</code> will be used to specify the center of the bin containing the bin value. For now, there is some adjustment, though not perfect, to the scale to see the differences.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
@@ -1165,15 +1157,10 @@ attr(,"class")
 <p><img src="histograms_and_density_plots_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Using <strong>{patchwork}</strong> to create a grob, we can add divide the grid space using <code>/</code> so that the plots are on top of each other.</p>
+<p>Using <strong>{patchwork}</strong> to create a grob, we can <em>divide</em> the grid space using <code>/</code> so that the plots are on top of each other.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>patchwork<span class="sc">::</span><span class="fu">plot_layout</span>(plot1 <span class="sc">/</span> plot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$ncol</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="histograms_and_density_plots_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
@@ -1214,7 +1201,7 @@ attr(,"class")
 <p>Notice, however, that the visualization of the binned bars along with the density function does not provide provide what you might expect to see. That’s because a density function is continuous whereas histograms are not.</p>
 <p>If you add a density layer, you can see them both together:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>plot2 <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>plot2 <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -1231,13 +1218,13 @@ attr(,"class")
 <p>Not everyone is adept at reading histogram distributions representing frequency counts or probability densities. Sometimes you just want to plot the data such that your y-axis represent percentages. With new versions of <strong>{ggplot2}</strong>, you will accomplish this using the <code>after_stat()</code> function.</p>
 <p>Just to illustrate what’s going on, we can use the <code>after_stat()</code> default with <code>geom_histogram()</code> to see what it does and then we can edit it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>(plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"default"</span>,</span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"A"</span>)</span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>(plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"default"</span>,</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"A"</span>)</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -1247,14 +1234,14 @@ attr(,"class")
 </div>
 <p>Because <code>geom_histogram()</code> is applying the statistical transformation, <code>stat</code> as the frequency count and plotting along the y-axis, we can add <code>after_stat(count)</code> to y inside the <code>aes()</code> and see what happens to the plot.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>(plot2 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count))) <span class="sc">+</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"aes(y = after_stat(count))"</span>, </span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"B"</span></span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>       )</span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>(plot2 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count))) <span class="sc">+</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"aes(y = after_stat(count))"</span>, </span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"B"</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -1264,16 +1251,16 @@ attr(,"class")
 </div>
 <p>But because a proportion of counts in a bin is calculated as <code>counts in bin/ sum of all counts</code>, we can specify the math <code>aes(y = after_stat(count)/sum(after_stat(count)))</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>plot3 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">after_stat</span>(count)))) <span class="sc">+</span></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"count/sum(counts)"</span>,</span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"C"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>plot3 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">after_stat</span>(count)))) <span class="sc">+</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"count/sum(counts)"</span>,</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"C"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Looking at the plots together:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot1, plot2, plot3, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot1, plot2, plot3, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
@@ -1290,32 +1277,32 @@ attr(,"class")
 <section id="histograms-using-stat_bin" class="level2">
 <h2 class="anchored" data-anchor-id="histograms-using-stat_bin"><strong>Histograms using <code>stat_bin</code></strong></h2>
 <p>Although you are familiar with the usage of <code>geom_()</code>s that include statistical transformations (remember all plots have a <code>stat_()</code>), statistical transformation functions with naming convention <code>stat_*()</code> allow for <code>geom</code>s. For <code>stat_bin</code>, which create bins, the default <code>geom = "bar"</code> and <code>position = "stack"</code>, which you saw with the stacking of the colored bars using <code>geom_histogram()</code>.</p>
-<pre><code>stat_bin(
-  mapping = NULL,
-  data = NULL,
-  geom = "bar",
-  position = "stack",
-  ...,
-  binwidth = NULL,
-  bins = NULL,
-  center = NULL,
-  boundary = NULL,
-  breaks = NULL,
-  closed = c("right", "left"),
-  pad = FALSE,
-  na.rm = FALSE,
-  orientation = NA,
-  show.legend = NA,
-  inherit.aes = TRUE
-)</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stat_bin</span>(</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="cn">NULL</span>,</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="cn">NULL</span>,</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">geom =</span> <span class="st">"bar"</span>,</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">position =</span> <span class="st">"stack"</span>,</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  ...,</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">binwidth =</span> <span class="cn">NULL</span>,</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">bins =</span> <span class="cn">NULL</span>,</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">center =</span> <span class="cn">NULL</span>,</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">boundary =</span> <span class="cn">NULL</span>,</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="cn">NULL</span>,</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">closed =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"left"</span>),</span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">pad =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">na.rm =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">orientation =</span> <span class="cn">NA</span>,</span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.legend =</span> <span class="cn">NA</span>,</span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">inherit.aes =</span> <span class="cn">TRUE</span></span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>geom = "bar"</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_bin</span>(</span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"bar"</span></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>SWIM <span class="sc">|&gt;</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_bin</span>(</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"bar"</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -1326,41 +1313,46 @@ attr(,"class")
 </section>
 <section id="densities-or-area-plots-using-stat_bin" class="level2">
 <h2 class="anchored" data-anchor-id="densities-or-area-plots-using-stat_bin"><strong>Densities or Area Plots using <code>stat_bin</code></strong></h2>
-<pre><code>geom = "density"
-geom = "area"
-stat = "density"</code></pre>
+<p>You can modify the <code>geom</code> to <code>"density"</code> or <code>"area"</code> by passing arguments.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stat_bin</span>(<span class="at">geom =</span> <span class="st">"density"</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stat_bin</span>(<span class="at">geom =</span> <span class="st">"area"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or even modify <code>stat</code> to a “density” plot:</p>
+<pre class="{,r}"><code>stat_bin(stat = "density")</code></pre>
+<p>Starting with <code>geom = "density"</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_bin</span>(</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"density"</span>,</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"gold"</span>,</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">col  =</span> <span class="st">"black"</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'geom = "density"'</span>,</span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"A"</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>       )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And then <code>geom = "area"</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_bin</span>(</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"density"</span>,</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"area"</span>,</span>
 <span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"gold"</span>,</span>
 <span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">"black"</span></span>
 <span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'geom = "density"'</span>,</span>
-<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"A"</span></span>
-<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'geom = "area"'</span>,</span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"B"</span></span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
-<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
-<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(Time)) <span class="sc">+</span></span>
-<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_bin</span>(</span>
-<span id="cb54-17"><a href="#cb54-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"area"</span>,</span>
-<span id="cb54-18"><a href="#cb54-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"gold"</span>,</span>
-<span id="cb54-19"><a href="#cb54-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">"black"</span></span>
-<span id="cb54-20"><a href="#cb54-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb54-21"><a href="#cb54-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'geom = "area"'</span>,</span>
-<span id="cb54-22"><a href="#cb54-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">tag =</span> <span class="st">"B"</span></span>
-<span id="cb54-23"><a href="#cb54-23" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb54-24"><a href="#cb54-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-25"><a href="#cb54-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot1, plot2, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot1, plot2, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="histograms_and_density_plots_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+<p><img src="histograms_and_density_plots_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>As you can see, the geom settings produce the same plots.</p>
@@ -1371,25 +1363,25 @@ stat = "density"</code></pre>
 <p>Whereas histograms display raw counts, KDEs display proportions. (Total area = 1)</p>
 <section id="geom_density" class="level2">
 <h2 class="anchored" data-anchor-id="geom_density"><code>geom_density()</code></h2>
-<pre><code>geom_density(
-  mapping = NULL,
-  data = NULL,
-  stat = "density",
-  position = "identity",
-  ...,
-  na.rm = FALSE,
-  orientation = NA,
-  show.legend = NA,
-  inherit.aes = TRUE,
-  outline.type = "upper"
-)</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_density</span>(</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="cn">NULL</span>,</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="cn">NULL</span>,</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">stat =</span> <span class="st">"density"</span>,</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">position =</span> <span class="st">"identity"</span>,</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>  ...,</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">na.rm =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">orientation =</span> <span class="cn">NA</span>,</span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.legend =</span> <span class="cn">NA</span>,</span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">inherit.aes =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">outline.type =</span> <span class="st">"upper"</span></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We can also change aesthetics using:</p>
 <pre><code>- color: line color
 - size: line thickness
 - linetype: line type 
 - fill: fill color of the area 
 - alpha: opacity/transparency</code></pre>
-<p>Let’s crest some plots.</p>
+<p>Let’s create some plots.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> SWIM <span class="sc">|&gt;</span></span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Time <span class="sc">&lt;</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
@@ -1426,7 +1418,7 @@ stat = "density"</code></pre>
 <span id="cb58-33"><a href="#cb58-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-34"><a href="#cb58-34" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot1, plot2, plot3, plot4, <span class="at">ncol =</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="histograms_and_density_plots_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
+<p><img src="histograms_and_density_plots_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The plots present the data in different ways. Choosing the best type of plot will involve some consideration. You should not feel compelled to use plots out-of-the-box.</p>
@@ -1450,7 +1442,7 @@ stat = "density"</code></pre>
 <span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(plot1, plot2, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="histograms_and_density_plots_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
+<p><img src="histograms_and_density_plots_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Although the alpha may not be the best with this setting, you can now see all of the distributions. Mapping a variable to <code>fill</code> will always result in plot using the same x-axis positioning. In other words, you will always have plots that will overlap unless of course the distributions are naturally far apart. We will introduce other approaches to distributions on different horizontal levels if the goal is to present the grouping in a way that prevents visual overlap.</p>
