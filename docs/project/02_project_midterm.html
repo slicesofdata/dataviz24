@@ -134,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">HW 03</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../homework/hw04.Rmd" rel="" target="">
+    <a class="dropdown-item" href="../homework/hw04.pdf" rel="" target="">
  <span class="dropdown-text">HW 04</span></a>
   </li>  
         <li>
@@ -638,6 +638,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul class="incremental">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
+  <li><a href="#schedule-and-timing" id="toc-schedule-and-timing" class="nav-link" data-scroll-target="#schedule-and-timing"><strong>Schedule and Timing</strong></a></li>
+  <li><a href="#access-to-slides" id="toc-access-to-slides" class="nav-link" data-scroll-target="#access-to-slides"><strong>Access to Slides</strong></a></li>
   <li><a href="#elements-not-to-worry-about" id="toc-elements-not-to-worry-about" class="nav-link" data-scroll-target="#elements-not-to-worry-about"><strong>Elements Not to Worry about</strong></a></li>
   <li><a href="#elements-to-focus-on" id="toc-elements-to-focus-on" class="nav-link" data-scroll-target="#elements-to-focus-on"><strong>Elements to Focus On</strong></a>
   <ul class="incremental collapse">
@@ -661,7 +663,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#data-visualizations-story-telling-with-pictures-40-pts" id="toc-data-visualizations-story-telling-with-pictures-40-pts" class="nav-link" data-scroll-target="#data-visualizations-story-telling-with-pictures-40-pts"><em>Data Visualizations: Story Telling with Pictures (40 pts)</em></a></li>
   <li><a href="#presentation-characteristics-20-pts" id="toc-presentation-characteristics-20-pts" class="nav-link" data-scroll-target="#presentation-characteristics-20-pts"><em>Presentation Characteristics (20 pts)</em></a></li>
   <li><a href="#team-and-team-member-evaluation-5-pts" id="toc-team-and-team-member-evaluation-5-pts" class="nav-link" data-scroll-target="#team-and-team-member-evaluation-5-pts"><em>Team and Team Member Evaluation (5 pts)</em></a></li>
-  <li><a href="#self-evaluation-5-pts" id="toc-self-evaluation-5-pts" class="nav-link" data-scroll-target="#self-evaluation-5-pts"><em>Self Evaluation (5 pts)</em></a></li>
+  <li><a href="#self-progressionevaluation-5-pts" id="toc-self-progressionevaluation-5-pts" class="nav-link" data-scroll-target="#self-progressionevaluation-5-pts"><em>Self Progression/Evaluation (5 pts)</em></a></li>
   </ul></li>
   <li><a href="#presentation-tips" id="toc-presentation-tips" class="nav-link" data-scroll-target="#presentation-tips"><strong>Presentation Tips</strong></a></li>
   </ul>
@@ -703,8 +705,37 @@ ul.task-list li input[type="checkbox"] {
 <h1><strong>Overview</strong></h1>
 <p>After having several weeks to investigate and examine your data, brainstorm potential key items to address, identify potential story lines, and create some data visualizations, the next step is to present to the class. You goal for the midterm presentation will be to present and discuss data visualizations, or variants thereof, that could find their way into the end-of-semester final presentation and report deliverable.</p>
 <p>You will be evaluated on you and your team’s ability to convey the steps taken to clean up the data in service of creating some plots as well as share a decision-making journey of plot creation. Any variables that needed to be fixed or modified, factorized, computed anew, or summarized in some way can resulted in one single starting data frame/tibble and likely some smaller data summaries. Teams taking different approaches, or who are guided by liaisons who have different interests, will end up with different data, different data visualizations, and different stories. Include code where appropriate to communicate how you achieved your goals.</p>
-<p>At this stage in the project, the important point is that all team members should be working with data, challenge themselves to think about data, and practice using <strong>{ggplot}</strong> for creating data visualizations. Thus, <strong>all team members must have two plots</strong>, even if those plots communicate detailed variants of the same performance metric. By plot variants, mean <em>Same Data, Different Stories</em>. Variant plots use the same data but are visualized differently in order to facilitate different comparisons, use additional date to provide a more nuanced or detailed interpretation, use different levels/grouping of exiting variables, or use a different scaling structures, etc. Alternatively, the two plots could visualize different metrics obtained from the data, different calculations of a metric, compare different calculations, etc. to represent depths to data inquiry.</p>
+<p>At this stage in the project, the important point is that all team members are working with data, challenging themselves to think about and manipulate data, and everyone is practicing using <strong>{ggplot}</strong> for creating data visualizations. Thus, <strong>all team members must have two plots</strong>, even if those plots communicate detailed variants of the same performance metric. By plot variants, mean <em>Same Data, Different Stories</em>. Variant plots use the same data but are visualized differently in order to facilitate different comparisons, use additional date to provide a more nuanced or detailed interpretation, use different levels/grouping of exiting variables, or use a different scaling structures, etc. Alternatively, the two plots could visualize different metrics obtained from the data, different calculations of a metric, compare different calculations, etc. to represent depths to data inquiry.</p>
 <p>An example of looking at the data in different ways is illustrated in <a href="https://flowingdata.com/2017/01/24/one-dataset-visualized-25-ways/">Nathan Yau’s post One Dataset, Visualized 25 Ways</a>. If you struggle to think about data, you can also check out his post on how to <a href="https://flowingdata.com/2010/03/04/think-like-a-statistician-without-the-math/">think like a statistician without the math</a>. I believe that the most valuable comment is this post to in the <em>Ask Why</em> section. He explains that <em>“…the most important thing I’ve learned, [is to] always ask why. When you see a blip in a graph, you should wonder why it’s there. If you find some correlation, you should think about whether or not it makes any sense. If it does make sense, then cool, but if not, dig deeper. Numbers are great, but you have to remember that when humans are involved, errors are always a possibility.”</em> Asking <em>why</em> data are they way they are is important because patterns in data can happen by chance or for some systematic reason. Any systematic influence has to have a reason, an explanation for its presence. Although you may be able to describe a pattern or influence, if you cannot provide an explanation for it, there is no useful way to make that information actionable.</p>
+</section>
+<section id="schedule-and-timing" class="level1">
+<h1><strong>Schedule and Timing</strong></h1>
+<p>Class is 75 minutes and there are 3 teams. Each presentation will be 20 minutes. Four presenters, 5 minutes each, 5 minutes for questions. The way to ensure that you can present your part in 5 minutes along with your teammates is to practice on your own and practice with them.</p>
+<p>Bring 5 printed copies of your slide deck. One for me and 4 more for the room.</p>
+<p><strong>Setup Time (by Me):</strong> 1:10-1:15 ; 2:40-2:45 (No changes to slides after class time begins)</p>
+<p>I will get the projector ready, open slides in tabs.</p>
+<p><strong>Presentation Times</strong></p>
+<ul class="incremental">
+<li><p><strong>Section 1</strong></p>
+<ul class="incremental">
+<li><strong>Group A:</strong> 2:45-3:05 + 5 minutes for questions</li>
+<li><strong>Group B:</strong> 3:10-3:30 + 5 minutes for questions</li>
+<li><strong>Group C:</strong> 3:35-3:55 + 5 minutes for questions</li>
+</ul></li>
+<li><p><strong>Section 2</strong></p>
+<ul class="incremental">
+<li><strong>Group A:</strong> 1:15-1:35 + 5 minutes for questions</li>
+<li><strong>Group B:</strong> 1:40-2:00 + 5 minutes for questions</li>
+<li><strong>Group C:</strong> 2:05-2:25 + 5 minutes for questions</li>
+</ul></li>
+</ul>
+<p><strong>Timing/Questions:</strong> To ensure each team has a fair presentation time, the duration will be enforced and team presentations will need to end no longer than 21 minutes for questions to commence. Questions will be addressed after the presentation. The timing guardrails may seem stressful, I understand. Previous teams have met the goal. Practicing is the only way to ensure that you know what you will say, what is on the slide, what is coming on the next slide, and what team members will be addressing what element of the project.</p>
+<p>Because I will be looking at your code and plots, I may overlook something important that you say. In order to ensure that I don’t overlook a key component of your message that I though you would should have mentioned, presentations will be record for audio.</p>
+</section>
+<section id="access-to-slides" class="level1">
+<h1><strong>Access to Slides</strong></h1>
+<p>In order to ensure that you can utilize class time effectively, Please provide me with your PowerPoint slides before class time. If you use an online approach, provide me with a public link before class time. Ideally, do this 1 week in advance so that the links are sure to be tested.</p>
+<p>In order to ensure Your slides</p>
 </section>
 <section id="elements-not-to-worry-about" class="level1">
 <h1><strong>Elements Not to Worry about</strong></h1>
@@ -763,7 +794,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="plot-reveal-and-explanation" class="level3">
 <h3 class="anchored" data-anchor-id="plot-reveal-and-explanation"><em>Plot Reveal and Explanation</em></h3>
-<p>You should make sure that you walk the reader through the data visualization. Be explicit about what the axes represent and what any aesthetics represent so that the audience does not have to figure this out. In other words, do not just present the plot and say “we can see there are differences in metric X across time”. Instead, say something more clear like: “This plot visualizes data about Event X for Group/Person/year Y. Along the horizontal axis is… a long the y axis is…. You can see that the average range of times/distances for Event X decreases as athletes’ move through class ranks (e.g, FR to SR). This pattern in the data suggests that…”. You get the point.</p>
+<p>You should make sure that you walk the reader through the data visualization. Be explicit about what the axes represent and what any aesthetics represent so that the audience does not have to figure this out. In other words, do not just present the plot and say <em>“we can see there are differences in metric X across time”</em>. Instead, say something more clear like: <em>“This plot visualizes data about Event X for Group/Person/year Y. Along the horizontal axis is… a long the y axis is…. You can see that the average range of times/distances for Event X decreases as athletes’ move through class ranks (e.g, FR to SR). This pattern in the data suggests that…”</em>. You get the point. Your effectiveness to walk the audience through your plot in this way will play a part in evaluation.</p>
 </section>
 <section id="plot-discussion" class="level3">
 <h3 class="anchored" data-anchor-id="plot-discussion"><em>Plot Discussion</em></h3>
@@ -785,7 +816,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="presentation-medium" class="level1">
 <h1><strong>Presentation Medium</strong></h1>
-<p>You can use any slide-presentation tool you wish. You will just need to provide me with: * a printed version of the slide deck for class time and * an electronic pdf of the slide deck before or after the presentation.</p>
+<p>You can use any slide-presentation tool you wish. You will just need to provide me with:</p>
+<ul class="incremental">
+<li>a printed version of the slide deck for class time and</li>
+<li>an electronic pdf of the slide deck before or after the presentation.</li>
+</ul>
 </section>
 <section id="stakeholders" class="level1">
 <h1><strong>Stakeholders</strong></h1>
@@ -801,6 +836,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Communicate any usage of functions to ensure your data are computed correctly</li>
 <li>Communicate any aggregation methods and summary data frames per plot</li>
 </ul>
+<p>Progress cleaning data as demonstrated in the remote repository will also be considered, though not part of the presentation.</p>
 </section>
 <section id="data-visualizations-story-telling-with-pictures-40-pts" class="level2">
 <h2 class="anchored" data-anchor-id="data-visualizations-story-telling-with-pictures-40-pts"><em>Data Visualizations: Story Telling with Pictures (40 pts)</em></h2>
@@ -826,9 +862,9 @@ ul.task-list li input[type="checkbox"] {
 <li>The audience (your client) will also provide an overall review for the team and individual team members.</li>
 </ul>
 </section>
-<section id="self-evaluation-5-pts" class="level2">
-<h2 class="anchored" data-anchor-id="self-evaluation-5-pts"><em>Self Evaluation (5 pts)</em></h2>
-<p>Evaluation of your personal contributions toward the project as evaluated by yourself (claims partially validated using on-time weekly report submissions).</p>
+<section id="self-progressionevaluation-5-pts" class="level2">
+<h2 class="anchored" data-anchor-id="self-progressionevaluation-5-pts"><em>Self Progression/Evaluation (5 pts)</em></h2>
+<p>Evaluation of your personal progress and contributions toward the project. Have you used time effectively to make progress weekly.</p>
 </section>
 </section>
 <section id="presentation-tips" class="level1">
@@ -836,17 +872,17 @@ ul.task-list li input[type="checkbox"] {
 <ul class="incremental">
 <li><p><em>Dress</em>: You should dress appropriately for a talk. You do not need to dress up but you also should not wear clothing with words, logos, etc. that the audience would read or be distracted seeing.</p></li>
 <li><p><em>Team members and order</em>. You you should create your presentation so that team members have duties or goals. Consider strengths, accomplished tasks, etc. If two team members are presenting plots on metric X, have consider grouping them together rather than in some other arbitrary order.</p></li>
-<li><p><em>Communication</em> You should practice your presentation as a team to understand the timing, passing off of the microphone (the same holds if there is not physical mic), etc. Team members should be introduced on first instance of the mic pass off (include 3 things: their name, team role, and what they will talk about, and then pass the mic). Practice will ensure you know who is speaking, in what order, and about what. Lining up in order of speaking also reduces confusion and facilities mic passing. Practice also ensures that you know what you are presenting. You don’t have to read what your slide says. When you don’t practice, you end up reading, so practice. Lack of practice is typically apparent.</p>
+<li><p><em>Communication</em> You should <strong>practice your presentation as a team</strong> to understand the timing, passing off of the microphone (the same holds if there is not physical mic), etc. Team members should be introduced on first instance of the mic pass off (include 3 things: 1) their name, 2) team role, 3) and what they will talk about, and then pass the mic). Only practice will ensure you know who is speaking, in what order, and about what. Lining up in order of speaking also reduces confusion and facilities mic passing. Practice also ensures that you know what you are presenting. You don’t have to read what your slide says. When you don’t practice, you end up reading, so practice. <strong>Lack of practice is typically apparent.</strong></p>
 <ul class="incremental">
-<li><p>Speak to your audience. Look them in the eyes, tell them about the journey. In other words, don’t just read from your slides.</p></li>
+<li><p>Speak to your audience. Look your audience in the eyes, tell them about the journey. In other words, <strong>don’t just</strong> <strong>read from your slides</strong>. You likely need practice to be able to do this effectively.</p></li>
 <li><p>Do not overwhelm your audience with too much information, especially verbal information. Doing so causes people to read your slides or look at slide content you are not talking about at the moment. You are the presenter and your slides are your visual aides used to support what you communicate.</p>
 <ol class="incremental" type="a">
-<li><p>Present slides topically; do not mix unrelated content; use relevant headers, etc.</p></li>
-<li><p>Present summary points rather than full sentence content. Communicate in sentences but don’t present complete sentences on slides unless imperative for communicating a specific point.</p></li>
-<li><p>Present each point separately. Do no present all slide content (e.g., points a, b, c) communicating specific points (e.g., a). Doing so prevents your audience from paying attention to you; causes cognitive interference.</p></li>
-<li><p>Use a tool (e.g., pointer, finger, etc.) to direct attention to necessary elements of slides, especially when a slide contains multiple pieces of information. Doing so will reduce unnecessary confusion from some audience members because they will not be looking at the incorrect content.</p></li>
-<li><p>Introduce team members, their role, etc. when passing the the mic. Your audience/client should be reminded of who the team member is and what their role was.</p></li>
-<li><p>Do not include a “Thank you” slide. Instead, make a summary slide for your audience to order to remind them of questions they had or to serve as a basis for formulating questions.</p></li>
+<li><p><strong>Present slides topically</strong>; do not mix unrelated content; use relevant headers, etc.</p></li>
+<li><p><strong>Present summary points</strong> rather than full sentence content. Communicate in sentences but don’t present complete sentences on slides unless imperative for communicating a specific point.</p></li>
+<li><p><strong>Present each point separately</strong>. Do no present all slide content (e.g., points a, b, c) at once; rather communicate specific points (e.g., a). Doing so prevents your audience from paying attention to you; causes cognitive interference. <strong>Whatever platform you use, ensure that your slides content is presented in pieces.</strong></p></li>
+<li><p><strong>Use a tool</strong> (e.g., pointer, etc.) to direct attention to necessary elements of slides, especially when a slide contains multiple pieces of information. Doing so will reduce unnecessary confusion from some audience members because they will not be looking at the incorrect content. <strong>Pointing rarely works well; everyone sees the slides at a different angle.</strong></p></li>
+<li><p><strong>Introduce team members, their role, etc.</strong> when passing the the mic. Your audience/client should be reminded of who the team member is and what their role was.</p></li>
+<li><p><strong>Do not include a “Thank you” slide</strong>. Instead, make a summary slide for your audience to order to remind them of questions they had or to serve as a basis for formulating questions.</p></li>
 </ol></li>
 </ul></li>
 </ul>
