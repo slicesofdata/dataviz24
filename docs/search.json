@@ -2083,7 +2083,7 @@
     "href": "modules/coordinates_axes_and_position_scales.html",
     "title": "Coordinates, axes, and position scales",
     "section": "",
-    "text": "Under construction.\n\n\n\nThis page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you."
+    "text": "The focus of this module will be on plots visualized on a Cartesian Coordinate system. When you are dealing with other types of data, you may wish to plot on a different coordinate systems. When needed, you can check out ggplot2::coord_polar() or libraries like {sf} for plotting maps. Moreover, out-of-the-box plots present axes that are rarely visualized in a way suitable to your plot. The often, if not always, require some fine tuning. This module will focus on changes scale limits, breaks, and labels."
   },
   {
     "objectID": "modules/coordinates_axes_and_position_scales.html#optional-readings",
