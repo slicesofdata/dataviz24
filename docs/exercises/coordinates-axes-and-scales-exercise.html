@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-09-29">
 
-<title>Considerations in data visualization</title>
+<title>Scales Exercise</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -68,8 +100,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
-
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -86,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><strong>Home</strong></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../schedule/index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../schedule/index.html" rel="" target="">
  <span class="menu-text"><strong>Schedule</strong></span></a>
   </li>  
   <li class="nav-item">
@@ -316,340 +347,25 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/considerations_in_data_visualization.html"><strong>Considerations in data visualization</strong></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../syllabus/syllabus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Syllabus</strong></span></a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../schedule/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Schedule</strong></span></a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../modules_setup/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Installation, Setup, &amp; R Basics</b></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../modules_setup/Installation &amp; Setup/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Installation &amp; Setup</b></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules_setup/Installation &amp; Setup/installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Installing R &amp; RStudio</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules_setup/Installation &amp; Setup/installing_git.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Installing Git</strong></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../modules_setup/R Basics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>R Basics and Refreshers</b></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules_setup/R Basics/introduction_to_r_rstudio_and_rmarkdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction to RStudio, R Markdown, &amp; Functions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules_setup/R Basics/functions_and_scripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Functions, Arguments, and R scripts</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules_setup/R Basics/vectors_and_data_frame_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Vectors and data frame basics</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules_setup/R Basics/reading_data_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reading data files</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-      </ul>
-  </li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Modules</b></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project Management</b></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/project_management/setting_up_git_and_github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Project Management 01</strong>: Setting Up Git and GitHub for R</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/project_management/using_git_and_github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Project Management 02</strong>: R Projects, Git, and GitHub</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/graphical_perception.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Graphical perception</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/data_frame_manipulation_and_wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Data frame manipulation and wrangling</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/data_subsets_and_summaries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Data subsets and summaries</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/considerations_in_data_visualization.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><strong>Considerations in data visualization</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/designing_perceptually_efficient_visualizations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Designing perceptually-efficient visualizations</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/ggplot_and_the_grammar_of_graphics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong><code>{ggplot2}</code>: The Grammar of Graphics</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/visualizing_associations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Visualizing associations</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/spatial_position_and_adjustment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Spatial position and adjustment</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/visualizing_amounts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Visualizing amounts</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/color_scales_and_palettes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Color scales and palettes</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/histograms_and_density_plots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Histograms and density plots</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/coordinates_axes_and_position_scales.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Coordinates, axes, and position scales</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/statistical_transformations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Statistical transformations</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/visualizing_more_distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Visualizing more distributions</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/visualizing_uncertainty.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Visualizing uncertainty</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/legends_and_arrangement.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Legends and arrangement</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/visualizing_trends.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Visualizing trends</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/multi_panel_plots_faceting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Multi-panel plots: Faceting</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/annotation_and_text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Annotation and text</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/attentional_control.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Attentional control</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/themes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Bonus: Figure design &amp; themes</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../modules/titles_captions_and_tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Title, Captions, and Tables</strong></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../project/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><b>Project</b></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../project/01_project_team_roles.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Team membership and roles</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../project/02_project_midterm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Midterm presentation</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../project/03_project_final.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Final Presentation</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../project/04_project_report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Final Report</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../project/05_project_tasks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Project Tasks</strong></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../project/06_using_git_with_branches.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Git Branch Merging Tutorial</strong></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul class="incremental">
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><strong>Overview</strong></a></li>
-  <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do"><strong>To Do</strong></a>
+  <li><a href="#exercise-instructions" id="toc-exercise-instructions" class="nav-link active" data-scroll-target="#exercise-instructions">Exercise Instructions</a>
   <ul class="incremental collapse">
-  <li><a href="#prior-to-class" id="toc-prior-to-class" class="nav-link" data-scroll-target="#prior-to-class"><strong>Prior to class</strong></a>
-  <ul class="incremental collapse">
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><em>Readings</em></a></li>
+  <li><a href="#data-set" id="toc-data-set" class="nav-link" data-scroll-target="#data-set">Data Set</a></li>
+  <li><a href="#problem-1-format-proportion-axis" id="toc-problem-1-format-proportion-axis" class="nav-link" data-scroll-target="#problem-1-format-proportion-axis">Problem 1: Format Proportion Axis</a></li>
+  <li><a href="#problem-2-format-revenue-axis-as-currency" id="toc-problem-2-format-revenue-axis-as-currency" class="nav-link" data-scroll-target="#problem-2-format-revenue-axis-as-currency">Problem 2: Format Revenue Axis as Currency</a></li>
+  <li><a href="#problem-3-custom-breaks-for-time-axis" id="toc-problem-3-custom-breaks-for-time-axis" class="nav-link" data-scroll-target="#problem-3-custom-breaks-for-time-axis">Problem 3: Custom Breaks for Time Axis</a></li>
+  <li><a href="#problem-4-discrete-time-axis-with-custom-labels" id="toc-problem-4-discrete-time-axis-with-custom-labels" class="nav-link" data-scroll-target="#problem-4-discrete-time-axis-with-custom-labels">Problem 4: Discrete Time Axis with Custom Labels</a></li>
+  <li><a href="#problem-5-log-transformation-of-revenue" id="toc-problem-5-log-transformation-of-revenue" class="nav-link" data-scroll-target="#problem-5-log-transformation-of-revenue">Problem 5: Log Transformation of Revenue</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#in-class" id="toc-in-class" class="nav-link" data-scroll-target="#in-class"><strong>In class</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -658,26 +374,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><strong>Considerations in data visualization</strong></h1>
+<h1 class="title">Scales Exercise</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Gabriel I. Cook </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 29, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -685,83 +389,83 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="overview" class="level1">
-<h1><strong>Overview</strong></h1>
-<p>The focus of this module is to raise considerations for creating data visualizations to tell a story about data. Anyone can code a bar plot, scatterplot, line plot or any other visualization whether simple or complex. Out of the box, <strong>{ggplot2}</strong> allows you to produce some reasonable but the library does not evaluate items like:</p>
-<ul class="incremental">
-<li>the appropriateness of your plot to the specific story you are trying to tell,</li>
-<li>the appropriateness of the color scheme used for a client project, or</li>
-<li>the appropriateness of the colors for your client’s internal team or their public audience. Function libraries also do not consider whether your plot takes on perceptual properties <em>that may bias</em> your readership.</li>
-</ul>
-<p>Issues arise when you accept the default performance of functions and produce plots that contain elements that are not appropriate to a specific audience or perceptually problematic to the general human audience. You should not consider a coded plot complete without considering its elements thoroughly. This module introduces some of these issues.</p>
+<section id="exercise-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-instructions">Exercise Instructions</h2>
+<p>In this exercise, you will create several plots using <code>ggplot2</code> and modify axis labels and breaks using the <code>scales</code> library. Use the provided data set to complete the tasks.</p>
+<section id="data-set" class="level3">
+<h3 class="anchored" data-anchor-id="data-set">Data Set</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame with proportions, revenue, and time variables</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Category =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>), <span class="at">each =</span> <span class="dv">5</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Proportion =</span> <span class="fu">runif</span>(<span class="dv">20</span>, <span class="fl">0.01</span>, <span class="dv">1</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Revenue =</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">20</span>, <span class="dv">1000</span>, <span class="dv">50000</span>), <span class="dv">2</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Time =</span> <span class="fu">rep</span>(<span class="dv">2015</span><span class="sc">:</span><span class="dv">2019</span>, <span class="dv">4</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the data</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="to-do" class="level1">
-<h1><strong>To Do</strong></h1>
-<section id="prior-to-class" class="level2">
-<h2 class="anchored" data-anchor-id="prior-to-class"><strong>Prior to class</strong></h2>
-<p>Complete the brief readings below. There is no coding video corresponding to this module.</p>
-<section id="readings" class="level3">
-<h3 class="anchored" data-anchor-id="readings"><em>Readings</em></h3>
-<!-- The goal should be to familiarize yourself and bring questions
-to class. The online readings are taken from [TFDV](https://clauswilke.com/dataviz).
--->
-<p>The goal should be to familiarize yourself and bring questions to class. The online readings are taken from <a href="https://clauswilke.com/dataviz">Fundamentals of Data Visualization</a>, a great book by <a href="https://integrativebio.utexas.edu/component/cobalt/item/7-integrative-biology/237-wilke-claus-o?Itemid=1224">Clause Wilke</a>, a professor of molecular evolution at <a href="https://www.utexas.edu/">The University of Texas at Austin</a>.</p>
-<ul class="incremental">
-<li><a href="https://clauswilke.com/dataviz/proportional-ink.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. The principle of proportional ink</a></li>
-<li><a href="https://clauswilke.com/dataviz/color-pitfalls.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Common pitfalls of color use</a></li>
-<li><a href="https://clauswilke.com/dataviz/telling-a-story.html">Wilke (2019). <em>Fundamentals of Data Visualization</em>. Telling a story</a></li>
-</ul>
-<!--
-**Optional:**
-
-For more detailed content on code implementation, see [Wickham, Navarro, & Pedersen. *ggplot2: Elegant Graphics for Data Analysis (3e)*](https://ggplot2-book.org/).
--->
-<!-- 
-### *Video(s)*
-
-R code implementation of functions from various libraries will
-be illustrated through video examples. This video content is designed to familiarize
-you with some key functions used to address data visualization issues related to this
-module. The video content will not, however, address all details nor will they discuss
-many of the  common issues that you might experience while working on associated
-with The module content below. 
--->
+<section id="problem-1-format-proportion-axis" class="level3">
+<h3 class="anchored" data-anchor-id="problem-1-format-proportion-axis">Problem 1: Format Proportion Axis</h3>
+<p>Create a bar plot showing the proportion of each <code>Category</code> in the data for a specific year. Format the y-axis to display the proportions as percentages using the <code>scales::percent</code> function.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> Proportion, <span class="at">fill =</span> Category)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span>  <span class="co"># Modify labels to show percentages</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Proportions by Category"</span>, <span class="at">y =</span> <span class="st">"Proportion"</span>, <span class="at">x =</span> <span class="st">"Category"</span>) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="problem-2-format-revenue-axis-as-currency" class="level3">
+<h3 class="anchored" data-anchor-id="problem-2-format-revenue-axis-as-currency">Problem 2: Format Revenue Axis as Currency</h3>
+<p>Create a point plot showing <code>Revenue</code> over <code>Time</code> for each <code>Category</code>. Format the y-axis to display revenue values as dollars using the <code>scales::dollar</code> function.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> Revenue, <span class="at">color =</span> Category)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>dollar) <span class="sc">+</span>  <span class="co"># Format y-axis as dollars</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Revenue Over Time by Category"</span>, <span class="at">y =</span> <span class="st">"Revenue ($)"</span>, <span class="at">x =</span> <span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="problem-3-custom-breaks-for-time-axis" class="level3">
+<h3 class="anchored" data-anchor-id="problem-3-custom-breaks-for-time-axis">Problem 3: Custom Breaks for Time Axis</h3>
+<p>Create a line plot of <code>Revenue</code> over <code>Time</code> for each <code>Category</code>. Limit the x-axis to display only the years 2016, 2018, and 2019 using the <code>breaks</code> parameter.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> Revenue, <span class="at">group =</span> Category, <span class="at">color =</span> Category)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2016</span>, <span class="dv">2018</span>, <span class="dv">2019</span>)) <span class="sc">+</span>  <span class="co"># Custom breaks for x-axis</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Revenue Over Selected Years"</span>, <span class="at">y =</span> <span class="st">"Revenue ($)"</span>, <span class="at">x =</span> <span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="in-class" class="level1">
-<h1><strong>In class</strong></h1>
-<p>Class time will be allocated to discussing elements from the readings and addressing other elements relevant to building a successful project.</p>
-
-<!-- 
-## *After class*
-
-The module text, code, and plots on this page expand upon
-the video content associated with this module. Because the video content introduces
-you to key functions and functions related to the module, the text is designed to
-explain the concepts and step associated with creating a plot in greater detail.
-For example, common issues, problems, or pitfalls are addressed and various solutions
-are presented to you. Your choice of a solution may depending on your plot goals,
-coding experience and/or abiliy, time, or desire to write flexible and reproducible code.
-
-
-
-After having some hands-on experience with coding exercises in class, homework problems
-will be more complex, will involving problem solving, and may be open ended. In many
-instances you will also work with your team-project data for these homework assignments.
-In order to complete some homework problems, you wil need to review this text and/or
-reference it when writing your code.
-
-
-
-You should realize that the plots you create for homework problems may or may not be the type you use for your
-specific team project nor will they take on a final form acceptable for a final 
--->
-<!--
-# **Under construction, content pending**
--->
+<section id="problem-4-discrete-time-axis-with-custom-labels" class="level3">
+<h3 class="anchored" data-anchor-id="problem-4-discrete-time-axis-with-custom-labels">Problem 4: Discrete Time Axis with Custom Labels</h3>
+<p>Create a point plot showing <code>Proportion</code> over <code>Time</code> for each <code>Category</code>. Customize the labels of the x-axis to display “Yr-2015”, “Yr-2016”, etc., using the <code>labels</code> parameter with a custom function.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> Proportion, <span class="at">color =</span> Category)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">paste</span>(<span class="st">"Yr-"</span>, x, <span class="at">sep =</span> <span class="st">""</span>)) <span class="sc">+</span>  <span class="co"># Custom labels</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span>  <span class="co"># Percent format for y-axis</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Proportion Over Time"</span>, <span class="at">y =</span> <span class="st">"Proportion"</span>, <span class="at">x =</span> <span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="problem-5-log-transformation-of-revenue" class="level3">
+<h3 class="anchored" data-anchor-id="problem-5-log-transformation-of-revenue">Problem 5: Log Transformation of Revenue</h3>
+<p>Create a bar plot of total <code>Revenue</code> for each <code>Category</code> across all years. Apply a log transformation to the y-axis and format it to display the transformed values in dollars using the <code>scales::dollar</code> function.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> Revenue, <span class="at">fill =</span> Category)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">trans =</span> <span class="st">"log10"</span>, <span class="at">labels =</span> scales<span class="sc">::</span>dollar) <span class="sc">+</span>  <span class="co"># Log transformation + dollar format</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Log-Transformed Revenue by Category"</span>, <span class="at">y =</span> <span class="st">"Log Revenue ($)"</span>, <span class="at">x =</span> <span class="st">"Category"</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
