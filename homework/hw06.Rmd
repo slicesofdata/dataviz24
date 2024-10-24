@@ -1,2 +1,83 @@
-File not yet available. Check back later.
+---
+title: "Homework 06"
+#author: "your-name(s)"
+#date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: false
+    number_sections: true
+    code_folding: hide
+  pdf_document:
+    toc: false
+---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include=FALSE}
+R.utils::sourceDirectory(here::here("src", "functions"))
+suppressMessages(library(tidyverse))
+```
+
+For this homework, create an `R Markdown` (e.g., `.Rmd`) file and save it to your `/report` project directory on your computer with the name and a prefix `hw06-Lastname-FirstInitial`. Full name example: `hw06cookg.Rmd`. 
+
+
+**Problems:**
+
+1. Consider some of your limitations associated with a visualization you created and presented for your project. User R Markdown code to bullet point those limitations so they are clear.  
+
+- **Limitations**
+
+
+Include your original code below and then recreate the visualization based on those limitations.
+
+```{r}
+
+```
+
+
+
+2. Reflect on your chosen geom. What other geom could you use to visualize the plot? What are the advantages and disadvantages? 
+
+- **Advantages**
+
+
+- **Disadvantages**
+
+
+
+3. For your project, you will need to supply your liaison's organization with usable .png files so that they can make use of them for their own purposes. They may be unable to use your R code to create the visualizations unless they have someone familiar with the code. Even if they do, others may want to use the visualizations without relying on that individual to re-create them. Moreover, you do not want to require your liaison to manually copy the images from a slide deck or from some .pdf file because that's insanity and this requires them to do your work. Consequently, your job is to make available all visualizations you create for your presentation and certainly final report as an easily accessibly image file.
+
+
+- Assign your plot code to an object name and use `ggsave()` to save the plot as a .png file with a specific name as shown below. You should already have {ragg} installed as part of the course. 
+
+```{r message=FALSE, warning=FALSE}
+plot_x <- 
+  mtcars |> 
+  ggplot() +
+  geom_bar(mapping = aes(x = gear)) 
+
+ggplot2::ggsave(filename = here::here("report", "figs", "some_plot.png"),
+                plot = plot_x,
+                dpi = 300, 
+                device = ragg::agg_png() 
+                )
+```
+
+- Reading external image files in R Markdown is easy with the `knitr::include_graphics()` function. Fix the code below so that your R Markdown file will read your plot file. Feel free to adjust `out.width` to see how this affects your plot.
+
+```{r echo=FALSE,out.width="80%", fig.align='center'}
+knitr::include_graphics(here::here("report", "figs", "some_plot.png"))
+```
+
+4. The file step is to ensure the files are in the repo. You may remove/update these later if necessary. Stage, commit, and push the new code (based on the above) and the new .png file to your repo. If you want to make this easy for me and/or you want more image file embedding practice, take a screenshot of your commit (save as png), and then adjust the code below to ensure your screenshot is in your knit file. 
+
+```{r echo=FALSE,out.width="80%", fig.align='center'}
+# including a logo
+knitr::include_graphics(here::here("report", "figs", "some_plot.png"))
+```
+
+
+Finally, knit an `html` file and upload to:
+https://ln5.sync.com/dl/a038628f0/wwfifjxk-f7rfshin-rkedi3y8-77f9zaii
