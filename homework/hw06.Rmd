@@ -71,7 +71,7 @@ ggplot2::ggsave(filename = here::here("report", "figs", "some_plot.png"),
 knitr::include_graphics(here::here("report", "figs", "some_plot.png"))
 ```
 
-4. The final step is to ensure the files are in the repo. You may remove/update these later if necessary. Stage, commit, and push the new code (based on the above) and the new .png file to your repo. If you want to make this easy for me and/or you want more image file embedding practice, take a screenshot of your commit (save as png), and then adjust the code below to ensure your screenshot is in your knit file. 
+4. The final step is to ensure the files are in the repo. You may remove/update these later if necessary. Stage, commit, and push the new code (based on the above) and the new .png file to your repo. If you want to make this easy for me and/or you want more image file embedding practice, take a screenshot of your commit from GitHub, save it as as png, and then adjust the code below to ensure your screenshot is in your knit file. 
 
 ```{r echo=FALSE,out.width="80%", fig.align='center'}
 # including a logo
