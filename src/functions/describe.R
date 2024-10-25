@@ -178,5 +178,5 @@ descriptives <- function(data,
 #descriptives(HT$Mark)
 # factor vector
 #descriptives(HT$Athlete)
-#message("Done Defining describe.R")
+message("Done Defining describe.R")
 
