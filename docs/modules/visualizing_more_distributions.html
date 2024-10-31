@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-10-23">
+<meta name="dcterms.date" content="2024-10-27">
 
 <title>Visualizing more distributions</title>
 <style>
@@ -733,7 +733,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 23, 2024</p>
+      <p class="date">October 27, 2024</p>
     </div>
   </div>
   
@@ -952,7 +952,7 @@ Reading should take place in two parts:
 </section>
 <section id="box-and-whisker-plots" class="level1">
 <h1><strong>Box-and-Whisker plots</strong></h1>
-<p>A box plot is short for box-and-whisker plot, which was introduce by statistician John Tukey. The goal of the visual is to provide 5 pieces of statistical information. Those pieces compose the whisker length and box shape. The box contains information for the 25th, 50th, and 75th percentiles and the whiskers provide information for the 0th and 100th percentiles.</p>
+<p>A box plot is short for box-and-whisker plot, which was introduce by statistician John Tukey. The goal of the visual is to provide 5 pieces of statistical information. Those pieces compose the whisker length and box shape. The box contains information for the 25th (lower limit of box), 50th (box split), and 75th (upper limit of box) percentiles and the whiskers provide information for the 0th and 100th percentiles.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="cn">NULL</span>,</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="cn">NULL</span>,</span>
@@ -1301,7 +1301,13 @@ Warning: Use of the `vline_size` aesthetics is deprecated, please use
 </section>
 <section id="session-info" class="level1">
 <h1><strong>Session Info</strong></h1>
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+Session Information
+</button>
+<div id="collapseOne" class="accordion-collapse collapse">
+<div>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.4.1 (2024-06-14 ucrt)
 Platform: x86_64-w64-mingw32/x64
@@ -1343,6 +1349,8 @@ loaded via a namespace (and not attached):
 [41] Rcpp_1.0.12       glue_1.7.0        ggforce_0.4.2     xfun_0.45        
 [45] tidyselect_1.2.1  rstudioapi_0.16.0 knitr_1.47        farver_2.1.2     
 [49] labeling_0.4.3    rmarkdown_2.27    compiler_4.4.1   </code></pre>
+</div>
+</div>
 </div>
 </div>
 
