@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriel I. Cook">
-<meta name="dcterms.date" content="2024-10-18">
+<meta name="dcterms.date" content="2024-10-31">
 
 <title>Statistical transformations</title>
 <style>
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -104,231 +111,238 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <body class="nav-sidebar docked nav-fixed">
 
-
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text"><strong>Home</strong></span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text"><strong>Home</strong></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../schedule/index.html" rel="" target="" aria-current="page">
- <span class="menu-text"><strong>Schedule</strong></span></a>
+    <a class="nav-link active" href="../schedule/index.html" aria-current="page"> 
+<span class="menu-text"><strong>Schedule</strong></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../modules/index.html" rel="" target="">
- <span class="menu-text"><strong>Modules</strong></span></a>
+    <a class="nav-link" href="../modules/index.html"> 
+<span class="menu-text"><strong>Modules</strong></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../project/index.html" rel="" target="">
- <span class="menu-text"><strong>Project</strong></span></a>
+    <a class="nav-link" href="../project/index.html"> 
+<span class="menu-text"><strong>Project</strong></span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><strong>Slides</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
         <li>
-    <a class="dropdown-item" href="../slides/01_intro_rstudio_rmarkdown_slides.html" rel="" target="">
+    <a class="dropdown-item" href="../slides/01_intro_rstudio_rmarkdown_slides.html">
  <span class="dropdown-text">R, RStudio, &amp; R Markdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../slides/02_git_slides.html" rel="" target="">
+    <a class="dropdown-item" href="../slides/02_git_slides.html">
  <span class="dropdown-text">Git and GitHub</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../slides/03_functions_slides.html" rel="" target="">
+    <a class="dropdown-item" href="../slides/03_functions_slides.html">
  <span class="dropdown-text">Functions, Parameters, and Arguments</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hw" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hw" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><strong>HW</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-hw">    
         <li>
-    <a class="dropdown-item" href="../homework/hw01.Rmd" rel="" target="">
+    <a class="dropdown-item" href="../homework/hw01.Rmd">
  <span class="dropdown-text">HW 01</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../homework/hw02.Rmd" rel="" target="">
+    <a class="dropdown-item" href="../homework/hw02.Rmd">
  <span class="dropdown-text">HW 02</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../homework/hw03.Rmd" rel="" target="">
+    <a class="dropdown-item" href="../homework/hw03.Rmd">
  <span class="dropdown-text">HW 03</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../homework/hw04.pdf" rel="" target="">
+    <a class="dropdown-item" href="../homework/hw04.pdf">
  <span class="dropdown-text">HW 04</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../homework/hw05.pdf" rel="" target="">
+    <a class="dropdown-item" href="../homework/hw05.pdf">
  <span class="dropdown-text">HW 05</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../homework/hw06.Rmd" rel="" target="">
+    <a class="dropdown-item" href="../homework/hw06.Rmd">
  <span class="dropdown-text">HW 06</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../homework/hw07.Rmd" rel="" target="">
+    <a class="dropdown-item" href="../homework/hw07.pdf">
  <span class="dropdown-text">HW 07</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../homework/hw08.Rmd" rel="" target="">
+    <a class="dropdown-item" href="../homework/hw08.Rmd">
  <span class="dropdown-text">HW 08</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../homework/hw09.Rmd" rel="" target="">
+    <a class="dropdown-item" href="../homework/hw09.Rmd">
  <span class="dropdown-text">HW 09</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../homework/hw10.Rmd" rel="" target="">
+    <a class="dropdown-item" href="../homework/hw10.Rmd">
  <span class="dropdown-text">HW 10</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-exercises" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><strong>Exercises</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-exercises">    
         <li>
-    <a class="dropdown-item" href="../exercises/example-project-management-and-git.pdf" rel="" target="">
+    <a class="dropdown-item" href="../exercises/example-project-management-and-git.pdf">
  <span class="dropdown-text">project-management-and-git.pdf</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../exercises/grouping_and_summarizing_exercise.pdf" rel="" target="">
+    <a class="dropdown-item" href="../exercises/grouping_and_summarizing_exercise.pdf">
  <span class="dropdown-text">grouping_and_summarizing_exercise.pdf</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../exercises/grouping-summarizing-and-plotting-exercise.pdf" rel="" target="">
+    <a class="dropdown-item" href="../exercises/grouping-summarizing-and-plotting-exercise.pdf">
  <span class="dropdown-text">grouping-summarizing-and-plotting-exercise.pdf</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../exercises/visualizing-associations-exercise.pdf" rel="" target="">
+    <a class="dropdown-item" href="../exercises/visualizing-associations-exercise.pdf">
  <span class="dropdown-text">visualizing-associations-exercise.pdf</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../exercises/spatial-position-exercise.pdf" rel="" target="">
+    <a class="dropdown-item" href="../exercises/spatial-position-exercise.pdf">
  <span class="dropdown-text">spatial-position-exercise.pdf</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../exercises/visualizing-amounts-exercise.pdf" rel="" target="">
+    <a class="dropdown-item" href="../exercises/visualizing-amounts-exercise.pdf">
  <span class="dropdown-text">visualizing-amounts-exercise.pdf</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../exercises/color-scales-exercise.pdf" rel="" target="">
+    <a class="dropdown-item" href="../exercises/color-scales-exercise.pdf">
  <span class="dropdown-text">color-scales-exercise.pdf</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../exercises/coordinates-axes-and-scales-exercise.pdf" rel="" target="">
+    <a class="dropdown-item" href="../exercises/coordinates-axes-and-scales-exercise.pdf">
  <span class="dropdown-text">coordinates-axes-and-scales-exercise.pdf</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/more-distributions-exercise.pdf">
+ <span class="dropdown-text">more-distributions-exercise.pdf</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../exercises/uncertainty-and-variability-exercise.pdf">
+ <span class="dropdown-text">uncertainty-and-variability-exercise.pdf</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><strong>Data</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
         <li>
-    <a class="dropdown-item" href="../data/baby-names-2008.csv" rel="" target="">
+    <a class="dropdown-item" href="../data/baby-names-2008.csv">
  <span class="dropdown-text">baby-names-2008.csv</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../data/cms-top-all-time-2023-swim.xlsx" rel="" target="">
+    <a class="dropdown-item" href="../data/cms-top-all-time-2023-swim.xlsx">
  <span class="dropdown-text">cms-top-all-time-2023-swim.xlsx (/data/raw)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../data/cms-top-all-time-2023-swim.csv" rel="" target="">
+    <a class="dropdown-item" href="../data/cms-top-all-time-2023-swim.csv">
  <span class="dropdown-text">cms-top-all-time-2023-swim.csv (/data/raw)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../data/processed/cleaned-cms-top-all-time-2023-swim.csv" rel="" target="">
+    <a class="dropdown-item" href="../data/processed/cleaned-cms-top-all-time-2023-swim.csv">
  <span class="dropdown-text">cleaned-cms-top-all-time-2023-swim.csv (/data/processed)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../data/processed/cleaned-2023-cms-invite.csv" rel="" target="">
+    <a class="dropdown-item" href="../data/processed/cleaned-2023-cms-invite.csv">
  <span class="dropdown-text">cleaned-2023-cms-invite.csv (/data/processed)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://github.com/rfordatascience/tidytuesday" rel="" target="">
+    <a class="dropdown-item" href="https://github.com/rfordatascience/tidytuesday">
  <span class="dropdown-text">Fun Tidy Tuesday Data Sets</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home" rel="" target="">
+    <a class="dropdown-item" href="https://dcas.dmdc.osd.mil/dcas/app/home">
  <span class="dropdown-text">Defense Casualty Analysis System (DCAS)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example-files--other" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-example-files--other" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><strong>Example Files &amp; Other</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-example-files--other">    
         <li>
-    <a class="dropdown-item" href="../resources/tools.html" rel="" target="">
+    <a class="dropdown-item" href="../resources/tools.html">
  <span class="dropdown-text"><strong>Other Tools/Resources</strong></span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../examples/example-figure-script.R" rel="" target="">
+    <a class="dropdown-item" href="../examples/example-figure-script.R">
  <span class="dropdown-text">example-figure-script.R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../examples/example-rmarkdown-file-with-fig-script.Rmd" rel="" target="">
+    <a class="dropdown-item" href="../examples/example-rmarkdown-file-with-fig-script.Rmd">
  <span class="dropdown-text">example-rmarkdown-file-with-fig-script.Rmd</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cheatsheets" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cheatsheets" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><strong>Cheatsheets</strong></span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-cheatsheets">    
         <li>
-    <a class="dropdown-item" href="../cheatsheets_and_tips/symbols.html" rel="" target="">
+    <a class="dropdown-item" href="../cheatsheets_and_tips/symbols.html">
  <span class="dropdown-text">Symbols</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../cheatsheets/rmarkdown-2.0.pdf" rel="" target="">
+    <a class="dropdown-item" href="../cheatsheets/rmarkdown-2.0.pdf">
  <span class="dropdown-text">RMarkdown</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" rel="" target="">
+    <a class="dropdown-item" href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">
  <span class="dropdown-text">Data Wrangling with {dplyr} and {tidyr}</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/quarto.html" rel="" target="">
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/quarto.html">
  <span class="dropdown-text">Quarto (Publish and Share)</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/strings.html" rel="" target="">
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/strings.html">
  <span class="dropdown-text">String Manipulation with {stringr}</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/data-import.html" rel="" target="">
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/html/data-import.html">
  <span class="dropdown-text">Reading and Writing Data with {readr}</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../cheatsheets/Data_Science_With_R_Workflow.pdf" rel="" target="">
+    <a class="dropdown-item" href="../cheatsheets/Data_Science_With_R_Workflow.pdf">
  <span class="dropdown-text">Data Science with RWorkflow</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/" rel="" target="">
+    <a class="dropdown-item" href="https://rstudio.github.io/cheatsheets/">
  <span class="dropdown-text">More Cheatsheets From RStudio</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://images.datacamp.com/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf" rel="" target="">
+    <a class="dropdown-item" href="https://images.datacamp.com/image/upload/v1676540721/Marketing/Blog/Quarto_Cheat_Sheet.pdf">
  <span class="dropdown-text">Quarto Cheat Sheet (what Quarto Files Look Like)</span></a>
   </li>  
     </ul>
@@ -336,35 +350,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/slicesofdata" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/slicesofdata"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://gabrielcook.xyz" rel="" target="">
- <span class="menu-text">Me</span></a>
+    <a class="nav-link" href="https://gabrielcook.xyz"> 
+<span class="menu-text">Me</span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/statistical_transformations.html"><strong>Statistical transformations</strong></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/statistical_transformations.html"><strong>Statistical transformations</strong></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -385,7 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../modules_setup/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><b>Installation, Setup, &amp; R Basics</b></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -394,7 +408,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../modules_setup/Installation &amp; Setup/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><b>Installation &amp; Setup</b></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -402,7 +416,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules_setup/Installation &amp; Setup/installing_r_and_rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Installing R &amp; RStudio</strong></span></a>
+ <span class="menu-text">**Installing R &amp; RStudio**</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -417,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../modules_setup/R Basics/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><b>R Basics and Refreshers</b></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -455,7 +469,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../modules/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><b>Modules</b></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -464,7 +478,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../modules/project_management/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><b>Project Management</b></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -606,7 +620,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../modules/themes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Bonus: Figure design &amp; themes</strong></span></a>
+ <span class="menu-text"><strong>Bonus: Theme and figure design</strong></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -622,7 +636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="../project/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><b>Project</b></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -668,7 +682,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -743,7 +757,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/index.html"><b>Modules</b></a></li><li class="breadcrumb-item"><a href="../modules/statistical_transformations.html"><strong>Statistical transformations</strong></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><strong>Statistical transformations</strong></h1>
 </div>
@@ -762,7 +776,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 18, 2024</p>
+      <p class="date">October 31, 2024</p>
     </div>
   </div>
   
@@ -770,14 +784,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="overview" class="level1">
 <h1><strong>Overview</strong></h1>
 <p>This module describes some differences in data summaries and operations of functions in <strong>{dplyr}</strong>. Any form of data aggregation (e.g., data summary) will influence the contents of a data frame and consequently, how data are communicated visually. Depending on the data information you wish to communicate in your visualization, you may need to use different data frames or you may need to summarize a single data frame in a different ways either using <strong>{dplyr}</strong> functions like <code>group_by()</code> and <code>summarize()</code> or **{ggplot2}* functions like <code>stat_summary()</code>. For example, you may wish to communicate the <code>min()</code> and <code>max()</code> of some numeric variable in a single line-plot visualization in order to convey changes in <em>both</em> metrics. Alternatively, you may wish to display both <code>mean()</code> and <code>median()</code> values across time in the same visualization as seen below. You may also need to create multiple data frames if a single data frame contains either too much or too little information. We will also discuss differences in grouping structure for <code>dplyr::mutate()</code> and <code>dplyr::summarize()</code> that will affect both variable computation and plot creation.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -896,7 +916,11 @@ Reading should take place in two parts:
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Other functions perform other statistical transformations on the data. For example, by default, <code>geom_bar()</code> will count the instances of a variable because the statistical transformation is <code>stat = "count"</code>.</p>
@@ -919,7 +943,11 @@ Reading should take place in two parts:
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event)) <span class="sc">+</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>But how is <code>geom_bar()</code> doing this transformation? Well, when <code>stat = "count"</code>, the <code>stat_count()</code> function is called with a default geom of <code>geom = "bar"</code>, thus plotting the counts with bars.</p>
@@ -941,7 +969,11 @@ Reading should take place in two parts:
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event)) <span class="sc">+</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_count</span>(<span class="at">geom =</span> <span class="st">"bar"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Other functions like <code>stat_summary()</code> or <code>stat_boxplot()</code> perform more complicated statistical transformations than simple counting. Let’s now address some of the complex transformations.</p>
@@ -979,7 +1011,11 @@ Reading should take place in two parts:
 <pre><code>No summary function supplied, defaulting to `mean_se()`</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>OK, so this is a complicated first step. Let’s use a simpler approach by setting <code>fun = mean</code> to compute the mean in the form of a <code>geom = "bar"</code>.</p>
@@ -990,7 +1026,11 @@ Reading should take place in two parts:
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"bar"</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>               )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>And setting <code>fun = median</code> to computes the median:</p>
@@ -1001,7 +1041,11 @@ Reading should take place in two parts:
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom =</span> <span class="st">"bar"</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>               )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Adding a second layer illustates how you can change the function and the geom. In particular, you can see when the distribution is skewed positively, negatively, or not so much.</p>
@@ -1015,7 +1059,11 @@ Reading should take place in two parts:
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">geom =</span> <span class="st">"point"</span></span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>                 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1027,7 +1075,11 @@ Reading should take place in two parts:
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>But if you want to plot 2 standard errors of the mean, you will need to use <code>fun.args = list(mult = 2)</code> for passing a multiple of the <code>mean_se</code> function. This really isn’t so bad when you understand how to do it.</p>
@@ -1037,7 +1089,11 @@ Reading should take place in two parts:
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, </span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fun.args =</span> <span class="fu">list</span>(<span class="at">mult =</span> <span class="dv">2</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>But <strong>{ggplot2}</strong> has other built in functions, like <code>mean_sdl</code> which will compute a mean +/- 1 standard deviation.</p>
@@ -1046,7 +1102,11 @@ Reading should take place in two parts:
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_sdl) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>And <code>mean_cl_boot</code> will compute a mean and a bootstrapped confidence interval.</p>
@@ -1055,7 +1115,11 @@ Reading should take place in two parts:
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_cl_boot) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We can also create our own functions to pass to <code>fun</code> if there is single value or to pass to <code>fun.data</code> if there is a <code>y</code>, <code>ymin</code>, and <code>ymax</code>. Let’s create them using <code>function()</code>.</p>
@@ -1077,7 +1141,11 @@ Reading should take place in two parts:
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> trimmed_mean) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Or pass <code>fun.data = iqr_summary</code>:</p>
@@ -1086,7 +1154,11 @@ Reading should take place in two parts:
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> iqr_summary) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1125,7 +1197,11 @@ Reading should take place in two parts:
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Event, <span class="at">y =</span> Time)) <span class="sc">+</span></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2221,7 +2297,11 @@ DATA |&gt;
 <p>Visualizations of data aggregated differently will also convey information differently. The four variants of the data presented as bars communicate</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Note: When you create <code>geom_bar()</code> or <code>geom_col()</code> plots, the bar <code>width</code> will change depending on the number of the bars in the plot. A legend position will also affect bar width. Thus, the four resulting visualizations will contain different bar widths even if set to the same value.</p>
@@ -2266,7 +2346,11 @@ DATA |&gt;
 <span id="cb127-38"><a href="#cb127-38" aria-hidden="true" tabindex="-1"></a>     )</span>
 <span id="cb127-39"><a href="#cb127-39" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2282,7 +2366,11 @@ DATA |&gt;
 Adding another scale for y, which will replace the existing scale.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2335,7 +2423,11 @@ Adding another scale for y, which will replace the existing scale.</code></pre>
 <span id="cb131-27"><a href="#cb131-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb131-28"><a href="#cb131-28" aria-hidden="true" tabindex="-1"></a>full_identity_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-69-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-69-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <section id="the-jitter-problem-with-full-data-frame" class="level2">
@@ -2388,14 +2480,22 @@ Adding another scale for y, which will replace the existing scale.</code></pre>
 <span id="cb134-26"><a href="#cb134-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb134-27"><a href="#cb134-27" aria-hidden="true" tabindex="-1"></a>subset_identity_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-71-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-71-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Both plots together:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(full_identity_plot, subset_identity_plot, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-72-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-72-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>What you see in the second plot is what you might expect. Remember, that if you want to pass a grouping variable summary as an additional layer of a plot, you might be better off creating a separate data frame and pass it separately.</p>
@@ -2463,7 +2563,11 @@ Adding another scale for y, which will replace the existing scale.</code></pre>
 <span id="cb136-58"><a href="#cb136-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb136-59"><a href="#cb136-59" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gridExtra<span class="sc">::</span><span class="fu">arrangeGrob</span>(color_plot1, color_plot2, <span class="at">ncol =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-73-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-73-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2509,7 +2613,11 @@ $$
 <span id="cb137-14"><a href="#cb137-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(. <span class="sc">~</span> panel) <span class="sc">+</span> </span>
 <span id="cb137-15"><a href="#cb137-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-74-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="statistical_transformations_files/figure-html/unnamed-chunk-74-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -2609,18 +2717,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2652,11 +2749,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/gabrielcook\.xyz\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2666,8 +2802,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2679,7 +2824,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2723,6 +2991,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2748,6 +3017,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2808,6 +3103,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
