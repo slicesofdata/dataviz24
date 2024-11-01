@@ -1,0 +1,372 @@
+---
+header-includes: 
+  \usepackage{mathtools}
+output: 
+  pdf_document:
+    toc: false
+    toc_depth: 3
+    includes:
+      in_header: utils/header.tex
+
+# fig_caption: yes
+
+# the .bib files are to contain your references and your libraries use 
+# these will be saved in report/utils/
+bibliography: [utils/references.bib, utils/libraries.bib]
+
+link-citations: yes
+---
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+
+<!-- Save this .Rmd file in report/ 
+When knit as pdf, the report will be in report/ 
+
+Thing you need:
+
+1. Your working scripts that perform all of the data cleaning of the raw data, 
+that write out of cleaned/processed, that aggregate or create data summaries,
+and the create all visualizations and associated .png files.
+
+2. Your references in report/utils/references.bib (add your references); 
+see citation of references examples in this document. 
+Pull all reference documents like pdfs, in refs/ . For urls, these will likely
+break or fail; print them as pdfs and save in refs/
+
+3. A header file in report/utils/header.tex (don't modify)
+
+4. Your written content
+
+5. Other necessary elements
+
+-->
+
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Accessing all of your scripts in order to replicate and reproduce 
+data files, visualizations, etc. -->
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+
+```{r include=FALSE}
+# source functions or function directory 
+R.utils::sourceDirectory(here::here("src", "functions"))
+
+# load libraries needed for report (or lead in scripts)
+pacman::p_load(knitr, rmarkdown)
+```
+
+
+```{r include=FALSE}
+## All content must be dynamic and not hard coded. You should assume that all 
+## objects are created with the code source()d here and do no exist otherwise. 
+## If the code sourced()d in this R Markdown files does not create what you need
+## for your report, then the report cannot be replicated with new data (e.g., rows).
+
+## DO NOT include anything that cannot be reproduced with your code source()d 
+## within the document. Any hard coding of paths, files, reference to objects, etc. 
+## will likely not work when reproduced.
+
+## Note: source relevant .R scripts in order of operation for proper execution
+## and replication/reproducibility; ensure that you have fetched collaborator
+## branch content so that those file are local. As the last step, these will
+## need to be on the main branch of the remote repo. I will test this with the 
+## main branch and with a data subset to ensure that the code reproduces appropriately
+
+
+## raw data reading/cleaning/writing scripts(s) 
+## Ex: source(here::here("src", "data", "data-cleaning-xyz.R"))
+
+## (if any) data summary/aggregation/writing scripts(s) (which depend on cleaned data)
+## Ex: source(here::here("src", "data", "data-summary-mpg.R"))
+
+## visualization scripts that create plots and save .pngs (which depend on data previous)
+## Ex: source(here::here("src", "figs", "point_plot_mpg_by_wt.png.R"))
+```
+
+
+
+<!-- code setup for plot files --> 
+
+```{r echo=FALSE}
+# some settings for figures in R Markdown
+# settings in code chunks will override these global settings
+
+knitr::opts_chunk$set(#fig.align = "center", 
+                      fig.width = 12, 
+                      fig.height = 8, 
+                      fig.path = "report/figs/",
+                      echo = TRUE, warning = FALSE, message = FALSE
+                      )
+```
+
+<!-- insert logo file -->
+```{r echo=FALSE,out.width="30%", fig.align='center'}
+# including a logo
+knitr::include_graphics(here::here("report", "images", "cmc-logo2.png"))
+```
+
+<!-- Page 1, Title Page -->
+\centerline{}
+\centerline{}
+\centerline{}
+\centerline{\textbf{CMC Data Visualization: PSYC167}}
+\centerline{}
+\centerline{\textbf{Final Report for}}
+\centerline{\textit{Organization Name}}
+\centerline{}
+\centerline{}
+\centerline{\large \textbf{Project Title}}
+\centerline{}
+\centerline{}
+\centerline{Month, day, year}
+\centerline{}
+\centerline{}
+\centerline{\textbf{Team Members}}
+\centerline{Person A}
+\centerline{Person B}
+\centerline{Person C}
+\centerline{Person D}
+\centerline{}
+\centerline{}
+\centerline{\textbf{Project Advisor}}
+\centerline{Gabriel I. Cook}
+\centerline{}
+\centerline{\textbf{Liaison}}
+\centerline{Name}
+\centerline{}
+\centerline{}
+\centerline{}
+\centerline{\textbf{Code and Project Files}}
+\centerline{GitHub: <https://github.com/slicesofdata/repository-name>}
+
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Page 2, Abstract  -->
+\newpage
+\centerline{\textbf{Abstract}}
+
+<!-- abstract keywords -->
+*Keywords*: 
+
+
+
+<!-- Page 3, Table of Contents -->
+\newpage
+\tableofcontents
+
+<!-- Page 4, Acknowledgments -->
+\newpage
+\centerline{\textbf{Acknowledgments}}
+<!-- Page 5, Main Content -->
+
+
+
+\newpage
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- introduction -->
+## **Introduction**
+
+Examples of citing references from the .bib file in utils/references.bib. 
+
+Blah blah blah [@gill1980] for single citation 
+
+Blah blah @gill1980 and @gill1980 [see also @gill1980, p.2]. In addition, [@anderson2015; @gill1980] say blah blah blah.
+
+[@gill1980; @anderson2015] multiple citation can be separated by semi-colon
+
+[-@gill1980] in order to suppress author name, and just display the year use a -
+
+[see @gill1980 p. 12; also this ref @anderson2015] is also valid 
+
+
+Libraries can cite in text also.
+
+Blah blah @R-base, @R-knitr, @R-dplyr, and @R-ggplot2
+
+
+^[Footnote goes here] <!-- number will appear in text but footnote will apper at end of section -->
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Describing your problem statement-->
+## **Problem Statement**
+
+Blah blah ...
+
+
+
+
+
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Data -->
+## **Data** 
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Describing your data Data -->
+## *Sources*
+
+Blah blah ...
+
+
+
+
+
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Describing the characterstics of your data -->
+## *Characteristics*
+
+Blah blah ...
+
+
+
+
+
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Describing your data cleaning and preprocessing -->
+## *Data Quality and Preprocessing*
+
+Blah blah ...
+
+
+
+
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Describing limitations of data -->
+## *Limitations*
+
+Blah blah ...
+
+
+
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Describing your findings -->
+<!-- This is likely where you will referent your visualizations -->
+## **Findings**
+
+Blah blah ...
+
+If you want to add sub-sections, use the ### flag.
+
+
+
+
+
+<!-- when you need to include a plot, call the png file -->
+```{r echo=FALSE, out.width="80%", fig.align="center", fig.cap="A good caption for the plot."}
+## example
+##| echo: false         # hide code
+##| out.width: "80%"    # resize based on width (if pixels, example out.width: "300px")
+##| out.height: "70%"   # resize based on height (if pixels, example out.height: "300px")
+##| fig.align: "center" # align to center
+##| fig.asp: 0.75       # aspect ratio
+##| fig.width: 6        # figure width in inches
+##| fig.height: 4       # figure height in inches
+##| fig.cap: "A good caption" 
+
+# when you need to include a plot, reference it by name at the location you want to insert it
+knitr::include_graphics(here::here("report", "figs", "point_plot_mpg_by_wt.png"))
+```
+
+
+```{r echo=FALSE, out.width="60%", fig.align="center", fig.cap="A caption for a 60% width plot."}
+# example
+#| echo: false          # hide code
+##| out.width: "40%"    # resize based on width (if pixels, example out.width: "300px")
+##| out.height: "70%"   # resize based on height (if pixels, example out.height: "300px")
+##| fig.align: "center" # align to center
+##| fig.asp: 0.75       # aspect ratio
+##| fig.width: 6        # figure width in inches
+##| fig.height: 4       # figure height in inches
+##| fig.cap: "A good caption"  
+
+# when you need to include a plot, reference it by name at the place of insert
+knitr::include_graphics(here::here("report", "figs", "point_plot_mpg_by_wt.png"))
+```
+
+<!-- alternatively, use LaTeX code (though I think this will be more difficult-->
+<!--
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/cmc_logo2.png}
+\end{center}
+-->
+
+
+
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Discussion  -->
+## **Discussion**
+
+Blah blah ...
+
+If you want to add sub-sections, use the ### flag.
+
+
+
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Conclusion  -->
+## **Conclusion**
+
+Blah blah ...
+
+
+
+
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- Optional (remove if not used) -->
+## **Challenges and Limitations**
+
+Blah blah ...
+
+
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- REFERENCE BUILDING -->
+
+<!-- put your references in a report/utils/references.bib file -->
+
+
+
+<!-- to automate references used in the report -->
+<!-- put your references in a report/utils/libraries.bib file -->
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+if (file.exists(here::here("report", "utils",  "libraries.bib"))) {
+  file.remove(here::here("report", "utils", "libraries.bib"))
+} 
+# will build a libraries.bib file based on loaded libraries
+knitr::write_bib(
+  x = c(.packages(), "knitr", "rmarkdown", "here"),
+  file = here::here("report", "utils", "libraries.bib")
+  )
+```
+<!-- https://inbo.github.io/tutorials/tutorials/r_citations_markdown/ -->
+<!-- https://monashdatafluency.github.io/r-rep-res/citations.html -->
+
+\newpage
+## **References**
+\centerline{}
+\bibliographystyle{apacite}
+
+

@@ -1,0 +1,12 @@
+\usepackage{etoolbox}
+\patchcmd{\tableofcontents}{\contentsname}{\textbf{Table of Contents}}{}{}
+\usepackage{titletoc}
+
+% Make the section numbers bold
+\titlecontents{section}
+  [0pt] % Left margin
+  {\bfseries} % The format for sections
+  {\contentslabel{2em}} % Section label (with bold page numbers)
+  {} % Content after the label
+  {\titlerule*[1pc]{.}\contentspage} % Filler and page number
+
