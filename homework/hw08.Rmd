@@ -1,2 +1,74 @@
-File not yet available. Check back later.
+---
+title: "Homework 08"
+author: "your-name"
+#date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: false
+    number_sections: true
+   # code_folding: show
+  pdf_document:
+    toc: false
+---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+For this homework, used this `R Markdown` (e.g., `.Rmd`) file and save it to your `/report` project directory on your computer with the name and a prefix `hw08-Lastname-FirstInitial`. Full name example: `hw08cookg.Rmd`. Make sure to add your name to the YAML code above.
+
+
+You will take a plot that you are working on for your project and modify it in two ways based on the legends and arrangement module. 
+
+Load your data in the following code block.
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+
+
+
+```
+
+1. Create your base plot object.
+
+```{r fig.align='center', message=FALSE, warning=FALSE, out.width="60%"}
+
+
+
+```
+
+2. Modify your base plot to implement your first adjustment.
+
+- *Describe why you might want to implement this approach*
+
+
+
+- *Add your code to the base plot in the code block below*
+
+```{r fig.align='center', message=FALSE, warning=FALSE, out.width="60%"}
+
+
+
+
+```
+
+2. Modify your base plot to implement your second adjustment.
+
+- *Describe why you might want to implement this approach*
+
+
+
+
+
+- *Add your code to the base plot in the code block below*
+
+```{r message=FALSE, warning=FALSE, fig.align='center',out.width="60%"}
+
+
+
+
+```
+
+
+Finally, knit an `html` file and upload to:
+https://ln5.sync.com/dl/a038628f0/wwfifjxk-f7rfshin-rkedi3y8-77f9zaii
