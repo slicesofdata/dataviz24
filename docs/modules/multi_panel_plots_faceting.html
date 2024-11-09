@@ -697,6 +697,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><strong>Libraries</strong></a></li>
   </ul></li>
   <li><a href="#loading-libraries" id="toc-loading-libraries" class="nav-link" data-scroll-target="#loading-libraries"><strong>Loading Libraries</strong></a></li>
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data"><strong>Loading Data</strong></a></li>
   <li><a href="#small-multiples-faceting-and-multiple-panels" id="toc-small-multiples-faceting-and-multiple-panels" class="nav-link" data-scroll-target="#small-multiples-faceting-and-multiple-panels"><strong>Small Multiples, Faceting, and Multiple Panels</strong></a>
   <ul class="incremental collapse">
   <li><a href="#creating-facets-using-facet_wrap" id="toc-creating-facets-using-facet_wrap" class="nav-link" data-scroll-target="#creating-facets-using-facet_wrap"><strong>Creating facets using <code>facet_wrap()</code></strong></a></li>
@@ -765,25 +766,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Under construction.
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.</p>
-</div>
-</div>
 <section id="overview" class="level1">
 <h1><strong>Overview</strong></h1>
 <p>When you map variables to aesthetics, you get legends. Legends are certainly helpful but legends cannot remove the plot clutter associated with many subgroups of data corresponding to those levels in the legend. Sometimes, you want to plot individual plots for various subgroups (e.g., each state, student, year, etc.) rather than map a variable containing those subgroups to a plot aesthetic. This is where we create, <strong>small multiples</strong>, or small versions of the same plot for each subgroup which are then combined into a grid arrangement (e.g., rows, columns). The advantage is that the plots are easier to process. A disadvantage comes with making comparisons across the individual plots when they are not on aligned scales. For example, comparing data on the y-axis is fairly easy to do when plots are arranged in a row (e.g., compare the height position of bars) but when plots are arranged in a column, this comparison is complicated. Heights of bars cannot be compared but instead the length of the bars need to be extracted for comparison. When plots of interest are arranged diagonally, comparing data on either x or y axis is more demanding. This cognitive process is more demanding, thus errors of interpretation can be made. This outcome is a consequence of plots composed small multiples. Nevertheless, lots of individual data can be presented using small multiples and general pattern matching or mismatching processes can be performed quite easily.</p>
 </section>
 <section id="to-do" class="level1">
 <h1><strong>To Do</strong></h1>
+<p>Review corresponding canvas content.</p>
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings"><strong>Readings</strong></h2>
 <!--
@@ -806,8 +795,9 @@ Reading should take place in two parts:
 </section>
 <section id="external-functions" class="level2">
 <h2 class="anchored" data-anchor-id="external-functions"><strong>External Functions</strong></h2>
-<p>Provided:</p>
-<p><code>view_html()</code>: for viewing data frames in html format, from <code>/src/functions/view_html.R</code></p>
+<p>Provided in class:</p>
+<p><code>view_html()</code>: for viewing data frames in html format, from <code>/src/my_functions.R</code></p>
+<p>You can use this in your own work space but I am having a challenge rendering this of the website, so I’ll default to <code>print()</code> on occasion.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.utils<span class="sc">::</span><span class="fu">sourceDirectory</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"src"</span>, <span class="st">"functions"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -824,10 +814,14 @@ Reading should take place in two parts:
 <section id="loading-libraries" class="level1">
 <h1><strong>Loading Libraries</strong></h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="loading-data" class="level1">
+<h1><strong>Loading Data</strong></h1>
+<p>To examine some associations, we will use hammer throwing distances times which can be accessed from:</p>
+<p>To access the data, either read the file directly from the url using <code>read.csv()</code> and assign the data frame a name like <code>DATA</code>:</p>
+<p><code>read.csv("https://github.com/slicesofdata/dataviz24/raw/main/data/tfrrs/hammer_data.csv")</code></p>
 </section>
 <section id="small-multiples-faceting-and-multiple-panels" class="level1">
 <h1><strong>Small Multiples, Faceting, and Multiple Panels</strong></h1>
@@ -850,7 +844,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -865,7 +859,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -877,7 +871,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -893,7 +887,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -905,7 +899,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -922,7 +916,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -940,7 +934,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -963,7 +957,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -981,7 +975,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -993,7 +987,7 @@ Reading should take place in two parts:
 <section id="ordering-facets" class="level1">
 <h1><strong>Ordering facets</strong></h1>
 <p>The default ordering of facets is alphabetic/numeric. This may be fine when your facet variable is numeric but it may not be helpful when your facet variable is of character type. When your facet variable is not ordered as you wish, you can change the over by making your variable a <code>factor()</code> and specify the level order.</p>
-<p>The default plot:</p>
+<p>The default base plot is:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>(base_plot <span class="ot">&lt;-</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  DATA <span class="sc">|&gt;</span></span>
@@ -1012,7 +1006,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1030,7 +1024,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-16-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-18-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1053,7 +1047,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1086,7 +1080,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1113,7 +1107,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1149,7 +1143,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1180,7 +1174,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1191,7 +1185,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-21-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-23-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1205,7 +1199,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1220,7 +1214,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1242,7 +1236,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1261,7 +1255,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1279,7 +1273,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1298,7 +1292,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1317,7 +1311,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1341,7 +1335,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1360,7 +1354,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1381,7 +1375,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1406,7 +1400,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1427,7 +1421,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1449,7 +1443,7 @@ Reading should take place in two parts:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="multi_panel_plots_faceting_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1501,12 +1495,12 @@ loaded via a namespace (and not attached):
 [21] rlang_1.1.4       crayon_1.5.3      R.methodsS3_1.8.2 splines_4.4.1    
 [25] bit64_4.0.5       munsell_0.5.1     withr_3.0.1       yaml_2.3.10      
 [29] parallel_4.4.1    tools_4.4.1       tzdb_0.4.0        colorspace_2.1-0 
-[33] here_1.0.1        curl_5.2.1        vctrs_0.6.5       R6_2.5.1         
-[37] lifecycle_1.0.4   htmlwidgets_1.6.4 bit_4.0.5         pkgconfig_2.0.3  
-[41] archive_1.1.8     pillar_1.9.0      gtable_0.3.5      glue_1.7.0       
-[45] xfun_0.45         tidyselect_1.2.1  rstudioapi_0.16.0 knitr_1.47       
-[49] farver_2.1.2      nlme_3.1-164      labeling_0.4.3    rmarkdown_2.27   
-[53] compiler_4.4.1   </code></pre>
+[33] pacman_0.5.1      here_1.0.1        curl_5.2.1        vctrs_0.6.5      
+[37] R6_2.5.1          lifecycle_1.0.4   htmlwidgets_1.6.4 bit_4.0.5        
+[41] archive_1.1.8     pkgconfig_2.0.3   pillar_1.9.0      gtable_0.3.5     
+[45] glue_1.7.0        xfun_0.45         tidyselect_1.2.1  rstudioapi_0.16.0
+[49] knitr_1.47        farver_2.1.2      nlme_3.1-164      labeling_0.4.3   
+[53] rmarkdown_2.27    compiler_4.4.1   </code></pre>
 </div>
 </div>
 </div>

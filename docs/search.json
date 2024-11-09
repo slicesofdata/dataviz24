@@ -1595,7 +1595,7 @@
     "href": "modules/multi_panel_plots_faceting.html",
     "title": "Multi-panel plots: Faceting",
     "section": "",
-    "text": "Under construction.\n\n\n\nThis page is a work in progress and may contain areas that need more detail or that required syntactical, grammatical, and typographical changes. If you find some part requiring some editing, please let me know so I can fix it for you.",
+    "text": "When you map variables to aesthetics, you get legends. Legends are certainly helpful but legends cannot remove the plot clutter associated with many subgroups of data corresponding to those levels in the legend. Sometimes, you want to plot individual plots for various subgroups (e.g., each state, student, year, etc.) rather than map a variable containing those subgroups to a plot aesthetic. This is where we create, small multiples, or small versions of the same plot for each subgroup which are then combined into a grid arrangement (e.g., rows, columns). The advantage is that the plots are easier to process. A disadvantage comes with making comparisons across the individual plots when they are not on aligned scales. For example, comparing data on the y-axis is fairly easy to do when plots are arranged in a row (e.g., compare the height position of bars) but when plots are arranged in a column, this comparison is complicated. Heights of bars cannot be compared but instead the length of the bars need to be extracted for comparison. When plots of interest are arranged diagonally, comparing data on either x or y axis is more demanding. This cognitive process is more demanding, thus errors of interpretation can be made. This outcome is a consequence of plots composed small multiples. Nevertheless, lots of individual data can be presented using small multiples and general pattern matching or mismatching processes can be performed quite easily.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
@@ -1619,7 +1619,7 @@
     "href": "modules/multi_panel_plots_faceting.html#external-functions",
     "title": "Multi-panel plots: Faceting",
     "section": "External Functions",
-    "text": "External Functions\nProvided:\nview_html(): for viewing data frames in html format, from /src/functions/view_html.R\n\nR.utils::sourceDirectory(here::here(\"src\", \"functions\"))",
+    "text": "External Functions\nProvided in class:\nview_html(): for viewing data frames in html format, from /src/my_functions.R\nYou can use this in your own work space but I am having a challenge rendering this of the website, so I’ll default to print() on occasion.\n\nR.utils::sourceDirectory(here::here(\"src\", \"functions\"))",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
