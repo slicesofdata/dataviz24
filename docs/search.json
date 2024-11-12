@@ -1591,183 +1591,183 @@
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html",
-    "href": "modules/multi_panel_plots_faceting.html",
-    "title": "Multi-panel plots: Faceting",
+    "objectID": "modules/histograms_and_density_plots.html",
+    "href": "modules/histograms_and_density_plots.html",
+    "title": "Histograms and density plots",
     "section": "",
-    "text": "When you map variables to aesthetics, you get legends. Legends are certainly helpful but legends cannot remove the plot clutter associated with many subgroups of data corresponding to those levels in the legend. Sometimes, you want to plot individual plots for various subgroups (e.g., each state, student, year, etc.) rather than map a variable containing those subgroups to a plot aesthetic. This is where we create, small multiples, or small versions of the same plot for each subgroup which are then combined into a grid arrangement (e.g., rows, columns). The advantage is that the plots are easier to process. A disadvantage comes with making comparisons across the individual plots when they are not on aligned scales. For example, comparing data on the y-axis is fairly easy to do when plots are arranged in a row (e.g., compare the height position of bars) but when plots are arranged in a column, this comparison is complicated. Heights of bars cannot be compared but instead the length of the bars need to be extracted for comparison. When plots of interest are arranged diagonally, comparing data on either x or y axis is more demanding. This cognitive process is more demanding, thus errors of interpretation can be made. This outcome is a consequence of plots composed small multiples. Nevertheless, lots of individual data can be presented using small multiples and general pattern matching or mismatching processes can be performed quite easily.",
+    "text": "This module focuses on the Cartesian Coordinate system and visualizing data distributions using {ggplot2} geom_histogram() and geom_density(). This module demonstrates some ways to visualize the distribution of a single variable along either the x or y axis. When adding another aesthetic (e.g., fill), this distribution could be visualized along the x axis but for different groupings for a second, fill variable. Visualizations containing multiple levels of a second variable create problems for geom_histogram() out-of-the-box which can be addressed with geom_density() but this approach too can create perceptual problems for more complicated plots. We will also address ways to solve the limitations of visualizing more complex data arrangement in a later section and introduce the {ggridges} library to produce geom_ridgeline() plots.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#readings",
-    "href": "modules/multi_panel_plots_faceting.html#readings",
-    "title": "Multi-panel plots: Faceting",
-    "section": "Readings",
-    "text": "Readings\n\n\nWilke (2019). Fundamentals of Data Visualization. Multi-panel figures\nWickham, Navarro, & Pedersen (under revision). ggplot2: Elegant Graphics for Data Analysis (3e). Faceting",
-    "crumbs": [
-      "**Schedule**",
-      "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
-    ]
-  },
-  {
-    "objectID": "modules/multi_panel_plots_faceting.html#external-functions",
-    "href": "modules/multi_panel_plots_faceting.html#external-functions",
-    "title": "Multi-panel plots: Faceting",
+    "objectID": "modules/histograms_and_density_plots.html#external-functions",
+    "href": "modules/histograms_and_density_plots.html#external-functions",
+    "title": "Histograms and density plots",
     "section": "External Functions",
     "text": "External Functions\nProvided in class:\nview_html(): for viewing data frames in html format, from /src/my_functions.R\nYou can use this in your own work space but I am having a challenge rendering this of the website, so I’ll default to print() on occasion.\n\nR.utils::sourceDirectory(here::here(\"src\", \"functions\"))",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#libraries",
-    "href": "modules/multi_panel_plots_faceting.html#libraries",
-    "title": "Multi-panel plots: Faceting",
+    "objectID": "modules/histograms_and_density_plots.html#libraries",
+    "href": "modules/histograms_and_density_plots.html#libraries",
+    "title": "Histograms and density plots",
     "section": "Libraries",
-    "text": "Libraries\n\n{dplyr} 1.1.4: for selecting, filtering, and mutating\n{forcats} 1.0.0: for creating and ordering factors\n{ggplot2} 3.5.1: for plotting",
+    "text": "Libraries\n\n{dplyr} 1.1.4: for selecting, filtering, and mutating \n{ggplot2} 3.5.1: for plotting",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#creating-facets-using-facet_wrap",
-    "href": "modules/multi_panel_plots_faceting.html#creating-facets-using-facet_wrap",
-    "title": "Multi-panel plots: Faceting",
-    "section": "Creating facets using facet_wrap()",
-    "text": "Creating facets using facet_wrap()\nWe see an overall pattern in the data. We can see a pattern for the Team subgroups across Rank.\nWe can add a facet_wrap() layer in order to plot the teams separately.\n\nbase_plot +\n  facet_wrap(facets = ~Team)\n\n\n\n\n\n\n\n\nWe can add a facet_wrap() layer in order to plot separately per year.\n\nbase_plot +\n  facet_wrap(facets = ~Year)\n\n\n\n\n\n\n\n\nNotice that the x and y axis labels appear but the facet variable name appears as a label into the small multiples.",
+    "objectID": "modules/histograms_and_density_plots.html#load-libraries",
+    "href": "modules/histograms_and_density_plots.html#load-libraries",
+    "title": "Histograms and density plots",
+    "section": "Load libraries",
+    "text": "Load libraries\n\nlibrary(dplyr)\nlibrary(ggplot2)",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#creating-facets-using-facet_wrapfacets-vars",
-    "href": "modules/multi_panel_plots_faceting.html#creating-facets-using-facet_wrapfacets-vars",
-    "title": "Multi-panel plots: Faceting",
-    "section": "Creating facets using facet_wrap(facets = vars())",
-    "text": "Creating facets using facet_wrap(facets = vars())\nUse vars() instead of ~ to specify the variable because it will offer you greater flexibility and will reduce complications with faceting.\n\nbase_plot +\n  facet_wrap(facets = vars(Year))\n\n\n\n\n\n\n\n\nPassing two variables to vars() will create subplots for each.\n\nbase_plot +\n  facet_wrap(facets = vars(Year, Team))",
+    "objectID": "modules/histograms_and_density_plots.html#geom_histogram",
+    "href": "modules/histograms_and_density_plots.html#geom_histogram",
+    "title": "Histograms and density plots",
+    "section": "geom_histogram()",
+    "text": "geom_histogram()\nThe histogram will plot the counts of common instances within a vector. Plotting a geom_histogram() will require mapping a variable to either x or y in aes(). The only difference will be the distribution orientation, which could have course be changed also with coord_flip().\nIf x = Time:\n\nSWIM |&gt;\n  ggplot(mapping = aes(x = Time)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nIf y = Time:\n\nSWIM |&gt;\n  ggplot(mapping = aes(y = Time)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nIf you have both x and y mapped, you will get an error.\nSWIM |&gt;\n  ggplot(mapping = aes(x = Distance, y = Time)) +\n  geom_histogram()\nError in `geom_histogram()`:\n! Problem while computing stat.\nℹ Error occurred in the 1st layer.\nCaused by error in `setup_params()`:\n! `stat_bin()` must only have an x or y aesthetic.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#controlling-columns",
-    "href": "modules/multi_panel_plots_faceting.html#controlling-columns",
-    "title": "Multi-panel plots: Faceting",
-    "section": "Controlling columns",
-    "text": "Controlling columns\nControl the number of columns by setting ncol.\n\nbase_plot +\n  facet_wrap(facets = vars(Year),\n             ncol = 3\n             )",
+    "objectID": "modules/histograms_and_density_plots.html#histograms-depend-on-the-chosen-bin-width",
+    "href": "modules/histograms_and_density_plots.html#histograms-depend-on-the-chosen-bin-width",
+    "title": "Histograms and density plots",
+    "section": "Histograms depend on the chosen bin width",
+    "text": "Histograms depend on the chosen bin width\nHistograms are data representations typically use to display counts, frequencies, or instances of events falling within some upper and lower bound range for numeric or continuous variables. For example, counts of salaries for every $5k, weights for every 5 pounds, etc. Histogram functions will typically determine these ranges on their own, which may or may not be suitable for your visualization. All of these elements can be customized.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#controlling-direction-of-arrangement",
-    "href": "modules/multi_panel_plots_faceting.html#controlling-direction-of-arrangement",
-    "title": "Multi-panel plots: Faceting",
-    "section": "Controlling direction of arrangement",
-    "text": "Controlling direction of arrangement\nChange the direction using dir. By default, dir = \"h\" for a horizontal arrangement. The faceted variable changes from left to right, and top to bottom. Change to dir = \"v\".\n\nbase_plot +\n  facet_wrap(facets = vars(Year),\n             ncol = 3,\n             dir = \"v\"\n             )\n\n\n\n\n\n\n\n\nThe faceted variable now changes from top to bottom, left to right. The arrangement may depend on your goals or how your audience will make comparisons.",
+    "objectID": "modules/histograms_and_density_plots.html#setting-bins-number",
+    "href": "modules/histograms_and_density_plots.html#setting-bins-number",
+    "title": "Histograms and density plots",
+    "section": "Setting bins Number",
+    "text": "Setting bins Number\nThe bins parameter in geom_histogram() controls number of bins, defaults to 30, and is overridden by the binwidth argument. Depending on your data, this may or may not provide the best representation of data. You can also specify the number of bins. This will force geom_histogram() to adjust the bin width based on the number of bind you specify. Let’s create two examples.\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(bins = 20) +\n  labs(title = \"bins = 20\", tag = \"A\")\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(bins = 60) +\n  labs(title = \"bins = 60\", tag = \"B\")\n\nBecause the total number of bins will capture all frequency counts in the data, setting fewer bins will result in plots that have more counts per bin than will plots with many bins. Examine the counts along the y-axis to see this.\n\nplot(gridExtra::arrangeGrob(plot1, plot2, ncol = 2))\n\n\n\n\n\n\n\n\nNot only is the narrowness of the bars associated with more bins but the this is the result of fewer counts, which ultimately affects your range along the y axis. This means that when you plot two bars side-by-side (to facilitate comparison of bars by their heights), the height will be confounded by the scale; you are not comparing bars on aligned scales (See Cleveland & McGill (1984)). This results in perceptual problems.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#controlling-the-scales",
-    "href": "modules/multi_panel_plots_faceting.html#controlling-the-scales",
-    "title": "Multi-panel plots: Faceting",
-    "section": "Controlling the scales",
-    "text": "Controlling the scales\nSpeaking of comparisons being made, when the range of values for variables varies by facet level, you may wish to constrain the scales or allow them to vary. By default, scales = \"fixed\" but you can change to move freely for x, y, or both x and y.\nscales = \"fixed\": fix both x and y scales to be the same across plots (default) scales = \"free_x\": x can vary freely, fix y scales = \"free_y\": y can vary freely, fix x scales = \"free\": x and y can vary freely\n\nAllow scales = \"free_y\":\n\nbase_plot +\n  facet_wrap(facets = vars(Year),\n             ncol = 3,\n             dir = \"v\",\n             scales = \"free_y\"\n             )\n\n\n\n\n\n\n\n\n\n\nAllow both scales = \"free\":\n\nbase_plot +\n  facet_wrap(facets = vars(Year),\n             ncol = 3,\n             dir = \"v\",\n             scales = \"free\"\n             )\n\n\n\n\n\n\n\n\nIn this instance, comparing position of points is quite complicated because the axes are not aligned in order to support those comparisons. The view has to evaluate the axes, extract out the values, and then compare. Subtle patterns may be easier to see, however.",
+    "objectID": "modules/histograms_and_density_plots.html#setting-binwidth",
+    "href": "modules/histograms_and_density_plots.html#setting-binwidth",
+    "title": "Histograms and density plots",
+    "section": "Setting binwidth",
+    "text": "Setting binwidth\nWhen you plot a geom_histogram(), R reminds you to consider the binwidth by providing the error: stat_bin() using bins = 30. Pick better value with binwidth. The binwidth argument controls the bin width along the X-axis and this argument overrides the bin argument.\nYou could make your bin width narrow relative to the data being plotted. For example, 1/10 of a second (e.g., binwidth = .1) for swim events. Similarly, if your vector contains discrete values, binwidth = 1 would plot the frequency count for all instances.\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = .1) +\n  labs(title = \"binwidth = .1\", tag = \"A\")\n\nBut this produces a very granular plot that is not very useful. The counts are so few and the distribution is not very apparent visually. By contrast, if you set it too wide (e.g., binwidth = 30), then you might loose a lot of detail. Notice also that the x axis does not provide tick marks that help with the binning, whether narrow or wide.\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 30) +\n  labs(title = \"binwidth = 30\", tag = \"B\")\n\n\nplot(gridExtra::arrangeGrob(plot1, plot2, ncol = 2))\n\n\n\n\n\n\n\n\nIs this plot better?\n\nplot3 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 5) +\n  labs(title = \"binwidth = 5\", tag = \"C\")\n\n\nplot(gridExtra::arrangeGrob(plot1, plot2, ncol = 1))",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#change-the-order-by-ordering-the-factor",
-    "href": "modules/multi_panel_plots_faceting.html#change-the-order-by-ordering-the-factor",
-    "title": "Multi-panel plots: Faceting",
-    "section": "Change the order by ordering the factor()",
-    "text": "Change the order by ordering the factor()\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = factor(Team, \n                       levels = c(\"Stag\", \"Athena\"))) |&gt;     # factor and level order \n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       #color = Team\n                       )) +\n  geom_point(position = position_jitter()) +\n  geom_smooth(method = \"lm\") +\n  theme(legend.position = \"none\") +\n  facet_wrap(facets = vars(Team))",
+    "objectID": "modules/histograms_and_density_plots.html#centering-the-bin",
+    "href": "modules/histograms_and_density_plots.html#centering-the-bin",
+    "title": "Histograms and density plots",
+    "section": "Centering the bin",
+    "text": "Centering the bin\nOnce you are happy with the bin width, you can think about centering them. center will be used to specify the center of the bin containing the bin value. For now, there is some adjustment, though not perfect, to the scale to see the differences.\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 200) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 10) +\n  ggtitle(\"binwidth = 10\") +\n  # add some detailing to see better\n  scale_x_continuous(breaks = seq(0, 350, 10)) +\n  labs(title = \"default center\", tag = \"A\")\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 200) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 10,\n                 center = 1) +\n  # add some detailing to see better \n  scale_x_continuous(breaks = seq(0, 350, 10)) +\n  labs(title = \"center = 1\", tag = \"B\")\n\nplot3 &lt;- SWIM |&gt;\n  filter(Time &lt; 200) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 10,\n                 center = 0) +\n  # add some detailing to see better\n  scale_x_continuous(breaks = seq(0, 350, 10)) +\n  labs(title = \"center = 0\", tag = \"C\")\n\nplot4 &lt;- SWIM |&gt;\n  filter(Time &lt; 200) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 10,\n                 center = 5) +\n  # add some detailing to see better \n  scale_x_continuous(breaks = seq(0, 350, 10)) +\n  labs(title = \"center = 5\", tag = \"D\")\n\nplot(gridExtra::arrangeGrob(plot1, plot2, plot3, plot4, ncol = 2))\n\n\n\n\n\n\n\n\nFor more details on center, see ?geom_histogram.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#change-the-order-by-ordering-of-the-data-using-forcatsfct_reorder",
-    "href": "modules/multi_panel_plots_faceting.html#change-the-order-by-ordering-of-the-data-using-forcatsfct_reorder",
-    "title": "Multi-panel plots: Faceting",
-    "section": "Change the order by ordering of the data using forcats::fct_reorder()",
-    "text": "Change the order by ordering of the data using forcats::fct_reorder()\nWe can use forcats::fct_reorder() for reordering as we have done before for single plots. When the levels of a factor occur more than once, fct_reorder() applies a summary function, which by default is median() and the sorting order is from lowest to highest value.\n\nOrder by the default behavior\nWe can add the arguments so they are visible.\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = factor(Team, \n                       levels = c(\"Stag\", \"Athena\"))) |&gt; \n  mutate(Team = forcats::fct_reorder(.f = Team,      # the factor to sort  \n                                     .x = Meters,    # the variable to sort by\n                                     .fun = median,  # the default function\n                                     .desc = FALSE   # the default sorting behavior\n                                     )\n         ) |&gt;\n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       )) +\n  geom_point(position = position_jitter()) +\n  geom_smooth(method = \"lm\") +\n  theme(legend.position = \"none\") +\n  facet_wrap(facets = vars(Team))\n\n\n\n\n\n\n\n\n\n\nOrder by the mean() and sort from highest to lowest\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = forcats::fct_reorder(.f = Team,      # the factor to sort  \n                                     .x = Meters,    # the variable to sort by\n                                     .fun = mean,    # the mean function\n                                     .desc = FALSE   # the default sorting behavior\n                                     )\n         ) |&gt;\n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       )) +\n  geom_point(position = position_jitter()) +\n  geom_smooth(method = \"lm\") +\n  theme(legend.position = \"none\") +\n  facet_wrap(facets = vars(Team))\n\n\n\n\n\n\n\n\n\n\nOrder by a function\nWe can pass a function that determines the difference between the mean() and the median(). If we can about the difference being positive or negative, the order of these computations will matter. If we want to order based on the size of the difference between the two metrics, we can take the absolute value of the difference using abs().\n\n~ abs(med(.x) - mean(.x)): a difference between median and mean\nmean(x, trim = 0.1): the mean that is based on trimming the outlying 10%\nmax(x) - min(x)): the range\n\n\nDATA |&gt;\n  mutate(Team = forcats::fct_reorder(.f = Team,      # the factor to sort  \n                                     .x = Meters,    # the variable to sort by\n                                     # a function \n                                     .fun = ~ abs(median(.x) - mean(.x)),  \n                                     # also but more complicated function approach \n                                     #.fun = function(x) { abs(median(x) - mean(x)) },  \n                                     .desc = TRUE    # from largest value to the smallest \n                                     )\n         ) |&gt;\n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       )) +\n  geom_point(position = position_jitter()) +\n  geom_smooth(method = \"lm\") +\n  theme(legend.position = \"none\") +\n  facet_wrap(facets = vars(Team)) +\n  labs(title = NULL)\n\n\n\n\n\n\n\n\nImportantly, the ordering of the panels in the facet plot always communicates information that is not visible or easily extracted from the visualization. By default, this ordering is by character or number. The facet with the largest mean may appear in facet position 1 or 12 (think random) but your goal may not be to communicate that difference across facets. A systematic ordering of the panels, however, using fct_reorder() represents a decision (whether conscious or not) to order the panels based on some method other than the default alphabetical or numeric order. This consequence is because both fct_reorder() and fct_reorder2() apply a function by with to order the data based on some variable and they then apply a sorting method based on that function. When you consciously apply fct_reorder(), you are doing so for a specific reason. Thus, you would want to communicate that information either in the plot title, subtitle, caption, or in a written report. Keep in mind that the ordering of panels reflects data compared across panels in the data visualization.",
+    "objectID": "modules/histograms_and_density_plots.html#color-and-other-aesthetics",
+    "href": "modules/histograms_and_density_plots.html#color-and-other-aesthetics",
+    "title": "Histograms and density plots",
+    "section": "Color and other Aesthetics",
+    "text": "Color and other Aesthetics\nAnd can also change the color of the bars in the histogram or make them transparent (e.g., fill = \"transparent\").\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(\n    fill = \"tomato2\",\n    color = \"black\",\n    linetype = \"dashed\"\n  ) +\n  labs(title = 'fill = \"tomato2\"\\nlinetype = \"dashed\"',\n      tag = \"A\"\n      )\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(\n    fill = \"transparent\",\n    color = \"tomato2\",\n    linetype = \"solid\"\n  ) +\n  labs(title = 'color = \"tomato2\"\\nlinetype = \"solid\"',\n       tag = \"B\"\n  )\n\nTwo arrangements of the plots illustrate their differences.\n\npatchwork::plot_layout(plot1 + plot2)\n\n$ncol\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n$nrow\nNULL\n\n$byrow\nNULL\n\n$widths\nNULL\n\n$heights\nNULL\n\n$guides\nNULL\n\n$tag_level\nNULL\n\n$axes\nNULL\n\n$axis_titles\nNULL\n\n$design\nNULL\n\nattr(,\"class\")\n[1] \"plot_layout\"\n\npatchwork::plot_layout(plot1 / plot2)\n\n$ncol\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n$nrow\nNULL\n\n$byrow\nNULL\n\n$widths\nNULL\n\n$heights\nNULL\n\n$guides\nNULL\n\n$tag_level\nNULL\n\n$axes\nNULL\n\n$axis_titles\nNULL\n\n$design\nNULL\n\nattr(,\"class\")\n[1] \"plot_layout\"",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#repositioning-the-label-strip",
-    "href": "modules/multi_panel_plots_faceting.html#repositioning-the-label-strip",
-    "title": "Multi-panel plots: Faceting",
-    "section": "Repositioning the label strip",
-    "text": "Repositioning the label strip\nBy default, the facet label will be on the top of the plot because strip.position = \"top\" but you can set to \"top\", \"bottom\", \"left\", or \"right\".\nLet’s set strip.position = \"left\":\n\n(base_plot &lt;-\n  DATA |&gt;\n  mutate(Team = forcats::fct_reorder(.f = Team,      # the factor to sort  \n                                     .x = Meters,    # the variable to sort by\n                                     .fun = mean,    # the mean function\n                                     .desc = FALSE   # the default sorting behavior\n                                     )\n        ) |&gt;\n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       )) +\n  geom_point(position = position_jitter()) +\n  geom_smooth(method = \"lm\") +\n  theme(legend.position = \"none\") \n)\n\n\n\n\n\n\n\nbase_plot +\n    facet_wrap(facets = vars(Team),\n               strip.position = \"left\"\n               )\n\n\n\n\n\n\n\n\nLet’s set strip.position = \"bottom\":\n\nbase_plot +\n  facet_wrap(facets = vars(Team),\n             strip.position = \"bottom\"\n             )\n\n\n\n\n\n\n\n\nAlthough this repositioning is handled by theme(), theme(strip.placement = \"outside\")\n\nbase_plot +\n  facet_wrap(facets = vars(Team),\n             strip.position = \"bottom\"\n             ) +\n  theme(strip.placement = \"outside\")",
+    "objectID": "modules/histograms_and_density_plots.html#stacked-histograms",
+    "href": "modules/histograms_and_density_plots.html#stacked-histograms",
+    "title": "Histograms and density plots",
+    "section": "Stacked histograms",
+    "text": "Stacked histograms\nYou can stack bars in histograms just as you did with geom_bar(). Mapping a variable to fill will introduce the distribution for levels of the fill variable. However, if you think stacking a histogram will be useful, it really isn’t.\n\nSWIM |&gt;\n  ggplot(mapping = aes(x = Time, fill = Team)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nEven if the bars are not opaque, they are not much better. In general, histograms with overlapped bars a rarely useful.\n\nSWIM |&gt;\n  ggplot(mapping = aes(x = Time, fill = Team)) +\n  geom_histogram(alpha = .5)\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nThere are certainly things that you can do to the plot but there are better options.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#facet_gridrows-vars",
-    "href": "modules/multi_panel_plots_faceting.html#facet_gridrows-vars",
-    "title": "Multi-panel plots: Faceting",
-    "section": "facet_grid(rows = vars())",
-    "text": "facet_grid(rows = vars())\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = factor(Team, levels = c(\"Stag\", \"Athena\"))) |&gt;     # factor and level order \n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       fill = as.character(Rank) # or just Rank for continuous color bar\n                       )) +\n  stat_summary(fun = mean, geom = \"bar\") +\n  facet_grid(rows = vars(Team))\n\n\n\n\n\n\n\n\nBe careful what you facet as you might create something you don’t intend.\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = factor(Team, levels = c(\"Stag\", \"Athena\"))) |&gt;     # factor and level order \n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       fill = as.character(Rank) # or just Rank for continuous color bar\n                       )) +\n  stat_summary(fun = mean, geom = \"bar\") +\n  facet_grid(rows = vars(Rank))",
+    "objectID": "modules/histograms_and_density_plots.html#histograms-with-y-as-density",
+    "href": "modules/histograms_and_density_plots.html#histograms-with-y-as-density",
+    "title": "Histograms and density plots",
+    "section": "Histograms with y as Density",
+    "text": "Histograms with y as Density\nThe default operation of geom_histogram() is to plot the frequency counts along the y axis corresponding to the x variable mapped in aes(). The statistical transformation adjusted using after_stat(). You will see that the default mapping to the y variable is after_stat(count). We can add this explicitly either in geom_histogram() to across ggplot() and geom_histogram()\nFor example:\n  ggplot() + \n  geom_histogram(mapping = aes(x = Time,\n                               y = after_stat(count)\n                               )\n  )\n  \n  ggplot(mapping = aes(x = Time)) + \n  geom_histogram(mapping = aes(y = after_stat(count)))\n\nafter_stat(count)\n\n(plot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot() +\n  geom_histogram(mapping = aes(x = Time,\n                               y = after_stat(count)\n                     )\n                 ) +\n  labs(title = 'aes(y = after_stat(count))',\n       tag = \"A\")\n)\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nThe plot looks the same as we have seen before because this is the default operation. We can, however, change the statistical transformation using after_stat() to create a density plot.\n\n\nafter_stat(density)\n\n(plot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot() +\n  geom_histogram(mapping = aes(x = Time,\n                               y = after_stat(density)\n                     )\n                 ) +\n  labs(title = 'aes(y = after_stat(density))', \n       tag = \"B\"\n       )\n)\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nUsing {patchwork} to create a grob, we can divide the grid space using / so that the plots are on top of each other.\n\n\n$ncol\n\n\n\n\n\n\n\n\n\n\n$nrow\nNULL\n\n$byrow\nNULL\n\n$widths\nNULL\n\n$heights\nNULL\n\n$guides\nNULL\n\n$tag_level\nNULL\n\n$axes\nNULL\n\n$axis_titles\nNULL\n\n$design\nNULL\n\nattr(,\"class\")\n[1] \"plot_layout\"\n\n\nNotice, however, that the visualization of the binned bars along with the density function does not provide provide what you might expect to see. That’s because a density function is continuous whereas histograms are not.\nIf you add a density layer, you can see them both together:\n\nplot2 + geom_density(mapping = aes(x = Time))\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nMore on geom_density() later.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#facet_gridcols-vars",
-    "href": "modules/multi_panel_plots_faceting.html#facet_gridcols-vars",
-    "title": "Multi-panel plots: Faceting",
-    "section": "facet_grid(cols = vars())",
-    "text": "facet_grid(cols = vars())\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = factor(Team, levels = c(\"Stag\", \"Athena\"))) |&gt;     # factor and level order \n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       fill = as.character(Rank) # or just Rank for continuous color bar\n                       )) +\n  stat_summary(fun = mean, geom = \"bar\") +\n  facet_grid(cols = vars(Team))",
+    "objectID": "modules/histograms_and_density_plots.html#histograms-using-stat_bin",
+    "href": "modules/histograms_and_density_plots.html#histograms-using-stat_bin",
+    "title": "Histograms and density plots",
+    "section": "Histograms using stat_bin",
+    "text": "Histograms using stat_bin\nAlthough you are familiar with the usage of geom_()s that include statistical transformations (remember all plots have a stat_()), statistical transformation functions with naming convention stat_*() allow for geoms. For stat_bin, which create bins, the default geom = \"bar\" and position = \"stack\", which you saw with the stacking of the colored bars using geom_histogram().\nstat_bin(\n  mapping = NULL,\n  data = NULL,\n  geom = \"bar\",\n  position = \"stack\",\n  ...,\n  binwidth = NULL,\n  bins = NULL,\n  center = NULL,\n  boundary = NULL,\n  breaks = NULL,\n  closed = c(\"right\", \"left\"),\n  pad = FALSE,\n  na.rm = FALSE,\n  orientation = NA,\n  show.legend = NA,\n  inherit.aes = TRUE\n)\ngeom = \"bar\"\n\nSWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  stat_bin(\n    geom = \"bar\"\n  )\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
     ]
   },
   {
-    "objectID": "modules/multi_panel_plots_faceting.html#rows-and-columns-facet_gridcols-vars",
-    "href": "modules/multi_panel_plots_faceting.html#rows-and-columns-facet_gridcols-vars",
-    "title": "Multi-panel plots: Faceting",
-    "section": "Rows and columns facet_grid(cols = vars())",
-    "text": "Rows and columns facet_grid(cols = vars())\nIf your variables allow, you can combine grids with rows and columns.\n\nSWIM &lt;- readr::read_csv(\"https://github.com/slicesofdata/dataviz24/raw/main/data/swim/cleaned-2023-CMS-Invite.csv\")\n\nSWIM |&gt;\n  filter(Distance &gt; 50 & Distance &lt; 500) |&gt;\n  ggplot(mapping = aes(x = Split50, \n                       y = Time\n                       )) +\n  geom_point(position = position_jitter()) + \n  geom_smooth() +\n  facet_grid(rows = vars(Event),\n             cols = vars(Distance)\n             )\n\n\n\n\n\n\n\n\nOr by a character vector variable.\n\nSWIM |&gt;\n  filter(Team != \"Mixed\") |&gt;\n  filter(Team != \"Freestyle\") |&gt;\n  ggplot(mapping = aes(x = Split50, \n                       y = Time\n                       )) +\n  geom_point(position = position_jitter()) + \n  geom_smooth() +\n  facet_grid(rows = vars(Distance),\n             cols = vars(Team)\n             )\n\n\n\n\n\n\n\n\nClearly, we need to clean up the axes for this plot. You can allow scales to vary as was done using facet_wrap() or you can adjust the scales.\n\nSWIM |&gt;\n  filter(Team != \"Mixed\") |&gt;\n  filter(Team != \"Freestyle\") |&gt;\n  ggplot(mapping = aes(x = Split50, \n                       y = Time\n                       )) +\n  geom_point(position = position_jitter()) + \n  geom_smooth() +\n  facet_grid(rows = vars(Distance),\n             cols = vars(Team),\n             scales = \"free\"\n             )",
+    "objectID": "modules/histograms_and_density_plots.html#densities-or-area-plots-using-stat_bin",
+    "href": "modules/histograms_and_density_plots.html#densities-or-area-plots-using-stat_bin",
+    "title": "Histograms and density plots",
+    "section": "Densities or Area Plots using stat_bin",
+    "text": "Densities or Area Plots using stat_bin\nYou can modify the geom to \"density\" or \"area\" by passing arguments.\nstat_bin(geom = \"density\")\nstat_bin(geom = \"area\"\nOr even modify stat to a “density” plot:\nstat_bin(stat = \"density\")\nStarting with geom = \"density\":\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  stat_bin(\n    geom = \"density\",\n    fill = \"gold\",\n    col  = \"black\"\n  ) +\n  labs(title = 'geom = \"density\"',\n       tag = \"A\"\n       )\n\nAnd then geom = \"area\":\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  stat_bin(\n    geom = \"area\",\n    fill = \"gold\",\n    col = \"black\"\n  ) +\n  labs(title = 'geom = \"area\"',\n       tag = \"B\"\n  )\n\nplot(gridExtra::arrangeGrob(plot1, plot2, ncol = 1))\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nAs you can see, the geom settings produce the same plots.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Multi-panel plots: Faceting**"
+      "**Histograms and density plots**"
+    ]
+  },
+  {
+    "objectID": "modules/histograms_and_density_plots.html#geom_density",
+    "href": "modules/histograms_and_density_plots.html#geom_density",
+    "title": "Histograms and density plots",
+    "section": "geom_density()",
+    "text": "geom_density()\ngeom_density(\n  mapping = NULL,\n  data = NULL,\n  stat = \"density\",\n  position = \"identity\",\n  ...,\n  na.rm = FALSE,\n  orientation = NA,\n  show.legend = NA,\n  inherit.aes = TRUE,\n  outline.type = \"upper\"\n)\nWe can also change aesthetics using:\n- color: line color\n- size: line thickness\n- linetype: line type \n- fill: fill color of the area \n- alpha: opacity/transparency\nLet’s create some plots.\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_density() +   \n  labs(title = \"no fill\", tag = \"A\")\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_density(fill = \"gold\") +\n  labs(title = 'fill = \"gold\"', tag = \"B\")\n\nplot3 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_density(\n    fill = \"gold\",\n    bw = 0.5,               # a very small bandwidth\n    kernel = \"gaussian\"     # Gaussian kernel (the default)\n  ) +\n  labs(title = 'fill = \"gold\"\\nkernel = \"gaussian\"', tag = \"C\")\n\nplot4 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_density(\n    fill = \"gold\",\n    bw = 50,                   # a larger bandwidth\n    kernel = \"rectangular\"     # Gaussian kernel (the default)\n  ) +\n  labs(title = 'fill = \"gold\"\\nkernel = \"rectangular\"', tag = \"D\")\n\n\nplot(gridExtra::arrangeGrob(plot1, plot2, plot3, plot4, ncol = 2))\n\n\n\n\n\n\n\n\nThe plots present the data in different ways. Choosing the best type of plot will involve some consideration. You should not feel compelled to use plots out-of-the-box.",
+    "crumbs": [
+      "**Schedule**",
+      "<b>Modules</b>",
+      "**Histograms and density plots**"
     ]
   },
   {
@@ -3809,7 +3809,7 @@
     "href": "project/02_project_midterm.html#data-visualizations-story-telling-with-pictures",
     "title": "Midterm presentation",
     "section": "Data Visualizations: Story Telling with Pictures",
-    "text": "Data Visualizations: Story Telling with Pictures\n\nConvey performance metrics using data visualizations\nWalk audience through an explanation of the visualizations\nConvey why you chose the data to plot and why you chose the plot to convey the data\nCommunicate plot limitations and intended amendments along with reasons why\n\nA plot is chosen as a visual aid for a talk, paper, news article, etc. for various reasons:\n\nwas the only plot created\nwas the only plot known how to create\nwas the best of several plots created\n\nEach data visualization must serve a goal for your audience. You should consider how you intend to talk about the visualization to your audience when you create it. If there are different ways to talk about the same data and more than one variant facilitates that communications, you may consider creating more than one.\nYou should stumble upon neither that goal nor the the geom type used to communicate that goal. Are you trying to communicate comparisons of some sort? If so, does the plot make that particular comparison easy?\n\nPlot Introduction\nBefore revealing your plot, set the stage for its intent. Use words. In your final report, you will be telling a story about the data. You will not just present plots and talk about them. For example, you may introduce a research question that the plot will either help answer or provide information about examining further. After walking the reader through the problem, you will reference a figure containing the plot. For the midterm presentation, you will similarly introduce a question that the plot will help address. Mention the data that the plot visualizes. Are these data minimums, maximums, means, medians, measures of variability, etc. Do the data represent groups of people? Do they include dates? Think of this step as a topic slide before presenting the plot. Your topic title should be brief and clear and you should fill in any more detail with words. This step will set the stage for the audience to understand what data you would be presenting before you throw a plot in their face.\n\n\nPlot Reveal and Explanation\nYou should make sure that you walk the reader through the data visualization. Be explicit about what the axes represent and what any aesthetics represent so that the audience does not have to figure this out. In other words, do not just present the plot and say “we can see there are differences in metric X across time”. Instead, say something more clear like: “This plot visualizes data about Event X for Group/Person/year Y. Along the horizontal axis is… a long the y axis is…. You can see that the average range of times/distances for Event X decreases as athletes’ move through class ranks (e.g, FR to SR). This pattern in the data suggests that…”. You get the point. Your effectiveness to walk the audience through your plot in this way will play a part in evaluation.\n\n\nPlot Discussion\nFor each plot you should:\n\nexplain why you selected this plot as the data visualization of choice to communicate the element of data being communicated\nincorporate information from readings about why you have chosen this plot type\nexplain what modifications you made to the plot (feel free to share code)\nexplain limitations that the plot contains\nshare your future goals to:\n\nreplace the plot with a completely new plot for reason X\nmodify it in one or various ways to solve limitation X, Y, and X\nleave plot as is/explain why the plot needs no work",
+    "text": "Data Visualizations: Story Telling with Pictures\n\nConvey performance metrics using data visualizations\nWalk audience through an explanation of the visualizations\nConvey why you chose the data to plot and why you chose the plot to convey the data\nCommunicate plot limitations and intended amendments along with reasons why\n\nA plot is chosen as a visual aid for a talk, paper, news article, etc. for various reasons:\n\nwas the only plot created\nwas the only plot known how to create\nwas the best of several plots created\n\nEach data visualization must serve a goal for your audience. You should consider how you intend to talk about the visualization to your audience when you create it. If there are different ways to talk about the same data and more than one variant facilitates that communications, you may consider creating more than one.\nYou should stumble upon neither that goal nor the the geom type used to communicate that goal. Are you trying to communicate comparisons of some sort? If so, does the plot make that particular comparison easy?\n\nPlot Introduction\nBefore revealing your plot, set the stage for its intent. Use words. In your final report, you will be telling a story about the data. You will not just present plots and talk about them. For example, you may introduce a research question that the plot will either help answer or provide information about examining further. After walking the reader through the problem, you will reference a figure containing the plot. For the midterm presentation, you will similarly introduce a question that the plot will help address. Mention the data that the plot visualizes. Are these data minimums, maximums, means, medians, measures of variability, etc. Do the data represent groups of people? Do they include dates? Think of this step as a topic slide before presenting the plot. Your topic title should be brief and clear and you should fill in any more detail with words. This step will set the stage for the audience to understand what data you would be presenting before you throw a plot in their face.\n\n\nPlot Reveal and Explanation\nYou should make sure that you walk the reader through the data visualization. Be explicit about what the axes represent and what any aesthetics represent so that the audience does not have to figure this out. In other words, do not just present the plot and say “we can see there are differences in metric X across time”. Instead, say something more clear like: “This plot visualizes data about Event X for Group/Person/year Y. Along the horizontal axis is… a long the y axis is…. You can see that the mean range of times/distances for Event X decreases as athletes’ move through class ranks (e.g, FR to SR). This pattern in the data suggests that…”. You get the point. Your effectiveness to walk the audience through your plot in this way will play a part in evaluation.\n\n\nPlot Discussion\nFor each plot you should:\n\nexplain why you selected this plot as the data visualization of choice to communicate the element of data being communicated\nincorporate information from readings about why you have chosen this plot type\nexplain what modifications you made to the plot (feel free to share code)\nexplain limitations that the plot contains\nshare your future goals to:\n\nreplace the plot with a completely new plot for reason X\nmodify it in one or various ways to solve limitation X, Y, and X\nleave plot as is/explain why the plot needs no work",
     "crumbs": [
       "**Schedule**",
       "<b>Project</b>",
@@ -4592,183 +4592,183 @@
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html",
-    "href": "modules/histograms_and_density_plots.html",
-    "title": "Histograms and density plots",
+    "objectID": "modules/multi_panel_plots_faceting.html",
+    "href": "modules/multi_panel_plots_faceting.html",
+    "title": "Multi-panel plots: Faceting",
     "section": "",
-    "text": "This module focuses on the Cartesian Coordinate system and visualizing data distributions using {ggplot2} geom_histogram() and geom_density(). This module demonstrates some ways to visualize the distribution of a single variable along either the x or y axis. When adding another aesthetic (e.g., fill), this distribution could be visualized along the x axis but for different groupings for a second, fill variable. Visualizations containing multiple levels of a second variable create problems for geom_histogram() out-of-the-box which can be addressed with geom_density() but this approach too can create perceptual problems for more complicated plots. We will also address ways to solve the limitations of visualizing more complex data arrangement in a later section and introduce the {ggridges} library to produce geom_ridgeline() plots.",
+    "text": "When you map variables to aesthetics, you get legends. Legends are certainly helpful but legends cannot remove the plot clutter associated with many subgroups of data corresponding to those levels in the legend. Sometimes, you want to plot individual plots for various subgroups (e.g., each state, student, year, etc.) rather than map a variable containing those subgroups to a plot aesthetic. This is where we create, small multiples, or small versions of the same plot for each subgroup which are then combined into a grid arrangement (e.g., rows, columns). The advantage is that the plots are easier to process. A disadvantage comes with making comparisons across the individual plots when they are not on aligned scales. For example, comparing data on the y-axis is fairly easy to do when plots are arranged in a row (e.g., compare the height position of bars) but when plots are arranged in a column, this comparison is complicated. Heights of bars cannot be compared but instead the length of the bars need to be extracted for comparison. When plots of interest are arranged diagonally, comparing data on either x or y axis is more demanding. This cognitive process is more demanding, thus errors of interpretation can be made. This outcome is a consequence of plots composed small multiples. Nevertheless, lots of individual data can be presented using small multiples and general pattern matching or mismatching processes can be performed quite easily.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#external-functions",
-    "href": "modules/histograms_and_density_plots.html#external-functions",
-    "title": "Histograms and density plots",
+    "objectID": "modules/multi_panel_plots_faceting.html#readings",
+    "href": "modules/multi_panel_plots_faceting.html#readings",
+    "title": "Multi-panel plots: Faceting",
+    "section": "Readings",
+    "text": "Readings\n\n\nWilke (2019). Fundamentals of Data Visualization. Multi-panel figures\nWickham, Navarro, & Pedersen (under revision). ggplot2: Elegant Graphics for Data Analysis (3e). Faceting",
+    "crumbs": [
+      "**Schedule**",
+      "<b>Modules</b>",
+      "**Multi-panel plots: Faceting**"
+    ]
+  },
+  {
+    "objectID": "modules/multi_panel_plots_faceting.html#external-functions",
+    "href": "modules/multi_panel_plots_faceting.html#external-functions",
+    "title": "Multi-panel plots: Faceting",
     "section": "External Functions",
     "text": "External Functions\nProvided in class:\nview_html(): for viewing data frames in html format, from /src/my_functions.R\nYou can use this in your own work space but I am having a challenge rendering this of the website, so I’ll default to print() on occasion.\n\nR.utils::sourceDirectory(here::here(\"src\", \"functions\"))",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#libraries",
-    "href": "modules/histograms_and_density_plots.html#libraries",
-    "title": "Histograms and density plots",
+    "objectID": "modules/multi_panel_plots_faceting.html#libraries",
+    "href": "modules/multi_panel_plots_faceting.html#libraries",
+    "title": "Multi-panel plots: Faceting",
     "section": "Libraries",
-    "text": "Libraries\n\n{dplyr} 1.1.4: for selecting, filtering, and mutating \n{ggplot2} 3.5.1: for plotting",
+    "text": "Libraries\n\n{dplyr} 1.1.4: for selecting, filtering, and mutating\n{forcats} 1.0.0: for creating and ordering factors\n{ggplot2} 3.5.1: for plotting",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#load-libraries",
-    "href": "modules/histograms_and_density_plots.html#load-libraries",
-    "title": "Histograms and density plots",
-    "section": "Load libraries",
-    "text": "Load libraries\n\nlibrary(dplyr)\nlibrary(ggplot2)",
+    "objectID": "modules/multi_panel_plots_faceting.html#creating-facets-using-facet_wrap",
+    "href": "modules/multi_panel_plots_faceting.html#creating-facets-using-facet_wrap",
+    "title": "Multi-panel plots: Faceting",
+    "section": "Creating facets using facet_wrap()",
+    "text": "Creating facets using facet_wrap()\nWe see an overall pattern in the data. We can see a pattern for the Team subgroups across Rank.\nWe can add a facet_wrap() layer in order to plot the teams separately.\n\nbase_plot +\n  facet_wrap(facets = ~Team)\n\n\n\n\n\n\n\n\nWe can add a facet_wrap() layer in order to plot separately per year.\n\nbase_plot +\n  facet_wrap(facets = ~Year)\n\n\n\n\n\n\n\n\nNotice that the x and y axis labels appear but the facet variable name appears as a label into the small multiples.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#geom_histogram",
-    "href": "modules/histograms_and_density_plots.html#geom_histogram",
-    "title": "Histograms and density plots",
-    "section": "geom_histogram()",
-    "text": "geom_histogram()\nThe histogram will plot the counts of common instances within a vector. Plotting a geom_histogram() will require mapping a variable to either x or y in aes(). The only difference will be the distribution orientation, which could have course be changed also with coord_flip().\nIf x = Time:\n\nSWIM |&gt;\n  ggplot(mapping = aes(x = Time)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nIf y = Time:\n\nSWIM |&gt;\n  ggplot(mapping = aes(y = Time)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nIf you have both x and y mapped, you will get an error.\nSWIM |&gt;\n  ggplot(mapping = aes(x = Distance, y = Time)) +\n  geom_histogram()\nError in `geom_histogram()`:\n! Problem while computing stat.\nℹ Error occurred in the 1st layer.\nCaused by error in `setup_params()`:\n! `stat_bin()` must only have an x or y aesthetic.",
+    "objectID": "modules/multi_panel_plots_faceting.html#creating-facets-using-facet_wrapfacets-vars",
+    "href": "modules/multi_panel_plots_faceting.html#creating-facets-using-facet_wrapfacets-vars",
+    "title": "Multi-panel plots: Faceting",
+    "section": "Creating facets using facet_wrap(facets = vars())",
+    "text": "Creating facets using facet_wrap(facets = vars())\nUse vars() instead of ~ to specify the variable because it will offer you greater flexibility and will reduce complications with faceting.\n\nbase_plot +\n  facet_wrap(facets = vars(Year))\n\n\n\n\n\n\n\n\nPassing two variables to vars() will create subplots for each.\n\nbase_plot +\n  facet_wrap(facets = vars(Year, Team))",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#histograms-depend-on-the-chosen-bin-width",
-    "href": "modules/histograms_and_density_plots.html#histograms-depend-on-the-chosen-bin-width",
-    "title": "Histograms and density plots",
-    "section": "Histograms depend on the chosen bin width",
-    "text": "Histograms depend on the chosen bin width\nHistograms are data representations typically use to display counts, frequencies, or instances of events falling within some upper and lower bound range for numeric or continuous variables. For example, counts of salaries for every $5k, weights for every 5 pounds, etc. Histogram functions will typically determine these ranges on their own, which may or may not be suitable for your visualization. All of these elements can be customized.",
+    "objectID": "modules/multi_panel_plots_faceting.html#controlling-columns",
+    "href": "modules/multi_panel_plots_faceting.html#controlling-columns",
+    "title": "Multi-panel plots: Faceting",
+    "section": "Controlling columns",
+    "text": "Controlling columns\nControl the number of columns by setting ncol.\n\nbase_plot +\n  facet_wrap(facets = vars(Year),\n             ncol = 3\n             )",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#setting-bins-number",
-    "href": "modules/histograms_and_density_plots.html#setting-bins-number",
-    "title": "Histograms and density plots",
-    "section": "Setting bins Number",
-    "text": "Setting bins Number\nThe bins parameter in geom_histogram() controls number of bins, defaults to 30, and is overridden by the binwidth argument. Depending on your data, this may or may not provide the best representation of data. You can also specify the number of bins. This will force geom_histogram() to adjust the bin width based on the number of bind you specify. Let’s create two examples.\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(bins = 20) +\n  labs(title = \"bins = 20\", tag = \"A\")\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(bins = 60) +\n  labs(title = \"bins = 60\", tag = \"B\")\n\nBecause the total number of bins will capture all frequency counts in the data, setting fewer bins will result in plots that have more counts per bin than will plots with many bins. Examine the counts along the y-axis to see this.\n\nplot(gridExtra::arrangeGrob(plot1, plot2, ncol = 2))\n\n\n\n\n\n\n\n\nNot only is the narrowness of the bars associated with more bins but the this is the result of fewer counts, which ultimately affects your range along the y axis. This means that when you plot two bars side-by-side (to facilitate comparison of bars by their heights), the height will be confounded by the scale; you are not comparing bars on aligned scales (See Cleveland & McGill (1984)). This results in perceptual problems.",
+    "objectID": "modules/multi_panel_plots_faceting.html#controlling-direction-of-arrangement",
+    "href": "modules/multi_panel_plots_faceting.html#controlling-direction-of-arrangement",
+    "title": "Multi-panel plots: Faceting",
+    "section": "Controlling direction of arrangement",
+    "text": "Controlling direction of arrangement\nChange the direction using dir. By default, dir = \"h\" for a horizontal arrangement. The faceted variable changes from left to right, and top to bottom. Change to dir = \"v\".\n\nbase_plot +\n  facet_wrap(facets = vars(Year),\n             ncol = 3,\n             dir = \"v\"\n             )\n\n\n\n\n\n\n\n\nThe faceted variable now changes from top to bottom, left to right. The arrangement may depend on your goals or how your audience will make comparisons.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#setting-binwidth",
-    "href": "modules/histograms_and_density_plots.html#setting-binwidth",
-    "title": "Histograms and density plots",
-    "section": "Setting binwidth",
-    "text": "Setting binwidth\nWhen you plot a geom_histogram(), R reminds you to consider the binwidth by providing the error: stat_bin() using bins = 30. Pick better value with binwidth. The binwidth argument controls the bin width along the X-axis and this argument overrides the bin argument.\nYou could make your bin width narrow relative to the data being plotted. For example, 1/10 of a second (e.g., binwidth = .1) for swim events. Similarly, if your vector contains discrete values, binwidth = 1 would plot the frequency count for all instances.\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = .1) +\n  labs(title = \"binwidth = .1\", tag = \"A\")\n\nBut this produces a very granular plot that is not very useful. The counts are so few and the distribution is not very apparent visually. By contrast, if you set it too wide (e.g., binwidth = 30), then you might loose a lot of detail. Notice also that the x axis does not provide tick marks that help with the binning, whether narrow or wide.\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 30) +\n  labs(title = \"binwidth = 30\", tag = \"B\")\n\n\nplot(gridExtra::arrangeGrob(plot1, plot2, ncol = 2))\n\n\n\n\n\n\n\n\nIs this plot better?\n\nplot3 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 5) +\n  labs(title = \"binwidth = 5\", tag = \"C\")\n\n\nplot(gridExtra::arrangeGrob(plot1, plot2, ncol = 1))",
+    "objectID": "modules/multi_panel_plots_faceting.html#controlling-the-scales",
+    "href": "modules/multi_panel_plots_faceting.html#controlling-the-scales",
+    "title": "Multi-panel plots: Faceting",
+    "section": "Controlling the scales",
+    "text": "Controlling the scales\nSpeaking of comparisons being made, when the range of values for variables varies by facet level, you may wish to constrain the scales or allow them to vary. By default, scales = \"fixed\" but you can change to move freely for x, y, or both x and y.\nscales = \"fixed\": fix both x and y scales to be the same across plots (default) scales = \"free_x\": x can vary freely, fix y scales = \"free_y\": y can vary freely, fix x scales = \"free\": x and y can vary freely\n\nAllow scales = \"free_y\":\n\nbase_plot +\n  facet_wrap(facets = vars(Year),\n             ncol = 3,\n             dir = \"v\",\n             scales = \"free_y\"\n             )\n\n\n\n\n\n\n\n\n\n\nAllow both scales = \"free\":\n\nbase_plot +\n  facet_wrap(facets = vars(Year),\n             ncol = 3,\n             dir = \"v\",\n             scales = \"free\"\n             )\n\n\n\n\n\n\n\n\nIn this instance, comparing position of points is quite complicated because the axes are not aligned in order to support those comparisons. The view has to evaluate the axes, extract out the values, and then compare. Subtle patterns may be easier to see, however.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#centering-the-bin",
-    "href": "modules/histograms_and_density_plots.html#centering-the-bin",
-    "title": "Histograms and density plots",
-    "section": "Centering the bin",
-    "text": "Centering the bin\nOnce you are happy with the bin width, you can think about centering them. center will be used to specify the center of the bin containing the bin value. For now, there is some adjustment, though not perfect, to the scale to see the differences.\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 200) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 10) +\n  ggtitle(\"binwidth = 10\") +\n  # add some detailing to see better\n  scale_x_continuous(breaks = seq(0, 350, 10)) +\n  labs(title = \"default center\", tag = \"A\")\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 200) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 10,\n                 center = 1) +\n  # add some detailing to see better \n  scale_x_continuous(breaks = seq(0, 350, 10)) +\n  labs(title = \"center = 1\", tag = \"B\")\n\nplot3 &lt;- SWIM |&gt;\n  filter(Time &lt; 200) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 10,\n                 center = 0) +\n  # add some detailing to see better\n  scale_x_continuous(breaks = seq(0, 350, 10)) +\n  labs(title = \"center = 0\", tag = \"C\")\n\nplot4 &lt;- SWIM |&gt;\n  filter(Time &lt; 200) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(binwidth = 10,\n                 center = 5) +\n  # add some detailing to see better \n  scale_x_continuous(breaks = seq(0, 350, 10)) +\n  labs(title = \"center = 5\", tag = \"D\")\n\nplot(gridExtra::arrangeGrob(plot1, plot2, plot3, plot4, ncol = 2))\n\n\n\n\n\n\n\n\nFor more details on center, see ?geom_histogram.",
+    "objectID": "modules/multi_panel_plots_faceting.html#change-the-order-by-ordering-the-factor",
+    "href": "modules/multi_panel_plots_faceting.html#change-the-order-by-ordering-the-factor",
+    "title": "Multi-panel plots: Faceting",
+    "section": "Change the order by ordering the factor()",
+    "text": "Change the order by ordering the factor()\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = factor(Team, \n                       levels = c(\"Stag\", \"Athena\"))) |&gt;     # factor and level order \n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       #color = Team\n                       )) +\n  geom_point(position = position_jitter()) +\n  geom_smooth(method = \"lm\") +\n  theme(legend.position = \"none\") +\n  facet_wrap(facets = vars(Team))",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#color-and-other-aesthetics",
-    "href": "modules/histograms_and_density_plots.html#color-and-other-aesthetics",
-    "title": "Histograms and density plots",
-    "section": "Color and other Aesthetics",
-    "text": "Color and other Aesthetics\nAnd can also change the color of the bars in the histogram or make them transparent (e.g., fill = \"transparent\").\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(\n    fill = \"tomato2\",\n    color = \"black\",\n    linetype = \"dashed\"\n  ) +\n  labs(title = 'fill = \"tomato2\"\\nlinetype = \"dashed\"',\n      tag = \"A\"\n      )\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_histogram(\n    fill = \"transparent\",\n    color = \"tomato2\",\n    linetype = \"solid\"\n  ) +\n  labs(title = 'color = \"tomato2\"\\nlinetype = \"solid\"',\n       tag = \"B\"\n  )\n\nTwo arrangements of the plots illustrate their differences.\n\npatchwork::plot_layout(plot1 + plot2)\n\n$ncol\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n$nrow\nNULL\n\n$byrow\nNULL\n\n$widths\nNULL\n\n$heights\nNULL\n\n$guides\nNULL\n\n$tag_level\nNULL\n\n$axes\nNULL\n\n$axis_titles\nNULL\n\n$design\nNULL\n\nattr(,\"class\")\n[1] \"plot_layout\"\n\npatchwork::plot_layout(plot1 / plot2)\n\n$ncol\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n$nrow\nNULL\n\n$byrow\nNULL\n\n$widths\nNULL\n\n$heights\nNULL\n\n$guides\nNULL\n\n$tag_level\nNULL\n\n$axes\nNULL\n\n$axis_titles\nNULL\n\n$design\nNULL\n\nattr(,\"class\")\n[1] \"plot_layout\"",
+    "objectID": "modules/multi_panel_plots_faceting.html#change-the-order-by-ordering-of-the-data-using-forcatsfct_reorder",
+    "href": "modules/multi_panel_plots_faceting.html#change-the-order-by-ordering-of-the-data-using-forcatsfct_reorder",
+    "title": "Multi-panel plots: Faceting",
+    "section": "Change the order by ordering of the data using forcats::fct_reorder()",
+    "text": "Change the order by ordering of the data using forcats::fct_reorder()\nWe can use forcats::fct_reorder() for reordering as we have done before for single plots. When the levels of a factor occur more than once, fct_reorder() applies a summary function, which by default is median() and the sorting order is from lowest to highest value.\n\nOrder by the default behavior\nWe can add the arguments so they are visible.\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = factor(Team, \n                       levels = c(\"Stag\", \"Athena\"))) |&gt; \n  mutate(Team = forcats::fct_reorder(.f = Team,      # the factor to sort  \n                                     .x = Meters,    # the variable to sort by\n                                     .fun = median,  # the default function\n                                     .desc = FALSE   # the default sorting behavior\n                                     )\n         ) |&gt;\n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       )) +\n  geom_point(position = position_jitter()) +\n  geom_smooth(method = \"lm\") +\n  theme(legend.position = \"none\") +\n  facet_wrap(facets = vars(Team))\n\n\n\n\n\n\n\n\n\n\nOrder by the mean() and sort from highest to lowest\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = forcats::fct_reorder(.f = Team,      # the factor to sort  \n                                     .x = Meters,    # the variable to sort by\n                                     .fun = mean,    # the mean function\n                                     .desc = FALSE   # the default sorting behavior\n                                     )\n         ) |&gt;\n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       )) +\n  geom_point(position = position_jitter()) +\n  geom_smooth(method = \"lm\") +\n  theme(legend.position = \"none\") +\n  facet_wrap(facets = vars(Team))\n\n\n\n\n\n\n\n\n\n\nOrder by a function\nWe can pass a function that determines the difference between the mean() and the median(). If we can about the difference being positive or negative, the order of these computations will matter. If we want to order based on the size of the difference between the two metrics, we can take the absolute value of the difference using abs().\n\n~ abs(med(.x) - mean(.x)): a difference between median and mean\nmean(x, trim = 0.1): the mean that is based on trimming the outlying 10%\nmax(x) - min(x)): the range\n\n\nDATA |&gt;\n  mutate(Team = forcats::fct_reorder(.f = Team,      # the factor to sort  \n                                     .x = Meters,    # the variable to sort by\n                                     # a function \n                                     .fun = ~ abs(median(.x) - mean(.x)),  \n                                     # also but more complicated function approach \n                                     #.fun = function(x) { abs(median(x) - mean(x)) },  \n                                     .desc = TRUE    # from largest value to the smallest \n                                     )\n         ) |&gt;\n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       )) +\n  geom_point(position = position_jitter()) +\n  geom_smooth(method = \"lm\") +\n  theme(legend.position = \"none\") +\n  facet_wrap(facets = vars(Team)) +\n  labs(title = NULL)\n\n\n\n\n\n\n\n\nImportantly, the ordering of the panels in the facet plot always communicates information that is not visible or easily extracted from the visualization. By default, this ordering is by character or number. The facet with the largest mean may appear in facet position 1 or 12 (think random) but your goal may not be to communicate that difference across facets. A systematic ordering of the panels, however, using fct_reorder() represents a decision (whether conscious or not) to order the panels based on some method other than the default alphabetical or numeric order. This consequence is because both fct_reorder() and fct_reorder2() apply a function by with to order the data based on some variable and they then apply a sorting method based on that function. When you consciously apply fct_reorder(), you are doing so for a specific reason. Thus, you would want to communicate that information either in the plot title, subtitle, caption, or in a written report. Keep in mind that the ordering of panels reflects data compared across panels in the data visualization.",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#stacked-histograms",
-    "href": "modules/histograms_and_density_plots.html#stacked-histograms",
-    "title": "Histograms and density plots",
-    "section": "Stacked histograms",
-    "text": "Stacked histograms\nYou can stack bars in histograms just as you did with geom_bar(). Mapping a variable to fill will introduce the distribution for levels of the fill variable. However, if you think stacking a histogram will be useful, it really isn’t.\n\nSWIM |&gt;\n  ggplot(mapping = aes(x = Time, fill = Team)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nEven if the bars are not opaque, they are not much better. In general, histograms with overlapped bars a rarely useful.\n\nSWIM |&gt;\n  ggplot(mapping = aes(x = Time, fill = Team)) +\n  geom_histogram(alpha = .5)\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nThere are certainly things that you can do to the plot but there are better options.",
+    "objectID": "modules/multi_panel_plots_faceting.html#repositioning-the-label-strip",
+    "href": "modules/multi_panel_plots_faceting.html#repositioning-the-label-strip",
+    "title": "Multi-panel plots: Faceting",
+    "section": "Repositioning the label strip",
+    "text": "Repositioning the label strip\nBy default, the facet label will be on the top of the plot because strip.position = \"top\" but you can set to \"top\", \"bottom\", \"left\", or \"right\".\nLet’s set strip.position = \"left\":\n\n(base_plot &lt;-\n  DATA |&gt;\n  mutate(Team = forcats::fct_reorder(.f = Team,      # the factor to sort  \n                                     .x = Meters,    # the variable to sort by\n                                     .fun = mean,    # the mean function\n                                     .desc = FALSE   # the default sorting behavior\n                                     )\n        ) |&gt;\n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       )) +\n  geom_point(position = position_jitter()) +\n  geom_smooth(method = \"lm\") +\n  theme(legend.position = \"none\") \n)\n\n\n\n\n\n\n\nbase_plot +\n    facet_wrap(facets = vars(Team),\n               strip.position = \"left\"\n               )\n\n\n\n\n\n\n\n\nLet’s set strip.position = \"bottom\":\n\nbase_plot +\n  facet_wrap(facets = vars(Team),\n             strip.position = \"bottom\"\n             )\n\n\n\n\n\n\n\n\nAlthough this repositioning is handled by theme(), theme(strip.placement = \"outside\")\n\nbase_plot +\n  facet_wrap(facets = vars(Team),\n             strip.position = \"bottom\"\n             ) +\n  theme(strip.placement = \"outside\")",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#histograms-with-y-as-density",
-    "href": "modules/histograms_and_density_plots.html#histograms-with-y-as-density",
-    "title": "Histograms and density plots",
-    "section": "Histograms with y as Density",
-    "text": "Histograms with y as Density\nThe default operation of geom_histogram() is to plot the frequency counts along the y axis corresponding to the x variable mapped in aes(). The statistical transformation adjusted using after_stat(). You will see that the default mapping to the y variable is after_stat(count). We can add this explicitly either in geom_histogram() to across ggplot() and geom_histogram()\nFor example:\n  ggplot() + \n  geom_histogram(mapping = aes(x = Time,\n                               y = after_stat(count)\n                               )\n  )\n  \n  ggplot(mapping = aes(x = Time)) + \n  geom_histogram(mapping = aes(y = after_stat(count)))\n\nafter_stat(count)\n\n(plot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot() +\n  geom_histogram(mapping = aes(x = Time,\n                               y = after_stat(count)\n                     )\n                 ) +\n  labs(title = 'aes(y = after_stat(count))',\n       tag = \"A\")\n)\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nThe plot looks the same as we have seen before because this is the default operation. We can, however, change the statistical transformation using after_stat() to create a density plot.\n\n\nafter_stat(density)\n\n(plot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot() +\n  geom_histogram(mapping = aes(x = Time,\n                               y = after_stat(density)\n                     )\n                 ) +\n  labs(title = 'aes(y = after_stat(density))', \n       tag = \"B\"\n       )\n)\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nUsing {patchwork} to create a grob, we can divide the grid space using / so that the plots are on top of each other.\n\n\n$ncol\n\n\n\n\n\n\n\n\n\n\n$nrow\nNULL\n\n$byrow\nNULL\n\n$widths\nNULL\n\n$heights\nNULL\n\n$guides\nNULL\n\n$tag_level\nNULL\n\n$axes\nNULL\n\n$axis_titles\nNULL\n\n$design\nNULL\n\nattr(,\"class\")\n[1] \"plot_layout\"\n\n\nNotice, however, that the visualization of the binned bars along with the density function does not provide provide what you might expect to see. That’s because a density function is continuous whereas histograms are not.\nIf you add a density layer, you can see them both together:\n\nplot2 + geom_density(mapping = aes(x = Time))\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nMore on geom_density() later.",
+    "objectID": "modules/multi_panel_plots_faceting.html#facet_gridrows-vars",
+    "href": "modules/multi_panel_plots_faceting.html#facet_gridrows-vars",
+    "title": "Multi-panel plots: Faceting",
+    "section": "facet_grid(rows = vars())",
+    "text": "facet_grid(rows = vars())\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = factor(Team, levels = c(\"Stag\", \"Athena\"))) |&gt;     # factor and level order \n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       fill = as.character(Rank) # or just Rank for continuous color bar\n                       )) +\n  stat_summary(fun = mean, geom = \"bar\") +\n  facet_grid(rows = vars(Team))\n\n\n\n\n\n\n\n\nBe careful what you facet as you might create something you don’t intend.\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = factor(Team, levels = c(\"Stag\", \"Athena\"))) |&gt;     # factor and level order \n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       fill = as.character(Rank) # or just Rank for continuous color bar\n                       )) +\n  stat_summary(fun = mean, geom = \"bar\") +\n  facet_grid(rows = vars(Rank))",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#histograms-using-stat_bin",
-    "href": "modules/histograms_and_density_plots.html#histograms-using-stat_bin",
-    "title": "Histograms and density plots",
-    "section": "Histograms using stat_bin",
-    "text": "Histograms using stat_bin\nAlthough you are familiar with the usage of geom_()s that include statistical transformations (remember all plots have a stat_()), statistical transformation functions with naming convention stat_*() allow for geoms. For stat_bin, which create bins, the default geom = \"bar\" and position = \"stack\", which you saw with the stacking of the colored bars using geom_histogram().\nstat_bin(\n  mapping = NULL,\n  data = NULL,\n  geom = \"bar\",\n  position = \"stack\",\n  ...,\n  binwidth = NULL,\n  bins = NULL,\n  center = NULL,\n  boundary = NULL,\n  breaks = NULL,\n  closed = c(\"right\", \"left\"),\n  pad = FALSE,\n  na.rm = FALSE,\n  orientation = NA,\n  show.legend = NA,\n  inherit.aes = TRUE\n)\ngeom = \"bar\"\n\nSWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  stat_bin(\n    geom = \"bar\"\n  )\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.",
+    "objectID": "modules/multi_panel_plots_faceting.html#facet_gridcols-vars",
+    "href": "modules/multi_panel_plots_faceting.html#facet_gridcols-vars",
+    "title": "Multi-panel plots: Faceting",
+    "section": "facet_grid(cols = vars())",
+    "text": "facet_grid(cols = vars())\n\nDATA |&gt;\n  filter(!is.na(Rank)) |&gt;\n  mutate(Team = factor(Team, levels = c(\"Stag\", \"Athena\"))) |&gt;     # factor and level order \n  ggplot(mapping = aes(x = Rank, \n                       y = Meters,\n                       fill = as.character(Rank) # or just Rank for continuous color bar\n                       )) +\n  stat_summary(fun = mean, geom = \"bar\") +\n  facet_grid(cols = vars(Team))",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
-    "objectID": "modules/histograms_and_density_plots.html#densities-or-area-plots-using-stat_bin",
-    "href": "modules/histograms_and_density_plots.html#densities-or-area-plots-using-stat_bin",
-    "title": "Histograms and density plots",
-    "section": "Densities or Area Plots using stat_bin",
-    "text": "Densities or Area Plots using stat_bin\nYou can modify the geom to \"density\" or \"area\" by passing arguments.\nstat_bin(geom = \"density\")\nstat_bin(geom = \"area\"\nOr even modify stat to a “density” plot:\nstat_bin(stat = \"density\")\nStarting with geom = \"density\":\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  stat_bin(\n    geom = \"density\",\n    fill = \"gold\",\n    col  = \"black\"\n  ) +\n  labs(title = 'geom = \"density\"',\n       tag = \"A\"\n       )\n\nAnd then geom = \"area\":\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  stat_bin(\n    geom = \"area\",\n    fill = \"gold\",\n    col = \"black\"\n  ) +\n  labs(title = 'geom = \"area\"',\n       tag = \"B\"\n  )\n\nplot(gridExtra::arrangeGrob(plot1, plot2, ncol = 1))\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\nAs you can see, the geom settings produce the same plots.",
+    "objectID": "modules/multi_panel_plots_faceting.html#rows-and-columns-facet_gridcols-vars",
+    "href": "modules/multi_panel_plots_faceting.html#rows-and-columns-facet_gridcols-vars",
+    "title": "Multi-panel plots: Faceting",
+    "section": "Rows and columns facet_grid(cols = vars())",
+    "text": "Rows and columns facet_grid(cols = vars())\nIf your variables allow, you can combine grids with rows and columns.\n\nSWIM &lt;- readr::read_csv(\"https://github.com/slicesofdata/dataviz24/raw/main/data/swim/cleaned-2023-CMS-Invite.csv\")\n\nSWIM |&gt;\n  filter(Distance &gt; 50 & Distance &lt; 500) |&gt;\n  ggplot(mapping = aes(x = Split50, \n                       y = Time\n                       )) +\n  geom_point(position = position_jitter()) + \n  geom_smooth() +\n  facet_grid(rows = vars(Event),\n             cols = vars(Distance)\n             )\n\n\n\n\n\n\n\n\nOr by a character vector variable.\n\nSWIM |&gt;\n  filter(Team != \"Mixed\") |&gt;\n  filter(Team != \"Freestyle\") |&gt;\n  ggplot(mapping = aes(x = Split50, \n                       y = Time\n                       )) +\n  geom_point(position = position_jitter()) + \n  geom_smooth() +\n  facet_grid(rows = vars(Distance),\n             cols = vars(Team)\n             )\n\n\n\n\n\n\n\n\nClearly, we need to clean up the axes for this plot. You can allow scales to vary as was done using facet_wrap() or you can adjust the scales.\n\nSWIM |&gt;\n  filter(Team != \"Mixed\") |&gt;\n  filter(Team != \"Freestyle\") |&gt;\n  ggplot(mapping = aes(x = Split50, \n                       y = Time\n                       )) +\n  geom_point(position = position_jitter()) + \n  geom_smooth() +\n  facet_grid(rows = vars(Distance),\n             cols = vars(Team),\n             scales = \"free\"\n             )",
     "crumbs": [
       "**Schedule**",
       "<b>Modules</b>",
-      "**Histograms and density plots**"
-    ]
-  },
-  {
-    "objectID": "modules/histograms_and_density_plots.html#geom_density",
-    "href": "modules/histograms_and_density_plots.html#geom_density",
-    "title": "Histograms and density plots",
-    "section": "geom_density()",
-    "text": "geom_density()\ngeom_density(\n  mapping = NULL,\n  data = NULL,\n  stat = \"density\",\n  position = \"identity\",\n  ...,\n  na.rm = FALSE,\n  orientation = NA,\n  show.legend = NA,\n  inherit.aes = TRUE,\n  outline.type = \"upper\"\n)\nWe can also change aesthetics using:\n- color: line color\n- size: line thickness\n- linetype: line type \n- fill: fill color of the area \n- alpha: opacity/transparency\nLet’s create some plots.\n\nplot1 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_density() +   \n  labs(title = \"no fill\", tag = \"A\")\n\nplot2 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_density(fill = \"gold\") +\n  labs(title = 'fill = \"gold\"', tag = \"B\")\n\nplot3 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_density(\n    fill = \"gold\",\n    bw = 0.5,               # a very small bandwidth\n    kernel = \"gaussian\"     # Gaussian kernel (the default)\n  ) +\n  labs(title = 'fill = \"gold\"\\nkernel = \"gaussian\"', tag = \"C\")\n\nplot4 &lt;- SWIM |&gt;\n  filter(Time &lt; 500) |&gt;\n  ggplot(mapping = aes(Time)) +\n  geom_density(\n    fill = \"gold\",\n    bw = 50,                   # a larger bandwidth\n    kernel = \"rectangular\"     # Gaussian kernel (the default)\n  ) +\n  labs(title = 'fill = \"gold\"\\nkernel = \"rectangular\"', tag = \"D\")\n\n\nplot(gridExtra::arrangeGrob(plot1, plot2, plot3, plot4, ncol = 2))\n\n\n\n\n\n\n\n\nThe plots present the data in different ways. Choosing the best type of plot will involve some consideration. You should not feel compelled to use plots out-of-the-box.",
-    "crumbs": [
-      "**Schedule**",
-      "<b>Modules</b>",
-      "**Histograms and density plots**"
+      "**Multi-panel plots: Faceting**"
     ]
   },
   {
