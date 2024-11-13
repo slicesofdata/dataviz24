@@ -677,6 +677,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="incremental collapse">
   <li><a href="#steps-for-merging-a-remote-branch-into-a-local-branch" id="toc-steps-for-merging-a-remote-branch-into-a-local-branch" class="nav-link" data-scroll-target="#steps-for-merging-a-remote-branch-into-a-local-branch"><strong>Steps for Merging a Remote Branch into a Local Branch</strong></a></li>
   </ul></li>
+  <li><a href="#deciding-when-to-use-each-approach" id="toc-deciding-when-to-use-each-approach" class="nav-link" data-scroll-target="#deciding-when-to-use-each-approach"><strong>Deciding When to Use Each Approach</strong></a></li>
   <li><a href="#more-than-2-collaborators-more-than-2-branches" id="toc-more-than-2-collaborators-more-than-2-branches" class="nav-link" data-scroll-target="#more-than-2-collaborators-more-than-2-branches"><strong>More than 2 Collaborators, More than 2 Branches</strong></a></li>
   </ul>
 </nav>
@@ -771,7 +772,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="solution" class="level2">
 <h2 class="anchored" data-anchor-id="solution"><strong>Solution</strong></h2>
-<p>Bill will use Git commands to <code>fetch</code> Jane’s remote branch, <code>merge</code> those changes into his local <code>bill</code> branch, and update the remote <code>bill</code> branch on GitHub.</p>
+<p>Bill will use Git commands to <code>fetch</code> Jane’s remote branch, <code>merge</code> those changes into his local <code>bill</code> branch, and update the remote <code>bill</code> branch on GitHub. <em>Note:</em> The same solution can be applied for all branches or the main branches as described after the example steps.</p>
 <section id="steps-for-merging-a-remote-branch-into-a-local-branch" class="level3">
 <h3 class="anchored" data-anchor-id="steps-for-merging-a-remote-branch-into-a-local-branch"><strong>Steps for Merging a Remote Branch into a Local Branch</strong></h3>
 <p>These steps assume that Jane has informed Bill and other team members that she has completed her feature (e.g., <code>.R</code> script file, <code>.Rds</code> processed data file or aggregated/summarized data frame (no <code>.csv</code>’s), <code>.png</code> plot, or something else) and she has pushed them to her remote branch on GitHub.</p>
@@ -827,28 +828,36 @@ If you merge
 
 
 -->
-<!--
+<pre><code>
+```{=html}
+&lt;!--
 To check which files are conflicting, Bill can use:
 
 `git status`
 
 Bill can then open the conflicting files, resolve the conflicts, and stage the resolved files with:
 
-`git add <file>`
--->
-</section>
-<section id="step-5-commit-the-merge" class="level4">
-<h4 class="anchored" data-anchor-id="step-5-commit-the-merge"><strong>Step 5: Commit the Merge</strong></h4>
-<p>The merge using <code>git merge origin/jane</code> also automatically stages/adds the changes that occurred as part of the merge. Thus, they need to be committed.</p>
-<p>Bill can not commit the merge (assuming there are no conflicts or they have been resolved): <!-- and the changes are staged):--></p>
-<p><code>git commit -m "merged remote jane into local bill"</code></p>
-</section>
-<section id="step-6-push-the-updated-local-branch-to-the-remote-repository" class="level4">
-<h4 class="anchored" data-anchor-id="step-6-push-the-updated-local-branch-to-the-remote-repository"><strong>Step 6: Push the Updated Local Branch to the Remote Repository</strong></h4>
-<p>Once committed, Bill needs to push his updated local <code>bill</code> branch (now with Jane’s changes) to the remote repository:</p>
-<p><code>git push origin bill</code></p>
-<p>Although <code>git push</code> would work just fine, <strong>adding <code>origin bill</code> leaves no ambiguity about the command’s behavior and ensures that the remote <code>bill</code> branch on GitHub</strong> is updated with the changes from (now) both Bill’s and Jane’s work.</p>
-<!--
+`git add &lt;file&gt;`
+--&gt;
+
+
+#### **Step 5: Commit the Merge**
+
+The merge using `git merge origin/jane` also automatically stages/adds the changes that occurred as part of the merge. Thus, they need to be committed.
+
+Bill can not commit the merge (assuming there are no conflicts or they have been resolved): &lt;!-- and the changes are staged):--&gt;
+
+`git commit -m "merged remote jane into local bill"`
+
+#### **Step 6: Push the Updated Local Branch to the Remote Repository**
+
+Once committed, Bill needs to push his updated local `bill` branch (now with Jane's changes) to the remote repository:
+
+`git push origin bill`
+
+Although `git push` would work just fine, **adding `origin bill` leaves no ambiguity about the command's behavior and ensures that the remote `bill` branch on GitHub** is updated with the changes from (now) both Bill's and Jane's work.
+
+&lt;!--
 ### **Routine Merging into the Main Branch**
 
 As a best practice, the **Code Lead should routinely merge feature branches** into their own branch (thus similar to the main branch) in order to ensure the all files are working correctly. Adding them to the team report `.Rmd` file will also ensure that they can be `source()`'d and the file can be produced without error.  
@@ -881,15 +890,54 @@ git merge origin/bill
 git commit -m "Merged bill into main"
 git push
 
--->
+--&gt;
+
+## **Fetching Updates to Main Branch**
+
+If there are updates to the main branch, for example, your liaison adds new data, you can `fetch` those using the same process. You would also follow this approach if your code lead updates the main branch and you need the changes made there. 
+
+For fetching the **main branch only:**
+</code></pre>
+<p>git fetch origin main git merge origin/main</p>
+<pre><code>
+&lt;!-- 
+Resolve any conflicts if needed: If there are conflicts, Git will prompt you to resolve them. Edit the conflicted files as needed, then add them:
+
+git add &lt;conflicted-file&gt;
+git commit
+--&gt;
+
+
+## **Fetching Updates to All Branches**
+
+If you make committing changes to your main branch and fetching changes from other branches a weekly process, you can instead fetch changes to all branches. This approach may be preferred to fetching individual branches. However, if a teammate makes changes that you need, you 
+
+For fetching **all branches including the main branch:**
+</code></pre>
+<p>git fetch origin git merge origin/main ```</p>
 </section>
 </section>
+</section>
+<section id="deciding-when-to-use-each-approach" class="level2">
+<h2 class="anchored" data-anchor-id="deciding-when-to-use-each-approach"><strong>Deciding When to Use Each Approach</strong></h2>
+<p>Use <code>git fetch origin</code> (all branches) if:</p>
+<ul class="incremental">
+<li>You want to make sure all branch references are current.</li>
+<li>You are working on a project where multiple branches are frequently updated and you may need to switch between them.</li>
+<li>You are working in a team environment with several active branches and want a complete view of all recent changes.</li>
+</ul>
+<p>Use <code>git fetch origin &lt;branch-name&gt;</code> (specific branch) if:</p>
+<ul class="incremental">
+<li>You are focused on a specific branch and do not need other branches updated.</li>
+<li>The repository is large with many branches and you want a quicker fetch.</li>
+<li>You are interested only in a particular branch’s changes and want to avoid merging or managing updates from other branches.</li>
+</ul>
 </section>
 <section id="more-than-2-collaborators-more-than-2-branches" class="level2">
 <h2 class="anchored" data-anchor-id="more-than-2-collaborators-more-than-2-branches"><strong>More than 2 Collaborators, More than 2 Branches</strong></h2>
 <p>Jane is excited about the project and is making great progress. She updates a current code file, creates two more files, stages, commits, and pushes the changes to the remote repo.</p>
 <p>Sam enters the collaboration with a <code>sam</code> branch. After Jane has made these recent changes, Sam performs a <code>fetch</code> and <code>merge</code> of Jane’s branch exactly as did Bill. The difference is that Sam has a more recent version of one file and has two more files from Jane’s branch than does Bill.</p>
-<p>Sam now wants to <code>fetch</code> and <code>merge</code> Bill’s remote branch with his local branch. Although Bill has older versions of Jane’s files in his branch, Sam will retain versions of the files fetched from Jane’s remote branch. This occurs because Git uses a three-way merge algorithm for comparing the common ancestor of both branches and applies the most recent changes based on commit timestamps.</p>
+<p>Sam now wants to <code>fetch</code> and <code>merge</code> Bill’s remote branch with his local branch. Although Bill has older versions of Jane’s files in his branch, Sam will retain versions of the files fetched from Jane’s remote branch. This occurs because Git uses a three-way merge algorithm for comparing the common ancestor of both branches and applies the most recent changes based on commit time stamps.</p>
 <p><strong>Warning:</strong> If you are not vigilant and you modify a teammate’s file on your branch, you may experience problems. For example, If Bill modifies code on the same lines in Jane’s file, Git will flag a merge conflict. Git will not automatically choose which version of the file to keep. You will need to do this manually.</p>
 
 
