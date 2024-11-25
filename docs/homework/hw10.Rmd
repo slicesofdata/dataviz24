@@ -1,2 +1,44 @@
-File not yet available. Check back later.
+---
+title: "Homework 10"
+author: "your-name"
+  html_document:
+    toc: false
+    number_sections: true
+---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For this homework, used this `R Markdown` (e.g., `.Rmd`) file and save it to your `/report` project directory on your computer with the name and a prefix `hw09-Lastname-FirstInitial`. Full name example: `hw10cookg.Rmd`. Make sure to add your name to the YAML code above.
+
+
+1. Bullets and R Markdown. Using R Markdown code, create bullet points to communicate 5 or more items that you learned over the course of the class. Show that you know how use bold and italics code for emphasis.
+
+
+
+
+2. Challenging experiences. Describe something that you found most challenging about the class and how you attempted to overcome that challenge. For this, underline for emphasis. Underlining in files is somewhat more difficult because the approach depends on the file output format. For html files, underlining is handled using HTML code using `<u>text to underline</u>`. For pdf file, underlining is handled using LaTex code using `\underline{text to underline}`.
+
+
+
+
+
+3. Rewarding experiences. Share with me what you found most rewarding about taking the class. 
+
+
+
+
+
+
+4. Of all the data visualizations you created for this class, share the visualization with which you are most proud of creating. The plot could be from the project, exercises, homework assignments, or from independent practice. For this problem, you will need to determine how to get the plot into this document.
+
+
+
+
+
+
+
+
+Finally, knit an `html` file and upload to:
+https://ln5.sync.com/dl/a038628f0/wwfifjxk-f7rfshin-rkedi3y8-77f9zaii
