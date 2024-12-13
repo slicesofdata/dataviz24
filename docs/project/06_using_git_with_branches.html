@@ -677,6 +677,8 @@ ul.task-list li input[type="checkbox"] {
   <ul class="incremental collapse">
   <li><a href="#steps-for-merging-a-remote-branch-into-a-local-branch" id="toc-steps-for-merging-a-remote-branch-into-a-local-branch" class="nav-link" data-scroll-target="#steps-for-merging-a-remote-branch-into-a-local-branch"><strong>Steps for Merging a Remote Branch into a Local Branch</strong></a></li>
   </ul></li>
+  <li><a href="#fetching-updates-to-main-branch" id="toc-fetching-updates-to-main-branch" class="nav-link" data-scroll-target="#fetching-updates-to-main-branch"><strong>Fetching Updates to Main Branch</strong></a></li>
+  <li><a href="#fetching-updates-made-to-all-branches" id="toc-fetching-updates-made-to-all-branches" class="nav-link" data-scroll-target="#fetching-updates-made-to-all-branches"><strong>Fetching Updates Made to All Branches</strong></a></li>
   <li><a href="#deciding-when-to-use-each-approach" id="toc-deciding-when-to-use-each-approach" class="nav-link" data-scroll-target="#deciding-when-to-use-each-approach"><strong>Deciding When to Use Each Approach</strong></a></li>
   <li><a href="#more-than-2-collaborators-more-than-2-branches" id="toc-more-than-2-collaborators-more-than-2-branches" class="nav-link" data-scroll-target="#more-than-2-collaborators-more-than-2-branches"><strong>More than 2 Collaborators, More than 2 Branches</strong></a></li>
   </ul>
@@ -828,36 +830,28 @@ If you merge
 
 
 -->
-<pre><code>
-```{=html}
-&lt;!--
+<!--
 To check which files are conflicting, Bill can use:
 
 `git status`
 
 Bill can then open the conflicting files, resolve the conflicts, and stage the resolved files with:
 
-`git add &lt;file&gt;`
---&gt;
-
-
-#### **Step 5: Commit the Merge**
-
-The merge using `git merge origin/jane` also automatically stages/adds the changes that occurred as part of the merge. Thus, they need to be committed.
-
-Bill can not commit the merge (assuming there are no conflicts or they have been resolved): &lt;!-- and the changes are staged):--&gt;
-
-`git commit -m "merged remote jane into local bill"`
-
-#### **Step 6: Push the Updated Local Branch to the Remote Repository**
-
-Once committed, Bill needs to push his updated local `bill` branch (now with Jane's changes) to the remote repository:
-
-`git push origin bill`
-
-Although `git push` would work just fine, **adding `origin bill` leaves no ambiguity about the command's behavior and ensures that the remote `bill` branch on GitHub** is updated with the changes from (now) both Bill's and Jane's work.
-
-&lt;!--
+`git add <file>`
+-->
+</section>
+<section id="step-5-commit-the-merge" class="level4">
+<h4 class="anchored" data-anchor-id="step-5-commit-the-merge"><strong>Step 5: Commit the Merge</strong></h4>
+<p>The merge using <code>git merge origin/jane</code> also automatically stages/adds the changes that occurred as part of the merge. Thus, they need to be committed.</p>
+<p>Bill can not commit the merge (assuming there are no conflicts or they have been resolved): <!-- and the changes are staged):--></p>
+<p><code>git commit -m "merged remote jane into local bill"</code></p>
+</section>
+<section id="step-6-push-the-updated-local-branch-to-the-remote-repository" class="level4">
+<h4 class="anchored" data-anchor-id="step-6-push-the-updated-local-branch-to-the-remote-repository"><strong>Step 6: Push the Updated Local Branch to the Remote Repository</strong></h4>
+<p>Once committed, Bill needs to push his updated local <code>bill</code> branch (now with Jane’s changes) to the remote repository:</p>
+<p><code>git push origin bill</code></p>
+<p>Although <code>git push</code> would work just fine, <strong>adding <code>origin bill</code> leaves no ambiguity about the command’s behavior and ensures that the remote <code>bill</code> branch on GitHub</strong> is updated with the changes from (now) both Bill’s and Jane’s work.</p>
+<!--
 ### **Routine Merging into the Main Branch**
 
 As a best practice, the **Code Lead should routinely merge feature branches** into their own branch (thus similar to the main branch) in order to ensure the all files are working correctly. Adding them to the team report `.Rmd` file will also ensure that they can be `source()`'d and the file can be produced without error.  
@@ -890,33 +884,29 @@ git merge origin/bill
 git commit -m "Merged bill into main"
 git push
 
---&gt;
-
-## **Fetching Updates to Main Branch**
-
-If there are updates to the main branch, for example, your liaison adds new data, you can `fetch` those using the same process. You would also follow this approach if your code lead updates the main branch and you need the changes made there. 
-
-For fetching the **main branch only:**
-</code></pre>
-<p>git fetch origin main git merge origin/main</p>
+-->
+</section>
+</section>
+</section>
+<section id="fetching-updates-to-main-branch" class="level2">
+<h2 class="anchored" data-anchor-id="fetching-updates-to-main-branch"><strong>Fetching Updates to Main Branch</strong></h2>
+<p>If there are updates to the main branch, for example, your liaison adds new data, you can <code>fetch</code> those using the same process. You would also follow this approach if your code lead updates the main branch and you need the changes made there.</p>
+<p>For fetching the <strong>main branch only:</strong></p>
 <pre><code>
-&lt;!-- 
+git fetch origin main git merge origin/main
+</code></pre>
+<!-- 
 Resolve any conflicts if needed: If there are conflicts, Git will prompt you to resolve them. Edit the conflicted files as needed, then add them:
 
-git add &lt;conflicted-file&gt;
+git add <conflicted-file>
 git commit
---&gt;
-
-
-## **Fetching Updates to All Branches**
-
-If you make committing changes to your main branch and fetching changes from other branches a weekly process, you can instead fetch changes to all branches. This approach may be preferred to fetching individual branches. However, if a teammate makes changes that you need, you 
-
-For fetching **all branches including the main branch:**
-</code></pre>
-<p>git fetch origin git merge origin/main ```</p>
+-->
 </section>
-</section>
+<section id="fetching-updates-made-to-all-branches" class="level2">
+<h2 class="anchored" data-anchor-id="fetching-updates-made-to-all-branches"><strong>Fetching Updates Made to All Branches</strong></h2>
+<p>If you make committing changes to your main branch and fetching changes from other branches a weekly process, you can instead fetch changes made on all branches. This approach may be preferred to fetching individual branches. However, if a teammate makes new changes that you need, you may need to fetch their specific branch.</p>
+<p>For fetching <strong>all branches including the main branch:</strong></p>
+<p><code>git fetch origin git merge origin/main</code></p>
 </section>
 <section id="deciding-when-to-use-each-approach" class="level2">
 <h2 class="anchored" data-anchor-id="deciding-when-to-use-each-approach"><strong>Deciding When to Use Each Approach</strong></h2>

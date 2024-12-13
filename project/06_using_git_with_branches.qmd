@@ -1,0 +1,277 @@
+---
+title: "**Git Branch Merging Tutorial**"
+author: "Gabriel I. Cook"
+#date: "`r Sys.Date()`"
+#date: "`r format(Sys.time(), '%d %B, %Y')`"
+format: html
+editor: visual
+
+execute:
+  #enabled: false
+  freeze: auto
+
+#order: 6
+---
+
+## **Overview**
+
+This tutorial covers how to merge a remote Git branch (one on the remote repository at GitHub.com) into a local branch (one on your local computer) without creating a local copy of that remote branch. This approach is especially useful when collaborating on a project where each team member is working on separate branches. Moreover, this approach limits temptation of working on the main branch and/or forgetting to switch off that main branch.
+
+For this reference guide, you will work only on your personal feature branch. This of course, involves creating your branch locally on your computer inside your RStudio project for your team's project.
+
+Your team's final R Markdown report file (`.Rmd`) will be lightweight and not visually bulky. You and your team members will write text mostly in that file and use relevant inline commands when necessary but primarily add few lines of code that will call `.R` script files (think `starter_script.R`) to perform the heavy lifting of the project report. By doing so, your report will be reproducible from beginning to end especially if you write your code flexibly to handle any new `NA`s in vectors that do not currently exist in the data set. In order to achieve this goal, you will need a lean `.Rmd` report file that leverages more complicated code manipulation. This approach will also force you to think intentionally about the goad of each script your write and in the end you will have clean, readable code files that are clear to others about their specific goals.
+
+For example, your team will `source()` many script files and embed your desired data visualizations into the report using `knitr::include_graphics()`. When you wish not to include something, you can comment out those lines easily.
+
+In order for you to utilize the script files, data files, and other files created by your team members, you will manage them using Git. Your commit history and files created by you will become part of the repository record and will be used to evaluate your contributions to the overall project. To achieve this, you will **work on your own branch** and integrate/merge other team member's branch history into your own branch. The final step is to merge the branches (or more easily, the **Code Lead's branch**) into the main branch for the final product deliverable package.
+
+## **Feature Branches**
+
+Feature branches are used to manage and create separate elements of development projects. Typically, separate branches are created for *each specific feature* or task a specific developer is coding. Using individual branches allows developers to work independently on new *features* without affecting the main codebase until the feature is complete and ready to be integrated. Once the feature in created, a new branch would be created for developing a new feature.
+
+For your team project, rather than create a new branch for each feature (e.g., data wrangling task, plot tasks, etc.), each team member can code all of their *features* in a single branch. If, however, you prefer to separate all tasks into branches, you may do so. For, example, create a `jane-data-cleaning` branch for cleaning data, a `jane-data-summary-by-year` branch for creating a specific data summary, and a `jane-bar-plot-revenue` branch for creating visualizations for revenue. The down side is that there will be multiple branches for you to manage. The upside is that you use branches as developers would use them.
+
+### **Creating and Checking Out a Feature Branch**
+
+You can create and checkout a branch in one step.
+
+`git checkout -b <branch-name>`
+
+### **Setting the Upstream for Pushing Local Files to the Remote Repository**
+
+`git push --set-upstream <branch-name>`
+
+## **The Git Command Process**
+
+Although have files created on your *local branch* (on your computer) of the repository, those files do not exist on the *remote branch* (on GitHub) until you put them there. Moreover, your team members cannot access them unless you put them on GitHub. Sorry, there is no using flash drives and emailing files. Data Science teams stage, commit, and push files, fetch and merge branches, and live happily ever after if you practice.
+
+### **Staging Files**
+
+Stage the path to the file and file, spelled correctly.
+
+`git add <file-path-and-file-name>`
+
+### **Committing Files with Messages (for you and others)**
+
+`git commit -m "clear message and file-name"`
+
+### **Pushing Changes from your Local Branch to your Remote Branch on GitHub**
+
+`git push`
+
+## **A collaboration Example**
+
+**Bill** and **Jane** are collaborating on a project hosted on GitHub. Bill is working on a branch named `bill`, and Jane is working on a branch named `jane`. Jane has made changes to her branch and pushed them to the remote repository. Bill wants to incorporate Jane's changes into his local `bill` branch without checking out or creating a local version of the `jane` branch.
+
+## **Scenario Overview**
+
+-   The remote repository is hosted on GitHub.com.
+-   Jane is working on her local branch named `jane`.
+-   Bill is working on his local branch named `bill`.
+-   Jane pushes her changes from her local `jane` branch to the remote `jane` branch on GitHub.
+-   Bill needs Jane's changes in order to work on his feature but Bill does not have a local branch `jane`, nor does he want to touch her branch.
+-   Bill does not touch, edit, modify, delete, or do anything with Jane's files.
+-   Sam enters the collaboration space
+
+## **Verify Remote Repository**
+
+The only way for collaboration to work is to ensure everyone is connected properly to the remote repository. You can check the location with `git remote -v`. You will see the url for fetching and pushing.
+
+`git remote -v`
+
+## **Solution**
+
+Bill will use Git commands to `fetch` Jane's remote branch, `merge` those changes into his local `bill` branch, and update the remote `bill` branch on GitHub. *Note:* The same solution can be applied for all branches or the main branches as described after the example steps.
+
+### **Steps for Merging a Remote Branch into a Local Branch**
+
+These steps assume that Jane has informed Bill and other team members that she has completed her feature (e.g., `.R` script file, `.Rds` processed data file or aggregated/summarized data frame (no `.csv`'s), `.png` plot, or something else) and she has pushed them to her remote branch on GitHub.
+
+#### **Step 1: Fetch the Remote Branch**
+
+The first step is for Bill to fetch Jane's remote branch. This downloads the changes in `jane` from the remote repository to Bill's local machine without creating a local branch for `jane`.
+
+`git fetch origin jane`
+
+You should see a terminal message like:
+
+```         
+From https://github.com/slicesofdata/<your-team-repo>
+ * branch            jane      -> FETCH_HEAD
+```
+
+**Warning:** Once you `fetch` a teammate's branch, you will see files that you have already fetched and merged and the date corresponding to the file will update accordingly. The file you see, however, will not reflect the changes. Similarly, new files that you have not fetched previously will not appear in the Files tab in RStudio. In order changes to these files, you need to perform the `merge` for the content update to take effect.
+
+#### **Step 2: Ensure You're on the Correct Local Branch**
+
+Before merging any changes, Bill needs to ensure he's on his local branch bill. He can check the current branch with:
+
+`git branch`
+
+This will show a list of local branches, and the current branch will be highlighted with an asterisk (\*).
+
+If Bill is not on the `bill` branch, he can switch to it with:
+
+`git checkout bill`
+
+#### **Step 3: Merge the Remote Branch into the Local Branch**
+
+Once Bill is on his local `bill` branch, he can merge the changes from the remote `jane` branch into his local branch:
+
+`git merge origin/jane`
+
+This command merges the changes from `origin jane` (the remote version of Jane's branch) into the current branch (Bill's local `bill` branch).
+
+```         
+$ git merge origin/jane
+Merge made by the 'ort' strategy.
+ src/figs/jane-revenue-by-quarter-bar-plot.R | 8 ++
+ 1 file changed, 8 insertions(+)
+ create mode 100644 src/figs/jane-revenue-by-quarter-bar-plot.R
+```
+
+Also, as long as Bill does not create a `jane` branch locally, he will follow the same steps next time he needs to `fetch` and `merge` Jane's pushes to the remote branch.
+
+`git fetch origin jane`
+
+`git merge origin/jane`
+
+**Warning:** Do not create a local branch for your teammate's branches and the above steps will remain the same.
+
+#### **Step 4: Handle Merge Conflicts**
+
+As mentioned previously, naming your files with intention will reduce naming files with the same name. If you have duplicate name files, you will likely have merge conflicts. You do not want to deal with these as they will cause you and I extra time and headaches.
+
+**Tips for inexperienced Git users to avoid merge conflicts:**
+
+-   Name your files with your initials (e.g., `gc-revenue-by-quarter-bar-plot.R`), and; this will limit confusion about who created the file
+-   Do not create another team member's branch on your local system
+-   Do not touch another team member's files; no editing, no overwriting
+-   Read/Source files by
+
+If there are any merge conflicts (i.e., changes in Jane's branch that conflict with Bill's local changes), Git will pause the merge and prompt Bill to resolve the conflicts manually.
+
+<!--
+To get their timestamp
+If you merge
+
+` ls -l .git/objects/path/to/conflicted/file`
+- `git checkout --theirs path/to/conflicted/file`
+
+
+-->
+        
+
+
+<!--
+To check which files are conflicting, Bill can use:
+
+`git status`
+
+Bill can then open the conflicting files, resolve the conflicts, and stage the resolved files with:
+
+`git add <file>`
+-->
+
+
+#### **Step 5: Commit the Merge**
+
+The merge using `git merge origin/jane` also automatically stages/adds the changes that occurred as part of the merge. Thus, they need to be committed.
+
+Bill can not commit the merge (assuming there are no conflicts or they have been resolved): <!-- and the changes are staged):-->
+
+`git commit -m "merged remote jane into local bill"`
+
+#### **Step 6: Push the Updated Local Branch to the Remote Repository**
+
+Once committed, Bill needs to push his updated local `bill` branch (now with Jane's changes) to the remote repository:
+
+`git push origin bill`
+
+Although `git push` would work just fine, **adding `origin bill` leaves no ambiguity about the command's behavior and ensures that the remote `bill` branch on GitHub** is updated with the changes from (now) both Bill's and Jane's work.
+
+<!--
+### **Routine Merging into the Main Branch**
+
+As a best practice, the **Code Lead should routinely merge feature branches** into their own branch (thus similar to the main branch) in order to ensure the all files are working correctly. Adding them to the team report `.Rmd` file will also ensure that they can be `source()`'d and the file can be produced without error.  
+
+
+Here are the steps to merge both Bill's and Jane's branches into the main branch:
+
+Switch to the main branch:
+
+`git checkout main`
+
+Pull the latest changes from the remote main branch:
+
+`git pull`
+
+Fetch Jane's changes and merge them into the main branch:
+
+bash
+Copy code
+git fetch origin jane
+git merge origin/jane
+git commit -m "Merged jane into main"
+git push
+Fetch Bill's changes and merge them into the main branch:
+
+bash
+Copy code
+git fetch origin bill
+git merge origin/bill
+git commit -m "Merged bill into main"
+git push
+
+-->
+
+## **Fetching Updates to Main Branch**
+
+If there are updates to the main branch, for example, your liaison adds new data, you can `fetch` those using the same process. You would also follow this approach if your code lead updates the main branch and you need the changes made there. 
+
+For fetching the **main branch only:**
+```
+
+git fetch origin main git merge origin/main
+
+```         
+
+<!-- 
+Resolve any conflicts if needed: If there are conflicts, Git will prompt you to resolve them. Edit the conflicted files as needed, then add them:
+
+git add <conflicted-file>
+git commit
+-->
+
+
+## **Fetching Updates Made to All Branches**
+
+If you make committing changes to your main branch and fetching changes from other branches a weekly process, you can instead fetch changes made on all branches. This approach may be preferred to fetching individual branches. However, if a teammate makes new changes that you need, you may need to fetch their specific branch.
+
+For fetching **all branches including the main branch:**
+
+`git fetch origin git merge origin/main `
+
+## **Deciding When to Use Each Approach**
+
+Use `git fetch origin` (all branches) if:
+
+-   You want to make sure all branch references are current.
+-   You are working on a project where multiple branches are frequently updated and you may need to switch between them.
+-   You are working in a team environment with several active branches and want a complete view of all recent changes.
+
+Use `git fetch origin <branch-name>` (specific branch) if:
+
+-   You are focused on a specific branch and do not need other branches updated.
+-   The repository is large with many branches and you want a quicker fetch.
+-   You are interested only in a particular branch’s changes and want to avoid merging or managing updates from other branches.
+
+## **More than 2 Collaborators, More than 2 Branches**
+
+Jane is excited about the project and is making great progress. She updates a current code file, creates two more files, stages, commits, and pushes the changes to the remote repo.
+
+Sam enters the collaboration with a `sam` branch. After Jane has made these recent changes, Sam performs a `fetch` and `merge` of Jane's branch exactly as did Bill. The difference is that Sam has a more recent version of one file and has two more files from Jane's branch than does Bill.
+
+Sam now wants to `fetch` and `merge` Bill's remote branch with his local branch. Although Bill has older versions of Jane's files in his branch, Sam will retain versions of the files fetched from Jane's remote branch. This occurs because Git uses a three-way merge algorithm for comparing the common ancestor of both branches and applies the most recent changes based on commit time stamps.
+
+**Warning:** If you are not vigilant and you modify a teammate's file on your branch, you may experience problems. For example, If Bill modifies code on the same lines in Jane's file, Git will flag a merge conflict. Git will not automatically choose which version of the file to keep. You will need to do this manually.
